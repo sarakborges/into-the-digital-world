@@ -1,0 +1,39 @@
+.portrait {
+  aspect-ratio: 1;
+  overflow: hidden;
+
+  border-radius: 100%;
+  background-color: var(--portrait-background);
+
+  &:not(.sm) {
+    width: var(--portrait-size);
+  }
+
+  &.sm {
+    width: var(--portrait-size-sm);
+  }
+
+  > div {
+    display: flex;
+    place-content: center;
+    place-items: center;
+
+    height: 100%;
+
+    font-size: var(--size-lg);
+  }
+
+  > picture {
+    display: flex;
+    place-content: center;
+    place-items: center;
+
+    > img {
+      max-width: 100%;
+      aspect-ratio: 1;
+
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}

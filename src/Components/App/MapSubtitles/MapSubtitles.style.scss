@@ -1,0 +1,15 @@
+.map-subtitles {
+  display: flex;
+  gap: var(--size-lg);
+
+  padding: var(--size-md);
+
+  background-color: var(--map-subtitles-background);
+  border-radius: var(--size-md);
+
+  .map-subtitle-item {
+    display: flex;
+    place-items: center;
+    gap: var(--size-smd);
+  }
+}

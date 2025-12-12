@@ -1,0 +1,128 @@
+.battle-template {
+  display: flex;
+  flex-flow: column;
+  place-content: center;
+  gap: var(--size-md);
+
+  min-height: 100vh;
+  padding: var(--size-lg);
+  margin: auto;
+
+  .battle-header {
+    display: flex;
+    flex-flow: column;
+    gap: var(--size-md);
+  }
+
+  .battle-body {
+    display: flex;
+    gap: var(--size-md);
+
+    .battle-main {
+      display: flex;
+      flex-flow: column;
+      gap: var(--size-xl);
+
+      width: var(--battle-wrapper);
+
+      .battle-parties {
+        display: flex;
+        gap: var(--size-lg);
+
+        padding: var(--size-md);
+
+        background-color: var(--digimon-card-background);
+        border-radius: var(--size-md);
+
+        > svg {
+          align-self: center;
+
+          width: var(--size-lg);
+          height: var(--size-lg);
+          margin-top: calc(var(--size-md) + var(--size-lg));
+        }
+      }
+    }
+
+    .battle-sidebar {
+      display: flex;
+      flex-flow: column;
+      gap: var(--size-md);
+
+      width: var(--combat-sidebar-width);
+      padding: var(--size-md);
+
+      background-color: var(--digimon-card-background);
+      border-radius: var(--size-md);
+
+      .battle-actions {
+        display: flex;
+        flex-flow: column;
+        gap: var(--size-md);
+
+        > .actions-buttons {
+          display: flex;
+          flex-flow: column;
+          gap: var(--size-sm);
+
+          padding: var(--size-md);
+
+          background-color: var(--party-item-card-background);
+          border-radius: var(--size-md);
+        }
+      }
+    }
+
+    .battle-combat-log {
+      display: flex;
+      flex-flow: column;
+      gap: var(--size-md);
+
+      flex: 1;
+
+      > .combat-log-card {
+        display: flex;
+        flex-flow: column;
+        gap: var(--size-md);
+
+        flex: 1;
+        padding: var(--size-md) 0;
+
+        background-color: var(--party-item-card-background);
+        border-radius: var(--size-md);
+
+        > .combat-log-entries {
+          display: flex;
+          flex-flow: column;
+          gap: var(--size-md);
+
+          padding: 0 var(--size-md);
+          max-height: var(--combat-log-max-height);
+          overflow-y: auto;
+
+          > div {
+            display: flex;
+
+            &.enemy {
+              align-self: flex-end;
+              text-align: right;
+            }
+          }
+        }
+
+        > .battle-end {
+          margin: 0 var(--size-md);
+          padding-bottom: var(--size-md);
+
+          border-bottom: 1px solid var(--sidebar-subtitle-border);
+
+          text-align: center;
+
+          > .title > p {
+            font-size: var(--size-lmd);
+          }
+        }
+      }
+    }
+  }
+}

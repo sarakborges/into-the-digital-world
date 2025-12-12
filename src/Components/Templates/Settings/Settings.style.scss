@@ -1,0 +1,46 @@
+.settings-template {
+  display: flex;
+  flex-flow: column;
+  gap: var(--size-lmd);
+
+  width: 100%;
+  padding: var(--size-lg);
+
+  form {
+    display: flex;
+    flex-flow: column;
+    gap: var(--size-lmd);
+
+    main {
+      display: flex;
+      flex-flow: column;
+      gap: var(--size-md);
+    }
+
+    .field {
+      width: var(--size-field-default);
+    }
+
+    footer {
+      display: flex;
+      gap: var(--size-md);
+    }
+  }
+
+  > section {
+    display: flex;
+    flex-flow: column;
+    gap: var(--size-md);
+
+    > main {
+      display: flex;
+      flex-flow: column;
+      gap: var(--size-md);
+
+      padding: var(--size-lmd);
+
+      background-color: var(--digimon-card-background);
+      border-radius: var(--size-md);
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.button {
+  display: flex;
+  place-content: center;
+  place-items: center;
+
+  padding: var(--size-sm) var(--size-smd);
+
+  border-radius: var(--size-sm);
+  border: 0;
+
+  color: var(--button-text);
+  font-size: var(--size-md);
+
+  transition: background-color 0.3s, opacity 0.3s;
+
+  &:not(.cancel) {
+    background-color: var(--button-background);
+
+    &:not(:disabled) {
+      &:hover {
+        background-color: var(--button-background-hover);
+      }
+    }
+  }
+
+  &.cancel {
+    background-color: var(--button-cancel-background);
+
+    &:not(:disabled) {
+      &:hover {
+        background-color: var(--button-cancel-background-hover);
+      }
+    }
+  }
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+  }
+}

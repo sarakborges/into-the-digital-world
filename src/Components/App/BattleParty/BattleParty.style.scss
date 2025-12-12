@@ -1,0 +1,11 @@
+.battle-party {
+  display: flex;
+  flex-flow: column;
+  gap: var(--size-md);
+
+  .battle-party-list {
+    display: flex;
+    flex-flow: column;
+    gap: var(--size-sm);
+  }
+}

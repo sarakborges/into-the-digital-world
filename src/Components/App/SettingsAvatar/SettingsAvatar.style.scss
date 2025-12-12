@@ -1,0 +1,30 @@
+.settings-avatar {
+  .avatar-categories {
+    gap: var(--size-lg);
+
+    > section {
+      display: flex;
+      flex-flow: column;
+      gap: var(--size-md);
+
+      .portrait {
+        cursor: pointer;
+        transition: box-shadow 0.3s;
+      }
+
+      input {
+        display: none;
+
+        &:checked + .portrait {
+          box-shadow: 0 0 var(--size-sm) var(--size-xs) var(--color-primary);
+        }
+      }
+
+      ul {
+        display: flex;
+        gap: var(--size-lmd);
+        flex-wrap: wrap;
+      }
+    }
+  }
+}

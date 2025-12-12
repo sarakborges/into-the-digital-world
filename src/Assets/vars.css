@@ -1,0 +1,111 @@
+:root {
+  --color-primary: #75b5f2;
+  --color-primary-active: #3694eb;
+  --color-primary-darker: #153162;
+  --body-background: #0b1c3a;
+
+  --color-cancel: #d63737;
+  --color-cancel-hover: #cc5d5d;
+  --color-white: #fcfcfc;
+  --color-black: #353c45;
+
+  --color-type-vaccine: #208d28;
+  --color-type-virus: #c42726;
+  --color-type-data: #3848c6;
+  --color-type-unknown: #261f28;
+  --color-type-noattribute: #dfd936;
+
+  --color-family-nsp: #478559;
+  --color-family-nso: #363d66;
+  --color-family-ds: #487cb6;
+  --color-family-vb: #f7f0e5;
+  --color-family-dr: #d33735;
+  --color-family-jt: #95a937;
+  --color-family-wg: #7bb7c5;
+  --color-family-un: #383838;
+  --color-family-da: #0d0d0d;
+  --color-family-me: #88848c;
+
+  --color-map-type-combat: #6e5532;
+  --color-map-type-quest: #9f51bc;
+  --color-map-type-quest_repeatable: #3f86d7;
+  --color-map-type-commerce: #c1a519;
+  --color-map-type-boss: #993925;
+  --color-map-type-event: #42a44e;
+
+  --typography-text: var(--color-white);
+
+  --size-xxs: 2px;
+  --size-xs: 4px;
+  --size-sm: 8px;
+  --size-smd: 12px;
+  --size-md: 16px;
+  --size-lmd: 24px;
+  --size-lg: 36px;
+  --size-xl: 48px;
+
+  --size-field-default: 300px;
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  --font-family: 'Winky Rough', sans-serif;
+
+  --line-height-single: 1;
+  --line-height-sm: 1.2;
+  --line-height-md: 1.5;
+  --line-height-lg: 1.8;
+  --line-height-double: 2;
+
+  --button-background: var(--color-primary-active);
+  --button-background-hover: var(--color-primary);
+  --button-cancel-background: var(--color-cancel);
+  --button-cancel-background-hover: var(--color-cancel-hover);
+  --button-text: var(--color-white);
+
+  --input-background: var(--color-white);
+  --input-border: transparent;
+  --input-border-focus: var(--color-primary);
+  --input-text: var(--color-black);
+
+  --field-background: var(--color-white);
+  --field-border: var(--color-primary);
+  --field-text: var(--color-black);
+
+  --portrait-size: 96px;
+  --portrait-size-sm: 68px;
+  --portrait-background: var(--color-primary);
+
+  --tag-background: var(--color-primary);
+  --tag-text: var(--color-white);
+
+  --sidebar-size: 320px;
+  --sidebar-background: var(--color-primary-darker);
+  --sidebar-subtitle-border: var(--color-primary);
+
+  --starter-digimon-card-size: 640px;
+  --home-party-digimon-card-size: 320px;
+  --battle-party-digimon-card-size: 400px;
+  --digimon-card-background: var(--color-primary-darker);
+
+  --map-details-size: 400px;
+  --map-details-background: var(--color-primary-darker);
+
+  --map-subtitles-background: var(--color-primary-darker);
+
+  --battle-wrapper: 1044px;
+  --turn-order-spacing: 64px;
+  --turn-order-padding: 96px;
+
+  --party-item-card-background: var(--body-background);
+
+  --resource-bar-background: var(--color-primary-darker);
+  --resource-bar-hp-background-filled: #a13a52;
+  --resource-bar-sp-background-filled: #2c9569;
+  --resource-bar-exp-background-filled: var(--color-primary);
+  --exp-bar-background: var(--body-background);
+
+  --combat-sidebar-width: 320px;
+  --combat-log-max-height: 320px;
+}

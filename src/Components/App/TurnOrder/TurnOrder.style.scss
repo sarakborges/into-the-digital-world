@@ -1,0 +1,59 @@
+.battle-turn-order {
+  display: flex;
+  place-items: center;
+  gap: var(--size-lg);
+
+  padding: var(--size-lmd);
+
+  background-color: var(--digimon-card-background);
+  border-radius: var(--size-md);
+
+  .turns-list {
+    display: flex;
+    place-content: center;
+    gap: var(--turn-order-spacing);
+
+    position: relative;
+
+    flex: 1;
+
+    .turn-item {
+      position: relative;
+      z-index: 2;
+
+      background-color: var(--party-item-card-background);
+      border-radius: 100%;
+
+      .portrait {
+        transition: opacity 0.3s, box-shadow 0.3s;
+      }
+
+      &:not(.active) .portrait {
+        opacity: 0.4;
+      }
+
+      &.active.player .portrait {
+        box-shadow: 0 0 var(--size-sm) var(--size-xs) var(--color-primary);
+      }
+
+      &.active.enemy .portrait {
+        box-shadow: 0 0 var(--size-sm) var(--size-xs) var(--color-cancel);
+      }
+    }
+
+    &:before {
+      content: '';
+
+      position: absolute;
+      top: calc(50% - 1px);
+      left: 0;
+      z-index: 1;
+
+      width: 100%;
+      height: var(--size-xs);
+
+      background-color: var(--color-white);
+      border-radius: var(--size-sm);
+    }
+  }
+}

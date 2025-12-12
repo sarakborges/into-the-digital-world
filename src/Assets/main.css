@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap');
+
+@import url('./vars.css');
+@import url('./reset.css');
+
+body {
+  display: flex;
+  place-content: center;
+  place-items: center;
+
+  background-color: var(--body-background);
+}
+
+#root {
+  display: flex;
+
+  width: 100%;
+
+  color: var(--typography-text);
+  font-size: var(--size-md);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-single);
+}
+
+.tag.digimon-type-vaccine {
+  background-color: var(--color-type-vaccine);
+}
+.tag.digimon-type-virus {
+  background-color: var(--color-type-virus);
+}
+.tag.digimon-type-data {
+  background-color: var(--color-type-data);
+}
+.tag.digimon-type-unknown {
+  background-color: var(--color-type-unknown);
+}
+.tag.digimon-type-noattribute {
+  background-color: var(--color-type-noattribute);
+}
+
+.tag.digimon-family-nsp {
+  background-color: var(--color-family-nsp);
+}
+.tag.digimon-family-ds {
+  background-color: var(--color-family-ds);
+}
+.tag.digimon-family-nso {
+  background-color: var(--color-family-nso);
+}
+.tag.digimon-family-wg {
+  background-color: var(--color-family-wg);
+}
+.tag.digimon-family-me {
+  background-color: var(--color-family-me);
+}
+.tag.digimon-family-vb {
+  background-color: var(--color-family-vb);
+}
+.tag.digimon-family-dr {
+  background-color: var(--color-family-dr);
+}
+.tag.digimon-family-jt {
+  background-color: var(--color-family-jt);
+}
+.tag.digimon-family-un {
+  background-color: var(--color-family-un);
+}
+.tag.digimon-family-da {
+  background-color: var(--color-family-da);
+}

@@ -1,0 +1,32 @@
+.input-wrapper {
+  display: flex;
+  flex-flow: column;
+  gap: var(--size-smd);
+
+  > label {
+    font-size: var(--size-md);
+  }
+
+  .input {
+    padding: var(--size-sm) var(--size-smd);
+
+    border-radius: var(--size-sm);
+    background-color: var(--input-background);
+    border: 2px solid var(--input-border);
+
+    color: var(--input-text);
+    font-size: var(--size-md);
+
+    transition: border-color 0.3s, opacity 0.3s;
+
+    &:not(:disabled) {
+      &:focus {
+        border-color: var(--input-border-focus);
+      }
+    }
+
+    &:disabled {
+      opacity: 0.4;
+    }
+  }
+}

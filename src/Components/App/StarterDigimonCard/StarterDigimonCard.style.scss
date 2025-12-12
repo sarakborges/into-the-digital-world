@@ -1,0 +1,43 @@
+.starter-digimon-card {
+  display: flex;
+  place-items: center;
+  gap: var(--size-lmd);
+
+  width: var(--starter-digimon-card-size);
+  padding: var(--size-md);
+
+  background-color: var(--digimon-card-background);
+  border-radius: var(--size-md);
+
+  .digimon-info {
+    display: flex;
+    flex-flow: column;
+    gap: var(--size-sm);
+
+    .digimon-tags {
+      display: flex;
+      gap: var(--size-sm);
+
+      padding: var(--size-sm) 0;
+    }
+
+    .digimon-attributes {
+      display: flex;
+      gap: var(--size-lmd);
+
+      > div {
+        display: flex;
+        flex-flow: column;
+        place-items: center;
+        gap: var(--size-sm);
+
+        text-transform: uppercase;
+
+        svg {
+          width: var(--size-lmd);
+          height: var(--size-lmd);
+        }
+      }
+    }
+  }
+}

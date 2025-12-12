@@ -1,0 +1,45 @@
+.map-icon {
+  display: flex;
+
+  padding: var(--size-sm);
+
+  border-radius: 100%;
+
+  &.map-type-combat {
+    background-color: var(--color-map-type-combat);
+  }
+
+  &.map-type-quest {
+    background-color: var(--color-map-type-quest);
+  }
+
+  &.map-type-quest_repeatable {
+    background-color: var(--color-map-type-quest_repeatable);
+  }
+
+  &.map-type-commerce {
+    background-color: var(--color-map-type-commerce);
+  }
+
+  &.map-type-boss {
+    background-color: var(--color-map-type-boss);
+  }
+
+  &.map-type-event {
+    background-color: var(--color-map-type-event);
+  }
+
+  &:not(.sm) {
+    svg {
+      width: var(--size-lmd);
+      height: var(--size-lmd);
+    }
+  }
+
+  &.sm {
+    svg {
+      width: var(--size-md);
+      height: var(--size-md);
+    }
+  }
+}

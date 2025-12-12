@@ -1,0 +1,23 @@
+.partner-digimon-card {
+  display: flex;
+  flex-flow: column;
+  gap: var(--size-md);
+
+  width: var(--home-party-digimon-card-size);
+  padding: var(--size-md);
+
+  background-color: var(--digimon-card-background);
+  border-radius: var(--size-md);
+
+  .digimon-info {
+    display: flex;
+    place-items: center;
+    gap: var(--size-md);
+
+    .info-text {
+      display: flex;
+      flex-flow: column;
+      gap: var(--size-sm);
+    }
+  }
+}

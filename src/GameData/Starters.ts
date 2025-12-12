@@ -1,0 +1,21 @@
+import {
+  KOROMON,
+  TUNOMON,
+  MOCHIMON,
+  NYAROMON,
+  BUKAMON,
+  PYOCOMON,
+  TANEMON,
+  TOKOMON
+} from './Digimons'
+
+export const STARTERS = [
+  KOROMON,
+  TUNOMON,
+  PYOCOMON,
+  MOCHIMON,
+  TANEMON,
+  BUKAMON,
+  TOKOMON,
+  NYAROMON
+]

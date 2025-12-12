@@ -1,0 +1,12 @@
+.tag {
+  padding: var(--size-xs) var(--size-sm);
+
+  background-color: var(--tag-background);
+  border-radius: var(--size-md);
+
+  color: var(--tag-text);
+  font-size: var(--size-md);
+
+  text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000,
+    1px 1px 1px #000, 0 0 4px #fff;
+}

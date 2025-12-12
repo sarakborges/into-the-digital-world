@@ -1,0 +1,43 @@
+.battle-party-item-card {
+  display: flex;
+  gap: var(--size-smd);
+  place-items: center;
+
+  width: var(--battle-party-digimon-card-size);
+  padding: var(--size-md);
+
+  background-color: var(--party-item-card-background);
+  border-radius: var(--size-md);
+
+  transition: opacity 0.3s, box-shadow 0.3s;
+
+  &:not(.active) {
+    opacity: 0.4;
+  }
+
+  &.active {
+    box-shadow: 0 0 var(--size-sm) var(--size-xs) var(--color-primary);
+  }
+
+  .digimon-info {
+    display: flex;
+    flex-flow: column;
+    gap: var(--size-sm);
+
+    flex: 1;
+
+    .digimon-resource {
+      display: flex;
+      gap: var(--size-sm);
+      place-items: center;
+
+      > .typography {
+        width: var(--size-lmd);
+      }
+
+      .resource-bar {
+        flex: 1;
+      }
+    }
+  }
+}
