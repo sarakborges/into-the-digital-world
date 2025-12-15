@@ -43,8 +43,13 @@ export const StarterSelectionTemplate = () => {
       alert('Select a partner!')
     }
 
+    const name = (
+      document.querySelector('[name=starter-name]') as HTMLInputElement
+    )?.value
+
     const starterPartner = {
       id: 1,
+      name: name || '',
       baseDigimon: starterId,
       isStarter: true,
       level: 1,
@@ -112,6 +117,12 @@ export const StarterSelectionTemplate = () => {
         </ul>
 
         <div className="starter-selection-confirm">
+          <Input
+            name="starter-name"
+            label="Do you want to name your partner? (optional)"
+            placeholder="Partner name"
+          />
+
           <Button id="starter-selection-submit" type="submit" disabled>
             {getTexts('STARTER_SELECTION_CONFIRM')}
           </Button>

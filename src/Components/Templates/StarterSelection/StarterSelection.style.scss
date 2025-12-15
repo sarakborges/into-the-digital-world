@@ -38,7 +38,7 @@
         label {
           cursor: pointer;
 
-          .digimon-card-starter {
+          .starter-digimon-card {
             transition: box-shadow 0.3s;
           }
 
@@ -47,6 +47,11 @@
 
             &:checked + .starter-digimon-card {
               box-shadow: 0 0 var(--size-sm) var(--size-xs) var(--color-primary);
+            }
+
+            &:not(:checked):hover + .starter-digimon-card {
+              box-shadow: 0 0 var(--size-sm) var(--size-xs)
+                var(--color-primary-transparent);
             }
           }
         }
