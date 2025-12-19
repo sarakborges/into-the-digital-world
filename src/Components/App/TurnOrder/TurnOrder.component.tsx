@@ -42,9 +42,9 @@ export const TurnOrder = () => {
           return (
             <li
               key={`battle-turn-order-${turnItem}`}
-              className={`turn-item ${turnIndex === 0 ? 'active' : ''} ${
-                turnDigimon!.party
-              }`}
+              className={`turn-item ${turnDigimon?.party} ${
+                turnIndex === 0 ? 'active' : ''
+              } ${turnDigimon!.party}`}
             >
               <Portrait
                 src={`./digimons/${baseDigimon.id}.jpg`}

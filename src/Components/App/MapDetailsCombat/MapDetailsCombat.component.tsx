@@ -64,19 +64,26 @@ export const MapDetailsCombat = () => {
             </header>
 
             <main>
-              {currentMap.wildDigimons.map((wildDigimonItem) => (
-                <Typography
-                  key={`map-details-${currentMap.id}-wild-digimon-${wildDigimonItem.id}`}
-                >
-                  <>
-                    {profile.seenDigimon?.includes(
-                      (wildDigimonItem.baseDigimon as DigimonType).id
-                    )
-                      ? (wildDigimonItem.baseDigimon as DigimonType).name
-                      : `???`}
-                  </>
-                </Typography>
-              ))}
+              {currentMap.wildDigimons
+                .sort((a, b) =>
+                  (a.baseDigimon as DigimonType).id >
+                  (b.baseDigimon as DigimonType).id
+                    ? 1
+                    : -1
+                )
+                .map((wildDigimonItem) => (
+                  <Typography
+                    key={`map-details-${currentMap.id}-wild-digimon-${wildDigimonItem.id}`}
+                  >
+                    <>
+                      {profile.seenDigimon?.includes(
+                        (wildDigimonItem.baseDigimon as DigimonType).id
+                      )
+                        ? (wildDigimonItem.baseDigimon as DigimonType).name
+                        : `???`}
+                    </>
+                  </Typography>
+                ))}
             </main>
 
             <footer>

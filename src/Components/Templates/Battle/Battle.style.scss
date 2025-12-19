@@ -106,6 +106,8 @@
             &.enemy {
               align-self: flex-end;
               text-align: right;
+
+              color: var(--color-white-transparent);
             }
           }
         }

@@ -25,6 +25,8 @@
       border-radius: 100%;
 
       .portrait {
+        border: 2px solid transparent;
+
         transition: opacity 0.3s, box-shadow 0.3s;
       }
 
@@ -32,12 +34,24 @@
         opacity: 0.4;
       }
 
-      &.active.player .portrait {
-        box-shadow: 0 0 var(--size-sm) var(--size-xs) var(--color-primary);
+      &.player {
+        .portrait {
+          border-color: var(--color-primary);
+        }
+
+        &.active .portrait {
+          box-shadow: 0 0 var(--size-sm) var(--size-xs) var(--color-primary);
+        }
       }
 
-      &.active.enemy .portrait {
-        box-shadow: 0 0 var(--size-sm) var(--size-xs) var(--color-cancel);
+      &.enemy {
+        .portrait {
+          border-color: var(--color-cancel);
+        }
+
+        &.active .portrait {
+          box-shadow: 0 0 var(--size-sm) var(--size-xs) var(--color-cancel);
+        }
       }
     }
 
