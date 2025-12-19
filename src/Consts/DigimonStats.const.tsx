@@ -8,7 +8,7 @@ import {
   TbSword
 } from 'react-icons/tb'
 
-export const DigimonStats = {
+export const DIGIMON_STATS = {
   hp: {
     id: 'hp',
     name: 'Health Points',

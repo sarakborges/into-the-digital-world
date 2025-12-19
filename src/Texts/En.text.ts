@@ -33,6 +33,19 @@ export const MAPS_DETAILS_BOSS_CTA = `Start encounter`
 export const MAPS_DETAILS_NPCS_TITLE = `Friendly faces around:`
 export const MAPS_DETAILS_NPCS_CTA = `Talk to :npc-name`
 
+export const BATTLE_TITLE = `Battle encounter`
+export const BATTLE_OVER = `The battle is over - :decision`
+export const BATTLE_VICTORY = `Victory`
+export const BATTLE_DEFEAT = `Defeat`
+export const BATTLE_PLAYER_PARTY = `Your party`
+export const BATTLE_ENEMY_PARTY = `Enemy party`
+export const BATTLE_END = `End battle`
+export const BATTLE_ACTIONS_TITLE = `Actions`
+export const BATTLE_DIGIMON_ACTIONS = `:digimon actions`
+export const BATTLE_ACTIONS_BASIC_ATTACK = `Basic attack`
+export const BATTLE_LOG_TITLE = `Combat log`
+export const BATTLE_LOG_EMPTY = `Log is empty.`
+
 export const SETTINGS_TITLE = `Settings`
 
 export const SETTINGS_PROFILE_TITLE = `Profile info`

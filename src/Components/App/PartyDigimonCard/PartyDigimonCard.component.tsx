@@ -49,7 +49,7 @@ export const PartyDigimonCard = ({
 
       <ExperienceBar
         currentExp={digimonItem.experience!}
-        nextLevelExp={DIGIMON_LEVELS[digimonItem.level! + 1].expNeeded}
+        nextLevelExp={DIGIMON_LEVELS[digimonItem.level!].expToNextLevel}
       />
 
       <Button>{getTexts('DIGIMON_CARD_DETAILS')}</Button>

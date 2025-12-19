@@ -8,6 +8,7 @@ import { BattleRoute } from './Battle.route'
 import { StarterSelectionRoute } from './StarterSelection.route'
 import { CreateProfileRoute } from './CreateProfile.route'
 import { SettingsRoute } from './Settings.route'
+import { WikiRoute } from './Wiki.route'
 
 const routeComponents = {
   home: HomeRoute,
@@ -15,7 +16,8 @@ const routeComponents = {
   battle: BattleRoute,
   starterSelection: StarterSelectionRoute,
   createProfile: CreateProfileRoute,
-  settings: SettingsRoute
+  settings: SettingsRoute,
+  wiki: WikiRoute
 }
 
 export const ROUTER = createBrowserRouter([

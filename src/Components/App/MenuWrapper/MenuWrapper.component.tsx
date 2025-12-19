@@ -29,7 +29,7 @@ export const MenuWrapper = ({ children }: { children: React.ReactNode }) => {
   }
 
   const currentExp = profile.experience!
-  const nextLevelExp = PLAYER_LEVELS[profile.level! + 1].expNeeded
+  const nextLevelExp = PLAYER_LEVELS[profile.level!].expToNextLevel
 
   return (
     <div className="menu-wrapper">

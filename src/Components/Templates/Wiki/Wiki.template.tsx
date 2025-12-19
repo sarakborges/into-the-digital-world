@@ -1,0 +1,57 @@
+import { DigimonStages } from '@/Types/DigimonStages.type'
+
+import { ALL_DIGIMONS } from '@/GameData/Digimons'
+
+import { Portrait } from '@/Components/System/Portrait'
+
+import { MenuWrapper } from '@/Components/App/MenuWrapper'
+
+import './Wiki.style.scss'
+import { Typography } from '@/Components/System/Typography'
+
+export const WikiTemplate = () => {
+  const stages = Object.values(DigimonStages)
+  const allDigimons = Object.values(ALL_DIGIMONS).sort((a, b) =>
+    a.name > b.name ? 1 : -1
+  )
+
+  const stagesWithDigimons = stages.map((stageItem) => ({
+    ...stageItem,
+    digimons: allDigimons.filter(
+      (digimonItem) => digimonItem.stage.id === stageItem.id
+    )
+  }))
+
+  return (
+    <MenuWrapper>
+      <main className="wiki-template">
+        <header>
+          <Typography as="h1">Digimon Wiki</Typography>
+        </header>
+
+        {stagesWithDigimons
+          .filter((stageItem) => stageItem?.digimons?.length > 0)
+          .map((stageItem) => (
+            <section className="digimon-stage">
+              <header>
+                <Typography as="h2">{stageItem.value}</Typography>
+              </header>
+
+              <main className="digimon-stage-list">
+                {stageItem.digimons.map((digimonItem) => (
+                  <div key={`wiki-digimons-${digimonItem.id}`}>
+                    <Portrait
+                      src={`./digimons/${digimonItem.id}.jpg`}
+                      alt={digimonItem.name}
+                    />
+
+                    <Typography as="span">{digimonItem.name}</Typography>
+                  </div>
+                ))}
+              </main>
+            </section>
+          ))}
+      </main>
+    </MenuWrapper>
+  )
+}

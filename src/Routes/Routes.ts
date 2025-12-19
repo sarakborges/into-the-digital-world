@@ -27,5 +27,10 @@ export const ROUTES = {
   SETTINGS: {
     id: 'settings',
     path: '/settings'
+  },
+
+  WIKI: {
+    id: 'wiki',
+    path: '/wiki'
   }
 }

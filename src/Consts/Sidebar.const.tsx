@@ -1,5 +1,5 @@
 import { RiHome9Fill } from 'react-icons/ri'
-import { MdOutlineExplore } from 'react-icons/md'
+import { MdMenuBook, MdOutlineExplore } from 'react-icons/md'
 import { IoIosSettings } from 'react-icons/io'
 
 import { ROUTES } from '@/Routes/Routes'
@@ -15,6 +15,12 @@ export const SIDEBAR_MENU = [
     ...ROUTES.MAPS,
     text: `Explore`,
     icon: <MdOutlineExplore />
+  },
+
+  {
+    ...ROUTES.WIKI,
+    text: `Wiki`,
+    icon: <MdMenuBook />
   },
 
   {

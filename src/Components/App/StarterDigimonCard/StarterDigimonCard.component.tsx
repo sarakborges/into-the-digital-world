@@ -4,7 +4,7 @@ import { getTexts } from '@/Texts'
 
 import { type DigimonType } from '@/Types/Digimon.type'
 
-import { DigimonStats } from '@/Consts/DigimonStats.const'
+import { DIGIMON_STATS } from '@/Consts/DigimonStats.const'
 
 import { Typography } from '@/Components/System/Typography'
 import { Tag } from '@/Components/System/Tag'
@@ -43,15 +43,15 @@ export const StarterDigimonCard = ({ digimon }: { digimon: DigimonType }) => {
         </section>
 
         <section className="digimon-attributes">
-          {Object.keys(DigimonStats).map((attributeItem) => (
+          {Object.keys(DIGIMON_STATS).map((attributeItem) => (
             <div
-              key={`digimon-card-item-${digimon.id}-attributes-${DigimonStats[attributeItem].id}`}
+              key={`digimon-card-item-${digimon.id}-attributes-${DIGIMON_STATS[attributeItem].id}`}
             >
               <Typography as="span">
-                {DigimonStats[attributeItem].abbreviation}
+                {DIGIMON_STATS[attributeItem].abbreviation}
               </Typography>
 
-              {DigimonStats[attributeItem].icon}
+              {DIGIMON_STATS[attributeItem].icon}
 
               <Typography as="span">{digimon.stats[attributeItem]}</Typography>
             </div>

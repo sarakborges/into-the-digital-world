@@ -4,6 +4,8 @@ import { FaTimes } from 'react-icons/fa'
 
 import { attackHelper, getDigimonName, endBattleHelper } from '@/Helpers'
 
+import { getTexts } from '@/Texts'
+
 import { ROUTES } from '@/Routes/Routes'
 
 import { BattleContext } from '@/Contexts/Battle.context'
@@ -56,13 +58,18 @@ export const BattleTemplate = () => {
   return (
     <main className="battle-template">
       <header className="battle-header">
-        {!isOver && <Typography as="h1">Battle encounter</Typography>}
+        {!isOver && <Typography as="h1">{getTexts('BATTLE_TITLE')}</Typography>}
 
         {isOver && (
           <Typography as="h1">
-            <>The battle is over</>
-            <> - </>
-            <>{`${winner === 'player' ? 'Victory' : 'Defeat'}!`}</>
+            {getTexts(
+              `BATTLE_OVER`.replace(
+                ':decision',
+                getTexts(
+                  winner === 'player' ? 'BATTLE_VICTORY' : 'BATTLE_DEFEAT'
+                )
+              )
+            )}
           </Typography>
         )}
 
@@ -74,14 +81,14 @@ export const BattleTemplate = () => {
           <section className="battle-parties">
             <BattleParty
               party={digimons.filter((item) => item.party === 'player')}
-              title={`Your party`}
+              title={getTexts('BATTLE_PLAYER_PARTY')}
             />
 
             <FaTimes />
 
             <BattleParty
               party={digimons.filter((item) => item.party === 'enemy')}
-              title={`Enemy party`}
+              title={getTexts('BATTLE_ENEMY_PARTY')}
             />
           </section>
         </main>
@@ -90,12 +97,14 @@ export const BattleTemplate = () => {
           {isOver && (
             <section className="battle-actions">
               <header className="actions-header">
-                <Typography as="h2">Actions</Typography>
+                <Typography as="h2">
+                  {getTexts('BATTLE_ACTIONS_TITLE')}
+                </Typography>
               </header>
 
               <main className="actions-buttons">
                 <div>
-                  <Button onClick={endBattle}>End battle</Button>
+                  <Button onClick={endBattle}>{getTexts('BATTLE_END')}</Button>
                 </div>
               </main>
             </section>
@@ -107,14 +116,20 @@ export const BattleTemplate = () => {
                 <section className="battle-actions">
                   <header className="actions-header">
                     <Typography as="h2">
-                      <>{getDigimonName(currentDigimon)}</>
-                      <> actions</>
+                      <>
+                        {getTexts('BATTLE_DIGIMON_ACTIONS').replace(
+                          ':digimon',
+                          getDigimonName(currentDigimon)
+                        )}
+                      </>
                     </Typography>
                   </header>
 
                   <main className="actions-buttons">
                     <div>
-                      <Button onClick={doAttack}>Basic attack</Button>
+                      <Button onClick={doAttack}>
+                        {getTexts('BATTLE_ACTIONS_BASIC_ATTACK')}
+                      </Button>
                     </div>
                   </main>
                 </section>
@@ -124,14 +139,14 @@ export const BattleTemplate = () => {
 
           <section className="battle-combat-log">
             <header className="combat-log-header">
-              <Typography as="h2">Combat log</Typography>
+              <Typography as="h2">{getTexts('BATTLE_LOG_TITLE')}</Typography>
             </header>
 
             <main className="combat-log-card">
               <main className="combat-log-entries">
                 {combatLog.length < 1 && (
                   <div>
-                    <Typography>Log is empty.</Typography>
+                    <Typography>{getTexts('BATTLE_LOG_EMPTY')}</Typography>
                   </div>
                 )}
 
