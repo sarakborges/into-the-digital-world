@@ -1,13 +1,15 @@
+import { getTexts } from '@/Texts'
+
 import { DigimonStages } from '@/Types/DigimonStages.type'
 
 import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
 import { Portrait } from '@/Components/System/Portrait'
+import { Typography } from '@/Components/System/Typography'
 
 import { MenuWrapper } from '@/Components/App/MenuWrapper'
 
 import './Wiki.style.scss'
-import { Typography } from '@/Components/System/Typography'
 
 export const WikiTemplate = () => {
   const stages = Object.values(DigimonStages)
@@ -26,7 +28,7 @@ export const WikiTemplate = () => {
     <MenuWrapper>
       <main className="wiki-template">
         <header>
-          <Typography as="h1">Digimon Wiki</Typography>
+          <Typography as="h1">{getTexts('WIKI_TITLE')}</Typography>
         </header>
 
         {stagesWithDigimons
@@ -34,7 +36,12 @@ export const WikiTemplate = () => {
           .map((stageItem) => (
             <section className="digimon-stage">
               <header>
-                <Typography as="h2">{stageItem.value}</Typography>
+                <Typography as="h2">
+                  {getTexts('WIKI_STAGE_TITLE').replace(
+                    ':stage',
+                    stageItem.value
+                  )}
+                </Typography>
               </header>
 
               <main className="digimon-stage-list">

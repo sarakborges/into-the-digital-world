@@ -43,9 +43,12 @@ export const BattleTemplate = () => {
   }
 
   const endBattle = () => {
+    setBattle({ combatLog: [], digimons: [], turnOrder: [] })
+
     setProfile((prevState) =>
       endBattleHelper({ profile: prevState, digimons, winner })
     )
+
     navigate(ROUTES.MAPS.path)
   }
 

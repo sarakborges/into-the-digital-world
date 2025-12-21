@@ -46,6 +46,12 @@ export const BATTLE_ACTIONS_BASIC_ATTACK = `Basic attack`
 export const BATTLE_LOG_TITLE = `Combat log`
 export const BATTLE_LOG_EMPTY = `Log is empty.`
 
+export const COMPOSE_TITLE = `Compose Digimon`
+export const COMPOSE_SUBTITLE = `Select which digimon you want to compose`
+
+export const WIKI_TITLE = `Digi Wiki`
+export const WIKI_STAGE_TITLE = `:stage digimons`
+
 export const SETTINGS_TITLE = `Settings`
 
 export const SETTINGS_PROFILE_TITLE = `Profile info`

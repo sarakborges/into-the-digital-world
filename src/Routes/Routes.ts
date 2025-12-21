@@ -9,6 +9,11 @@ export const ROUTES = {
     path: '/maps'
   },
 
+  COMPOSE: {
+    id: 'compose',
+    path: '/compose'
+  },
+
   BATTLE: {
     id: 'battle',
     path: '/battle'

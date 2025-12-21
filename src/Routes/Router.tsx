@@ -9,6 +9,7 @@ import { StarterSelectionRoute } from './StarterSelection.route'
 import { CreateProfileRoute } from './CreateProfile.route'
 import { SettingsRoute } from './Settings.route'
 import { WikiRoute } from './Wiki.route'
+import { ComposeRoute } from './Compose.route'
 
 const routeComponents = {
   home: HomeRoute,
@@ -17,7 +18,8 @@ const routeComponents = {
   starterSelection: StarterSelectionRoute,
   createProfile: CreateProfileRoute,
   settings: SettingsRoute,
-  wiki: WikiRoute
+  wiki: WikiRoute,
+  compose: ComposeRoute
 }
 
 export const ROUTER = createBrowserRouter([

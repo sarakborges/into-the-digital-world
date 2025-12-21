@@ -43,7 +43,14 @@ export const CreateProfileTemplate = () => {
       name: name.toString(),
       level: 1,
       experience: 0,
-      money: 0
+      money: 0,
+
+      cores: {
+        digimon: {},
+        element: {},
+        family: {},
+        attribute: {}
+      }
     }
 
     setProfile(newProfile)

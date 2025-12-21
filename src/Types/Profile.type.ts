@@ -25,25 +25,21 @@ export type ProfileType = {
     }
   ]
 
-  cores?: {
-    digimon?: {
-      digimonId: string
-      value: number
-    }[]
+  cores: {
+    digimon: {
+      [k: string]: number
+    }
 
-    family?: {
-      familyId: string
-      value: number
-    }[]
+    family: {
+      [k: string]: number
+    }
 
-    type?: {
-      typeId: string
-      value: number
-    }[]
+    attribute: {
+      [k: string]: number
+    }
 
-    element?: {
-      elementId: string
-      value: number
-    }[]
+    element: {
+      [k: string]: number
+    }
   }
 }
