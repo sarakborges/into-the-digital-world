@@ -1,5 +1,6 @@
-import type { PartyDigimon } from '@/Types/Digimon.type'
+import type { PartyDigimon, WildDigimonType } from '@/Types/Digimon.type'
 import type { ProfileType } from '@/Types/Profile.type'
+import { randomNumber } from './RandomNumber.helper'
 
 export const endBattleHelper = ({
   profile,
@@ -28,24 +29,26 @@ export const endBattleHelper = ({
     const enemyParty = digimons.filter((item) => item.party === 'enemy')
     const expGained = enemyParty.reduce((acc, item) => acc + item.level, 0)
 
-    enemyParty.forEach((enemyItem) => {
-      const level = enemyItem.level
-      const digimon = enemyItem.baseDigimon
+    for (let enemyItem in enemyParty) {
+      const enemy = enemyParty[enemyItem] as WildDigimonType
+      const lootTable = enemy.lootTable
 
-      const attribute = digimon.attribute
-      const families = digimon.families
+      for (let lootItem in lootTable) {
+        const loot = enemy.lootTable?.[lootItem]
 
-      newProfile.cores.digimon[digimon.id] =
-        (newProfile.cores?.family?.[digimon.id] || 0) + level
+        if (loot.type === 'core') {
+          const lootQuantity = randomNumber({
+            ...loot.quantity
+          })
 
-      newProfile.cores.attribute[attribute.id] =
-        (newProfile.cores?.family?.[attribute.id] || 0) + level
+          const newCoresQuantity =
+            (newProfile.cores?.[loot.coreType]?.[loot.coreName] || 0) +
+            lootQuantity
 
-      families.forEach((familyItem) => {
-        newProfile.cores.family[familyItem.id] =
-          (newProfile.cores?.family?.[familyItem.id] || 0) + level
-      })
-    })
+          newProfile.cores[loot.coreType][loot.coreName] = newCoresQuantity
+        }
+      }
+    }
 
     newProfile.experience = (newProfile.experience || 0) + expGained
 

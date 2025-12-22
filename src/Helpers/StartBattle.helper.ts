@@ -7,6 +7,8 @@ import { STATS_BY_LEVEL } from '@/Consts/StatsByLevel.const'
 
 import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
+import { randomNumber } from '@/Helpers'
+
 export const startBattleHelper = ({
   currentMap,
   profile,
@@ -71,9 +73,10 @@ export const startBattleHelper = ({
       return [...currentMap?.wildDigimons!]
     }
 
-    const quantityOfEnemies = Math.ceil(
-      Math.random() * Number(currentMap.maxEnemiesPerEncounter || 3)
-    )
+    const quantityOfEnemies = randomNumber({
+      min: 1,
+      max: Number(currentMap.maxEnemiesPerEncounter || 3)
+    })
     const enemiesArray: WildDigimonType[] = []
 
     for (let i = 0; i < quantityOfEnemies; i++) {
@@ -105,7 +108,8 @@ export const startBattleHelper = ({
       baseDigimon: { ...baseDigimon },
       level: enemyLevel,
       stats: getDigimonStats(digimonItem),
-      party: 'enemy'
+      party: 'enemy',
+      lootTable: digimonItem.lootTable
     }
 
     // Gives enemies {STATS_BY_LEVEL} random stats per level above 1

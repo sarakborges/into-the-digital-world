@@ -46,8 +46,6 @@ export const CreateProfileTemplate = () => {
       money: 0,
 
       cores: {
-        digimon: {},
-        element: {},
         family: {},
         attribute: {}
       }

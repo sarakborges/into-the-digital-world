@@ -61,5 +61,13 @@ export type WildDigimonType = {
   id: string
   baseDigimon: string | DigimonType
   extraStats?: ExtraStats
-  lootTable?: []
+  lootTable?: Array<{
+    type: 'core' | 'item'
+    coreType: 'family' | 'attribute'
+    coreName: string
+    quantity: {
+      min: number
+      max: number
+    }
+  }>
 }

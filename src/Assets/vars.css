@@ -11,20 +11,20 @@
   --color-white-transparent: #fcfcfcaa;
   --color-black: #353c45;
 
-  --color-type-vaccine: #208d28;
-  --color-type-virus: #c42726;
-  --color-type-data: #3848c6;
-  --color-type-unknown: #261f28;
-  --color-type-noattribute: #dfd936;
+  --color-attribute-vaccine: #208d28;
+  --color-attribute-virus: #c42726;
+  --color-attribute-data: #3848c6;
+  --color-attribute-unknown: #676767;
+  --color-attribute-noattribute: #dfd936;
 
   --color-family-nsp: #478559;
-  --color-family-nso: #363d66;
+  --color-family-nso: #4b579c;
   --color-family-ds: #487cb6;
   --color-family-vb: #f7f0e5;
   --color-family-dr: #d33735;
   --color-family-jt: #95a937;
   --color-family-wg: #7bb7c5;
-  --color-family-un: #383838;
+  --color-family-uk: #676767;
   --color-family-da: #0d0d0d;
   --color-family-me: #88848c;
 
@@ -74,6 +74,8 @@
   --field-background: var(--color-white);
   --field-border: var(--color-primary);
   --field-text: var(--color-black);
+
+  --cores-size: 160px;
 
   --portrait-size: 96px;
   --portrait-size-sm: 68px;

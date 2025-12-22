@@ -28,7 +28,7 @@ export const StarterDigimonCard = ({ digimon }: { digimon: DigimonType }) => {
         </Typography>
 
         <section className="digimon-tags">
-          <Tag className={`digimon-type-${digimon.attribute.id}`}>
+          <Tag className={`digimon-attribute-${digimon.attribute.id}`}>
             {digimon.attribute.value}
           </Tag>
 

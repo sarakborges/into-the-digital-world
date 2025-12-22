@@ -1,3 +1,4 @@
+import { DigimonFamilies } from '@/Types/DigimonFamilies.type'
 import { MapTypes, type MapType } from '@/Types/Map.type'
 
 export const BINARY_FOREST: MapType = {
@@ -13,42 +14,178 @@ export const BINARY_FOREST: MapType = {
   wildDigimons: [
     {
       id: `BINARY_FOREST_KOROMON`,
-      baseDigimon: `KOROMON`
+      baseDigimon: `KOROMON`,
+
+      lootTable: [
+        {
+          type: 'core',
+          coreType: 'family',
+          coreName: DigimonFamilies.dragonsRoar.id,
+          quantity: {
+            min: 0,
+            max: 3
+          }
+        },
+
+        {
+          type: 'core',
+          coreType: 'family',
+          coreName: DigimonFamilies.virusBusters.id,
+          quantity: {
+            min: 0,
+            max: 3
+          }
+        }
+      ]
     },
 
     {
       id: `BINARY_FOREST_TUNOMON`,
-      baseDigimon: `TUNOMON`
+      baseDigimon: `TUNOMON`,
+
+      lootTable: [
+        {
+          type: 'core',
+          coreType: 'family',
+          coreName: DigimonFamilies.natureSpirits.id,
+          quantity: {
+            min: 0,
+            max: 3
+          }
+        }
+      ]
     },
 
     {
       id: `BINARY_FOREST_MOCHIMON`,
-      baseDigimon: `MOCHIMON`
+      baseDigimon: `MOCHIMON`,
+
+      lootTable: [
+        {
+          type: 'core',
+          coreType: 'family',
+          coreName: DigimonFamilies.metalEmpire.id,
+          quantity: {
+            min: 0,
+            max: 3
+          }
+        }
+      ]
     },
 
     {
       id: `BINARY_FOREST_NYAROMON`,
-      baseDigimon: `NYAROMON`
+      baseDigimon: `NYAROMON`,
+
+      lootTable: [
+        {
+          type: 'core',
+          coreType: 'family',
+          coreName: DigimonFamilies.natureSpirits.id,
+          quantity: {
+            min: 0,
+            max: 3
+          }
+        },
+
+        {
+          type: 'core',
+          coreType: 'family',
+          coreName: DigimonFamilies.virusBusters.id,
+          quantity: {
+            min: 0,
+            max: 3
+          }
+        }
+      ]
     },
 
     {
       id: `BINARY_FOREST_TOKOMON`,
-      baseDigimon: `TOKOMON`
+      baseDigimon: `TOKOMON`,
+
+      lootTable: [
+        {
+          type: 'core',
+          coreType: 'family',
+          coreName: DigimonFamilies.windGuardians.id,
+          quantity: {
+            min: 0,
+            max: 3
+          }
+        },
+
+        {
+          type: 'core',
+          coreType: 'family',
+          coreName: DigimonFamilies.virusBusters.id,
+          quantity: {
+            min: 0,
+            max: 3
+          }
+        }
+      ]
     },
 
     {
       id: `BINARY_FOREST_TANEMON`,
-      baseDigimon: `TANEMON`
+      baseDigimon: `TANEMON`,
+
+      lootTable: [
+        {
+          type: 'core',
+          coreType: 'family',
+          coreName: DigimonFamilies.jungleTroopers.id,
+          quantity: {
+            min: 0,
+            max: 3
+          }
+        }
+      ]
     },
 
     {
       id: `BINARY_FOREST_BUKAMON`,
-      baseDigimon: `BUKAMON`
+      baseDigimon: `BUKAMON`,
+
+      lootTable: [
+        {
+          type: 'core',
+          coreType: 'family',
+          coreName: DigimonFamilies.deepSavers.id,
+          quantity: {
+            min: 0,
+            max: 3
+          }
+        }
+      ]
     },
 
     {
       id: `BINARY_FOREST_PYOCOMON`,
-      baseDigimon: `PYOCOMON`
+      baseDigimon: `PYOCOMON`,
+
+      lootTable: [
+        {
+          type: 'core',
+          coreType: 'family',
+          coreName: DigimonFamilies.windGuardians.id,
+          quantity: {
+            min: 0,
+            max: 3
+          }
+        },
+
+        {
+          type: 'core',
+          coreType: 'family',
+          coreName: DigimonFamilies.jungleTroopers.id,
+          quantity: {
+            min: 0,
+            max: 3
+          }
+        }
+      ]
     }
   ]
 }

@@ -26,19 +26,7 @@ export type ProfileType = {
   ]
 
   cores: {
-    digimon: {
-      [k: string]: number
-    }
-
-    family: {
-      [k: string]: number
-    }
-
-    attribute: {
-      [k: string]: number
-    }
-
-    element: {
+    [k in 'family' | 'attribute']: {
       [k: string]: number
     }
   }

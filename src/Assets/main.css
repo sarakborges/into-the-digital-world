@@ -23,20 +23,20 @@ body {
   line-height: var(--line-height-single);
 }
 
-.tag.digimon-type-vaccine {
-  background-color: var(--color-type-vaccine);
+.tag.digimon-attribute-vaccine {
+  background-color: var(--color-attribute-vaccine);
 }
-.tag.digimon-type-virus {
-  background-color: var(--color-type-virus);
+.tag.digimon-attribute-virus {
+  background-color: var(--color-attribute-virus);
 }
-.tag.digimon-type-data {
-  background-color: var(--color-type-data);
+.tag.digimon-attribute-data {
+  background-color: var(--color-attribute-data);
 }
-.tag.digimon-type-unknown {
-  background-color: var(--color-type-unknown);
+.tag.digimon-attribute-unknown {
+  background-color: var(--color-attribute-unknown);
 }
-.tag.digimon-type-noattribute {
-  background-color: var(--color-type-noattribute);
+.tag.digimon-attribute-noattribute {
+  background-color: var(--color-attribute-noattribute);
 }
 
 .tag.digimon-family-nsp {
