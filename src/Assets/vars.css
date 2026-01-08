@@ -4,6 +4,7 @@
   --color-primary-active: #3694eb;
   --color-primary-darker: #153162;
   --body-background: #0b1c3a;
+  --modal-background: #0b1c3ae5;
 
   --color-cancel: #d63737;
   --color-cancel-hover: #cc5d5d;
@@ -97,6 +98,9 @@
   --map-details-background: var(--color-primary-darker);
 
   --map-subtitles-background: var(--color-primary-darker);
+
+  --npc-modal-text-background: var(--color-primary-darker);
+  --npc-modal-picture-size: 96px;
 
   --battle-wrapper: 1044px;
   --turn-order-spacing: 64px;

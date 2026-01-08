@@ -25,7 +25,7 @@ export type ProfileType = {
     }
   ]
 
-  cores: {
+  cores?: {
     [k in 'family' | 'attribute']: {
       [k: string]: number
     }

@@ -2,9 +2,9 @@ import { useContext } from 'react'
 
 import { getTexts } from '@/Texts'
 
+import { NpcContext } from '@/Contexts/Npc.context'
 import { MapContext } from '@/Contexts/Map.context'
 
-import { Typography } from '@/Components/System/Typography'
 import { Button } from '@/Components/System/Button'
 
 import { MapIcon } from '@/Components/App/MapIcon'
@@ -13,12 +13,18 @@ import './MapDetailsNpcs.style.scss'
 
 export const MapDetailsNpcs = () => {
   const mapContext = useContext(MapContext)
+  const npcContext = useContext(NpcContext)
 
-  if (!mapContext) {
+  if (!mapContext || !npcContext) {
     return
   }
 
   const { currentMap } = mapContext
+  const { setCurrentNpc } = npcContext
+
+  const talkToNpc = (npc) => {
+    setCurrentNpc(npc)
+  }
 
   return (
     <>
@@ -26,7 +32,10 @@ export const MapDetailsNpcs = () => {
         <section className="map-details-npcs">
           <main>
             {currentMap.availableNpcs.map((npcItem) => (
-              <Button key={`map-details-${currentMap.id}-npc-${npcItem.id}`}>
+              <Button
+                key={`map-details-${currentMap.id}-npc-${npcItem.id}`}
+                onClick={() => talkToNpc(npcItem)}
+              >
                 {npcItem.types.map((typeItem) => (
                   <MapIcon
                     key={`map-item-${currentMap.id}-npc-${npcItem.id}-type-${typeItem}`}

@@ -1,0 +1,61 @@
+.npc-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  display: flex;
+  place-content: center;
+  place-items: flex-end;
+
+  width: 100%;
+  height: 100%;
+  padding: var(--size-xl);
+
+  background-color: var(--modal-background);
+
+  &:before {
+    content: '';
+
+    width: var(--npc-modal-picture-size);
+  }
+
+  .npc-text {
+    display: flex;
+    flex-flow: column;
+    gap: var(--size-sm);
+
+    flex: 1;
+    padding: 0 var(--size-lg);
+
+    > header {
+      padding: 0 var(--size-md);
+    }
+
+    .npc-text-content {
+      padding: var(--size-md);
+
+      background-color: var(--npc-modal-text-background);
+      border-radius: var(--size-md);
+
+      > p {
+        white-space: pre;
+      }
+    }
+
+    .npc-actions {
+      display: flex;
+      place-content: flex-end;
+      gap: var(--size-sm);
+    }
+  }
+
+  .npc-picture {
+    width: var(--npc-modal-picture-size);
+  }
+
+  & + * {
+    overflow: hidden;
+    max-height: 100vh;
+  }
+}

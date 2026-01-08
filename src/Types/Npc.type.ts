@@ -13,6 +13,7 @@ export type InteractionType =
 export type NpcType = {
   id: string
   name: string
+  welcomeText?: string
   types: InteractionType[]
   itemsSold?: ItemType[]
   questsOffered?: QuestType[]
