@@ -7,6 +7,8 @@ import { MapContext } from '@/Contexts/Map.context'
 import { Typography } from '@/Components/System/Typography'
 import { Button } from '@/Components/System/Button'
 
+import { MapIcon } from '@/Components/App/MapIcon'
+
 import './MapDetailsNpcs.style.scss'
 
 export const MapDetailsNpcs = () => {
@@ -22,15 +24,17 @@ export const MapDetailsNpcs = () => {
     <>
       {!!currentMap && !!currentMap.availableNpcs?.length && (
         <section className="map-details-npcs">
-          <header>
-            <Typography as="h2">
-              {getTexts('MAPS_DETAILS_NPCS_TITLE')}
-            </Typography>
-          </header>
-
           <main>
             {currentMap.availableNpcs.map((npcItem) => (
               <Button key={`map-details-${currentMap.id}-npc-${npcItem.id}`}>
+                {npcItem.types.map((typeItem) => (
+                  <MapIcon
+                    key={`map-item-${currentMap.id}-npc-${npcItem.id}-type-${typeItem}`}
+                    mapType={typeItem.toString()}
+                    sm
+                  />
+                ))}
+
                 {getTexts('MAPS_DETAILS_NPCS_CTA').replace(
                   ':npc-name',
                   npcItem.name

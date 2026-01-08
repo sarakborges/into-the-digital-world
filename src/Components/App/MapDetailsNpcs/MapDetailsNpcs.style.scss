@@ -3,13 +3,13 @@
   flex-flow: column;
   gap: var(--size-smd);
 
-  padding-top: var(--size-md);
-
-  border-top: 1px solid var(--sidebar-subtitle-border);
-
   > main {
     display: flex;
     flex-flow: column;
     gap: var(--size-smd);
+
+    > button {
+      gap: var(--size-sm);
+    }
   }
 }

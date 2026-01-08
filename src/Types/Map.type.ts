@@ -24,8 +24,6 @@ export type MapType = {
   bossLevel?: number
 
   wildDigimons?: WildDigimonType[]
-  itemsSold?: ItemType[]
-  questsOffered?: QuestType[]
   availableNpcs?: NpcType[]
 }
 

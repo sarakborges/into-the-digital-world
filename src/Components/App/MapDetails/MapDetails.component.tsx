@@ -33,8 +33,8 @@ export const MapDetails = () => {
         <div className="map-details-info">
           <Typography as="h2">{currentMap.name}</Typography>
 
-          <MapDetailsCommerce />
-          <MapDetailsQuest />
+          {/* <MapDetailsCommerce />
+          <MapDetailsQuest /> */}
           <MapDetailsCombat />
           <MapDetailsBoss />
           <MapDetailsNpcs />

@@ -8,8 +8,8 @@ export const ROOT_CORE: MapType = {
 
   wildDigimons: [
     {
-      id: `ROOT_CORE_KOROMON`,
-      baseDigimon: `KOROMON`,
+      id: `ROOT_CORE_PAGUMON`,
+      baseDigimon: `PAGUMON`,
       extraStats: {
         atk: {
           type: 'fixed',

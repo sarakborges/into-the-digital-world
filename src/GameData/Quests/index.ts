@@ -1,5 +1,5 @@
-import { ITS_JUST_A_PRANK_BRO } from './ItsJustAPrankBro.data'
+import { CORE_DISTURBANCE } from './CoreDisturbance.data'
 
-export { ITS_JUST_A_PRANK_BRO }
+export { CORE_DISTURBANCE }
 
-export const ALL_ITEMS = { ITS_JUST_A_PRANK_BRO }
+export const ALL_QUESTS = { CORE_DISTURBANCE }
