@@ -4,7 +4,7 @@
   top: var(--size-md);
   z-index: 1;
 
-  width: var(--map-details-size);
+  min-width: var(--map-details-size);
   padding: var(--size-lmd);
 
   background-color: var(--map-details-background);

@@ -1,6 +1,7 @@
 .map-subtitles {
   display: flex;
   gap: var(--size-lg);
+  flex-wrap: wrap;
 
   padding: var(--size-md);
 

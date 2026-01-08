@@ -26,12 +26,12 @@ export type MapType = {
   wildDigimons?: WildDigimonType[]
   itemsSold?: ItemType[]
   questsOffered?: QuestType[]
-  questsRequired?: string[]
   availableNpcs?: NpcType[]
 }
 
 export type RegionType = {
   id: string
   name: string
+  questsRequired?: string[]
   maps: MapType[]
 }

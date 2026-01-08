@@ -23,6 +23,7 @@
       flex-flow: column;
       gap: var(--size-lg);
 
+      min-width: 0;
       flex: 1;
 
       .regions-list {
