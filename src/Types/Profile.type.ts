@@ -14,16 +14,16 @@ export type ProfileType = {
   completedQuests?: string[]
   seenDigimon?: string[]
 
-  activeQuests?: [
-    {
-      questId: string
-      progress: {
-        enemiesDefeated?: []
-        itemsLooted?: []
-        coresAcquired?: []
+  activeQuests?: {
+    questId: string
+    progress?: [
+      {
+        type: 'ENEMY_KILLS'
+        enemyId?: string
+        quantityKilled: number
       }
-    }
-  ]
+    ]
+  }[]
 
   cores?: {
     [k in 'family' | 'attribute']: {

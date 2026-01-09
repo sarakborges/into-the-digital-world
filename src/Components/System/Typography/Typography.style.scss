@@ -18,5 +18,7 @@
   &:is(p) {
     font-size: var(--size-md);
     line-height: var(--line-height-md);
+
+    white-space: pre-wrap;
   }
 }

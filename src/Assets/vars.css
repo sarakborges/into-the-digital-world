@@ -101,6 +101,7 @@
 
   --npc-modal-text-background: var(--color-primary-darker);
   --npc-modal-picture-size: 96px;
+  --npc-modal-quests-size: 480px;
 
   --battle-wrapper: 1044px;
   --turn-order-spacing: 64px;

@@ -23,16 +23,17 @@
   .npc-text {
     display: flex;
     flex-flow: column;
+    place-items: flex-end;
     gap: var(--size-sm);
 
     flex: 1;
     padding: 0 var(--size-lg);
 
-    > header {
-      padding: 0 var(--size-md);
-    }
-
     .npc-text-content {
+      display: flex;
+      flex-flow: column;
+      gap: var(--size-sm);
+
       padding: var(--size-md);
 
       background-color: var(--npc-modal-text-background);
@@ -40,6 +41,28 @@
 
       > p {
         white-space: pre;
+      }
+
+      .quest-description {
+        display: flex;
+        flex-flow: column;
+        gap: var(--size-sm);
+
+        width: var(--npc-modal-quests-size);
+        padding: var(--size-md);
+
+        background-color: var(--party-item-card-background);
+        border-radius: var(--size-md);
+
+        .accept-quest {
+          padding-top: var(--size-lmd);
+        }
+      }
+
+      .npc-interaction {
+        .button {
+          gap: var(--size-sm);
+        }
       }
     }
 
@@ -51,6 +74,10 @@
   }
 
   .npc-picture {
+    display: flex;
+    flex-flow: column;
+    gap: var(--size-smd);
+
     width: var(--npc-modal-picture-size);
   }
 
