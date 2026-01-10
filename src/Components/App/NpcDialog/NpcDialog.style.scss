@@ -54,8 +54,15 @@
         background-color: var(--party-item-card-background);
         border-radius: var(--size-md);
 
-        .accept-quest {
+        .quest-buttons,
+        .quest-objectives {
           padding-top: var(--size-lmd);
+        }
+
+        .quest-objectives {
+          display: flex;
+          flex-flow: column;
+          gap: var(--size-sm);
         }
       }
 

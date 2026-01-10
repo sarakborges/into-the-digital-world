@@ -1,5 +1,6 @@
-import type { PartnerDigimonType } from './Digimon.type'
-import type { ItemType } from './Item.type'
+import type { PartnerDigimonType } from '@/Types/Digimon.type'
+import type { ItemType } from '@/Types/Item.type'
+import type { QuestObjectivesType } from '@/Types/Quest.type'
 
 export type ProfileType = {
   name?: string
@@ -16,13 +17,7 @@ export type ProfileType = {
 
   activeQuests?: {
     questId: string
-    progress?: [
-      {
-        type: 'ENEMY_KILLS'
-        enemyId?: string
-        quantityKilled: number
-      }
-    ]
+    progress?: QuestObjectivesType[]
   }[]
 
   cores?: {

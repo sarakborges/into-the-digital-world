@@ -45,7 +45,9 @@ export const endBattleHelper = ({
             (newProfile.cores?.[loot.coreType]?.[loot.coreName] || 0) +
             lootQuantity
 
-          newProfile.cores[loot.coreType][loot.coreName] = newCoresQuantity
+          if (newProfile.cores && newProfile.cores[loot.coreType]) {
+            newProfile.cores[loot.coreType][loot.coreName] = newCoresQuantity
+          }
         }
       }
     }

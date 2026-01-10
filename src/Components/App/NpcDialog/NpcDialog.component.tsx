@@ -56,9 +56,14 @@ export const NpcDialog = () => {
           return interaction
         }
 
+        const progress = profile?.activeQuests?.find(
+          (questItem) => questItem.questId === interaction.questId
+        )?.progress
+
         return {
           ...interaction,
-          questDetails: ALL_QUESTS[interaction.questId!]
+          questDetails: ALL_QUESTS[interaction.questId!],
+          progress
         }
       })
       .filter((interaction) => {
@@ -140,7 +145,7 @@ export const NpcDialog = () => {
                         {currentInteraction.questDetails?.description}
                       </Typography>
 
-                      <div className="accept-quest">
+                      <div className="quest-buttons">
                         <Button
                           onClick={() =>
                             acceptQuest(currentInteraction.questId)
@@ -156,9 +161,32 @@ export const NpcDialog = () => {
                     (questItem) =>
                       questItem.questId === currentInteraction.questId
                   ) && (
-                    <Typography>
-                      {currentInteraction.questDetails?.ongoingText}
-                    </Typography>
+                    <>
+                      <Typography>
+                        {currentInteraction.questDetails?.ongoingText}
+                      </Typography>
+
+                      <div className="quest-objectives">
+                        {currentInteraction.questDetails?.objectives.map(
+                          (objectiveItem) => (
+                            <Typography
+                              key={`quest-${currentInteraction.id}-objective-${objectiveItem.id}`}
+                            >{`${
+                              currentInteraction.progress?.find?.(
+                                (progressItem) =>
+                                  progressItem.id === objectiveItem.id
+                              )?.quantity || 0
+                            } / ${objectiveItem.quantity} ${
+                              objectiveItem.text
+                            }`}</Typography>
+                          )
+                        )}
+                      </div>
+
+                      <div className="quest-buttons">
+                        <Button>Abbandon quest</Button>
+                      </div>
+                    </>
                   )}
                 </article>
               )}

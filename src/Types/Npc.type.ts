@@ -1,5 +1,5 @@
 import type { ItemType } from '@/Types/Item.type'
-import type { QuestType } from '@/Types/Quest.type'
+import type { QuestObjectivesType, QuestType } from '@/Types/Quest.type'
 
 export const InteractionsTypes = {
   COMMERCE: `COMMERCE`,
@@ -15,6 +15,7 @@ export type InteractionType = {
   type: InteractionsType
   questId?: string
   questDetails?: QuestType
+  progress?: QuestObjectivesType[]
 }
 
 export type NpcType = {
