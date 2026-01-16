@@ -166,7 +166,7 @@ export const BattleTemplate = () => {
                     <Typography>
                       <>You got </>
                       <>{loot.currency} </>
-                      <>cryptos.</>
+                      <>digital coins.</>
                     </Typography>
                   </div>
                 )}

@@ -1,3 +1,5 @@
+import type { CoresType } from './Cores.type'
+
 export type QuestObjectivesType = {
   id: string
   type: 'ENEMY_KILLS'
@@ -13,5 +15,11 @@ export type QuestType = {
   completionText: string
   ongoingText: string
   objectives: QuestObjectivesType[]
-  rewards?: []
+  rewards?: {
+    exp?: number
+    currency?: number
+    items?: Array<string>
+    cores?: CoresType
+    newRegion?: string
+  }
 }

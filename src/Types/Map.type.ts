@@ -1,7 +1,5 @@
 import type { WildDigimonType } from './Digimon.type'
-import type { ItemType } from './Item.type'
 import type { NpcType } from './Npc.type'
-import type { QuestType } from './Quest.type'
 
 export const MapTypes = {
   COMBAT: 'COMBAT',
@@ -23,13 +21,13 @@ export type MapType = {
   }
   bossLevel?: number
 
-  wildDigimons?: WildDigimonType[]
-  availableNpcs?: NpcType[]
+  wildDigimons?: Array<WildDigimonType>
+  availableNpcs?: Array<NpcType>
 }
 
 export type RegionType = {
   id: string
   name: string
-  questsRequired?: string[]
-  maps: MapType[]
+  maps: Array<MapType>
+  questRequired?: string
 }

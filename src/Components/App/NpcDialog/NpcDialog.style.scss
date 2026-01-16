@@ -49,20 +49,29 @@
         gap: var(--size-sm);
 
         width: var(--npc-modal-quests-size);
+        max-height: var(--npc-modal-max-height);
         padding: var(--size-md);
+        overflow: auto;
 
         background-color: var(--party-item-card-background);
         border-radius: var(--size-md);
 
         .quest-buttons,
-        .quest-objectives {
+        .quest-objectives,
+        .quest-rewards {
           padding-top: var(--size-lmd);
         }
 
         .quest-objectives {
           display: flex;
           flex-flow: column;
-          gap: var(--size-sm);
+          gap: var(--size-xs);
+        }
+
+        .quest-rewards {
+          display: flex;
+          flex-flow: column;
+          gap: var(--size-xs);
         }
       }
 

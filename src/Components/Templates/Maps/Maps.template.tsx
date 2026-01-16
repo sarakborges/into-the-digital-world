@@ -9,6 +9,7 @@ import { ALL_REGIONS } from '@/GameData/Regions'
 
 import { NpcContext } from '@/Contexts/Npc.context'
 import { MapContext } from '@/Contexts/Map.context'
+import { ProfileContext } from '@/Contexts/Profile.context'
 
 import { Typography } from '@/Components/System/Typography'
 import { Button } from '@/Components/System/Button'
@@ -24,13 +25,15 @@ import './Maps.style.scss'
 export const MapsTemplate = () => {
   const mapContext = useContext(MapContext)
   const npcContext = useContext(NpcContext)
+  const profileContext = useContext(ProfileContext)
 
-  if (!mapContext || !npcContext) {
+  if (!mapContext || !npcContext || !profileContext) {
     return
   }
 
   const { currentNpc } = npcContext
   const { currentMap, setCurrentMap } = mapContext
+  const { profile } = profileContext
 
   const getNewMap = (map: MapType) => {
     if (
@@ -66,45 +69,51 @@ export const MapsTemplate = () => {
               <MapSubtitles />
 
               <main className="regions-list">
-                {Object.keys(ALL_REGIONS).map((regionItem) => (
-                  <section
-                    key={`region-${ALL_REGIONS[regionItem].id}`}
-                    className="region-item"
-                  >
-                    <Typography as="h2">
-                      {ALL_REGIONS[regionItem].name}
-                    </Typography>
+                {Object.values(ALL_REGIONS)
+                  .filter(
+                    (regionItem) =>
+                      !regionItem.questRequired ||
+                      profile.completedQuests?.includes(
+                        regionItem.questRequired
+                      )
+                  )
+                  .map((regionItem) => (
+                    <section
+                      key={`region-${regionItem.id}`}
+                      className="region-item"
+                    >
+                      <Typography as="h2">{regionItem.name}</Typography>
 
-                    <ul className="maps-list">
-                      {ALL_REGIONS[regionItem].maps.map((mapItem) => (
-                        <li
-                          key={`region${ALL_REGIONS[regionItem].id}-map-${mapItem.id}`}
-                          className="map-item"
-                        >
-                          <Button
-                            onClick={() => {
-                              getNewMap(mapItem)
-                            }}
-                            className={
-                              mapItem.id === currentMap?.id ? 'active' : ''
-                            }
+                      <ul className="maps-list">
+                        {regionItem.maps.map((mapItem) => (
+                          <li
+                            key={`region${regionItem.id}-map-${mapItem.id}`}
+                            className="map-item"
                           >
-                            <div className="map-icons">
-                              {mapItem.type.map((typeItem) => (
-                                <MapIcon
-                                  key={`region${ALL_REGIONS[regionItem].id}-map-${mapItem.id}-type-${typeItem}`}
-                                  mapType={typeItem}
-                                />
-                              ))}
-                            </div>
+                            <Button
+                              onClick={() => {
+                                getNewMap(mapItem)
+                              }}
+                              className={
+                                mapItem.id === currentMap?.id ? 'active' : ''
+                              }
+                            >
+                              <div className="map-icons">
+                                {mapItem.type.map((typeItem) => (
+                                  <MapIcon
+                                    key={`region${regionItem.id}-map-${mapItem.id}-type-${typeItem}`}
+                                    mapType={typeItem}
+                                  />
+                                ))}
+                              </div>
 
-                            <Typography as="span">{mapItem.name}</Typography>
-                          </Button>
-                        </li>
-                      ))}
-                    </ul>
-                  </section>
-                ))}
+                              <Typography as="span">{mapItem.name}</Typography>
+                            </Button>
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  ))}
               </main>
             </div>
 
