@@ -19,7 +19,12 @@ export const ProfileProvider = ({ children }: { children: ReactNode }) => {
   const navigate = useNavigate()
   const location = useLocation()
 
-  const [profile, setProfile] = useState<ProfileType>({})
+  const [profile, setProfile] = useState<ProfileType>({
+    cores: {
+      attribute: {},
+      family: {}
+    }
+  })
 
   useEffect(() => {
     const localProfile = localStorage.getItem('profile')

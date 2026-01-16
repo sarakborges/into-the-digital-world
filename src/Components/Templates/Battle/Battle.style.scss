@@ -109,6 +109,13 @@
 
               color: var(--color-white-transparent);
             }
+
+            &.loot {
+              align-self: center;
+              text-align: center;
+
+              color: var(--color-primary);
+            }
           }
         }
 

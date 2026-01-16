@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { Fragment, useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { FaTimes } from 'react-icons/fa'
 
@@ -18,6 +18,8 @@ import { TurnOrder } from '@/Components/App/TurnOrder'
 import { BattleParty } from '@/Components/App/BattleParty'
 
 import './Battle.style.scss'
+import { DigimonFamilies } from '@/Types/DigimonFamilies.type'
+import { DigimonAttributes } from '@/Types/DigimonAttributes.type'
 
 export const BattleTemplate = () => {
   const navigate = useNavigate()
@@ -36,7 +38,7 @@ export const BattleTemplate = () => {
     return <></>
   }
 
-  const { currentDigimon, digimons, isOver, combatLog, winner } = battle
+  const { currentDigimon, digimons, isOver, combatLog, winner, loot } = battle
 
   const doAttack = () => {
     setBattle((prevState) => attackHelper({ battle: prevState }))
@@ -46,7 +48,7 @@ export const BattleTemplate = () => {
     setBattle({ combatLog: [], digimons: [], turnOrder: [] })
 
     setProfile((prevState) =>
-      endBattleHelper({ profile: prevState, digimons, winner })
+      endBattleHelper({ profile: prevState, digimons, loot })
     )
 
     navigate(ROUTES.MAPS.path)
@@ -65,13 +67,9 @@ export const BattleTemplate = () => {
 
         {isOver && (
           <Typography as="h1">
-            {getTexts(
-              `BATTLE_OVER`.replace(
-                ':decision',
-                getTexts(
-                  winner === 'player' ? 'BATTLE_VICTORY' : 'BATTLE_DEFEAT'
-                )
-              )
+            {getTexts(`BATTLE_OVER`).replace(
+              ':decision',
+              getTexts(winner === 'player' ? 'BATTLE_VICTORY' : 'BATTLE_DEFEAT')
             )}
           </Typography>
         )}
@@ -151,6 +149,59 @@ export const BattleTemplate = () => {
                   <div>
                     <Typography>{getTexts('BATTLE_LOG_EMPTY')}</Typography>
                   </div>
+                )}
+
+                {!!loot?.exp && (
+                  <div className="loot">
+                    <Typography>
+                      <>You and your party got </>
+                      <>{loot.exp} </>
+                      <>experience.</>
+                    </Typography>
+                  </div>
+                )}
+
+                {!!loot?.currency && (
+                  <div className="loot">
+                    <Typography>
+                      <>You got </>
+                      <>{loot.currency} </>
+                      <>cryptos.</>
+                    </Typography>
+                  </div>
+                )}
+
+                {!!loot?.cores && (
+                  <>
+                    {Object.keys(loot.cores)?.map((coreType) => (
+                      <>
+                        {Object.keys(loot.cores[coreType])?.map((coreItem) => (
+                          <Fragment
+                            key={`combat-log-entry-loot-${coreType}-${coreItem}`}
+                          >
+                            {loot.cores[coreType][coreItem] > 0 && (
+                              <div className="loot">
+                                <Typography>
+                                  <>You got </>
+                                  <>{loot.cores[coreType][coreItem]} </>
+
+                                  {coreType === 'family' && (
+                                    <>{DigimonFamilies[coreItem].name}</>
+                                  )}
+
+                                  {coreType === 'attribute' && (
+                                    <>{DigimonAttributes[coreItem].name}</>
+                                  )}
+
+                                  <> cores.</>
+                                </Typography>
+                              </div>
+                            )}
+                          </Fragment>
+                        ))}
+                      </>
+                    ))}
+                  </>
                 )}
 
                 {combatLog.length > 0 && (

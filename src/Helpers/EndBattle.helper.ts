@@ -1,15 +1,15 @@
 import type { PartyDigimon, WildDigimonType } from '@/Types/Digimon.type'
 import type { ProfileType } from '@/Types/Profile.type'
-import { randomNumber } from './RandomNumber.helper'
+import type { LootType } from '@/Types/Battle.type'
 
 export const endBattleHelper = ({
   profile,
-  winner,
-  digimons
+  digimons,
+  loot
 }: {
   profile: ProfileType
-  winner?: 'player' | 'enemy'
   digimons: Array<PartyDigimon>
+  loot?: LootType
 }) => {
   const seenDigimon = new Set([
     ...(profile.seenDigimon || []),
@@ -21,48 +21,38 @@ export const endBattleHelper = ({
     seenDigimon: [...seenDigimon]
   }
 
-  if (winner === 'player') {
+  if (!!loot) {
     const playerParty = digimons
       .filter((item) => item.party === 'player')
       .map((item) => Number(item.id))
 
-    const enemyParty = digimons.filter((item) => item.party === 'enemy')
-    const expGained = enemyParty.reduce((acc, item) => acc + item.level, 0)
+    const coreTypes = ['attribute', 'family']
 
-    for (let enemyItem in enemyParty) {
-      const enemy = enemyParty[enemyItem] as WildDigimonType
-      const lootTable = enemy.lootTable
+    for (let coreType of coreTypes) {
+      if (!loot.cores[coreType]) {
+        continue
+      }
 
-      for (let lootItem in lootTable) {
-        const loot = enemy.lootTable?.[lootItem]
+      for (let coreItem of Object.keys(loot.cores[coreType])) {
+        const newCoresQuantity =
+          (Number(newProfile.cores?.[coreType]?.[coreItem]) || 0) +
+          (Number(loot.cores[coreType][coreItem]) || 0)
 
-        if (loot.type === 'core') {
-          const lootQuantity = randomNumber({
-            ...loot.quantity
-          })
-
-          const newCoresQuantity =
-            (newProfile.cores?.[loot.coreType]?.[loot.coreName] || 0) +
-            lootQuantity
-
-          if (newProfile.cores && newProfile.cores[loot.coreType]) {
-            newProfile.cores[loot.coreType][loot.coreName] = newCoresQuantity
-          }
-        }
+        newProfile.cores[coreType][coreItem] = newCoresQuantity
       }
     }
 
-    newProfile.experience = (newProfile.experience || 0) + expGained
+    newProfile.experience = (newProfile.experience || 0) + loot.exp
 
     newProfile.partners = [
-      ...profile.partners!.map((item) => {
-        if (!playerParty.includes(item.id)) {
-          return item
+      ...profile.partners!.map((partnerItem) => {
+        if (!playerParty.includes(partnerItem.id)) {
+          return partnerItem
         }
 
         return {
-          ...item,
-          experience: item.experience + expGained
+          ...partnerItem,
+          experience: partnerItem.experience + loot.exp
         }
       })
     ]

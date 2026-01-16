@@ -1,7 +1,7 @@
-import type { BattleType, CombatLogType } from '@/Types/Battle.type'
-import type { PartyDigimon } from '@/Types/Digimon.type'
+import type { BattleType, CombatLogType, LootType } from '@/Types/Battle.type'
+import type { PartyDigimon, WildDigimonType } from '@/Types/Digimon.type'
 
-import { getDigimonName } from '@/Helpers'
+import { getDigimonName, randomNumber } from '@/Helpers'
 
 const filterAliveDigimons = ({
   digimons
@@ -80,6 +80,55 @@ const getNewTurnOrder = ({ turnOrder }: { turnOrder: Array<string> }) => {
   return { lastTurn, nextTurn, others }
 }
 
+const getLoot = ({
+  isOver,
+  winner,
+  digimons
+}: {
+  isOver: boolean
+  winner: string
+  digimons: Array<PartyDigimon>
+}): LootType | undefined => {
+  if (!isOver || winner !== 'player') {
+    return undefined
+  }
+
+  const expGained = digimons.reduce((acc, item) => acc + item.level, 0)
+  const loot = {
+    cores: {
+      family: {},
+      attribute: {}
+    },
+    currency: 0,
+    exp: expGained
+  }
+
+  for (let digimonItem in digimons) {
+    const enemy = digimons[digimonItem] as WildDigimonType
+    const lootTable = enemy.lootTable
+
+    for (let lootItem in lootTable) {
+      const enemyLoot = enemy.lootTable?.[lootItem]
+
+      if (enemyLoot.type === 'core') {
+        const enemyLootQuantity = randomNumber({
+          ...enemyLoot.quantity
+        })
+
+        const newCoresQuantity =
+          (loot.cores?.[enemyLoot.coreType]?.[enemyLoot.coreName] || 0) +
+          enemyLootQuantity
+
+        if (loot.cores && loot.cores[enemyLoot.coreType]) {
+          loot.cores[enemyLoot.coreType][enemyLoot.coreName] = newCoresQuantity
+        }
+      }
+    }
+  }
+
+  return loot
+}
+
 export const attackHelper = ({ battle }: { battle: BattleType }) => {
   const { digimons, turnOrder, currentDigimon, combatLog } = battle
 
@@ -107,7 +156,7 @@ export const attackHelper = ({ battle }: { battle: BattleType }) => {
   })
 
   const { others, lastTurn, nextTurn } = getNewTurnOrder({ turnOrder })
-  const newCurrent = aliveDigimonsAfterDamage.find(
+  const newCurrentDigimon = aliveDigimonsAfterDamage.find(
     (item) => item.id === nextTurn
   )
 
@@ -141,13 +190,20 @@ export const attackHelper = ({ battle }: { battle: BattleType }) => {
   ) as 'player' | 'enemy'
   const isOver = checkIsOver({ digimons: aliveDigimonsAfterDamage })
 
+  const loot = getLoot({
+    isOver,
+    winner,
+    digimons: digimonsWithCorrectHp.filter((item) => item.party === 'enemy')
+  })
+
   const currentBattle = {
-    currentDigimon: newCurrent,
+    currentDigimon: newCurrentDigimon,
     turnOrder: [...others, nextTurn, lastTurn],
     digimons: digimonsWithCorrectHp,
     combatLog: [...combatLog, ...newEntries],
     isOver,
-    winner: isOver ? winner : undefined
+    winner: isOver ? winner : undefined,
+    loot
   }
 
   localStorage.setItem('battle', JSON.stringify(currentBattle))

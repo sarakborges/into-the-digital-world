@@ -1,6 +1,7 @@
 import type { PartnerDigimonType } from '@/Types/Digimon.type'
 import type { ItemType } from '@/Types/Item.type'
 import type { QuestObjectivesType } from '@/Types/Quest.type'
+import type { CoresType } from '@/Types/Cores.type'
 
 export type ProfileType = {
   name?: string
@@ -20,9 +21,5 @@ export type ProfileType = {
     progress?: QuestObjectivesType[]
   }[]
 
-  cores?: {
-    [k in 'family' | 'attribute']: {
-      [k: string]: number
-    }
-  }
+  cores: CoresType
 }
