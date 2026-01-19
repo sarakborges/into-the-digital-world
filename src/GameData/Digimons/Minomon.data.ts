@@ -6,9 +6,9 @@ import { DigimonStages } from '@/Types/DigimonStages.type'
 export const MINOMON: DigimonType = {
   id: `MINOMON`,
   name: `Minomon`,
-  stage: DigimonStages.inTraining,
-  attribute: DigimonAttributes.noattribute,
-  families: [DigimonFamilies.jungleTroopers],
+  stage: DigimonStages.inTraining.id,
+  attribute: DigimonAttributes.noattribute.id,
+  families: [DigimonFamilies.jungleTroopers.id],
 
   stats: {
     hp: 22,

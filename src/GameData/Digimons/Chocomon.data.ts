@@ -6,9 +6,9 @@ import { DigimonStages } from '@/Types/DigimonStages.type'
 export const CHOCOMON: DigimonType = {
   id: `CHOCOMON`,
   name: `Chocomon`,
-  stage: DigimonStages.inTraining,
-  attribute: DigimonAttributes.noattribute,
-  families: [DigimonFamilies.virusBusters],
+  stage: DigimonStages.inTraining.id,
+  attribute: DigimonAttributes.noattribute.id,
+  families: [DigimonFamilies.virusBusters.id],
 
   stats: {
     hp: 22,

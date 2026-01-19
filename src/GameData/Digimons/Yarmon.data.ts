@@ -6,9 +6,9 @@ import { DigimonStages } from '@/Types/DigimonStages.type'
 export const YARMON: DigimonType = {
   id: `YARMON`,
   name: `Yarmon`,
-  stage: DigimonStages.inTraining,
-  attribute: DigimonAttributes.noattribute,
-  families: [DigimonFamilies.nightmareSoldiers],
+  stage: DigimonStages.inTraining.id,
+  attribute: DigimonAttributes.noattribute.id,
+  families: [DigimonFamilies.nightmareSoldiers.id],
 
   stats: {
     hp: 22,
