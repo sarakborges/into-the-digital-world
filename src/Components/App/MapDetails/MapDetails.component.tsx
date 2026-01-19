@@ -7,8 +7,6 @@ import { MapContext } from '@/Contexts/Map.context'
 import { Typography } from '@/Components/System/Typography'
 
 import { MapDetailsCombat } from '@/Components/App/MapDetailsCombat'
-import { MapDetailsCommerce } from '@/Components/App/MapDetailsCommerce'
-import { MapDetailsQuest } from '@/Components/App/MapDetailsQuest'
 import { MapDetailsBoss } from '@/Components/App/MapDetailsBoss'
 import { MapDetailsNpcs } from '@/Components/App/MapDetailsNpcs'
 

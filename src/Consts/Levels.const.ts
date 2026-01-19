@@ -1,3 +1,6 @@
+export const PLAYER_POINTS_PER_LEVEL = 1
+export const DIGIMON_POINTS_PER_LEVEL = 3
+
 export const PLAYER_LEVELS = {
   1: { level: 1, expToNextLevel: 10 },
   2: { level: 2, expToNextLevel: 15 },

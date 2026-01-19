@@ -1,7 +1,13 @@
-import type { PartyDigimon, WildDigimonType } from '@/Types/Digimon.type'
+import type { PartyDigimon } from '@/Types/Digimon.type'
 import type { ProfileType } from '@/Types/Profile.type'
 import type { LootType } from '@/Types/Battle.type'
-import { DIGIMON_LEVELS, PLAYER_LEVELS } from '@/Consts/Levels.const'
+
+import {
+  DIGIMON_LEVELS,
+  DIGIMON_POINTS_PER_LEVEL,
+  PLAYER_LEVELS,
+  PLAYER_POINTS_PER_LEVEL
+} from '@/Consts/Levels.const'
 
 export const endBattleHelper = ({
   profile,
@@ -50,7 +56,7 @@ export const endBattleHelper = ({
     if (playerNextLevelExp < newPlayerExperience) {
       newProfile.experience = newPlayerExperience - playerNextLevelExp
       newProfile.level = (newProfile.level || 1) + 1
-      newProfile.points = (newProfile.points || 0) + 1
+      newProfile.points = (newProfile.points || 0) + PLAYER_POINTS_PER_LEVEL
     } else {
       newProfile.experience = newPlayerExperience
     }
@@ -70,7 +76,7 @@ export const endBattleHelper = ({
         if (digimonNextLevelExp < newDigimonExperience) {
           newDigimonExperience -= digimonNextLevelExp
           newDigimonLevel++
-          newDigimonPoints += 3
+          newDigimonPoints += DIGIMON_POINTS_PER_LEVEL
         }
 
         return {

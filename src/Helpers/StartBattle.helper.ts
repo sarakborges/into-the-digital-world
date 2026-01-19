@@ -3,7 +3,7 @@ import type { ProfileType } from '@/Types/Profile.type'
 import type { DigimonType, WildDigimonType } from '@/Types/Digimon.type'
 
 import { DIGIMON_STATS } from '@/Consts/DigimonStats.const'
-import { STATS_BY_LEVEL } from '@/Consts/StatsByLevel.const'
+import { DIGIMON_POINTS_PER_LEVEL } from '@/Consts/Levels.const'
 
 import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
@@ -113,7 +113,7 @@ export const startBattleHelper = ({
     }
 
     // Gives enemies {STATS_BY_LEVEL} random stats per level above 1
-    for (let i = 0; i < (enemyLevel - 1) * STATS_BY_LEVEL; i++) {
+    for (let i = 0; i < (enemyLevel - 1) * DIGIMON_POINTS_PER_LEVEL; i++) {
       const statKey = Math.floor(Math.random() * statsKeys.length)
       enemyDigimon.stats[statsKeys[statKey]]++
     }
