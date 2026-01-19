@@ -1,6 +1,7 @@
 import type { PartyDigimon, WildDigimonType } from '@/Types/Digimon.type'
 import type { ProfileType } from '@/Types/Profile.type'
 import type { LootType } from '@/Types/Battle.type'
+import { DIGIMON_LEVELS, PLAYER_LEVELS } from '@/Consts/Levels.const'
 
 export const endBattleHelper = ({
   profile,
@@ -42,7 +43,17 @@ export const endBattleHelper = ({
       }
     }
 
-    newProfile.experience = (newProfile.experience || 0) + loot.exp
+    const newPlayerExperience = (newProfile.experience || 0) + loot.exp
+    const playerNextLevelExp =
+      PLAYER_LEVELS[newProfile.level || 1].expToNextLevel
+
+    if (playerNextLevelExp < newPlayerExperience) {
+      newProfile.experience = newPlayerExperience - playerNextLevelExp
+      newProfile.level = (newProfile.level || 1) + 1
+      newProfile.points = (newProfile.points || 0) + 1
+    } else {
+      newProfile.experience = newPlayerExperience
+    }
 
     newProfile.partners = [
       ...profile.partners!.map((partnerItem) => {
@@ -50,9 +61,23 @@ export const endBattleHelper = ({
           return partnerItem
         }
 
+        let newDigimonExperience = partnerItem.experience + loot.exp
+        let newDigimonLevel = partnerItem.level || 1
+        let newDigimonPoints = partnerItem.points || 0
+        const digimonNextLevelExp =
+          DIGIMON_LEVELS[partnerItem.level || 1].expToNextLevel
+
+        if (digimonNextLevelExp < newDigimonExperience) {
+          newDigimonExperience -= digimonNextLevelExp
+          newDigimonLevel++
+          newDigimonPoints += 3
+        }
+
         return {
           ...partnerItem,
-          experience: partnerItem.experience + loot.exp
+          experience: newDigimonExperience,
+          level: newDigimonLevel,
+          points: newDigimonPoints
         }
       })
     ]

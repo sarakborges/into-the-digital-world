@@ -1,3 +1,6 @@
+import { DigimonAttributes } from '@/Types/DigimonAttributes.type'
+import { DigimonFamilies } from '@/Types/DigimonFamilies.type'
+
 import type { QuestType } from '@/Types/Quest.type'
 
 export const CORE_DISTURBANCE: QuestType = {
@@ -20,6 +23,15 @@ export const CORE_DISTURBANCE: QuestType = {
   rewards: {
     currency: 1,
     exp: 1,
-    newRegion: `ROOT_FORK`
+    newRegion: `ROOT_FORK`,
+    cores: {
+      attribute: {
+        [DigimonAttributes.virus.id]: 2
+      },
+
+      family: {
+        [DigimonFamilies.nightmareSoldiers.id]: 2
+      }
+    }
   }
 }

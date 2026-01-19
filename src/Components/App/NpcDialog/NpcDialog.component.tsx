@@ -1,8 +1,19 @@
 import { useContext, useEffect, useState } from 'react'
 
+import {
+  InteractionsTypes,
+  type InteractionType,
+  type NpcType
+} from '@/Types/Npc.type'
 import { MapTypes } from '@/Types/Map.type'
+import { DigimonAttributes } from '@/Types/DigimonAttributes.type'
+import { DigimonFamilies } from '@/Types/DigimonFamilies.type'
+
+import { ALL_QUESTS } from '@/GameData/Quests'
+import { ALL_REGIONS } from '@/GameData/Regions'
 
 import { NpcContext } from '@/Contexts/Npc.context'
+import { ProfileContext } from '@/Contexts/Profile.context'
 
 import { getTexts } from '@/Texts'
 
@@ -13,14 +24,6 @@ import { Portrait } from '@/Components/System/Portrait'
 import { MapIcon } from '@/Components/App/MapIcon'
 
 import './NpcDialog.style.scss'
-import { ALL_QUESTS } from '@/GameData/Quests'
-import {
-  InteractionsTypes,
-  type InteractionType,
-  type NpcType
-} from '@/Types/Npc.type'
-import { ProfileContext } from '@/Contexts/Profile.context'
-import { ALL_REGIONS } from '@/GameData/Regions'
 
 export const NpcDialog = () => {
   const profileContext = useContext(ProfileContext)
@@ -82,6 +85,28 @@ export const NpcDialog = () => {
       activeQuests: profile.activeQuests
         ? [...profile.activeQuests, { questId }]
         : [{ questId }]
+    }
+
+    setProfile(newProfile)
+    localStorage.setItem('profile', JSON.stringify(newProfile))
+
+    closeInteraction()
+  }
+
+  const abbandonQuest = (questId) => {
+    if (
+      !confirm(
+        `Are you sure you want to abbandon this quest? Doing that, all progress will be deleted.`
+      )
+    ) {
+      return
+    }
+
+    const newProfile = {
+      ...profile,
+      activeQuests: profile.activeQuests?.filter(
+        (questItem) => questItem.questId !== questId
+      )
     }
 
     setProfile(newProfile)
@@ -170,6 +195,89 @@ export const NpcDialog = () => {
                     <div className="quest-rewards">
                       <Typography as="span">Rewards:</Typography>
 
+                      {currentInteraction.questDetails?.rewards?.currency && (
+                        <section>
+                          <Typography as="span">
+                            <>- Digital coins: </>
+                            <>
+                              {
+                                currentInteraction.questDetails?.rewards
+                                  ?.currency
+                              }
+                            </>
+                          </Typography>
+                        </section>
+                      )}
+
+                      {currentInteraction.questDetails?.rewards?.exp && (
+                        <section>
+                          <Typography as="span">
+                            <>- Experience: </>
+                            <>{currentInteraction.questDetails?.rewards?.exp}</>
+                          </Typography>
+                        </section>
+                      )}
+
+                      {currentInteraction.questDetails?.rewards?.cores && (
+                        <>
+                          {currentInteraction.questDetails?.rewards?.cores
+                            ?.attribute && (
+                            <>
+                              {Object.keys(
+                                currentInteraction.questDetails?.rewards?.cores
+                                  ?.attribute
+                              ).map((attributeItem) => (
+                                <section>
+                                  <Typography as="span">
+                                    <>- </>
+
+                                    <>
+                                      {DigimonAttributes[attributeItem].value}
+                                    </>
+
+                                    <> cores: </>
+
+                                    <>
+                                      {
+                                        currentInteraction.questDetails?.rewards
+                                          ?.cores?.attribute?.[attributeItem]
+                                      }
+                                    </>
+                                  </Typography>
+                                </section>
+                              ))}
+                            </>
+                          )}
+
+                          {currentInteraction.questDetails?.rewards?.cores
+                            ?.family && (
+                            <>
+                              {Object.keys(
+                                currentInteraction.questDetails?.rewards?.cores
+                                  ?.family
+                              ).map((familyItem) => (
+                                <section>
+                                  <Typography as="span">
+                                    <>- </>
+
+                                    <>{DigimonFamilies[familyItem].name}</>
+
+                                    <> cores: </>
+
+                                    <>
+                                      {
+                                        currentInteraction.questDetails?.rewards
+                                          ?.cores?.family?.[familyItem]
+                                      }
+                                    </>
+                                  </Typography>
+                                </section>
+                              ))}
+                            </>
+                          )}
+                        </>
+                      )}
+
                       {currentInteraction.questDetails?.rewards?.newRegion && (
                         <section>
                           <Typography as="span">
@@ -182,37 +290,7 @@ export const NpcDialog = () => {
                                 ].name
                               }
                             </>
-                            <>!</>
                           </Typography>
-                        </section>
-                      )}
-
-                      {(currentInteraction.questDetails?.rewards?.currency ||
-                        currentInteraction.questDetails?.rewards?.exp) && (
-                        <section>
-                          {currentInteraction.questDetails?.rewards
-                            ?.currency && (
-                            <Typography>
-                              <>- </>
-                              <>
-                                {
-                                  currentInteraction.questDetails?.rewards
-                                    ?.currency
-                                }
-                              </>
-                              <> digital coins.</>
-                            </Typography>
-                          )}
-
-                          {currentInteraction.questDetails?.rewards?.exp && (
-                            <Typography>
-                              <>- </>
-                              <>
-                                {currentInteraction.questDetails?.rewards?.exp}
-                              </>
-                              <> experience.</>
-                            </Typography>
-                          )}
                         </section>
                       )}
                     </div>
@@ -238,7 +316,13 @@ export const NpcDialog = () => {
                           questItem.questId === currentInteraction.questId
                       ) && (
                         <>
-                          <Button>Abbandon quest</Button>
+                          <Button
+                            onClick={() =>
+                              abbandonQuest(currentInteraction.questId)
+                            }
+                          >
+                            Abbandon quest
+                          </Button>
                         </>
                       )}
                     </div>

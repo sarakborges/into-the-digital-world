@@ -1,4 +1,4 @@
-import type { CoresType } from './Cores.type'
+import type { CoresType } from '@/Types/Cores.type'
 
 export type QuestObjectivesType = {
   id: string

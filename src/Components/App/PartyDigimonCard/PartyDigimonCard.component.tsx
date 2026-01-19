@@ -44,6 +44,11 @@ export const PartyDigimonCard = ({
             <>{getTexts('DIGIMON_CARD_LEVEL')}</>
             {digimonItem.level}
           </Typography>
+
+          <Typography as="span">
+            <>{getTexts('DIGIMON_CARD_UNSPENT_POINTS')}</>
+            {digimonItem.points || 0}
+          </Typography>
         </section>
       </main>
 

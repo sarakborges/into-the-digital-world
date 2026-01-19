@@ -9,11 +9,14 @@ export const STARTER_SELECTION_SUBTITLE = `To start your adventure, select a Dig
 export const STARTER_SELECTION_CONFIRM = `Confirm selection`
 
 export const SIDEBAR_MENU_TITLE = `Navigation`
+export const SIDEBAR_PLAYER_LEVEL = `Tamer level: `
+export const SIDEBAR_PLAYER_UNSPENT_POINTS = `Unspent points: `
 
 export const NEXT_LEVEL_TEXT = `Experience needed to level up:`
 
 export const DIGIMON_CARD_LEVEL = `Level: `
 export const DIGIMON_CARD_STAGE = `Stage: `
+export const DIGIMON_CARD_UNSPENT_POINTS = `Unspent points: `
 export const DIGIMON_CARD_DETAILS = `View partner details`
 
 export const MAPS_TITLE = `Explore the digital world!`

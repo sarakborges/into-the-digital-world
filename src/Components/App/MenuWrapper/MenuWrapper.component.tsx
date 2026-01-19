@@ -56,8 +56,13 @@ export const MenuWrapper = ({ children }: { children: React.ReactNode }) => {
               <Typography as="h2">{profile.name}</Typography>
 
               <Typography as="span">
-                <>Tamer level: </>
+                <>{getTexts('SIDEBAR_PLAYER_LEVEL')}</>
                 <>{profile.level}</>
+              </Typography>
+
+              <Typography as="span">
+                <>{getTexts('SIDEBAR_PLAYER_UNSPENT_POINTS')}</>
+                <>{profile.points || 0}</>
               </Typography>
             </main>
           </header>

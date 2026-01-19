@@ -1,7 +1,3 @@
-import type { DigimonStages } from './DigimonStages.type'
-import type { DigimonAttributes } from './DigimonAttributes.type'
-import type { DigimonFamilies } from './DigimonFamilies.type'
-
 type DigimonStats = {
   hp: number
   sp: number
@@ -15,9 +11,9 @@ type DigimonStats = {
 export type DigimonType = {
   id: string
   name: string
-  stage: DigimonStages
-  attribute: DigimonAttributes
-  families: DigimonFamilies[]
+  stage: string
+  attribute: Array<string>
+  families: Array<string>
   stats: DigimonStats
 }
 
@@ -53,6 +49,7 @@ export type PartnerDigimonType = {
   name?: string
   level: number
   experience: number
+  points?: number
   baseDigimon: string | DigimonType
   extraStats?: ExtraStats
 }

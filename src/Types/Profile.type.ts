@@ -7,6 +7,7 @@ export type ProfileType = {
   name?: string
   money?: number
   experience?: number
+  points?: number
   level?: number
   avatar?: string
 
