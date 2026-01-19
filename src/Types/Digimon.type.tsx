@@ -12,7 +12,7 @@ export type DigimonType = {
   id: string
   name: string
   stage: string
-  attribute: Array<string>
+  attribute: string
   families: Array<string>
   stats: DigimonStats
 }

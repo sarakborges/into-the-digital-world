@@ -20,7 +20,7 @@ export const WikiTemplate = () => {
   const stagesWithDigimons = stages.map((stageItem) => ({
     ...stageItem,
     digimons: allDigimons.filter(
-      (digimonItem) => digimonItem.stage.id === stageItem.id
+      (digimonItem) => DigimonStages[digimonItem.stage].id === stageItem.id
     )
   }))
 

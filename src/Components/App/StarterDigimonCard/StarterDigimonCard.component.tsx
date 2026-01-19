@@ -3,6 +3,9 @@ import { Portrait } from '@/Components/System/Portrait'
 import { getTexts } from '@/Texts'
 
 import { type DigimonType } from '@/Types/Digimon.type'
+import { DigimonFamilies } from '@/Types/DigimonFamilies.type'
+import { DigimonStages } from '@/Types/DigimonStages.type'
+import { DigimonAttributes } from '@/Types/DigimonAttributes.type'
 
 import { DIGIMON_STATS } from '@/Consts/DigimonStats.const'
 
@@ -24,20 +27,22 @@ export const StarterDigimonCard = ({ digimon }: { digimon: DigimonType }) => {
 
         <Typography as="span">
           <>{getTexts('DIGIMON_CARD_STAGE')}</>
-          {digimon.stage.value}
+          {DigimonStages[digimon.stage].value}
         </Typography>
 
         <section className="digimon-tags">
-          <Tag className={`digimon-attribute-${digimon.attribute.id}`}>
-            {digimon.attribute.value}
+          <Tag className={`digimon-attribute-${digimon.attribute}`}>
+            {DigimonAttributes[digimon.attribute].value}
           </Tag>
 
           {digimon.families.map((familyItem) => (
             <Tag
-              key={`digimon-card-item-${digimon.id}-family-${familyItem.id}`}
-              className={`digimon-family-${familyItem.abbreviation.toLocaleLowerCase()}`}
+              key={`digimon-card-item-${digimon.id}-family-${familyItem}`}
+              className={`digimon-family-${DigimonFamilies[
+                familyItem
+              ].toLocaleLowerCase()}`}
             >
-              {familyItem.name}
+              {DigimonFamilies[familyItem].name}
             </Tag>
           ))}
         </section>
