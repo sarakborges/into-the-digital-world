@@ -5,6 +5,7 @@
   z-index: 1;
 
   min-width: var(--map-details-size);
+  max-width: var(--map-details-size);
   padding: var(--size-lmd);
 
   background-color: var(--map-details-background);
@@ -13,7 +14,19 @@
   .map-details-info {
     display: flex;
     flex-flow: column;
-    gap: var(--size-md);
+    gap: var(--size-lmd);
+
+    > header {
+      display: flex;
+      flex-flow: column;
+      gap: var(--size-sm);
+    }
+
+    > main {
+      display: flex;
+      flex-flow: column;
+      gap: var(--size-md);
+    }
 
     .map-details-type {
       display: flex;

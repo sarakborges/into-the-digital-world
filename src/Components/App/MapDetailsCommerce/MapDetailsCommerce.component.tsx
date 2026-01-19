@@ -23,29 +23,17 @@ export const MapDetailsCommerce = () => {
 
   return (
     <>
-      {!!currentMap &&
-        currentMap.type.includes(MapTypes.COMMERCE) &&
-        !!currentMap.itemsSold?.length && (
-          <section className="map-details-type">
-            <header>
-              <MapIcon mapType={MapTypes.COMMERCE} sm />
+      {!!currentMap && currentMap.types.includes(MapTypes.COMMERCE) && (
+        <section className="map-details-type">
+          <header>
+            <MapIcon mapType={MapTypes.COMMERCE} sm />
 
-              <Typography as="span">
-                {getTexts('MAPS_DETAILS_COMMERCE_TITLE')}
-              </Typography>
-            </header>
-
-            <main>
-              {currentMap.itemsSold.map((itemItem) => (
-                <Typography
-                  key={`map-details-${currentMap.id}-item-${itemItem.id}`}
-                >
-                  <>{itemItem.name}</>
-                </Typography>
-              ))}
-            </main>
-          </section>
-        )}
+            <Typography as="span">
+              {getTexts('MAPS_DETAILS_COMMERCE_TITLE')}
+            </Typography>
+          </header>
+        </section>
+      )}
     </>
   )
 }

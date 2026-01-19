@@ -3,7 +3,8 @@ import { MapTypes, type MapType } from '@/Types/Map.type'
 export const ROOT_CORE: MapType = {
   id: `ROOT_CORE`,
   name: `Root Core`,
-  type: [MapTypes.BOSS],
+  description: `The heart of the domain. A deep chamber where energy flows converge violently. The air vibrates with tension, as if the entire system were on the brink of collapse.`,
+  types: [MapTypes.BOSS],
   bossLevel: 5,
 
   wildDigimons: [

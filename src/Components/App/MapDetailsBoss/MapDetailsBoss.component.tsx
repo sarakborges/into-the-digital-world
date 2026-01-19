@@ -46,7 +46,7 @@ export const MapDetailsBoss = () => {
   return (
     <>
       {!!currentMap &&
-        currentMap.type.includes(MapTypes.BOSS) &&
+        currentMap.types.includes(MapTypes.BOSS) &&
         !!currentMap.wildDigimons?.length && (
           <section className="map-details-type">
             <header>

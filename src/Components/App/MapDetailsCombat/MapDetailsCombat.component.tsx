@@ -45,7 +45,7 @@ export const MapDetailsCombat = () => {
   return (
     <>
       {!!currentMap &&
-        currentMap.type.includes(MapTypes.COMBAT) &&
+        currentMap.types.includes(MapTypes.COMBAT) &&
         !!currentMap.wildDigimons?.length && (
           <section className="map-details-type">
             <header>
@@ -59,7 +59,7 @@ export const MapDetailsCombat = () => {
                 <>{currentMap.enemyLevelRange?.min}</>
                 <> - </>
                 <>{currentMap.enemyLevelRange?.max}</>
-                <>)</>
+                <>):</>
               </Typography>
             </header>
 

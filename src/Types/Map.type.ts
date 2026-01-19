@@ -13,7 +13,8 @@ export const MapTypes = {
 export type MapType = {
   id: string
   name: string
-  type: Array<(typeof MapTypes)[keyof typeof MapTypes]>
+  description: string
+  types: Array<(typeof MapTypes)[keyof typeof MapTypes]>
   maxEnemiesPerEncounter?: number
   enemyLevelRange?: {
     min: number

@@ -3,7 +3,8 @@ import { MapTypes, type MapType } from '@/Types/Map.type'
 export const SUBROOT_GROVE: MapType = {
   id: `SUBROOT_GROVE`,
   name: `Subroot Groove`,
-  type: [MapTypes.COMBAT],
+  description: `Giant roots pierce soil and air alike, pulsing with natural energy. The space is dense, humid, and alive, as if the domain itself were trying to regenerate.`,
+  types: [MapTypes.COMBAT],
   enemyLevelRange: {
     min: 2,
     max: 4

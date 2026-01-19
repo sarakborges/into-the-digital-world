@@ -23,27 +23,17 @@ export const MapDetailsQuestRepeatable = () => {
 
   return (
     <>
-      {!!currentMap &&
-        currentMap.type.includes(MapTypes.QUEST_REPEATABLE) &&
-        !!currentMap.questsOffered?.length && (
-          <section className="map-details-type">
-            <header>
-              <MapIcon mapType={MapTypes.QUEST_REPEATABLE} />
+      {!!currentMap && currentMap.types.includes(MapTypes.QUEST_REPEATABLE) && (
+        <section className="map-details-type">
+          <header>
+            <MapIcon mapType={MapTypes.QUEST_REPEATABLE} />
 
-              <Typography as="span">
-                {getTexts('MAPS_DETAILS_QUEST_TITLE')}
-              </Typography>
-            </header>
-
-            {currentMap.questsOffered.map((questItem) => (
-              <Typography
-                key={`map-details-${currentMap.id}-quest-${questItem.id}`}
-              >
-                <>“{questItem.name}”</>
-              </Typography>
-            ))}
-          </section>
-        )}
+            <Typography as="span">
+              {getTexts('MAPS_DETAILS_QUEST_TITLE')}
+            </Typography>
+          </header>
+        </section>
+      )}
     </>
   )
 }

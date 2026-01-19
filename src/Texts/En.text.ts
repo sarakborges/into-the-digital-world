@@ -30,7 +30,7 @@ export const MAPS_DETAILS_COMBAT_CTA = `Fight wild digimon`
 export const MAPS_DETAILS_COMMERCE_TITLE = `Items sold:`
 export const MAPS_DETAILS_QUEST_TITLE = `Available quests:`
 
-export const MAPS_DETAILS_BOSS_TITLE = `Boss awaiting:`
+export const MAPS_DETAILS_BOSS_TITLE = `Elite enemy awaiting:`
 export const MAPS_DETAILS_BOSS_CTA = `Start encounter`
 
 export const MAPS_DETAILS_NPCS_TITLE = `Friendly faces around:`

@@ -4,7 +4,8 @@ import { MapTypes, type MapType } from '@/Types/Map.type'
 export const BINARY_FOREST: MapType = {
   id: `BINARY_FOREST`,
   name: `Binary Forest`,
-  type: [MapTypes.COMBAT],
+  description: `Geometric trees grow in binary patterns, their leaves flickering between zeros and ones. The environment is calm yet unstable — the place where the domain begins to fracture.`,
+  types: [MapTypes.COMBAT],
   maxEnemiesPerEncounter: 1,
   enemyLevelRange: {
     min: 1,

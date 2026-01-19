@@ -22,7 +22,7 @@ export const MAP_SUBTITLES = {
 
   [MapTypes.COMMERCE]: {
     id: MapTypes.COMMERCE,
-    name: `Item shop`,
+    name: `Shop`,
     icon: <FaDollarSign />
   },
 
@@ -34,13 +34,13 @@ export const MAP_SUBTITLES = {
 
   [MapTypes.COMBAT]: {
     id: MapTypes.COMBAT,
-    name: `Enemy fight`,
+    name: `Enemy`,
     icon: <LuSwords />
   },
 
   [MapTypes.BOSS]: {
     id: MapTypes.BOSS,
-    name: `Boss fight`,
+    name: `Elite enemy`,
     icon: <FaExclamationTriangle />
   }
 }

@@ -31,13 +31,16 @@ export const MapDetails = () => {
 
       {currentMap?.id && (
         <div className="map-details-info">
-          <Typography as="h2">{currentMap.name}</Typography>
+          <header>
+            <Typography as="h2">{currentMap.name}</Typography>
+            <Typography>{currentMap.description}</Typography>
+          </header>
 
-          {/* <MapDetailsCommerce />
-          <MapDetailsQuest /> */}
-          <MapDetailsCombat />
-          <MapDetailsBoss />
-          <MapDetailsNpcs />
+          <main>
+            <MapDetailsCombat />
+            <MapDetailsBoss />
+            <MapDetailsNpcs />
+          </main>
         </div>
       )}
     </aside>

@@ -3,7 +3,8 @@ import { MapTypes, type MapType } from '@/Types/Map.type'
 export const COCOON_NETWORK: MapType = {
   id: `COCOON_NETWORK`,
   name: `Cocoon Network`,
-  type: [MapTypes.COMBAT],
+  description: `Threads, cocoons, and suspended structures dominate the scenery. Data in transformation drifts slowly, trapped in intermediate states between form and function.`,
+  types: [MapTypes.COMBAT],
   enemyLevelRange: {
     min: 2,
     max: 4

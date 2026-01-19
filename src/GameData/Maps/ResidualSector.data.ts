@@ -3,7 +3,8 @@ import { MapTypes, type MapType } from '@/Types/Map.type'
 export const RESIDUAL_SECTOR: MapType = {
   id: `RESIDUAL_SECTOR`,
   name: `Residual Sector`,
-  type: [MapTypes.COMBAT],
+  description: `A forgotten sector covered in broken code fragments and residual energy. The environment is uneven and silent, marked by glitches, noise, and constant instability.`,
+  types: [MapTypes.COMBAT],
   enemyLevelRange: {
     min: 2,
     max: 4

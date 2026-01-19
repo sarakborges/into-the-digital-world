@@ -37,8 +37,8 @@ export const MapsTemplate = () => {
 
   const getNewMap = (map: MapType) => {
     if (
-      map.type.includes(MapTypes.COMBAT) ||
-      map.type.includes(MapTypes.BOSS)
+      map.types.includes(MapTypes.COMBAT) ||
+      map.types.includes(MapTypes.BOSS)
     ) {
       const digimons = [
         ...map.wildDigimons!.map((wildDigimonItem) => ({
@@ -99,7 +99,7 @@ export const MapsTemplate = () => {
                               }
                             >
                               <div className="map-icons">
-                                {mapItem.type.map((typeItem) => (
+                                {mapItem.types.map((typeItem) => (
                                   <MapIcon
                                     key={`region${regionItem.id}-map-${mapItem.id}-type-${typeItem}`}
                                     mapType={typeItem}
