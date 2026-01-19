@@ -40,25 +40,25 @@ export const StarterDigimonCard = ({ digimon }: { digimon: DigimonType }) => {
               key={`digimon-card-item-${digimon.id}-family-${familyItem}`}
               className={`digimon-family-${DigimonFamilies[
                 familyItem
-              ].toLocaleLowerCase()}`}
+              ].abbreviation.toLocaleLowerCase()}`}
             >
               {DigimonFamilies[familyItem].name}
             </Tag>
           ))}
         </section>
 
-        <section className="digimon-attributes">
-          {Object.keys(DIGIMON_STATS).map((attributeItem) => (
+        <section className="digimon-stats">
+          {Object.keys(DIGIMON_STATS).map((statItem) => (
             <div
-              key={`digimon-card-item-${digimon.id}-attributes-${DIGIMON_STATS[attributeItem].id}`}
+              key={`digimon-card-item-${digimon.id}-stats-${DIGIMON_STATS[statItem].id}`}
             >
               <Typography as="span">
-                {DIGIMON_STATS[attributeItem].abbreviation}
+                {DIGIMON_STATS[statItem].abbreviation}
               </Typography>
 
-              {DIGIMON_STATS[attributeItem].icon}
+              {DIGIMON_STATS[statItem].icon}
 
-              <Typography as="span">{digimon.stats[attributeItem]}</Typography>
+              <Typography as="span">{digimon.stats[statItem]}</Typography>
             </div>
           ))}
         </section>
