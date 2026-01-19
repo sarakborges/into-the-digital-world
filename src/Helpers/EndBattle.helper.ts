@@ -49,16 +49,16 @@ export const endBattleHelper = ({
       }
     }
 
-    const newPlayerExperience = (newProfile.experience || 0) + loot.exp
+    const playerExperience = (newProfile.experience || 0) + loot.exp
     const playerNextLevelExp =
       PLAYER_LEVELS[newProfile.level || 1].expToNextLevel
 
-    if (playerNextLevelExp < newPlayerExperience) {
-      newProfile.experience = newPlayerExperience - playerNextLevelExp
+    if (playerExperience >= playerNextLevelExp) {
+      newProfile.experience = playerExperience - playerNextLevelExp
       newProfile.level = (newProfile.level || 1) + 1
       newProfile.points = (newProfile.points || 0) + PLAYER_POINTS_PER_LEVEL
     } else {
-      newProfile.experience = newPlayerExperience
+      newProfile.experience = playerExperience
     }
 
     newProfile.partners = [
@@ -67,23 +67,23 @@ export const endBattleHelper = ({
           return partnerItem
         }
 
-        let newDigimonExperience = partnerItem.experience + loot.exp
-        let newDigimonLevel = partnerItem.level || 1
-        let newDigimonPoints = partnerItem.points || 0
+        let digimonExperience = (partnerItem.experience || 0) + loot.exp
+        let digimonLevel = partnerItem.level || 1
+        let digimonPoints = partnerItem.points || 0
         const digimonNextLevelExp =
           DIGIMON_LEVELS[partnerItem.level || 1].expToNextLevel
 
-        if (digimonNextLevelExp < newDigimonExperience) {
-          newDigimonExperience -= digimonNextLevelExp
-          newDigimonLevel++
-          newDigimonPoints += DIGIMON_POINTS_PER_LEVEL
+        if (digimonExperience >= digimonNextLevelExp) {
+          digimonExperience -= digimonNextLevelExp
+          digimonLevel++
+          digimonPoints += DIGIMON_POINTS_PER_LEVEL
         }
 
         return {
           ...partnerItem,
-          experience: newDigimonExperience,
-          level: newDigimonLevel,
-          points: newDigimonPoints
+          experience: digimonExperience,
+          level: digimonLevel,
+          points: digimonPoints
         }
       })
     ]
