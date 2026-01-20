@@ -125,6 +125,8 @@ export const NpcDialog = () => {
     closeInteraction()
   }
 
+  const finishQuest = (questId) => {}
+
   useEffect(() => {
     if (!currentNpc) {
       return
@@ -134,7 +136,7 @@ export const NpcDialog = () => {
       ...currentNpc,
       interactions: enrichInteractions(currentNpc.interactions)
     })
-  }, [currentNpc])
+  }, [currentNpc, profile])
 
   return (
     <>
@@ -324,12 +326,36 @@ export const NpcDialog = () => {
                           </Button>
                         </>
                       )}
-                      !
+
                       {profile.activeQuests?.some(
                         (questItem) =>
                           questItem.questId === currentInteraction.questId
                       ) && (
                         <>
+                          {profile.activeQuests
+                            .find(
+                              (questItem) =>
+                                questItem.questId === currentInteraction.questId
+                            )
+                            ?.progress.every(
+                              (progressItem) =>
+                                progressItem.quantity >=
+                                ALL_QUESTS[
+                                  currentInteraction.questId!
+                                ].objectives.find(
+                                  (objectiveItem) =>
+                                    objectiveItem.id === progressItem.id
+                                ).quantity
+                            ) && (
+                            <Button
+                              onClick={() =>
+                                finishQuest(currentInteraction.questId)
+                              }
+                            >
+                              Finish quest
+                            </Button>
+                          )}
+
                           <Button
                             onClick={() =>
                               abbandonQuest(currentInteraction.questId)
