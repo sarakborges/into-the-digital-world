@@ -8,6 +8,7 @@ import {
   PLAYER_LEVELS,
   PLAYER_POINTS_PER_LEVEL
 } from '@/Consts/Levels.const'
+import { progressQuests } from './ProgressQuests.helper'
 
 export const endBattleHelper = ({
   profile,
@@ -22,6 +23,12 @@ export const endBattleHelper = ({
     ...(profile.seenDigimon || []),
     ...digimons.map((item) => item.baseDigimon.id)
   ])
+
+  const enemyParty = digimons.filter((item) => item.party === 'enemy')
+
+  for (let enemy of enemyParty) {
+    profile.activeQuests = progressQuests(enemy)?.quests
+  }
 
   const newProfile = {
     ...profile,

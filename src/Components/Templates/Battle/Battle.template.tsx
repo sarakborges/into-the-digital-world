@@ -174,7 +174,7 @@ export const BattleTemplate = () => {
                 {!!loot?.cores && (
                   <>
                     {Object.keys(loot.cores)?.map((coreType) => (
-                      <>
+                      <Fragment key={`combat-log-entry-loot-${coreType}`}>
                         {Object.keys(loot.cores[coreType])?.map((coreItem) => (
                           <Fragment
                             key={`combat-log-entry-loot-${coreType}-${coreItem}`}
@@ -199,7 +199,7 @@ export const BattleTemplate = () => {
                             )}
                           </Fragment>
                         ))}
-                      </>
+                      </Fragment>
                     ))}
                   </>
                 )}

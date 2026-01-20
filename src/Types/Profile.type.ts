@@ -11,16 +11,16 @@ export type ProfileType = {
   level?: number
   avatar?: string
 
-  partners?: PartnerDigimonType[]
-  party?: number[]
-  items?: ItemType[]
-  completedQuests?: string[]
-  seenDigimon?: string[]
+  partners?: Array<PartnerDigimonType>
+  party?: Array<number>
+  items?: Array<ItemType>
+  completedQuests?: Array<string>
+  seenDigimon?: Array<string>
 
-  activeQuests?: {
+  activeQuests?: Array<{
     questId: string
-    progress?: QuestObjectivesType[]
-  }[]
+    progress: Array<QuestObjectivesType>
+  }>
 
   cores: CoresType
 }

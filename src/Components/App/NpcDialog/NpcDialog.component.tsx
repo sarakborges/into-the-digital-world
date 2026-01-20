@@ -80,11 +80,21 @@ export const NpcDialog = () => {
   }
 
   const acceptQuest = (questId) => {
+    const { objectives } = ALL_QUESTS[questId]
+
+    const quest = {
+      questId,
+      progress: objectives.map((objectiveItem) => ({
+        ...objectiveItem,
+        quantity: 0
+      }))
+    }
+
     const newProfile = {
       ...profile,
       activeQuests: profile.activeQuests
-        ? [...profile.activeQuests, { questId }]
-        : [{ questId }]
+        ? [...profile.activeQuests, quest]
+        : [quest]
     }
 
     setProfile(newProfile)
@@ -227,7 +237,9 @@ export const NpcDialog = () => {
                                 currentInteraction.questDetails?.rewards?.cores
                                   ?.attribute
                               ).map((attributeItem) => (
-                                <section>
+                                <section
+                                  key={`quest-${currentInteraction.id}-reward-attribute-cores-${attributeItem}`}
+                                >
                                   <Typography as="span">
                                     <>- </>
 
@@ -256,7 +268,9 @@ export const NpcDialog = () => {
                                 currentInteraction.questDetails?.rewards?.cores
                                   ?.family
                               ).map((familyItem) => (
-                                <section>
+                                <section
+                                  key={`quest-${currentInteraction.id}-reward-family-cores-${familyItem}`}
+                                >
                                   <Typography as="span">
                                     <>- </>
 

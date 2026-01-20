@@ -1,7 +1,7 @@
 import type { BattleType, CombatLogType, LootType } from '@/Types/Battle.type'
 import type { PartyDigimon, WildDigimonType } from '@/Types/Digimon.type'
 
-import { getDigimonName, randomNumber } from '@/Helpers'
+import { getDigimonName, randomNumber, progressQuests } from '@/Helpers'
 
 const filterAliveDigimons = ({
   digimons
@@ -176,6 +176,14 @@ export const attackHelper = ({ battle }: { battle: BattleType }) => {
         party: currentDigimon!.party === 'enemy' ? 'player' : 'enemy',
         text: `${targetName} has been defeated.`
       })
+
+      const questsEntries = progressQuests(target)?.entries
+
+      if (questsEntries) {
+        for (let entry of questsEntries) {
+          newEntries.push(entry)
+        }
+      }
     }
 
     return newEntries

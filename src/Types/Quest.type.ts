@@ -2,7 +2,7 @@ import type { CoresType } from '@/Types/Cores.type'
 
 export type QuestObjectivesType = {
   id: string
-  type: 'ENEMY_KILLS'
+  type: 'SPECIFIC_ENEMY'
   text: string
   enemyId?: string
   quantity: number

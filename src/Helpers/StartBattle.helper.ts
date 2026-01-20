@@ -104,7 +104,7 @@ export const startBattleHelper = ({
         ) + currentMap.enemyLevelRange!.min
 
     const enemyDigimon = {
-      id: `${digimonItem.id}_${digimonKey}`,
+      id: isBoss ? digimonItem.id : `${digimonItem.id}_${digimonKey}`,
       baseDigimon: { ...baseDigimon },
       level: enemyLevel,
       stats: getDigimonStats(digimonItem),
