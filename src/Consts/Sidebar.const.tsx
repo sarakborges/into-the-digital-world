@@ -28,8 +28,10 @@ export const SIDEBAR_MENU = [
     ...ROUTES.WIKI,
     text: `Digi Wiki`,
     icon: <MdMenuBook />
-  },
+  }
+]
 
+export const SIDEBAR_BOTTOM_MENU = [
   {
     ...ROUTES.SETTINGS,
     text: `Settings`,

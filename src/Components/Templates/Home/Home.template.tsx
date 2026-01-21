@@ -60,7 +60,9 @@ export const HomeTemplate = () => {
                     alt={`Digimon family: ${digimonFamily!.abbreviation}`}
                   />
 
-                  <Typography as="span">{digimonFamily.name}:</Typography>
+                  <Typography>
+                    {digimonFamily.name.split(' ').join('\n')}
+                  </Typography>
 
                   <Typography as="span">
                     {profile.cores?.family?.[digimonFamily.id] || 0}
@@ -86,7 +88,7 @@ export const HomeTemplate = () => {
                     alt={`Digimon attribute: ${digimonAttribute!.value}`}
                   />
 
-                  <Typography as="span">{digimonAttribute.value}:</Typography>
+                  <Typography>{digimonAttribute.value}</Typography>
 
                   <Typography as="span">
                     {profile.cores?.attribute?.[digimonAttribute.id] || 0}

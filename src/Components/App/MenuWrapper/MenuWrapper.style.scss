@@ -45,10 +45,12 @@
       flex-flow: column;
       gap: var(--size-md);
 
-      h2 {
-        padding-bottom: var(--size-smd);
+      padding-top: var(--size-smd);
 
-        border-bottom: 1px solid var(--sidebar-subtitle-border);
+      border-top: 1px solid var(--sidebar-subtitle-border);
+
+      &:first-of-type {
+        flex: 1;
       }
 
       .link {

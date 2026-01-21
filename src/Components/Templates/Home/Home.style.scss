@@ -24,7 +24,7 @@
 
     > main {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: var(--size-md);
 
       .tamer-cores-item {
@@ -42,51 +42,17 @@
         > img {
           max-width: 40px;
         }
-      }
-    }
-  }
 
-  .tamer-cores-attribute {
-    display: flex;
-    flex-flow: column;
-    gap: var(--size-md);
-
-    > main {
-      display: grid;
-      grid-template-columns: repeat(3, var(--cores-size));
-      gap: var(--size-md);
-
-      .tamer-cores-attribute-item {
-        display: flex;
-        flex-flow: column;
-        gap: var(--size-xs);
-
-        width: var(--cores-size);
-        padding: var(--size-md);
-
-        text-align: center;
-
-        background-color: var(--digimon-card-background);
-        border-radius: var(--size-md);
+        > p {
+          text-align: left;
+          line-height: var(--line-height-sm);
+        }
 
         > span {
-          font-size: var(--size-lg);
-        }
+          flex: 1;
 
-        &.vaccine {
-          color: var(--color-attribute-vaccine);
-        }
-        &.virus {
-          color: var(--color-attribute-virus);
-        }
-        &.data {
-          color: var(--color-attribute-data);
-        }
-        &.noattribute {
-          color: var(--color-attribute-noattribute);
-        }
-        &.unknown {
-          color: var(--color-attribute-unknown);
+          text-align: right;
+          font-size: var(--size-lg);
         }
       }
     }
