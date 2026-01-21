@@ -26,7 +26,7 @@ export const DigimonFamilies = {
   unknown: {
     id: `unknown`,
     name: `Unknown`,
-    abbreviation: `UK`
+    abbreviation: `UN`
   },
 
   metalEmpire: {

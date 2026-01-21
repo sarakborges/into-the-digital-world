@@ -17,22 +17,21 @@
     }
   }
 
-  .tamer-cores-family {
+  .tamer-cores {
     display: flex;
     flex-flow: column;
     gap: var(--size-md);
 
     > main {
       display: grid;
-      grid-template-columns: repeat(4, var(--cores-size));
+      grid-template-columns: repeat(4, 1fr);
       gap: var(--size-md);
 
-      .tamer-cores-family-item {
+      .tamer-cores-item {
         display: flex;
-        flex-flow: column;
-        gap: var(--size-xs);
+        place-items: center;
+        gap: var(--size-smd);
 
-        width: var(--cores-size);
         padding: var(--size-md);
 
         text-align: center;
@@ -40,42 +39,8 @@
         background-color: var(--digimon-card-background);
         border-radius: var(--size-md);
 
-        > span {
-          font-size: var(--size-lg);
-        }
-
-        &.nsp {
-          color: var(--color-family-nsp);
-        }
-        &.nso {
-          color: var(--color-family-nso);
-        }
-        &.ds {
-          color: var(--color-family-ds);
-        }
-        &.wg {
-          color: var(--color-family-wg);
-        }
-        &.jt {
-          color: var(--color-family-jt);
-        }
-        &.vb {
-          color: var(--color-family-vb);
-        }
-        &.dr {
-          color: var(--color-family-dr);
-        }
-        &.da {
-          color: var(--color-family-da);
-        }
-        &.un {
-          color: var(--color-family-un);
-        }
-        &.me {
-          color: var(--color-family-me);
-        }
-        &.uk {
-          color: var(--color-family-uk);
+        > img {
+          max-width: 40px;
         }
       }
     }

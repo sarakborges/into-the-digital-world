@@ -2,8 +2,10 @@
   aspect-ratio: 1;
   overflow: hidden;
 
-  border-radius: 100%;
-  background-color: var(--portrait-background);
+  &:not(.transparent) {
+    background-color: var(--portrait-background);
+    border-radius: 100%;
+  }
 
   &:not(.sm) {
     width: var(--portrait-size);

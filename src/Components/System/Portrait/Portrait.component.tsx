@@ -4,17 +4,23 @@ export const Portrait = ({
   src,
   alt,
   placeholder,
-  sm
+  sm,
+  transparent
 }: {
   src?: string
   alt: string
   placeholder?: string
   sm?: boolean
+  transparent?: boolean
 }) => {
   const classes = ['portrait']
 
   if (!!sm) {
     classes.push('sm')
+  }
+
+  if (!!transparent) {
+    classes.push('transparent')
   }
 
   return (

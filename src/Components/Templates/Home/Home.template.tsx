@@ -10,6 +10,7 @@ import { PartyDigimonCard } from '@/Components/App/PartyDigimonCard'
 import './Home.style.scss'
 import { DigimonFamilies } from '@/Types/DigimonFamilies.type'
 import { DigimonAttributes } from '@/Types/DigimonAttributes.type'
+import { Portrait } from '@/Components/System/Portrait'
 
 export const HomeTemplate = () => {
   const profileContext = useContext(ProfileContext)
@@ -43,7 +44,7 @@ export const HomeTemplate = () => {
           </main>
         </section>
 
-        <section className="tamer-cores-family">
+        <section className="tamer-cores">
           <Typography as="h2">Family cores collected</Typography>
 
           <main>
@@ -52,9 +53,14 @@ export const HomeTemplate = () => {
               .map((digimonFamily) => (
                 <div
                   key={`tamer-cores-family-item-${digimonFamily.id}`}
-                  className={`tamer-cores-family-item ${digimonFamily.abbreviation.toLocaleLowerCase()}`}
+                  className="tamer-cores-item"
                 >
-                  <Typography>{digimonFamily.name}</Typography>
+                  <img
+                    src={`./families/${digimonFamily!.abbreviation}.png`}
+                    alt={`Digimon family: ${digimonFamily!.abbreviation}`}
+                  />
+
+                  <Typography as="span">{digimonFamily.name}:</Typography>
 
                   <Typography as="span">
                     {profile.cores?.family?.[digimonFamily.id] || 0}
@@ -64,7 +70,7 @@ export const HomeTemplate = () => {
           </main>
         </section>
 
-        <section className="tamer-cores-attribute">
+        <section className="tamer-cores">
           <Typography as="h2">Attribute cores collected</Typography>
 
           <main>
@@ -73,9 +79,14 @@ export const HomeTemplate = () => {
               .map((digimonAttribute) => (
                 <div
                   key={`tamer-cores-attribute-item-${digimonAttribute.id}`}
-                  className={`tamer-cores-attribute-item ${digimonAttribute.id.toLocaleLowerCase()}`}
+                  className="tamer-cores-item"
                 >
-                  <Typography>{digimonAttribute.value}</Typography>
+                  <img
+                    src={`./attributes/${digimonAttribute!.id}.png`}
+                    alt={`Digimon attribute: ${digimonAttribute!.value}`}
+                  />
+
+                  <Typography as="span">{digimonAttribute.value}:</Typography>
 
                   <Typography as="span">
                     {profile.cores?.attribute?.[digimonAttribute.id] || 0}
