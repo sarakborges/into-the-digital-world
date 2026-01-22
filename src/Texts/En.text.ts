@@ -19,6 +19,11 @@ export const DIGIMON_CARD_STAGE = `Stage: `
 export const DIGIMON_CARD_UNSPENT_POINTS = `Unspent points: `
 export const DIGIMON_CARD_DETAILS = `View partner details`
 
+export const PARTY_TITLE = `Your current party:`
+
+export const CORES_COLLECTED_FAMILY_TITLE = `Family cores collected:`
+export const CORES_COLLECTED_ATTRIBUTE_TITLE = `Attribute cores collected:`
+
 export const MAPS_TITLE = `Explore the digital world!`
 export const MAPS_SUBTITLE = `In this world, there are many wonders! But also, terrible dangers await for you!`
 export const MAPS_DETAILS_TEXT = `Select a map to know what you can find in it!`

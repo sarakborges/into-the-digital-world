@@ -16,45 +16,4 @@
       gap: var(--size-lmd);
     }
   }
-
-  .tamer-cores {
-    display: flex;
-    flex-flow: column;
-    gap: var(--size-md);
-
-    > main {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: var(--size-md);
-
-      .tamer-cores-item {
-        display: flex;
-        place-items: center;
-        gap: var(--size-smd);
-
-        padding: var(--size-md);
-
-        text-align: center;
-
-        background-color: var(--digimon-card-background);
-        border-radius: var(--size-md);
-
-        > img {
-          max-width: 40px;
-        }
-
-        > p {
-          text-align: left;
-          line-height: var(--line-height-sm);
-        }
-
-        > span {
-          flex: 1;
-
-          text-align: right;
-          font-size: var(--size-lg);
-        }
-      }
-    }
-  }
 }
