@@ -20,10 +20,7 @@ export const ProfileProvider = ({ children }: { children: ReactNode }) => {
   const location = useLocation()
 
   const [profile, setProfile] = useState<ProfileType>({
-    cores: {
-      attributes: {},
-      families: {}
-    }
+    cores: []
   })
 
   useEffect(() => {

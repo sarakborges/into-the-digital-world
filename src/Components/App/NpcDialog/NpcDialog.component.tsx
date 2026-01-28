@@ -243,11 +243,7 @@ export const NpcDialog = () => {
                                 >
                                   <Typography as="span">
                                     <>- </>
-
-                                    <>
-                                      {DigimonAttributes[attributeItem].value}
-                                    </>
-
+                                    <>{DigimonAttributes[attributeItem].name}</>
                                     <> cores: </>
 
                                     <>
