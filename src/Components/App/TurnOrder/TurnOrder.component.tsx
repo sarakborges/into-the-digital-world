@@ -47,7 +47,7 @@ export const TurnOrder = () => {
               } ${turnDigimon!.party}`}
             >
               <Portrait
-                src={`./digimons/${baseDigimon.id}.jpg`}
+                src={`/digimons/${baseDigimon.id}.jpg`}
                 alt={`Party digimon: ${displayName}`}
                 sm
               />

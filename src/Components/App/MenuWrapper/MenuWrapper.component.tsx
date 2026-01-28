@@ -39,7 +39,7 @@ export const MenuWrapper = ({ children }: { children: React.ReactNode }) => {
             {!!profile.avatar && (
               <Portrait
                 alt={`Tamer ${profile.name}`}
-                src={`./avatars/${profile.avatar}.jpg`}
+                src={`/avatars/${profile.avatar}.jpg`}
                 sm
               />
             )}

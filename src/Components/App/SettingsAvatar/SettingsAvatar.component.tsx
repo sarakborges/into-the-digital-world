@@ -72,7 +72,7 @@ export const SettingsAvatar = () => {
 
                         {!!avatarItem && (
                           <Portrait
-                            src={`./avatars/${avatarCategory.id}/${avatarItem}.jpg`}
+                            src={`/avatars/${avatarCategory.id}/${avatarItem}.jpg`}
                             alt={getTexts('SETTINGS_PROFILE_AVATAR_EMPTY')}
                           />
                         )}

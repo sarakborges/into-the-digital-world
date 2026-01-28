@@ -41,7 +41,7 @@ export const BattlePartyDigimonCard = ({
       }`}
     >
       <Portrait
-        src={`./digimons/${baseDigimon.id}.jpg`}
+        src={`/digimons/${baseDigimon.id}.jpg`}
         alt={`Party digimon: ${displayName}`}
         sm
       />

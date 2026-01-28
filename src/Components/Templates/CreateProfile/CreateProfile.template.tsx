@@ -44,11 +44,7 @@ export const CreateProfileTemplate = () => {
       level: 1,
       experience: 0,
       money: 0,
-
-      cores: {
-        family: {},
-        attribute: {}
-      }
+      cores: []
     }
 
     setProfile(newProfile)

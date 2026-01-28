@@ -48,7 +48,7 @@ export const WikiTemplate = () => {
                 {stageItem.digimons.map((digimonItem) => (
                   <div key={`wiki-digimons-${digimonItem.id}`}>
                     <Portrait
-                      src={`./digimons/${digimonItem.id}.jpg`}
+                      src={`/digimons/${digimonItem.id}.jpg`}
                       alt={digimonItem.name}
                     />
 

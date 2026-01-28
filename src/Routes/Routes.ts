@@ -14,6 +14,11 @@ export const ROUTES = {
     path: '/compose'
   },
 
+  COMPOSE_DIGIMON: {
+    id: 'composeDigimon',
+    path: '/compose/:id'
+  },
+
   BATTLE: {
     id: 'battle',
     path: '/battle'

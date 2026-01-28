@@ -6,8 +6,7 @@ import {
   type NpcType
 } from '@/Types/Npc.type'
 import { MapTypes } from '@/Types/Map.type'
-import { DigimonAttributes } from '@/Types/DigimonAttributes.type'
-import { DigimonFamilies } from '@/Types/DigimonFamilies.type'
+import { DigimonAttributes, DigimonFamilies } from '@/Types/Cores.type'
 
 import { ALL_QUESTS } from '@/GameData/Quests'
 import { ALL_REGIONS } from '@/GameData/Regions'
@@ -233,11 +232,11 @@ export const NpcDialog = () => {
                       {currentInteraction.questDetails?.rewards?.cores && (
                         <>
                           {currentInteraction.questDetails?.rewards?.cores
-                            ?.attribute && (
+                            ?.attributes && (
                             <>
                               {Object.keys(
                                 currentInteraction.questDetails?.rewards?.cores
-                                  ?.attribute
+                                  ?.attributes
                               ).map((attributeItem) => (
                                 <section
                                   key={`quest-${currentInteraction.id}-reward-attribute-cores-${attributeItem}`}
@@ -254,7 +253,7 @@ export const NpcDialog = () => {
                                     <>
                                       {
                                         currentInteraction.questDetails?.rewards
-                                          ?.cores?.attribute?.[attributeItem]
+                                          ?.cores?.attributes?.[attributeItem]
                                       }
                                     </>
                                   </Typography>
@@ -264,11 +263,11 @@ export const NpcDialog = () => {
                           )}
 
                           {currentInteraction.questDetails?.rewards?.cores
-                            ?.family && (
+                            ?.families && (
                             <>
                               {Object.keys(
                                 currentInteraction.questDetails?.rewards?.cores
-                                  ?.family
+                                  ?.families
                               ).map((familyItem) => (
                                 <section
                                   key={`quest-${currentInteraction.id}-reward-family-cores-${familyItem}`}
@@ -283,7 +282,7 @@ export const NpcDialog = () => {
                                     <>
                                       {
                                         currentInteraction.questDetails?.rewards
-                                          ?.cores?.family?.[familyItem]
+                                          ?.cores?.families?.[familyItem]
                                       }
                                     </>
                                   </Typography>
@@ -386,7 +385,7 @@ export const NpcDialog = () => {
             </header>
 
             <Portrait
-              src={`./npcs/${npcInfo?.id}.jpg`}
+              src={`/npcs/${npcInfo?.id}.jpg`}
               alt={`NPC ${npcInfo?.name}`}
             />
           </aside>

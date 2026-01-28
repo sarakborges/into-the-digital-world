@@ -79,3 +79,7 @@ export const ALL_DIGIMONS = {
   WANYAMON,
   YARMON
 }
+
+export const COMPOSABLE_DIGIMONS = {
+  KOROMON
+}

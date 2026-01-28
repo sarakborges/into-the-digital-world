@@ -1,4 +1,4 @@
-import { DigimonFamilies } from '@/Types/DigimonFamilies.type'
+import { DigimonFamilies } from '@/Types/Cores.type'
 import { MapTypes, type MapType } from '@/Types/Map.type'
 
 export const BINARY_FOREST: MapType = {
@@ -20,8 +20,8 @@ export const BINARY_FOREST: MapType = {
       lootTable: [
         {
           type: 'core',
-          coreType: 'family',
-          coreName: DigimonFamilies.dragonsRoar.id,
+          coreType: 'families',
+          coreId: DigimonFamilies.dragonsRoar.id,
           quantity: {
             min: 0,
             max: 3
@@ -30,8 +30,8 @@ export const BINARY_FOREST: MapType = {
 
         {
           type: 'core',
-          coreType: 'family',
-          coreName: DigimonFamilies.virusBusters.id,
+          coreType: 'families',
+          coreId: DigimonFamilies.virusBusters.id,
           quantity: {
             min: 0,
             max: 3
@@ -47,8 +47,8 @@ export const BINARY_FOREST: MapType = {
       lootTable: [
         {
           type: 'core',
-          coreType: 'family',
-          coreName: DigimonFamilies.natureSpirits.id,
+          coreType: 'families',
+          coreId: DigimonFamilies.natureSpirits.id,
           quantity: {
             min: 0,
             max: 3
@@ -64,8 +64,8 @@ export const BINARY_FOREST: MapType = {
       lootTable: [
         {
           type: 'core',
-          coreType: 'family',
-          coreName: DigimonFamilies.metalEmpire.id,
+          coreType: 'families',
+          coreId: DigimonFamilies.metalEmpire.id,
           quantity: {
             min: 0,
             max: 3
@@ -81,8 +81,8 @@ export const BINARY_FOREST: MapType = {
       lootTable: [
         {
           type: 'core',
-          coreType: 'family',
-          coreName: DigimonFamilies.natureSpirits.id,
+          coreType: 'families',
+          coreId: DigimonFamilies.natureSpirits.id,
           quantity: {
             min: 0,
             max: 3
@@ -91,8 +91,8 @@ export const BINARY_FOREST: MapType = {
 
         {
           type: 'core',
-          coreType: 'family',
-          coreName: DigimonFamilies.virusBusters.id,
+          coreType: 'families',
+          coreId: DigimonFamilies.virusBusters.id,
           quantity: {
             min: 0,
             max: 3
@@ -108,8 +108,8 @@ export const BINARY_FOREST: MapType = {
       lootTable: [
         {
           type: 'core',
-          coreType: 'family',
-          coreName: DigimonFamilies.windGuardians.id,
+          coreType: 'families',
+          coreId: DigimonFamilies.windGuardians.id,
           quantity: {
             min: 0,
             max: 3
@@ -118,8 +118,8 @@ export const BINARY_FOREST: MapType = {
 
         {
           type: 'core',
-          coreType: 'family',
-          coreName: DigimonFamilies.virusBusters.id,
+          coreType: 'families',
+          coreId: DigimonFamilies.virusBusters.id,
           quantity: {
             min: 0,
             max: 3
@@ -135,8 +135,8 @@ export const BINARY_FOREST: MapType = {
       lootTable: [
         {
           type: 'core',
-          coreType: 'family',
-          coreName: DigimonFamilies.jungleTroopers.id,
+          coreType: 'families',
+          coreId: DigimonFamilies.jungleTroopers.id,
           quantity: {
             min: 0,
             max: 3
@@ -152,8 +152,8 @@ export const BINARY_FOREST: MapType = {
       lootTable: [
         {
           type: 'core',
-          coreType: 'family',
-          coreName: DigimonFamilies.deepSavers.id,
+          coreType: 'families',
+          coreId: DigimonFamilies.deepSavers.id,
           quantity: {
             min: 0,
             max: 3
@@ -169,8 +169,8 @@ export const BINARY_FOREST: MapType = {
       lootTable: [
         {
           type: 'core',
-          coreType: 'family',
-          coreName: DigimonFamilies.windGuardians.id,
+          coreType: 'families',
+          coreId: DigimonFamilies.windGuardians.id,
           quantity: {
             min: 0,
             max: 3
@@ -179,8 +179,8 @@ export const BINARY_FOREST: MapType = {
 
         {
           type: 'core',
-          coreType: 'family',
-          coreName: DigimonFamilies.jungleTroopers.id,
+          coreType: 'families',
+          coreId: DigimonFamilies.jungleTroopers.id,
           quantity: {
             min: 0,
             max: 3

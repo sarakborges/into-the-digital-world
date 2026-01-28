@@ -27,6 +27,13 @@
         flex-flow: column;
         place-items: center;
         gap: var(--size-md);
+
+        > a {
+          display: flex;
+          flex-flow: column;
+          place-items: center;
+          gap: var(--size-sm);
+        }
       }
     }
   }

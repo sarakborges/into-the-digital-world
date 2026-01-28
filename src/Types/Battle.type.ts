@@ -6,8 +6,14 @@ export type CombatLogType = Array<{
   party: 'enemy' | 'player'
 }>
 
+export type CoreLootType = {
+  coreId: string
+  coreType: string
+  quantity: number
+}
+
 export type LootType = {
-  cores: CoresType
+  cores: Array<CoreLootType>
   currency: number
   exp: number
 }

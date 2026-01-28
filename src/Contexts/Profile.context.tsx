@@ -21,8 +21,8 @@ export const ProfileProvider = ({ children }: { children: ReactNode }) => {
 
   const [profile, setProfile] = useState<ProfileType>({
     cores: {
-      attribute: {},
-      family: {}
+      attributes: {},
+      families: {}
     }
   })
 

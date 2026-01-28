@@ -1,7 +1,6 @@
 import { useContext } from 'react'
 
-import { DigimonFamilies } from '@/Types/DigimonFamilies.type'
-import { DigimonAttributes } from '@/Types/DigimonAttributes.type'
+import { DigimonAttributes, DigimonFamilies } from '@/Types/Cores.type'
 
 import { getTexts } from '@/Texts'
 
@@ -23,51 +22,57 @@ export const CoresCollected = () => {
   const cores = [
     {
       title: getTexts('CORES_COLLECTED_FAMILY_TITLE'),
-      type: 'families',
       values: Object.values(DigimonFamilies)
-        .map((familyItem) => ({
-          ...familyItem,
-          name: familyItem.name.split(' ').join('\n'),
-          picture: familyItem.abbreviation
-        }))
+        .map((familyItem) => {
+          const profileCore = profile.cores.find(
+            (coreItem) => coreItem.coreId === familyItem.id
+          )
+
+          return {
+            ...familyItem,
+            name: familyItem.name.split(' ').join('\n'),
+            quantity: profileCore?.quantity
+          }
+        })
         .sort((a, b) => (a.name > b.name ? 1 : -1))
     },
 
     {
       title: getTexts('CORES_COLLECTED_ATTRIBUTE_TITLE'),
-      type: 'attributes',
       values: Object.values(DigimonAttributes)
-        .map((attributeItem) => ({
-          ...attributeItem,
-          name: attributeItem.value,
-          picture: attributeItem.id
-        }))
+        .map((attributeItem) => {
+          const profileCore = profile.cores.find(
+            (coreItem) => coreItem.coreId === attributeItem.id
+          )
+
+          return {
+            ...attributeItem,
+            quantity: profileCore?.quantity
+          }
+        })
         .sort((a, b) => (a.name > b.name ? 1 : -1))
     }
   ]
 
   return (
     <>
-      {cores.map((coreItem) => (
-        <section key={`tamer-cores-${coreItem.title}`} className="tamer-cores">
-          <Typography as="h2">{coreItem.title}</Typography>
+      {cores.map((coreType) => (
+        <section key={`tamer-cores-${coreType.title}`} className="tamer-cores">
+          <Typography as="h2">{coreType.title}</Typography>
 
           <main>
-            {coreItem.values.map((coreValueItem) => (
+            {coreType.values.map((coreItem) => (
               <div
-                key={`tamer-cores-${coreItem.type}-item-${coreValueItem.id}`}
+                key={`tamer-cores-${coreItem.type}-item-${coreItem.id}`}
                 className="tamer-cores-item"
               >
                 <img
-                  src={`./${coreItem.type}/${coreValueItem!.picture}.png`}
-                  alt={`Digimon ${coreItem.type}: ${coreValueItem!.name}`}
+                  src={`/cores/${coreItem!.icon}.png`}
+                  alt={`Digimon ${coreItem.type}: ${coreItem!.name}`}
                 />
 
-                <Typography>{coreValueItem.name}</Typography>
-
-                <Typography as="span">
-                  {profile.cores?.[coreItem.type]?.[coreValueItem.id] || 0}
-                </Typography>
+                <Typography>{coreItem.name}</Typography>
+                <Typography as="span">{coreItem.quantity || 0}</Typography>
               </div>
             ))}
           </main>

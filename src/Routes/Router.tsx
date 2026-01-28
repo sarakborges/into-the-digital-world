@@ -1,15 +1,16 @@
 import { createBrowserRouter } from 'react-router'
 
-import { ROUTES } from './Routes'
+import { ROUTES } from '@/Routes/Routes'
 
-import { HomeRoute } from './Home.route'
-import { MapsRoute } from './Maps.route'
-import { BattleRoute } from './Battle.route'
-import { StarterSelectionRoute } from './StarterSelection.route'
-import { CreateProfileRoute } from './CreateProfile.route'
-import { SettingsRoute } from './Settings.route'
-import { WikiRoute } from './Wiki.route'
-import { ComposeRoute } from './Compose.route'
+import { HomeRoute } from '@/Routes/Home.route'
+import { MapsRoute } from '@/Routes/Maps.route'
+import { BattleRoute } from '@/Routes/Battle.route'
+import { StarterSelectionRoute } from '@/Routes/StarterSelection.route'
+import { CreateProfileRoute } from '@/Routes/CreateProfile.route'
+import { SettingsRoute } from '@/Routes/Settings.route'
+import { WikiRoute } from '@/Routes/Wiki.route'
+import { ComposeRoute } from '@/Routes/Compose.route'
+import { ComposeDigimonRoute } from '@/Routes/ComposeDigimon.route'
 
 const routeComponents = {
   home: HomeRoute,
@@ -19,7 +20,8 @@ const routeComponents = {
   createProfile: CreateProfileRoute,
   settings: SettingsRoute,
   wiki: WikiRoute,
-  compose: ComposeRoute
+  compose: ComposeRoute,
+  composeDigimon: ComposeDigimonRoute
 }
 
 export const ROUTER = createBrowserRouter([

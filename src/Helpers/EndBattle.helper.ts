@@ -40,19 +40,25 @@ export const endBattleHelper = ({
       .filter((item) => item.party === 'player')
       .map((item) => Number(item.id))
 
-    const coreTypes = ['attribute', 'family']
+    for (let coreItem of loot.cores) {
+      const profileCoreIndex = newProfile.cores.findIndex(
+        (profileCoreItem) => profileCoreItem.coreId === coreItem.coreId
+      )
 
-    for (let coreType of coreTypes) {
-      if (!loot.cores[coreType]) {
-        continue
+      const newCoresQuantity =
+        Number(newProfile.cores?.[profileCoreIndex]?.quantity || 0) +
+        (Number(coreItem.quantity) || 0)
+
+      if (!newProfile.cores[profileCoreIndex]) {
+        newProfile.cores.push({
+          coreId: coreItem.coreId,
+          quantity: newCoresQuantity,
+          coreType: coreItem.coreType
+        })
       }
 
-      for (let coreItem of Object.keys(loot.cores[coreType])) {
-        const newCoresQuantity =
-          (Number(newProfile.cores?.[coreType]?.[coreItem]) || 0) +
-          (Number(loot.cores[coreType][coreItem]) || 0)
-
-        newProfile.cores[coreType][coreItem] = newCoresQuantity
+      if (!!newProfile.cores[profileCoreIndex]) {
+        newProfile.cores[profileCoreIndex].quantity = newCoresQuantity
       }
     }
 

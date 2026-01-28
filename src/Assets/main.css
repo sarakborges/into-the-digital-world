@@ -35,8 +35,8 @@ body {
 .tag.digimon-attribute-unknown {
   background-color: var(--color-attribute-unknown);
 }
-.tag.digimon-attribute-noattribute {
-  background-color: var(--color-attribute-noattribute);
+.tag.digimon-attribute-noAttribute {
+  background-color: var(--color-attribute-noAttribute);
 }
 
 .tag.digimon-family-nsp {

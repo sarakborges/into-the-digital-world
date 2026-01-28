@@ -64,7 +64,7 @@ export const MapDetailsBoss = () => {
                   className="map-details-boss"
                 >
                   <Portrait
-                    src={`./digimons/${
+                    src={`/digimons/${
                       (wildDigimonItem.baseDigimon as DigimonType).id
                     }.jpg`}
                     alt={`Boss digimon: ${

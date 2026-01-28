@@ -15,6 +15,18 @@ export type DigimonType = {
   attribute: string
   families: Array<string>
   stats: DigimonStats
+  composeRecipe?: {
+    items?: Array<{
+      id: string
+      quantity: number
+    }>
+
+    cores?: Array<{
+      id: string
+      type: 'attribute' | 'family'
+      quantity: number
+    }>
+  }
 }
 
 type ExtraStat = {
@@ -54,17 +66,19 @@ export type PartnerDigimonType = {
   extraStats?: ExtraStats
 }
 
+export type LootTableType = {
+  type: 'core' | 'item'
+  coreId: string
+  coreType: string
+  quantity: {
+    min: number
+    max: number
+  }
+}
+
 export type WildDigimonType = {
   id: string
   baseDigimon: string | DigimonType
   extraStats?: ExtraStats
-  lootTable?: Array<{
-    type: 'core' | 'item'
-    coreType: 'family' | 'attribute'
-    coreName: string
-    quantity: {
-      min: number
-      max: number
-    }
-  }>
+  lootTable?: Array<LootTableType>
 }

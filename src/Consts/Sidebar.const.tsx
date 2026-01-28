@@ -16,19 +16,19 @@ export const SIDEBAR_MENU = [
     ...ROUTES.MAPS,
     text: `Explore`,
     icon: <MdOutlineExplore />
+  },
+
+  {
+    ...ROUTES.COMPOSE,
+    text: `Compose`,
+    icon: <FaReact />
+  },
+
+  {
+    ...ROUTES.WIKI,
+    text: `Digi Wiki`,
+    icon: <MdMenuBook />
   }
-
-  // {
-  //   ...ROUTES.COMPOSE,
-  //   text: `Compose`,
-  //   icon: <FaReact />
-  // },
-
-  // {
-  //   ...ROUTES.WIKI,
-  //   text: `Digi Wiki`,
-  //   icon: <MdMenuBook />
-  // }
 ]
 
 export const SIDEBAR_BOTTOM_MENU = [

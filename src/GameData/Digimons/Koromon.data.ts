@@ -1,13 +1,12 @@
 import type { DigimonType } from '@/Types/Digimon.type'
-import { DigimonAttributes } from '@/Types/DigimonAttributes.type'
-import { DigimonFamilies } from '@/Types/DigimonFamilies.type'
+import { DigimonAttributes, DigimonFamilies } from '@/Types/Cores.type'
 import { DigimonStages } from '@/Types/DigimonStages.type'
 
 export const KOROMON: DigimonType = {
   id: `KOROMON`,
   name: `Koromon`,
   stage: DigimonStages.inTraining.id,
-  attribute: DigimonAttributes.noattribute.id,
+  attribute: DigimonAttributes.noAttribute.id,
   families: [DigimonFamilies.dragonsRoar.id, DigimonFamilies.virusBusters.id],
 
   stats: {
@@ -18,5 +17,33 @@ export const KOROMON: DigimonType = {
     int: 6,
     res: 6,
     spd: 20
+  },
+
+  composeRecipe: {
+    cores: [
+      {
+        id: DigimonAttributes.vaccine.id,
+        type: 'attribute',
+        quantity: 1
+      },
+
+      {
+        id: DigimonFamilies.dragonsRoar.id,
+        type: 'family',
+        quantity: 1
+      },
+
+      {
+        id: DigimonFamilies.natureSpirits.id,
+        type: 'family',
+        quantity: 1
+      },
+
+      {
+        id: DigimonFamilies.virusBusters.id,
+        type: 'family',
+        quantity: 1
+      }
+    ]
   }
 }

@@ -1,5 +1,11 @@
-import type { BattleType, CombatLogType, LootType } from '@/Types/Battle.type'
+import type {
+  BattleType,
+  CombatLogType,
+  CoreLootType,
+  LootType
+} from '@/Types/Battle.type'
 import type { PartyDigimon, WildDigimonType } from '@/Types/Digimon.type'
+import { AllCores } from '@/Types/Cores.type'
 
 import { getDigimonName, randomNumber, progressQuests } from '@/Helpers'
 
@@ -94,33 +100,45 @@ const getLoot = ({
   }
 
   const expGained = digimons.reduce((acc, item) => acc + item.level, 0)
-  const loot = {
-    cores: {
-      family: {},
-      attribute: {}
-    },
+  const loot: {
+    cores: Array<CoreLootType>
+    currency: number
+    exp: number
+  } = {
+    cores: [],
     currency: 0,
     exp: expGained
   }
 
-  for (let digimonItem in digimons) {
-    const enemy = digimons[digimonItem] as WildDigimonType
-    const lootTable = enemy.lootTable
+  for (let digimonItem of digimons) {
+    const { lootTable } = digimonItem as WildDigimonType
 
-    for (let lootItem in lootTable) {
-      const enemyLoot = enemy.lootTable?.[lootItem]
+    if (!lootTable) {
+      continue
+    }
 
-      if (enemyLoot.type === 'core') {
+    for (let lootItem of lootTable) {
+      if (lootItem.type === 'core') {
+        const coreIndex = loot.cores?.findIndex(
+          (coreItem) => coreItem.coreId === lootItem.coreId
+        )
+
+        let currentCoreQuantity = 0
         const enemyLootQuantity = randomNumber({
-          ...enemyLoot.quantity
+          ...lootItem.quantity
         })
 
-        const newCoresQuantity =
-          (loot.cores?.[enemyLoot.coreType]?.[enemyLoot.coreName] || 0) +
-          enemyLootQuantity
+        if (loot.cores[lootItem.coreId]) {
+          currentCoreQuantity =
+            loot.cores[coreIndex].quantity + enemyLootQuantity
+        }
 
-        if (loot.cores && loot.cores[enemyLoot.coreType]) {
-          loot.cores[enemyLoot.coreType][enemyLoot.coreName] = newCoresQuantity
+        if (!loot.cores[lootItem.coreId]) {
+          loot.cores.push({
+            coreId: lootItem.coreId,
+            quantity: enemyLootQuantity,
+            coreType: lootItem.coreType
+          })
         }
       }
     }

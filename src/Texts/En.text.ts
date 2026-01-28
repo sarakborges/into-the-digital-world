@@ -57,6 +57,9 @@ export const BATTLE_LOG_EMPTY = `Log is empty.`
 export const COMPOSE_TITLE = `Compose Digimon`
 export const COMPOSE_SUBTITLE = `Select which digimon you want to compose`
 
+export const COMPOSE_DIGIMON_TITLE = `Composing :name`
+export const COMPOSE_DIGIMON_SUBTITLE = `To compose :name, you need to have all required cores`
+
 export const WIKI_TITLE = `Digi Wiki`
 export const WIKI_STAGE_TITLE = `:stage digimons`
 

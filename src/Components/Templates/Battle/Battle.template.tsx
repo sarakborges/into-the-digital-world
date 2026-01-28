@@ -2,6 +2,8 @@ import { Fragment, useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { FaTimes } from 'react-icons/fa'
 
+import { DigimonAttributes, DigimonFamilies } from '@/Types/Cores.type'
+
 import { attackHelper, getDigimonName, endBattleHelper } from '@/Helpers'
 
 import { getTexts } from '@/Texts'
@@ -18,8 +20,6 @@ import { TurnOrder } from '@/Components/App/TurnOrder'
 import { BattleParty } from '@/Components/App/BattleParty'
 
 import './Battle.style.scss'
-import { DigimonFamilies } from '@/Types/DigimonFamilies.type'
-import { DigimonAttributes } from '@/Types/DigimonAttributes.type'
 
 export const BattleTemplate = () => {
   const navigate = useNavigate()
@@ -173,32 +173,19 @@ export const BattleTemplate = () => {
 
                 {!!loot?.cores && (
                   <>
-                    {Object.keys(loot.cores)?.map((coreType) => (
-                      <Fragment key={`combat-log-entry-loot-${coreType}`}>
-                        {Object.keys(loot.cores[coreType])?.map((coreItem) => (
-                          <Fragment
-                            key={`combat-log-entry-loot-${coreType}-${coreItem}`}
-                          >
-                            {loot.cores[coreType][coreItem] > 0 && (
-                              <div className="loot">
-                                <Typography>
-                                  <>You got </>
-                                  <>{loot.cores[coreType][coreItem]} </>
-
-                                  {coreType === 'family' && (
-                                    <>{DigimonFamilies[coreItem].name}</>
-                                  )}
-
-                                  {coreType === 'attribute' && (
-                                    <>{DigimonAttributes[coreItem].name}</>
-                                  )}
-
-                                  <> cores.</>
-                                </Typography>
-                              </div>
-                            )}
-                          </Fragment>
-                        ))}
+                    {loot.cores?.map((coreItem) => (
+                      <Fragment
+                        key={`combat-log-entry-loot-${coreItem.coreType}-${coreItem.coreId}`}
+                      >
+                        <div className="loot">
+                          <Typography>
+                            <>You got </>
+                            <>{coreItem.quantity || 0} </>
+                            <>{DigimonFamilies[coreItem.coreId].name}</>
+                            <> {coreItem.coreType}</>
+                            <> cores.</>
+                          </Typography>
+                        </div>
                       </Fragment>
                     ))}
                   </>

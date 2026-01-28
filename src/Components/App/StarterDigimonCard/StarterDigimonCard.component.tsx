@@ -3,9 +3,8 @@ import { Portrait } from '@/Components/System/Portrait'
 import { getTexts } from '@/Texts'
 
 import { type DigimonType } from '@/Types/Digimon.type'
-import { DigimonFamilies } from '@/Types/DigimonFamilies.type'
 import { DigimonStages } from '@/Types/DigimonStages.type'
-import { DigimonAttributes } from '@/Types/DigimonAttributes.type'
+import { DigimonAttributes, DigimonFamilies } from '@/Types/Cores.type'
 
 import { DIGIMON_STATS } from '@/Consts/DigimonStats.const'
 
@@ -18,7 +17,7 @@ export const StarterDigimonCard = ({ digimon }: { digimon: DigimonType }) => {
   return (
     <div className="starter-digimon-card">
       <Portrait
-        src={`./digimons/${digimon.id}.jpg`}
+        src={`/digimons/${digimon.id}.jpg`}
         alt={`Starter digimon: ${digimon.name}`}
       />
 
@@ -32,7 +31,7 @@ export const StarterDigimonCard = ({ digimon }: { digimon: DigimonType }) => {
 
         <section className="digimon-tags">
           <Tag className={`digimon-attribute-${digimon.attribute}`}>
-            {DigimonAttributes[digimon.attribute].value}
+            {DigimonAttributes[digimon.attribute].name}
           </Tag>
 
           {digimon.families.map((familyItem) => (
