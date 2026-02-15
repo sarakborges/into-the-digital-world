@@ -111,8 +111,9 @@
             }
 
             &.loot {
-              align-self: center;
-              text-align: center;
+              display: flex;
+              flex-flow: column;
+              gap: var(--size-xs);
 
               color: var(--color-primary);
             }

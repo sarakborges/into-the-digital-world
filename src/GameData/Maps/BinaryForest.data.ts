@@ -1,6 +1,17 @@
 import { DigimonFamilies } from '@/Types/Cores.type'
 import { MapTypes, type MapType } from '@/Types/Map.type'
 
+import {
+  BUKAMON,
+  KOROMON,
+  MOCHIMON,
+  NYAROMON,
+  PYOCOMON,
+  TANEMON,
+  TOKOMON,
+  TUNOMON
+} from '@/GameData/Digimons'
+
 export const BINARY_FOREST: MapType = {
   id: `BINARY_FOREST`,
   name: `Binary Forest`,
@@ -15,7 +26,7 @@ export const BINARY_FOREST: MapType = {
   wildDigimons: [
     {
       id: `BINARY_FOREST_KOROMON`,
-      baseDigimon: `KOROMON`,
+      baseDigimon: KOROMON.id,
 
       lootTable: [
         {
@@ -42,7 +53,7 @@ export const BINARY_FOREST: MapType = {
 
     {
       id: `BINARY_FOREST_TUNOMON`,
-      baseDigimon: `TUNOMON`,
+      baseDigimon: TUNOMON.id,
 
       lootTable: [
         {
@@ -59,7 +70,7 @@ export const BINARY_FOREST: MapType = {
 
     {
       id: `BINARY_FOREST_MOCHIMON`,
-      baseDigimon: `MOCHIMON`,
+      baseDigimon: MOCHIMON.id,
 
       lootTable: [
         {
@@ -76,7 +87,7 @@ export const BINARY_FOREST: MapType = {
 
     {
       id: `BINARY_FOREST_NYAROMON`,
-      baseDigimon: `NYAROMON`,
+      baseDigimon: NYAROMON.id,
 
       lootTable: [
         {
@@ -103,7 +114,7 @@ export const BINARY_FOREST: MapType = {
 
     {
       id: `BINARY_FOREST_TOKOMON`,
-      baseDigimon: `TOKOMON`,
+      baseDigimon: TOKOMON.id,
 
       lootTable: [
         {
@@ -130,7 +141,7 @@ export const BINARY_FOREST: MapType = {
 
     {
       id: `BINARY_FOREST_TANEMON`,
-      baseDigimon: `TANEMON`,
+      baseDigimon: TANEMON.id,
 
       lootTable: [
         {
@@ -147,7 +158,7 @@ export const BINARY_FOREST: MapType = {
 
     {
       id: `BINARY_FOREST_BUKAMON`,
-      baseDigimon: `BUKAMON`,
+      baseDigimon: BUKAMON.id,
 
       lootTable: [
         {
@@ -164,7 +175,7 @@ export const BINARY_FOREST: MapType = {
 
     {
       id: `BINARY_FOREST_PYOCOMON`,
-      baseDigimon: `PYOCOMON`,
+      baseDigimon: PYOCOMON.id,
 
       lootTable: [
         {

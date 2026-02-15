@@ -24,11 +24,6 @@ export const StarterDigimonCard = ({ digimon }: { digimon: DigimonType }) => {
       <section className="digimon-info">
         <Typography as="h2">{digimon.name}</Typography>
 
-        <Typography as="span">
-          <>{getTexts('DIGIMON_CARD_STAGE')}</>
-          {DigimonStages[digimon.stage].value}
-        </Typography>
-
         <section className="digimon-tags">
           <Tag className={`digimon-attribute-${digimon.attribute}`}>
             {DigimonAttributes[digimon.attribute].name}

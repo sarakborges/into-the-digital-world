@@ -15,7 +15,9 @@ export type DigimonType = {
   attribute: string
   families: Array<string>
   stats: DigimonStats
-  composeRecipe?: {
+  composeRecipe?: Array<{
+    id: string
+
     items?: Array<{
       id: string
       quantity: number
@@ -26,7 +28,7 @@ export type DigimonType = {
       type: 'attribute' | 'family'
       quantity: number
     }>
-  }
+  }>
 }
 
 type ExtraStat = {
@@ -56,7 +58,7 @@ export type PartyDigimon = {
 }
 
 export type PartnerDigimonType = {
-  id: number
+  id: string
   isStarter?: boolean
   name?: string
   level: number

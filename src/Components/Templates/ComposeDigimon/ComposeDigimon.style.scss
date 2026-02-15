@@ -15,26 +15,49 @@
   > main {
     display: flex;
     flex-flow: column;
-    gap: var(--size-lmd);
+    gap: var(--size-md);
 
-    > section {
+    > main {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--size-lmd);
+
       > ul {
         display: flex;
         flex-flow: column;
-        gap: var(--size-sm);
+        gap: var(--size-smd);
+
+        padding: var(--size-smd);
+
+        background-color: var(--digimon-card-background);
+        border-radius: var(--size-md);
 
         > li {
           display: flex;
           place-items: center;
-          gap: var(--size-md);
+          gap: var(--size-smd);
 
-          > img {
-            max-width: var(--size-xl);
+          aside {
+            > img {
+              max-width: var(--size-xl);
+
+              border: 2px solid var(--exp-bar-background);
+            }
           }
 
-          > section {
+          > main {
             flex: 1;
             max-width: var(--home-party-digimon-card-size);
+
+            .resource-bar {
+              .resource-bar-background {
+                background-color: var(--exp-bar-background);
+              }
+            }
+          }
+
+          > button {
+            flex: 1;
           }
         }
       }

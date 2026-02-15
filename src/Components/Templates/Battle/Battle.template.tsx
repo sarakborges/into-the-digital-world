@@ -151,44 +151,38 @@ export const BattleTemplate = () => {
                   </div>
                 )}
 
-                {!!loot?.exp && (
+                {(loot?.currency || loot?.exp || !!loot?.cores?.length) && (
                   <div className="loot">
-                    <Typography>
-                      <>You and your party got </>
-                      <>{loot.exp} </>
-                      <>experience.</>
-                    </Typography>
-                  </div>
-                )}
+                    <Typography>You and your party got:</Typography>
 
-                {!!loot?.currency && (
-                  <div className="loot">
-                    <Typography>
-                      <>You got </>
-                      <>{loot.currency} </>
-                      <>digital coins.</>
-                    </Typography>
-                  </div>
-                )}
+                    {!!loot?.exp && (
+                      <Typography>
+                        <>- {loot.exp}x </>
+                        <>Experience Points</>
+                      </Typography>
+                    )}
 
-                {!!loot?.cores && (
-                  <>
-                    {loot.cores?.map((coreItem) => (
-                      <Fragment
-                        key={`combat-log-entry-loot-${coreItem.coreType}-${coreItem.coreId}`}
-                      >
-                        <div className="loot">
-                          <Typography>
-                            <>You got </>
-                            <>{coreItem.quantity || 0} </>
-                            <>{DigimonFamilies[coreItem.coreId].name}</>
-                            <> {coreItem.coreType}</>
-                            <> cores.</>
+                    {!!loot?.currency && (
+                      <Typography>
+                        <>- {loot.currency}x </>
+                        <>Digital Coins</>
+                      </Typography>
+                    )}
+
+                    {!!loot?.cores?.length && (
+                      <>
+                        {loot.cores?.map((coreItem) => (
+                          <Typography
+                            key={`combat-log-entry-loot-${coreItem.coreType}-${coreItem.coreId}`}
+                          >
+                            <>- {coreItem.quantity || 0}x </>
+                            <>{DigimonFamilies[coreItem.coreId].abbreviation}</>
+                            <> cores</>
                           </Typography>
-                        </div>
-                      </Fragment>
-                    ))}
-                  </>
+                        ))}
+                      </>
+                    )}
+                  </div>
                 )}
 
                 {combatLog.length > 0 && (

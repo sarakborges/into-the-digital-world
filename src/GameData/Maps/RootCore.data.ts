@@ -1,5 +1,7 @@
 import { MapTypes, type MapType } from '@/Types/Map.type'
 
+import { PAGUMON } from '@/GameData/Digimons'
+
 export const ROOT_CORE: MapType = {
   id: `ROOT_CORE`,
   name: `Root Core`,
@@ -10,7 +12,7 @@ export const ROOT_CORE: MapType = {
   wildDigimons: [
     {
       id: `ROOT_CORE_PAGUMON_ELITE`,
-      baseDigimon: `PAGUMON`,
+      baseDigimon: PAGUMON.id,
       extraStats: {
         atk: {
           type: 'fixed',

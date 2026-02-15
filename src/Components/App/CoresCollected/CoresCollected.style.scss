@@ -20,11 +20,6 @@
       background-color: var(--digimon-card-background);
       border-radius: var(--size-md);
 
-      > img {
-        max-width: 40px;
-        border: 2px solid var(--exp-bar-background);
-      }
-
       > p {
         text-align: left;
         line-height: var(--line-height-sm);

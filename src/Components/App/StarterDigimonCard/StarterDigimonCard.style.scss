@@ -17,8 +17,6 @@
     .digimon-tags {
       display: flex;
       gap: var(--size-sm);
-
-      padding: var(--size-sm) 0;
     }
 
     .digimon-stats {
@@ -29,7 +27,7 @@
         display: flex;
         flex-flow: column;
         place-items: center;
-        gap: var(--size-sm);
+        gap: var(--size-xs);
 
         text-transform: uppercase;
 

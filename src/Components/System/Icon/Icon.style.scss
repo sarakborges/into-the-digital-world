@@ -1,0 +1,6 @@
+.icon {
+  > img {
+    max-width: var(--size-lg);
+    border: 2px solid var(--exp-bar-background);
+  }
+}

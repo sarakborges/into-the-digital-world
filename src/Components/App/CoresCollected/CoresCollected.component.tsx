@@ -7,6 +7,7 @@ import { getTexts } from '@/Texts'
 import { ProfileContext } from '@/Contexts/Profile.context'
 
 import { Typography } from '@/Components/System/Typography'
+import { Icon } from '@/Components/System/Icon'
 
 import './CoresCollected.style.scss'
 
@@ -66,7 +67,7 @@ export const CoresCollected = () => {
                 key={`tamer-cores-${coreItem.type}-item-${coreItem.id}`}
                 className="tamer-cores-item"
               >
-                <img
+                <Icon
                   src={`/cores/${coreItem!.icon}.png`}
                   alt={`Digimon ${coreItem.type}: ${coreItem!.name}`}
                 />

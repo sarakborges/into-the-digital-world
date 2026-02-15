@@ -17,5 +17,19 @@ export const TUNOMON: DigimonType = {
     int: 20,
     res: 10,
     spd: 12
-  }
+  },
+
+  composeRecipe: [
+    {
+      id: 'TUNOMON_COMPOSE_FULL',
+
+      cores: [
+        {
+          id: DigimonFamilies.natureSpirits.id,
+          type: 'family',
+          quantity: 5
+        }
+      ]
+    }
+  ]
 }

@@ -81,5 +81,6 @@ export const ALL_DIGIMONS = {
 }
 
 export const COMPOSABLE_DIGIMONS = {
-  KOROMON
+  KOROMON,
+  TUNOMON
 }

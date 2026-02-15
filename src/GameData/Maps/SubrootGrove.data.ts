@@ -1,5 +1,17 @@
 import { MapTypes, type MapType } from '@/Types/Map.type'
 
+import {
+  BUDMON,
+  CHIBIMON,
+  CHOCOMON,
+  GUMMYMON,
+  MINOMON,
+  PAGUMON,
+  POKOMON,
+  POROMON,
+  UPAMON
+} from '@/GameData/Digimons'
+
 export const SUBROOT_GROVE: MapType = {
   id: `SUBROOT_GROVE`,
   name: `Subroot Groove`,
@@ -13,42 +25,42 @@ export const SUBROOT_GROVE: MapType = {
   wildDigimons: [
     {
       id: `SUBROOT_GROVE_BUDMON`,
-      baseDigimon: `BUDMON`
+      baseDigimon: BUDMON.id
     },
 
     {
       id: `SUBROOT_GROVE_POKOMON`,
-      baseDigimon: `POKOMON`
+      baseDigimon: POKOMON.id
     },
 
     {
       id: `SUBROOT_GROVE_POROMON`,
-      baseDigimon: `POROMON`
+      baseDigimon: POROMON.id
     },
 
     {
       id: `SUBROOT_GROVE_UPAMON`,
-      baseDigimon: `UPAMON`
+      baseDigimon: UPAMON.id
     },
 
     {
       id: `SUBROOT_GROVE_PAGUMON`,
-      baseDigimon: `PAGUMON`
+      baseDigimon: PAGUMON.id
     },
 
     {
       id: `SUBROOT_GROVE_GUMMYMON`,
-      baseDigimon: `GUMMYMON`
+      baseDigimon: GUMMYMON.id
     },
 
     {
       id: `SUBROOT_GROVE_CHOCOMON`,
-      baseDigimon: `CHOCOMON`
+      baseDigimon: CHOCOMON.id
     },
 
     {
       id: `SUBROOT_GROVE_MINOMON`,
-      baseDigimon: `MINOMON`
+      baseDigimon: MINOMON.id
     }
   ]
 }

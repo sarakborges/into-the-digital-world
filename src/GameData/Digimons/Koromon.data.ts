@@ -19,31 +19,47 @@ export const KOROMON: DigimonType = {
     spd: 20
   },
 
-  composeRecipe: {
-    cores: [
-      {
-        id: DigimonAttributes.vaccine.id,
-        type: 'attribute',
-        quantity: 1
-      },
+  composeRecipe: [
+    {
+      id: 'KOROMON_COMPOSE_FULL',
 
-      {
-        id: DigimonFamilies.dragonsRoar.id,
-        type: 'family',
-        quantity: 1
-      },
+      cores: [
+        {
+          id: DigimonFamilies.dragonsRoar.id,
+          type: 'family',
+          quantity: 1
+        },
 
-      {
-        id: DigimonFamilies.natureSpirits.id,
-        type: 'family',
-        quantity: 1
-      },
+        {
+          id: DigimonFamilies.virusBusters.id,
+          type: 'family',
+          quantity: 1
+        }
+      ]
+    },
 
-      {
-        id: DigimonFamilies.virusBusters.id,
-        type: 'family',
-        quantity: 1
-      }
-    ]
-  }
+    {
+      id: 'KOROMON_COMPOSE_DR',
+
+      cores: [
+        {
+          id: DigimonFamilies.dragonsRoar.id,
+          type: 'family',
+          quantity: 5
+        }
+      ]
+    },
+
+    {
+      id: 'KOROMON_COMPOSE_VB',
+
+      cores: [
+        {
+          id: DigimonFamilies.virusBusters.id,
+          type: 'family',
+          quantity: 5
+        }
+      ]
+    }
+  ]
 }

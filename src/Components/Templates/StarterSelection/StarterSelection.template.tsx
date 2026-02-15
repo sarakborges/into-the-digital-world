@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useId } from 'react'
 import { useNavigate } from 'react-router'
 
 import { getTexts } from '@/Texts'
@@ -32,6 +32,8 @@ export const StarterSelectionTemplate = () => {
     return
   }
 
+  const newDigimonId = useId()
+
   const submitStarterSelection = () => {
     const starterId = (
       document.querySelector(
@@ -48,7 +50,7 @@ export const StarterSelectionTemplate = () => {
     )?.value
 
     const starterPartner = {
-      id: 1,
+      id: newDigimonId,
       name: name || '',
       baseDigimon: starterId,
       isStarter: true,

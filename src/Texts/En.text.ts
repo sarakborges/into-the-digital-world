@@ -12,7 +12,7 @@ export const SIDEBAR_MENU_TITLE = `Navigation`
 export const SIDEBAR_PLAYER_LEVEL = `Tamer level: `
 export const SIDEBAR_PLAYER_UNSPENT_POINTS = `Unspent points: `
 
-export const NEXT_LEVEL_TEXT = `Experience needed to level up:`
+export const NEXT_LEVEL_TEXT = `Next level:`
 
 export const DIGIMON_CARD_LEVEL = `Level: `
 export const DIGIMON_CARD_STAGE = `Stage: `
@@ -57,8 +57,8 @@ export const BATTLE_LOG_EMPTY = `Log is empty.`
 export const COMPOSE_TITLE = `Compose Digimon`
 export const COMPOSE_SUBTITLE = `Select which digimon you want to compose`
 
-export const COMPOSE_DIGIMON_TITLE = `Composing :name`
-export const COMPOSE_DIGIMON_SUBTITLE = `To compose :name, you need to have all required cores`
+export const COMPOSE_DIGIMON_TITLE = `Composing new Digimon`
+export const COMPOSE_DIGIMON_CORE_TITLE = `To compose :name, choose one of the following combinations:`
 
 export const WIKI_TITLE = `Digi Wiki`
 export const WIKI_STAGE_TITLE = `:stage digimons`
