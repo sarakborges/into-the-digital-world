@@ -12,9 +12,9 @@ import { Button } from '@/Components/System/Button'
 
 import { ExperienceBar } from '@/Components/App/ExperienceBar'
 
-import './PartyDigimonCard.style.scss'
+import './PartnerDigimonCard.style.scss'
 
-export const PartyDigimonCard = ({
+export const PartnerDigimonCard = ({
   digimonItem
 }: {
   digimonItem: PartnerDigimonType

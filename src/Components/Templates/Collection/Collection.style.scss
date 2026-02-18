@@ -5,4 +5,9 @@
 
   width: 100%;
   padding: var(--size-lg);
+
+  > .partners-list {
+    display: flex;
+    gap: var(--size-lmd);
+  }
 }

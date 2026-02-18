@@ -7,7 +7,7 @@ import { ProfileContext } from '@/Contexts/Profile.context'
 import { Typography } from '@/Components/System/Typography'
 
 import { MenuWrapper } from '@/Components/App/MenuWrapper'
-import { PartyDigimonCard } from '@/Components/App/PartyDigimonCard'
+import { PartnerDigimonCard } from '@/Components/App/PartnerDigimonCard'
 import { CoresCollected } from '@/Components/App/CoresCollected'
 
 import './Home.style.scss'
@@ -33,7 +33,7 @@ export const HomeTemplate = () => {
 
           <main className="tamer-party-digimons">
             {party?.map((partyItem) => (
-              <PartyDigimonCard
+              <PartnerDigimonCard
                 key={`partner-list-item-${partyItem?.id}`}
                 digimonItem={partyItem!}
               />

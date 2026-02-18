@@ -12,7 +12,7 @@ export type ProfileType = {
   avatar?: string
 
   partners?: Array<PartnerDigimonType>
-  party?: Array<number>
+  party?: Array<string>
   items?: Array<ItemType>
   completedQuests?: Array<string>
   seenDigimon?: Array<string>
