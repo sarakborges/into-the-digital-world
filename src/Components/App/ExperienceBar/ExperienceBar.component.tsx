@@ -16,11 +16,7 @@ export const ExperienceBar = ({
   return (
     <section className="experience-bar">
       <Typography as="span">{getTexts('NEXT_LEVEL_TEXT')}</Typography>
-      <ResourceBar
-        type="exp"
-        currentValue={currentExp}
-        maxValue={nextLevelExp}
-      />
+      <ResourceBar currentValue={currentExp} maxValue={nextLevelExp} />
     </section>
   )
 }

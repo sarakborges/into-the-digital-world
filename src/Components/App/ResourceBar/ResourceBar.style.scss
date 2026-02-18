@@ -27,7 +27,7 @@
       background-color: var(--resource-bar-sp-background-filled);
     }
 
-    &.exp .bar {
+    &:not(.hp, .sp) .bar {
       background-color: var(--resource-bar-exp-background-filled);
     }
 

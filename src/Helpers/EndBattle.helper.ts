@@ -19,7 +19,7 @@ export const endBattleHelper = ({
   digimons: Array<PartyDigimon>
   loot?: LootType
 }) => {
-  const seenDigimon = updated Set([
+  const seenDigimon = new Set([
     ...(profile.seenDigimon || []),
     ...digimons.map((item) => item.baseDigimon.id)
   ])
@@ -69,7 +69,8 @@ export const endBattleHelper = ({
     if (playerExperience >= playerNextLevelExp) {
       updatedProfile.experience = playerExperience - playerNextLevelExp
       updatedProfile.level = (updatedProfile.level || 1) + 1
-      updatedProfile.points = (updatedProfile.points || 0) + PLAYER_POINTS_PER_LEVEL
+      updatedProfile.points =
+        (updatedProfile.points || 0) + PLAYER_POINTS_PER_LEVEL
     } else {
       updatedProfile.experience = playerExperience
     }

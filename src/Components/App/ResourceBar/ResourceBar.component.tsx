@@ -7,7 +7,7 @@ export const ResourceBar = ({
   maxValue,
   currentValue
 }: {
-  type: 'hp' | 'sp' | 'exp'
+  type?: 'hp' | 'sp'
   maxValue: number
   currentValue: number
 }) => {
@@ -15,7 +15,7 @@ export const ResourceBar = ({
 
   return (
     <section className="resource-bar">
-      <div className={`resource-bar-background ${type}`}>
+      <div className={`resource-bar-background ${type || ''}`}>
         <div
           className="bar"
           style={{

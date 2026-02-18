@@ -25,7 +25,7 @@ export const SettingsProfile = () => {
   const { profile, setProfile } = profileContext
 
   const updateProfile = (form) => {
-    const formData = updated FormData(form)
+    const formData = new FormData(form)
 
     const name = formData.get('name')?.toString()
 

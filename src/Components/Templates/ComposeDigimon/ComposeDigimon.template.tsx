@@ -134,7 +134,6 @@ export const ComposeDigimonTemplate = () => {
                             )?.quantity || 0
                           }
                           maxValue={coreItem.quantity}
-                          type="exp"
                         />
                       </main>
                     </li>

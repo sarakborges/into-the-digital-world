@@ -31,7 +31,7 @@ export const CreateProfileTemplate = () => {
   }
 
   const submitCreateProfile = (form) => {
-    const formData = updated FormData(form)
+    const formData = new FormData(form)
     const name = formData.get('name')
 
     if (!name) {
