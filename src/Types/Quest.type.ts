@@ -20,6 +20,6 @@ export type QuestType = {
     currency?: number
     items?: Array<string>
     cores?: { [k: string]: number }
-    newRegion?: string
+    updatedRegion?: string
   }
 }

@@ -22,7 +22,7 @@ export const CORE_DISTURBANCE: QuestType = {
   rewards: {
     currency: 1,
     exp: 1,
-    newRegion: `ROOT_FORK`,
+    updatedRegion: `ROOT_FORK`,
     cores: {
       [DigimonAttributes.virus.id]: 2,
       [DigimonFamilies.nightmareSoldiers.id]: 2

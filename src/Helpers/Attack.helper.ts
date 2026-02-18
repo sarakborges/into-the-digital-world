@@ -51,32 +51,32 @@ const calcDamage = ({
   target: PartyDigimon
 }) => {
   const damageDealt = Math.max(0, attacker!.stats.atk - target.stats.def)
-  const newHp = Math.max(0, target.currentHp - damageDealt)
+  const updatedHp = Math.max(0, target.currentHp - damageDealt)
 
-  return { newHp, damageDealt }
+  return { updatedHp, damageDealt }
 }
 
 const fixDigimonsHp = ({
   digimons,
   target,
-  newHp
+  updatedHp
 }: {
   digimons: Array<PartyDigimon>
   target: PartyDigimon
-  newHp: number
+  updatedHp: number
 }) => {
   return digimons.map((item) => {
     if (item.id !== target.id) {
       return item
     }
 
-    if (item.currentHp === newHp) {
+    if (item.currentHp === updatedHp) {
       return item
     }
 
     return {
       ...item,
-      currentHp: newHp
+      currentHp: updatedHp
     }
   })
 }
@@ -162,19 +162,19 @@ export const attackHelper = ({ battle }: { battle: BattleType }) => {
     currentDigimon: currentDigimon!
   })
 
-  const { damageDealt, newHp } = calcDamage({
+  const { damageDealt, updatedHp } = calcDamage({
     attacker: currentDigimon!,
     target
   })
 
-  const digimonsWithCorrectHp = fixDigimonsHp({ digimons, target, newHp })
+  const digimonsWithCorrectHp = fixDigimonsHp({ digimons, target, updatedHp })
 
   const aliveDigimonsAfterDamage = filterAliveDigimons({
     digimons: digimonsWithCorrectHp
   })
 
   const { others, lastTurn, nextTurn } = getNewTurnOrder({ turnOrder })
-  const newCurrentDigimon = aliveDigimonsAfterDamage.find(
+  const updatedCurrentDigimon = aliveDigimonsAfterDamage.find(
     (item) => item.id === nextTurn
   )
 
@@ -182,15 +182,15 @@ export const attackHelper = ({ battle }: { battle: BattleType }) => {
     const attackerName = getDigimonName(currentDigimon!)
     const targetName = getDigimonName(target)
 
-    const newEntries: CombatLogType = [
+    const updatedEntries: CombatLogType = [
       {
         party: currentDigimon!.party,
         text: `${attackerName} attacked ${targetName} and dealt ${damageDealt} damage.`
       }
     ]
 
-    if (newHp <= 0) {
-      newEntries.push({
+    if (updatedHp <= 0) {
+      updatedEntries.push({
         party: currentDigimon!.party === 'enemy' ? 'player' : 'enemy',
         text: `${targetName} has been defeated.`
       })
@@ -199,15 +199,15 @@ export const attackHelper = ({ battle }: { battle: BattleType }) => {
 
       if (questsEntries) {
         for (let entry of questsEntries) {
-          newEntries.push(entry)
+          updatedEntries.push(entry)
         }
       }
     }
 
-    return newEntries
+    return updatedEntries
   }
 
-  const newEntries = addNewCombatLogEntries()
+  const updatedEntries = addNewCombatLogEntries()
 
   const winner = (
     aliveDigimonsAfterDamage.some((item) => item.party === 'player')
@@ -223,10 +223,10 @@ export const attackHelper = ({ battle }: { battle: BattleType }) => {
   })
 
   const currentBattle = {
-    currentDigimon: newCurrentDigimon,
+    currentDigimon: updatedCurrentDigimon,
     turnOrder: [...others, nextTurn, lastTurn],
     digimons: digimonsWithCorrectHp,
-    combatLog: [...combatLog, ...newEntries],
+    combatLog: [...combatLog, ...updatedEntries],
     isOver,
     winner: isOver ? winner : undefined,
     loot

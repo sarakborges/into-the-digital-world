@@ -27,13 +27,13 @@ export const SettingsAvatar = () => {
 
     const avatar = formData.get('avatar')?.toString()
 
-    const newProfile = {
+    const updatedProfile = {
       ...profile,
       avatar
     }
 
-    setProfile({ ...newProfile })
-    localStorage.setItem('profile', JSON.stringify({ ...newProfile }))
+    setProfile({ ...updatedProfile })
+    localStorage.setItem('profile', JSON.stringify({ ...updatedProfile }))
 
     alert(getTexts('SETTINGS_AVATAR_SUBMIT_SUCCESS'))
   }

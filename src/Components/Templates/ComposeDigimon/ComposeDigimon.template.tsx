@@ -48,11 +48,11 @@ export const ComposeDigimonTemplate = () => {
   }
 
   const navigate = useNavigate()
-  const newDigimonId = useId()
+  const updatedDigimonId = useId()
 
   const composeDigimon = (recipe) => {
-    const newDigimon: PartnerDigimonType = {
-      id: newDigimonId,
+    const updatedDigimon: PartnerDigimonType = {
+      id: updatedDigimonId,
       baseDigimon: digimon.id,
       level: 1,
       experience: 0,
@@ -61,9 +61,9 @@ export const ComposeDigimonTemplate = () => {
       isStarter: false
     }
 
-    const newProfile = {
+    const updatedProfile = {
       ...profile,
-      partners: [...profile.partners!, { ...newDigimon }],
+      partners: [...profile.partners!, { ...updatedDigimon }],
       cores: profile.cores.map((coreItem) => {
         const recipeCore = recipe.cores.find(
           (recipeCoreItem) => recipeCoreItem.id === coreItem.coreId
@@ -80,8 +80,8 @@ export const ComposeDigimonTemplate = () => {
       })
     }
 
-    setProfile(newProfile)
-    localStorage.setItem('profile', JSON.stringify(newProfile))
+    setProfile(updatedProfile)
+    localStorage.setItem('profile', JSON.stringify(updatedProfile))
 
     navigate(ROUTES.HOME.path)
   }

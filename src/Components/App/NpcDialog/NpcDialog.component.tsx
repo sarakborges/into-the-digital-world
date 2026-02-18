@@ -89,15 +89,15 @@ export const NpcDialog = () => {
       }))
     }
 
-    const newProfile = {
+    const updatedProfile = {
       ...profile,
       activeQuests: profile.activeQuests
         ? [...profile.activeQuests, quest]
         : [quest]
     }
 
-    setProfile(newProfile)
-    localStorage.setItem('profile', JSON.stringify(newProfile))
+    setProfile(updatedProfile)
+    localStorage.setItem('profile', JSON.stringify(updatedProfile))
 
     closeInteraction()
   }
@@ -111,15 +111,15 @@ export const NpcDialog = () => {
       return
     }
 
-    const newProfile = {
+    const updatedProfile = {
       ...profile,
       activeQuests: profile.activeQuests?.filter(
         (questItem) => questItem.questId !== questId
       )
     }
 
-    setProfile(newProfile)
-    localStorage.setItem('profile', JSON.stringify(newProfile))
+    setProfile(updatedProfile)
+    localStorage.setItem('profile', JSON.stringify(updatedProfile))
 
     closeInteraction()
   }
@@ -289,7 +289,8 @@ export const NpcDialog = () => {
                         </>
                       )}
 
-                      {currentInteraction.questDetails?.rewards?.newRegion && (
+                      {currentInteraction.questDetails?.rewards
+                        ?.updatedRegion && (
                         <section>
                           <Typography as="span">
                             <>- New region accessible: </>
@@ -297,7 +298,7 @@ export const NpcDialog = () => {
                               {
                                 ALL_REGIONS[
                                   currentInteraction.questDetails?.rewards
-                                    ?.newRegion
+                                    ?.updatedRegion
                                 ].name
                               }
                             </>

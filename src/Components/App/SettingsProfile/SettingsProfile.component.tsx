@@ -25,7 +25,7 @@ export const SettingsProfile = () => {
   const { profile, setProfile } = profileContext
 
   const updateProfile = (form) => {
-    const formData = new FormData(form)
+    const formData = updated FormData(form)
 
     const name = formData.get('name')?.toString()
 
@@ -34,13 +34,13 @@ export const SettingsProfile = () => {
       return
     }
 
-    const newProfile = {
+    const updatedProfile = {
       ...profile,
       name
     }
 
-    setProfile({ ...newProfile })
-    localStorage.setItem('profile', JSON.stringify({ ...newProfile }))
+    setProfile({ ...updatedProfile })
+    localStorage.setItem('profile', JSON.stringify({ ...updatedProfile }))
 
     alert(getTexts('SETTINGS_PROFILE_SUBMIT_SUCCESS'))
   }

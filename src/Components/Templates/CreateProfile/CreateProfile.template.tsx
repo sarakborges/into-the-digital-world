@@ -31,7 +31,7 @@ export const CreateProfileTemplate = () => {
   }
 
   const submitCreateProfile = (form) => {
-    const formData = new FormData(form)
+    const formData = updated FormData(form)
     const name = formData.get('name')
 
     if (!name) {
@@ -39,7 +39,7 @@ export const CreateProfileTemplate = () => {
       return
     }
 
-    const newProfile: ProfileType = {
+    const updatedProfile: ProfileType = {
       name: name.toString(),
       level: 1,
       experience: 0,
@@ -47,8 +47,8 @@ export const CreateProfileTemplate = () => {
       cores: []
     }
 
-    setProfile(newProfile)
-    localStorage.setItem('profile', JSON.stringify(newProfile))
+    setProfile(updatedProfile)
+    localStorage.setItem('profile', JSON.stringify(updatedProfile))
 
     navigate(ROUTES.STARTER_SELECTION.path)
   }

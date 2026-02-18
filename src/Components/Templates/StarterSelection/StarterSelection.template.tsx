@@ -32,7 +32,7 @@ export const StarterSelectionTemplate = () => {
     return
   }
 
-  const newDigimonId = useId()
+  const updatedDigimonId = useId()
 
   const submitStarterSelection = () => {
     const starterId = (
@@ -50,7 +50,7 @@ export const StarterSelectionTemplate = () => {
     )?.value
 
     const starterPartner = {
-      id: newDigimonId,
+      id: updatedDigimonId,
       name: name || '',
       baseDigimon: starterId,
       isStarter: true,
@@ -58,15 +58,15 @@ export const StarterSelectionTemplate = () => {
       experience: 0
     }
 
-    const newProfile = {
+    const updatedProfile = {
       ...profile,
       partners: [{ ...starterPartner }],
       party: [1],
       seenDigimon: [starterPartner.baseDigimon]
     }
 
-    setProfile(newProfile)
-    localStorage.setItem('profile', JSON.stringify(newProfile))
+    setProfile(updatedProfile)
+    localStorage.setItem('profile', JSON.stringify(updatedProfile))
 
     navigate(ROUTES.HOME.path)
   }

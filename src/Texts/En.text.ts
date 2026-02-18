@@ -57,7 +57,7 @@ export const BATTLE_LOG_EMPTY = `Log is empty.`
 export const COMPOSE_TITLE = `Compose Digimon`
 export const COMPOSE_SUBTITLE = `Select which digimon you want to compose`
 
-export const COMPOSE_DIGIMON_TITLE = `Composing new Digimon`
+export const COMPOSE_DIGIMON_TITLE = `Composing updated Digimon`
 export const COMPOSE_DIGIMON_CORE_TITLE = `To compose :name, choose one of the following combinations:`
 
 export const COLLECTION_TITLE = `Your partners collection`
