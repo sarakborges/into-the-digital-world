@@ -38,7 +38,7 @@ export const endBattleHelper = ({
   if (!!loot) {
     const playerParty = digimons
       .filter((item) => item.party === 'player')
-      .map((item) => Number(item.id))
+      .map((item) => item.id)
 
     for (let coreItem of loot.cores) {
       const profileCoreIndex = updatedProfile.cores.findIndex(
