@@ -11,6 +11,7 @@ import { SettingsRoute } from '@/Routes/Settings.route'
 import { WikiRoute } from '@/Routes/Wiki.route'
 import { ComposeRoute } from '@/Routes/Compose.route'
 import { ComposeDigimonRoute } from '@/Routes/ComposeDigimon.route'
+import { CollectionRoute } from '@/Routes/Collection.route'
 
 const routeComponents = {
   home: HomeRoute,
@@ -21,7 +22,8 @@ const routeComponents = {
   settings: SettingsRoute,
   wiki: WikiRoute,
   compose: ComposeRoute,
-  composeDigimon: ComposeDigimonRoute
+  composeDigimon: ComposeDigimonRoute,
+  collection: CollectionRoute
 }
 
 export const ROUTER = createBrowserRouter([

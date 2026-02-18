@@ -2,6 +2,7 @@ import { RiHome9Fill } from 'react-icons/ri'
 import { MdMenuBook, MdOutlineExplore } from 'react-icons/md'
 import { IoIosSettings } from 'react-icons/io'
 import { FaReact } from 'react-icons/fa'
+import { HiCollection } from 'react-icons/hi'
 
 import { ROUTES } from '@/Routes/Routes'
 
@@ -22,6 +23,12 @@ export const SIDEBAR_MENU = [
     ...ROUTES.COMPOSE,
     text: `Compose`,
     icon: <FaReact />
+  },
+
+  {
+    ...ROUTES.COLLECTION,
+    text: `Collection`,
+    icon: <HiCollection />
   }
 ]
 

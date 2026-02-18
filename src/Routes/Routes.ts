@@ -19,6 +19,11 @@ export const ROUTES = {
     path: '/compose/:id'
   },
 
+  COLLECTION: {
+    id: 'collection',
+    path: '/collection'
+  },
+
   BATTLE: {
     id: 'battle',
     path: '/battle'

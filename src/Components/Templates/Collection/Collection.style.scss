@@ -1,0 +1,8 @@
+.collection-template {
+  display: flex;
+  flex-flow: column;
+  gap: var(--size-lg);
+
+  width: 100%;
+  padding: var(--size-lg);
+}
