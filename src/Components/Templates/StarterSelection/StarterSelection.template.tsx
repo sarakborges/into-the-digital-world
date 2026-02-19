@@ -61,7 +61,7 @@ export const StarterSelectionTemplate = () => {
     const updatedProfile = {
       ...profile,
       partners: [{ ...starterPartner }],
-      party: [1],
+      party: ['1'],
       seenDigimon: [starterPartner.baseDigimon]
     }
 
@@ -88,7 +88,7 @@ export const StarterSelectionTemplate = () => {
         <header>
           <Typography as="h1">
             {getTexts('STARTER_SELECTION_TITLE').replace(
-              ':profile-name',
+              '[PROFILE-NAME]',
               profile.name
             )}
           </Typography>

@@ -68,7 +68,7 @@ export const BattleTemplate = () => {
         {isOver && (
           <Typography as="h1">
             {getTexts(`BATTLE_OVER`).replace(
-              ':decision',
+              '[DECISION]',
               getTexts(winner === 'player' ? 'BATTLE_VICTORY' : 'BATTLE_DEFEAT')
             )}
           </Typography>
@@ -119,7 +119,7 @@ export const BattleTemplate = () => {
                     <Typography as="h2">
                       <>
                         {getTexts('BATTLE_DIGIMON_ACTIONS').replace(
-                          ':digimon',
+                          '[DIGIMON]',
                           getDigimonName(currentDigimon)
                         )}
                       </>

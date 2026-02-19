@@ -1,44 +1,20 @@
-import { useContext } from 'react'
-
 import { getTexts } from '@/Texts'
-
-import { ProfileContext } from '@/Contexts/Profile.context'
 
 import { Typography } from '@/Components/System/Typography'
 
 import { MenuWrapper } from '@/Components/App/MenuWrapper'
-import { PartnerDigimonCard } from '@/Components/App/PartnerDigimonCard'
 import { CoresCollected } from '@/Components/App/CoresCollected'
+import { CurrentParty } from '@/Components/App/CurrentParty'
 
 import './Home.style.scss'
 
 export const HomeTemplate = () => {
-  const profileContext = useContext(ProfileContext)
-
-  if (!profileContext) {
-    return
-  }
-
-  const { profile } = profileContext
-
-  const party = profile.party?.map((partyItem) =>
-    profile.partners?.find((partnerItem) => partnerItem.id === partyItem)
-  )
-
   return (
     <MenuWrapper>
       <main className="home-template">
-        <section className="tamer-party">
+        <section className="player-party">
           <Typography as="h2">{getTexts('PARTY_TITLE')}</Typography>
-
-          <main className="tamer-party-digimons">
-            {party?.map((partyItem) => (
-              <PartnerDigimonCard
-                key={`partner-list-item-${partyItem?.id}`}
-                digimonItem={partyItem!}
-              />
-            ))}
-          </main>
+          <CurrentParty />
         </section>
 
         <CoresCollected />

@@ -6,14 +6,9 @@
   width: 100%;
   padding: var(--size-lg);
 
-  .tamer-party {
+  .player-party {
     display: flex;
     flex-flow: column;
     gap: var(--size-md);
-
-    .tamer-party-digimons {
-      display: flex;
-      gap: var(--size-lmd);
-    }
   }
 }

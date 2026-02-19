@@ -46,3 +46,11 @@
     }
   }
 }
+
+:is(.card, .sidebar) {
+  .resource-bar {
+    .resource-bar-background {
+      background-color: var(--exp-bar-background);
+    }
+  }
+}

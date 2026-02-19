@@ -9,7 +9,9 @@
   background-color: var(--party-item-card-background);
   border-radius: var(--size-md);
 
-  transition: opacity 0.3s, box-shadow 0.3s;
+  transition:
+    opacity 0.3s,
+    box-shadow 0.3s;
 
   &:not(.active) {
     opacity: 0.4;

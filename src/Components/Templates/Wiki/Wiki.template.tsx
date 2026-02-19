@@ -38,7 +38,7 @@ export const WikiTemplate = () => {
               <header>
                 <Typography as="h2">
                   {getTexts('WIKI_STAGE_TITLE').replace(
-                    ':stage',
+                    '[STAGE]',
                     stageItem.value
                   )}
                 </Typography>

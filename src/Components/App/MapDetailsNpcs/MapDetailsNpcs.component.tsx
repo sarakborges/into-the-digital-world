@@ -45,7 +45,7 @@ export const MapDetailsNpcs = () => {
                 ))}
 
                 {getTexts('MAPS_DETAILS_NPCS_CTA').replace(
-                  ':npc-name',
+                  '[NPC-NAME]',
                   npcItem.name
                 )}
               </Button>

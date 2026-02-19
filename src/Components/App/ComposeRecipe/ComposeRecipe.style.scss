@@ -1,0 +1,25 @@
+.composition-recipe {
+  display: flex;
+  flex-flow: column;
+  gap: var(--size-smd);
+
+  padding: var(--size-smd);
+
+  background-color: var(--digimon-card-background);
+  border-radius: var(--size-md);
+
+  > li {
+    display: flex;
+    place-items: center;
+    gap: var(--size-smd);
+
+    > .composition-recipe-core {
+      flex: 1;
+      max-width: var(--home-party-digimon-card-size);
+    }
+
+    > button {
+      flex: 1;
+    }
+  }
+}

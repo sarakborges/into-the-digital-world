@@ -1,3 +1,5 @@
+import type { CompositionRecipeType } from '@/Types/Composition.type'
+
 type DigimonStats = {
   hp: number
   sp: number
@@ -15,20 +17,7 @@ export type DigimonType = {
   attribute: string
   families: Array<string>
   stats: DigimonStats
-  composeRecipe?: Array<{
-    id: string
-
-    items?: Array<{
-      id: string
-      quantity: number
-    }>
-
-    cores?: Array<{
-      id: string
-      type: 'attribute' | 'family'
-      quantity: number
-    }>
-  }>
+  composeRecipe?: Array<CompositionRecipeType>
 }
 
 type ExtraStat = {

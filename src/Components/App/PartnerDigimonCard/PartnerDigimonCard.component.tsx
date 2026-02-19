@@ -23,7 +23,7 @@ export const PartnerDigimonCard = ({
 
   return (
     <div
-      className="partner-digimon-card"
+      className="partner-digimon-card card"
       key={`partner-list-item-${digimonItem.id}`}
     >
       <main className="digimon-info">

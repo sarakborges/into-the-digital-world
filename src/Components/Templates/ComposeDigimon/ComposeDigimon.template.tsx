@@ -1,39 +1,40 @@
-import { Fragment, useContext, useId } from 'react'
-import { useNavigate, useParams } from 'react-router'
+import { useContext, useEffect } from 'react'
+import { useParams } from 'react-router'
 
 import { getTexts } from '@/Texts'
 
 import { ProfileContext } from '@/Contexts/Profile.context'
-
-import { AllCores } from '@/Types/Cores.type'
+import { CompositionContext } from '@/Contexts/Composition.context'
 
 import { COMPOSABLE_DIGIMONS } from '@/GameData/Digimons'
 
 import { Typography } from '@/Components/System/Typography'
-import { Button } from '@/Components/System/Button'
-import { Icon } from '@/Components/System/Icon'
 
 import { MenuWrapper } from '@/Components/App/MenuWrapper'
-import { ResourceBar } from '@/Components/App/ResourceBar'
+import { StarterDigimonCard } from '@/Components/App/StarterDigimonCard'
+import { ComposeRecipe } from '@/Components/App/ComposeRecipe'
 
 import './ComposeDigimon.style.scss'
-import { StarterDigimonCard } from '@/Components/App/StarterDigimonCard'
-import type { PartnerDigimonType } from '@/Types/Digimon.type'
-import { ROUTES } from '@/Routes/Routes'
 
 export const ComposeDigimonTemplate = () => {
   const profileContext = useContext(ProfileContext)
+  const compositionContext = useContext(CompositionContext)
   const { id } = useParams()
 
-  if (!profileContext || !id) {
+  if (!profileContext || !compositionContext || !id) {
     return
   }
 
   const upperId = id.toLocaleUpperCase()
 
-  const { profile, setProfile } = profileContext
+  const { profile } = profileContext
+  const { setBaseDigimon } = compositionContext
 
   const digimon = COMPOSABLE_DIGIMONS[upperId]
+
+  useEffect(() => {
+    setBaseDigimon(COMPOSABLE_DIGIMONS[upperId])
+  }, [id])
 
   if (!digimon) {
     return <></>
@@ -45,45 +46,6 @@ export const ComposeDigimonTemplate = () => {
 
   if (!hasDigimonBeenSeen) {
     return <></>
-  }
-
-  const navigate = useNavigate()
-  const updatedDigimonId = useId()
-
-  const composeDigimon = (recipe) => {
-    const updatedDigimon: PartnerDigimonType = {
-      id: updatedDigimonId,
-      baseDigimon: digimon.id,
-      level: 1,
-      experience: 0,
-      points: 0,
-      name: '',
-      isStarter: false
-    }
-
-    const updatedProfile = {
-      ...profile,
-      partners: [...profile.partners!, { ...updatedDigimon }],
-      cores: profile.cores.map((coreItem) => {
-        const recipeCore = recipe.cores.find(
-          (recipeCoreItem) => recipeCoreItem.id === coreItem.coreId
-        )
-
-        if (!recipeCore) {
-          return coreItem
-        }
-
-        return {
-          ...coreItem,
-          quantity: coreItem.quantity - recipeCore.quantity
-        }
-      })
-    }
-
-    setProfile(updatedProfile)
-    localStorage.setItem('profile', JSON.stringify(updatedProfile))
-
-    navigate(ROUTES.HOME.path)
   }
 
   return (
@@ -99,64 +61,18 @@ export const ComposeDigimonTemplate = () => {
           <header>
             <Typography as="h2">
               {getTexts('COMPOSE_DIGIMON_CORE_TITLE').replace(
-                ':name',
+                '[NAME]',
                 digimonName
               )}
             </Typography>
           </header>
 
-          <main>
-            {digimon.composeRecipe.map((composeItem) => (
-              <Fragment key={`${digimonName}-compose-${composeItem.id}`}>
-                <ul>
-                  {composeItem.cores?.map((coreItem) => (
-                    <li
-                      key={`${digimonName}-compose-${composeItem.id}-core-${coreItem.id}`}
-                    >
-                      <aside>
-                        <Icon
-                          src={`/cores/${AllCores[coreItem.id].icon}.png`}
-                          alt={`Composing ${digimonName}`}
-                        />
-                      </aside>
-
-                      <main>
-                        <Typography>
-                          <>{AllCores[coreItem.id].name}</>
-                          <> core:</>
-                        </Typography>
-
-                        <ResourceBar
-                          currentValue={
-                            profile.cores.find(
-                              (profileCoreItem) =>
-                                profileCoreItem.coreId === coreItem.id
-                            )?.quantity || 0
-                          }
-                          maxValue={coreItem.quantity}
-                        />
-                      </main>
-                    </li>
-                  ))}
-
-                  <li>
-                    <Button
-                      onClick={() => composeDigimon(composeItem)}
-                      disabled={
-                        !composeItem.cores.every(
-                          (coreItem) =>
-                            (profile.cores.find(
-                              (profileCoreItem) =>
-                                profileCoreItem.coreId === coreItem.id
-                            )?.quantity || 0) >= coreItem.quantity
-                        )
-                      }
-                    >
-                      <>Compose</>
-                    </Button>
-                  </li>
-                </ul>
-              </Fragment>
+          <main className="compose-digimon-recipes">
+            {digimon.composeRecipe.map((recipeItem) => (
+              <ComposeRecipe
+                key={`${digimonName}-compose-${recipeItem.id}`}
+                recipe={recipeItem}
+              />
             ))}
           </main>
         </main>

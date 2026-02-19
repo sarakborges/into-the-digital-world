@@ -11,10 +11,10 @@ export const CORE_DISTURBANCE: QuestType = {
 
   objectives: [
     {
-      id: 'ROOT_CORE_PAGUMON_ELITE_KILL',
+      id: 'ROOT_CORE_TSUMEMON_ELITE_KILL',
       type: 'SPECIFIC_ENEMY',
       text: `Elite Pagumon defeated at Root Core`,
-      enemyId: 'ROOT_CORE_PAGUMON_ELITE',
+      enemyId: 'ROOT_CORE_TSUMEMON_ELITE',
       quantity: 1
     }
   ],

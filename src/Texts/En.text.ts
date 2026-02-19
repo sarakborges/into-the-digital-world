@@ -4,7 +4,7 @@ export const CREATE_PROFILE_NAME = `Your name`
 export const CREATE_PROFILE_CONFIRM = `Identify yourself`
 export const CREATE_PROFILE_NO_NAME = `I must insist you inform your name before we continue.`
 
-export const STARTER_SELECTION_TITLE = `Great to meet you, :profile-name!`
+export const STARTER_SELECTION_TITLE = `Great to meet you, [PROFILE-NAME]!`
 export const STARTER_SELECTION_SUBTITLE = `To start your adventure, select a Digimon partner.`
 export const STARTER_SELECTION_CONFIRM = `Confirm selection`
 
@@ -39,17 +39,17 @@ export const MAPS_DETAILS_BOSS_TITLE = `Elite enemy awaiting:`
 export const MAPS_DETAILS_BOSS_CTA = `Start encounter`
 
 export const MAPS_DETAILS_NPCS_TITLE = `Friendly faces around:`
-export const MAPS_DETAILS_NPCS_CTA = `Talk to :npc-name`
+export const MAPS_DETAILS_NPCS_CTA = `Talk to [NPC-NAME]`
 
 export const BATTLE_TITLE = `Battle encounter`
-export const BATTLE_OVER = `The battle is over - :decision`
+export const BATTLE_OVER = `The battle is over - [DECISION]`
 export const BATTLE_VICTORY = `Victory`
 export const BATTLE_DEFEAT = `Defeat`
 export const BATTLE_PLAYER_PARTY = `Your party`
 export const BATTLE_ENEMY_PARTY = `Enemy party`
 export const BATTLE_END = `End battle`
 export const BATTLE_ACTIONS_TITLE = `Actions`
-export const BATTLE_DIGIMON_ACTIONS = `:digimon actions`
+export const BATTLE_DIGIMON_ACTIONS = `[DIGIMON] actions`
 export const BATTLE_ACTIONS_BASIC_ATTACK = `Basic attack`
 export const BATTLE_LOG_TITLE = `Combat log`
 export const BATTLE_LOG_EMPTY = `Log is empty.`
@@ -57,13 +57,15 @@ export const BATTLE_LOG_EMPTY = `Log is empty.`
 export const COMPOSE_TITLE = `Compose Digimon`
 export const COMPOSE_SUBTITLE = `Select which digimon you want to compose`
 
-export const COMPOSE_DIGIMON_TITLE = `Composing updated Digimon`
-export const COMPOSE_DIGIMON_CORE_TITLE = `To compose :name, choose one of the following combinations:`
+export const COMPOSE_DIGIMON_TITLE = `Composing new Digimon`
+export const COMPOSE_DIGIMON_CORE_TITLE = `To compose [NAME], choose one of the following combinations:`
+export const COMPOSE_RECIPE_CORE = `[NAME] core:`
+export const COMPOSE_RECIPE_CTA = `Compose`
 
 export const COLLECTION_TITLE = `Your partners collection`
 
 export const WIKI_TITLE = `Digi Wiki`
-export const WIKI_STAGE_TITLE = `:stage digimons`
+export const WIKI_STAGE_TITLE = `[STAGE] digimons`
 
 export const SETTINGS_TITLE = `Settings`
 
