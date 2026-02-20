@@ -52,7 +52,7 @@ export const progressQuests = (
 
         entries.push({
           party: 'player',
-          text: `The quest "${questData.name}" has progressed (${objectiveProgress.quantity + 1} / ${objective.quantity}).`
+          text: `The quest "${questData.name}" has progressed (${objectiveProgress.text}: ${objectiveProgress.quantity + 1} / ${objective.quantity}).`
         })
       }
     }
