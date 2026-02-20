@@ -1,4 +1,4 @@
-import { DigimonAttributes, DigimonFamilies } from '@/Types/Cores.type'
+import { AllCores } from '@/Types/Cores.type'
 
 import type { QuestType } from '@/Types/Quest.type'
 
@@ -24,8 +24,8 @@ export const CORE_DISTURBANCE: QuestType = {
     exp: 1,
     updatedRegion: `ROOT_FORK`,
     cores: {
-      [DigimonAttributes.virus.id]: 2,
-      [DigimonFamilies.nightmareSoldiers.id]: 2
+      [AllCores.virus.id]: 2,
+      [AllCores.nightmareSoldiers.id]: 2
     }
   }
 }

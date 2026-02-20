@@ -6,7 +6,11 @@ import {
   type NpcType
 } from '@/Types/Npc.type'
 import { MapTypes } from '@/Types/Map.type'
-import { DigimonAttributes, DigimonFamilies } from '@/Types/Cores.type'
+import {
+  AllCores,
+  DigimonAttributes,
+  DigimonFamilies
+} from '@/Types/Cores.type'
 
 import { ALL_QUESTS } from '@/GameData/Quests'
 import { ALL_REGIONS } from '@/GameData/Regions'
@@ -231,61 +235,26 @@ export const NpcDialog = () => {
 
                       {currentInteraction.questDetails?.rewards?.cores && (
                         <>
-                          {currentInteraction.questDetails?.rewards?.cores
-                            ?.attributes && (
-                            <>
-                              {Object.keys(
-                                currentInteraction.questDetails?.rewards?.cores
-                                  ?.attributes
-                              ).map((attributeItem) => (
-                                <section
-                                  key={`quest-${currentInteraction.id}-reward-attribute-cores-${attributeItem}`}
-                                >
-                                  <Typography as="span">
-                                    <>- </>
-                                    <>{DigimonAttributes[attributeItem].name}</>
-                                    <> cores: </>
+                          {Object.keys(
+                            currentInteraction.questDetails?.rewards?.cores
+                          ).map((coreItem) => (
+                            <section
+                              key={`quest-${currentInteraction.id}-reward-cores-${coreItem}`}
+                            >
+                              <Typography as="span">
+                                <>- </>
+                                <>{AllCores[coreItem].name}</>
+                                <> cores: </>
 
-                                    <>
-                                      {
-                                        currentInteraction.questDetails?.rewards
-                                          ?.cores?.attributes?.[attributeItem]
-                                      }
-                                    </>
-                                  </Typography>
-                                </section>
-                              ))}
-                            </>
-                          )}
-
-                          {currentInteraction.questDetails?.rewards?.cores
-                            ?.families && (
-                            <>
-                              {Object.keys(
-                                currentInteraction.questDetails?.rewards?.cores
-                                  ?.families
-                              ).map((familyItem) => (
-                                <section
-                                  key={`quest-${currentInteraction.id}-reward-family-cores-${familyItem}`}
-                                >
-                                  <Typography as="span">
-                                    <>- </>
-
-                                    <>{DigimonFamilies[familyItem].name}</>
-
-                                    <> cores: </>
-
-                                    <>
-                                      {
-                                        currentInteraction.questDetails?.rewards
-                                          ?.cores?.families?.[familyItem]
-                                      }
-                                    </>
-                                  </Typography>
-                                </section>
-                              ))}
-                            </>
-                          )}
+                                <>
+                                  {
+                                    currentInteraction.questDetails?.rewards
+                                      ?.cores?.[coreItem]
+                                  }
+                                </>
+                              </Typography>
+                            </section>
+                          ))}
                         </>
                       )}
 
