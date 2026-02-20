@@ -1,4 +1,4 @@
-import { AllCores } from '@/Types/Cores.type'
+import { ALL_CORES } from '@/Types/Cores.type'
 
 import type { QuestType } from '@/Types/Quest.type'
 
@@ -24,8 +24,8 @@ export const CORE_DISTURBANCE: QuestType = {
     exp: 1,
     updatedRegion: `ROOT_FORK`,
     cores: {
-      [AllCores.virus.id]: 2,
-      [AllCores.nightmareSoldiers.id]: 2
+      [ALL_CORES.virus.id]: 2,
+      [ALL_CORES.nightmareSoldiers.id]: 2
     }
   }
 }

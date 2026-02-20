@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 
-import { DigimonAttributes, DigimonFamilies } from '@/Types/Cores.type'
+import { DIGIMON_ATTRIBUTES } from '@/Consts/DigimonAttributes.const'
+import { DIGIMON_FAMILIES } from '@/Consts/DigimonFamilies.const'
 
 import { getTexts } from '@/Texts'
 
@@ -23,7 +24,7 @@ export const CoresCollected = () => {
   const cores = [
     {
       title: getTexts('CORES_COLLECTED_FAMILY_TITLE'),
-      values: Object.values(DigimonFamilies)
+      values: Object.values(DIGIMON_FAMILIES)
         .map((familyItem) => {
           const profileCore = profile.cores.find(
             (coreItem) => coreItem.coreId === familyItem.id
@@ -40,7 +41,7 @@ export const CoresCollected = () => {
 
     {
       title: getTexts('CORES_COLLECTED_ATTRIBUTE_TITLE'),
-      values: Object.values(DigimonAttributes)
+      values: Object.values(DIGIMON_ATTRIBUTES)
         .map((attributeItem) => {
           const profileCore = profile.cores.find(
             (coreItem) => coreItem.coreId === attributeItem.id

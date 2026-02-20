@@ -1,8 +1,8 @@
-import { Fragment, useContext, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { FaTimes } from 'react-icons/fa'
 
-import { DigimonAttributes, DigimonFamilies } from '@/Types/Cores.type'
+import { ALL_CORES } from '@/Consts/Cores.const'
 
 import { attackHelper, getDigimonName, endBattleHelper } from '@/Helpers'
 
@@ -176,7 +176,7 @@ export const BattleTemplate = () => {
                             key={`combat-log-entry-loot-${coreItem.coreType}-${coreItem.coreId}`}
                           >
                             <>- {coreItem.quantity || 0}x </>
-                            <>{DigimonFamilies[coreItem.coreId].abbreviation}</>
+                            <>{ALL_CORES[coreItem.coreId].abbreviation}</>
                             <> cores</>
                           </Typography>
                         ))}

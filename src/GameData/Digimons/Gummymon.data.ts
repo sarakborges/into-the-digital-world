@@ -1,13 +1,14 @@
 import type { DigimonType } from '@/Types/Digimon.type'
-import { DigimonAttributes, DigimonFamilies } from '@/Types/Cores.type'
 import { DigimonStages } from '@/Types/DigimonStages.type'
+
+import { ALL_CORES } from '@/Consts/Cores.const'
 
 export const GUMMYMON: DigimonType = {
   id: `GUMMYMON`,
   name: `Gummymon`,
   stage: DigimonStages.inTraining.id,
-  attribute: DigimonAttributes.noAttribute.id,
-  families: [DigimonFamilies.natureSpirits.id, DigimonFamilies.virusBusters.id],
+  attribute: ALL_CORES.noAttribute.id,
+  families: [ALL_CORES.natureSpirits.id, ALL_CORES.virusBusters.id],
 
   stats: {
     hp: 22,

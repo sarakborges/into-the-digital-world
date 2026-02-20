@@ -6,11 +6,8 @@ import {
   type NpcType
 } from '@/Types/Npc.type'
 import { MapTypes } from '@/Types/Map.type'
-import {
-  AllCores,
-  DigimonAttributes,
-  DigimonFamilies
-} from '@/Types/Cores.type'
+
+import { ALL_CORES } from '@/Consts/Cores.const'
 
 import { ALL_QUESTS } from '@/GameData/Quests'
 import { ALL_REGIONS } from '@/GameData/Regions'
@@ -243,7 +240,7 @@ export const NpcDialog = () => {
                             >
                               <Typography as="span">
                                 <>- </>
-                                <>{AllCores[coreItem].name}</>
+                                <>{ALL_CORES[coreItem].name}</>
                                 <> cores: </>
 
                                 <>

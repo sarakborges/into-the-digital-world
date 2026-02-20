@@ -1,4 +1,4 @@
-import { DigimonFamilies } from '@/Types/Cores.type'
+import { ALL_CORES } from '@/Types/Cores.type'
 import { MapTypes, type MapType } from '@/Types/Map.type'
 
 import {
@@ -32,7 +32,7 @@ export const BINARY_FOREST: MapType = {
         {
           type: 'core',
           coreType: 'families',
-          coreId: DigimonFamilies.dragonsRoar.id,
+          coreId: ALL_CORES.dragonsRoar.id,
           quantity: {
             min: 0,
             max: 3
@@ -42,7 +42,7 @@ export const BINARY_FOREST: MapType = {
         {
           type: 'core',
           coreType: 'families',
-          coreId: DigimonFamilies.virusBusters.id,
+          coreId: ALL_CORES.virusBusters.id,
           quantity: {
             min: 0,
             max: 3
@@ -59,7 +59,7 @@ export const BINARY_FOREST: MapType = {
         {
           type: 'core',
           coreType: 'families',
-          coreId: DigimonFamilies.natureSpirits.id,
+          coreId: ALL_CORES.natureSpirits.id,
           quantity: {
             min: 0,
             max: 3
@@ -76,7 +76,7 @@ export const BINARY_FOREST: MapType = {
         {
           type: 'core',
           coreType: 'families',
-          coreId: DigimonFamilies.metalEmpire.id,
+          coreId: ALL_CORES.metalEmpire.id,
           quantity: {
             min: 0,
             max: 3
@@ -93,7 +93,7 @@ export const BINARY_FOREST: MapType = {
         {
           type: 'core',
           coreType: 'families',
-          coreId: DigimonFamilies.natureSpirits.id,
+          coreId: ALL_CORES.natureSpirits.id,
           quantity: {
             min: 0,
             max: 3
@@ -103,7 +103,7 @@ export const BINARY_FOREST: MapType = {
         {
           type: 'core',
           coreType: 'families',
-          coreId: DigimonFamilies.virusBusters.id,
+          coreId: ALL_CORES.virusBusters.id,
           quantity: {
             min: 0,
             max: 3
@@ -120,7 +120,7 @@ export const BINARY_FOREST: MapType = {
         {
           type: 'core',
           coreType: 'families',
-          coreId: DigimonFamilies.windGuardians.id,
+          coreId: ALL_CORES.windGuardians.id,
           quantity: {
             min: 0,
             max: 3
@@ -130,7 +130,7 @@ export const BINARY_FOREST: MapType = {
         {
           type: 'core',
           coreType: 'families',
-          coreId: DigimonFamilies.virusBusters.id,
+          coreId: ALL_CORES.virusBusters.id,
           quantity: {
             min: 0,
             max: 3
@@ -147,7 +147,7 @@ export const BINARY_FOREST: MapType = {
         {
           type: 'core',
           coreType: 'families',
-          coreId: DigimonFamilies.jungleTroopers.id,
+          coreId: ALL_CORES.jungleTroopers.id,
           quantity: {
             min: 0,
             max: 3
@@ -164,7 +164,7 @@ export const BINARY_FOREST: MapType = {
         {
           type: 'core',
           coreType: 'families',
-          coreId: DigimonFamilies.deepSavers.id,
+          coreId: ALL_CORES.deepSavers.id,
           quantity: {
             min: 0,
             max: 3
@@ -181,7 +181,7 @@ export const BINARY_FOREST: MapType = {
         {
           type: 'core',
           coreType: 'families',
-          coreId: DigimonFamilies.windGuardians.id,
+          coreId: ALL_CORES.windGuardians.id,
           quantity: {
             min: 0,
             max: 3
@@ -191,7 +191,7 @@ export const BINARY_FOREST: MapType = {
         {
           type: 'core',
           coreType: 'families',
-          coreId: DigimonFamilies.jungleTroopers.id,
+          coreId: ALL_CORES.jungleTroopers.id,
           quantity: {
             min: 0,
             max: 3

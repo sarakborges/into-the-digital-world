@@ -5,7 +5,7 @@ import type {
   LootType
 } from '@/Types/Battle.type'
 import type { PartyDigimon, WildDigimonType } from '@/Types/Digimon.type'
-import { AllCores } from '@/Types/Cores.type'
+import { ALL_CORES } from '@/Types/Cores.type'
 
 import { getDigimonName, randomNumber, progressQuests } from '@/Helpers'
 

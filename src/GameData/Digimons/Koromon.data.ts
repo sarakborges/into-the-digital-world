@@ -1,13 +1,14 @@
 import type { DigimonType } from '@/Types/Digimon.type'
-import { DigimonAttributes, DigimonFamilies } from '@/Types/Cores.type'
 import { DigimonStages } from '@/Types/DigimonStages.type'
+
+import { ALL_CORES } from '@/Consts/Cores.const'
 
 export const KOROMON: DigimonType = {
   id: `KOROMON`,
   name: `Koromon`,
   stage: DigimonStages.inTraining.id,
-  attribute: DigimonAttributes.noAttribute.id,
-  families: [DigimonFamilies.dragonsRoar.id, DigimonFamilies.virusBusters.id],
+  attribute: ALL_CORES.noAttribute.id,
+  families: [ALL_CORES.dragonsRoar.id, ALL_CORES.virusBusters.id],
 
   stats: {
     hp: 22,
@@ -25,13 +26,13 @@ export const KOROMON: DigimonType = {
 
       cores: [
         {
-          id: DigimonFamilies.dragonsRoar.id,
+          id: ALL_CORES.dragonsRoar.id,
           type: 'family',
           quantity: 1
         },
 
         {
-          id: DigimonFamilies.virusBusters.id,
+          id: ALL_CORES.virusBusters.id,
           type: 'family',
           quantity: 1
         }
@@ -43,7 +44,7 @@ export const KOROMON: DigimonType = {
 
       cores: [
         {
-          id: DigimonFamilies.dragonsRoar.id,
+          id: ALL_CORES.dragonsRoar.id,
           type: 'family',
           quantity: 5
         }
@@ -55,7 +56,7 @@ export const KOROMON: DigimonType = {
 
       cores: [
         {
-          id: DigimonFamilies.virusBusters.id,
+          id: ALL_CORES.virusBusters.id,
           type: 'family',
           quantity: 5
         }

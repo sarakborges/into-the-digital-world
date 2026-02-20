@@ -2,7 +2,7 @@ import { useContext, useId } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
 import type { CompositionRecipeType } from '@/Types/Composition.type'
-import { AllCores } from '@/Types/Cores.type'
+import { ALL_CORES } from '@/Consts/Cores.const'
 
 import { getTexts } from '@/Texts'
 
@@ -81,7 +81,7 @@ export const ComposeRecipe = ({
         >
           <aside>
             <Icon
-              src={`/cores/${AllCores[coreItem.id].icon}.png`}
+              src={`/cores/${ALL_CORES[coreItem.id].icon}.png`}
               alt={`Composing ${baseDigimon?.name}`}
             />
           </aside>
@@ -90,7 +90,7 @@ export const ComposeRecipe = ({
             <Typography>
               {getTexts('COMPOSE_RECIPE_CORE').replace(
                 '[NAME]',
-                AllCores[coreItem.id].name
+                ALL_CORES[coreItem.id].name
               )}
             </Typography>
 
