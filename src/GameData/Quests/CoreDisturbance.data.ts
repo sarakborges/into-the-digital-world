@@ -1,4 +1,4 @@
-import { ALL_CORES } from '@/Types/Cores.type'
+import { ALL_CORES } from '@/Consts/Cores.const'
 
 import type { QuestType } from '@/Types/Quest.type'
 

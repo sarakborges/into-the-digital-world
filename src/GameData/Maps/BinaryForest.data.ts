@@ -1,5 +1,6 @@
-import { ALL_CORES } from '@/Types/Cores.type'
 import { MapTypes, type MapType } from '@/Types/Map.type'
+
+import { ALL_CORES } from '@/Consts/Cores.const'
 
 import {
   BUKAMON,
