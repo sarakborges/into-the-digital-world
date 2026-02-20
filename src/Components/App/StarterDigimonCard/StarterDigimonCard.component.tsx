@@ -15,7 +15,7 @@ export const StarterDigimonCard = ({ digimon }: { digimon: DigimonType }) => {
   return (
     <div className="starter-digimon-card">
       <Portrait
-        src={`/digimons/${digimon.id}.jpg`}
+        src={`/digimon_portraits/${digimon.id}.jpg`}
         alt={`Starter digimon: ${digimon.name}`}
       />
 

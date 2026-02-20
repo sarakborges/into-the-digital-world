@@ -28,7 +28,7 @@ export const PartnerDigimonCard = ({
     >
       <main className="digimon-info">
         <Portrait
-          src={`/digimons/${baseDigimon!.id}.jpg`}
+          src={`/digimon_portraits/${baseDigimon!.id}.jpg`}
           alt={`Party digimon: ${baseDigimon!.name}`}
           sm
         />
