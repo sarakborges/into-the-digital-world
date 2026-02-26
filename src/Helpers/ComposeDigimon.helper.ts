@@ -4,22 +4,24 @@ import type { ProfileType } from '@/Types/Profile.type'
 
 export const composeNewDigimon = ({
   id,
+  name,
   profile,
   recipe,
   baseDigimon
 }: {
   id: string
+  name: string
   profile: ProfileType
   recipe: CompositionRecipeType
   baseDigimon: DigimonType
 }) => {
   const newDigimon: PartnerDigimonType = {
     id: id,
+    name,
     baseDigimon: baseDigimon!.id,
     level: 1,
     experience: 0,
     points: 0,
-    name: '',
     isStarter: false
   }
 

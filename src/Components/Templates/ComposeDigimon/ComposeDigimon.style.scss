@@ -18,9 +18,13 @@
     gap: var(--size-md);
 
     > .compose-digimon-recipes {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      flex-wrap: wrap;
       gap: var(--size-lmd);
+
+      .composition-recipe {
+        width: var(--party-digimon-card-size);
+      }
     }
   }
 }

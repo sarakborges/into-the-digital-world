@@ -1,5 +1,3 @@
-import type { CoresType } from '@/Types/Cores.type'
-
 export type QuestObjectivesType = {
   id: string
   type: 'SPECIFIC_ENEMY'

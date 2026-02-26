@@ -157,8 +157,8 @@ export const BattleTemplate = () => {
 
                     {!!loot?.exp && (
                       <Typography>
-                        <>- {loot.exp}x </>
-                        <>Experience Points</>
+                        <>- {loot.exp} </>
+                        <>experience</>
                       </Typography>
                     )}
 

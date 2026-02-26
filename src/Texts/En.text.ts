@@ -61,6 +61,7 @@ export const COMPOSE_DIGIMON_TITLE = `Composing new Digimon`
 export const COMPOSE_DIGIMON_CORE_TITLE = `To compose [NAME], choose one of the following combinations:`
 export const COMPOSE_RECIPE_CORE = `[NAME] core:`
 export const COMPOSE_RECIPE_CTA = `Compose`
+export const COMPOSE_DIGIMON_NAME = `Do you want to name your partner? (optional)`
 
 export const COLLECTION_TITLE = `Your partners collection`
 

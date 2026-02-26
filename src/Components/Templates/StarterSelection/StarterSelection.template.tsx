@@ -32,7 +32,7 @@ export const StarterSelectionTemplate = () => {
     return
   }
 
-  const updatedDigimonId = useId()
+  const digimonId = useId()
 
   const submitStarterSelection = () => {
     const starterId = (
@@ -50,7 +50,7 @@ export const StarterSelectionTemplate = () => {
     )?.value
 
     const starterPartner = {
-      id: updatedDigimonId,
+      id: digimonId,
       name: name || '',
       baseDigimon: starterId,
       isStarter: true,
@@ -61,7 +61,7 @@ export const StarterSelectionTemplate = () => {
     const updatedProfile = {
       ...profile,
       partners: [{ ...starterPartner }],
-      party: ['1'],
+      party: [digimonId],
       seenDigimon: [starterPartner.baseDigimon]
     }
 

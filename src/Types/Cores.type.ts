@@ -4,4 +4,5 @@ export type CoresType = {
   abbreviation: string
   type: 'attribute' | 'family'
   icon: string
+  quantity?: number
 }

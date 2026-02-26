@@ -21,6 +21,7 @@ export const PartnerDigimonCard = ({
 }) => {
   const baseDigimon = ALL_DIGIMONS[digimonItem?.baseDigimon as string]
 
+  console.log(digimonItem)
   return (
     <div
       className="partner-digimon-card card"

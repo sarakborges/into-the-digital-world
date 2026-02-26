@@ -56,9 +56,12 @@ export const ComposeRecipe = ({
   )
 
   const compose = (recipe) => {
+    const digimonName = prompt(getTexts('COMPOSE_DIGIMON_NAME'))
+
     const updatedProfile = composeNewDigimon({
       baseDigimon: baseDigimon!,
       id: newDigimonId,
+      name: digimonName || '',
       profile,
       recipe
     })

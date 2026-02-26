@@ -1,5 +1,4 @@
 import type { PartyDigimon } from './Digimon.type'
-import type { CoresType } from '@/Types/Cores.type'
 
 export type CombatLogType = Array<{
   text: string

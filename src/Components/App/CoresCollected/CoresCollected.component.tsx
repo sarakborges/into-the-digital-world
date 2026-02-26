@@ -26,9 +26,13 @@ export const CoresCollected = () => {
       title: getTexts('CORES_COLLECTED_FAMILY_TITLE'),
       values: Object.values(DIGIMON_FAMILIES)
         .map((familyItem) => {
-          const profileCore = profile.cores.find(
+          const profileCore = profile.cores?.find?.(
             (coreItem) => coreItem.coreId === familyItem.id
           )
+
+          if (!profileCore) {
+            return familyItem
+          }
 
           return {
             ...familyItem,
@@ -41,18 +45,20 @@ export const CoresCollected = () => {
 
     {
       title: getTexts('CORES_COLLECTED_ATTRIBUTE_TITLE'),
-      values: Object.values(DIGIMON_ATTRIBUTES)
-        .map((attributeItem) => {
-          const profileCore = profile.cores.find(
-            (coreItem) => coreItem.coreId === attributeItem.id
-          )
+      values: Object.values(DIGIMON_ATTRIBUTES).map((attributeItem) => {
+        const profileCore = profile.cores?.find?.(
+          (coreItem) => coreItem.coreId === attributeItem.id
+        )
 
-          return {
-            ...attributeItem,
-            quantity: profileCore?.quantity
-          }
-        })
-        .sort((a, b) => (a.name > b.name ? 1 : -1))
+        if (!profileCore) {
+          return attributeItem
+        }
+
+        return {
+          ...attributeItem,
+          quantity: profileCore?.quantity
+        }
+      })
     }
   ]
 
