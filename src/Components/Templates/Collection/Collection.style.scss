@@ -6,8 +6,14 @@
   width: 100%;
   padding: var(--size-lg);
 
-  > .partners-list {
+  .collection-list {
     display: flex;
-    gap: var(--size-lmd);
+    flex-flow: column;
+    gap: var(--size-smd);
+
+    > .partners-list {
+      display: flex;
+      gap: var(--size-lmd);
+    }
   }
 }

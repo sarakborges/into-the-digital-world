@@ -69,6 +69,8 @@ export const COMPOSE_RECIPE_CTA = `Compose`
 export const COMPOSE_DIGIMON_NAME = `Do you want to name your partner? (optional)`
 
 export const COLLECTION_TITLE = `Your partners collection`
+export const COLLECTION_PARTY_TITLE = `Your current party`
+export const COLLECTION_ALL_TITLE = `Other partners`
 
 export const WIKI_TITLE = `Digi Wiki`
 export const WIKI_STAGE_TITLE = `[STAGE] digimons`

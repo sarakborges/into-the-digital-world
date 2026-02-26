@@ -35,23 +35,37 @@ export const CollectionTemplate = () => {
           <Typography as="h1">{getTexts('COLLECTION_TITLE')}</Typography>
         </header>
 
-        <main className="partners-list">
-          {digimonsInParty?.map((partyItem) => (
-            <PartnerDigimonCard
-              key={`partner-list-item-${partyItem?.id}`}
-              digimonItem={partyItem!}
-            />
-          ))}
-        </main>
+        <section className="collection-list">
+          <header>
+            <Typography as="h2">
+              {getTexts('COLLECTION_PARTY_TITLE')}
+            </Typography>
+          </header>
 
-        <main className="partners-list">
-          {digimonsNoInParty?.map((partyItem) => (
-            <PartnerDigimonCard
-              key={`partner-list-item-${partyItem?.id}`}
-              digimonItem={partyItem!}
-            />
-          ))}
-        </main>
+          <main className="partners-list">
+            {digimonsInParty?.map((partyItem) => (
+              <PartnerDigimonCard
+                key={`partner-list-item-${partyItem?.id}`}
+                digimonItem={partyItem!}
+              />
+            ))}
+          </main>
+        </section>
+
+        <section className="collection-list">
+          <header>
+            <Typography as="h2">{getTexts('COLLECTION_ALL_TITLE')}</Typography>
+          </header>
+
+          <main className="partners-list">
+            {digimonsNoInParty?.map((partyItem) => (
+              <PartnerDigimonCard
+                key={`partner-list-item-${partyItem?.id}`}
+                digimonItem={partyItem!}
+              />
+            ))}
+          </main>
+        </section>
       </main>
     </MenuWrapper>
   )
