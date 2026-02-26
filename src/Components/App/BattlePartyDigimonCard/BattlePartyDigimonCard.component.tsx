@@ -31,7 +31,7 @@ export const BattlePartyDigimonCard = ({
     ? `${digimonName} (${baseDigimon.name})`
     : baseDigimon.name
 
-  const isActive = battle.turnOrder[0].toString() === partyItem.id.toString()
+  const isActive = battle.turnOrder[0] === partyItem.id
 
   return (
     <div

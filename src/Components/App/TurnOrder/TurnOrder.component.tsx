@@ -29,7 +29,7 @@ export const TurnOrder = () => {
       <ul className="turns-list">
         {battle.turnOrder.map((turnItem, turnIndex) => {
           const turnDigimon = battle.digimons.find(
-            (partyItem) => partyItem.id.toString() === turnItem.toString()
+            (partyItem) => partyItem.id === turnItem
           )
 
           const baseDigimon = turnDigimon!.baseDigimon as DigimonType

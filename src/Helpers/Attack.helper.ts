@@ -223,7 +223,7 @@ export const attackHelper = ({ battle }: { battle: BattleType }) => {
 
   const currentBattle = {
     currentDigimon: updatedCurrentDigimon,
-    turnOrder: [...others, nextTurn, lastTurn],
+    turnOrder: [nextTurn, ...others, lastTurn],
     digimons: digimonsWithCorrectHp,
     combatLog: [...combatLog, ...updatedEntries],
     isOver,
