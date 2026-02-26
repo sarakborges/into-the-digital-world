@@ -80,8 +80,19 @@ const fixDigimonsHp = ({
   })
 }
 
-const getNewTurnOrder = ({ turnOrder }: { turnOrder: Array<string> }) => {
-  const [lastTurn, nextTurn, ...others] = turnOrder
+const getNewTurnOrder = ({
+  turnOrder,
+  digimons
+}: {
+  turnOrder: Array<string>
+  digimons: Array<PartyDigimon>
+}) => {
+  const aliveDigimons = digimons.map((digimonItem) => digimonItem.id)
+  const aliveDigimonsInTurnOrder = turnOrder.filter((turnOrderItem) =>
+    aliveDigimons.includes(turnOrderItem)
+  )
+
+  const [lastTurn, nextTurn, ...others] = aliveDigimonsInTurnOrder
   return { lastTurn, nextTurn, others }
 }
 
@@ -172,7 +183,10 @@ export const attackHelper = ({ battle }: { battle: BattleType }) => {
     digimons: digimonsWithCorrectHp
   })
 
-  const { others, lastTurn, nextTurn } = getNewTurnOrder({ turnOrder })
+  const { others, lastTurn, nextTurn } = getNewTurnOrder({
+    turnOrder,
+    digimons: aliveDigimonsAfterDamage
+  })
   const updatedCurrentDigimon = aliveDigimonsAfterDamage.find(
     (item) => item.id === nextTurn
   )

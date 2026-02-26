@@ -36,20 +36,17 @@ export const MapsTemplate = () => {
   const { profile } = profileContext
 
   const getNewMap = (map: MapType) => {
-    if (
-      map.types.includes(MapTypes.COMBAT) ||
-      map.types.includes(MapTypes.BOSS)
-    ) {
-      const digimons = [
-        ...map.wildDigimons!.map((wildDigimonItem) => ({
-          ...wildDigimonItem,
-          baseDigimon: ALL_DIGIMONS[wildDigimonItem.baseDigimon as string]
-        }))
-      ]
+    const wildDigimons = map.wildDigimons?.map((digimonItem) => ({
+      ...digimonItem,
+      baseDigimon: ALL_DIGIMONS[digimonItem.baseDigimon as string]
+    }))
 
-      map = { ...map, wildDigimons: [...digimons] }
-    }
+    const eliteDigimons = map.eliteDigimons?.map((digimonItem) => ({
+      ...digimonItem,
+      baseDigimon: ALL_DIGIMONS[digimonItem.baseDigimon as string]
+    }))
 
+    map = { ...map, wildDigimons, eliteDigimons }
     setCurrentMap({ ...map })
   }
 

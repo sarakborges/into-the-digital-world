@@ -33,7 +33,7 @@
   --color-map-type-quest: #9f51bc;
   --color-map-type-quest_repeatable: #3f86d7;
   --color-map-type-commerce: #c1a519;
-  --color-map-type-boss: #993925;
+  --color-map-type-elite: #993925;
   --color-map-type-event: #42a44e;
 
   --typography-text: var(--color-white);

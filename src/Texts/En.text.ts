@@ -31,14 +31,13 @@ export const MAPS_SUBTITLE = `In this world, there are many wonders! But also, t
 export const MAPS_DETAILS_TEXT = `Select a map to know what you can find in it!`
 
 export const MAPS_DETAILS_COMBAT_TITLE = `Wild digimons found`
-export const MAPS_DETAILS_COMBAT_WILD_LEVEL = ` - Level `
-export const MAPS_DETAILS_COMBAT_CTA = `Fight wild digimon`
+export const MAPS_DETAILS_COMBAT_SUBTITLE = `(Level range: [MIN] - [MAX])`
+export const MAPS_DETAILS_ELITE_TITLE = `Elite digimons found`
+export const MAPS_DETAILS_ELITE_SUBTITLE = `(Level: [LEVEL])`
+export const MAPS_DETAILS_COMBAT_CTA = `Start battle`
 
 export const MAPS_DETAILS_COMMERCE_TITLE = `Items sold:`
 export const MAPS_DETAILS_QUEST_TITLE = `Available quests:`
-
-export const MAPS_DETAILS_BOSS_TITLE = `Elite enemy awaiting:`
-export const MAPS_DETAILS_BOSS_CTA = `Start encounter`
 
 export const MAPS_DETAILS_NPCS_TITLE = `Friendly faces around:`
 export const MAPS_DETAILS_NPCS_CTA = `Talk to [NPC-NAME]`
@@ -69,8 +68,8 @@ export const COMPOSE_RECIPE_CTA = `Compose`
 export const COMPOSE_DIGIMON_NAME = `Do you want to name your partner? (optional)`
 
 export const COLLECTION_TITLE = `Your partners collection`
-export const COLLECTION_PARTY_TITLE = `Your current party`
-export const COLLECTION_ALL_TITLE = `Other partners`
+export const COLLECTION_PARTY_TITLE = `Your current party:`
+export const COLLECTION_ALL_TITLE = `Other partners:`
 
 export const WIKI_TITLE = `Digi Wiki`
 export const WIKI_STAGE_TITLE = `[STAGE] digimons`

@@ -72,4 +72,5 @@ export type WildDigimonType = {
   baseDigimon: string | DigimonType
   extraStats?: ExtraStats
   lootTable?: Array<LootTableType>
+  spawnChance?: number
 }

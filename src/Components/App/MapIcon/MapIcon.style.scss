@@ -1,7 +1,9 @@
 .map-icon {
   display: flex;
+  place-content: center;
+  place-items: center;
 
-  padding: var(--size-sm);
+  aspect-ratio: 1;
 
   border-radius: 100%;
 
@@ -21,8 +23,8 @@
     background-color: var(--color-map-type-commerce);
   }
 
-  &.map-type-boss {
-    background-color: var(--color-map-type-boss);
+  &.map-type-elite {
+    background-color: var(--color-map-type-elite);
   }
 
   &.map-type-event {
@@ -30,6 +32,8 @@
   }
 
   &:not(.sm) {
+    width: var(--size-xl);
+
     svg {
       width: var(--size-lmd);
       height: var(--size-lmd);
@@ -37,6 +41,8 @@
   }
 
   &.sm {
+    width: var(--size-lg);
+
     svg {
       width: var(--size-md);
       height: var(--size-md);

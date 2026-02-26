@@ -1,19 +1,21 @@
-import { useContext } from 'react'
+import { Fragment, useContext } from 'react'
 import { useNavigate } from 'react-router'
 
+import { ProfileContext } from '@/Contexts/Profile.context'
+
 import { getTexts } from '@/Texts'
+
+import { startBattleHelper } from '@/Helpers'
 
 import { ROUTES } from '@/Routes/Routes'
 
 import type { DigimonType } from '@/Types/Digimon.type'
 import { MapTypes } from '@/Types/Map.type'
 
-import { startBattleHelper } from '@/Helpers'
-
 import { MapContext } from '@/Contexts/Map.context'
-import { ProfileContext } from '@/Contexts/Profile.context'
 
 import { Typography } from '@/Components/System/Typography'
+import { Portrait } from '@/Components/System/Portrait'
 import { Button } from '@/Components/System/Button'
 
 import { MapIcon } from '@/Components/App/MapIcon'
@@ -33,6 +35,29 @@ export const MapDetailsCombat = () => {
   const { currentMap } = mapContext
   const { profile } = profileContext
 
+  const possibleEnemies = {
+    wildDigimons: {
+      id: `wildDigimons`,
+      title: getTexts('MAPS_DETAILS_COMBAT_TITLE'),
+      subTitle: getTexts('MAPS_DETAILS_COMBAT_SUBTITLE')
+        .replace('[MIN]', currentMap?.enemyLevelRange?.min)
+        .replace('[MAX]', currentMap?.enemyLevelRange?.max),
+      icon: MapTypes.COMBAT,
+      list: currentMap?.wildDigimons
+    },
+
+    eliteDigimons: {
+      id: `eliteDigimons`,
+      title: getTexts('MAPS_DETAILS_ELITE_TITLE'),
+      subTitle: getTexts('MAPS_DETAILS_ELITE_SUBTITLE').replace(
+        '[LEVEL]',
+        currentMap?.eliteLevel
+      ),
+      icon: MapTypes.ELITE,
+      list: currentMap?.eliteDigimons
+    }
+  }
+
   const startBattle = () => {
     if (!currentMap) {
       alert(getTexts('START_BATTLE_NO_MAP'))
@@ -50,55 +75,61 @@ export const MapDetailsCombat = () => {
 
   return (
     <>
-      {!!currentMap &&
-        currentMap.types.includes(MapTypes.COMBAT) &&
-        !!currentMap.wildDigimons?.length && (
-          <section className="map-details-type">
-            <header>
-              <MapIcon mapType={MapTypes.COMBAT} sm />
+      {Object.values(possibleEnemies).map((enemyType) => (
+        <Fragment key={`enemy-list-${enemyType.id}`}>
+          {!!enemyType.list?.length && (
+            <>
+              <section className="map-details-type">
+                <header>
+                  <MapIcon mapType={enemyType.icon} sm />
 
-              <Typography as="span">
-                {getTexts('MAPS_DETAILS_COMBAT_TITLE')}
-
-                <> (</>
-                <>Level range: </>
-                <>{currentMap.enemyLevelRange?.min}</>
-                <> - </>
-                <>{currentMap.enemyLevelRange?.max}</>
-                <>):</>
-              </Typography>
-            </header>
-
-            <main>
-              {currentMap.wildDigimons
-                .sort((a, b) =>
-                  (a.baseDigimon as DigimonType).id >
-                  (b.baseDigimon as DigimonType).id
-                    ? 1
-                    : -1
-                )
-                .map((wildDigimonItem) => (
-                  <Typography
-                    key={`map-details-${currentMap.id}-wild-digimon-${wildDigimonItem.id}`}
-                  >
-                    <>
-                      {profile.seenDigimon?.includes(
-                        (wildDigimonItem.baseDigimon as DigimonType).id
-                      )
-                        ? (wildDigimonItem.baseDigimon as DigimonType).name
-                        : `???`}
-                    </>
+                  <Typography as="span">
+                    {[enemyType.title, enemyType.subTitle].join(' ')}
                   </Typography>
-                ))}
-            </main>
+                </header>
 
-            <footer>
-              <Button onClick={startBattle}>
-                {getTexts('MAPS_DETAILS_COMBAT_CTA')}
-              </Button>
-            </footer>
-          </section>
-        )}
+                <main>
+                  {enemyType.list
+                    .sort((a, b) =>
+                      (a.baseDigimon as DigimonType).id >
+                      (b.baseDigimon as DigimonType).id
+                        ? 1
+                        : -1
+                    )
+                    .map((enemyItem) => (
+                      <div
+                        key={`map-details-${currentMap?.id}-combat-${enemyItem.id}`}
+                        className="map-details-combat"
+                      >
+                        <Portrait
+                          src={`/digimon_portraits/${
+                            (enemyItem.baseDigimon as DigimonType).id
+                          }.jpg`}
+                          alt={`Enemy digimon: ${
+                            (enemyItem.baseDigimon as DigimonType).name
+                          }`}
+                        />
+
+                        <Typography>
+                          {(enemyItem.baseDigimon as DigimonType).name}
+                        </Typography>
+                      </div>
+                    ))}
+                </main>
+              </section>
+            </>
+          )}
+        </Fragment>
+      ))}
+
+      {(possibleEnemies.wildDigimons.list?.length ||
+        possibleEnemies.eliteDigimons.list?.length) && (
+        <footer>
+          <Button onClick={startBattle}>
+            {getTexts('MAPS_DETAILS_COMBAT_CTA')}
+          </Button>
+        </footer>
+      )}
     </>
   )
 }

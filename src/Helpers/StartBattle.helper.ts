@@ -11,12 +11,10 @@ import { randomNumber } from '@/Helpers'
 
 export const startBattleHelper = ({
   currentMap,
-  profile,
-  isBoss
+  profile
 }: {
   currentMap: MapType
   profile: ProfileType
-  isBoss?: boolean
 }) => {
   const getDigimonStats = (digimon) => {
     const extraStatsKeys = digimon.extraStats
@@ -69,8 +67,17 @@ export const startBattleHelper = ({
   })
 
   const getEnemyParty = () => {
-    if (isBoss) {
-      return [...currentMap?.wildDigimons!]
+    if (!!currentMap?.eliteDigimons?.length) {
+      for (let elite of currentMap?.eliteDigimons) {
+        const shouldSpawnElite = randomNumber({
+          min: 0,
+          max: 100
+        })
+
+        if (shouldSpawnElite <= elite.spawnChance!) {
+          return [{ ...elite, isElite: true }]
+        }
+      }
     }
 
     const quantityOfEnemies = randomNumber({
@@ -94,8 +101,8 @@ export const startBattleHelper = ({
     const statsKeys = Object.keys(DIGIMON_STATS)
     const baseDigimon = digimonItem.baseDigimon as DigimonType
 
-    const enemyLevel = isBoss
-      ? currentMap.bossLevel!
+    const enemyLevel = digimonItem.isElite
+      ? currentMap.eliteLevel!
       : Math.floor(
           Math.random() *
             (currentMap.enemyLevelRange!.max -
@@ -104,7 +111,9 @@ export const startBattleHelper = ({
         ) + currentMap.enemyLevelRange!.min
 
     const enemyDigimon = {
-      id: isBoss ? digimonItem.id : `${digimonItem.id}_${digimonKey}`,
+      id: digimonItem.isElite
+        ? digimonItem.id
+        : `${digimonItem.id}_${digimonKey}`,
       baseDigimon: { ...baseDigimon },
       level: enemyLevel,
       stats: getDigimonStats(digimonItem),

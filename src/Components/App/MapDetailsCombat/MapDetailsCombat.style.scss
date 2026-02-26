@@ -1,0 +1,9 @@
+.map-details-combat {
+  display: flex;
+  place-items: center;
+  gap: var(--size-sm);
+
+  .portrait {
+    max-width: var(--size-lg);
+  }
+}

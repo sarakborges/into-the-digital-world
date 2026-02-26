@@ -38,8 +38,8 @@ export const MAP_SUBTITLES = {
     icon: <LuSwords />
   },
 
-  [MapTypes.BOSS]: {
-    id: MapTypes.BOSS,
+  [MapTypes.ELITE]: {
+    id: MapTypes.ELITE,
     name: `Elite enemy`,
     icon: <FaExclamationTriangle />
   }

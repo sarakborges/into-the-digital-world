@@ -7,7 +7,6 @@ import { MapContext } from '@/Contexts/Map.context'
 import { Typography } from '@/Components/System/Typography'
 
 import { MapDetailsCombat } from '@/Components/App/MapDetailsCombat'
-import { MapDetailsBoss } from '@/Components/App/MapDetailsBoss'
 import { MapDetailsNpcs } from '@/Components/App/MapDetailsNpcs'
 
 import './MapDetails.style.scss'
@@ -36,7 +35,6 @@ export const MapDetails = () => {
 
           <main>
             <MapDetailsCombat />
-            <MapDetailsBoss />
             <MapDetailsNpcs />
           </main>
         </div>

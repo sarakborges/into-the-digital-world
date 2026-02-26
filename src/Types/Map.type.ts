@@ -6,7 +6,7 @@ export const MapTypes = {
   COMMERCE: 'COMMERCE',
   QUEST: 'QUEST',
   QUEST_REPEATABLE: 'QUEST_REPEATABLE',
-  BOSS: 'BOSS',
+  ELITE: 'ELITE',
   EVENT: 'EVENT'
 }
 
@@ -20,9 +20,10 @@ export type MapType = {
     min: number
     max: number
   }
-  bossLevel?: number
+  eliteLevel?: number
 
   wildDigimons?: Array<WildDigimonType>
+  eliteDigimons?: Array<WildDigimonType>
   availableNpcs?: Array<NpcType>
 }
 
