@@ -36,6 +36,12 @@ export const MapDetailsBoss = () => {
 
   const startBattle = () => {
     if (!currentMap) {
+      alert(getTexts('START_BATTLE_NO_MAP'))
+      return
+    }
+
+    if (!profile?.party?.length) {
+      alert(getTexts('START_BATTLE_NO_PARTY'))
       return
     }
 

@@ -20,4 +20,10 @@
       gap: var(--size-sm);
     }
   }
+
+  .digimon-actions {
+    display: flex;
+    flex-flow: column;
+    gap: var(--size-sm);
+  }
 }

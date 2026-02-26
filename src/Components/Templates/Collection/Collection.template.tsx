@@ -20,6 +20,14 @@ export const CollectionTemplate = () => {
 
   const { profile } = profileContext
 
+  const digimonsInParty = profile.party?.map((partyItem) => {
+    return profile.partners?.find((digimonItem) => digimonItem.id === partyItem)
+  })
+
+  const digimonsNoInParty = profile.partners?.filter(
+    (partyItem) => !profile.party?.includes(partyItem.id)
+  )
+
   return (
     <MenuWrapper>
       <main className="collection-template">
@@ -28,7 +36,16 @@ export const CollectionTemplate = () => {
         </header>
 
         <main className="partners-list">
-          {profile.partners?.map((partyItem) => (
+          {digimonsInParty?.map((partyItem) => (
+            <PartnerDigimonCard
+              key={`partner-list-item-${partyItem?.id}`}
+              digimonItem={partyItem!}
+            />
+          ))}
+        </main>
+
+        <main className="partners-list">
+          {digimonsNoInParty?.map((partyItem) => (
             <PartnerDigimonCard
               key={`partner-list-item-${partyItem?.id}`}
               digimonItem={partyItem!}

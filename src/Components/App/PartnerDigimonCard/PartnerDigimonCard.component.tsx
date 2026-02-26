@@ -1,8 +1,12 @@
+import { useContext } from 'react'
+
 import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
 import type { PartnerDigimonType } from '@/Types/Digimon.type'
 
 import { getTexts } from '@/Texts'
+
+import { ProfileContext } from '@/Contexts/Profile.context'
 
 import { DIGIMON_LEVELS } from '@/Consts/Levels.const'
 
@@ -19,9 +23,38 @@ export const PartnerDigimonCard = ({
 }: {
   digimonItem: PartnerDigimonType
 }) => {
-  const baseDigimon = ALL_DIGIMONS[digimonItem?.baseDigimon as string]
+  const profileContext = useContext(ProfileContext)
 
-  console.log(digimonItem)
+  if (!profileContext) {
+    return
+  }
+
+  const { profile, setProfile } = profileContext
+
+  const baseDigimon = ALL_DIGIMONS[digimonItem?.baseDigimon as string]
+  const isDigimonInParty = profile?.party?.includes(digimonItem.id)
+
+  const addToParty = () => {
+    const updatedProfile = {
+      ...profile,
+      party: [...(profile.party ?? []), digimonItem.id]
+    }
+
+    setProfile(updatedProfile)
+    localStorage.setItem('profile', JSON.stringify(updatedProfile))
+  }
+
+  const removeFromParty = () => {
+    const updatedParty = profile?.party?.filter(
+      (partyItem) => partyItem !== digimonItem.id
+    )
+
+    const updatedProfile = { ...profile, party: updatedParty }
+
+    setProfile(updatedProfile)
+    localStorage.setItem('profile', JSON.stringify(updatedProfile))
+  }
+
   return (
     <div
       className="partner-digimon-card card"
@@ -58,7 +91,24 @@ export const PartnerDigimonCard = ({
         nextLevelExp={DIGIMON_LEVELS[digimonItem.level!].expToNextLevel}
       />
 
-      <Button>{getTexts('DIGIMON_CARD_DETAILS')}</Button>
+      <section className="digimon-actions">
+        <Button>{getTexts('DIGIMON_CARD_DETAILS')}</Button>
+
+        {!isDigimonInParty && (
+          <Button
+            onClick={addToParty}
+            disabled={(profile?.party?.length || 0) >= 3}
+          >
+            {getTexts('DIGIMON_CARD_ADD_TO_PARTY')}
+          </Button>
+        )}
+
+        {!!isDigimonInParty && (
+          <Button cancel onClick={removeFromParty}>
+            {getTexts('DIGIMON_CARD_REMOVE_FROM_PARTY')}
+          </Button>
+        )}
+      </section>
     </div>
   )
 }

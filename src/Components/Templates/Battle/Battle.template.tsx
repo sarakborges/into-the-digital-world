@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { Fragment, useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { FaTimes } from 'react-icons/fa'
 
@@ -172,13 +172,17 @@ export const BattleTemplate = () => {
                     {!!loot?.cores?.length && (
                       <>
                         {loot.cores?.map((coreItem) => (
-                          <Typography
+                          <Fragment
                             key={`combat-log-entry-loot-${coreItem.coreType}-${coreItem.coreId}`}
                           >
-                            <>- {coreItem.quantity || 0}x </>
-                            <>{ALL_CORES[coreItem.coreId].abbreviation}</>
-                            <> cores</>
-                          </Typography>
+                            {coreItem.quantity > 0 && (
+                              <Typography>
+                                <>- {coreItem.quantity || 0}x </>
+                                <>{ALL_CORES[coreItem.coreId].abbreviation}</>
+                                <> cores</>
+                              </Typography>
+                            )}
+                          </Fragment>
                         ))}
                       </>
                     )}

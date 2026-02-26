@@ -15,6 +15,10 @@ export const CurrentParty = () => {
 
   const { profile } = profileContext
 
+  if (!profile?.party?.length) {
+    return
+  }
+
   const party = profile.party?.map((partyItem) =>
     profile.partners?.find((partnerItem) => partnerItem.id === partyItem)
   )

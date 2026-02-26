@@ -18,6 +18,8 @@ export const DIGIMON_CARD_LEVEL = `Level: `
 export const DIGIMON_CARD_STAGE = `Stage: `
 export const DIGIMON_CARD_UNSPENT_POINTS = `Unspent points: `
 export const DIGIMON_CARD_DETAILS = `View partner details`
+export const DIGIMON_CARD_REMOVE_FROM_PARTY = `Remove from party`
+export const DIGIMON_CARD_ADD_TO_PARTY = `Add to party`
 
 export const PARTY_TITLE = `Your current party:`
 
@@ -40,6 +42,9 @@ export const MAPS_DETAILS_BOSS_CTA = `Start encounter`
 
 export const MAPS_DETAILS_NPCS_TITLE = `Friendly faces around:`
 export const MAPS_DETAILS_NPCS_CTA = `Talk to [NPC-NAME]`
+
+export const START_BATTLE_NO_MAP = `No map selected`
+export const START_BATTLE_NO_PARTY = `To enter battle, you need to have at least one partner in your party`
 
 export const BATTLE_TITLE = `Battle encounter`
 export const BATTLE_OVER = `The battle is over - [DECISION]`
