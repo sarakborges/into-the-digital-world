@@ -124,9 +124,10 @@ export const MapDetailsCombat = () => {
 
       {(possibleEnemies.wildDigimons.list?.length ||
         possibleEnemies.eliteDigimons.list?.length) && (
-        <footer>
+        <footer className="map-details-enemies-actions">
           <Button onClick={startBattle}>
-            {getTexts('MAPS_DETAILS_COMBAT_CTA')}
+            <MapIcon mapType={MapTypes.COMBAT} sm />
+            <Typography>{getTexts('MAPS_DETAILS_COMBAT_CTA')}</Typography>
           </Button>
         </footer>
       )}
