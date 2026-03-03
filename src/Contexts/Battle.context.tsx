@@ -22,7 +22,11 @@ export const BattleProvider = ({ children }: { children: ReactNode }) => {
   const [battle, setBattle] = useState<BattleType>({
     digimons: [],
     turnOrder: [],
-    combatLog: []
+    combatLog: [],
+    board: {
+      player: [],
+      enemy: []
+    }
   })
 
   useEffect(() => {
