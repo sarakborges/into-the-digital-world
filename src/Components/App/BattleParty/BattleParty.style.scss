@@ -1,11 +1,34 @@
 .battle-party {
   display: flex;
-  flex-flow: column;
+  place-content: space-between;
+  place-content: flex-end;
   gap: var(--size-md);
+
+  flex: 1;
 
   .battle-party-list {
     display: flex;
     flex-flow: column;
     gap: var(--size-sm);
+  }
+
+  .battle-party-board {
+    display: grid;
+    grid-template-columns: repeat(3, var(--combat-board-tile-width));
+    gap: var(--size-sm);
+
+    > div {
+      display: flex;
+      place-content: center;
+      place-items: center;
+
+      height: var(--combat-board-tile-height);
+
+      border-radius: var(--size-md);
+    }
+  }
+
+  &:nth-child(2) {
+    flex-flow: row-reverse;
   }
 }

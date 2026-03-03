@@ -4,7 +4,7 @@ import type {
   CoreLootType,
   LootType
 } from '@/Types/Battle.type'
-import type { PartyDigimon, WildDigimonType } from '@/Types/Digimon.type'
+import type { PartyDigimon, EnemyDigimonType } from '@/Types/Digimon.type'
 
 import { getDigimonName, randomNumber, progressQuests } from '@/Helpers'
 
@@ -121,7 +121,7 @@ const getLoot = ({
   }
 
   for (let digimonItem of digimons) {
-    const { lootTable } = digimonItem as WildDigimonType
+    const { lootTable } = digimonItem as EnemyDigimonType
 
     if (!lootTable) {
       continue
@@ -158,7 +158,7 @@ const getLoot = ({
 }
 
 export const attackHelper = ({ battle }: { battle: BattleType }) => {
-  const { digimons, turnOrder, currentDigimon, combatLog } = battle
+  const { digimons, turnOrder, currentDigimon, combatLog, board } = battle
 
   const aliveDigimons = filterAliveDigimons({ digimons })
 
@@ -242,7 +242,8 @@ export const attackHelper = ({ battle }: { battle: BattleType }) => {
     combatLog: [...combatLog, ...updatedEntries],
     isOver,
     winner: isOver ? winner : undefined,
-    loot
+    loot,
+    board
   }
 
   localStorage.setItem('battle', JSON.stringify(currentBattle))

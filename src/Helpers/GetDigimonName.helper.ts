@@ -1,9 +1,10 @@
 import type { PartyDigimon } from '@/Types/Digimon.type'
 
 export const getDigimonName = (digimon: PartyDigimon) => {
-  if (digimon.name) {
-    return `${digimon.name} (${digimon.baseDigimon.name})`
-  }
+  const prefix = digimon.isElite && `Elite`
+  const digimonName = digimon.name || digimon.baseDigimon.name
 
-  return digimon.baseDigimon.name
+  const fullName = [prefix, digimonName].filter((item) => !!item).join(' ')
+
+  return fullName
 }

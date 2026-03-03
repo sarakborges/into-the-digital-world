@@ -37,12 +37,14 @@
           gap: var(--size-md);
 
           .maps-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            display: flex;
+            flex-wrap: wrap;
             gap: var(--size-lmd);
 
             .map-item {
               display: flex;
+
+              min-width: var(--map-minSize);
 
               .button {
                 flex-flow: column;

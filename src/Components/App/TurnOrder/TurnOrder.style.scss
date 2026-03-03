@@ -1,12 +1,13 @@
+.turn-order-placeholder {
+  height: calc(var(--portrait-size-sm) + (2 * var(--size-lmd)));
+}
+
 .battle-turn-order {
   display: flex;
   place-items: center;
   gap: var(--size-lg);
 
-  padding: var(--size-lmd);
-
-  background-color: var(--digimon-card-background);
-  border-radius: var(--size-md);
+  padding: var(--size-lmd) var(--size-xl);
 
   .turns-list {
     display: flex;
@@ -27,11 +28,9 @@
       .portrait {
         border: 2px solid transparent;
 
-        transition: opacity 0.3s, box-shadow 0.3s;
-      }
-
-      &:not(.active) .portrait {
-        opacity: 0.4;
+        transition:
+          opacity 0.3s,
+          box-shadow 0.3s;
       }
 
       &.player {

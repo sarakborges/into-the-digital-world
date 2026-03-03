@@ -1,30 +1,34 @@
-import type { PartyDigimon } from '@/Types/Digimon.type'
+import { useContext } from 'react'
 
-import { Typography } from '@/Components/System/Typography'
+import { BattleContext } from '@/Contexts/Battle.context'
 
 import { BattlePartyDigimonCard } from '@/Components/App/BattlePartyDigimonCard'
 
 import './BattleParty.style.scss'
 
-export const BattleParty = ({
-  party,
-  title
-}: {
-  party: Array<PartyDigimon>
-  title: string
-}) => {
-  return (
-    <div className="battle-party">
-      <Typography as="h2">{title}</Typography>
+export const BattleParty = ({ type }: { type: 'player' | 'enemy' }) => {
+  const battleContext = useContext(BattleContext)
 
-      <main className="battle-party-list">
-        {party.map((partyItem) => (
+  if (!battleContext) {
+    return <></>
+  }
+
+  const {
+    battle: { board, digimons }
+  } = battleContext
+
+  return (
+    <aside className="battle-party">
+      <main className="battle-party-board">
+        {board?.[type].map((digimonId, digimonKey) => (
           <BattlePartyDigimonCard
-            key={`battle-enemy-party-digimon-${partyItem.id}`}
-            partyItem={partyItem}
+            key={`battle-board-${type}-position-${digimonKey}`}
+            partyItem={
+              digimons.find((digimonItem) => digimonItem.id === digimonId)!
+            }
           />
         ))}
       </main>
-    </div>
+    </aside>
   )
 }

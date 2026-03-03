@@ -35,28 +35,27 @@ export const MapDetailsCombat = () => {
   const { currentMap } = mapContext
   const { profile } = profileContext
 
-  const possibleEnemies = {
-    wildDigimons: {
-      id: `wildDigimons`,
-      title: getTexts('MAPS_DETAILS_COMBAT_TITLE'),
-      subTitle: getTexts('MAPS_DETAILS_COMBAT_SUBTITLE')
-        .replace('[MIN]', currentMap?.enemyLevelRange?.min)
-        .replace('[MAX]', currentMap?.enemyLevelRange?.max),
-      icon: MapTypes.COMBAT,
-      list: currentMap?.wildDigimons
-    },
+  const enemyLevels = [
+    ...new Set([
+      currentMap?.enemyLevelRange?.min,
+      currentMap?.enemyLevelRange?.max
+    ])
+  ].join(' - ')
 
-    eliteDigimons: {
-      id: `eliteDigimons`,
-      title: getTexts('MAPS_DETAILS_ELITE_TITLE'),
-      subTitle: getTexts('MAPS_DETAILS_ELITE_SUBTITLE').replace(
-        '[LEVEL]',
-        currentMap?.eliteLevel
-      ),
-      icon: MapTypes.ELITE,
-      list: currentMap?.eliteDigimons
-    }
-  }
+  const eliteLevels = [
+    ...new Set([
+      currentMap?.eliteLevelRange?.min,
+      currentMap?.eliteLevelRange?.max
+    ])
+  ].join(' - ')
+
+  const possibleEnemies = [
+    ...(currentMap?.enemyDigimons ?? []),
+    ...(currentMap?.eliteDigimons?.map((eliteItem) => ({
+      ...eliteItem,
+      isElite: true
+    })) ?? [])
+  ]
 
   const startBattle = () => {
     if (!currentMap) {
@@ -75,55 +74,50 @@ export const MapDetailsCombat = () => {
 
   return (
     <>
-      {Object.values(possibleEnemies).map((enemyType) => (
-        <Fragment key={`enemy-list-${enemyType.id}`}>
-          {!!enemyType.list?.length && (
-            <>
-              <section className="map-details-type">
-                <header>
-                  <MapIcon mapType={enemyType.icon} sm />
+      {!!possibleEnemies?.length && (
+        <>
+          <section className="map-details-type">
+            <main>
+              {possibleEnemies
+                .sort((a, b) =>
+                  (a.baseDigimon as DigimonType).id >
+                  (b.baseDigimon as DigimonType).id
+                    ? 1
+                    : -1
+                )
+                .map((enemyItem) => (
+                  <div
+                    key={`map-details-${currentMap?.id}-combat-${enemyItem.id}`}
+                    className="map-details-combat"
+                  >
+                    <Portrait
+                      src={`/digimon_portraits/${
+                        (enemyItem.baseDigimon as DigimonType).id
+                      }.jpg`}
+                      alt={`Enemy digimon: ${
+                        (enemyItem.baseDigimon as DigimonType).name
+                      }`}
+                    />
 
-                  <Typography as="span">
-                    {[enemyType.title, enemyType.subTitle].join(' ')}
-                  </Typography>
-                </header>
+                    <Typography>
+                      {[
+                        enemyItem.isElite &&
+                          getTexts('MAPS_DETAILS_COMBAT_ELITE_NAME'),
+                        (enemyItem.baseDigimon as DigimonType).name,
+                        getTexts('MAPS_DETAILS_COMBAT_LEVEL').replace(
+                          '[LEVEL]',
+                          enemyItem.isElite ? eliteLevels : enemyLevels
+                        )
+                      ].join('')}
+                    </Typography>
+                  </div>
+                ))}
+            </main>
+          </section>
+        </>
+      )}
 
-                <main>
-                  {enemyType.list
-                    .sort((a, b) =>
-                      (a.baseDigimon as DigimonType).id >
-                      (b.baseDigimon as DigimonType).id
-                        ? 1
-                        : -1
-                    )
-                    .map((enemyItem) => (
-                      <div
-                        key={`map-details-${currentMap?.id}-combat-${enemyItem.id}`}
-                        className="map-details-combat"
-                      >
-                        <Portrait
-                          src={`/digimon_portraits/${
-                            (enemyItem.baseDigimon as DigimonType).id
-                          }.jpg`}
-                          alt={`Enemy digimon: ${
-                            (enemyItem.baseDigimon as DigimonType).name
-                          }`}
-                        />
-
-                        <Typography>
-                          {(enemyItem.baseDigimon as DigimonType).name}
-                        </Typography>
-                      </div>
-                    ))}
-                </main>
-              </section>
-            </>
-          )}
-        </Fragment>
-      ))}
-
-      {(possibleEnemies.wildDigimons.list?.length ||
-        possibleEnemies.eliteDigimons.list?.length) && (
+      {possibleEnemies.length && (
         <footer className="map-details-enemies-actions">
           <Button onClick={startBattle}>
             <MapIcon mapType={MapTypes.COMBAT} sm />

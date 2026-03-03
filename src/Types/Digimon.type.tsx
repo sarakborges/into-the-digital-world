@@ -38,7 +38,9 @@ export type ExtraStats = {
 export type PartyDigimon = {
   id: string
   party: 'player' | 'enemy'
+  isElite?: boolean
   baseDigimon: DigimonType
+  baseId: string
   name?: string
   level: number
   stats: DigimonStats
@@ -67,10 +69,11 @@ export type LootTableType = {
   }
 }
 
-export type WildDigimonType = {
+export type EnemyDigimonType = {
   id: string
   baseDigimon: string | DigimonType
   extraStats?: ExtraStats
   lootTable?: Array<LootTableType>
   spawnChance?: number
+  isElite?: boolean
 }

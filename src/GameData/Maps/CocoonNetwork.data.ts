@@ -19,7 +19,7 @@ export const COCOON_NETWORK: MapType = {
     max: 4
   },
 
-  wildDigimons: [
+  enemyDigimons: [
     {
       id: `COCOON_NETWORK_CHIBIMON`,
       baseDigimon: CHIBIMON.id

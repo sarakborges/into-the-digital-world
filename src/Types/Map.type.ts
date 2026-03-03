@@ -1,4 +1,4 @@
-import type { WildDigimonType } from './Digimon.type'
+import type { EnemyDigimonType } from './Digimon.type'
 import type { NpcType } from './Npc.type'
 
 export const MapTypes = {
@@ -20,10 +20,13 @@ export type MapType = {
     min: number
     max: number
   }
-  eliteLevel?: number
+  eliteLevelRange?: {
+    min: number
+    max: number
+  }
 
-  wildDigimons?: Array<WildDigimonType>
-  eliteDigimons?: Array<WildDigimonType>
+  enemyDigimons?: Array<EnemyDigimonType>
+  eliteDigimons?: Array<EnemyDigimonType>
   availableNpcs?: Array<NpcType>
 }
 

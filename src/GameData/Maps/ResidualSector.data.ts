@@ -12,7 +12,7 @@ export const RESIDUAL_SECTOR: MapType = {
     max: 4
   },
 
-  wildDigimons: [
+  enemyDigimons: [
     {
       id: `RESIDUAL_SECTOR_TSUMEMON`,
       baseDigimon: TSUMEMON.id

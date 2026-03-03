@@ -30,11 +30,9 @@ export const MAPS_TITLE = `Explore the digital world!`
 export const MAPS_SUBTITLE = `In this world, there are many wonders! But also, terrible dangers await for you!`
 export const MAPS_DETAILS_TEXT = `Select a map to know what you can find in it!`
 
-export const MAPS_DETAILS_COMBAT_TITLE = `Wild digimons found`
-export const MAPS_DETAILS_COMBAT_SUBTITLE = `(Level range: [MIN] - [MAX])`
-export const MAPS_DETAILS_ELITE_TITLE = `Elite digimons found`
-export const MAPS_DETAILS_ELITE_SUBTITLE = `(Level: [LEVEL])`
-export const MAPS_DETAILS_COMBAT_CTA = `Start battle`
+export const MAPS_DETAILS_COMBAT_CTA = `Battle enemy`
+export const MAPS_DETAILS_COMBAT_LEVEL = ` (Level: [LEVEL])`
+export const MAPS_DETAILS_COMBAT_ELITE_NAME = `Elite `
 
 export const MAPS_DETAILS_COMMERCE_TITLE = `Items sold:`
 export const MAPS_DETAILS_QUEST_TITLE = `Available quests:`
@@ -45,18 +43,11 @@ export const MAPS_DETAILS_NPCS_CTA = `Talk to [NPC-NAME]`
 export const START_BATTLE_NO_MAP = `No map selected`
 export const START_BATTLE_NO_PARTY = `To enter battle, you need to have at least one partner in your party`
 
-export const BATTLE_TITLE = `Battle encounter`
-export const BATTLE_OVER = `The battle is over - [DECISION]`
-export const BATTLE_VICTORY = `Victory`
-export const BATTLE_DEFEAT = `Defeat`
-export const BATTLE_PLAYER_PARTY = `Your party`
-export const BATTLE_ENEMY_PARTY = `Enemy party`
-export const BATTLE_END = `End battle`
+export const BATTLE_END_TITLE = `Battle is over!`
+export const BATTLE_END = `Return to explore`
 export const BATTLE_ACTIONS_TITLE = `Actions`
-export const BATTLE_DIGIMON_ACTIONS = `[DIGIMON] actions`
-export const BATTLE_ACTIONS_BASIC_ATTACK = `Basic attack`
-export const BATTLE_LOG_TITLE = `Combat log`
-export const BATTLE_LOG_EMPTY = `Log is empty.`
+export const BATTLE_ACTIONS_BASIC_ATTACK = `Attack`
+export const BATTLE_LOG_TITLE = `Combat log:`
 
 export const COMPOSE_TITLE = `Compose Digimon`
 export const COMPOSE_SUBTITLE = `Select which digimon you want to compose`

@@ -22,7 +22,7 @@ export const SUBROOT_GROVE: MapType = {
     max: 4
   },
 
-  wildDigimons: [
+  enemyDigimons: [
     {
       id: `SUBROOT_GROVE_BUDMON`,
       baseDigimon: BUDMON.id

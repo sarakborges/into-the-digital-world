@@ -7,12 +7,20 @@
     border-radius: 100%;
   }
 
-  &:not(.sm) {
+  &:not(.sm, .xs, .lg) {
     width: var(--portrait-size);
   }
 
   &.sm {
     width: var(--portrait-size-sm);
+  }
+
+  &.xs {
+    width: var(--portrait-size-xs);
+  }
+
+  &.lg {
+    width: var(--portrait-size-lg);
   }
 
   > div {

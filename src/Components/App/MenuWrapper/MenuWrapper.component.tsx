@@ -40,7 +40,7 @@ export const MenuWrapper = ({ children }: { children: React.ReactNode }) => {
               <Portrait
                 alt={`Tamer ${profile.name}`}
                 src={`/avatars/${profile.avatar}.jpg`}
-                sm
+                size="sm"
               />
             )}
 
@@ -48,7 +48,7 @@ export const MenuWrapper = ({ children }: { children: React.ReactNode }) => {
               <Portrait
                 alt={`Tamer ${profile.name}`}
                 placeholder={profile.name?.slice(0, 1)}
-                sm
+                size="sm"
               />
             )}
 

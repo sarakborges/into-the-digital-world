@@ -39,7 +39,7 @@ export const progressQuests = (
       if (
         objectiveProgress &&
         objective.type === 'SPECIFIC_ENEMY' &&
-        objective.enemyId === target?.id &&
+        objective.enemyId === target?.baseId &&
         objectiveProgress.quantity < objective.quantity
       ) {
         quest.progress = quest.progress?.map((progressItem) => {

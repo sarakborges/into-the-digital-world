@@ -1,45 +1,32 @@
 .battle-party-item-card {
-  display: flex;
-  gap: var(--size-smd);
-  place-items: center;
-
-  width: var(--battle-party-digimon-card-size);
-  padding: var(--size-md);
-
-  background-color: var(--party-item-card-background);
-  border-radius: var(--size-md);
-
-  transition:
-    opacity 0.3s,
-    box-shadow 0.3s;
-
-  &:not(.active) {
-    opacity: 0.4;
-  }
+  transition: opacity 0.3s;
 
   &.active {
-    box-shadow: 0 0 var(--size-sm) var(--size-xs) var(--color-primary);
+    background-color: var(--color-currentTurn);
   }
 
-  .digimon-info {
+  &:not(.active) {
+    background-color: var(--color-primary-darker);
+  }
+
+  &.defeated {
+    opacity: 0.3;
+  }
+
+  > main {
     display: flex;
-    flex-flow: column;
+    place-items: center;
     gap: var(--size-sm);
 
+    padding: var(--size-sm);
     flex: 1;
 
-    .digimon-resource {
+    > aside {
       display: flex;
-      gap: var(--size-sm);
-      place-items: center;
+      flex-flow: column;
+      gap: var(--size-xs);
 
-      > .typography {
-        width: var(--size-lmd);
-      }
-
-      .resource-bar {
-        flex: 1;
-      }
+      flex: 1;
     }
   }
 }

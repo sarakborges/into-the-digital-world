@@ -9,6 +9,7 @@ import { getTexts } from '@/Texts'
 import { ProfileContext } from '@/Contexts/Profile.context'
 
 import { DIGIMON_LEVELS } from '@/Consts/Levels.const'
+import { MAX_DIGIMONS_IN_PARTY } from '@/Consts/Battle.consts'
 
 import { Typography } from '@/Components/System/Typography'
 import { Portrait } from '@/Components/System/Portrait'
@@ -64,7 +65,7 @@ export const PartnerDigimonCard = ({
         <Portrait
           src={`/digimon_portraits/${baseDigimon!.id}.jpg`}
           alt={`Party digimon: ${baseDigimon!.name}`}
-          sm
+          size="sm"
         />
 
         <section className="info-text">
@@ -97,7 +98,7 @@ export const PartnerDigimonCard = ({
         {!isDigimonInParty && (
           <Button
             onClick={addToParty}
-            disabled={(profile?.party?.length || 0) >= 3}
+            disabled={(profile?.party?.length || 0) >= MAX_DIGIMONS_IN_PARTY}
           >
             {getTexts('DIGIMON_CARD_ADD_TO_PARTY')}
           </Button>

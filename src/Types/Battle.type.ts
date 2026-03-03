@@ -25,4 +25,9 @@ export type BattleType = {
   winner?: 'enemy' | 'player'
   combatLog: CombatLogType
   loot?: LootType
+
+  board: {
+    player: Array<string | undefined>
+    enemy: Array<string | undefined>
+  }
 }

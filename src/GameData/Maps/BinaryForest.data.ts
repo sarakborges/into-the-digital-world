@@ -24,7 +24,7 @@ export const BINARY_FOREST: MapType = {
     max: 1
   },
 
-  wildDigimons: [
+  enemyDigimons: [
     {
       id: `BINARY_FOREST_KOROMON`,
       baseDigimon: KOROMON.id,

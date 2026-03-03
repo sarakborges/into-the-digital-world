@@ -15,7 +15,11 @@ export const ResourceBar = ({
 
   return (
     <section className="resource-bar">
-      <div className={`resource-bar-background ${type || ''}`}>
+      <div
+        className={['resource-bar-background', type ?? []]
+          .filter((item) => !!item)
+          .join(' ')}
+      >
         <div
           className="bar"
           style={{
@@ -26,9 +30,7 @@ export const ResourceBar = ({
         ></div>
 
         <Typography as="span">
-          <>{currentValue}</>
-          <> / </>
-          <>{maxValue}</>
+          {[currentValue, maxValue].join(' / ')}
         </Typography>
       </div>
     </section>

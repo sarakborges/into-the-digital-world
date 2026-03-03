@@ -2,6 +2,8 @@ import { useContext } from 'react'
 
 import type { DigimonType, PartyDigimon } from '@/Types/Digimon.type'
 
+import { getDigimonName } from '@/Helpers'
+
 import { BattleContext } from '@/Contexts/Battle.context'
 
 import { Typography } from '@/Components/System/Typography'
@@ -18,58 +20,46 @@ export const BattlePartyDigimonCard = ({
 }) => {
   const battleContext = useContext(BattleContext)
 
-  if (!battleContext) {
-    return
+  if (!battleContext || !partyItem) {
+    return <div className="battle-party-item-card" />
   }
 
   const { battle } = battleContext
 
   const baseDigimon = partyItem.baseDigimon as DigimonType
-
-  const digimonName = (partyItem as PartyDigimon).name || ''
-  const displayName = digimonName
-    ? `${digimonName} (${baseDigimon.name})`
-    : baseDigimon.name
-
+  const digimonName = getDigimonName(partyItem)
   const isActive = battle.turnOrder[0] === partyItem.id
+  const isDefeated = partyItem.currentHp <= 0
 
   return (
     <div
       key={`battle-player-party-digimon-${partyItem.id}`}
-      className={`battle-party-item-card ${
-        isActive && !battle.isOver && 'active'
-      }`}
+      className={[
+        'battle-party-item-card',
+        'card',
+        isActive && !battle.isOver && 'active',
+        !!isDefeated && 'defeated'
+      ]
+        .filter((item) => !!item)
+        .join(' ')}
     >
-      <Portrait
-        src={`/digimon_portraits/${baseDigimon.id}.jpg`}
-        alt={`Party digimon: ${displayName}`}
-        sm
-      />
+      <main>
+        <Portrait
+          src={`/digimon_portraits/${baseDigimon.id}.jpg`}
+          alt={`Party digimon: ${digimonName}`}
+          size="xs"
+        />
 
-      <section className="digimon-info">
-        <Typography as="span">{displayName}</Typography>
-        <Typography as="span">Level: {partyItem.level}</Typography>
-
-        <div className="digimon-resource">
-          <Typography as="span">HP:</Typography>
+        <aside>
+          <Typography as="span">{digimonName}</Typography>
 
           <ResourceBar
             currentValue={partyItem.currentHp}
             maxValue={partyItem.stats.hp}
             type="hp"
           />
-        </div>
-
-        <div className="digimon-resource">
-          <Typography as="span">SP:</Typography>
-
-          <ResourceBar
-            currentValue={partyItem.currentSp}
-            maxValue={partyItem.stats.sp}
-            type="sp"
-          />
-        </div>
-      </section>
+        </aside>
+      </main>
     </div>
   )
 }

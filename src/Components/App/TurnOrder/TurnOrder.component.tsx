@@ -4,7 +4,6 @@ import type { DigimonType, PartyDigimon } from '@/Types/Digimon.type'
 
 import { BattleContext } from '@/Contexts/Battle.context'
 
-import { Typography } from '@/Components/System/Typography'
 import { Portrait } from '@/Components/System/Portrait'
 
 import './TurnOrder.style.scss'
@@ -19,13 +18,11 @@ export const TurnOrder = () => {
   const { battle } = battleContext
 
   if (!battle || battle.isOver) {
-    return <></>
+    return <div className="turn-order-placeholder" />
   }
 
   return (
     <section className="battle-turn-order">
-      <Typography as="h2">Turn order:</Typography>
-
       <ul className="turns-list">
         {battle.turnOrder.map((turnItem, turnIndex) => {
           const turnDigimon = battle.digimons.find(
@@ -49,7 +46,7 @@ export const TurnOrder = () => {
               <Portrait
                 src={`/digimon_portraits/${baseDigimon.id}.jpg`}
                 alt={`Party digimon: ${displayName}`}
-                sm
+                size="sm"
               />
             </li>
           )

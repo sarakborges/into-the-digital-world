@@ -1,0 +1,59 @@
+.battle-combat-log {
+  position: sticky;
+  right: 0;
+  top: 0;
+  z-index: 1;
+
+  display: flex;
+  flex-flow: column;
+  gap: var(--size-xl);
+
+  width: var(--combat-log-width);
+  height: 100vh;
+  padding: var(--size-md) 0;
+  overflow: hidden auto;
+
+  background-color: var(--color-primary-darker);
+
+  .combat-log-end {
+    display: flex;
+    flex-flow: column;
+    gap: var(--size-sm);
+
+    padding: 0 var(--size-md);
+
+    .loot {
+      display: flex;
+      flex-flow: column;
+      gap: var(--size-xs);
+
+      color: var(--color-primary);
+    }
+  }
+
+  > .combat-log-card {
+    display: flex;
+    flex-flow: column;
+    gap: var(--size-sm);
+
+    padding: 0 var(--size-md);
+    flex: 1;
+
+    > .combat-log-entries {
+      display: flex;
+      flex-flow: column;
+      gap: var(--size-md);
+
+      > div {
+        display: flex;
+
+        &.enemy {
+          align-self: flex-end;
+          text-align: right;
+
+          color: var(--color-white-transparent);
+        }
+      }
+    }
+  }
+}
