@@ -24,7 +24,7 @@ export const CollectionTemplate = () => {
     return profile.partners?.find((digimonItem) => digimonItem.id === partyItem)
   })
 
-  const digimonsNoInParty = profile.partners?.filter(
+  const digimonsNotInParty = profile.partners?.filter(
     (partyItem) => !profile.party?.includes(partyItem.id)
   )
 
@@ -42,30 +42,36 @@ export const CollectionTemplate = () => {
             </Typography>
           </header>
 
-          <main className="partners-list">
-            {digimonsInParty?.map((partyItem) => (
-              <PartnerDigimonCard
-                key={`partner-list-item-${partyItem?.id}`}
-                digimonItem={partyItem!}
-              />
-            ))}
-          </main>
+          {!!digimonsInParty?.length && (
+            <main className="partners-list">
+              {digimonsInParty?.map((partyItem) => (
+                <PartnerDigimonCard
+                  key={`partner-list-item-${partyItem?.id}`}
+                  digimonItem={partyItem!}
+                />
+              ))}
+            </main>
+          )}
         </section>
 
-        <section className="collection-list">
-          <header>
-            <Typography as="h2">{getTexts('COLLECTION_ALL_TITLE')}</Typography>
-          </header>
+        {!!digimonsNotInParty?.length && (
+          <section className="collection-list">
+            <header>
+              <Typography as="h2">
+                {getTexts('COLLECTION_ALL_TITLE')}
+              </Typography>
+            </header>
 
-          <main className="partners-list">
-            {digimonsNoInParty?.map((partyItem) => (
-              <PartnerDigimonCard
-                key={`partner-list-item-${partyItem?.id}`}
-                digimonItem={partyItem!}
-              />
-            ))}
-          </main>
-        </section>
+            <main className="partners-list">
+              {digimonsNotInParty?.map((partyItem) => (
+                <PartnerDigimonCard
+                  key={`partner-list-item-${partyItem?.id}`}
+                  digimonItem={partyItem!}
+                />
+              ))}
+            </main>
+          </section>
+        )}
       </main>
     </MenuWrapper>
   )
