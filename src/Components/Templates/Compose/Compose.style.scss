@@ -26,6 +26,17 @@
         gap: var(--size-sm);
 
         color: var(--color-white);
+
+        .starter-digimon-card {
+          transition: box-shadow 0.3s;
+        }
+
+        &:hover {
+          .starter-digimon-card {
+            box-shadow: 0 0 var(--size-sm) var(--size-xs)
+              var(--color-primary-transparent);
+          }
+        }
       }
     }
   }

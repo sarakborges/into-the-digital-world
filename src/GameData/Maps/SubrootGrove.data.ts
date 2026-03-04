@@ -2,11 +2,8 @@ import { MapTypes, type MapType } from '@/Types/Map.type'
 
 import {
   BUDMON,
-  CHIBIMON,
   CHOCOMON,
   GUMMYMON,
-  MINOMON,
-  PAGUMON,
   POKOMON,
   POROMON,
   UPAMON
@@ -44,11 +41,6 @@ export const SUBROOT_GROVE: MapType = {
     },
 
     {
-      id: `SUBROOT_GROVE_PAGUMON`,
-      baseDigimon: PAGUMON.id
-    },
-
-    {
       id: `SUBROOT_GROVE_GUMMYMON`,
       baseDigimon: GUMMYMON.id
     },
@@ -56,11 +48,6 @@ export const SUBROOT_GROVE: MapType = {
     {
       id: `SUBROOT_GROVE_CHOCOMON`,
       baseDigimon: CHOCOMON.id
-    },
-
-    {
-      id: `SUBROOT_GROVE_MINOMON`,
-      baseDigimon: MINOMON.id
     }
   ]
 }

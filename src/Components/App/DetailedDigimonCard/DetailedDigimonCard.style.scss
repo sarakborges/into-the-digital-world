@@ -3,7 +3,7 @@
   place-items: center;
   gap: var(--size-lmd);
 
-  width: var(--starter-digimon-card-size);
+  width: var(--detailed-digimon-card-size);
   padding: var(--size-md);
 
   background-color: var(--digimon-card-background);
@@ -16,6 +16,7 @@
 
     .digimon-tags {
       display: flex;
+      flex-wrap: wrap;
       gap: var(--size-sm);
     }
 

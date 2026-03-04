@@ -2,8 +2,8 @@ import { MapTypes, type MapType } from '@/Types/Map.type'
 
 import {
   CHIBIMON,
-  DORIMON,
   GIGIMON,
+  MINOMON,
   HOPMON,
   KYOKYOMON,
   WANYAMON
@@ -36,11 +36,6 @@ export const COCOON_NETWORK: MapType = {
     },
 
     {
-      id: `COCOON_NETWORK_DORIMON`,
-      baseDigimon: DORIMON.id
-    },
-
-    {
       id: `COCOON_NETWORK_WANYAMON`,
       baseDigimon: WANYAMON.id
     },
@@ -48,6 +43,11 @@ export const COCOON_NETWORK: MapType = {
     {
       id: `COCOON_NETWORK_KYOKYOMON`,
       baseDigimon: KYOKYOMON.id
+    },
+
+    {
+      id: `SUBROOT_GROVE_MINOMON`,
+      baseDigimon: MINOMON.id
     }
   ]
 }

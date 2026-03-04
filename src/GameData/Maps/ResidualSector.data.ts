@@ -1,6 +1,6 @@
 import { MapTypes, type MapType } from '@/Types/Map.type'
 
-import { PETITMERAMON, TSUMEMON, YARMON } from '@/GameData/Digimons'
+import { PETITMERAMON, PAGUMON, YARMON, DORIMON } from '@/GameData/Digimons'
 
 export const RESIDUAL_SECTOR: MapType = {
   id: `RESIDUAL_SECTOR`,
@@ -14,8 +14,8 @@ export const RESIDUAL_SECTOR: MapType = {
 
   enemyDigimons: [
     {
-      id: `RESIDUAL_SECTOR_TSUMEMON`,
-      baseDigimon: TSUMEMON.id
+      id: `RESIDUAL_SECTOR_PAGUMON`,
+      baseDigimon: PAGUMON.id
     },
 
     {
@@ -26,6 +26,11 @@ export const RESIDUAL_SECTOR: MapType = {
     {
       id: `RESIDUAL_SECTOR_YARMON`,
       baseDigimon: YARMON.id
+    },
+
+    {
+      id: `COCOON_NETWORK_DORIMON`,
+      baseDigimon: DORIMON.id
     }
   ]
 }
