@@ -30,14 +30,10 @@ export const CoresCollected = () => {
             (coreItem) => coreItem.coreId === familyItem.id
           )
 
-          if (!profileCore) {
-            return familyItem
-          }
-
           return {
             ...familyItem,
             name: familyItem.name.split(' ').join('\n'),
-            quantity: profileCore?.quantity
+            quantity: profileCore?.quantity || 0
           }
         })
         .sort((a, b) => (a.name > b.name ? 1 : -1))
@@ -50,13 +46,9 @@ export const CoresCollected = () => {
           (coreItem) => coreItem.coreId === attributeItem.id
         )
 
-        if (!profileCore) {
-          return attributeItem
-        }
-
         return {
           ...attributeItem,
-          quantity: profileCore?.quantity
+          quantity: profileCore?.quantity || 0
         }
       })
     }

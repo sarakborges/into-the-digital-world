@@ -1,4 +1,4 @@
-import { useContext, useId } from 'react'
+import { useContext } from 'react'
 import { useNavigate } from 'react-router'
 
 import { getTexts } from '@/Texts'
@@ -32,7 +32,7 @@ export const StarterSelectionTemplate = () => {
     return
   }
 
-  const digimonId = useId()
+  const digimonId = '1'
 
   const submitStarterSelection = () => {
     const starterId = (

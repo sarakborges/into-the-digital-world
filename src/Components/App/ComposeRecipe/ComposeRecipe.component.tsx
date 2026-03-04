@@ -1,5 +1,5 @@
-import { useContext, useId } from 'react'
-import { useNavigate, useParams } from 'react-router'
+import { useContext } from 'react'
+import { useNavigate } from 'react-router'
 
 import type { CompositionRecipeType } from '@/Types/Composition.type'
 import { ALL_CORES } from '@/Consts/Cores.const'
@@ -28,9 +28,8 @@ export const ComposeRecipe = ({
 }) => {
   const profileContext = useContext(ProfileContext)
   const compositionContext = useContext(CompositionContext)
-  const { id } = useParams()
 
-  if (!profileContext || !compositionContext || !id) {
+  if (!profileContext || !compositionContext) {
     return
   }
 
@@ -38,7 +37,9 @@ export const ComposeRecipe = ({
   const { baseDigimon } = compositionContext
 
   const navigate = useNavigate()
-  const newDigimonId = useId()
+  const newDigimonId = (
+    Number(profile.partners?.[profile.partners?.length - 1]?.id || 0) + 1
+  ).toString()
 
   const cores = recipe?.cores?.map((coreItem) => {
     const playerCores = profile.cores.find(

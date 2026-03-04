@@ -49,7 +49,7 @@ const calcDamage = ({
   attacker: PartyDigimon
   target: PartyDigimon
 }) => {
-  const damageDealt = Math.max(0, attacker!.stats.atk - target.stats.def)
+  const damageDealt = Math.max(1, attacker!.stats.atk - target.stats.def)
   const updatedHp = Math.max(0, target.currentHp - damageDealt)
 
   return { updatedHp, damageDealt }
