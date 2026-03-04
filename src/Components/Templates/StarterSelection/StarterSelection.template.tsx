@@ -13,7 +13,7 @@ import { Typography } from '@/Components/System/Typography'
 import { Input } from '@/Components/System/Input'
 import { Button } from '@/Components/System/Button'
 
-import { StarterDigimonCard } from '@/Components/App/StarterDigimonCard'
+import { DetailedDigimonCard } from '@/Components/App/DetailedDigimonCard'
 
 import './StarterSelection.style.scss'
 
@@ -112,7 +112,7 @@ export const StarterSelectionTemplate = () => {
                   onChange={selectDigimon}
                 />
 
-                <StarterDigimonCard digimon={starterItem} />
+                <DetailedDigimonCard digimon={starterItem} />
               </label>
             </li>
           ))}

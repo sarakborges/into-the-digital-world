@@ -12,28 +12,20 @@
     gap: var(--size-md);
   }
 
-  .digimon-stage {
+  .digimon-list {
     display: flex;
     flex-flow: column;
-    gap: var(--size-lg);
+    gap: var(--size-lmd);
 
-    .digimon-stage-list {
+    > div {
       display: flex;
-      gap: var(--size-lg);
-      flex-wrap: wrap;
 
-      > div {
+      > a {
         display: flex;
         flex-flow: column;
-        place-items: center;
-        gap: var(--size-md);
+        gap: var(--size-sm);
 
-        > a {
-          display: flex;
-          flex-flow: column;
-          place-items: center;
-          gap: var(--size-sm);
-        }
+        color: var(--color-white);
       }
     }
   }

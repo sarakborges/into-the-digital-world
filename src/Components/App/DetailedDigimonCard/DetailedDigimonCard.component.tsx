@@ -9,9 +9,9 @@ import { DIGIMON_STATS } from '@/Consts/DigimonStats.const'
 import { Typography } from '@/Components/System/Typography'
 import { Tag } from '@/Components/System/Tag'
 
-import './StarterDigimonCard.style.scss'
+import './DetailedDigimonCard.style.scss'
 
-export const StarterDigimonCard = ({ digimon }: { digimon: DigimonType }) => {
+export const DetailedDigimonCard = ({ digimon }: { digimon: DigimonType }) => {
   return (
     <div className="starter-digimon-card">
       <Portrait

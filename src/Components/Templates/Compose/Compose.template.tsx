@@ -9,10 +9,10 @@ import { ProfileContext } from '@/Contexts/Profile.context'
 import { COMPOSABLE_DIGIMONS } from '@/GameData/Digimons'
 
 import { Link } from '@/Components/System/Link'
-import { Portrait } from '@/Components/System/Portrait'
 import { Typography } from '@/Components/System/Typography'
 
 import { MenuWrapper } from '@/Components/App/MenuWrapper'
+import { DetailedDigimonCard } from '@/Components/App/DetailedDigimonCard'
 
 import './Compose.style.scss'
 
@@ -37,27 +37,20 @@ export const ComposeTemplate = () => {
           <Typography as="h2">{getTexts('COMPOSE_SUBTITLE')}</Typography>
         </header>
 
-        <section className="digimon-stage">
-          <main className="digimon-stage-list">
-            {seenDigimons.map((digimonItem) => (
-              <div key={`compose-digimons-${digimonItem.id}`}>
-                <Link
-                  to={ROUTES.COMPOSE_DIGIMON.path.replace(
-                    ':id',
-                    digimonItem.id.toLocaleLowerCase()
-                  )}
-                >
-                  <Portrait
-                    src={`/digimon_portraits/${digimonItem.id}.jpg`}
-                    alt={digimonItem.name}
-                  />
-
-                  <Typography as="span">{digimonItem.name}</Typography>
-                </Link>
-              </div>
-            ))}
-          </main>
-        </section>
+        <main className="digimon-list">
+          {seenDigimons.map((digimonItem) => (
+            <div key={`compose-digimons-${digimonItem.id}`}>
+              <Link
+                to={ROUTES.COMPOSE_DIGIMON.path.replace(
+                  ':id',
+                  digimonItem.id.toLocaleLowerCase()
+                )}
+              >
+                <DetailedDigimonCard digimon={digimonItem} />
+              </Link>
+            </div>
+          ))}
+        </main>
       </main>
     </MenuWrapper>
   )

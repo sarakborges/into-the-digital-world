@@ -11,7 +11,7 @@ import { COMPOSABLE_DIGIMONS } from '@/GameData/Digimons'
 import { Typography } from '@/Components/System/Typography'
 
 import { MenuWrapper } from '@/Components/App/MenuWrapper'
-import { StarterDigimonCard } from '@/Components/App/StarterDigimonCard'
+import { DetailedDigimonCard } from '@/Components/App/DetailedDigimonCard'
 import { ComposeRecipe } from '@/Components/App/ComposeRecipe'
 
 import './ComposeDigimon.style.scss'
@@ -54,7 +54,7 @@ export const ComposeDigimonTemplate = () => {
         <header className="compose-digimon-header">
           <Typography as="h1">{getTexts('COMPOSE_DIGIMON_TITLE')}</Typography>
 
-          <StarterDigimonCard digimon={digimon} />
+          <DetailedDigimonCard digimon={digimon} />
         </header>
 
         <main>
