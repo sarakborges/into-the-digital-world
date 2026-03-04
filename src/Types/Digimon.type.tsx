@@ -50,7 +50,6 @@ export type PartyDigimon = {
 
 export type PartnerDigimonType = {
   id: string
-  isStarter?: boolean
   name?: string
   level: number
   experience: number

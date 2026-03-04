@@ -21,8 +21,7 @@ export const composeNewDigimon = ({
     baseDigimon: baseDigimon!.id,
     level: 1,
     experience: 0,
-    points: 0,
-    isStarter: false
+    points: 0
   }
 
   return {

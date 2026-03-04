@@ -53,7 +53,6 @@ export const StarterSelectionTemplate = () => {
       id: digimonId,
       name: name || '',
       baseDigimon: starterId,
-      isStarter: true,
       level: 1,
       experience: 0
     }
