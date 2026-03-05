@@ -18,5 +18,19 @@ export const BUKAMON: DigimonType = {
     int: 8,
     res: 10,
     spd: 10
-  }
+  },
+
+  composeRecipe: [
+    {
+      id: 'KOROMON_COMPOSE_FULL',
+
+      cores: [
+        {
+          id: ALL_CORES.deepSavers.id,
+          type: 'family',
+          quantity: 1
+        }
+      ]
+    }
+  ]
 }

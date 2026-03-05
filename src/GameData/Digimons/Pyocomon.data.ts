@@ -18,5 +18,49 @@ export const PYOCOMON: DigimonType = {
     int: 20,
     res: 10,
     spd: 14
-  }
+  },
+
+  composeRecipe: [
+    {
+      id: 'KOROMON_COMPOSE_FULL',
+
+      cores: [
+        {
+          id: ALL_CORES.windGuardians.id,
+          type: 'family',
+          quantity: 1
+        },
+
+        {
+          id: ALL_CORES.jungleTroopers.id,
+          type: 'family',
+          quantity: 1
+        }
+      ]
+    },
+
+    {
+      id: 'KOROMON_COMPOSE_WG',
+
+      cores: [
+        {
+          id: ALL_CORES.windGuardians.id,
+          type: 'family',
+          quantity: 5
+        }
+      ]
+    },
+
+    {
+      id: 'KOROMON_COMPOSE_JT',
+
+      cores: [
+        {
+          id: ALL_CORES.jungleTroopers.id,
+          type: 'family',
+          quantity: 5
+        }
+      ]
+    }
+  ]
 }

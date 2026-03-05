@@ -18,5 +18,49 @@ export const TOKOMON: DigimonType = {
     int: 6,
     res: 6,
     spd: 16
-  }
+  },
+
+  composeRecipe: [
+    {
+      id: 'KOROMON_COMPOSE_FULL',
+
+      cores: [
+        {
+          id: ALL_CORES.windGuardians.id,
+          type: 'family',
+          quantity: 1
+        },
+
+        {
+          id: ALL_CORES.virusBusters.id,
+          type: 'family',
+          quantity: 1
+        }
+      ]
+    },
+
+    {
+      id: 'KOROMON_COMPOSE_DG',
+
+      cores: [
+        {
+          id: ALL_CORES.windGuardians.id,
+          type: 'family',
+          quantity: 5
+        }
+      ]
+    },
+
+    {
+      id: 'KOROMON_COMPOSE_VB',
+
+      cores: [
+        {
+          id: ALL_CORES.virusBusters.id,
+          type: 'family',
+          quantity: 5
+        }
+      ]
+    }
+  ]
 }

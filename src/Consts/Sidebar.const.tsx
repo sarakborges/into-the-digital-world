@@ -20,15 +20,15 @@ export const SIDEBAR_MENU = [
   },
 
   {
-    ...ROUTES.COMPOSE,
-    text: `Compose`,
-    icon: <FaReact />
-  },
-
-  {
     ...ROUTES.COLLECTION,
     text: `Collection`,
     icon: <HiCollection />
+  },
+
+  {
+    ...ROUTES.COMPOSE,
+    text: `Compose`,
+    icon: <FaReact />
   }
 ]
 

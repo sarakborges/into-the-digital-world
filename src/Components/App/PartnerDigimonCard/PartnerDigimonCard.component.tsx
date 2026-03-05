@@ -70,9 +70,7 @@ export const PartnerDigimonCard = ({
 
         <section className="info-text">
           <Typography as="h2">
-            {digimonItem.name && <>{digimonItem.name} (</>}
-            <>{baseDigimon!.name}</>
-            {digimonItem.name && <>)</>}
+            {digimonItem.name || baseDigimon!.name}
           </Typography>
 
           <Typography as="span">

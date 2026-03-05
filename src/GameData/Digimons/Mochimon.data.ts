@@ -18,5 +18,49 @@ export const MOCHIMON: DigimonType = {
     int: 12,
     res: 10,
     spd: 10
-  }
+  },
+
+  composeRecipe: [
+    {
+      id: 'KOROMON_COMPOSE_FULL',
+
+      cores: [
+        {
+          id: ALL_CORES.natureSpirits.id,
+          type: 'family',
+          quantity: 1
+        },
+
+        {
+          id: ALL_CORES.metalEmpire.id,
+          type: 'family',
+          quantity: 1
+        }
+      ]
+    },
+
+    {
+      id: 'KOROMON_COMPOSE_NSP',
+
+      cores: [
+        {
+          id: ALL_CORES.natureSpirits.id,
+          type: 'family',
+          quantity: 5
+        }
+      ]
+    },
+
+    {
+      id: 'KOROMON_COMPOSE_ME',
+
+      cores: [
+        {
+          id: ALL_CORES.metalEmpire.id,
+          type: 'family',
+          quantity: 5
+        }
+      ]
+    }
+  ]
 }

@@ -18,5 +18,19 @@ export const TANEMON: DigimonType = {
     int: 20,
     res: 10,
     spd: 4
-  }
+  },
+
+  composeRecipe: [
+    {
+      id: 'KOROMON_COMPOSE_FULL',
+
+      cores: [
+        {
+          id: ALL_CORES.jungleTroopers.id,
+          type: 'family',
+          quantity: 5
+        }
+      ]
+    }
+  ]
 }
