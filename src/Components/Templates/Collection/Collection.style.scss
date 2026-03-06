@@ -6,6 +6,12 @@
   width: 100%;
   padding: var(--size-lg);
 
+  .collection-header {
+    display: flex;
+    flex-flow: column;
+    gap: var(--size-smd);
+  }
+
   .collection-list {
     display: flex;
     flex-flow: column;

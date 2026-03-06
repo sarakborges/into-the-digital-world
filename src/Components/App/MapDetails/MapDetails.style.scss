@@ -6,15 +6,16 @@
 
   min-width: var(--map-details-size);
   max-width: var(--map-details-size);
-  padding: var(--size-lmd);
-
-  background-color: var(--map-details-background);
-  border-radius: var(--size-md);
 
   .map-details-info {
     display: flex;
     flex-flow: column;
     gap: var(--size-smd);
+
+    padding: var(--size-lmd);
+
+    background-color: var(--map-details-background);
+    border-radius: var(--size-md);
 
     > header {
       display: flex;

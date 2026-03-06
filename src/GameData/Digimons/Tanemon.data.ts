@@ -15,7 +15,7 @@ export const TANEMON: DigimonType = {
     sp: 20,
     atk: 10,
     def: 12,
-    int: 20,
+    pow: 20,
     res: 10,
     spd: 4
   },

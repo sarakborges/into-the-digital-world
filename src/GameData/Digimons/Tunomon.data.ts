@@ -15,7 +15,7 @@ export const TUNOMON: DigimonType = {
     sp: 14,
     atk: 16,
     def: 10,
-    int: 20,
+    pow: 20,
     res: 10,
     spd: 12
   },

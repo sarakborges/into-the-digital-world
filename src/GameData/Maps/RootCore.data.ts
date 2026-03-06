@@ -6,7 +6,7 @@ export const ROOT_CORE: MapType = {
   id: `ROOT_CORE`,
   name: `Root Core`,
   description: `The heart of the domain. A deep chamber where energy flows converge violently. The air vibrates with tension, as if the entire system were on the brink of collapse.`,
-  types: [MapTypes.COMBAT, MapTypes.ELITE],
+  types: [MapTypes.COMBAT],
 
   enemyLevelRange: {
     min: 2,

@@ -31,8 +31,9 @@ export const CollectionTemplate = () => {
   return (
     <MenuWrapper>
       <main className="collection-template">
-        <header>
+        <header className="collection-header">
           <Typography as="h1">{getTexts('COLLECTION_TITLE')}</Typography>
+          <Typography as="h2">{getTexts('COLLECTION_SUBTITLE')}</Typography>
         </header>
 
         <section className="collection-list">

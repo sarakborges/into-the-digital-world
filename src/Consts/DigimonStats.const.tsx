@@ -37,10 +37,10 @@ export const DIGIMON_STATS = {
     icon: <TbShield />
   },
 
-  int: {
-    id: 'int',
-    name: 'Intelligence',
-    abbreviation: 'int',
+  pow: {
+    id: 'pow',
+    name: 'Power',
+    abbreviation: 'pow',
     icon: <TbBrain />
   },
 

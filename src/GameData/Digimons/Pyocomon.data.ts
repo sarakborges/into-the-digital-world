@@ -15,7 +15,7 @@ export const PYOCOMON: DigimonType = {
     sp: 16,
     atk: 12,
     def: 10,
-    int: 20,
+    pow: 20,
     res: 10,
     spd: 14
   },

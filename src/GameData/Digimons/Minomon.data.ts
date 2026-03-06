@@ -15,7 +15,7 @@ export const MINOMON: DigimonType = {
     sp: 10,
     atk: 24,
     def: 12,
-    int: 6,
+    pow: 6,
     res: 6,
     spd: 20
   }

@@ -10,7 +10,6 @@ import { CreateProfileRoute } from '@/Routes/CreateProfile.route'
 import { SettingsRoute } from '@/Routes/Settings.route'
 import { WikiRoute } from '@/Routes/Wiki.route'
 import { ComposeRoute } from '@/Routes/Compose.route'
-import { ComposeDigimonRoute } from '@/Routes/ComposeDigimon.route'
 import { CollectionRoute } from '@/Routes/Collection.route'
 
 const routeComponents = {
@@ -22,7 +21,6 @@ const routeComponents = {
   settings: SettingsRoute,
   wiki: WikiRoute,
   compose: ComposeRoute,
-  composeDigimon: ComposeDigimonRoute,
   collection: CollectionRoute
 }
 

@@ -9,33 +9,78 @@
   .compose-header {
     display: flex;
     flex-flow: column;
-    gap: var(--size-md);
+    gap: var(--size-smd);
   }
 
-  .digimon-list {
+  .compose-body {
     display: flex;
-    flex-flow: column;
-    gap: var(--size-lmd);
+    gap: var(--size-lg);
 
-    > div {
+    .digimon-list {
       display: flex;
+      flex-flow: column;
+      gap: var(--size-lmd);
 
-      > a {
+      > div {
+        display: flex;
+
+        > button {
+          display: flex;
+          flex-flow: column;
+          gap: var(--size-sm);
+
+          padding: 0;
+
+          color: var(--color-white);
+          text-align: left;
+
+          border: 0;
+          background: none;
+          cursor: pointer;
+
+          transition: box-shadow 0.3s;
+
+          &.selected {
+            .starter-digimon-card {
+              box-shadow: 0 0 var(--size-sm) var(--size-xs) var(--color-primary);
+            }
+          }
+
+          &:not(.selected):hover {
+            .starter-digimon-card {
+              box-shadow: 0 0 var(--size-sm) var(--size-xs)
+                var(--color-primary-transparent);
+            }
+          }
+        }
+      }
+    }
+
+    .digimon-recipes {
+      .recipes-body {
+        position: sticky;
+        top: var(--size-md);
+
         display: flex;
         flex-flow: column;
-        gap: var(--size-sm);
+        gap: var(--size-md);
 
-        color: var(--color-white);
+        width: var(--compose-recipe-size);
+        padding: var(--size-md);
 
-        .starter-digimon-card {
-          transition: box-shadow 0.3s;
+        background-color: var(--digimon-card-background);
+        border-radius: var(--size-md);
+
+        > header {
+          display: flex;
+          place-items: center;
+          gap: var(--size-md);
         }
 
-        &:hover {
-          .starter-digimon-card {
-            box-shadow: 0 0 var(--size-sm) var(--size-xs)
-              var(--color-primary-transparent);
-          }
+        > main {
+          display: flex;
+          flex-flow: column;
+          gap: var(--size-md);
         }
       }
     }

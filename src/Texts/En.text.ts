@@ -28,7 +28,6 @@ export const CORES_COLLECTED_ATTRIBUTE_TITLE = `Attribute cores collected:`
 
 export const MAPS_TITLE = `Explore the digital world!`
 export const MAPS_SUBTITLE = `In this world, there are many wonders! But also, terrible dangers await for you!`
-export const MAPS_DETAILS_TEXT = `Select a map to know what you can find in it!`
 
 export const MAPS_DETAILS_COMBAT_CTA = `Battle enemy`
 export const MAPS_DETAILS_COMBAT_LEVEL = ` (Level: [LEVEL])`
@@ -49,16 +48,17 @@ export const BATTLE_ACTIONS_TITLE = `Actions`
 export const BATTLE_ACTIONS_BASIC_ATTACK = `Attack`
 export const BATTLE_LOG_TITLE = `Combat log:`
 
-export const COMPOSE_TITLE = `Compose Digimon`
+export const COMPOSE_TITLE = `Compose`
 export const COMPOSE_SUBTITLE = `Select which digimon you want to compose`
-
 export const COMPOSE_DIGIMON_TITLE = `Composing new Digimon`
-export const COMPOSE_DIGIMON_CORE_TITLE = `To compose [NAME], choose one of the following combinations:`
+export const COMPOSE_DIGIMON_RECIPE_TITLE = `So you want to compose a [NAME]?`
+export const COMPOSE_DIGIMON_RECIPE_SUBTITLE = `Alright! Choose one of the following combination recipes:`
 export const COMPOSE_RECIPE_CORE = `[NAME] core:`
 export const COMPOSE_RECIPE_CTA = `Compose`
 export const COMPOSE_DIGIMON_NAME = `Do you want to name your partner? (optional)`
 
-export const COLLECTION_TITLE = `Your partners collection`
+export const COLLECTION_TITLE = `Collection`
+export const COLLECTION_SUBTITLE = `All your partner Digimons`
 export const COLLECTION_PARTY_TITLE = `Your current party:`
 export const COLLECTION_ALL_TITLE = `Other partners:`
 

@@ -15,7 +15,7 @@ export const NYAROMON: DigimonType = {
     sp: 18,
     atk: 12,
     def: 10,
-    int: 22,
+    pow: 22,
     res: 12,
     spd: 8
   },

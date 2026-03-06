@@ -35,12 +35,6 @@ export const MAP_SUBTITLES = {
   [MapTypes.COMBAT]: {
     id: MapTypes.COMBAT,
     name: `Enemy`,
-    icon: <LuSwords />
-  },
-
-  [MapTypes.ELITE]: {
-    id: MapTypes.ELITE,
-    name: `Elite enemy`,
     icon: <FaExclamationTriangle />
   }
 }

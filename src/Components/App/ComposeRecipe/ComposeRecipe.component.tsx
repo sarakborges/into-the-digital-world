@@ -73,7 +73,7 @@ export const ComposeRecipe = ({
 
     localStorage.setItem('profile', JSON.stringify(updatedProfile))
     setProfile(updatedProfile)
-    navigate(ROUTES.HOME.path)
+    navigate(ROUTES.COLLECTION.path)
   }
 
   return (
@@ -81,7 +81,6 @@ export const ComposeRecipe = ({
       {cores?.map((coreItem) => (
         <li
           key={`${baseDigimon?.name}-compose-${recipe.id}-core-${coreItem.id}`}
-          className="card"
         >
           <aside>
             <Icon

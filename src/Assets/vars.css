@@ -31,11 +31,10 @@
   --color-family-da: #0d0d0d;
   --color-family-me: #88848c;
 
-  --color-map-type-combat: #6e5532;
+  --color-map-type-combat: #993925;
   --color-map-type-quest: #9f51bc;
   --color-map-type-quest_repeatable: #3f86d7;
   --color-map-type-commerce: #c1a519;
-  --color-map-type-elite: #993925;
   --color-map-type-event: #42a44e;
 
   --typography-text: var(--color-white);
@@ -91,8 +90,9 @@
   --sidebar-background: var(--color-primary-darker);
   --sidebar-subtitle-border: var(--color-primary);
 
-  --detailed-digimon-card-size: 480px;
+  --detailed-digimon-card-size: 560px;
   --party-digimon-card-size: 320px;
+  --compose-recipe-size: 560px;
   --digimon-card-background: var(--color-primary-darker);
 
   --map-minSize: 240px;

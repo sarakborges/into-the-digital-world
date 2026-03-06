@@ -6,7 +6,6 @@ export const MapTypes = {
   COMMERCE: 'COMMERCE',
   QUEST: 'QUEST',
   QUEST_REPEATABLE: 'QUEST_REPEATABLE',
-  ELITE: 'ELITE',
   EVENT: 'EVENT'
 }
 

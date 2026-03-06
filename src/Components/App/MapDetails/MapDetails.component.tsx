@@ -22,10 +22,6 @@ export const MapDetails = () => {
 
   return (
     <aside className="map-details">
-      {!currentMap?.id && (
-        <Typography as="span">{getTexts('MAPS_DETAILS_TEXT')}</Typography>
-      )}
-
       {currentMap?.id && (
         <div className="map-details-info">
           <header>

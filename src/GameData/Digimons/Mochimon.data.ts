@@ -15,7 +15,7 @@ export const MOCHIMON: DigimonType = {
     sp: 12,
     atk: 12,
     def: 20,
-    int: 12,
+    pow: 12,
     res: 10,
     spd: 10
   },

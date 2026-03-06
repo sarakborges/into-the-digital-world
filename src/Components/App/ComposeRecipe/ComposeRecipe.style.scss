@@ -5,7 +5,7 @@
 
   padding: var(--size-smd);
 
-  background-color: var(--digimon-card-background);
+  background-color: var(--body-background);
   border-radius: var(--size-md);
 
   > li {
@@ -15,7 +15,6 @@
 
     > .composition-recipe-core {
       flex: 1;
-      max-width: var(--party-digimon-card-size);
     }
 
     > button {

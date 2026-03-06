@@ -5,7 +5,7 @@ type DigimonStats = {
   sp: number
   atk: number
   def: number
-  int: number
+  pow: number
   res: number
   spd: number
 }

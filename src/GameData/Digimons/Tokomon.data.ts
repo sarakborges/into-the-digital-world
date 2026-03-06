@@ -15,7 +15,7 @@ export const TOKOMON: DigimonType = {
     sp: 14,
     atk: 26,
     def: 10,
-    int: 6,
+    pow: 6,
     res: 6,
     spd: 16
   },

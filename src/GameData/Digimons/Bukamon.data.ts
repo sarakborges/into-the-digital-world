@@ -15,7 +15,7 @@ export const BUKAMON: DigimonType = {
     sp: 10,
     atk: 16,
     def: 20,
-    int: 8,
+    pow: 8,
     res: 10,
     spd: 10
   },
