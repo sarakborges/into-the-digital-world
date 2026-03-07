@@ -11,13 +11,13 @@ export const PYOCOMON: DigimonType = {
   families: [ALL_CORES.windGuardians.id, ALL_CORES.jungleTroopers.id],
 
   stats: {
-    hp: 18,
-    sp: 16,
-    atk: 12,
-    def: 10,
-    pow: 20,
-    res: 10,
-    spd: 14
+    hp: 15,
+    sp: 15,
+    atk: 14,
+    def: 13,
+    pow: 14,
+    res: 13,
+    spd: 16
   },
 
   composeRecipe: [

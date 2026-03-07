@@ -11,12 +11,12 @@ export const GUMMYMON: DigimonType = {
   families: [ALL_CORES.natureSpirits.id, ALL_CORES.virusBusters.id],
 
   stats: {
-    hp: 22,
-    sp: 10,
-    atk: 24,
+    hp: 14,
+    sp: 20,
+    atk: 10,
     def: 12,
-    pow: 6,
-    res: 6,
-    spd: 20
+    pow: 18,
+    res: 16,
+    spd: 10
   }
 }

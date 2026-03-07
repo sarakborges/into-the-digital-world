@@ -11,12 +11,12 @@ export const PETITMERAMON: DigimonType = {
   families: [ALL_CORES.nightmareSoldiers.id, ALL_CORES.metalEmpire.id],
 
   stats: {
-    hp: 22,
-    sp: 10,
-    atk: 24,
-    def: 12,
-    pow: 6,
-    res: 6,
-    spd: 20
+    hp: 12,
+    sp: 18,
+    atk: 14,
+    def: 9,
+    pow: 22,
+    res: 13,
+    spd: 12
   }
 }

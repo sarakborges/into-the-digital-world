@@ -11,12 +11,12 @@ export const POKOMON: DigimonType = {
   families: [ALL_CORES.natureSpirits.id],
 
   stats: {
-    hp: 22,
-    sp: 10,
-    atk: 24,
-    def: 12,
-    pow: 6,
-    res: 6,
-    spd: 20
+    hp: 18,
+    sp: 12,
+    atk: 12,
+    def: 18,
+    pow: 12,
+    res: 18,
+    spd: 10
   }
 }

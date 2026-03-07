@@ -11,13 +11,13 @@ export const BUKAMON: DigimonType = {
   families: [ALL_CORES.deepSavers.id],
 
   stats: {
-    hp: 26,
-    sp: 10,
-    atk: 16,
-    def: 20,
-    pow: 8,
-    res: 10,
-    spd: 10
+    hp: 14,
+    sp: 15,
+    atk: 12,
+    def: 12,
+    pow: 14,
+    res: 13,
+    spd: 20
   },
 
   composeRecipe: [

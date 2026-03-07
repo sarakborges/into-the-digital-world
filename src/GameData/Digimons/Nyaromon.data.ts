@@ -11,13 +11,13 @@ export const NYAROMON: DigimonType = {
   families: [ALL_CORES.natureSpirits.id, ALL_CORES.virusBusters.id],
 
   stats: {
-    hp: 18,
-    sp: 18,
-    atk: 12,
+    hp: 13,
+    sp: 15,
+    atk: 14,
     def: 10,
-    pow: 22,
-    res: 12,
-    spd: 8
+    pow: 15,
+    res: 11,
+    spd: 22
   },
 
   composeRecipe: [

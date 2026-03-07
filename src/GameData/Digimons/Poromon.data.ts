@@ -11,12 +11,12 @@ export const POROMON: DigimonType = {
   families: [ALL_CORES.windGuardians.id],
 
   stats: {
-    hp: 22,
-    sp: 10,
-    atk: 24,
+    hp: 14,
+    sp: 18,
+    atk: 11,
     def: 12,
-    pow: 6,
-    res: 6,
-    spd: 20
+    pow: 15,
+    res: 18,
+    spd: 12
   }
 }

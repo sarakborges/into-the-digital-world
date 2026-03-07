@@ -11,12 +11,12 @@ export const TSUMEMON: DigimonType = {
   families: [ALL_CORES.nightmareSoldiers.id],
 
   stats: {
-    hp: 22,
-    sp: 10,
-    atk: 24,
+    hp: 15,
+    sp: 12,
+    atk: 20,
     def: 12,
-    pow: 6,
-    res: 6,
-    spd: 20
+    pow: 17,
+    res: 10,
+    spd: 14
   }
 }

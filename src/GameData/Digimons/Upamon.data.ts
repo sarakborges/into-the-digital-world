@@ -11,12 +11,12 @@ export const UPAMON: DigimonType = {
   families: [ALL_CORES.deepSavers.id],
 
   stats: {
-    hp: 22,
-    sp: 10,
-    atk: 24,
+    hp: 14,
+    sp: 17,
+    atk: 11,
     def: 12,
-    pow: 6,
-    res: 6,
-    spd: 20
+    pow: 14,
+    res: 15,
+    spd: 17
   }
 }

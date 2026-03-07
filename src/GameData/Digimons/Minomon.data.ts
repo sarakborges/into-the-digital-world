@@ -11,12 +11,12 @@ export const MINOMON: DigimonType = {
   families: [ALL_CORES.jungleTroopers.id],
 
   stats: {
-    hp: 22,
+    hp: 20,
     sp: 10,
-    atk: 24,
-    def: 12,
-    pow: 6,
-    res: 6,
-    spd: 20
+    atk: 11,
+    def: 19,
+    pow: 10,
+    res: 20,
+    spd: 10
   }
 }

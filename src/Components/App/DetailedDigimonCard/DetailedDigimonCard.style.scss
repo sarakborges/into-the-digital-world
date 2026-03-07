@@ -1,4 +1,4 @@
-.starter-digimon-card {
+.detailed-digimon-card {
   display: flex;
   place-items: center;
   gap: var(--size-lmd);
@@ -12,7 +12,7 @@
   .digimon-info {
     display: flex;
     flex-flow: column;
-    gap: var(--size-sm);
+    gap: var(--size-smd);
 
     .digimon-tags {
       display: flex;
@@ -21,12 +21,12 @@
     }
 
     .digimon-stats {
-      display: flex;
-      gap: var(--size-lmd);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--size-sm);
 
       > div {
         display: flex;
-        flex-flow: column;
         place-items: center;
         gap: var(--size-xs);
 

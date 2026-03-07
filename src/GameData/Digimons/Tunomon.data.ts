@@ -11,12 +11,12 @@ export const TUNOMON: DigimonType = {
   families: [ALL_CORES.natureSpirits.id],
 
   stats: {
-    hp: 18,
-    sp: 14,
-    atk: 16,
-    def: 10,
-    pow: 20,
-    res: 10,
+    hp: 17,
+    sp: 12,
+    atk: 17,
+    def: 15,
+    pow: 14,
+    res: 13,
     spd: 12
   },
 

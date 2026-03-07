@@ -11,12 +11,12 @@ export const KYOKYOMON: DigimonType = {
   families: [ALL_CORES.dragonsRoar.id],
 
   stats: {
-    hp: 22,
-    sp: 10,
-    atk: 24,
+    hp: 14,
+    sp: 13,
+    atk: 17,
     def: 12,
-    pow: 6,
-    res: 6,
-    spd: 20
+    pow: 16,
+    res: 12,
+    spd: 16
   }
 }

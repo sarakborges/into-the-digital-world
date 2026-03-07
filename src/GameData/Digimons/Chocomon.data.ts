@@ -11,12 +11,12 @@ export const CHOCOMON: DigimonType = {
   families: [ALL_CORES.virusBusters.id],
 
   stats: {
-    hp: 22,
-    sp: 10,
-    atk: 24,
-    def: 12,
-    pow: 6,
-    res: 6,
-    spd: 20
+    hp: 17,
+    sp: 16,
+    atk: 11,
+    def: 15,
+    pow: 13,
+    res: 16,
+    spd: 12
   }
 }

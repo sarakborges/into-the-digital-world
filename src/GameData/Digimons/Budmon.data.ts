@@ -11,12 +11,12 @@ export const BUDMON: DigimonType = {
   families: [ALL_CORES.jungleTroopers.id],
 
   stats: {
-    hp: 22,
-    sp: 10,
-    atk: 24,
-    def: 12,
-    pow: 6,
-    res: 6,
-    spd: 20
+    hp: 15,
+    sp: 14,
+    atk: 13,
+    def: 14,
+    pow: 15,
+    res: 15,
+    spd: 14
   }
 }

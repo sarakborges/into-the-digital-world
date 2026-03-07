@@ -11,13 +11,13 @@ export const MOCHIMON: DigimonType = {
   families: [ALL_CORES.natureSpirits.id, ALL_CORES.metalEmpire.id],
 
   stats: {
-    hp: 24,
-    sp: 12,
+    hp: 19,
+    sp: 13,
     atk: 12,
-    def: 20,
+    def: 18,
     pow: 12,
-    res: 10,
-    spd: 10
+    res: 17,
+    spd: 9
   },
 
   composeRecipe: [

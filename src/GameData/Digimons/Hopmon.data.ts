@@ -11,12 +11,12 @@ export const HOPMON: DigimonType = {
   families: [ALL_CORES.metalEmpire.id],
 
   stats: {
-    hp: 22,
-    sp: 10,
-    atk: 24,
-    def: 12,
-    pow: 6,
-    res: 6,
-    spd: 20
+    hp: 16,
+    sp: 13,
+    atk: 17,
+    def: 14,
+    pow: 15,
+    res: 12,
+    spd: 13
   }
 }

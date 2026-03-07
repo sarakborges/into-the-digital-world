@@ -13,7 +13,7 @@ import './DetailedDigimonCard.style.scss'
 
 export const DetailedDigimonCard = ({ digimon }: { digimon: DigimonType }) => {
   return (
-    <div className="starter-digimon-card">
+    <div className="detailed-digimon-card">
       <Portrait
         src={`/digimon_portraits/${digimon.id}.jpg`}
         alt={`Starter digimon: ${digimon.name}`}
@@ -44,11 +44,11 @@ export const DetailedDigimonCard = ({ digimon }: { digimon: DigimonType }) => {
             <div
               key={`digimon-card-item-${digimon.id}-stats-${DIGIMON_STATS[statItem].id}`}
             >
-              <Typography as="span">
-                {DIGIMON_STATS[statItem].abbreviation}
-              </Typography>
-
               {DIGIMON_STATS[statItem].icon}
+
+              <Typography as="span">
+                {DIGIMON_STATS[statItem].abbreviation}:
+              </Typography>
 
               <Typography as="span">{digimon.stats[statItem]}</Typography>
             </div>

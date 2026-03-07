@@ -11,12 +11,12 @@ export const GIGIMON: DigimonType = {
   families: [ALL_CORES.dragonsRoar.id],
 
   stats: {
-    hp: 22,
-    sp: 10,
-    atk: 24,
-    def: 12,
-    pow: 6,
-    res: 6,
-    spd: 20
+    hp: 17,
+    sp: 13,
+    atk: 18,
+    def: 14,
+    pow: 17,
+    res: 11,
+    spd: 10
   }
 }

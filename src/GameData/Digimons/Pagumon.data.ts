@@ -11,12 +11,12 @@ export const PAGUMON: DigimonType = {
   families: [ALL_CORES.nightmareSoldiers.id],
 
   stats: {
-    hp: 22,
-    sp: 10,
-    atk: 24,
-    def: 12,
-    pow: 6,
-    res: 6,
-    spd: 20
+    hp: 15,
+    sp: 18,
+    atk: 12,
+    def: 11,
+    pow: 19,
+    res: 15,
+    spd: 10
   }
 }

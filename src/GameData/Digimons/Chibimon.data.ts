@@ -11,12 +11,12 @@ export const CHIBIMON: DigimonType = {
   families: [ALL_CORES.virusBusters.id],
 
   stats: {
-    hp: 22,
-    sp: 10,
-    atk: 24,
-    def: 12,
-    pow: 6,
-    res: 6,
-    spd: 20
+    hp: 16,
+    sp: 14,
+    atk: 15,
+    def: 14,
+    pow: 14,
+    res: 13,
+    spd: 14
   }
 }

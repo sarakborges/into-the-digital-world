@@ -11,12 +11,12 @@ export const WANYAMON: DigimonType = {
   families: [ALL_CORES.natureSpirits.id],
 
   stats: {
-    hp: 22,
-    sp: 10,
-    atk: 24,
-    def: 12,
-    pow: 6,
-    res: 6,
+    hp: 15,
+    sp: 13,
+    atk: 16,
+    def: 11,
+    pow: 14,
+    res: 11,
     spd: 20
   }
 }

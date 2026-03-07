@@ -11,13 +11,13 @@ export const TOKOMON: DigimonType = {
   families: [ALL_CORES.windGuardians.id, ALL_CORES.virusBusters.id],
 
   stats: {
-    hp: 22,
+    hp: 18,
     sp: 14,
-    atk: 26,
-    def: 10,
-    pow: 6,
-    res: 6,
-    spd: 16
+    atk: 13,
+    def: 19,
+    pow: 12,
+    res: 18,
+    spd: 6
   },
 
   composeRecipe: [

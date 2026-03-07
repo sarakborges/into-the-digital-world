@@ -11,12 +11,12 @@ export const DORIMON: DigimonType = {
   families: [ALL_CORES.natureSpirits.id],
 
   stats: {
-    hp: 22,
-    sp: 10,
-    atk: 24,
-    def: 12,
-    pow: 6,
-    res: 6,
-    spd: 20
+    hp: 16,
+    sp: 12,
+    atk: 19,
+    def: 14,
+    pow: 15,
+    res: 11,
+    spd: 13
   }
 }

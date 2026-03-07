@@ -11,13 +11,13 @@ export const TANEMON: DigimonType = {
   families: [ALL_CORES.jungleTroopers.id],
 
   stats: {
-    hp: 24,
-    sp: 20,
-    atk: 10,
-    def: 12,
-    pow: 20,
-    res: 10,
-    spd: 4
+    hp: 19,
+    sp: 14,
+    atk: 12,
+    def: 17,
+    pow: 13,
+    res: 17,
+    spd: 8
   },
 
   composeRecipe: [

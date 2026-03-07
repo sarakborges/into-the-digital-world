@@ -1,6 +1,6 @@
 import {
+  TbArrowBigRightLinesFilled,
   TbBolt,
-  TbBrain,
   TbCircuitResistor,
   TbHeart,
   TbShield,
@@ -41,7 +41,7 @@ export const DIGIMON_STATS = {
     id: 'pow',
     name: 'Power',
     abbreviation: 'pow',
-    icon: <TbBrain />
+    icon: <TbBolt />
   },
 
   res: {
@@ -55,6 +55,6 @@ export const DIGIMON_STATS = {
     id: 'spd',
     name: 'Speed',
     abbreviation: 'spd',
-    icon: <TbBolt />
+    icon: <TbArrowBigRightLinesFilled />
   }
 }

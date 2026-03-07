@@ -11,13 +11,13 @@ export const KOROMON: DigimonType = {
   families: [ALL_CORES.dragonsRoar.id, ALL_CORES.virusBusters.id],
 
   stats: {
-    hp: 22,
-    sp: 10,
-    atk: 24,
-    def: 12,
-    pow: 6,
-    res: 6,
-    spd: 20
+    hp: 17,
+    sp: 14,
+    atk: 16,
+    def: 15,
+    pow: 15,
+    res: 12,
+    spd: 11
   },
 
   composeRecipe: [

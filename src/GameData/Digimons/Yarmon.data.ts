@@ -11,12 +11,12 @@ export const YARMON: DigimonType = {
   families: [ALL_CORES.nightmareSoldiers.id],
 
   stats: {
-    hp: 22,
-    sp: 10,
-    atk: 24,
-    def: 12,
-    pow: 6,
-    res: 6,
-    spd: 20
+    hp: 14,
+    sp: 14,
+    atk: 18,
+    def: 10,
+    pow: 16,
+    res: 10,
+    spd: 18
   }
 }
