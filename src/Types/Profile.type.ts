@@ -15,7 +15,6 @@ export type ProfileType = {
   party?: Array<string>
   items?: Array<ItemType>
   completedQuests?: Array<string>
-  seenDigimon?: Array<string>
   cores: Array<CoreLootType>
 
   activeQuests?: Array<{

@@ -19,20 +19,10 @@ export const endBattleHelper = ({
   digimons: Array<PartyDigimon>
   loot?: LootType
 }) => {
-  const seenDigimon = new Set([
-    ...(profile.seenDigimon || []),
-    ...digimons.map((item) => item.baseDigimon.id)
-  ])
-
   const enemyParty = digimons.filter((item) => item.party === 'enemy')
 
   for (let enemy of enemyParty) {
     profile.activeQuests = progressQuests(enemy)?.quests
-  }
-
-  const updatedProfile = {
-    ...profile,
-    seenDigimon: [...seenDigimon]
   }
 
   if (!!loot) {
@@ -41,41 +31,39 @@ export const endBattleHelper = ({
       .map((item) => item.id)
 
     for (let coreItem of loot.cores) {
-      const profileCoreIndex = updatedProfile.cores.findIndex(
+      const profileCoreIndex = profile.cores.findIndex(
         (profileCoreItem) => profileCoreItem.coreId === coreItem.coreId
       )
 
       const updatedCoresQuantity =
-        Number(updatedProfile.cores?.[profileCoreIndex]?.quantity || 0) +
+        Number(profile.cores?.[profileCoreIndex]?.quantity || 0) +
         (Number(coreItem.quantity) || 0)
 
-      if (!updatedProfile.cores[profileCoreIndex]) {
-        updatedProfile.cores.push({
+      if (!profile.cores[profileCoreIndex]) {
+        profile.cores.push({
           coreId: coreItem.coreId,
           quantity: updatedCoresQuantity,
           coreType: coreItem.coreType
         })
       }
 
-      if (!!updatedProfile.cores[profileCoreIndex]) {
-        updatedProfile.cores[profileCoreIndex].quantity = updatedCoresQuantity
+      if (!!profile.cores[profileCoreIndex]) {
+        profile.cores[profileCoreIndex].quantity = updatedCoresQuantity
       }
     }
 
-    const playerExperience = (updatedProfile.experience || 0) + loot.exp
-    const playerNextLevelExp =
-      PLAYER_LEVELS[updatedProfile.level || 1].expToNextLevel
+    const playerExperience = (profile.experience || 0) + loot.exp
+    const playerNextLevelExp = PLAYER_LEVELS[profile.level || 1].expToNextLevel
 
     if (playerExperience >= playerNextLevelExp) {
-      updatedProfile.experience = playerExperience - playerNextLevelExp
-      updatedProfile.level = (updatedProfile.level || 1) + 1
-      updatedProfile.points =
-        (updatedProfile.points || 0) + PLAYER_POINTS_PER_LEVEL
+      profile.experience = playerExperience - playerNextLevelExp
+      profile.level = (profile.level || 1) + 1
+      profile.points = (profile.points || 0) + PLAYER_POINTS_PER_LEVEL
     } else {
-      updatedProfile.experience = playerExperience
+      profile.experience = playerExperience
     }
 
-    updatedProfile.partners = [
+    profile.partners = [
       ...profile.partners!.map((partnerItem) => {
         if (!playerParty.includes(partnerItem.id)) {
           return partnerItem
@@ -104,7 +92,7 @@ export const endBattleHelper = ({
   }
 
   localStorage.removeItem('battle')
-  localStorage.setItem('profile', JSON.stringify(updatedProfile))
+  localStorage.setItem('profile', JSON.stringify(profile))
 
-  return updatedProfile
+  return profile
 }

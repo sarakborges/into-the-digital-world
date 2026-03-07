@@ -58,8 +58,7 @@ export const StarterSelectionTemplate = () => {
     const updatedProfile = {
       ...profile,
       partners: [{ ...starterPartner }],
-      party: [digimonId],
-      seenDigimon: [starterPartner.baseDigimon]
+      party: [digimonId]
     }
 
     setProfile(updatedProfile)

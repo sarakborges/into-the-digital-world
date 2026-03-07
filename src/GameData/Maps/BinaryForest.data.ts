@@ -36,7 +36,7 @@ export const BINARY_FOREST: MapType = {
           coreId: ALL_CORES.dragonsRoar.id,
           quantity: {
             min: 0,
-            max: 3
+            max: 1
           }
         },
 
@@ -46,7 +46,7 @@ export const BINARY_FOREST: MapType = {
           coreId: ALL_CORES.virusBusters.id,
           quantity: {
             min: 0,
-            max: 3
+            max: 1
           }
         }
       ]
@@ -63,7 +63,7 @@ export const BINARY_FOREST: MapType = {
           coreId: ALL_CORES.natureSpirits.id,
           quantity: {
             min: 0,
-            max: 3
+            max: 1
           }
         }
       ]
@@ -80,7 +80,7 @@ export const BINARY_FOREST: MapType = {
           coreId: ALL_CORES.metalEmpire.id,
           quantity: {
             min: 0,
-            max: 3
+            max: 1
           }
         }
       ]
@@ -97,7 +97,7 @@ export const BINARY_FOREST: MapType = {
           coreId: ALL_CORES.natureSpirits.id,
           quantity: {
             min: 0,
-            max: 3
+            max: 1
           }
         },
 
@@ -107,7 +107,7 @@ export const BINARY_FOREST: MapType = {
           coreId: ALL_CORES.virusBusters.id,
           quantity: {
             min: 0,
-            max: 3
+            max: 1
           }
         }
       ]
@@ -124,7 +124,7 @@ export const BINARY_FOREST: MapType = {
           coreId: ALL_CORES.windGuardians.id,
           quantity: {
             min: 0,
-            max: 3
+            max: 1
           }
         },
 
@@ -134,7 +134,7 @@ export const BINARY_FOREST: MapType = {
           coreId: ALL_CORES.virusBusters.id,
           quantity: {
             min: 0,
-            max: 3
+            max: 1
           }
         }
       ]
@@ -151,7 +151,7 @@ export const BINARY_FOREST: MapType = {
           coreId: ALL_CORES.jungleTroopers.id,
           quantity: {
             min: 0,
-            max: 3
+            max: 1
           }
         }
       ]
@@ -168,7 +168,7 @@ export const BINARY_FOREST: MapType = {
           coreId: ALL_CORES.deepSavers.id,
           quantity: {
             min: 0,
-            max: 3
+            max: 1
           }
         }
       ]
@@ -185,7 +185,7 @@ export const BINARY_FOREST: MapType = {
           coreId: ALL_CORES.windGuardians.id,
           quantity: {
             min: 0,
-            max: 3
+            max: 1
           }
         },
 
@@ -195,7 +195,7 @@ export const BINARY_FOREST: MapType = {
           coreId: ALL_CORES.jungleTroopers.id,
           quantity: {
             min: 0,
-            max: 3
+            max: 1
           }
         }
       ]

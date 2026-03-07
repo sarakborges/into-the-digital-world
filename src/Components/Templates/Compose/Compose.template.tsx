@@ -2,34 +2,27 @@ import { useContext } from 'react'
 
 import { getTexts } from '@/Texts'
 
-import { ProfileContext } from '@/Contexts/Profile.context'
 import { CompositionContext } from '@/Contexts/Composition.context'
 
 import { COMPOSABLE_DIGIMONS } from '@/GameData/Digimons'
 
 import { Typography } from '@/Components/System/Typography'
+import { Portrait } from '@/Components/System/Portrait'
 
 import { MenuWrapper } from '@/Components/App/MenuWrapper'
 import { DetailedDigimonCard } from '@/Components/App/DetailedDigimonCard'
+import { ComposeRecipe } from '@/Components/App/ComposeRecipe'
 
 import './Compose.style.scss'
-import { ComposeRecipe } from '@/Components/App/ComposeRecipe'
-import { Portrait } from '@/Components/System/Portrait'
 
 export const ComposeTemplate = () => {
-  const profileContext = useContext(ProfileContext)
   const compositionContext = useContext(CompositionContext)
 
-  if (!profileContext || !compositionContext) {
+  if (!compositionContext) {
     return
   }
 
-  const { profile } = profileContext
   const { baseDigimon, setBaseDigimon } = compositionContext
-
-  const seenDigimons = Object.values(COMPOSABLE_DIGIMONS)
-    .filter((digimonItem) => profile.seenDigimon?.includes(digimonItem.id))
-    .sort((a, b) => (a.name > b.name ? 1 : -1))
 
   return (
     <MenuWrapper>
@@ -41,18 +34,20 @@ export const ComposeTemplate = () => {
 
         <main className="compose-body">
           <aside className="digimon-list">
-            {seenDigimons.map((digimonItem) => (
-              <div key={`compose-digimons-${digimonItem.id}`}>
-                <button
-                  onClick={() => setBaseDigimon(digimonItem)}
-                  className={
-                    baseDigimon?.id === digimonItem.id ? 'selected' : ''
-                  }
-                >
-                  <DetailedDigimonCard digimon={digimonItem} />
-                </button>
-              </div>
-            ))}
+            {[...Object.values(COMPOSABLE_DIGIMONS)]
+              .sort((a, b) => (a.name > b.name ? 1 : -1))
+              .map((digimonItem) => (
+                <div key={`compose-digimons-${digimonItem.id}`}>
+                  <button
+                    onClick={() => setBaseDigimon(digimonItem)}
+                    className={
+                      baseDigimon?.id === digimonItem.id ? 'selected' : ''
+                    }
+                  >
+                    <DetailedDigimonCard digimon={digimonItem} />
+                  </button>
+                </div>
+              ))}
           </aside>
 
           {!!baseDigimon && (
