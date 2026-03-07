@@ -19,6 +19,11 @@ export const ROUTES = {
     path: '/collection'
   },
 
+  RESEARCH: {
+    id: 'research',
+    path: '/research'
+  },
+
   BATTLE: {
     id: 'battle',
     path: '/battle'

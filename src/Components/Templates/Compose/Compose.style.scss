@@ -41,13 +41,13 @@
           transition: box-shadow 0.3s;
 
           &.selected {
-            .starter-digimon-card {
+            .detailed-digimon-card {
               box-shadow: 0 0 var(--size-sm) var(--size-xs) var(--color-primary);
             }
           }
 
           &:not(.selected):hover {
-            .starter-digimon-card {
+            .detailed-digimon-card {
               box-shadow: 0 0 var(--size-sm) var(--size-xs)
                 var(--color-primary-transparent);
             }

@@ -5,6 +5,7 @@ import { FaReact } from 'react-icons/fa'
 import { HiCollection } from 'react-icons/hi'
 
 import { ROUTES } from '@/Routes/Routes'
+import { PiFileMagnifyingGlassDuotone } from 'react-icons/pi'
 
 export const SIDEBAR_MENU = [
   {
@@ -29,6 +30,12 @@ export const SIDEBAR_MENU = [
     ...ROUTES.COMPOSE,
     text: `Compose`,
     icon: <FaReact />
+  },
+
+  {
+    ...ROUTES.RESEARCH,
+    text: `Research`,
+    icon: <PiFileMagnifyingGlassDuotone />
   }
 ]
 

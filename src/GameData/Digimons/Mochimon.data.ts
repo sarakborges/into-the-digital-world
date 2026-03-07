@@ -24,7 +24,7 @@ export const MOCHIMON: DigimonType = {
     {
       id: 'KOROMON_COMPOSE_FULL',
 
-      cores: [
+      ingredients: [
         {
           id: ALL_CORES.natureSpirits.id,
           type: 'family',
@@ -42,7 +42,7 @@ export const MOCHIMON: DigimonType = {
     {
       id: 'KOROMON_COMPOSE_NSP',
 
-      cores: [
+      ingredients: [
         {
           id: ALL_CORES.natureSpirits.id,
           type: 'family',
@@ -54,7 +54,7 @@ export const MOCHIMON: DigimonType = {
     {
       id: 'KOROMON_COMPOSE_ME',
 
-      cores: [
+      ingredients: [
         {
           id: ALL_CORES.metalEmpire.id,
           type: 'family',

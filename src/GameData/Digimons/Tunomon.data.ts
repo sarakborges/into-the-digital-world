@@ -24,7 +24,7 @@ export const TUNOMON: DigimonType = {
     {
       id: 'TUNOMON_COMPOSE_FULL',
 
-      cores: [
+      ingredients: [
         {
           id: ALL_CORES.natureSpirits.id,
           type: 'family',

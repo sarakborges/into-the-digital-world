@@ -24,7 +24,7 @@ export const BUKAMON: DigimonType = {
     {
       id: 'KOROMON_COMPOSE_FULL',
 
-      cores: [
+      ingredients: [
         {
           id: ALL_CORES.deepSavers.id,
           type: 'family',

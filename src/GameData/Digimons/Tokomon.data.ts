@@ -24,7 +24,7 @@ export const TOKOMON: DigimonType = {
     {
       id: 'KOROMON_COMPOSE_FULL',
 
-      cores: [
+      ingredients: [
         {
           id: ALL_CORES.windGuardians.id,
           type: 'family',
@@ -42,7 +42,7 @@ export const TOKOMON: DigimonType = {
     {
       id: 'KOROMON_COMPOSE_DG',
 
-      cores: [
+      ingredients: [
         {
           id: ALL_CORES.windGuardians.id,
           type: 'family',
@@ -54,7 +54,7 @@ export const TOKOMON: DigimonType = {
     {
       id: 'KOROMON_COMPOSE_VB',
 
-      cores: [
+      ingredients: [
         {
           id: ALL_CORES.virusBusters.id,
           type: 'family',

@@ -41,18 +41,25 @@ export const ComposeRecipe = ({
     Number(profile.partners?.[profile.partners?.length - 1]?.id || 0) + 1
   ).toString()
 
-  const cores = recipe?.cores?.map((coreItem) => {
-    const playerCores = profile.cores.find(
-      (profileCoreItem) => profileCoreItem.coreId === coreItem.id
-    )
+  const ingredients = recipe?.ingredients?.map((ingredientItem) => {
+    if (['attribute', 'family'].includes(ingredientItem.type)) {
+      const playerCores = profile.cores.find(
+        (profileCoreItem) => profileCoreItem.coreId === ingredientItem.id
+      )
+
+      return {
+        ...ingredientItem,
+        playerQuantity: playerCores?.quantity || 0
+      }
+    }
 
     return {
-      ...coreItem,
-      playerQuantity: playerCores?.quantity || 0
+      ...ingredientItem,
+      playerQuantity: 0
     }
   })
 
-  const isButtonEnabled = cores?.every(
+  const isButtonEnabled = ingredients?.every(
     (coreItem) => coreItem.playerQuantity >= coreItem.quantity
   )
 
@@ -78,30 +85,34 @@ export const ComposeRecipe = ({
 
   return (
     <ul className="composition-recipe">
-      {cores?.map((coreItem) => (
+      {ingredients?.map((ingredientItem) => (
         <li
-          key={`${baseDigimon?.name}-compose-${recipe.id}-core-${coreItem.id}`}
+          key={`${baseDigimon?.name}-compose-${recipe.id}-core-${ingredientItem.id}`}
         >
-          <aside>
-            <Icon
-              src={`/cores/${ALL_CORES[coreItem.id].icon}.png`}
-              alt={`Composing ${baseDigimon?.name}`}
-            />
-          </aside>
+          {['attribute', 'family'].includes(ingredientItem.type) && (
+            <>
+              <aside>
+                <Icon
+                  src={`/cores/${ALL_CORES[ingredientItem.id].icon}.png`}
+                  alt={`Composing ${baseDigimon?.name}`}
+                />
+              </aside>
 
-          <main className="composition-recipe-core">
-            <Typography>
-              {getTexts('COMPOSE_RECIPE_CORE').replace(
-                '[NAME]',
-                ALL_CORES[coreItem.id].name
-              )}
-            </Typography>
+              <main className="composition-recipe-core">
+                <Typography>
+                  {getTexts('COMPOSE_RECIPE_CORE').replace(
+                    '[NAME]',
+                    ALL_CORES[ingredientItem.id].name
+                  )}
+                </Typography>
 
-            <ResourceBar
-              currentValue={coreItem.playerQuantity}
-              maxValue={coreItem.quantity}
-            />
-          </main>
+                <ResourceBar
+                  currentValue={ingredientItem.playerQuantity}
+                  maxValue={ingredientItem.quantity}
+                />
+              </main>
+            </>
+          )}
         </li>
       ))}
 

@@ -24,7 +24,7 @@ export const PYOCOMON: DigimonType = {
     {
       id: 'KOROMON_COMPOSE_FULL',
 
-      cores: [
+      ingredients: [
         {
           id: ALL_CORES.windGuardians.id,
           type: 'family',
@@ -42,7 +42,7 @@ export const PYOCOMON: DigimonType = {
     {
       id: 'KOROMON_COMPOSE_WG',
 
-      cores: [
+      ingredients: [
         {
           id: ALL_CORES.windGuardians.id,
           type: 'family',
@@ -54,7 +54,7 @@ export const PYOCOMON: DigimonType = {
     {
       id: 'KOROMON_COMPOSE_JT',
 
-      cores: [
+      ingredients: [
         {
           id: ALL_CORES.jungleTroopers.id,
           type: 'family',

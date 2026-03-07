@@ -24,7 +24,7 @@ export const TANEMON: DigimonType = {
     {
       id: 'KOROMON_COMPOSE_FULL',
 
-      cores: [
+      ingredients: [
         {
           id: ALL_CORES.jungleTroopers.id,
           type: 'family',

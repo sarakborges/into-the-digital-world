@@ -24,7 +24,7 @@ export const KOROMON: DigimonType = {
     {
       id: 'KOROMON_COMPOSE_FULL',
 
-      cores: [
+      ingredients: [
         {
           id: ALL_CORES.dragonsRoar.id,
           type: 'family',
@@ -42,7 +42,7 @@ export const KOROMON: DigimonType = {
     {
       id: 'KOROMON_COMPOSE_DR',
 
-      cores: [
+      ingredients: [
         {
           id: ALL_CORES.dragonsRoar.id,
           type: 'family',
@@ -54,7 +54,7 @@ export const KOROMON: DigimonType = {
     {
       id: 'KOROMON_COMPOSE_VB',
 
-      cores: [
+      ingredients: [
         {
           id: ALL_CORES.virusBusters.id,
           type: 'family',

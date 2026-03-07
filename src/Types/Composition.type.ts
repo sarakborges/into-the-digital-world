@@ -1,14 +1,9 @@
 export type CompositionRecipeType = {
   id: string
 
-  items?: Array<{
+  ingredients?: Array<{
     id: string
-    quantity: number
-  }>
-
-  cores?: Array<{
-    id: string
-    type: 'attribute' | 'family'
+    type: 'attribute' | 'family' | 'item'
     quantity: number
   }>
 }
