@@ -90,6 +90,8 @@
   --sidebar-background: var(--color-primary-darker);
   --sidebar-subtitle-border: var(--color-primary);
 
+  --digivice-collected-cores-size: 320px;
+  --digivice-collected-cores-item-size: 72px;
   --detailed-digimon-card-size: 560px;
   --party-digimon-card-size: 320px;
   --compose-recipe-size: 560px;

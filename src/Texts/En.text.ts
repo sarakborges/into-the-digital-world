@@ -21,10 +21,11 @@ export const DIGIMON_CARD_DETAILS = `View partner details`
 export const DIGIMON_CARD_REMOVE_FROM_PARTY = `Remove from party`
 export const DIGIMON_CARD_ADD_TO_PARTY = `Add to party`
 
-export const PARTY_TITLE = `Your current party:`
+export const DIGIVICE_TITLE = `Digivice`
+export const DIGIVICE_SUBTITLE = `All cores you collected`
 
-export const CORES_COLLECTED_FAMILY_TITLE = `Family cores collected:`
-export const CORES_COLLECTED_ATTRIBUTE_TITLE = `Attribute cores collected:`
+export const CORES_COLLECTED_FAMILY_TITLE = `Family cores:`
+export const CORES_COLLECTED_ATTRIBUTE_TITLE = `Attribute cores:`
 
 export const MAPS_TITLE = `Explore the digital world!`
 export const MAPS_SUBTITLE = `In this world, there are many wonders! But also, terrible dangers await for you!`
