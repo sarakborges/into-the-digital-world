@@ -3,6 +3,8 @@ import { DigimonStages } from '@/Types/DigimonStages.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
 
+import { PYOCOMON_RECIPES } from '@/GameData/Recipes'
+
 export const PYOCOMON: DigimonType = {
   id: `PYOCOMON`,
   name: `Pyocomon`,
@@ -20,47 +22,5 @@ export const PYOCOMON: DigimonType = {
     spd: 16
   },
 
-  composeRecipe: [
-    {
-      id: 'KOROMON_COMPOSE_FULL',
-
-      ingredients: [
-        {
-          id: ALL_CORES.windGuardians.id,
-          type: 'family',
-          quantity: 1
-        },
-
-        {
-          id: ALL_CORES.jungleTroopers.id,
-          type: 'family',
-          quantity: 1
-        }
-      ]
-    },
-
-    {
-      id: 'KOROMON_COMPOSE_WG',
-
-      ingredients: [
-        {
-          id: ALL_CORES.windGuardians.id,
-          type: 'family',
-          quantity: 5
-        }
-      ]
-    },
-
-    {
-      id: 'KOROMON_COMPOSE_JT',
-
-      ingredients: [
-        {
-          id: ALL_CORES.jungleTroopers.id,
-          type: 'family',
-          quantity: 5
-        }
-      ]
-    }
-  ]
+  composeRecipe: [...PYOCOMON_RECIPES]
 }

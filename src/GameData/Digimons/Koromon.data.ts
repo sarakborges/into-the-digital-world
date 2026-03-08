@@ -3,6 +3,8 @@ import { DigimonStages } from '@/Types/DigimonStages.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
 
+import { KOROMON_RECIPES } from '@/GameData/Recipes'
+
 export const KOROMON: DigimonType = {
   id: `KOROMON`,
   name: `Koromon`,
@@ -20,47 +22,5 @@ export const KOROMON: DigimonType = {
     spd: 11
   },
 
-  composeRecipe: [
-    {
-      id: 'KOROMON_COMPOSE_FULL',
-
-      ingredients: [
-        {
-          id: ALL_CORES.dragonsRoar.id,
-          type: 'family',
-          quantity: 1
-        },
-
-        {
-          id: ALL_CORES.virusBusters.id,
-          type: 'family',
-          quantity: 1
-        }
-      ]
-    },
-
-    {
-      id: 'KOROMON_COMPOSE_DR',
-
-      ingredients: [
-        {
-          id: ALL_CORES.dragonsRoar.id,
-          type: 'family',
-          quantity: 5
-        }
-      ]
-    },
-
-    {
-      id: 'KOROMON_COMPOSE_VB',
-
-      ingredients: [
-        {
-          id: ALL_CORES.virusBusters.id,
-          type: 'family',
-          quantity: 5
-        }
-      ]
-    }
-  ]
+  composeRecipe: [...KOROMON_RECIPES]
 }

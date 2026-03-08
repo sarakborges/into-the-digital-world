@@ -3,6 +3,8 @@ import { DigimonStages } from '@/Types/DigimonStages.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
 
+import { BUKAMON_RECIPES } from '@/GameData/Recipes'
+
 export const BUKAMON: DigimonType = {
   id: `BUKAMON`,
   name: `Bukamon`,
@@ -20,17 +22,5 @@ export const BUKAMON: DigimonType = {
     spd: 20
   },
 
-  composeRecipe: [
-    {
-      id: 'KOROMON_COMPOSE_FULL',
-
-      ingredients: [
-        {
-          id: ALL_CORES.deepSavers.id,
-          type: 'family',
-          quantity: 1
-        }
-      ]
-    }
-  ]
+  composeRecipe: [...BUKAMON_RECIPES]
 }

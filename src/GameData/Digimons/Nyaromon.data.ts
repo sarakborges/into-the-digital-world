@@ -3,6 +3,8 @@ import { DigimonStages } from '@/Types/DigimonStages.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
 
+import { NYAROMON_RECIPES } from '@/GameData/Recipes'
+
 export const NYAROMON: DigimonType = {
   id: `NYAROMON`,
   name: `Nyaromon`,
@@ -20,47 +22,5 @@ export const NYAROMON: DigimonType = {
     spd: 22
   },
 
-  composeRecipe: [
-    {
-      id: 'KOROMON_COMPOSE_FULL',
-
-      ingredients: [
-        {
-          id: ALL_CORES.natureSpirits.id,
-          type: 'family',
-          quantity: 1
-        },
-
-        {
-          id: ALL_CORES.virusBusters.id,
-          type: 'family',
-          quantity: 1
-        }
-      ]
-    },
-
-    {
-      id: 'KOROMON_COMPOSE_NSP',
-
-      ingredients: [
-        {
-          id: ALL_CORES.natureSpirits.id,
-          type: 'family',
-          quantity: 5
-        }
-      ]
-    },
-
-    {
-      id: 'KOROMON_COMPOSE_VB',
-
-      ingredients: [
-        {
-          id: ALL_CORES.virusBusters.id,
-          type: 'family',
-          quantity: 5
-        }
-      ]
-    }
-  ]
+  composeRecipe: [...NYAROMON_RECIPES]
 }

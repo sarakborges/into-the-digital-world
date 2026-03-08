@@ -3,6 +3,8 @@ import { DigimonStages } from '@/Types/DigimonStages.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
 
+import { TANEMON_RECIPES } from '@/GameData/Recipes'
+
 export const TANEMON: DigimonType = {
   id: `TANEMON`,
   name: `Tanemon`,
@@ -20,17 +22,5 @@ export const TANEMON: DigimonType = {
     spd: 8
   },
 
-  composeRecipe: [
-    {
-      id: 'KOROMON_COMPOSE_FULL',
-
-      ingredients: [
-        {
-          id: ALL_CORES.jungleTroopers.id,
-          type: 'family',
-          quantity: 5
-        }
-      ]
-    }
-  ]
+  composeRecipe: [...TANEMON_RECIPES]
 }

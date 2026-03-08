@@ -2,6 +2,7 @@ import type { DigimonType } from '@/Types/Digimon.type'
 import { DigimonStages } from '@/Types/DigimonStages.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
+import { TOKOMON_RECIPES } from '@/GameData/Recipes'
 
 export const TOKOMON: DigimonType = {
   id: `TOKOMON`,
@@ -20,47 +21,5 @@ export const TOKOMON: DigimonType = {
     spd: 6
   },
 
-  composeRecipe: [
-    {
-      id: 'KOROMON_COMPOSE_FULL',
-
-      ingredients: [
-        {
-          id: ALL_CORES.windGuardians.id,
-          type: 'family',
-          quantity: 1
-        },
-
-        {
-          id: ALL_CORES.virusBusters.id,
-          type: 'family',
-          quantity: 1
-        }
-      ]
-    },
-
-    {
-      id: 'KOROMON_COMPOSE_DG',
-
-      ingredients: [
-        {
-          id: ALL_CORES.windGuardians.id,
-          type: 'family',
-          quantity: 5
-        }
-      ]
-    },
-
-    {
-      id: 'KOROMON_COMPOSE_VB',
-
-      ingredients: [
-        {
-          id: ALL_CORES.virusBusters.id,
-          type: 'family',
-          quantity: 5
-        }
-      ]
-    }
-  ]
+  composeRecipe: [...TOKOMON_RECIPES]
 }
