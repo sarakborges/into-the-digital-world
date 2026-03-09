@@ -25,7 +25,7 @@ export const SettingsAvatar = () => {
   const updateAvatar = (form) => {
     const formData = new FormData(form)
 
-    const avatar = formData.get('avatar')?.toString()
+    const avatar = formData.get('avatar')?.toString() || ''
 
     const updatedProfile = {
       ...profile,

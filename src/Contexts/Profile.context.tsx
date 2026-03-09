@@ -20,6 +20,16 @@ export const ProfileProvider = ({ children }: { children: ReactNode }) => {
   const location = useLocation()
 
   const [profile, setProfile] = useState<ProfileType>({
+    avatar: '',
+    currency: 0,
+    experience: 0,
+    items: [],
+    level: 1,
+    name: '',
+    partners: [],
+    party: [],
+    points: 0,
+    researches: [],
     cores: [],
     quests: {}
   })
