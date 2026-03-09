@@ -39,16 +39,23 @@ export const CreateProfileTemplate = () => {
       return
     }
 
-    const updatedProfile: ProfileType = {
+    const newProfile: ProfileType = {
       name: name.toString(),
       level: 1,
       experience: 0,
-      money: 0,
-      cores: []
+      currency: 0,
+      cores: [],
+      avatar: '',
+      items: [],
+      partners: [],
+      party: [],
+      points: 0,
+      quests: {},
+      researches: []
     }
 
-    setProfile(updatedProfile)
-    localStorage.setItem('profile', JSON.stringify(updatedProfile))
+    setProfile(newProfile)
+    localStorage.setItem('profile', JSON.stringify(newProfile))
 
     navigate(ROUTES.STARTER_SELECTION.path)
   }

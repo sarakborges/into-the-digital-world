@@ -22,5 +22,5 @@ export const KOROMON: DigimonType = {
     spd: 11
   },
 
-  composeRecipe: [...KOROMON_RECIPES]
+  composeRecipes: [...KOROMON_RECIPES]
 }

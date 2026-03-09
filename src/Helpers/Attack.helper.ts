@@ -132,20 +132,41 @@ const getLoot = ({
               return prevLoot
             }
 
-            const enemyLootQuantity = randomNumber({
+            const rng = randomNumber({
               min: 1,
               max: 100
             })
 
-            const lootQuantity =
-              enemyLootQuantity <= lootItem.dropChance ? 1 : 0
+            const shouldLootDrop = rng <= lootItem.dropChance ? 1 : 0
 
             return {
               ...prevLoot,
-              quantity: prevLoot.quantity + lootQuantity
+              quantity: prevLoot.quantity + shouldLootDrop
             }
           })
         }
+      }
+
+      if (['research'].includes(lootItem.type)) {
+        const profile = localStorage.getItem('profile')
+        const { researches } = JSON.parse(profile!)
+
+        if (!!researches?.includes(lootItem.id)) {
+          continue
+        }
+
+        const rng = randomNumber({
+          min: 1,
+          max: 100
+        })
+
+        const shouldLootDrop = rng <= lootItem.dropChance ? 1 : 0
+
+        loot.items.push({
+          id: lootItem.id,
+          quantity: shouldLootDrop,
+          type: lootItem.type
+        })
       }
     }
   }

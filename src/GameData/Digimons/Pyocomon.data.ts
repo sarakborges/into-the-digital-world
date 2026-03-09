@@ -22,5 +22,5 @@ export const PYOCOMON: DigimonType = {
     spd: 16
   },
 
-  composeRecipe: [...PYOCOMON_RECIPES]
+  composeRecipes: [...PYOCOMON_RECIPES]
 }

@@ -58,7 +58,5 @@ export const progressQuests = (
     }
   }
 
-  console.log(profile.quests)
-
   return { entries, quests: profile.quests?.inProgress }
 }

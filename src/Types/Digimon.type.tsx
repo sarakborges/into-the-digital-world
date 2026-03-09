@@ -17,7 +17,7 @@ export type DigimonType = {
   attribute: string
   families: Array<string>
   stats: DigimonStats
-  composeRecipe?: Array<CompositionRecipeType>
+  composeRecipes?: Array<CompositionRecipeType>
 }
 
 type ExtraStat = {

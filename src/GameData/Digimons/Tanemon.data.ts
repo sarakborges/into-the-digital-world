@@ -22,5 +22,5 @@ export const TANEMON: DigimonType = {
     spd: 8
   },
 
-  composeRecipe: [...TANEMON_RECIPES]
+  composeRecipes: [...TANEMON_RECIPES]
 }

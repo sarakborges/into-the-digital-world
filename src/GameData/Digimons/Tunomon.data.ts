@@ -22,5 +22,5 @@ export const TUNOMON: DigimonType = {
     spd: 12
   },
 
-  composeRecipe: [...TUNOMON_RECIPES]
+  composeRecipes: [...TUNOMON_RECIPES]
 }

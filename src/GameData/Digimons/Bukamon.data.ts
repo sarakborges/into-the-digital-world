@@ -22,5 +22,5 @@ export const BUKAMON: DigimonType = {
     spd: 20
   },
 
-  composeRecipe: [...BUKAMON_RECIPES]
+  composeRecipes: [...BUKAMON_RECIPES]
 }

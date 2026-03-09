@@ -21,5 +21,5 @@ export const TOKOMON: DigimonType = {
     spd: 6
   },
 
-  composeRecipe: [...TOKOMON_RECIPES]
+  composeRecipes: [...TOKOMON_RECIPES]
 }

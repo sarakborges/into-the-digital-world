@@ -22,5 +22,5 @@ export const NYAROMON: DigimonType = {
     spd: 22
   },
 
-  composeRecipe: [...NYAROMON_RECIPES]
+  composeRecipes: [...NYAROMON_RECIPES]
 }

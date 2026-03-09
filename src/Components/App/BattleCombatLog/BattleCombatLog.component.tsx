@@ -17,6 +17,7 @@ import { Button } from '@/Components/System/Button'
 import { Typography } from '@/Components/System/Typography'
 
 import './BattleCombatLog.style.scss'
+import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
 export const BattleCombatLog = () => {
   const battleContext = useContext(BattleContext)
@@ -38,11 +39,25 @@ export const BattleCombatLog = () => {
 
   const { combatLog, loot } = battle
 
-  const lootedCores = loot?.items?.map(
-    (coreItem) =>
-      coreItem.quantity > 0 &&
-      `${coreItem.quantity || 0}x ${ALL_CORES[coreItem.id].abbreviation} cores`
-  )
+  const lootedCores = loot?.items?.map((coreItem) => {
+    if (['families', 'attributes'].includes(coreItem.type)) {
+      return (
+        coreItem.quantity > 0 &&
+        `${coreItem.quantity || 0}x ${ALL_CORES[coreItem.id].abbreviation} cores`
+      )
+    }
+
+    if (['digimon'].includes(coreItem.type)) {
+      return (
+        coreItem.quantity > 0 &&
+        `${coreItem.quantity || 0}x ${ALL_DIGIMONS[coreItem.id].name} cores`
+      )
+    }
+
+    if (['research'].includes(coreItem.type)) {
+      return `New research unlocked!`
+    }
+  })
 
   const readableLoot = [
     loot?.exp ? `${loot?.exp} experience` : '',

@@ -22,5 +22,5 @@ export const MOCHIMON: DigimonType = {
     spd: 9
   },
 
-  composeRecipe: [...MOCHIMON_RECIPES]
+  composeRecipes: [...MOCHIMON_RECIPES]
 }

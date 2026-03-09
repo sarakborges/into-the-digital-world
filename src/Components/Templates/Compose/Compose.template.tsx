@@ -75,7 +75,7 @@ export const ComposeTemplate = () => {
                 </header>
 
                 <main>
-                  {baseDigimon.composeRecipe?.map((recipeItem) => (
+                  {baseDigimon.composeRecipes?.map((recipeItem) => (
                     <ComposeRecipe
                       key={`${baseDigimon.name}-compose-${recipeItem.id}`}
                       recipe={recipeItem}
