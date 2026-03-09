@@ -1,5 +1,5 @@
 export type IngredientsType = {
   id: string
-  type: 'attribute' | 'family' | 'item'
+  type: 'attribute' | 'families' | 'item'
   quantity: number
 }

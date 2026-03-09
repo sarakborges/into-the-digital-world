@@ -22,7 +22,11 @@ export const endBattleHelper = ({
   const enemyParty = digimons.filter((item) => item.party === 'enemy')
 
   for (let enemy of enemyParty) {
-    profile.activeQuests = progressQuests(enemy)?.quests
+    if (!profile.quests?.inProgress) {
+      continue
+    }
+
+    profile.quests.inProgress = progressQuests(enemy)?.quests
   }
 
   if (!!loot) {
@@ -30,9 +34,9 @@ export const endBattleHelper = ({
       .filter((item) => item.party === 'player')
       .map((item) => item.id)
 
-    for (let coreItem of loot.cores) {
+    for (let coreItem of loot.items) {
       const profileCoreIndex = profile.cores.findIndex(
-        (profileCoreItem) => profileCoreItem.coreId === coreItem.coreId
+        (profileCoreItem) => profileCoreItem.id === coreItem.id
       )
 
       const updatedCoresQuantity =
@@ -41,9 +45,9 @@ export const endBattleHelper = ({
 
       if (!profile.cores[profileCoreIndex]) {
         profile.cores.push({
-          coreId: coreItem.coreId,
+          id: coreItem.id,
           quantity: updatedCoresQuantity,
-          coreType: coreItem.coreType
+          type: coreItem.type
         })
       }
 

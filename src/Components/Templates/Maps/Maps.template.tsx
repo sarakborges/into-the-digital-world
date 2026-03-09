@@ -70,7 +70,7 @@ export const MapsTemplate = () => {
                   .filter(
                     (regionItem) =>
                       !regionItem.questRequired ||
-                      profile.completedQuests?.includes(
+                      profile.quests?.completed?.includes(
                         regionItem.questRequired
                       )
                   )

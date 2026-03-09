@@ -59,13 +59,10 @@ export type PartnerDigimonType = {
 }
 
 export type LootTableType = {
-  type: 'core' | 'item'
-  coreId: string
-  coreType: string
-  quantity: {
-    min: number
-    max: number
-  }
+  id: string
+  type: 'families' | 'attribute' | 'digimon' | 'item' | 'research'
+  maxQuantity: number
+  dropChance: number
 }
 
 export type EnemyDigimonType = {

@@ -8,13 +8,13 @@ export const KOROMON_RECIPE_FULL: CompositionRecipeType = {
   ingredients: [
     {
       id: ALL_CORES.dragonsRoar.id,
-      type: 'family',
+      type: 'families',
       quantity: 1
     },
 
     {
       id: ALL_CORES.virusBusters.id,
-      type: 'family',
+      type: 'families',
       quantity: 1
     }
   ]
@@ -26,7 +26,7 @@ export const KOROMON_RECIPE_DR: CompositionRecipeType = {
   ingredients: [
     {
       id: ALL_CORES.dragonsRoar.id,
-      type: 'family',
+      type: 'families',
       quantity: 5
     }
   ]
@@ -38,7 +38,7 @@ export const KOROMON_RECIPE_VB: CompositionRecipeType = {
   ingredients: [
     {
       id: ALL_CORES.virusBusters.id,
-      type: 'family',
+      type: 'families',
       quantity: 5
     }
   ]

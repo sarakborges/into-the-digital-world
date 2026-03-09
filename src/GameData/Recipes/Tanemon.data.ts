@@ -8,7 +8,7 @@ export const TANEMON_RECIPE_FULL: CompositionRecipeType = {
   ingredients: [
     {
       id: ALL_CORES.jungleTroopers.id,
-      type: 'family',
+      type: 'families',
       quantity: 5
     }
   ]

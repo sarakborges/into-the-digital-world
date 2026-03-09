@@ -29,7 +29,7 @@ export const composeNewDigimon = ({
     partners: [...(profile.partners ?? []), { ...newDigimon }],
     cores: profile.cores.map((coreItem) => {
       const recipeCore = recipe?.ingredients?.find(
-        (recipeCoreItem) => recipeCoreItem.id === coreItem.coreId
+        (recipeCoreItem) => recipeCoreItem.id === coreItem.id
       )
 
       if (!recipeCore) {

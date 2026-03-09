@@ -42,9 +42,9 @@ export const ComposeRecipe = ({
   ).toString()
 
   const ingredients = recipe?.ingredients?.map((ingredientItem) => {
-    if (['attribute', 'family'].includes(ingredientItem.type)) {
+    if (['attribute', 'families'].includes(ingredientItem.type)) {
       const playerCores = profile.cores.find(
-        (profileCoreItem) => profileCoreItem.coreId === ingredientItem.id
+        (profileCoreItem) => profileCoreItem.id === ingredientItem.id
       )
 
       return {
@@ -89,7 +89,7 @@ export const ComposeRecipe = ({
         <li
           key={`${baseDigimon?.name}-compose-${recipe.id}-core-${ingredientItem.id}`}
         >
-          {['attribute', 'family'].includes(ingredientItem.type) && (
+          {['attribute', 'families'].includes(ingredientItem.type) && (
             <>
               <aside>
                 <Icon

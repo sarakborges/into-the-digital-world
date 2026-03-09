@@ -8,13 +8,13 @@ export const MOCHIMON_RECIPE_FULL: CompositionRecipeType = {
   ingredients: [
     {
       id: ALL_CORES.natureSpirits.id,
-      type: 'family',
+      type: 'families',
       quantity: 1
     },
 
     {
       id: ALL_CORES.metalEmpire.id,
-      type: 'family',
+      type: 'families',
       quantity: 1
     }
   ]
@@ -26,7 +26,7 @@ export const MOCHIMON_RECIPE_NSP: CompositionRecipeType = {
   ingredients: [
     {
       id: ALL_CORES.natureSpirits.id,
-      type: 'family',
+      type: 'families',
       quantity: 5
     }
   ]
@@ -38,7 +38,7 @@ export const MOCHIMON_RECIPE_ME: CompositionRecipeType = {
   ingredients: [
     {
       id: ALL_CORES.metalEmpire.id,
-      type: 'family',
+      type: 'families',
       quantity: 5
     }
   ]

@@ -3,7 +3,7 @@ import type { CoresType } from '@/Types/Cores.type'
 export const DIGIMON_FAMILIES: { [k: string]: CoresType } = {
   dragonsRoar: {
     id: `dragonsRoar`,
-    type: `family`,
+    type: `families`,
     name: `Dragon's Roar`,
     abbreviation: `DR`,
     icon: `FAMILY_DR`
@@ -11,7 +11,7 @@ export const DIGIMON_FAMILIES: { [k: string]: CoresType } = {
 
   jungleTroopers: {
     id: `jungleTroopers`,
-    type: `family`,
+    type: `families`,
     name: `Jungle Troopers`,
     abbreviation: `JT`,
     icon: `FAMILY_JT`
@@ -19,7 +19,7 @@ export const DIGIMON_FAMILIES: { [k: string]: CoresType } = {
 
   virusBusters: {
     id: `virusBusters`,
-    type: `family`,
+    type: `families`,
     name: `Virus Busters`,
     abbreviation: `VB`,
     icon: `FAMILY_VB`
@@ -27,7 +27,7 @@ export const DIGIMON_FAMILIES: { [k: string]: CoresType } = {
 
   darkArea: {
     id: `darkArea`,
-    type: `family`,
+    type: `families`,
     name: `Dark Area`,
     abbreviation: `DA`,
     icon: `FAMILY_DA`
@@ -35,7 +35,7 @@ export const DIGIMON_FAMILIES: { [k: string]: CoresType } = {
 
   metalEmpire: {
     id: `metalEmpire`,
-    type: `family`,
+    type: `families`,
     name: `Metal Empire`,
     abbreviation: `ME`,
     icon: `FAMILY_ME`
@@ -43,7 +43,7 @@ export const DIGIMON_FAMILIES: { [k: string]: CoresType } = {
 
   windGuardians: {
     id: `windGuardians`,
-    type: `family`,
+    type: `families`,
     name: `Wind Guardians`,
     abbreviation: `WG`,
     icon: `FAMILY_WG`
@@ -51,7 +51,7 @@ export const DIGIMON_FAMILIES: { [k: string]: CoresType } = {
 
   nightmareSoldiers: {
     id: `nightmareSoldiers`,
-    type: `family`,
+    type: `families`,
     name: `Nightmare Soliders`,
     abbreviation: `NSo`,
     icon: `FAMILY_NSO`
@@ -59,7 +59,7 @@ export const DIGIMON_FAMILIES: { [k: string]: CoresType } = {
 
   deepSavers: {
     id: `deepSavers`,
-    type: `family`,
+    type: `families`,
     name: `Deep Savers`,
     abbreviation: `DS`,
     icon: `FAMILY_DS`
@@ -67,7 +67,7 @@ export const DIGIMON_FAMILIES: { [k: string]: CoresType } = {
 
   natureSpirits: {
     id: `natureSpirits`,
-    type: `family`,
+    type: `families`,
     name: `Nature Spirits`,
     abbreviation: `NSp`,
     icon: `FAMILY_NSP`

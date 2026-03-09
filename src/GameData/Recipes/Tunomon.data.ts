@@ -7,7 +7,7 @@ export const TUNOMON_COMPOSE_FULL: CompositionRecipeType = {
   ingredients: [
     {
       id: ALL_CORES.natureSpirits.id,
-      type: 'family',
+      type: 'families',
       quantity: 5
     }
   ]

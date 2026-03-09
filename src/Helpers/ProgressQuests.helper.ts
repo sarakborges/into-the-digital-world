@@ -24,11 +24,11 @@ export const progressQuests = (
 
   const profile = JSON.parse(localStorage.getItem('profile')!) as ProfileType
 
-  if (!profile.activeQuests?.length) {
+  if (!profile.quests?.inProgress?.length) {
     return
   }
 
-  for (let quest of profile.activeQuests) {
+  for (let quest of profile.quests?.inProgress) {
     const questData: QuestType = ALL_QUESTS[quest.questId]
 
     for (let objective of questData.objectives) {
@@ -58,5 +58,7 @@ export const progressQuests = (
     }
   }
 
-  return { entries, quests: profile.activeQuests }
+  console.log(profile.quests)
+
+  return { entries, quests: profile.quests?.inProgress }
 }

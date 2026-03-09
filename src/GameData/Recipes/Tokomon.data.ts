@@ -8,13 +8,13 @@ export const TOKOMON_COMPOSE_FULL: CompositionRecipeType = {
   ingredients: [
     {
       id: ALL_CORES.windGuardians.id,
-      type: 'family',
+      type: 'families',
       quantity: 1
     },
 
     {
       id: ALL_CORES.virusBusters.id,
-      type: 'family',
+      type: 'families',
       quantity: 1
     }
   ]
@@ -26,7 +26,7 @@ export const TOKOMON_COMPOSE_WG: CompositionRecipeType = {
   ingredients: [
     {
       id: ALL_CORES.windGuardians.id,
-      type: 'family',
+      type: 'families',
       quantity: 5
     }
   ]
@@ -38,7 +38,7 @@ export const TOKOMON_COMPOSE_VB: CompositionRecipeType = {
   ingredients: [
     {
       id: ALL_CORES.virusBusters.id,
-      type: 'family',
+      type: 'families',
       quantity: 5
     }
   ]

@@ -1,9 +1,4 @@
-import type {
-  BattleType,
-  CombatLogType,
-  CoreLootType,
-  LootType
-} from '@/Types/Battle.type'
+import type { BattleType, CombatLogType, LootType } from '@/Types/Battle.type'
 import type { PartyDigimon, EnemyDigimonType } from '@/Types/Digimon.type'
 
 import { getDigimonName, randomNumber, progressQuests } from '@/Helpers'
@@ -97,27 +92,16 @@ const getNewTurnOrder = ({
 }
 
 const getLoot = ({
-  isOver,
-  winner,
   digimons
 }: {
-  isOver: boolean
-  winner: string
   digimons: Array<PartyDigimon>
 }): LootType | undefined => {
-  if (!isOver || winner !== 'player') {
-    return undefined
-  }
-
   const expGained = digimons.reduce((acc, item) => acc + item.level, 0)
-  const loot: {
-    cores: Array<CoreLootType>
-    currency: number
-    exp: number
-  } = {
-    cores: [],
+
+  const loot: LootType = {
+    exp: expGained,
     currency: 0,
-    exp: expGained
+    items: []
   }
 
   for (let digimonItem of digimons) {
@@ -128,26 +112,38 @@ const getLoot = ({
     }
 
     for (let lootItem of lootTable) {
-      if (lootItem.type === 'core') {
-        const coreIndex = loot.cores?.findIndex(
-          (coreItem) => coreItem.coreId === lootItem.coreId
-        )
-
-        let currentCoreQuantity = 0
-        const enemyLootQuantity = randomNumber({
-          ...lootItem.quantity
-        })
-
-        if (loot.cores[lootItem.coreId]) {
-          currentCoreQuantity =
-            loot.cores[coreIndex].quantity + enemyLootQuantity
+      if (['families', 'attribute', 'digimon'].includes(lootItem.type)) {
+        if (!loot.items[lootItem.id]) {
+          loot.items.push({
+            id: lootItem.id,
+            quantity: 0,
+            type: lootItem.type
+          })
         }
 
-        if (!loot.cores[lootItem.coreId]) {
-          loot.cores.push({
-            coreId: lootItem.coreId,
-            quantity: enemyLootQuantity,
-            coreType: lootItem.coreType
+        // Iterates through the maxQuantity, and checks if RNG allows drop. Basically each individual unity of an item will be rolled
+        for (
+          let currentDrop = 0;
+          currentDrop < lootItem.maxQuantity;
+          currentDrop++
+        ) {
+          loot.items = loot.items.map((prevLoot) => {
+            if (prevLoot.id !== lootItem.id) {
+              return prevLoot
+            }
+
+            const enemyLootQuantity = randomNumber({
+              min: 1,
+              max: 100
+            })
+
+            const lootQuantity =
+              enemyLootQuantity <= lootItem.dropChance ? 1 : 0
+
+            return {
+              ...prevLoot,
+              quantity: prevLoot.quantity + lootQuantity
+            }
           })
         }
       }
@@ -222,18 +218,14 @@ export const attackHelper = ({ battle }: { battle: BattleType }) => {
 
   const updatedEntries = addNewCombatLogEntries()
 
-  const winner = (
-    aliveDigimonsAfterDamage.some((item) => item.party === 'player')
-      ? 'player'
-      : 'enemy'
-  ) as 'player' | 'enemy'
   const isOver = checkIsOver({ digimons: aliveDigimonsAfterDamage })
 
-  const loot = getLoot({
-    isOver,
-    winner,
-    digimons: digimonsWithCorrectHp.filter((item) => item.party === 'enemy')
-  })
+  let loot
+  if (isOver && aliveDigimonsAfterDamage[0].party === 'player') {
+    loot = getLoot({
+      digimons: digimonsWithCorrectHp.filter((item) => item.party === 'enemy')
+    })
+  }
 
   const currentBattle = {
     currentDigimon: updatedCurrentDigimon,
@@ -241,7 +233,6 @@ export const attackHelper = ({ battle }: { battle: BattleType }) => {
     digimons: digimonsWithCorrectHp,
     combatLog: [...combatLog, ...updatedEntries],
     isOver,
-    winner: isOver ? winner : undefined,
     loot,
     board
   }

@@ -1,7 +1,7 @@
 import type { PartnerDigimonType } from '@/Types/Digimon.type'
 import type { ItemType } from '@/Types/Item.type'
 import type { QuestObjectivesType } from '@/Types/Quest.type'
-import type { CoreLootType } from '@/Types/Battle.type'
+import type { ItemsLootType } from '@/Types/Battle.type'
 
 export type ProfileType = {
   name?: string
@@ -14,11 +14,14 @@ export type ProfileType = {
   partners?: Array<PartnerDigimonType>
   party?: Array<string>
   items?: Array<ItemType>
-  completedQuests?: Array<string>
-  cores: Array<CoreLootType>
+  cores: Array<ItemsLootType>
 
-  activeQuests?: Array<{
-    questId: string
-    progress: Array<QuestObjectivesType>
-  }>
+  quests: {
+    completed?: Array<string>
+
+    inProgress?: Array<{
+      questId: string
+      progress: Array<QuestObjectivesType>
+    }>
+  }
 }

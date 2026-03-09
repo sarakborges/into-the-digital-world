@@ -26,7 +26,7 @@ export const CoresCollected = () => {
       title: getTexts('CORES_COLLECTED_ATTRIBUTE_TITLE'),
       values: Object.values(DIGIMON_ATTRIBUTES).map((attributeItem) => {
         const profileCore = profile.cores?.find?.(
-          (coreItem) => coreItem.coreId === attributeItem.id
+          (coreItem) => coreItem.id === attributeItem.id
         )
 
         return {
@@ -41,7 +41,7 @@ export const CoresCollected = () => {
       values: Object.values(DIGIMON_FAMILIES)
         .map((familyItem) => {
           const profileCore = profile.cores?.find?.(
-            (coreItem) => coreItem.coreId === familyItem.id
+            (coreItem) => coreItem.id === familyItem.id
           )
 
           return {
@@ -62,12 +62,12 @@ export const CoresCollected = () => {
       </header>
 
       <main>
-        {cores.map((coreType) => (
-          <section key={`tamer-cores-${coreType.title}`}>
-            <Typography as="h2">{coreType.title}</Typography>
+        {cores.map((type) => (
+          <section key={`tamer-cores-${type.title}`}>
+            <Typography as="h2">{type.title}</Typography>
 
             <main>
-              {coreType.values.map((coreItem) => (
+              {type.values.map((coreItem) => (
                 <div
                   key={`tamer-cores-${coreItem.type}-item-${coreItem.id}`}
                   className="tamer-cores-item"

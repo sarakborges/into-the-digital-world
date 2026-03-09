@@ -31,23 +31,17 @@ export const BINARY_FOREST: MapType = {
 
       lootTable: [
         {
-          type: 'core',
-          coreType: 'families',
-          coreId: ALL_CORES.dragonsRoar.id,
-          quantity: {
-            min: 0,
-            max: 1
-          }
+          type: 'families',
+          id: ALL_CORES.dragonsRoar.id,
+          maxQuantity: 1,
+          dropChance: 50
         },
 
         {
-          type: 'core',
-          coreType: 'families',
-          coreId: ALL_CORES.virusBusters.id,
-          quantity: {
-            min: 0,
-            max: 1
-          }
+          type: 'families',
+          id: ALL_CORES.virusBusters.id,
+          maxQuantity: 1,
+          dropChance: 50
         }
       ]
     },
@@ -58,13 +52,10 @@ export const BINARY_FOREST: MapType = {
 
       lootTable: [
         {
-          type: 'core',
-          coreType: 'families',
-          coreId: ALL_CORES.natureSpirits.id,
-          quantity: {
-            min: 0,
-            max: 1
-          }
+          type: 'families',
+          id: ALL_CORES.natureSpirits.id,
+          maxQuantity: 1,
+          dropChance: 50
         }
       ]
     },
@@ -75,13 +66,10 @@ export const BINARY_FOREST: MapType = {
 
       lootTable: [
         {
-          type: 'core',
-          coreType: 'families',
-          coreId: ALL_CORES.metalEmpire.id,
-          quantity: {
-            min: 0,
-            max: 1
-          }
+          type: 'families',
+          id: ALL_CORES.metalEmpire.id,
+          maxQuantity: 1,
+          dropChance: 50
         }
       ]
     },
@@ -92,23 +80,17 @@ export const BINARY_FOREST: MapType = {
 
       lootTable: [
         {
-          type: 'core',
-          coreType: 'families',
-          coreId: ALL_CORES.natureSpirits.id,
-          quantity: {
-            min: 0,
-            max: 1
-          }
+          type: 'families',
+          id: ALL_CORES.natureSpirits.id,
+          maxQuantity: 1,
+          dropChance: 50
         },
 
         {
-          type: 'core',
-          coreType: 'families',
-          coreId: ALL_CORES.virusBusters.id,
-          quantity: {
-            min: 0,
-            max: 1
-          }
+          type: 'families',
+          id: ALL_CORES.virusBusters.id,
+          maxQuantity: 1,
+          dropChance: 50
         }
       ]
     },
@@ -119,23 +101,17 @@ export const BINARY_FOREST: MapType = {
 
       lootTable: [
         {
-          type: 'core',
-          coreType: 'families',
-          coreId: ALL_CORES.windGuardians.id,
-          quantity: {
-            min: 0,
-            max: 1
-          }
+          type: 'families',
+          id: ALL_CORES.windGuardians.id,
+          maxQuantity: 1,
+          dropChance: 50
         },
 
         {
-          type: 'core',
-          coreType: 'families',
-          coreId: ALL_CORES.virusBusters.id,
-          quantity: {
-            min: 0,
-            max: 1
-          }
+          type: 'families',
+          id: ALL_CORES.virusBusters.id,
+          maxQuantity: 1,
+          dropChance: 50
         }
       ]
     },
@@ -146,13 +122,10 @@ export const BINARY_FOREST: MapType = {
 
       lootTable: [
         {
-          type: 'core',
-          coreType: 'families',
-          coreId: ALL_CORES.jungleTroopers.id,
-          quantity: {
-            min: 0,
-            max: 1
-          }
+          type: 'families',
+          id: ALL_CORES.jungleTroopers.id,
+          maxQuantity: 1,
+          dropChance: 50
         }
       ]
     },
@@ -163,13 +136,10 @@ export const BINARY_FOREST: MapType = {
 
       lootTable: [
         {
-          type: 'core',
-          coreType: 'families',
-          coreId: ALL_CORES.deepSavers.id,
-          quantity: {
-            min: 0,
-            max: 1
-          }
+          type: 'families',
+          id: ALL_CORES.deepSavers.id,
+          maxQuantity: 1,
+          dropChance: 50
         }
       ]
     },
@@ -180,23 +150,17 @@ export const BINARY_FOREST: MapType = {
 
       lootTable: [
         {
-          type: 'core',
-          coreType: 'families',
-          coreId: ALL_CORES.windGuardians.id,
-          quantity: {
-            min: 0,
-            max: 1
-          }
+          type: 'families',
+          id: ALL_CORES.windGuardians.id,
+          maxQuantity: 1,
+          dropChance: 50
         },
 
         {
-          type: 'core',
-          coreType: 'families',
-          coreId: ALL_CORES.jungleTroopers.id,
-          quantity: {
-            min: 0,
-            max: 1
-          }
+          type: 'families',
+          id: ALL_CORES.jungleTroopers.id,
+          maxQuantity: 1,
+          dropChance: 50
         }
       ]
     }

@@ -1,19 +1,22 @@
-import { Fragment, useContext } from 'react'
+import { useContext } from 'react'
+import { useNavigate } from 'react-router'
+
+import { endBattleHelper } from '@/Helpers'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
 
+import { ROUTES } from '@/Routes/Routes'
+
 import { getTexts } from '@/Texts'
+
+import { ProfileContext } from '@/Contexts/Profile.context'
 
 import { BattleContext } from '@/Contexts/Battle.context'
 
+import { Button } from '@/Components/System/Button'
 import { Typography } from '@/Components/System/Typography'
 
 import './BattleCombatLog.style.scss'
-import { Button } from '@/Components/System/Button'
-import { endBattleHelper } from '@/Helpers'
-import { ProfileContext } from '@/Contexts/Profile.context'
-import { ROUTES } from '@/Routes/Routes'
-import { useNavigate } from 'react-router'
 
 export const BattleCombatLog = () => {
   const battleContext = useContext(BattleContext)
@@ -35,10 +38,10 @@ export const BattleCombatLog = () => {
 
   const { combatLog, loot } = battle
 
-  const lootedCores = loot?.cores?.map(
+  const lootedCores = loot?.items?.map(
     (coreItem) =>
       coreItem.quantity > 0 &&
-      `${coreItem.quantity || 0}x ${ALL_CORES[coreItem.coreId].abbreviation} cores`
+      `${coreItem.quantity || 0}x ${ALL_CORES[coreItem.id].abbreviation} cores`
   )
 
   const readableLoot = [

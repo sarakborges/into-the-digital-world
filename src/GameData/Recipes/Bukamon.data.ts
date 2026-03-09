@@ -8,7 +8,7 @@ export const BUKAMON_RECIPE_FULL: CompositionRecipeType = {
   ingredients: [
     {
       id: ALL_CORES.deepSavers.id,
-      type: 'family',
+      type: 'families',
       quantity: 1
     }
   ]

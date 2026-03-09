@@ -60,7 +60,7 @@ export const NpcDialog = () => {
           return interaction
         }
 
-        const progress = profile?.activeQuests?.find(
+        const progress = profile?.quests?.inProgress?.find(
           (questItem) => questItem.questId === interaction.questId
         )?.progress
 
@@ -75,7 +75,7 @@ export const NpcDialog = () => {
           return true
         }
 
-        return !profile.completedQuests?.includes(interaction.questId!)
+        return !profile.quests?.completed?.includes(interaction.questId!)
       })
   }
 
@@ -92,9 +92,12 @@ export const NpcDialog = () => {
 
     const updatedProfile = {
       ...profile,
-      activeQuests: profile.activeQuests
-        ? [...profile.activeQuests, quest]
-        : [quest]
+      quests: {
+        completed: profile.quests?.completed,
+        inProgress: profile.quests?.inProgress
+          ? [...profile.quests?.inProgress, quest]
+          : [quest]
+      }
     }
 
     setProfile(updatedProfile)
@@ -114,9 +117,12 @@ export const NpcDialog = () => {
 
     const updatedProfile = {
       ...profile,
-      activeQuests: profile.activeQuests?.filter(
-        (questItem) => questItem.questId !== questId
-      )
+      quests: {
+        completed: profile.quests?.completed,
+        inProgress: profile.quests?.inProgress?.filter(
+          (questItem) => questItem.questId !== questId
+        )
+      }
     }
 
     setProfile(updatedProfile)
@@ -176,7 +182,7 @@ export const NpcDialog = () => {
 
                   <>
                     <Typography>
-                      {profile.activeQuests?.some(
+                      {profile.quests?.inProgress?.some(
                         (questItem) =>
                           questItem.questId === currentInteraction.questId
                       )
@@ -274,7 +280,7 @@ export const NpcDialog = () => {
                     </div>
 
                     <div className="quest-buttons">
-                      {!profile.activeQuests?.some(
+                      {!profile.quests?.inProgress?.some(
                         (questItem) =>
                           questItem.questId === currentInteraction.questId
                       ) && (
@@ -289,12 +295,12 @@ export const NpcDialog = () => {
                         </>
                       )}
 
-                      {profile.activeQuests?.some(
+                      {profile.quests?.inProgress?.some(
                         (questItem) =>
                           questItem.questId === currentInteraction.questId
                       ) && (
                         <>
-                          {profile.activeQuests
+                          {profile.quests?.inProgress
                             .find(
                               (questItem) =>
                                 questItem.questId === currentInteraction.questId

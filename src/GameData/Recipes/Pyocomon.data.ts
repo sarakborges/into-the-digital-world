@@ -8,13 +8,13 @@ export const PYOCOMON_RECIPE_FULL: CompositionRecipeType = {
   ingredients: [
     {
       id: ALL_CORES.windGuardians.id,
-      type: 'family',
+      type: 'families',
       quantity: 1
     },
 
     {
       id: ALL_CORES.jungleTroopers.id,
-      type: 'family',
+      type: 'families',
       quantity: 1
     }
   ]
@@ -26,7 +26,7 @@ export const PYOCOMON_RECIPE_WG: CompositionRecipeType = {
   ingredients: [
     {
       id: ALL_CORES.windGuardians.id,
-      type: 'family',
+      type: 'families',
       quantity: 5
     }
   ]
@@ -38,7 +38,7 @@ export const PYOCOMON_RECIPE_JT: CompositionRecipeType = {
   ingredients: [
     {
       id: ALL_CORES.jungleTroopers.id,
-      type: 'family',
+      type: 'families',
       quantity: 5
     }
   ]

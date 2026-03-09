@@ -5,16 +5,16 @@ export type CombatLogType = Array<{
   party: 'enemy' | 'player'
 }>
 
-export type CoreLootType = {
-  coreId: string
-  coreType: string
+export type ItemsLootType = {
+  id: string
+  type: 'families' | 'attribute' | 'digimon' | 'item' | 'research'
   quantity: number
 }
 
 export type LootType = {
-  cores: Array<CoreLootType>
-  currency: number
   exp: number
+  currency: number
+  items: Array<ItemsLootType>
 }
 
 export type BattleType = {
@@ -22,7 +22,6 @@ export type BattleType = {
   turnOrder: Array<string>
   currentDigimon?: PartyDigimon
   isOver?: boolean
-  winner?: 'enemy' | 'player'
   combatLog: CombatLogType
   loot?: LootType
 
