@@ -18,13 +18,13 @@ export const AGUMON: DigimonType = {
   ],
 
   stats: {
-    hp: 34,
-    sp: 28,
-    atk: 32,
-    def: 30,
-    pow: 30,
-    res: 24,
-    spd: 22
+    hp: 30,
+    sp: 18,
+    atk: 34,
+    def: 22,
+    pow: 20,
+    res: 12,
+    spd: 14
   },
 
   composeRecipes: [...AGUMON_RECIPES]

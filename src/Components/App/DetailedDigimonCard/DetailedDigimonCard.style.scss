@@ -14,6 +14,8 @@
     flex-flow: column;
     gap: var(--size-smd);
 
+    flex: 1;
+
     .digimon-tags {
       display: flex;
       flex-wrap: wrap;
