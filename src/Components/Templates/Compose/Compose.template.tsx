@@ -3,8 +3,9 @@ import { useContext } from 'react'
 import { getTexts } from '@/Texts'
 
 import { CompositionContext } from '@/Contexts/Composition.context'
+import { ProfileContext } from '@/Contexts/Profile.context'
 
-import { COMPOSABLE_DIGIMONS } from '@/GameData/Digimons'
+import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
 import { Typography } from '@/Components/System/Typography'
 import { Portrait } from '@/Components/System/Portrait'
@@ -17,12 +18,22 @@ import './Compose.style.scss'
 
 export const ComposeTemplate = () => {
   const compositionContext = useContext(CompositionContext)
+  const profileContext = useContext(ProfileContext)
 
-  if (!compositionContext) {
+  if (!compositionContext || !profileContext) {
     return
   }
 
   const { baseDigimon, setBaseDigimon } = compositionContext
+  const { profile } = profileContext
+
+  const digimons = [...Object.values(ALL_DIGIMONS)]
+    .filter((digimonItem) => {
+      return digimonItem.composeRecipes?.some((recipeItem) => {
+        return profile.recipes.includes(recipeItem.id)
+      })
+    })
+    .sort((a, b) => (a.name > b.name ? 1 : -1))
 
   return (
     <MenuWrapper>
@@ -34,20 +45,18 @@ export const ComposeTemplate = () => {
 
         <main className="compose-body">
           <aside className="digimon-list">
-            {[...Object.values(COMPOSABLE_DIGIMONS)]
-              .sort((a, b) => (a.name > b.name ? 1 : -1))
-              .map((digimonItem) => (
-                <div key={`compose-digimons-${digimonItem.id}`}>
-                  <button
-                    onClick={() => setBaseDigimon(digimonItem)}
-                    className={
-                      baseDigimon?.id === digimonItem.id ? 'selected' : ''
-                    }
-                  >
-                    <DetailedDigimonCard digimon={digimonItem} />
-                  </button>
-                </div>
-              ))}
+            {digimons.map((digimonItem) => (
+              <div key={`compose-digimons-${digimonItem.id}`}>
+                <button
+                  onClick={() => setBaseDigimon(digimonItem)}
+                  className={
+                    baseDigimon?.id === digimonItem.id ? 'selected' : ''
+                  }
+                >
+                  <DetailedDigimonCard digimon={digimonItem} />
+                </button>
+              </div>
+            ))}
           </aside>
 
           {!!baseDigimon && (

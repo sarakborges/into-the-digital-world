@@ -14,6 +14,7 @@ export type ProfileType = {
   partners: Array<PartnerDigimonType>
   party: Array<string>
   researches: Array<string>
+  recipes: Array<string>
   items: Array<ItemType>
   cores: Array<ItemsLootType>
 

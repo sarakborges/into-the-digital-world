@@ -42,6 +42,10 @@ export const ComposeRecipe = ({
     Number(profile.partners?.[profile.partners?.length - 1]?.id || 0) + 1
   ).toString()
 
+  if (!profile.recipes.includes(recipe.id)) {
+    return <></>
+  }
+
   const ingredients: Array<{
     id: string
     type: 'attribute' | 'families' | 'item' | 'digimon'

@@ -51,7 +51,8 @@ export const CreateProfileTemplate = () => {
       party: [],
       points: 0,
       quests: {},
-      researches: []
+      researches: [],
+      recipes: []
     }
 
     setProfile(newProfile)
