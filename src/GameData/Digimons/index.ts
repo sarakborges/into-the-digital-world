@@ -23,6 +23,7 @@ import { TSUMEMON } from '@/GameData/Digimons/Tsunemon.data'
 import { UPAMON } from '@/GameData/Digimons/Upamon.data'
 import { WANYAMON } from '@/GameData/Digimons/Wanyamon.data'
 import { YARMON } from '@/GameData/Digimons/Yarmon.data'
+import { AGUMON } from '@/GameData/Digimons/Agumon.data'
 
 export {
   KOROMON,
@@ -49,7 +50,8 @@ export {
   TSUMEMON,
   UPAMON,
   WANYAMON,
-  YARMON
+  YARMON,
+  AGUMON
 }
 
 export const ALL_DIGIMONS = {
@@ -77,7 +79,8 @@ export const ALL_DIGIMONS = {
   TSUMEMON,
   UPAMON,
   WANYAMON,
-  YARMON
+  YARMON,
+  AGUMON
 }
 
 export const STARTERS = [
@@ -99,5 +102,6 @@ export const COMPOSABLE_DIGIMONS = {
   BUKAMON,
   PYOCOMON,
   TANEMON,
-  TOKOMON
+  TOKOMON,
+  AGUMON
 }

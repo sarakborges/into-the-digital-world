@@ -20,6 +20,7 @@ import { Icon } from '@/Components/System/Icon'
 import { ResourceBar } from '@/Components/App/ResourceBar'
 
 import './ComposeRecipe.style.scss'
+import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
 export const ComposeRecipe = ({
   recipe
@@ -41,23 +42,52 @@ export const ComposeRecipe = ({
     Number(profile.partners?.[profile.partners?.length - 1]?.id || 0) + 1
   ).toString()
 
-  const ingredients = recipe?.ingredients?.map((ingredientItem) => {
-    if (['attribute', 'families'].includes(ingredientItem.type)) {
-      const playerCores = profile.cores.find(
-        (profileCoreItem) => profileCoreItem.id === ingredientItem.id
-      )
+  const ingredients: Array<{
+    id: string
+    type: 'attribute' | 'families' | 'item' | 'digimon'
+    name: string
+    playerQuantity: number
+    quantity: number
+    directory: string
+    icon: string
+  }> =
+    recipe?.ingredients?.map((ingredientItem) => {
+      if (['attribute', 'families'].includes(ingredientItem.type)) {
+        const playerCores = profile.cores.find(
+          (profileCoreItem) => profileCoreItem.id === ingredientItem.id
+        )
+
+        return {
+          ...ingredientItem,
+          name: ALL_CORES[ingredientItem.id].name,
+          icon: ALL_CORES[ingredientItem.id].icon,
+          directory: 'cores',
+          playerQuantity: playerCores?.quantity || 0
+        }
+      }
+
+      if (['digimon'].includes(ingredientItem.type)) {
+        const playerCores = profile.cores.find(
+          (profileCoreItem) => profileCoreItem.id === ingredientItem.id
+        )
+
+        return {
+          ...ingredientItem,
+          name: ALL_DIGIMONS[playerCores!.id].name,
+          icon: ingredientItem.id,
+          directory: 'digimon_portraits',
+          playerQuantity: playerCores?.quantity || 0
+        }
+      }
 
       return {
         ...ingredientItem,
-        playerQuantity: playerCores?.quantity || 0
+        name: '',
+        icon: '',
+        directory: '',
+        playerQuantity: 0
       }
-    }
-
-    return {
-      ...ingredientItem,
-      playerQuantity: 0
-    }
-  })
+    }) ?? []
 
   const isButtonEnabled = ingredients?.every(
     (coreItem) => coreItem.playerQuantity >= coreItem.quantity
@@ -89,11 +119,13 @@ export const ComposeRecipe = ({
         <li
           key={`${baseDigimon?.name}-compose-${recipe.id}-core-${ingredientItem.id}`}
         >
-          {['attribute', 'families'].includes(ingredientItem.type) && (
+          {['attribute', 'families', 'digimon'].includes(
+            ingredientItem.type
+          ) && (
             <>
               <aside>
                 <Icon
-                  src={`/cores/${ALL_CORES[ingredientItem.id].icon}.jpg`}
+                  src={`/${ingredientItem.directory}/${ingredientItem.icon}.jpg`}
                   alt={`Composing ${baseDigimon?.name}`}
                 />
               </aside>
@@ -102,7 +134,7 @@ export const ComposeRecipe = ({
                 <Typography>
                   {getTexts('COMPOSE_RECIPE_CORE').replace(
                     '[NAME]',
-                    ALL_CORES[ingredientItem.id].name
+                    ingredientItem.name
                   )}
                 </Typography>
 

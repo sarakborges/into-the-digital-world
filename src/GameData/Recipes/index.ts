@@ -6,6 +6,7 @@ import { PYOCOMON_RECIPES } from '@/GameData/Recipes/Pyocomon.data'
 import { TANEMON_RECIPES } from '@/GameData/Recipes/Tanemon.data'
 import { TOKOMON_RECIPES } from '@/GameData/Recipes/Tokomon.data'
 import { TUNOMON_RECIPES } from '@/GameData/Recipes/Tunomon.data'
+import { AGUMON_RECIPES } from './Agumon.data'
 
 export const ALL_RECIPES = {
   KOROMON: KOROMON_RECIPES,
@@ -15,7 +16,8 @@ export const ALL_RECIPES = {
   PYOCOMON: PYOCOMON_RECIPES,
   TANEMON: TANEMON_RECIPES,
   TOKOMON: TOKOMON_RECIPES,
-  TUNOMON: TUNOMON_RECIPES
+  TUNOMON: TUNOMON_RECIPES,
+  AGUMON: AGUMON_RECIPES
 }
 
 export {
@@ -26,5 +28,6 @@ export {
   PYOCOMON_RECIPES,
   TANEMON_RECIPES,
   TOKOMON_RECIPES,
-  TUNOMON_RECIPES
+  TUNOMON_RECIPES,
+  AGUMON_RECIPES
 }
