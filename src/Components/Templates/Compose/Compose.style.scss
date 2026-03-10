@@ -38,7 +38,9 @@
           background: none;
           cursor: pointer;
 
-          transition: box-shadow 0.3s;
+          .detailed-digimon-card {
+            transition: box-shadow 0.3s;
+          }
 
           &.selected {
             .detailed-digimon-card {

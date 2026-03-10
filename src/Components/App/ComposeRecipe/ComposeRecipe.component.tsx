@@ -93,7 +93,7 @@ export const ComposeRecipe = ({
             <>
               <aside>
                 <Icon
-                  src={`/cores/${ALL_CORES[ingredientItem.id].icon}.png`}
+                  src={`/cores/${ALL_CORES[ingredientItem.id].icon}.jpg`}
                   alt={`Composing ${baseDigimon?.name}`}
                 />
               </aside>

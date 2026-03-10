@@ -11,6 +11,7 @@ import { Typography } from '@/Components/System/Typography'
 import { Icon } from '@/Components/System/Icon'
 
 import './CoresCollected.style.scss'
+import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
 export const CoresCollected = () => {
   const profileContext = useContext(ProfileContext)
@@ -31,6 +32,7 @@ export const CoresCollected = () => {
 
         return {
           ...attributeItem,
+          directory: 'cores',
           quantity: profileCore?.quantity || 0
         }
       })
@@ -47,7 +49,26 @@ export const CoresCollected = () => {
           return {
             ...familyItem,
             name: familyItem.name.split(' ').join('\n'),
+            directory: 'cores',
             quantity: profileCore?.quantity || 0
+          }
+        })
+        .sort((a, b) => (a.name > b.name ? 1 : -1))
+    },
+
+    {
+      title: getTexts('CORES_COLLECTED_DIGIMON_TITLE'),
+      values: profile.cores
+        ?.filter((coreItem) => coreItem.type === 'digimon')
+        .map((coreItem) => {
+          const profileCore = ALL_DIGIMONS[coreItem.id]
+
+          return {
+            ...coreItem,
+            name: profileCore.name,
+            icon: profileCore.id,
+            directory: 'digimon_portraits',
+            quantity: coreItem?.quantity || 0
           }
         })
         .sort((a, b) => (a.name > b.name ? 1 : -1))
@@ -73,8 +94,8 @@ export const CoresCollected = () => {
                   className="tamer-cores-item"
                 >
                   <Icon
-                    src={`/cores/${coreItem!.icon}.png`}
-                    alt={`Digimon ${coreItem.type}: ${coreItem!.name}`}
+                    src={`/${coreItem.directory}/${coreItem!.icon}.jpg`}
+                    alt={`${coreItem!.name} core`}
                   />
 
                   <Typography>{coreItem.name}</Typography>

@@ -11,18 +11,17 @@
 
   > main {
     display: flex;
-    gap: var(--size-lmd);
+    flex-flow: column;
+    gap: var(--size-lg);
 
     > section {
       display: flex;
       flex-flow: column;
-      gap: var(--size-md);
-
-      width: var(--digivice-collected-cores-size);
+      gap: var(--size-smd);
 
       > main {
-        display: flex;
-        flex-flow: column;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
         gap: var(--size-md);
 
         .tamer-cores-item {

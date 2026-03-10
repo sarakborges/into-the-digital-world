@@ -26,6 +26,7 @@ export const DIGIVICE_SUBTITLE = `All cores you collected`
 
 export const CORES_COLLECTED_FAMILY_TITLE = `Family cores:`
 export const CORES_COLLECTED_ATTRIBUTE_TITLE = `Attribute cores:`
+export const CORES_COLLECTED_DIGIMON_TITLE = `Digimon cores:`
 
 export const MAPS_TITLE = `Explore the digital world!`
 export const MAPS_SUBTITLE = `In this world, there are many wonders! But also, terrible dangers await for you!`
