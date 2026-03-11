@@ -3,7 +3,7 @@ import type { CompositionRecipeType } from '@/Types/Composition.type'
 import { ALL_CORES } from '@/Consts/Cores.const'
 
 export const NYAROMON_RECIPE_FULL: CompositionRecipeType = {
-  id: 'NYAROMON_COMPOSE_FULL',
+  id: 'NYAROMON_RECIPE_FULL',
 
   ingredients: [
     {

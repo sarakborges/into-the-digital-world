@@ -1,0 +1,9 @@
+import { RESEARCH_KOROMON_RECIPE_FULL } from './Koromon.data'
+import { RESEARCH_TANEMON_RECIPE_FULL } from './Tanemon.data'
+
+export { RESEARCH_TANEMON_RECIPE_FULL }
+
+export const ALL_RESEARCHES = [
+  RESEARCH_KOROMON_RECIPE_FULL,
+  RESEARCH_TANEMON_RECIPE_FULL
+]

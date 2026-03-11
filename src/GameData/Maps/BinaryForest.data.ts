@@ -2,6 +2,8 @@ import { MapTypes, type MapType } from '@/Types/Map.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
 
+import { RESEARCH_KOROMON_RECIPE_FULL } from '../Researches/Koromon.data'
+
 import {
   BUKAMON,
   KOROMON,
@@ -12,7 +14,6 @@ import {
   TOKOMON,
   TUNOMON
 } from '@/GameData/Digimons'
-import { KOROMON_RECIPE_FULL } from '@/GameData/Recipes/Koromon.data'
 
 export const BINARY_FOREST: MapType = {
   id: `BINARY_FOREST`,
@@ -54,7 +55,7 @@ export const BINARY_FOREST: MapType = {
 
         {
           type: 'research',
-          id: KOROMON_RECIPE_FULL.id,
+          id: RESEARCH_KOROMON_RECIPE_FULL.id,
           dropChance: 5,
           maxQuantity: 1
         }

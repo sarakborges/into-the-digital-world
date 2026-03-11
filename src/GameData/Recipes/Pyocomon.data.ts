@@ -3,7 +3,7 @@ import type { CompositionRecipeType } from '@/Types/Composition.type'
 import { ALL_CORES } from '@/Consts/Cores.const'
 
 export const PYOCOMON_RECIPE_FULL: CompositionRecipeType = {
-  id: 'PYOCOMON_COMPOSE_FULL',
+  id: 'PYOCOMON_RECIPE_FULL',
 
   ingredients: [
     {

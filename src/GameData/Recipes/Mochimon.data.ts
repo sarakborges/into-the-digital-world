@@ -3,7 +3,7 @@ import type { CompositionRecipeType } from '@/Types/Composition.type'
 import { ALL_CORES } from '@/Consts/Cores.const'
 
 export const MOCHIMON_RECIPE_FULL: CompositionRecipeType = {
-  id: 'MOCHIMON_COMPOSE_FULL',
+  id: 'MOCHIMON_RECIPE_FULL',
 
   ingredients: [
     {

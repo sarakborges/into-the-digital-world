@@ -2,8 +2,8 @@ import type { CompositionRecipeType } from '@/Types/Composition.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
 
-export const TOKOMON_COMPOSE_FULL: CompositionRecipeType = {
-  id: 'TOKOMON_COMPOSE_FULL',
+export const TOKOMON_RECIPE_FULL: CompositionRecipeType = {
+  id: 'TOKOMON_RECIPE_FULL',
 
   ingredients: [
     {
@@ -20,8 +20,8 @@ export const TOKOMON_COMPOSE_FULL: CompositionRecipeType = {
   ]
 }
 
-export const TOKOMON_COMPOSE_WG: CompositionRecipeType = {
-  id: 'TOKOMON_COMPOSE_WG',
+export const TOKOMON_RECIPE_WG: CompositionRecipeType = {
+  id: 'TOKOMON_RECIPE_WG',
 
   ingredients: [
     {
@@ -32,8 +32,8 @@ export const TOKOMON_COMPOSE_WG: CompositionRecipeType = {
   ]
 }
 
-export const TOKOMON_COMPOSE_VB: CompositionRecipeType = {
-  id: 'TOKOMON_COMPOSE_VB',
+export const TOKOMON_RECIPE_VB: CompositionRecipeType = {
+  id: 'TOKOMON_RECIPE_VB',
 
   ingredients: [
     {
@@ -45,7 +45,7 @@ export const TOKOMON_COMPOSE_VB: CompositionRecipeType = {
 }
 
 export const TOKOMON_RECIPES = [
-  TOKOMON_COMPOSE_FULL,
-  TOKOMON_COMPOSE_VB,
-  TOKOMON_COMPOSE_WG
+  TOKOMON_RECIPE_FULL,
+  TOKOMON_RECIPE_VB,
+  TOKOMON_RECIPE_WG
 ]

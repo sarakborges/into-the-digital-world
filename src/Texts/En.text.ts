@@ -51,7 +51,7 @@ export const BATTLE_ACTIONS_BASIC_ATTACK = `Attack`
 export const BATTLE_LOG_TITLE = `Combat log:`
 
 export const COMPOSE_TITLE = `Compose`
-export const COMPOSE_SUBTITLE = `Select which digimon you want to compose`
+export const COMPOSE_SUBTITLE = `Each Digimon has many composing recipes that you can Research. Once you compose a Digimon, all ingredients are permanently consumed.`
 export const COMPOSE_DIGIMON_TITLE = `Composing new Digimon`
 export const COMPOSE_DIGIMON_RECIPE_TITLE = `So you want to compose a [NAME]?`
 export const COMPOSE_DIGIMON_RECIPE_SUBTITLE = `Alright! Choose one of the following combination recipes:`
@@ -63,6 +63,9 @@ export const COLLECTION_TITLE = `Collection`
 export const COLLECTION_SUBTITLE = `All your partner Digimons`
 export const COLLECTION_PARTY_TITLE = `Your current party:`
 export const COLLECTION_ALL_TITLE = `Other partners:`
+
+export const RESEARCH_TITLE = `Research`
+export const RESEARCH_SUBTITLE = `Research new composing Recipes! You only need to research each Recipe once, then you can Compose as many Digimons with that Recipe as you want.`
 
 export const WIKI_TITLE = `Digi Wiki`
 export const WIKI_STAGE_TITLE = `[STAGE] digimons`

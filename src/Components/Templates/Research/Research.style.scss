@@ -5,4 +5,10 @@
 
   width: 100%;
   padding: var(--size-lg);
+
+  .research-header {
+    display: flex;
+    flex-flow: column;
+    gap: var(--size-smd);
+  }
 }

@@ -1,8 +1,8 @@
 import type { CompositionRecipeType } from '@/Types/Composition.type'
 import { ALL_CORES } from '@/Consts/Cores.const'
 
-export const TUNOMON_COMPOSE_FULL: CompositionRecipeType = {
-  id: 'TUNOMON_COMPOSE_FULL',
+export const TUNOMON_RECIPE_FULL: CompositionRecipeType = {
+  id: 'TUNOMON_RECIPE_FULL',
 
   ingredients: [
     {
@@ -13,4 +13,4 @@ export const TUNOMON_COMPOSE_FULL: CompositionRecipeType = {
   ]
 }
 
-export const TUNOMON_RECIPES = [TUNOMON_COMPOSE_FULL]
+export const TUNOMON_RECIPES = [TUNOMON_RECIPE_FULL]
