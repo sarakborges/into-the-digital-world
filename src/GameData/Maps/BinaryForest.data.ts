@@ -2,7 +2,10 @@ import { MapTypes, type MapType } from '@/Types/Map.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
 
-import { RESEARCH_KOROMON_RECIPE_FULL } from '../Researches/Koromon.data'
+import {
+  RESEARCH_KOROMON_RECIPE_FULL,
+  RESEARCH_TANEMON_RECIPE_FULL
+} from '@/GameData/Researches'
 
 import {
   BUKAMON,
@@ -142,6 +145,13 @@ export const BINARY_FOREST: MapType = {
           id: ALL_CORES.jungleTroopers.id,
           maxQuantity: 1,
           dropChance: 30
+        },
+
+        {
+          type: 'research',
+          id: RESEARCH_TANEMON_RECIPE_FULL.id,
+          maxQuantity: 1,
+          dropChance: 100
         }
       ]
     },

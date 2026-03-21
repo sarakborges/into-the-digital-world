@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { Fragment, useContext } from 'react'
 
 import { DIGIMON_ATTRIBUTES } from '@/Consts/DigimonAttributes.const'
 import { DIGIMON_FAMILIES } from '@/Consts/DigimonFamilies.const'
@@ -84,26 +84,32 @@ export const CoresCollected = () => {
 
       <main>
         {cores.map((type) => (
-          <section key={`tamer-cores-${type.title}`}>
-            <Typography as="h2">{type.title}</Typography>
+          <Fragment key={`tamer-cores-${type.title}`}>
+            {!!type.values.length && (
+              <section>
+                <Typography as="h2">{type.title}</Typography>
 
-            <main>
-              {type.values.map((coreItem) => (
-                <div
-                  key={`tamer-cores-${coreItem.type}-item-${coreItem.id}`}
-                  className="tamer-cores-item"
-                >
-                  <Icon
-                    src={`/${coreItem.directory}/${coreItem!.icon}.jpg`}
-                    alt={`${coreItem!.name} core`}
-                  />
+                <main>
+                  {type.values.map((coreItem) => (
+                    <div
+                      key={`tamer-cores-${coreItem.type}-item-${coreItem.id}`}
+                      className="tamer-cores-item"
+                    >
+                      <Icon
+                        src={`/${coreItem.directory}/${coreItem!.icon}.jpg`}
+                        alt={`${coreItem!.name} core`}
+                      />
 
-                  <Typography>{coreItem.name}</Typography>
-                  <Typography as="span">{coreItem.quantity || 0}</Typography>
-                </div>
-              ))}
-            </main>
-          </section>
+                      <Typography>{coreItem.name}</Typography>
+                      <Typography as="span">
+                        {coreItem.quantity || 0}
+                      </Typography>
+                    </div>
+                  ))}
+                </main>
+              </section>
+            )}
+          </Fragment>
         ))}
       </main>
     </div>
