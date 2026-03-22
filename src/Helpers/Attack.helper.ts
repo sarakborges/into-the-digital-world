@@ -160,11 +160,13 @@ const getLoot = ({
           max: 100
         })
 
-        const shouldLootDrop = rng <= lootItem.dropChance ? 1 : 0
+        if (rng > lootItem.dropChance) {
+          continue
+        }
 
         loot.items.push({
           id: lootItem.id,
-          quantity: shouldLootDrop,
+          quantity: 1,
           type: lootItem.type
         })
       }

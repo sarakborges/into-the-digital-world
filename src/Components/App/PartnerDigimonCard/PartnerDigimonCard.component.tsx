@@ -132,7 +132,11 @@ export const PartnerDigimonCard = ({
       </main>
 
       <section className="digimon-actions">
-        <Button cancel onClick={decompose}>
+        <Button
+          cancel
+          onClick={decompose}
+          disabled={profile.partners.length <= 1}
+        >
           {getTexts('DIGIMON_CARD_DECOMPOSE')}
         </Button>
 
