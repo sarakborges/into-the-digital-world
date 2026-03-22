@@ -59,7 +59,13 @@ export const CoresCollected = () => {
     {
       title: getTexts('CORES_COLLECTED_DIGIMON_TITLE'),
       values: profile.cores
-        ?.filter((coreItem) => coreItem.type === 'digimon')
+        ?.filter(
+          (coreItem) =>
+            ![
+              ...Object.keys(DIGIMON_FAMILIES),
+              ...Object.keys(DIGIMON_ATTRIBUTES)
+            ].includes(coreItem.id)
+        )
         .map((coreItem) => {
           const profileCore = ALL_DIGIMONS[coreItem.id]
 
