@@ -19,6 +19,7 @@
 
     > .partners-list {
       display: flex;
+      flex-wrap: wrap;
       gap: var(--size-lmd);
     }
   }

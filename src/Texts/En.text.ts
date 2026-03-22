@@ -17,7 +17,8 @@ export const NEXT_LEVEL_TEXT = `Next level:`
 export const DIGIMON_CARD_LEVEL = `Level: `
 export const DIGIMON_CARD_STAGE = `Stage: `
 export const DIGIMON_CARD_UNSPENT_POINTS = `Unspent points: `
-export const DIGIMON_CARD_DETAILS = `View partner details`
+export const DIGIMON_CARD_DETAILS = `View details`
+export const DIGIMON_CARD_DECOMPOSE = `Decompose`
 export const DIGIMON_CARD_REMOVE_FROM_PARTY = `Remove from party`
 export const DIGIMON_CARD_ADD_TO_PARTY = `Add to party`
 

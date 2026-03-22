@@ -2,7 +2,8 @@ import { useContext } from 'react'
 
 import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
-import type { PartnerDigimonType } from '@/Types/Digimon.type'
+import type { DigimonType, PartnerDigimonType } from '@/Types/Digimon.type'
+import type { ItemsLootType } from '@/Types/Battle.type'
 
 import { getTexts } from '@/Texts'
 
@@ -56,42 +57,84 @@ export const PartnerDigimonCard = ({
     localStorage.setItem('profile', JSON.stringify(updatedProfile))
   }
 
+  const decompose = () => {
+    const updatedParty = profile?.party?.filter(
+      (partyItem) => partyItem !== digimonItem.id
+    )
+
+    const updatedPartners = profile?.partners?.filter(
+      (partyItem) => partyItem.id !== digimonItem.id
+    )
+
+    const digimonCore = profile.cores.find(
+      (coreItem) => coreItem.id === baseDigimon.id
+    )
+
+    const updatedCores: Array<ItemsLootType> = [
+      ...profile.cores,
+      digimonCore
+        ? {
+            ...digimonCore,
+            quantity: digimonCore.quantity + 1
+          }
+        : {
+            id: baseDigimon.id,
+            type: 'core',
+            quantity: 1
+          }
+    ]
+
+    const updatedProfile = {
+      ...profile,
+      party: updatedParty,
+      partners: updatedPartners,
+      cores: updatedCores
+    }
+
+    setProfile(updatedProfile)
+    localStorage.setItem('profile', JSON.stringify(updatedProfile))
+  }
+
   return (
     <div
       className="partner-digimon-card card"
       key={`partner-list-item-${digimonItem.id}`}
     >
       <main className="digimon-info">
-        <Portrait
-          src={`/digimon_portraits/${baseDigimon!.id}.jpg`}
-          alt={`Party digimon: ${baseDigimon!.name}`}
-          size="sm"
+        <aside>
+          <Portrait
+            src={`/digimon_portraits/${baseDigimon!.id}.jpg`}
+            alt={`Party digimon: ${baseDigimon!.name}`}
+            size="sm"
+          />
+
+          <section className="info-text">
+            <Typography as="h2">
+              {digimonItem.name || baseDigimon!.name}
+            </Typography>
+
+            <Typography as="span">
+              <>{getTexts('DIGIMON_CARD_LEVEL')}</>
+              {digimonItem.level}
+            </Typography>
+
+            <Typography as="span">
+              <>{getTexts('DIGIMON_CARD_UNSPENT_POINTS')}</>
+              {digimonItem.points || 0}
+            </Typography>
+          </section>
+        </aside>
+
+        <ExperienceBar
+          currentExp={digimonItem.experience!}
+          nextLevelExp={DIGIMON_LEVELS[digimonItem.level!].expToNextLevel}
         />
-
-        <section className="info-text">
-          <Typography as="h2">
-            {digimonItem.name || baseDigimon!.name}
-          </Typography>
-
-          <Typography as="span">
-            <>{getTexts('DIGIMON_CARD_LEVEL')}</>
-            {digimonItem.level}
-          </Typography>
-
-          <Typography as="span">
-            <>{getTexts('DIGIMON_CARD_UNSPENT_POINTS')}</>
-            {digimonItem.points || 0}
-          </Typography>
-        </section>
       </main>
 
-      <ExperienceBar
-        currentExp={digimonItem.experience!}
-        nextLevelExp={DIGIMON_LEVELS[digimonItem.level!].expToNextLevel}
-      />
-
       <section className="digimon-actions">
-        <Button>{getTexts('DIGIMON_CARD_DETAILS')}</Button>
+        <Button cancel onClick={decompose}>
+          {getTexts('DIGIMON_CARD_DECOMPOSE')}
+        </Button>
 
         {!isDigimonInParty && (
           <Button
@@ -103,10 +146,12 @@ export const PartnerDigimonCard = ({
         )}
 
         {!!isDigimonInParty && (
-          <Button cancel onClick={removeFromParty}>
+          <Button onClick={removeFromParty}>
             {getTexts('DIGIMON_CARD_REMOVE_FROM_PARTY')}
           </Button>
         )}
+
+        <Button>{getTexts('DIGIMON_CARD_DETAILS')}</Button>
       </section>
     </div>
   )

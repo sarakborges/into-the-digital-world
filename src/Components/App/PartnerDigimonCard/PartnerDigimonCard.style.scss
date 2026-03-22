@@ -1,7 +1,7 @@
 .partner-digimon-card {
   display: flex;
   flex-flow: column;
-  gap: var(--size-md);
+  gap: var(--size-lmd);
 
   width: var(--party-digimon-card-size);
   padding: var(--size-md);
@@ -11,19 +11,32 @@
 
   .digimon-info {
     display: flex;
-    place-items: center;
-    gap: var(--size-md);
+    gap: var(--size-lg);
+
+    > aside {
+      display: flex;
+      place-items: center;
+      gap: var(--size-md);
+
+      flex: 1;
+    }
 
     .info-text {
       display: flex;
       flex-flow: column;
       gap: var(--size-sm);
+
+      flex: 1;
+    }
+
+    .experience-bar {
+      width: 240px;
     }
   }
 
   .digimon-actions {
-    display: flex;
-    flex-flow: column;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--size-sm);
   }
 }
