@@ -3,8 +3,6 @@ import { DigimonStages } from '@/Types/DigimonStages.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
 
-import { NYAROMON_RECIPES } from '@/GameData/Recipes'
-
 export const NYAROMON: DigimonType = {
   id: `NYAROMON`,
   name: `Nyaromon`,
@@ -20,7 +18,5 @@ export const NYAROMON: DigimonType = {
     pow: 15,
     res: 11,
     spd: 22
-  },
-
-  composeRecipes: [...NYAROMON_RECIPES]
+  }
 }

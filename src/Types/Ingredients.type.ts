@@ -1,5 +1,5 @@
 export type IngredientsType = {
   id: string
-  type: 'attribute' | 'families' | 'item' | 'digimon'
+  type: 'item' | 'core'
   quantity: number
 }

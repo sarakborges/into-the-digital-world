@@ -2,7 +2,6 @@ import type { DigimonType } from '@/Types/Digimon.type'
 import { DigimonStages } from '@/Types/DigimonStages.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
-import { TOKOMON_RECIPES } from '@/GameData/Recipes'
 
 export const TOKOMON: DigimonType = {
   id: `TOKOMON`,
@@ -19,7 +18,5 @@ export const TOKOMON: DigimonType = {
     pow: 12,
     res: 18,
     spd: 6
-  },
-
-  composeRecipes: [...TOKOMON_RECIPES]
+  }
 }

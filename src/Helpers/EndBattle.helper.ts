@@ -40,6 +40,10 @@ export const endBattleHelper = ({
         continue
       }
 
+      if (!lootItem.quantity) {
+        continue
+      }
+
       const profileCoreIndex = profile.cores.findIndex(
         (profileCoreItem) => profileCoreItem.id === lootItem.id
       )

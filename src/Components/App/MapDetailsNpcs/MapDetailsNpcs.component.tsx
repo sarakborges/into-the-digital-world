@@ -26,33 +26,33 @@ export const MapDetailsNpcs = () => {
     setCurrentNpc(npc)
   }
 
-  return (
-    <>
-      {!!currentMap && !!currentMap.availableNpcs?.length && (
-        <section className="map-details-npcs">
-          <main>
-            {currentMap.availableNpcs.map((npcItem) => (
-              <Button
-                key={`map-details-${currentMap.id}-npc-${npcItem.id}`}
-                onClick={() => talkToNpc(npcItem)}
-              >
-                {npcItem.types.map((typeItem) => (
-                  <MapIcon
-                    key={`map-item-${currentMap.id}-npc-${npcItem.id}-type-${typeItem}`}
-                    mapType={typeItem.toString()}
-                    sm
-                  />
-                ))}
+  if (!currentMap?.availableNpcs?.length) {
+    return
+  }
 
-                {getTexts('MAPS_DETAILS_NPCS_CTA').replace(
-                  '[NPC-NAME]',
-                  npcItem.name
-                )}
-              </Button>
+  return (
+    <section className="map-details-npcs">
+      <main>
+        {currentMap.availableNpcs.map((npcItem) => (
+          <Button
+            key={`map-details-${currentMap.id}-npc-${npcItem.id}`}
+            onClick={() => talkToNpc(npcItem)}
+          >
+            {npcItem.types.map((typeItem) => (
+              <MapIcon
+                key={`map-item-${currentMap.id}-npc-${npcItem.id}-type-${typeItem}`}
+                mapType={typeItem.toString()}
+                sm
+              />
             ))}
-          </main>
-        </section>
-      )}
-    </>
+
+            {getTexts('MAPS_DETAILS_NPCS_CTA').replace(
+              '[NPC-NAME]',
+              npcItem.name
+            )}
+          </Button>
+        ))}
+      </main>
+    </section>
   )
 }

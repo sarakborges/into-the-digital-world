@@ -15,6 +15,7 @@ import { DetailedDigimonCard } from '@/Components/App/DetailedDigimonCard'
 import { ComposeRecipe } from '@/Components/App/ComposeRecipe'
 
 import './Compose.style.scss'
+import { ALL_RECIPES, RECIPES_BY_DIGIMON } from '@/GameData/Recipes'
 
 export const ComposeTemplate = () => {
   const compositionContext = useContext(CompositionContext)
@@ -27,13 +28,15 @@ export const ComposeTemplate = () => {
   const { baseDigimon, setBaseDigimon } = compositionContext
   const { profile } = profileContext
 
-  const digimons = [...Object.values(ALL_DIGIMONS)]
-    .filter((digimonItem) => {
-      return digimonItem.composeRecipes?.some((recipeItem) => {
-        return profile.recipes.includes(recipeItem.id)
-      })
-    })
-    .sort((a, b) => (a.name > b.name ? 1 : -1))
+  const digimonIds: Array<string> = []
+
+  for (let recipeItem of profile.recipes) {
+    digimonIds.push(ALL_RECIPES[recipeItem].digimon)
+  }
+
+  const digimons = [...new Set(digimonIds)].map(
+    (digimonItem) => ALL_DIGIMONS[digimonItem]
+  )
 
   return (
     <MenuWrapper>
@@ -84,7 +87,7 @@ export const ComposeTemplate = () => {
                 </header>
 
                 <main>
-                  {baseDigimon.composeRecipes?.map((recipeItem) => (
+                  {RECIPES_BY_DIGIMON[baseDigimon.id]?.map((recipeItem) => (
                     <ComposeRecipe
                       key={`${baseDigimon.name}-compose-${recipeItem.id}`}
                       recipe={recipeItem}

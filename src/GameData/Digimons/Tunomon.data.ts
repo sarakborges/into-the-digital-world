@@ -3,8 +3,6 @@ import { DigimonStages } from '@/Types/DigimonStages.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
 
-import { TUNOMON_RECIPES } from '@/GameData/Recipes'
-
 export const TUNOMON: DigimonType = {
   id: `TUNOMON`,
   name: `Tunomon`,
@@ -20,7 +18,5 @@ export const TUNOMON: DigimonType = {
     pow: 14,
     res: 13,
     spd: 12
-  },
-
-  composeRecipes: [...TUNOMON_RECIPES]
+  }
 }

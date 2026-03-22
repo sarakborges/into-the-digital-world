@@ -7,7 +7,7 @@ export type CombatLogType = Array<{
 
 export type ItemsLootType = {
   id: string
-  type: 'families' | 'attribute' | 'digimon' | 'item' | 'research'
+  type: 'core' | 'item' | 'research'
   quantity: number
 }
 

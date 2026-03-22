@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router'
 import { endBattleHelper } from '@/Helpers'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
+import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
 import { ROUTES } from '@/Routes/Routes'
 
@@ -17,7 +18,6 @@ import { Button } from '@/Components/System/Button'
 import { Typography } from '@/Components/System/Typography'
 
 import './BattleCombatLog.style.scss'
-import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
 export const BattleCombatLog = () => {
   const battleContext = useContext(BattleContext)
@@ -39,22 +39,15 @@ export const BattleCombatLog = () => {
 
   const { combatLog, loot } = battle
 
-  const lootedCores = loot?.items?.map((coreItem) => {
-    if (['families', 'attributes'].includes(coreItem.type)) {
+  const lootedCores = loot?.items?.map((item) => {
+    if (item.type === 'core') {
       return (
-        coreItem.quantity > 0 &&
-        `${coreItem.quantity || 0}x ${ALL_CORES[coreItem.id].abbreviation} cores`
+        item.quantity > 0 &&
+        `${item.quantity || 0}x ${ALL_CORES[item.id].abbreviation || ALL_DIGIMONS[item.id].name} cores`
       )
     }
 
-    if (['digimon'].includes(coreItem.type)) {
-      return (
-        coreItem.quantity > 0 &&
-        `${coreItem.quantity || 0}x ${ALL_DIGIMONS[coreItem.id].name} cores`
-      )
-    }
-
-    if (['research'].includes(coreItem.type)) {
+    if (item.type === 'research') {
       return `New research unlocked!`
     }
   })

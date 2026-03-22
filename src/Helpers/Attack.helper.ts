@@ -112,7 +112,7 @@ const getLoot = ({
     }
 
     for (let lootItem of lootTable) {
-      if (['families', 'attribute', 'digimon'].includes(lootItem.type)) {
+      if (lootItem.type === 'core') {
         if (!loot.items[lootItem.id]) {
           loot.items.push({
             id: lootItem.id,
@@ -147,7 +147,7 @@ const getLoot = ({
         }
       }
 
-      if (['research'].includes(lootItem.type)) {
+      if (lootItem.type === 'research') {
         const profile = localStorage.getItem('profile')
         const { researches } = JSON.parse(profile!)
 

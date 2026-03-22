@@ -3,8 +3,6 @@ import { DigimonStages } from '@/Types/DigimonStages.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
 
-import { AGUMON_RECIPES } from '@/GameData/Recipes'
-
 export const AGUMON: DigimonType = {
   id: `AGUMON`,
   name: `Agumon`,
@@ -25,7 +23,5 @@ export const AGUMON: DigimonType = {
     pow: 20,
     res: 12,
     spd: 14
-  },
-
-  composeRecipes: [...AGUMON_RECIPES]
+  }
 }

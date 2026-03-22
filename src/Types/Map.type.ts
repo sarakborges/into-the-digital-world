@@ -1,5 +1,5 @@
-import type { EnemyDigimonType } from './Digimon.type'
-import type { NpcType } from './Npc.type'
+import type { EnemyDigimonType } from '@/Types/Digimon.type'
+import type { NpcType } from '@/Types/Npc.type'
 
 export const MapTypes = {
   COMBAT: 'COMBAT',

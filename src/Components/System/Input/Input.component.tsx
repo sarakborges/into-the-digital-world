@@ -11,7 +11,12 @@ export const Input: React.FC<InputType> = ({
   ...rest
 }) => {
   const InputComponent = () => (
-    <input id={name} name={name} className={`input ${className}`} {...rest} />
+    <input
+      id={name}
+      name={name}
+      className={`input ${className || ''}`}
+      {...rest}
+    />
   )
 
   return (

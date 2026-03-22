@@ -2,7 +2,10 @@ import { useContext } from 'react'
 import { useNavigate } from 'react-router'
 
 import type { CompositionRecipeType } from '@/Types/Composition.type'
+
 import { ALL_CORES } from '@/Consts/Cores.const'
+
+import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
 import { getTexts } from '@/Texts'
 
@@ -20,7 +23,6 @@ import { Icon } from '@/Components/System/Icon'
 import { ResourceBar } from '@/Components/App/ResourceBar'
 
 import './ComposeRecipe.style.scss'
-import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
 export const ComposeRecipe = ({
   recipe
@@ -48,7 +50,7 @@ export const ComposeRecipe = ({
 
   const ingredients: Array<{
     id: string
-    type: 'attribute' | 'families' | 'item' | 'digimon'
+    type: 'item' | 'core'
     name: string
     playerQuantity: number
     quantity: number
@@ -56,31 +58,29 @@ export const ComposeRecipe = ({
     icon: string
   }> =
     recipe?.ingredients?.map((ingredientItem) => {
-      if (['attribute', 'families'].includes(ingredientItem.type)) {
+      if (ingredientItem.type === 'core') {
         const playerCores = profile.cores.find(
           (profileCoreItem) => profileCoreItem.id === ingredientItem.id
         )
 
-        return {
-          ...ingredientItem,
-          name: ALL_CORES[ingredientItem.id].name,
-          icon: ALL_CORES[ingredientItem.id].icon,
-          directory: 'cores',
-          playerQuantity: playerCores?.quantity || 0
+        if (!!ALL_CORES[ingredientItem.id]) {
+          return {
+            ...ingredientItem,
+            name: ALL_CORES[ingredientItem.id].name,
+            icon: ALL_CORES[ingredientItem.id].icon,
+            directory: 'cores',
+            playerQuantity: playerCores?.quantity || 0
+          }
         }
-      }
 
-      if (['digimon'].includes(ingredientItem.type)) {
-        const playerCores = profile.cores.find(
-          (profileCoreItem) => profileCoreItem.id === ingredientItem.id
-        )
-
-        return {
-          ...ingredientItem,
-          name: ALL_DIGIMONS[playerCores!.id].name,
-          icon: ingredientItem.id,
-          directory: 'digimon_portraits',
-          playerQuantity: playerCores?.quantity || 0
+        if (!!ALL_DIGIMONS[ingredientItem.id]) {
+          return {
+            ...ingredientItem,
+            name: ALL_DIGIMONS[ingredientItem!.id].name,
+            icon: ingredientItem.id,
+            directory: 'digimon_portraits',
+            playerQuantity: playerCores?.quantity || 0
+          }
         }
       }
 
@@ -123,14 +123,12 @@ export const ComposeRecipe = ({
         <li
           key={`${baseDigimon?.name}-compose-${recipe.id}-core-${ingredientItem.id}`}
         >
-          {['attribute', 'families', 'digimon'].includes(
-            ingredientItem.type
-          ) && (
+          {ingredientItem.type === 'core' && (
             <>
               <aside>
                 <Icon
                   src={`/${ingredientItem.directory}/${ingredientItem.icon}.jpg`}
-                  alt={`Composing ${baseDigimon?.name}`}
+                  alt={`Ingredient to compose ${baseDigimon?.name}`}
                 />
               </aside>
 

@@ -3,8 +3,6 @@ import { DigimonStages } from '@/Types/DigimonStages.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
 
-import { BUKAMON_RECIPES } from '@/GameData/Recipes'
-
 export const BUKAMON: DigimonType = {
   id: `BUKAMON`,
   name: `Bukamon`,
@@ -20,7 +18,5 @@ export const BUKAMON: DigimonType = {
     pow: 14,
     res: 13,
     spd: 20
-  },
-
-  composeRecipes: [...BUKAMON_RECIPES]
+  }
 }

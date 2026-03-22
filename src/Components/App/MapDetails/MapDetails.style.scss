@@ -34,6 +34,9 @@
       flex-flow: column;
       gap: var(--size-sm);
 
+      max-height: calc(100vh - 440px);
+      overflow-y: auto;
+
       > header {
         display: flex;
         gap: var(--size-sm);

@@ -38,18 +38,18 @@
         label {
           cursor: pointer;
 
-          .starter-digimon-card {
+          .detailed-digimon-card {
             transition: box-shadow 0.3s;
           }
 
           input {
             display: none;
 
-            &:checked + .starter-digimon-card {
+            &:checked + .detailed-digimon-card {
               box-shadow: 0 0 var(--size-sm) var(--size-xs) var(--color-primary);
             }
 
-            &:not(:checked):hover + .starter-digimon-card {
+            &:not(:checked):hover + .detailed-digimon-card {
               box-shadow: 0 0 var(--size-sm) var(--size-xs)
                 var(--color-primary-transparent);
             }

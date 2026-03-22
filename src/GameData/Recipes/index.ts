@@ -20,20 +20,14 @@ export const RECIPES_BY_DIGIMON = {
   AGUMON: AGUMON_RECIPES
 }
 
-export const ALL_RECIPES = [
-  ...RECIPES_BY_DIGIMON.KOROMON,
-  ...RECIPES_BY_DIGIMON.MOCHIMON,
-  ...RECIPES_BY_DIGIMON.NYAROMON,
-  ...RECIPES_BY_DIGIMON.BUKAMON,
-  ...RECIPES_BY_DIGIMON.PYOCOMON,
-  ...RECIPES_BY_DIGIMON.TANEMON,
-  ...RECIPES_BY_DIGIMON.TOKOMON,
-  ...RECIPES_BY_DIGIMON.TUNOMON,
-  ...RECIPES_BY_DIGIMON.AGUMON
-].reduce((obj, recipeItem) => {
-  obj[recipeItem.id] = recipeItem
-  return obj
-}, {})
+export const ALL_RECIPES = Object.values(RECIPES_BY_DIGIMON)
+  .reduce((arr, digimon) => {
+    return [...arr, ...digimon]
+  }, [])
+  .reduce((obj, recipeItem) => {
+    obj[recipeItem.id] = recipeItem
+    return obj
+  }, {})
 
 export {
   KOROMON_RECIPES,

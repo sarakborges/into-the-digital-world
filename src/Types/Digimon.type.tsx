@@ -17,7 +17,6 @@ export type DigimonType = {
   attribute: string
   families: Array<string>
   stats: DigimonStats
-  composeRecipes?: Array<CompositionRecipeType>
 }
 
 type ExtraStat = {
@@ -60,7 +59,7 @@ export type PartnerDigimonType = {
 
 export type LootTableType = {
   id: string
-  type: 'families' | 'attribute' | 'digimon' | 'item' | 'research'
+  type: 'core' | 'item' | 'research'
   maxQuantity: number
   dropChance: number
 }

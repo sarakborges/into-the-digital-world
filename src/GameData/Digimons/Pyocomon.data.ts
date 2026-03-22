@@ -3,8 +3,6 @@ import { DigimonStages } from '@/Types/DigimonStages.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
 
-import { PYOCOMON_RECIPES } from '@/GameData/Recipes'
-
 export const PYOCOMON: DigimonType = {
   id: `PYOCOMON`,
   name: `Pyocomon`,
@@ -20,7 +18,5 @@ export const PYOCOMON: DigimonType = {
     pow: 14,
     res: 13,
     spd: 16
-  },
-
-  composeRecipes: [...PYOCOMON_RECIPES]
+  }
 }
