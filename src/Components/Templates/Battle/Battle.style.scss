@@ -20,7 +20,7 @@
       place-content: space-between;
       gap: var(--size-xl);
 
-      max-height: calc(100vh - 408px);
+      max-height: calc(100vh - var(--combat-board-negativeHeight));
       flex: 1;
       overflow: auto;
 

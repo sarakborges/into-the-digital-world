@@ -118,10 +118,12 @@
   --resource-bar-exp-background-filled: var(--color-primary);
   --exp-bar-background: var(--body-background);
 
-  --combat-template-minSize: 1680px;
+  --combat-board-negativeHeight: 408px;
   --combat-board-spacing: 68px;
   --combat-board-tile-width: 200px;
   --combat-board-tile-height: 120px;
   --combat-currentDigimonInfo-width: 320px;
   --combat-log-width: 320px;
+
+  --research-card-width: 320px;
 }

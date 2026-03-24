@@ -15,6 +15,8 @@ import './Research.style.scss'
 import { Button } from '@/Components/System/Button'
 import { ALL_DIGIMONS } from '@/GameData/Digimons'
 import { Portrait } from '@/Components/System/Portrait'
+import { Icon } from '@/Components/System/Icon'
+import { ALL_CORES } from '@/Consts/Cores.const'
 
 export const ResearchTemplate = () => {
   const profileContext = useContext(ProfileContext)
@@ -56,23 +58,36 @@ export const ResearchTemplate = () => {
           <ul>
             {researches.map((researchItem) => (
               <li key={`researches-list-${researchItem.id}`}>
-                <Portrait
-                  src={`/digimon_portraits/${ALL_DIGIMONS[researchItem.recipe.digimon].id}.jpg`}
-                  alt={`Party digimon: ${ALL_DIGIMONS[researchItem.recipe.digimon].name}`}
-                  size="xs"
-                />
+                <header>
+                  <Portrait
+                    src={`/digimon_portraits/${ALL_DIGIMONS[researchItem.recipe.digimon].id}.jpg`}
+                    alt={`Research: ${ALL_DIGIMONS[researchItem.recipe.digimon].name} recipe`}
+                    size="xs"
+                  />
 
-                <Typography>
-                  Compose recipe for{' '}
-                  {ALL_DIGIMONS[researchItem.recipe.digimon].name}
-                </Typography>
+                  <Typography>
+                    Compose recipe for
+                    <br />
+                    {ALL_DIGIMONS[researchItem.recipe.digimon].name}
+                  </Typography>
+                </header>
 
                 <ul>
                   {researchItem.recipe.ingredients.map((ingredientItem) => (
-                    <>
-                      <Typography>{ingredientItem.id}</Typography>
-                      <Typography>{ingredientItem.quantity}</Typography>
-                    </>
+                    <li
+                      key={`researches-list-${researchItem.id}-ingredient-${ingredientItem.id}`}
+                    >
+                      <Icon
+                        src={
+                          !!ALL_DIGIMONS[ingredientItem.id]
+                            ? `/digimon_portraits${ingredientItem.id}.jpg`
+                            : `/cores/${ALL_CORES[ingredientItem.id].icon}.jpg`
+                        }
+                        alt={`Research ${ALL_DIGIMONS[researchItem.recipe.digimon].name} recipe ingredient`}
+                      />
+
+                      <Typography>x{ingredientItem.quantity}</Typography>
+                    </li>
                   ))}
                 </ul>
 

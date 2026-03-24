@@ -11,4 +11,51 @@
     flex-flow: column;
     gap: var(--size-smd);
   }
+
+  .researches-list {
+    > ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--size-lmd);
+
+      > li {
+        display: flex;
+        flex-flow: column;
+        gap: var(--size-smd);
+
+        width: var(--research-card-width);
+        padding: var(--size-md);
+
+        background-color: var(--color-primary-darker);
+        border-radius: var(--size-md);
+
+        > header {
+          display: flex;
+          place-items: center;
+          gap: var(--size-smd);
+        }
+
+        > ul {
+          display: flex;
+          flex-wrap: wrap;
+          gap: var(--size-smd);
+
+          padding: var(--size-md);
+
+          background-color: var(--body-background);
+          border-radius: var(--size-md);
+
+          > li {
+            display: flex;
+            place-items: center;
+            gap: var(--size-sm);
+
+            .typography {
+              font-size: var(--size-lmd);
+            }
+          }
+        }
+      }
+    }
+  }
 }
