@@ -13,6 +13,8 @@ import { MenuWrapper } from '@/Components/App/MenuWrapper'
 
 import './Research.style.scss'
 import { Button } from '@/Components/System/Button'
+import { ALL_DIGIMONS } from '@/GameData/Digimons'
+import { Portrait } from '@/Components/System/Portrait'
 
 export const ResearchTemplate = () => {
   const profileContext = useContext(ProfileContext)
@@ -54,8 +56,25 @@ export const ResearchTemplate = () => {
           <ul>
             {researches.map((researchItem) => (
               <li key={`researches-list-${researchItem.id}`}>
-                <Typography>{researchItem.id}</Typography>
-                <Typography>{researchItem.cost}</Typography>
+                <Portrait
+                  src={`/digimon_portraits/${ALL_DIGIMONS[researchItem.recipe.digimon].id}.jpg`}
+                  alt={`Party digimon: ${ALL_DIGIMONS[researchItem.recipe.digimon].name}`}
+                  size="xs"
+                />
+
+                <Typography>
+                  Compose recipe for{' '}
+                  {ALL_DIGIMONS[researchItem.recipe.digimon].name}
+                </Typography>
+
+                <ul>
+                  {researchItem.recipe.ingredients.map((ingredientItem) => (
+                    <>
+                      <Typography>{ingredientItem.id}</Typography>
+                      <Typography>{ingredientItem.quantity}</Typography>
+                    </>
+                  ))}
+                </ul>
 
                 {!!profile.recipes.includes(researchItem.recipe.id) && (
                   <Button disabled>Already researched</Button>

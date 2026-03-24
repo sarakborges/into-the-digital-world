@@ -8,7 +8,7 @@
   flex-flow: column;
   gap: var(--size-xl);
 
-  width: var(--combat-log-width);
+  min-width: var(--combat-log-width);
   height: 100vh;
   padding: var(--size-md) 0;
   overflow: hidden auto;

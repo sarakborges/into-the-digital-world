@@ -2,7 +2,6 @@
   display: flex;
 
   width: 100%;
-  min-width: var(--combat-template-minSize);
   min-height: 100vh;
   margin: auto;
 
@@ -11,7 +10,9 @@
     flex-flow: column;
     gap: var(--size-md);
 
+    padding: 0 var(--size-lmd);
     flex: 1;
+    overflow: auto;
 
     .battle-main {
       display: flex;
@@ -19,7 +20,9 @@
       place-content: space-between;
       gap: var(--size-xl);
 
+      max-height: calc(100vh - 408px);
       flex: 1;
+      overflow: auto;
 
       .battle-parties {
         display: flex;
@@ -36,7 +39,7 @@
       place-content: space-between;
       place-items: flex-end;
 
-      padding: var(--size-lmd);
+      padding: var(--size-lmd) 0;
 
       .player-party {
         display: flex;

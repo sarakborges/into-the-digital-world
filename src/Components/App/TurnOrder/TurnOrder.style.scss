@@ -1,13 +1,9 @@
-.turn-order-placeholder {
-  height: calc(var(--portrait-size-sm) + (2 * var(--size-lmd)));
-}
-
 .battle-turn-order {
   display: flex;
   place-items: center;
   gap: var(--size-lg);
 
-  padding: var(--size-lmd) var(--size-xl);
+  padding: var(--size-lmd) 0;
 
   .turns-list {
     display: flex;

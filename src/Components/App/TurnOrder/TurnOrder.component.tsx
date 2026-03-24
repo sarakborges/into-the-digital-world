@@ -18,7 +18,7 @@ export const TurnOrder = () => {
   const { battle } = battleContext
 
   if (!battle || battle.isOver) {
-    return <div className="turn-order-placeholder" />
+    return
   }
 
   return (
