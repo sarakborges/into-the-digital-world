@@ -16,6 +16,7 @@ import { Icon } from '@/Components/System/Icon'
 import { MenuWrapper } from '@/Components/App/MenuWrapper'
 
 import './Research.style.scss'
+import { randomNumber } from '@/Helpers'
 
 export const ResearchTemplate = () => {
   const profileContext = useContext(ProfileContext)
@@ -30,6 +31,12 @@ export const ResearchTemplate = () => {
     .filter((researchItem) => profile.researches.includes(researchItem.id))
     .sort((a, b) => (a.id > b.id ? 1 : -1))
 
+  const availableResearches = Object.values(ALL_DIGIMONS).filter(
+    (researchItem) =>
+      !!researchItem.compositionTemplate &&
+      !profile.templates.includes(researchItem.id)
+  )
+
   const doResearch = (id: string) => {
     const updatedProfile = {
       ...profile,
@@ -38,6 +45,18 @@ export const ResearchTemplate = () => {
 
     localStorage.setItem('profile', JSON.stringify(updatedProfile))
     setProfile(updatedProfile)
+  }
+
+  const getRandomResearch = () => {
+    const rng =
+      availableResearches.length > 1
+        ? randomNumber({
+            min: 0,
+            max: availableResearches.length - 1
+          })
+        : 0
+
+    return availableResearches[rng].id
   }
 
   return (
@@ -50,6 +69,24 @@ export const ResearchTemplate = () => {
 
         <main className="researches-list">
           <ul>
+            <li>
+              <header>
+                <Typography>
+                  Research the template of a random Digimon
+                </Typography>
+              </header>
+
+              {!availableResearches?.length && (
+                <Button disabled>No researches available</Button>
+              )}
+
+              {!!availableResearches?.length && (
+                <Button onClick={() => doResearch(getRandomResearch())}>
+                  Research for 10000 Digital Coins
+                </Button>
+              )}
+            </li>
+
             {researches.map((researchItem) => (
               <li key={`researches-list-${researchItem.id}`}>
                 <header>
