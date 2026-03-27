@@ -101,7 +101,7 @@ export const ComposeDigimonTemplate = ({
     setComponents({})
   }
 
-  const compose = (template) => {
+  const compose = () => {
     const digimonName = prompt(getTexts('COMPOSE_DIGIMON_NAME'))
 
     const updatedProfile = composeNewDigimon({
@@ -109,7 +109,7 @@ export const ComposeDigimonTemplate = ({
       id: newDigimonId,
       name: digimonName || '',
       profile,
-      template
+      components
     })
 
     if (!updatedProfile) {
@@ -208,10 +208,7 @@ export const ComposeDigimonTemplate = ({
           {getTexts('COMPOSE_TEMPLATE_CANCEL')}
         </Button>
 
-        <Button
-          onClick={() => compose(template)}
-          disabled={getProgress() < 100}
-        >
+        <Button onClick={compose} disabled={getProgress() < 100}>
           {getTexts('COMPOSE_TEMPLATE_CTA')}
         </Button>
       </div>
