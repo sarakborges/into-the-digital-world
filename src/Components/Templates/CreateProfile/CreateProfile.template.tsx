@@ -52,7 +52,7 @@ export const CreateProfileTemplate = () => {
       points: 0,
       quests: {},
       researches: [],
-      recipes: []
+      templates: []
     }
 
     setProfile(newProfile)

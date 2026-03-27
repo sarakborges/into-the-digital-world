@@ -1,22 +1,21 @@
 import { useContext } from 'react'
 
-import { ALL_RECIPES } from '@/GameData/Recipes'
-import { ALL_RESEARCHES } from '@/GameData/Researches'
-
 import { getTexts } from '@/Texts'
+
+import { ALL_DIGIMONS } from '@/GameData/Digimons'
+
+import { ALL_CORES } from '@/Consts/Cores.const'
 
 import { ProfileContext } from '@/Contexts/Profile.context'
 
 import { Typography } from '@/Components/System/Typography'
+import { Button } from '@/Components/System/Button'
+import { Portrait } from '@/Components/System/Portrait'
+import { Icon } from '@/Components/System/Icon'
 
 import { MenuWrapper } from '@/Components/App/MenuWrapper'
 
 import './Research.style.scss'
-import { Button } from '@/Components/System/Button'
-import { ALL_DIGIMONS } from '@/GameData/Digimons'
-import { Portrait } from '@/Components/System/Portrait'
-import { Icon } from '@/Components/System/Icon'
-import { ALL_CORES } from '@/Consts/Cores.const'
 
 export const ResearchTemplate = () => {
   const profileContext = useContext(ProfileContext)
@@ -27,19 +26,14 @@ export const ResearchTemplate = () => {
 
   const { profile, setProfile } = profileContext
 
-  const researches = ALL_RESEARCHES.filter((researchItem) =>
-    profile.researches.includes(researchItem.id)
-  )
-    .map((researchItem) => ({
-      ...researchItem,
-      recipe: ALL_RECIPES[researchItem.recipe]
-    }))
+  const researches = Object.values(ALL_DIGIMONS)
+    .filter((researchItem) => profile.researches.includes(researchItem.id))
     .sort((a, b) => (a.id > b.id ? 1 : -1))
 
   const doResearch = (id: string) => {
     const updatedProfile = {
       ...profile,
-      recipes: [...(profile.recipes ?? []), id]
+      templates: [...(profile.templates ?? []), id]
     }
 
     localStorage.setItem('profile', JSON.stringify(updatedProfile))
@@ -60,44 +54,42 @@ export const ResearchTemplate = () => {
               <li key={`researches-list-${researchItem.id}`}>
                 <header>
                   <Portrait
-                    src={`/digimon_portraits/${ALL_DIGIMONS[researchItem.recipe.digimon].id}.jpg`}
-                    alt={`Research: ${ALL_DIGIMONS[researchItem.recipe.digimon].name} recipe`}
+                    src={`/digimon_portraits/${researchItem.id}.jpg`}
+                    alt={`Research: ${researchItem.name} template`}
                     size="xs"
                   />
 
                   <Typography>
-                    Compose recipe for
+                    Compose template for
                     <br />
-                    {ALL_DIGIMONS[researchItem.recipe.digimon].name}
+                    {researchItem.name}
                   </Typography>
                 </header>
 
                 <ul>
-                  {researchItem.recipe.ingredients.map((ingredientItem) => (
+                  {researchItem.compositionTemplate?.data.map((dataItem) => (
                     <li
-                      key={`researches-list-${researchItem.id}-ingredient-${ingredientItem.id}`}
+                      key={`researches-list-${researchItem.id}-data-${dataItem.id}`}
                     >
                       <Icon
                         src={
-                          !!ALL_DIGIMONS[ingredientItem.id]
-                            ? `/digimon_portraits${ingredientItem.id}.jpg`
-                            : `/cores/${ALL_CORES[ingredientItem.id].icon}.jpg`
+                          !!ALL_DIGIMONS[dataItem.id]
+                            ? `/digimon_portraits/${dataItem.id}.jpg`
+                            : `/cores/${ALL_CORES[dataItem.id].icon}.jpg`
                         }
-                        alt={`Research ${ALL_DIGIMONS[researchItem.recipe.digimon].name} recipe ingredient`}
+                        alt={`Research ${researchItem.name} template data`}
                       />
-
-                      <Typography>x{ingredientItem.quantity}</Typography>
                     </li>
                   ))}
                 </ul>
 
-                {!!profile.recipes.includes(researchItem.recipe.id) && (
+                {!!profile.templates.includes(researchItem.id) && (
                   <Button disabled>Already researched</Button>
                 )}
 
-                {!profile.recipes.includes(researchItem.recipe.id) && (
-                  <Button onClick={() => doResearch(researchItem.recipe.id)}>
-                    Research
+                {!profile.templates.includes(researchItem.id) && (
+                  <Button onClick={() => doResearch(researchItem.id)}>
+                    Research for {researchItem.researchCost} Digital Coins
                   </Button>
                 )}
               </li>

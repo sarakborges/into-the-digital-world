@@ -12,10 +12,9 @@ import { Portrait } from '@/Components/System/Portrait'
 
 import { MenuWrapper } from '@/Components/App/MenuWrapper'
 import { DetailedDigimonCard } from '@/Components/App/DetailedDigimonCard'
-import { ComposeRecipe } from '@/Components/App/ComposeRecipe'
+import { ComposeDigimonTemplate } from '@/Components/App/ComposeDigimonTemplate'
 
 import './Compose.style.scss'
-import { ALL_RECIPES, RECIPES_BY_DIGIMON } from '@/GameData/Recipes'
 
 export const ComposeTemplate = () => {
   const compositionContext = useContext(CompositionContext)
@@ -28,19 +27,46 @@ export const ComposeTemplate = () => {
   const { baseDigimon, setBaseDigimon } = compositionContext
   const { profile } = profileContext
 
-  const digimonIds: Array<string> = []
-
-  for (let recipeItem of profile.recipes) {
-    digimonIds.push(ALL_RECIPES[recipeItem].digimon)
-  }
-
-  const digimons = [...new Set(digimonIds)].map(
-    (digimonItem) => ALL_DIGIMONS[digimonItem]
+  const digimons = Object.values(ALL_DIGIMONS).filter((digimonItem) =>
+    profile.templates.includes(digimonItem.id)
   )
 
   return (
     <MenuWrapper>
       <main className="compose-template">
+        {!!baseDigimon && (
+          <main className="digimon-template">
+            <div className="template-body">
+              <header>
+                <Portrait
+                  src={`/digimon_portraits/${baseDigimon.id}.jpg`}
+                  alt={`Composing ${baseDigimon.name}`}
+                  size="xs"
+                />
+
+                <main>
+                  <Typography as="h2">
+                    {getTexts('COMPOSE_DIGIMON_TEMPLATE_TITLE').replace(
+                      '[NAME]',
+                      baseDigimon.name
+                    )}
+                  </Typography>
+
+                  <Typography>
+                    {getTexts('COMPOSE_DIGIMON_TEMPLATE_SUBTITLE')}
+                  </Typography>
+                </main>
+              </header>
+
+              <main>
+                <ComposeDigimonTemplate
+                  template={baseDigimon.compositionTemplate!}
+                />
+              </main>
+            </div>
+          </main>
+        )}
+
         <header className="compose-header">
           <Typography as="h1">{getTexts('COMPOSE_TITLE')}</Typography>
           <Typography as="h2">{getTexts('COMPOSE_SUBTITLE')}</Typography>
@@ -50,53 +76,12 @@ export const ComposeTemplate = () => {
           <aside className="digimon-list">
             {digimons.map((digimonItem) => (
               <div key={`compose-digimons-${digimonItem.id}`}>
-                <button
-                  onClick={() => setBaseDigimon(digimonItem)}
-                  className={
-                    baseDigimon?.id === digimonItem.id ? 'selected' : ''
-                  }
-                >
+                <button onClick={() => setBaseDigimon(digimonItem)}>
                   <DetailedDigimonCard digimon={digimonItem} />
                 </button>
               </div>
             ))}
           </aside>
-
-          {!!baseDigimon && (
-            <main className="digimon-recipes">
-              <div className="recipes-body">
-                <header>
-                  <Portrait
-                    src={`/digimon_portraits/${baseDigimon.id}.jpg`}
-                    alt={`Starter digimon: ${baseDigimon.name}`}
-                    size="xs"
-                  />
-
-                  <main>
-                    <Typography as="h2">
-                      {getTexts('COMPOSE_DIGIMON_RECIPE_TITLE').replace(
-                        '[NAME]',
-                        baseDigimon.name
-                      )}
-                    </Typography>
-
-                    <Typography>
-                      {getTexts('COMPOSE_DIGIMON_RECIPE_SUBTITLE')}
-                    </Typography>
-                  </main>
-                </header>
-
-                <main>
-                  {RECIPES_BY_DIGIMON[baseDigimon.id]?.map((recipeItem) => (
-                    <ComposeRecipe
-                      key={`${baseDigimon.name}-compose-${recipeItem.id}`}
-                      recipe={recipeItem}
-                    />
-                  ))}
-                </main>
-              </div>
-            </main>
-          )}
         </main>
       </main>
     </MenuWrapper>

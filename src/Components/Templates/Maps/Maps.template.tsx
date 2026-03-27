@@ -52,9 +52,9 @@ export const MapsTemplate = () => {
 
   return (
     <>
-      {!!currentNpc && <NpcDialog />}
-
       <MenuWrapper>
+        {!!currentNpc && <NpcDialog />}
+
         <main className="maps-template">
           <header className="maps-header">
             <Typography as="h1">{getTexts('MAPS_TITLE')}</Typography>

@@ -2,8 +2,6 @@ import type { LootTableType } from '@/Types/Digimon.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
 
-import { RESEARCH_BUKAMON_RECIPE_FULL } from '@/GameData/Researches'
-
 import { BUKAMON } from '@/GameData/Digimons'
 
 export const BINARY_FOREST_BUKAMON_LOOT_TABLE: Array<LootTableType> = [
@@ -23,7 +21,7 @@ export const BINARY_FOREST_BUKAMON_LOOT_TABLE: Array<LootTableType> = [
 
   {
     type: 'research',
-    id: RESEARCH_BUKAMON_RECIPE_FULL.id,
+    id: BUKAMON.id,
     dropChance: 5,
     maxQuantity: 1
   }

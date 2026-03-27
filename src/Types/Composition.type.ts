@@ -1,7 +1,12 @@
-import type { IngredientsType } from '@/Types/Ingredients.type'
+export type CompositionTemplateType = {
+  mandatoryData?: Array<string>
 
-export type CompositionRecipeType = {
-  id: string
-  digimon: string
-  ingredients?: Array<IngredientsType>
+  data: Array<{
+    id: string
+    weight: number
+  }>
+}
+
+export type CompositionComponentsType = {
+  [k: string]: number
 }

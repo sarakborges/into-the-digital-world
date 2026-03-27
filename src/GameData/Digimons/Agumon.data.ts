@@ -23,5 +23,30 @@ export const AGUMON: DigimonType = {
     pow: 20,
     res: 12,
     spd: 14
+  },
+
+  researchCost: 5000,
+  compositionTemplate: {
+    data: [
+      {
+        id: 'KOROMON',
+        weight: 10
+      },
+
+      {
+        id: 'AGUMON',
+        weight: 25
+      },
+
+      {
+        id: ALL_CORES.dragonsRoar.id,
+        weight: 10
+      },
+
+      {
+        id: ALL_CORES.virusBusters.id,
+        weight: 10
+      }
+    ]
   }
 }

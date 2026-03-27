@@ -18,5 +18,25 @@ export const NYAROMON: DigimonType = {
     pow: 15,
     res: 11,
     spd: 22
+  },
+
+  researchCost: 1000,
+  compositionTemplate: {
+    data: [
+      {
+        id: 'NYAROMON',
+        weight: 50
+      },
+
+      {
+        id: ALL_CORES.natureSpirits.id,
+        weight: 25
+      },
+
+      {
+        id: ALL_CORES.virusBusters.id,
+        weight: 25
+      }
+    ]
   }
 }

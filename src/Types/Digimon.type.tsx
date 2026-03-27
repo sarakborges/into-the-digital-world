@@ -1,4 +1,4 @@
-import type { CompositionRecipeType } from '@/Types/Composition.type'
+import type { CompositionTemplateType } from '@/Types/Composition.type'
 
 type DigimonStats = {
   hp: number
@@ -17,6 +17,8 @@ export type DigimonType = {
   attribute: string
   families: Array<string>
   stats: DigimonStats
+  researchCost?: number
+  compositionTemplate?: CompositionTemplateType
 }
 
 type ExtraStat = {

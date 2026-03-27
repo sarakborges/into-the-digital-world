@@ -2,8 +2,6 @@ import type { LootTableType } from '@/Types/Digimon.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
 
-import { RESEARCH_TUNOMON_RECIPE_FULL } from '@/GameData/Researches'
-
 import { TUNOMON } from '@/GameData/Digimons'
 
 export const BINARY_FOREST_TUNOMON_LOOT_TABLE: Array<LootTableType> = [
@@ -23,7 +21,7 @@ export const BINARY_FOREST_TUNOMON_LOOT_TABLE: Array<LootTableType> = [
 
   {
     type: 'research',
-    id: RESEARCH_TUNOMON_RECIPE_FULL.id,
+    id: TUNOMON.id,
     dropChance: 5,
     maxQuantity: 1
   }

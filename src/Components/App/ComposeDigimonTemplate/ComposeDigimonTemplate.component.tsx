@@ -1,0 +1,220 @@
+import { useContext } from 'react'
+import { useNavigate } from 'react-router'
+
+import type { CompositionTemplateType } from '@/Types/Composition.type'
+
+import { ALL_CORES } from '@/Consts/Cores.const'
+
+import { ALL_DIGIMONS } from '@/GameData/Digimons'
+
+import { getTexts } from '@/Texts'
+
+import { ROUTES } from '@/Routes/Routes'
+
+import { ProfileContext } from '@/Contexts/Profile.context'
+import { CompositionContext } from '@/Contexts/Composition.context'
+
+import { composeNewDigimon } from '@/Helpers/ComposeDigimon.helper'
+
+import { Typography } from '@/Components/System/Typography'
+import { Button } from '@/Components/System/Button'
+import { Icon } from '@/Components/System/Icon'
+
+import { ResourceBar } from '@/Components/App/ResourceBar'
+
+import './ComposeDigimonTemplate.style.scss'
+import { FaMinus, FaPlus } from 'react-icons/fa'
+
+export const ComposeDigimonTemplate = ({
+  template
+}: {
+  template: CompositionTemplateType
+}) => {
+  const profileContext = useContext(ProfileContext)
+  const compositionContext = useContext(CompositionContext)
+
+  if (!profileContext || !compositionContext) {
+    return
+  }
+
+  const { profile, setProfile } = profileContext
+  const { baseDigimon, setBaseDigimon, components, setComponents } =
+    compositionContext
+
+  if (!baseDigimon) {
+    return
+  }
+
+  const navigate = useNavigate()
+  const newDigimonId = (
+    Number(profile.partners?.[profile.partners?.length - 1]?.id || 0) + 1
+  ).toString()
+
+  if (!profile.templates.includes(baseDigimon.id)) {
+    return
+  }
+
+  const data: Array<{
+    id: string
+    name: string
+    playerQuantity: number
+    weight: number
+    directory: string
+    icon: string
+  }> =
+    template?.data?.map((dataItem) => {
+      const playerCores = profile.cores.find(
+        (profileCoreItem) => profileCoreItem.id === dataItem.id
+      )
+
+      if (!!ALL_CORES[dataItem.id]) {
+        return {
+          ...dataItem,
+          name: ALL_CORES[dataItem.id].name,
+          icon: ALL_CORES[dataItem.id].icon,
+          directory: 'cores',
+          playerQuantity: playerCores?.quantity || 0
+        }
+      }
+
+      if (!!ALL_DIGIMONS[dataItem.id]) {
+        return {
+          ...dataItem,
+          name: ALL_DIGIMONS[dataItem!.id].name,
+          icon: dataItem.id,
+          directory: 'digimon_portraits',
+          playerQuantity: playerCores?.quantity || 0
+        }
+      }
+
+      return {
+        ...dataItem,
+        name: '',
+        icon: '',
+        directory: '',
+        playerQuantity: 0
+      }
+    }) ?? []
+
+  const closeModal = () => {
+    setBaseDigimon(undefined)
+    setComponents({})
+  }
+
+  const compose = (template) => {
+    const digimonName = prompt(getTexts('COMPOSE_DIGIMON_NAME'))
+
+    const updatedProfile = composeNewDigimon({
+      baseDigimon: baseDigimon!,
+      id: newDigimonId,
+      name: digimonName || '',
+      profile,
+      template
+    })
+
+    if (!updatedProfile) {
+      return
+    }
+
+    localStorage.setItem('profile', JSON.stringify(updatedProfile))
+    setProfile(updatedProfile)
+    navigate(ROUTES.COLLECTION.path)
+  }
+
+  const getProgress = () => {
+    let progress = 0
+
+    for (let componentItem of Object.keys(components)) {
+      progress +=
+        baseDigimon.compositionTemplate!.data!.find(
+          (dataItem) => dataItem.id === componentItem
+        )!.weight * components[componentItem]
+    }
+
+    return progress
+  }
+
+  return (
+    <>
+      <ul className="compose-digimon-template">
+        {data?.map((dataItem) => (
+          <li key={`${baseDigimon?.id}-compose-data-${dataItem.id}`}>
+            <aside>
+              <Icon
+                src={`/${dataItem.directory}/${dataItem.icon}.jpg`}
+                alt={`Data to compose ${baseDigimon?.name}`}
+              />
+            </aside>
+
+            <section className="compose-digimon-template-core">
+              <Typography as="span">
+                {getTexts('COMPOSE_TEMPLATE_CORE')
+                  .replace('[NAME]', dataItem.name)
+                  .replace('[PERCENTAGE]', dataItem.weight)}
+              </Typography>
+
+              <Typography as="span">
+                {getTexts('COMPOSE_TEMPLATE_PLAYER_QUANTITY').replace(
+                  '[PLAYER_QUANTITY]',
+                  dataItem.playerQuantity
+                )}
+              </Typography>
+            </section>
+
+            <main>
+              <Button
+                disabled={(components[dataItem.id] || 0) <= 0}
+                onClick={() =>
+                  setComponents({
+                    ...components,
+                    [dataItem.id]: components[dataItem.id] - 1
+                  })
+                }
+              >
+                <FaMinus />
+              </Button>
+
+              <Typography>{components[dataItem.id] || 0}</Typography>
+
+              <Button
+                disabled={
+                  (profile.cores.find((coreItem) => coreItem.id === dataItem.id)
+                    ?.quantity || 0) -
+                    (components[dataItem.id] || 0) <=
+                    0 || getProgress() >= 100
+                }
+                onClick={() =>
+                  setComponents({
+                    ...components,
+                    [dataItem.id]: (components[dataItem.id] || 0) + 1
+                  })
+                }
+              >
+                <FaPlus />
+              </Button>
+            </main>
+          </li>
+        ))}
+      </ul>
+
+      <div className="card compose-progress">
+        <Typography>Composing progress:</Typography>
+
+        <ResourceBar maxValue={100} currentValue={getProgress()} />
+      </div>
+
+      <div className="compose-digimon-actions">
+        <Button onClick={closeModal} cancel>
+          {getTexts('COMPOSE_TEMPLATE_CANCEL')}
+        </Button>
+
+        <Button
+          onClick={() => compose(template)}
+          disabled={getProgress() < 100}
+        >
+          {getTexts('COMPOSE_TEMPLATE_CTA')}
+        </Button>
+      </div>
+    </>
+  )
+}

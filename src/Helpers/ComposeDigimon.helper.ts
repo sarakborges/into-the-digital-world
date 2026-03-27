@@ -1,4 +1,4 @@
-import type { CompositionRecipeType } from '@/Types/Composition.type'
+import type { CompositionTemplateType } from '@/Types/Composition.type'
 import type { DigimonType, PartnerDigimonType } from '@/Types/Digimon.type'
 import type { ProfileType } from '@/Types/Profile.type'
 
@@ -6,13 +6,13 @@ export const composeNewDigimon = ({
   id,
   name,
   profile,
-  recipe,
+  template,
   baseDigimon
 }: {
   id: string
   name: string
   profile: ProfileType
-  recipe: CompositionRecipeType
+  template: CompositionTemplateType
   baseDigimon: DigimonType
 }) => {
   const newDigimon: PartnerDigimonType = {
@@ -28,17 +28,17 @@ export const composeNewDigimon = ({
     ...profile,
     partners: [...(profile.partners ?? []), { ...newDigimon }],
     cores: profile.cores.map((coreItem) => {
-      const recipeCore = recipe?.ingredients?.find(
-        (recipeCoreItem) => recipeCoreItem.id === coreItem.id
+      const templateCore = template?.data?.find(
+        (templateCoreItem) => templateCoreItem.id === coreItem.id
       )
 
-      if (!recipeCore) {
+      if (!templateCore) {
         return coreItem
       }
 
       return {
         ...coreItem,
-        quantity: coreItem.quantity - recipeCore.quantity
+        quantity: coreItem.quantity - templateCore.quantity
       }
     })
   }

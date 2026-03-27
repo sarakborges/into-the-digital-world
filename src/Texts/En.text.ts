@@ -52,12 +52,14 @@ export const BATTLE_ACTIONS_BASIC_ATTACK = `Attack`
 export const BATTLE_LOG_TITLE = `Combat log:`
 
 export const COMPOSE_TITLE = `Compose`
-export const COMPOSE_SUBTITLE = `Each Digimon has many composing recipes that you can Research. Once you compose a Digimon, all ingredients are permanently consumed.`
+export const COMPOSE_SUBTITLE = `Each Digimon has many composing templates that you can Research. Once you compose a Digimon, all data are permanently consumed.`
 export const COMPOSE_DIGIMON_TITLE = `Composing new Digimon`
-export const COMPOSE_DIGIMON_RECIPE_TITLE = `So you want to compose a [NAME]?`
-export const COMPOSE_DIGIMON_RECIPE_SUBTITLE = `Alright! Choose one of the following combination recipes:`
-export const COMPOSE_RECIPE_CORE = `[NAME] core:`
-export const COMPOSE_RECIPE_CTA = `Compose`
+export const COMPOSE_DIGIMON_TEMPLATE_TITLE = `So you want to compose a [NAME]?`
+export const COMPOSE_DIGIMON_TEMPLATE_SUBTITLE = `Alright! Combine the following components into any template. But be warned: any exceeding component will be consumed.`
+export const COMPOSE_TEMPLATE_CORE = `[NAME] core ([PERCENTAGE]%)`
+export const COMPOSE_TEMPLATE_PLAYER_QUANTITY = `You currently have: [PLAYER_QUANTITY]`
+export const COMPOSE_TEMPLATE_CTA = `Compose`
+export const COMPOSE_TEMPLATE_CANCEL = `Cancel`
 export const COMPOSE_DIGIMON_NAME = `Do you want to name your partner? (optional)`
 
 export const COLLECTION_TITLE = `Collection`
@@ -66,7 +68,7 @@ export const COLLECTION_PARTY_TITLE = `Your current party:`
 export const COLLECTION_ALL_TITLE = `Other partners:`
 
 export const RESEARCH_TITLE = `Research`
-export const RESEARCH_SUBTITLE = `Research new composing Recipes! You only need to research each Recipe once, then you can Compose as many Digimons with that Recipe as you want.`
+export const RESEARCH_SUBTITLE = `Research new composing Templates! You only need to research each Template once, then you can Compose as many Digimons with that Template as you want.`
 
 export const WIKI_TITLE = `Digi Wiki`
 export const WIKI_STAGE_TITLE = `[STAGE] digimons`

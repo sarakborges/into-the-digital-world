@@ -30,7 +30,7 @@ export const ProfileProvider = ({ children }: { children: ReactNode }) => {
     party: [],
     points: 0,
     researches: [],
-    recipes: [],
+    templates: [],
     cores: [],
     quests: {}
   })

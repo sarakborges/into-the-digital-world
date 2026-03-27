@@ -2,8 +2,6 @@ import type { LootTableType } from '@/Types/Digimon.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
 
-import { RESEARCH_TOKOMON_RECIPE_FULL } from '@/GameData/Researches'
-
 import { TOKOMON } from '@/GameData/Digimons'
 
 export const BINARY_FOREST_TOKOMON_LOOT_TABLE: Array<LootTableType> = [
@@ -30,7 +28,7 @@ export const BINARY_FOREST_TOKOMON_LOOT_TABLE: Array<LootTableType> = [
 
   {
     type: 'research',
-    id: RESEARCH_TOKOMON_RECIPE_FULL.id,
+    id: TOKOMON.id,
     dropChance: 5,
     maxQuantity: 1
   }

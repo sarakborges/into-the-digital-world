@@ -2,8 +2,6 @@ import type { LootTableType } from '@/Types/Digimon.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
 
-import { RESEARCH_MOCHIMON_RECIPE_FULL } from '@/GameData/Researches'
-
 import { MOCHIMON } from '@/GameData/Digimons'
 
 export const BINARY_FOREST_MOCHIMON_LOOT_TABLE: Array<LootTableType> = [
@@ -23,7 +21,7 @@ export const BINARY_FOREST_MOCHIMON_LOOT_TABLE: Array<LootTableType> = [
 
   {
     type: 'research',
-    id: RESEARCH_MOCHIMON_RECIPE_FULL.id,
+    id: MOCHIMON.id,
     dropChance: 5,
     maxQuantity: 1
   }

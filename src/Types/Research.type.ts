@@ -1,5 +1,5 @@
 export type ResearchType = {
   id: string
-  recipe: string
+  template: string
   cost: number
 }
