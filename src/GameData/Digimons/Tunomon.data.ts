@@ -18,5 +18,20 @@ export const TUNOMON: DigimonType = {
     pow: 14,
     res: 13,
     spd: 12
+  },
+
+  researchCost: 1000,
+  compositionTemplate: {
+    data: [
+      {
+        id: 'TUNOMON',
+        weight: 50
+      },
+
+      {
+        id: ALL_CORES.natureSpirits.id,
+        weight: 25
+      }
+    ]
   }
 }

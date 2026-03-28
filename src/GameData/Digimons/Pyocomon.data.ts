@@ -18,5 +18,25 @@ export const PYOCOMON: DigimonType = {
     pow: 14,
     res: 13,
     spd: 16
+  },
+
+  researchCost: 1000,
+  compositionTemplate: {
+    data: [
+      {
+        id: 'PYOCOMON',
+        weight: 50
+      },
+
+      {
+        id: ALL_CORES.jungleTroopers.id,
+        weight: 25
+      },
+
+      {
+        id: ALL_CORES.windGuardians.id,
+        weight: 25
+      }
+    ]
   }
 }

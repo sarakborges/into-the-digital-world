@@ -53,10 +53,27 @@
         flex: 1;
       }
 
-      .link {
+      > a {
         display: flex;
         place-items: center;
         gap: var(--size-smd);
+
+        text-decoration: none;
+        font-size: var(--size-md);
+
+        transition: color 0.3s;
+
+        &:not(.active):hover {
+          color: var(--color-primary-active);
+        }
+
+        &.active {
+          color: var(--color-highlight);
+        }
+
+        &:not(.active) {
+          color: var(--color-primary);
+        }
 
         svg {
           width: var(--size-lmd);

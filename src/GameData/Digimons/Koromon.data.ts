@@ -18,5 +18,25 @@ export const KOROMON: DigimonType = {
     pow: 15,
     res: 12,
     spd: 11
+  },
+
+  researchCost: 1000,
+  compositionTemplate: {
+    data: [
+      {
+        id: 'KOROMON',
+        weight: 50
+      },
+
+      {
+        id: ALL_CORES.dragonsRoar.id,
+        weight: 25
+      },
+
+      {
+        id: ALL_CORES.virusBusters.id,
+        weight: 25
+      }
+    ]
   }
 }

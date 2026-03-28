@@ -68,7 +68,7 @@ export const COLLECTION_PARTY_TITLE = `Your current party:`
 export const COLLECTION_ALL_TITLE = `Other partners:`
 
 export const RESEARCH_TITLE = `Research`
-export const RESEARCH_SUBTITLE = `Research new composing Templates! You only need to research each Template once, then you can Compose as many Digimons with that Template as you want.`
+export const RESEARCH_SUBTITLE = `Study Digimons data structure. Once you understand it, you will be able to compose them.`
 
 export const WIKI_TITLE = `Digi Wiki`
 export const WIKI_STAGE_TITLE = `[STAGE] digimons`

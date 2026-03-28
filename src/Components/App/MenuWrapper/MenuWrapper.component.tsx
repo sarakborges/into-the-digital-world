@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { NavLink } from 'react-router'
 
 import { getTexts } from '@/Texts'
 
@@ -8,7 +9,6 @@ import { PLAYER_LEVELS } from '@/Consts/Levels.const'
 import { SIDEBAR_BOTTOM_MENU, SIDEBAR_MENU } from '@/Consts/Sidebar.const'
 
 import { Typography } from '@/Components/System/Typography'
-import { Link } from '@/Components/System/Link'
 import { Portrait } from '@/Components/System/Portrait'
 
 import { ExperienceBar } from '@/Components/App/ExperienceBar'
@@ -74,19 +74,25 @@ export const MenuWrapper = ({ children }: { children: React.ReactNode }) => {
           <Typography as="h2">{getTexts('SIDEBAR_MENU_TITLE')}</Typography>
 
           {SIDEBAR_MENU.map((sidebarItem) => (
-            <Link to={sidebarItem.path} key={`sidebar-menu-${sidebarItem.id}`}>
+            <NavLink
+              to={sidebarItem.path}
+              key={`sidebar-menu-${sidebarItem.id}`}
+            >
               {sidebarItem.icon}
               <Typography as="span">{sidebarItem.text}</Typography>
-            </Link>
+            </NavLink>
           ))}
         </nav>
 
         <nav>
           {SIDEBAR_BOTTOM_MENU.map((sidebarItem) => (
-            <Link to={sidebarItem.path} key={`sidebar-menu-${sidebarItem.id}`}>
+            <NavLink
+              to={sidebarItem.path}
+              key={`sidebar-menu-${sidebarItem.id}`}
+            >
               {sidebarItem.icon}
               <Typography as="span">{sidebarItem.text}</Typography>
-            </Link>
+            </NavLink>
           ))}
         </nav>
       </aside>

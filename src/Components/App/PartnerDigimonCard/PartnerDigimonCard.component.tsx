@@ -2,12 +2,12 @@ import { useContext } from 'react'
 
 import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
-import type { DigimonType, PartnerDigimonType } from '@/Types/Digimon.type'
-import type { ItemsLootType } from '@/Types/Battle.type'
+import type { PartnerDigimonType } from '@/Types/Digimon.type'
 
 import { getTexts } from '@/Texts'
 
 import { ProfileContext } from '@/Contexts/Profile.context'
+import { CollectionContext } from '@/Contexts/Collection.context'
 
 import { DIGIMON_LEVELS } from '@/Consts/Levels.const'
 import { MAX_DIGIMONS_IN_PARTY } from '@/Consts/Battle.consts'
@@ -26,12 +26,14 @@ export const PartnerDigimonCard = ({
   digimonItem: PartnerDigimonType
 }) => {
   const profileContext = useContext(ProfileContext)
+  const collectionContext = useContext(CollectionContext)
 
-  if (!profileContext) {
+  if (!profileContext || !collectionContext) {
     return
   }
 
   const { profile, setProfile } = profileContext
+  const { setDigimonDetails } = collectionContext
 
   const baseDigimon = ALL_DIGIMONS[digimonItem?.baseDigimon as string]
   const isDigimonInParty = profile?.party?.includes(digimonItem.id)
@@ -66,23 +68,12 @@ export const PartnerDigimonCard = ({
       (partyItem) => partyItem.id !== digimonItem.id
     )
 
-    const digimonCore = profile.cores.find(
-      (coreItem) => coreItem.id === baseDigimon.id
-    )
+    const digimonCore = profile.cores[baseDigimon.id] || 0
 
-    const updatedCores: Array<ItemsLootType> = [
+    const updatedCores = {
       ...profile.cores,
-      digimonCore
-        ? {
-            ...digimonCore,
-            quantity: digimonCore.quantity + 1
-          }
-        : {
-            id: baseDigimon.id,
-            type: 'core',
-            quantity: 1
-          }
-    ]
+      [baseDigimon.id]: digimonCore + 1
+    }
 
     const updatedProfile = {
       ...profile,
@@ -155,7 +146,9 @@ export const PartnerDigimonCard = ({
           </Button>
         )}
 
-        <Button>{getTexts('DIGIMON_CARD_DETAILS')}</Button>
+        <Button onClick={() => setDigimonDetails(digimonItem)}>
+          {getTexts('DIGIMON_CARD_DETAILS')}
+        </Button>
       </section>
     </div>
   )

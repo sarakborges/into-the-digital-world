@@ -2,6 +2,7 @@
   --color-primary: #75b5f2;
   --color-primary-transparent: #75b6f26b;
   --color-primary-active: #3694eb;
+  --color-highlight: #11e445;
   --color-primary-darker: #153162;
   --body-background: #0b1c3a;
   --modal-background: #0b1c3ae5;
@@ -94,6 +95,8 @@
   --detailed-digimon-card-size: 560px;
   --party-digimon-card-size: 560px;
   --compose-template-size: 560px;
+  --digimon-details-size: 720px;
+  --digimon-details-picture-size: 720px;
   --digimon-card-background: var(--color-primary-darker);
 
   --map-minSize: 240px;

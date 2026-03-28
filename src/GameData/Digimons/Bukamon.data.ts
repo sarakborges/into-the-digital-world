@@ -18,5 +18,20 @@ export const BUKAMON: DigimonType = {
     pow: 14,
     res: 13,
     spd: 20
+  },
+
+  researchCost: 1000,
+  compositionTemplate: {
+    data: [
+      {
+        id: 'BUKAMON',
+        weight: 50
+      },
+
+      {
+        id: ALL_CORES.deepSavers.id,
+        weight: 25
+      }
+    ]
   }
 }

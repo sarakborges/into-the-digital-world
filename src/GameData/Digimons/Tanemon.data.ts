@@ -18,5 +18,20 @@ export const TANEMON: DigimonType = {
     pow: 13,
     res: 17,
     spd: 8
+  },
+
+  researchCost: 1000,
+  compositionTemplate: {
+    data: [
+      {
+        id: 'TANEMON',
+        weight: 50
+      },
+
+      {
+        id: ALL_CORES.jungleTroopers.id,
+        weight: 25
+      }
+    ]
   }
 }

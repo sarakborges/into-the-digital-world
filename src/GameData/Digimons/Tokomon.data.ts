@@ -18,5 +18,25 @@ export const TOKOMON: DigimonType = {
     pow: 12,
     res: 18,
     spd: 6
+  },
+
+  researchCost: 1000,
+  compositionTemplate: {
+    data: [
+      {
+        id: 'TOKOMON',
+        weight: 50
+      },
+
+      {
+        id: ALL_CORES.windGuardians.id,
+        weight: 25
+      },
+
+      {
+        id: ALL_CORES.virusBusters.id,
+        weight: 25
+      }
+    ]
   }
 }

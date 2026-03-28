@@ -39,6 +39,11 @@ export const AGUMON: DigimonType = {
       },
 
       {
+        id: ALL_CORES.vaccine.id,
+        weight: 10
+      },
+
+      {
         id: ALL_CORES.dragonsRoar.id,
         weight: 10
       },

@@ -28,7 +28,11 @@ export const ResearchTemplate = () => {
   const { profile, setProfile } = profileContext
 
   const researches = Object.values(ALL_DIGIMONS)
-    .filter((researchItem) => profile.researches.includes(researchItem.id))
+    .filter(
+      (researchItem) =>
+        profile.researches.includes(researchItem.id) &&
+        !!researchItem.compositionTemplate
+    )
     .sort((a, b) => (a.id > b.id ? 1 : -1))
 
   const availableResearches = Object.values(ALL_DIGIMONS).filter(
