@@ -44,7 +44,7 @@ export const CreateProfileTemplate = () => {
       level: 1,
       experience: 0,
       currency: 0,
-      cores: [],
+      cores: {},
       avatar: '',
       items: [],
       partners: [],

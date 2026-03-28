@@ -40,7 +40,8 @@ export const ResearchTemplate = () => {
   const doResearch = (id: string) => {
     const updatedProfile = {
       ...profile,
-      templates: [...(profile.templates ?? []), id]
+      templates: [...new Set([...(profile.templates ?? []), id])],
+      researches: [...new Set([...(profile.researches ?? []), id])]
     }
 
     localStorage.setItem('profile', JSON.stringify(updatedProfile))

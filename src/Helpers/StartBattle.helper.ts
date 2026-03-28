@@ -18,12 +18,13 @@ const setDigimonHpSp = (digimon) => {
   }
 }
 
-const addStatsByLevel = (stats, level) => {
+const addStatsByLevel = (digimon, level) => {
+  const stats = { ...digimon.stats }
   const statsKeys = Object.keys(DIGIMON_STATS)
 
   // Gives enemies {STATS_BY_LEVEL} random stats per level above 1
   for (let i = 0; i < (level - 1) * DIGIMON_POINTS_PER_LEVEL; i++) {
-    const statKey = Math.floor(Math.random() * statsKeys.length)
+    const statKey = randomNumber({ min: 0, max: statsKeys.length - 1 })
     stats[statsKeys[statKey]]++
   }
 
@@ -31,8 +32,7 @@ const addStatsByLevel = (stats, level) => {
 }
 
 const addExtraStats = (digimon) => {
-  const baseDigimon = digimon.baseDigimon as DigimonType
-  const stats = { ...baseDigimon.stats }
+  const stats = { ...digimon.stats }
 
   if (!digimon.extraStats) {
     return stats
@@ -63,12 +63,17 @@ const getPlayerParty = (profile) => {
       partnerDigimon.baseDigimon as string
     ] as DigimonType
 
+    const stats = addExtraStats({
+      ...partnerDigimon,
+      stats: addStatsByLevel(baseDigimon, partnerDigimon.level)
+    })
+
     const playerDigimon = {
       id: partnerDigimon.id,
       baseDigimon: { ...baseDigimon },
       name: partnerDigimon.name || '',
       level: partnerDigimon.level,
-      stats: addExtraStats({ ...partnerDigimon, baseDigimon }),
+      stats,
       party: 'player'
     }
 
@@ -109,10 +114,10 @@ const getRandomEnemy = (currentMap: MapType) => {
   return currentMap.enemyDigimons![randomEnemy]
 }
 
-const getEnemyParty = (currentMap) => {
+const getEnemyParty = (currentMap: MapType) => {
   const quantityOfEnemies = randomNumber({
     min: 1,
-    max: Number(currentMap.maxEnemiesPerEncounter || MAX_DIGIMONS_IN_PARTY)
+    max: currentMap.maxEnemiesPerEncounter || MAX_DIGIMONS_IN_PARTY
   })
   const enemies: EnemyDigimonType[] = []
 
@@ -134,7 +139,7 @@ const getEnemyParty = (currentMap) => {
 
     const stats = addExtraStats({
       ...digimonItem,
-      stats: addStatsByLevel(digimonItem, enemyLevel)
+      stats: addStatsByLevel(baseDigimon, enemyLevel)
     })
 
     const enemyDigimon = {

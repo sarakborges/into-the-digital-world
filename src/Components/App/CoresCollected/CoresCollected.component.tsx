@@ -26,14 +26,12 @@ export const CoresCollected = () => {
     {
       title: getTexts('CORES_COLLECTED_ATTRIBUTE_TITLE'),
       values: Object.values(DIGIMON_ATTRIBUTES).map((attributeItem) => {
-        const profileCore = profile.cores?.find?.(
-          (coreItem) => coreItem.id === attributeItem.id
-        )
+        const profileCore = profile.cores[attributeItem.id] || 0
 
         return {
           ...attributeItem,
           directory: 'cores',
-          quantity: profileCore?.quantity || 0
+          quantity: profileCore
         }
       })
     },
@@ -42,15 +40,13 @@ export const CoresCollected = () => {
       title: getTexts('CORES_COLLECTED_FAMILY_TITLE'),
       values: Object.values(DIGIMON_FAMILIES)
         .map((familyItem) => {
-          const profileCore = profile.cores?.find?.(
-            (coreItem) => coreItem.id === familyItem.id
-          )
+          const profileCore = profile.cores[familyItem.id] || 0
 
           return {
             ...familyItem,
             name: familyItem.name.split(' ').join('\n'),
             directory: 'cores',
-            quantity: profileCore?.quantity || 0
+            quantity: profileCore
           }
         })
         .sort((a, b) => (a.name > b.name ? 1 : -1))
@@ -58,23 +54,24 @@ export const CoresCollected = () => {
 
     {
       title: getTexts('CORES_COLLECTED_DIGIMON_TITLE'),
-      values: profile.cores
+      values: Object.keys(profile.cores)
         ?.filter(
           (coreItem) =>
             ![
               ...Object.keys(DIGIMON_FAMILIES),
               ...Object.keys(DIGIMON_ATTRIBUTES)
-            ].includes(coreItem.id)
+            ].includes(coreItem)
         )
         .map((coreItem) => {
-          const profileCore = ALL_DIGIMONS[coreItem.id]
+          const profileCore = profile.cores[coreItem] || 0
+          const digimon = ALL_DIGIMONS[coreItem]
 
           return {
-            ...coreItem,
-            name: profileCore.name,
-            icon: profileCore.id,
+            id: digimon.id,
+            name: digimon.name,
+            icon: digimon.id,
             directory: 'digimon_portraits',
-            quantity: coreItem?.quantity || 0
+            quantity: profileCore
           }
         })
         .sort((a, b) => (a.name > b.name ? 1 : -1))
@@ -98,7 +95,7 @@ export const CoresCollected = () => {
                 <main>
                   {type.values.map((coreItem) => (
                     <div
-                      key={`tamer-cores-${coreItem.type}-item-${coreItem.id}`}
+                      key={`tamer-cores-item-${coreItem.id}`}
                       className="tamer-cores-item"
                     >
                       <Icon

@@ -35,33 +35,20 @@ export const endBattleHelper = ({
       .map((item) => item.id)
 
     for (let lootItem of loot.items) {
+      if (!lootItem.quantity) {
+        continue
+      }
+
       if (lootItem.type === 'research') {
         profile.researches.push(lootItem.id)
         continue
       }
 
-      if (!lootItem.quantity) {
-        continue
-      }
+      if (lootItem.type === 'core') {
+        const updatedCoresQuantity =
+          (profile.cores?.[lootItem.id] || 0) + (lootItem.quantity || 0)
 
-      const profileCoreIndex = profile.cores.findIndex(
-        (profileCoreItem) => profileCoreItem.id === lootItem.id
-      )
-
-      const updatedCoresQuantity =
-        Number(profile.cores?.[profileCoreIndex]?.quantity || 0) +
-        (Number(lootItem.quantity) || 0)
-
-      if (!profile.cores[profileCoreIndex]) {
-        profile.cores.push({
-          id: lootItem.id,
-          quantity: updatedCoresQuantity,
-          type: lootItem.type
-        })
-      }
-
-      if (!!profile.cores[profileCoreIndex]) {
-        profile.cores[profileCoreIndex].quantity = updatedCoresQuantity
+        profile.cores[lootItem.id] = updatedCoresQuantity
       }
     }
 

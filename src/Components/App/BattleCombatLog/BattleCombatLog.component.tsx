@@ -43,7 +43,7 @@ export const BattleCombatLog = () => {
     if (item.type === 'core') {
       return (
         item.quantity > 0 &&
-        `${item.quantity || 0}x ${ALL_CORES[item.id].abbreviation || ALL_DIGIMONS[item.id].name} cores`
+        `${item.quantity || 0}x ${ALL_CORES[item.id]?.abbreviation || ALL_DIGIMONS[item.id]?.name} cores`
       )
     }
 

@@ -63,9 +63,7 @@ export const ComposeDigimonTemplate = ({
     icon: string
   }> =
     template?.data?.map((dataItem) => {
-      const playerCores = profile.cores.find(
-        (profileCoreItem) => profileCoreItem.id === dataItem.id
-      )
+      const playerCores = profile.cores[dataItem.id] || 0
 
       if (!!ALL_CORES[dataItem.id]) {
         return {
@@ -73,7 +71,7 @@ export const ComposeDigimonTemplate = ({
           name: ALL_CORES[dataItem.id].name,
           icon: ALL_CORES[dataItem.id].icon,
           directory: 'cores',
-          playerQuantity: playerCores?.quantity || 0
+          playerQuantity: playerCores
         }
       }
 
@@ -83,7 +81,7 @@ export const ComposeDigimonTemplate = ({
           name: ALL_DIGIMONS[dataItem!.id].name,
           icon: dataItem.id,
           directory: 'digimon_portraits',
-          playerQuantity: playerCores?.quantity || 0
+          playerQuantity: playerCores
         }
       }
 
@@ -178,8 +176,7 @@ export const ComposeDigimonTemplate = ({
 
               <Button
                 disabled={
-                  (profile.cores.find((coreItem) => coreItem.id === dataItem.id)
-                    ?.quantity || 0) -
+                  (profile.cores[dataItem.id] || 0) -
                     (components[dataItem.id] || 0) <=
                     0 || getProgress() >= 100
                 }

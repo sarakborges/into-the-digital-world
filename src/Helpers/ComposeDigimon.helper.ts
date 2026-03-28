@@ -24,21 +24,20 @@ export const composeNewDigimon = ({
     points: 0
   }
 
+  for (let componentItem of Object.keys(components)) {
+    const componentQuantity = components[componentItem] || 0
+    const coresQuantity = profile.cores[componentItem] || 0
+    const updatedCoresQuantity = coresQuantity - componentQuantity
+
+    if (updatedCoresQuantity < 0) {
+      continue
+    }
+
+    profile.cores[componentItem] = updatedCoresQuantity
+  }
+
   return {
     ...profile,
-    partners: [...(profile.partners ?? []), { ...newDigimon }],
-
-    cores: profile.cores.map((coreItem) => {
-      const componentQuantity = components[coreItem.id]
-
-      if (!componentQuantity) {
-        return coreItem
-      }
-
-      return {
-        ...coreItem,
-        quantity: coreItem.quantity - componentQuantity
-      }
-    })
+    partners: [...(profile.partners ?? []), { ...newDigimon }]
   }
 }
