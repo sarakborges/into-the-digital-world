@@ -31,7 +31,7 @@ export const ProfileProvider = ({ children }: { children: ReactNode }) => {
     points: 0,
     researches: [],
     templates: [],
-    cores: [],
+    cores: {},
     quests: {}
   })
 
