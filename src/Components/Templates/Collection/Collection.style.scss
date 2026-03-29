@@ -25,6 +25,7 @@
 
     .details-body {
       display: flex;
+      flex-flow: column;
       gap: var(--size-md);
 
       width: var(--digimon-details-size);
@@ -33,11 +34,123 @@
       background-color: var(--digimon-card-background);
       border-radius: var(--size-md);
 
-      > .digimon-picture {
+      > main {
+        display: flex;
+        gap: var(--size-md);
+      }
+
+      .digimon-picture {
         max-width: 240px;
+        max-height: 240px;
         overflow: hidden;
 
         border-radius: var(--size-smd);
+      }
+
+      .digimon-info {
+        display: flex;
+        flex-flow: column;
+        gap: var(--size-smd);
+
+        flex: 1;
+
+        > ul {
+          display: flex;
+          flex-flow: column;
+          gap: var(--size-smd);
+
+          > li {
+            display: flex;
+            flex-flow: column;
+            gap: var(--size-xs);
+          }
+
+          .digimon-name {
+            display: flex;
+            place-content: space-between;
+
+            .button {
+              display: flex;
+              place-items: center;
+              place-content: center;
+
+              aspect-ratio: 1;
+              padding: 0;
+
+              svg {
+                width: var(--size-md);
+                height: var(--size-md);
+              }
+            }
+          }
+
+          .digimon-attribute {
+            display: flex;
+            flex-flow: column;
+            gap: var(--size-xs);
+
+            .attribute-item {
+              display: flex;
+              place-items: center;
+              gap: var(--size-xs);
+
+              .icon {
+                max-width: var(--size-lmd);
+
+                > img {
+                  max-width: 100%;
+                }
+              }
+            }
+          }
+
+          .digimon-families {
+            display: flex;
+            flex-flow: column;
+            gap: var(--size-xs);
+
+            .family-item {
+              display: flex;
+              place-items: center;
+              gap: var(--size-xs);
+
+              .icon {
+                max-width: var(--size-lmd);
+
+                > img {
+                  max-width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      > footer {
+        display: flex;
+        flex-flow: column;
+        gap: var(--size-md);
+
+        .resource-bar {
+          width: calc(var(--sidebar-size) - var(--size-lmd) * 2);
+        }
+
+        .digimon-stats {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: var(--size-sm);
+
+          > div {
+            display: flex;
+            place-items: center;
+            gap: var(--size-xs);
+
+            svg {
+              width: var(--size-lmd);
+              height: var(--size-lmd);
+            }
+          }
+        }
       }
     }
 
