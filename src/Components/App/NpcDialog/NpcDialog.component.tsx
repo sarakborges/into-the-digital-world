@@ -227,15 +227,6 @@ export const NpcDialog = () => {
                         </section>
                       )}
 
-                      {currentInteraction.questDetails?.rewards?.exp && (
-                        <section>
-                          <Typography as="span">
-                            <>- Experience: </>
-                            <>{currentInteraction.questDetails?.rewards?.exp}</>
-                          </Typography>
-                        </section>
-                      )}
-
                       {currentInteraction.questDetails?.rewards?.cores && (
                         <>
                           {Object.keys(

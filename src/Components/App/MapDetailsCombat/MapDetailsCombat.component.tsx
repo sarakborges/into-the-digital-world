@@ -1,9 +1,11 @@
-import { Fragment, useContext } from 'react'
+import { useContext } from 'react'
 import { useNavigate } from 'react-router'
 
 import { ProfileContext } from '@/Contexts/Profile.context'
 
 import { getTexts } from '@/Texts'
+
+import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
 import { startBattleHelper } from '@/Helpers'
 
@@ -34,20 +36,6 @@ export const MapDetailsCombat = () => {
 
   const { currentMap } = mapContext
   const { profile } = profileContext
-
-  const enemyLevels = [
-    ...new Set([
-      currentMap?.enemyLevelRange?.min,
-      currentMap?.enemyLevelRange?.max
-    ])
-  ].join(' - ')
-
-  const eliteLevels = [
-    ...new Set([
-      currentMap?.eliteLevelRange?.min,
-      currentMap?.eliteLevelRange?.max
-    ])
-  ].join(' - ')
 
   const possibleEnemies = [
     ...(currentMap?.enemyDigimons ?? []),
@@ -81,12 +69,7 @@ export const MapDetailsCombat = () => {
       <section className="map-details-type">
         <main>
           {possibleEnemies
-            .sort((a, b) =>
-              (a.baseDigimon as DigimonType).id >
-              (b.baseDigimon as DigimonType).id
-                ? 1
-                : -1
-            )
+            .sort((a, b) => (a.baseDigimon > b.baseDigimon ? 1 : -1))
             .map((enemyItem) => (
               <div
                 key={`map-details-${currentMap?.id}-combat-${enemyItem.id}`}
@@ -94,10 +77,10 @@ export const MapDetailsCombat = () => {
               >
                 <Portrait
                   src={`/digimon_portraits/${
-                    (enemyItem.baseDigimon as DigimonType).id
+                    ALL_DIGIMONS[enemyItem.baseDigimon]?.id
                   }.jpg`}
                   alt={`Enemy digimon: ${
-                    (enemyItem.baseDigimon as DigimonType).name
+                    ALL_DIGIMONS[enemyItem.baseDigimon]?.name
                   }`}
                 />
 
@@ -105,11 +88,7 @@ export const MapDetailsCombat = () => {
                   {[
                     enemyItem.isElite &&
                       getTexts('MAPS_DETAILS_COMBAT_ELITE_NAME'),
-                    (enemyItem.baseDigimon as DigimonType).name,
-                    getTexts('MAPS_DETAILS_COMBAT_LEVEL').replace(
-                      '[LEVEL]',
-                      enemyItem.isElite ? eliteLevels : enemyLevels
-                    )
+                    ALL_DIGIMONS[enemyItem.baseDigimon]?.name
                   ].join('')}
                 </Typography>
               </div>

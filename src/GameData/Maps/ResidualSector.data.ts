@@ -7,10 +7,6 @@ export const RESIDUAL_SECTOR: MapType = {
   name: `Residual Sector`,
   description: `A forgotten sector covered in broken code fragments and residual energy. The environment is uneven and silent, marked by glitches, noise, and constant instability.`,
   types: [MapTypes.COMBAT],
-  enemyLevelRange: {
-    min: 2,
-    max: 4
-  },
 
   enemyDigimons: [
     {

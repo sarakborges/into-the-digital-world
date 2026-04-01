@@ -41,8 +41,6 @@ export const CreateProfileTemplate = () => {
 
     const newProfile: ProfileType = {
       name: name.toString(),
-      level: 1,
-      experience: 0,
       currency: 0,
       cores: {},
       avatar: '',

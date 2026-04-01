@@ -9,13 +9,9 @@ export const STARTER_SELECTION_SUBTITLE = `To start your adventure, select a Dig
 export const STARTER_SELECTION_CONFIRM = `Confirm selection`
 
 export const SIDEBAR_MENU_TITLE = `Navigation`
-export const SIDEBAR_PLAYER_LEVEL = `Tamer level: `
 export const SIDEBAR_PLAYER_UNSPENT_POINTS = `Unspent points: `
+export const SIDEBAR_PLAYER_CURRENCY = `Digital coins: `
 
-export const NEXT_LEVEL_TEXT = `Next level:`
-
-export const DIGIMON_CARD_LEVEL = `Level: `
-export const DIGIMON_CARD_STAGE = `Stage: `
 export const DIGIMON_CARD_UNSPENT_POINTS = `Unspent points: `
 export const DIGIMON_CARD_DETAILS = `View details`
 export const DIGIMON_CARD_DECOMPOSE = `Decompose`
@@ -33,7 +29,6 @@ export const MAPS_TITLE = `Explore the digital world!`
 export const MAPS_SUBTITLE = `In this world, there are many wonders! But also, terrible dangers await for you!`
 
 export const MAPS_DETAILS_COMBAT_CTA = `Battle enemy`
-export const MAPS_DETAILS_COMBAT_LEVEL = ` (Level: [LEVEL])`
 export const MAPS_DETAILS_COMBAT_ELITE_NAME = `Elite `
 
 export const MAPS_DETAILS_COMMERCE_TITLE = `Items sold:`
@@ -71,7 +66,6 @@ export const RESEARCH_TITLE = `Research`
 export const RESEARCH_SUBTITLE = `Study Digimons data structure. Once you understand it, you will be able to compose them.`
 
 export const WIKI_TITLE = `Digi Wiki`
-export const WIKI_STAGE_TITLE = `[STAGE] digimons`
 
 export const SETTINGS_TITLE = `Settings`
 

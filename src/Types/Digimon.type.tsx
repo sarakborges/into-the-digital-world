@@ -13,7 +13,6 @@ type DigimonStats = {
 export type DigimonType = {
   id: string
   name: string
-  stage: string
   attribute: string
   families: Array<string>
   stats: DigimonStats
@@ -40,10 +39,9 @@ export type PartyDigimon = {
   id: string
   party: 'player' | 'enemy'
   isElite?: boolean
-  baseDigimon: DigimonType
+  baseDigimon: string
   baseId: string
   name?: string
-  level: number
   stats: DigimonStats
   currentHp: number
   currentSp: number
@@ -52,11 +50,7 @@ export type PartyDigimon = {
 export type PartnerDigimonType = {
   id: string
   name?: string
-  level: number
-  experience: number
-  points?: number
-  baseDigimon: string | DigimonType
-  extraStats?: ExtraStats
+  baseDigimon: string
 }
 
 export type LootTableType = {
@@ -68,7 +62,7 @@ export type LootTableType = {
 
 export type EnemyDigimonType = {
   id: string
-  baseDigimon: string | DigimonType
+  baseDigimon: string
   extraStats?: ExtraStats
   lootTable?: Array<LootTableType>
   spawnChance?: number

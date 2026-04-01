@@ -8,16 +8,6 @@ export const ROOT_CORE: MapType = {
   description: `The heart of the domain. A deep chamber where energy flows converge violently. The air vibrates with tension, as if the entire system were on the brink of collapse.`,
   types: [MapTypes.COMBAT],
 
-  enemyLevelRange: {
-    min: 2,
-    max: 4
-  },
-
-  eliteLevelRange: {
-    min: 3,
-    max: 5
-  },
-
   enemyDigimons: [
     {
       id: `ROOT_CORE_TSUMEMON`,

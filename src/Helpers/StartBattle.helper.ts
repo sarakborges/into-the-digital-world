@@ -2,8 +2,6 @@ import type { MapType } from '@/Types/Map.type'
 import type { ProfileType } from '@/Types/Profile.type'
 import type { DigimonType, EnemyDigimonType } from '@/Types/Digimon.type'
 
-import { DIGIMON_STATS } from '@/Consts/DigimonStats.const'
-import { DIGIMON_POINTS_PER_LEVEL } from '@/Consts/Levels.const'
 import { MAX_DIGIMONS_IN_PARTY } from '@/Consts/Battle.consts'
 
 import { ALL_DIGIMONS } from '@/GameData/Digimons'
@@ -16,19 +14,6 @@ const setDigimonHpSp = (digimon) => {
     currentHp: digimon.stats.hp,
     currentSp: digimon.stats.sp
   }
-}
-
-const addStatsByLevel = (digimon, level) => {
-  const stats = { ...digimon.stats }
-  const statsKeys = Object.keys(DIGIMON_STATS)
-
-  // Gives enemies {STATS_BY_LEVEL} random stats per level above 1
-  for (let i = 0; i < (level - 1) * DIGIMON_POINTS_PER_LEVEL; i++) {
-    const statKey = randomNumber({ min: 0, max: statsKeys.length - 1 })
-    stats[statsKeys[statKey]]++
-  }
-
-  return stats
 }
 
 const addExtraStats = (digimon) => {
@@ -64,15 +49,13 @@ const getPlayerParty = (profile) => {
     ] as DigimonType
 
     const stats = addExtraStats({
-      ...partnerDigimon,
-      stats: addStatsByLevel(baseDigimon, partnerDigimon.level)
+      ...partnerDigimon
     })
 
     const playerDigimon = {
       id: partnerDigimon.id,
       baseDigimon: { ...baseDigimon },
       name: partnerDigimon.name || '',
-      level: partnerDigimon.level,
       stats,
       party: 'player'
     }
@@ -126,27 +109,16 @@ const getEnemyParty = (currentMap: MapType) => {
   }
 
   return enemies.map((digimonItem, digimonKey) => {
-    const baseDigimon = digimonItem.baseDigimon as DigimonType
-
-    const enemyLevelRange = digimonItem.isElite
-      ? { ...currentMap.eliteLevelRange }
-      : { ...currentMap.enemyLevelRange }
-
-    const enemyLevel = randomNumber({
-      min: enemyLevelRange.min!,
-      max: enemyLevelRange.max!
-    })
+    const baseDigimon = ALL_DIGIMONS[digimonItem.baseDigimon]
 
     const stats = addExtraStats({
-      ...digimonItem,
-      stats: addStatsByLevel(baseDigimon, enemyLevel)
+      ...digimonItem
     })
 
     const enemyDigimon = {
       id: `${digimonItem.id}_${digimonKey}`,
       baseId: digimonItem.id,
       baseDigimon: { ...baseDigimon },
-      level: enemyLevel,
       stats,
       party: 'enemy',
       isElite: digimonItem.isElite,

@@ -33,7 +33,7 @@
     }
 
     &:not(.hp, .sp) .bar {
-      background-color: var(--resource-bar-exp-background-filled);
+      background-color: var(--resource-bar-regular-background-filled);
     }
 
     > .typography {
@@ -54,7 +54,7 @@
 :is(.card, .sidebar) {
   .resource-bar {
     .resource-bar-background {
-      background-color: var(--exp-bar-background);
+      background-color: var(--regular-bar-background);
     }
   }
 }

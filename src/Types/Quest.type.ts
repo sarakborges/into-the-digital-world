@@ -14,7 +14,6 @@ export type QuestType = {
   ongoingText: string
   objectives: QuestObjectivesType[]
   rewards?: {
-    exp?: number
     currency?: number
     items?: Array<string>
     cores?: { [k: string]: number }

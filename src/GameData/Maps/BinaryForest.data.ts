@@ -28,11 +28,6 @@ export const BINARY_FOREST: MapType = {
   types: [MapTypes.COMBAT],
   maxEnemiesPerEncounter: 1,
 
-  enemyLevelRange: {
-    min: 1,
-    max: 1
-  },
-
   enemyDigimons: [
     {
       id: `BINARY_FOREST_KOROMON`,

@@ -96,7 +96,7 @@
   --party-digimon-card-size: 560px;
   --compose-template-size: 560px;
   --digimon-details-size: 720px;
-  --digimon-details-picture-size: 720px;
+  --digimon-details-picture-size: 280px;
   --digimon-card-background: var(--color-primary-darker);
 
   --map-minSize: 240px;
@@ -118,8 +118,8 @@
   --resource-bar-background: var(--color-primary-darker);
   --resource-bar-hp-background-filled: #a13a52;
   --resource-bar-sp-background-filled: #2c9569;
-  --resource-bar-exp-background-filled: var(--color-primary);
-  --exp-bar-background: var(--body-background);
+  --resource-bar-regular-background-filled: var(--color-primary);
+  --regular-bar-background: var(--body-background);
 
   --combat-board-negativeHeight: 408px;
   --combat-board-spacing: 68px;

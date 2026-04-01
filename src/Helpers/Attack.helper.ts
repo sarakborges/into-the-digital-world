@@ -96,10 +96,7 @@ const getLoot = ({
 }: {
   digimons: Array<PartyDigimon>
 }): LootType | undefined => {
-  const expGained = digimons.reduce((acc, item) => acc + item.level, 0)
-
   const loot: LootType = {
-    exp: expGained,
     currency: 0,
     items: []
   }

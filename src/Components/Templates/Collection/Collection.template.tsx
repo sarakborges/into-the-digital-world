@@ -1,26 +1,26 @@
 import { useContext } from 'react'
+import { FaTimes } from 'react-icons/fa'
 
 import { getTexts } from '@/Texts'
+
+import { DIGIMON_FAMILIES } from '@/Consts/DigimonFamilies.const'
+import { DIGIMON_ATTRIBUTES } from '@/Consts/DigimonAttributes.const'
+import { DIGIMON_STATS } from '@/Consts/DigimonStats.const'
+
+import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
 import { ProfileContext } from '@/Contexts/Profile.context'
 import { CollectionContext } from '@/Contexts/Collection.context'
 
 import { Typography } from '@/Components/System/Typography'
+import { Icon } from '@/Components/System/Icon'
+import { Button } from '@/Components/System/Button'
+import { FullPicture } from '@/Components/System/FullPicture'
 
 import { MenuWrapper } from '@/Components/App/MenuWrapper'
 import { PartnerDigimonCard } from '@/Components/App/PartnerDigimonCard'
 
 import './Collection.style.scss'
-import { FullPicture } from '@/Components/System/FullPicture'
-import { ALL_DIGIMONS } from '@/GameData/Digimons'
-import { Button } from '@/Components/System/Button'
-import { ResourceBar } from '@/Components/App/ResourceBar'
-import { DIGIMON_LEVELS } from '@/Consts/Levels.const'
-import { DIGIMON_STATS } from '@/Consts/DigimonStats.const'
-import { DIGIMON_ATTRIBUTES } from '@/Consts/DigimonAttributes.const'
-import { Icon } from '@/Components/System/Icon'
-import { DIGIMON_FAMILIES } from '@/Consts/DigimonFamilies.const'
-import { FaTimes } from 'react-icons/fa'
 
 export const CollectionTemplate = () => {
   const profileContext = useContext(ProfileContext)
@@ -60,10 +60,10 @@ export const CollectionTemplate = () => {
                     <li>
                       <section className="digimon-name">
                         <Typography as="h2">
-                          {digimonDetails.name && <>{digimonDetails.name}, </>}
+                          {digimonDetails.name && (
+                            <>{digimonDetails.name}, the </>
+                          )}
 
-                          <>level </>
-                          <>{digimonDetails.level} </>
                           <>
                             {
                               ALL_DIGIMONS[digimonDetails.baseDigimon as string]
@@ -129,58 +129,42 @@ export const CollectionTemplate = () => {
                         ))}
                       </section>
                     </li>
+
+                    <li>
+                      <section className="digimon-stats">
+                        <Typography as="span">Stats:</Typography>
+
+                        <ul>
+                          {Object.keys(DIGIMON_STATS).map((statItem) => (
+                            <li
+                              key={`digimon-details-${digimonDetails.id}-stats-${DIGIMON_STATS[statItem].id}`}
+                            >
+                              {DIGIMON_STATS[statItem].icon}
+
+                              <Typography as="span">
+                                {DIGIMON_STATS[
+                                  statItem
+                                ].abbreviation.toLocaleUpperCase()}
+                                :
+                              </Typography>
+
+                              <Typography as="span">
+                                <>
+                                  {
+                                    ALL_DIGIMONS[
+                                      digimonDetails.baseDigimon as string
+                                    ].stats[statItem]
+                                  }
+                                </>
+                              </Typography>
+                            </li>
+                          ))}
+                        </ul>
+                      </section>
+                    </li>
                   </ul>
                 </main>
               </main>
-
-              <footer>
-                <section>
-                  <Typography>Next level:</Typography>
-
-                  <ResourceBar
-                    currentValue={digimonDetails.experience}
-                    maxValue={
-                      DIGIMON_LEVELS[digimonDetails.level + 1].expToNextLevel
-                    }
-                  />
-                </section>
-
-                <section>
-                  <section className="digimon-stats">
-                    {Object.keys(DIGIMON_STATS).map((statItem) => (
-                      <div
-                        key={`digimon-details-${digimonDetails.id}-stats-${DIGIMON_STATS[statItem].id}`}
-                      >
-                        {DIGIMON_STATS[statItem].icon}
-
-                        <Typography as="span">
-                          {DIGIMON_STATS[
-                            statItem
-                          ].abbreviation.toLocaleUpperCase()}
-                          :
-                        </Typography>
-
-                        <Typography as="span">
-                          <>
-                            {
-                              ALL_DIGIMONS[digimonDetails.baseDigimon as string]
-                                .stats[statItem]
-                            }
-                          </>
-
-                          <> (+{digimonDetails.extraStats?.[statItem] || 0})</>
-                        </Typography>
-                      </div>
-                    ))}
-
-                    <div>
-                      <Typography as="span">
-                        Unspent points: {digimonDetails.points}
-                      </Typography>
-                    </div>
-                  </section>
-                </section>
-              </footer>
             </div>
           </main>
         )}

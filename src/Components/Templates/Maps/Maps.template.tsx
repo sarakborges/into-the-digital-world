@@ -36,17 +36,7 @@ export const MapsTemplate = () => {
   const { profile } = profileContext
 
   const getNewMap = (map: MapType) => {
-    const enemyDigimons = map.enemyDigimons?.map((digimonItem) => ({
-      ...digimonItem,
-      baseDigimon: ALL_DIGIMONS[digimonItem.baseDigimon as string]
-    }))
-
-    const eliteDigimons = map.eliteDigimons?.map((digimonItem) => ({
-      ...digimonItem,
-      baseDigimon: ALL_DIGIMONS[digimonItem.baseDigimon as string]
-    }))
-
-    map = { ...map, enemyDigimons, eliteDigimons }
+    map = { ...map }
     setCurrentMap({ ...map })
   }
 

@@ -15,15 +15,6 @@ export type MapType = {
   description: string
   types: Array<(typeof MapTypes)[keyof typeof MapTypes]>
   maxEnemiesPerEncounter?: number
-  enemyLevelRange?: {
-    min: number
-    max: number
-  }
-  eliteLevelRange?: {
-    min: number
-    max: number
-  }
-
   enemyDigimons?: Array<EnemyDigimonType>
   eliteDigimons?: Array<EnemyDigimonType>
   availableNpcs?: Array<NpcType>

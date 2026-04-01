@@ -29,16 +29,16 @@ export const ResearchTemplate = () => {
 
   const researches = Object.values(ALL_DIGIMONS)
     .filter(
-      (researchItem) =>
-        profile.researches.includes(researchItem.id) &&
-        !!researchItem.compositionTemplate
+      (digimonItem) =>
+        profile.researches.includes(digimonItem.id) &&
+        !!digimonItem.compositionTemplate
     )
     .sort((a, b) => (a.id > b.id ? 1 : -1))
 
   const availableResearches = Object.values(ALL_DIGIMONS).filter(
-    (researchItem) =>
-      !!researchItem.compositionTemplate &&
-      !profile.templates.includes(researchItem.id)
+    (digimonItem) =>
+      !!digimonItem.compositionTemplate &&
+      !profile.templates.includes(digimonItem.id)
   )
 
   const doResearch = (id: string) => {

@@ -21,7 +21,6 @@ export const CORE_DISTURBANCE: QuestType = {
 
   rewards: {
     currency: 1,
-    exp: 1,
     updatedRegion: `ROOT_FORK`,
     cores: {
       [ALL_CORES.virus.id]: 2,

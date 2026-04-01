@@ -1,7 +1,5 @@
 import { useContext } from 'react'
 
-import { getTexts } from '@/Texts'
-
 import { MapContext } from '@/Contexts/Map.context'
 
 import { Typography } from '@/Components/System/Typography'

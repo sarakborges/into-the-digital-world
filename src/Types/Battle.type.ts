@@ -12,7 +12,6 @@ export type ItemsLootType = {
 }
 
 export type LootType = {
-  exp: number
   currency: number
   items: Array<ItemsLootType>
 }

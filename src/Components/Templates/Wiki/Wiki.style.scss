@@ -6,22 +6,21 @@
   width: 100%;
   padding: var(--size-lg);
 
-  .digimon-stage {
+  .wiki-digimon-list {
     display: flex;
-    flex-flow: column;
-    gap: var(--size-lg);
+    flex-wrap: wrap;
+    gap: var(--size-md);
 
-    .digimon-stage-list {
+    > div {
       display: flex;
-      gap: var(--size-lg);
-      flex-wrap: wrap;
+      place-items: center;
+      flex-flow: column;
+      gap: var(--size-smd);
 
-      > div {
-        display: flex;
-        flex-flow: column;
-        place-items: center;
-        gap: var(--size-md);
-      }
+      padding: var(--size-md);
+
+      background-color: var(--digimon-card-background);
+      border-radius: var(--size-md);
     }
   }
 }

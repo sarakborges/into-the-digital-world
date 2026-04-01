@@ -18,10 +18,7 @@ export const composeNewDigimon = ({
   const newDigimon: PartnerDigimonType = {
     id: id,
     name,
-    baseDigimon: baseDigimon!.id,
-    level: 1,
-    experience: 0,
-    points: 0
+    baseDigimon: baseDigimon!.id
   }
 
   for (let componentItem of Object.keys(components)) {

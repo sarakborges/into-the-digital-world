@@ -5,13 +5,10 @@ import { getTexts } from '@/Texts'
 
 import { ProfileContext } from '@/Contexts/Profile.context'
 
-import { PLAYER_LEVELS } from '@/Consts/Levels.const'
 import { SIDEBAR_BOTTOM_MENU, SIDEBAR_MENU } from '@/Consts/Sidebar.const'
 
 import { Typography } from '@/Components/System/Typography'
 import { Portrait } from '@/Components/System/Portrait'
-
-import { ExperienceBar } from '@/Components/App/ExperienceBar'
 
 import './MenuWrapper.style.scss'
 
@@ -27,9 +24,6 @@ export const MenuWrapper = ({ children }: { children: React.ReactNode }) => {
   if (!profile?.name) {
     return <></>
   }
-
-  const currentExp = profile.experience!
-  const nextLevelExp = PLAYER_LEVELS[profile.level!].expToNextLevel
 
   return (
     <div className="menu-wrapper">
@@ -56,18 +50,16 @@ export const MenuWrapper = ({ children }: { children: React.ReactNode }) => {
               <Typography as="h2">{profile.name}</Typography>
 
               <Typography as="span">
-                <>{getTexts('SIDEBAR_PLAYER_LEVEL')}</>
-                <>{profile.level}</>
-              </Typography>
-
-              <Typography as="span">
                 <>{getTexts('SIDEBAR_PLAYER_UNSPENT_POINTS')}</>
                 <>{profile.points || 0}</>
               </Typography>
+
+              <Typography as="span">
+                <>{getTexts('SIDEBAR_PLAYER_CURRENCY')}</>
+                <>{profile.currency || 0}</>
+              </Typography>
             </main>
           </header>
-
-          <ExperienceBar {...{ currentExp, nextLevelExp }} />
         </section>
 
         <nav>

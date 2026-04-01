@@ -9,14 +9,11 @@ import { getTexts } from '@/Texts'
 import { ProfileContext } from '@/Contexts/Profile.context'
 import { CollectionContext } from '@/Contexts/Collection.context'
 
-import { DIGIMON_LEVELS } from '@/Consts/Levels.const'
 import { MAX_DIGIMONS_IN_PARTY } from '@/Consts/Battle.consts'
 
 import { Typography } from '@/Components/System/Typography'
 import { Portrait } from '@/Components/System/Portrait'
 import { Button } from '@/Components/System/Button'
-
-import { ExperienceBar } from '@/Components/App/ExperienceBar'
 
 import './PartnerDigimonCard.style.scss'
 
@@ -103,23 +100,8 @@ export const PartnerDigimonCard = ({
             <Typography as="h2">
               {digimonItem.name || baseDigimon!.name}
             </Typography>
-
-            <Typography as="span">
-              <>{getTexts('DIGIMON_CARD_LEVEL')}</>
-              {digimonItem.level}
-            </Typography>
-
-            <Typography as="span">
-              <>{getTexts('DIGIMON_CARD_UNSPENT_POINTS')}</>
-              {digimonItem.points || 0}
-            </Typography>
           </section>
         </aside>
-
-        <ExperienceBar
-          currentExp={digimonItem.experience!}
-          nextLevelExp={DIGIMON_LEVELS[digimonItem.level!].expToNextLevel}
-        />
       </main>
 
       <section className="digimon-actions">

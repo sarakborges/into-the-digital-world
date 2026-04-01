@@ -53,7 +53,6 @@ export const BattleCombatLog = () => {
   })
 
   const readableLoot = [
-    loot?.exp ? `${loot?.exp} experience` : '',
     loot?.currency ? `${loot.currency}x Digital Coins` : '',
     ...(lootedCores ?? [])
   ].filter((lootItem) => !!lootItem)

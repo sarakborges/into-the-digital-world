@@ -14,10 +14,6 @@ export const SUBROOT_GROVE: MapType = {
   name: `Subroot Groove`,
   description: `Giant roots pierce soil and air alike, pulsing with natural energy. The space is dense, humid, and alive, as if the domain itself were trying to regenerate.`,
   types: [MapTypes.COMBAT],
-  enemyLevelRange: {
-    min: 2,
-    max: 4
-  },
 
   enemyDigimons: [
     {

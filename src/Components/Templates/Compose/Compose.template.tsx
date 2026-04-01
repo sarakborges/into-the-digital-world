@@ -27,9 +27,9 @@ export const ComposeTemplate = () => {
   const { baseDigimon, setBaseDigimon } = compositionContext
   const { profile } = profileContext
 
-  const digimons = Object.values(ALL_DIGIMONS).filter((digimonItem) =>
-    profile.templates.includes(digimonItem.id)
-  )
+  const digimons = Object.values(ALL_DIGIMONS)
+    .filter((digimonItem) => profile.templates.includes(digimonItem.id))
+    .sort((a, b) => (a.id > b.id ? 1 : -1))
 
   return (
     <MenuWrapper>

@@ -40,8 +40,8 @@
       }
 
       .digimon-picture {
-        max-width: 240px;
-        max-height: 240px;
+        max-width: var(--digimon-details-picture-size);
+        max-height: var(--digimon-details-picture-size);
         overflow: hidden;
 
         border-radius: var(--size-smd);
@@ -123,31 +123,27 @@
               }
             }
           }
-        }
-      }
 
-      > footer {
-        display: flex;
-        flex-flow: column;
-        gap: var(--size-md);
-
-        .resource-bar {
-          width: calc(var(--sidebar-size) - var(--size-lmd) * 2);
-        }
-
-        .digimon-stats {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: var(--size-sm);
-
-          > div {
+          .digimon-stats {
             display: flex;
-            place-items: center;
-            gap: var(--size-xs);
+            flex-flow: column;
+            gap: var(--size-sm);
 
-            svg {
-              width: var(--size-lmd);
-              height: var(--size-lmd);
+            > ul {
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+              gap: var(--size-xs);
+
+              > li {
+                display: flex;
+                place-items: center;
+                gap: var(--size-xs);
+
+                svg {
+                  width: var(--size-lmd);
+                  height: var(--size-lmd);
+                }
+              }
             }
           }
         }

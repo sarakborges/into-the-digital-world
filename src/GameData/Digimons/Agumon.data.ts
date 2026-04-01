@@ -1,12 +1,10 @@
 import type { DigimonType } from '@/Types/Digimon.type'
-import { DigimonStages } from '@/Types/DigimonStages.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
 
 export const AGUMON: DigimonType = {
   id: `AGUMON`,
   name: `Agumon`,
-  stage: DigimonStages.rookie.id,
   attribute: ALL_CORES.vaccine.id,
   families: [
     ALL_CORES.dragonsRoar.id,

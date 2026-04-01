@@ -2,12 +2,6 @@ import type { PartyDigimon } from '@/Types/Digimon.type'
 import type { ProfileType } from '@/Types/Profile.type'
 import type { LootType } from '@/Types/Battle.type'
 
-import {
-  DIGIMON_LEVELS,
-  DIGIMON_POINTS_PER_LEVEL,
-  PLAYER_LEVELS,
-  PLAYER_POINTS_PER_LEVEL
-} from '@/Consts/Levels.const'
 import { progressQuests } from './ProgressQuests.helper'
 
 export const endBattleHelper = ({
@@ -30,10 +24,6 @@ export const endBattleHelper = ({
   }
 
   if (!!loot) {
-    const playerParty = digimons
-      .filter((item) => item.party === 'player')
-      .map((item) => item.id)
-
     for (let lootItem of loot.items) {
       if (!lootItem.quantity) {
         continue
@@ -51,44 +41,6 @@ export const endBattleHelper = ({
         profile.cores[lootItem.id] = updatedCoresQuantity
       }
     }
-
-    const playerExperience = (profile.experience || 0) + loot.exp
-    const playerNextLevelExp = PLAYER_LEVELS[profile.level || 1].expToNextLevel
-
-    if (playerExperience >= playerNextLevelExp) {
-      profile.experience = playerExperience - playerNextLevelExp
-      profile.level = (profile.level || 1) + 1
-      profile.points = (profile.points || 0) + PLAYER_POINTS_PER_LEVEL
-    } else {
-      profile.experience = playerExperience
-    }
-
-    profile.partners = [
-      ...profile.partners!.map((partnerItem) => {
-        if (!playerParty.includes(partnerItem.id)) {
-          return partnerItem
-        }
-
-        let digimonExperience = (partnerItem.experience || 0) + loot.exp
-        let digimonLevel = partnerItem.level || 1
-        let digimonPoints = partnerItem.points || 0
-        const digimonNextLevelExp =
-          DIGIMON_LEVELS[partnerItem.level || 1].expToNextLevel
-
-        if (digimonExperience >= digimonNextLevelExp) {
-          digimonExperience -= digimonNextLevelExp
-          digimonLevel++
-          digimonPoints += DIGIMON_POINTS_PER_LEVEL
-        }
-
-        return {
-          ...partnerItem,
-          experience: digimonExperience,
-          level: digimonLevel,
-          points: digimonPoints
-        }
-      })
-    ]
   }
 
   localStorage.removeItem('battle')

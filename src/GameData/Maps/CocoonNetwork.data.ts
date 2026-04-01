@@ -14,10 +14,6 @@ export const COCOON_NETWORK: MapType = {
   name: `Cocoon Network`,
   description: `Threads, cocoons, and suspended structures dominate the scenery. Data in transformation drifts slowly, trapped in intermediate states between form and function.`,
   types: [MapTypes.COMBAT],
-  enemyLevelRange: {
-    min: 2,
-    max: 4
-  },
 
   enemyDigimons: [
     {

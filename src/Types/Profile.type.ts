@@ -5,9 +5,7 @@ import type { QuestObjectivesType } from '@/Types/Quest.type'
 export type ProfileType = {
   name: string
   currency: number
-  experience: number
   points: number
-  level: number
   avatar: string
 
   partners: Array<PartnerDigimonType>

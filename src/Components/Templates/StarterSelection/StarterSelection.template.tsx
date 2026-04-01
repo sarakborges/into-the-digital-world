@@ -50,9 +50,7 @@ export const StarterSelectionTemplate = () => {
     const starterPartner = {
       id: digimonId,
       name: name || '',
-      baseDigimon: starterId,
-      level: 1,
-      experience: 0
+      baseDigimon: starterId
     }
 
     const updatedProfile = {
