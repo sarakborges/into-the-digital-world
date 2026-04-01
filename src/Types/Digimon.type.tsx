@@ -18,6 +18,12 @@ export type DigimonType = {
   stats: DigimonStats
   researchCost?: number
   compositionTemplate?: CompositionTemplateType
+  specialMoves?: {
+    [k: string]: {
+      id: string
+      name: string
+    }
+  }
 }
 
 type ExtraStat = {

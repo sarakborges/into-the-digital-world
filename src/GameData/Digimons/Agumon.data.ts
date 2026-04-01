@@ -23,6 +23,13 @@ export const AGUMON: DigimonType = {
     spd: 14
   },
 
+  specialMoves: {
+    BABY_FLAME: {
+      id: 'BABY_FLAME',
+      name: 'Baby Flame'
+    }
+  },
+
   researchCost: 5000,
   compositionTemplate: {
     data: [

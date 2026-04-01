@@ -1,6 +1,8 @@
 import { useContext } from 'react'
 
-import type { DigimonType, PartyDigimon } from '@/Types/Digimon.type'
+import type { PartyDigimon } from '@/Types/Digimon.type'
+
+import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
 import { getDigimonName } from '@/Helpers'
 
@@ -26,7 +28,7 @@ export const BattlePartyDigimonCard = ({
 
   const { battle } = battleContext
 
-  const baseDigimon = partyItem.baseDigimon as DigimonType
+  const baseDigimon = ALL_DIGIMONS[partyItem.baseDigimon]
   const digimonName = getDigimonName(partyItem)
   const isActive = battle.turnOrder[0] === partyItem.id
   const isDefeated = partyItem.currentHp <= 0

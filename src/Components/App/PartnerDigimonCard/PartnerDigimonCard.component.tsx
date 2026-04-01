@@ -65,11 +65,11 @@ export const PartnerDigimonCard = ({
       (partyItem) => partyItem.id !== digimonItem.id
     )
 
-    const digimonCore = profile.cores[baseDigimon.id] || 0
+    const digimonCore = profile.cores[baseDigimon] || 0
 
     const updatedCores = {
       ...profile.cores,
-      [baseDigimon.id]: digimonCore + 1
+      [baseDigimon]: digimonCore + 1
     }
 
     const updatedProfile = {

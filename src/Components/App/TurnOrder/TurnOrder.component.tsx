@@ -7,6 +7,7 @@ import { BattleContext } from '@/Contexts/Battle.context'
 import { Portrait } from '@/Components/System/Portrait'
 
 import './TurnOrder.style.scss'
+import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
 export const TurnOrder = () => {
   const battleContext = useContext(BattleContext)
@@ -29,7 +30,7 @@ export const TurnOrder = () => {
             (partyItem) => partyItem.id === turnItem
           )
 
-          const baseDigimon = turnDigimon!.baseDigimon as DigimonType
+          const baseDigimon = ALL_DIGIMONS[turnDigimon!.baseDigimon]
 
           const digimonName = (turnDigimon as PartyDigimon).name || ''
           const displayName = digimonName

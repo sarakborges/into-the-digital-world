@@ -18,6 +18,7 @@ import { BattleCombatLog } from '@/Components/App/BattleCombatLog'
 import { ResourceBar } from '@/Components/App/ResourceBar'
 
 import './Battle.style.scss'
+import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
 export const BattleTemplate = () => {
   const battleContext = useContext(BattleContext)
@@ -81,13 +82,13 @@ export const BattleTemplate = () => {
                       .join(' ')}
                   >
                     <Portrait
-                      src={`/digimon_portraits/${digimon!.baseDigimon.id}.jpg`}
-                      alt={`Party digimon: ${digimon.name || digimon.baseDigimon.name}`}
+                      src={`/digimon_portraits/${ALL_DIGIMONS[digimon.baseDigimon].id}.jpg`}
+                      alt={`Party digimon: ${digimon.name || ALL_DIGIMONS[digimon.baseDigimon].name}`}
                       size="sm"
                     />
 
                     <Typography>
-                      {digimon.name || digimon.baseDigimon.name}
+                      {digimon.name || ALL_DIGIMONS[digimon.baseDigimon].name}
                     </Typography>
 
                     <ResourceBar
@@ -109,15 +110,16 @@ export const BattleTemplate = () => {
           {currentDigimon?.party === 'player' && !isOver && (
             <section className="current-digimon card">
               <Portrait
-                src={`/digimons/${currentDigimon!.baseDigimon.id}.jpg`}
-                alt={`Current digimon: ${currentDigimon.name || currentDigimon.baseDigimon.name}`}
+                src={`/digimons/${ALL_DIGIMONS[currentDigimon.baseDigimon].id}.jpg`}
+                alt={`Current digimon: ${currentDigimon.name || ALL_DIGIMONS[currentDigimon.baseDigimon].name}`}
                 size="lg"
               />
 
               <section className="current-digimon-info">
                 <Typography as="h2">
                   {[
-                    currentDigimon.name || currentDigimon.baseDigimon.name,
+                    currentDigimon.name ||
+                      ALL_DIGIMONS[currentDigimon.baseDigimon].name,
                     'turn!'
                   ].join("'s ")}
                 </Typography>

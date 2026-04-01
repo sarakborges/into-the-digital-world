@@ -1,12 +1,11 @@
 import type { MapType } from '@/Types/Map.type'
 import type { ProfileType } from '@/Types/Profile.type'
-import type { DigimonType, EnemyDigimonType } from '@/Types/Digimon.type'
+import type { EnemyDigimonType } from '@/Types/Digimon.type'
 
 import { MAX_DIGIMONS_IN_PARTY } from '@/Consts/Battle.consts'
 
-import { ALL_DIGIMONS } from '@/GameData/Digimons'
-
 import { randomNumber } from '@/Helpers'
+import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
 const setDigimonHpSp = (digimon) => {
   return {
@@ -44,17 +43,13 @@ const getPlayerParty = (profile) => {
       (partnerItem) => partnerItem.id === partyItem
     )!
 
-    const baseDigimon = ALL_DIGIMONS[
-      partnerDigimon.baseDigimon as string
-    ] as DigimonType
-
     const stats = addExtraStats({
-      ...partnerDigimon
+      ...ALL_DIGIMONS[partnerDigimon.baseDigimon]
     })
 
     const playerDigimon = {
       id: partnerDigimon.id,
-      baseDigimon: { ...baseDigimon },
+      baseDigimon: partnerDigimon.baseDigimon,
       name: partnerDigimon.name || '',
       stats,
       party: 'player'
@@ -109,16 +104,13 @@ const getEnemyParty = (currentMap: MapType) => {
   }
 
   return enemies.map((digimonItem, digimonKey) => {
-    const baseDigimon = ALL_DIGIMONS[digimonItem.baseDigimon]
-
     const stats = addExtraStats({
-      ...digimonItem
+      ...ALL_DIGIMONS[digimonItem.baseDigimon]
     })
 
     const enemyDigimon = {
       id: `${digimonItem.id}_${digimonKey}`,
-      baseId: digimonItem.id,
-      baseDigimon: { ...baseDigimon },
+      baseDigimon: digimonItem.baseDigimon,
       stats,
       party: 'enemy',
       isElite: digimonItem.isElite,
