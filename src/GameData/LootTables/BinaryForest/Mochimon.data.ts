@@ -9,7 +9,42 @@ export const BINARY_FOREST_MOCHIMON_LOOT_TABLE: Array<LootTableType> = [
     type: 'core',
     id: ALL_CORES.metalEmpire.id,
     maxQuantity: 1,
-    dropChance: 30
+    dropChance: 100
+  },
+
+  {
+    type: 'core',
+    id: ALL_CORES.metalEmpire.id,
+    maxQuantity: 1,
+    dropChance: 50
+  },
+
+  {
+    type: 'core',
+    id: ALL_CORES.metalEmpire.id,
+    maxQuantity: 1,
+    dropChance: 10
+  },
+
+  {
+    type: 'core',
+    id: ALL_CORES.natureSpirits.id,
+    maxQuantity: 1,
+    dropChance: 100
+  },
+
+  {
+    type: 'core',
+    id: ALL_CORES.natureSpirits.id,
+    maxQuantity: 1,
+    dropChance: 50
+  },
+
+  {
+    type: 'core',
+    id: ALL_CORES.natureSpirits.id,
+    maxQuantity: 1,
+    dropChance: 10
   },
 
   {

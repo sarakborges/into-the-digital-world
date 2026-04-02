@@ -98,7 +98,7 @@ const getLoot = ({
 }): LootType | undefined => {
   const loot: LootType = {
     currency: 0,
-    items: []
+    items: {}
   }
 
   for (let digimonItem of digimons) {
@@ -110,37 +110,25 @@ const getLoot = ({
 
     for (let lootItem of lootTable) {
       if (lootItem.type === 'core') {
-        if (!loot.items[lootItem.id]) {
-          loot.items.push({
-            id: lootItem.id,
-            quantity: 0,
-            type: lootItem.type
-          })
-        }
-
         // Iterates through the maxQuantity, and checks if RNG allows drop. Basically each individual unity of an item will be rolled
         for (
           let currentDrop = 0;
           currentDrop < lootItem.maxQuantity;
           currentDrop++
         ) {
-          loot.items = loot.items.map((prevLoot) => {
-            if (prevLoot.id !== lootItem.id) {
-              return prevLoot
-            }
-
-            const rng = randomNumber({
-              min: 1,
-              max: 100
-            })
-
-            const shouldLootDrop = rng <= lootItem.dropChance ? 1 : 0
-
-            return {
-              ...prevLoot,
-              quantity: prevLoot.quantity + shouldLootDrop
-            }
+          const rng = randomNumber({
+            min: 1,
+            max: 100
           })
+          const shouldLootDrop = rng <= lootItem.dropChance
+
+          loot.items[lootItem.id] = {
+            id: lootItem.id,
+            quantity:
+              (loot.items[lootItem.id]?.quantity || 0) +
+              (shouldLootDrop ? 1 : 0),
+            type: lootItem.type
+          }
         }
       }
 
@@ -161,11 +149,11 @@ const getLoot = ({
           continue
         }
 
-        loot.items.push({
+        loot.items[lootItem.id] = {
           id: lootItem.id,
           quantity: 1,
           type: lootItem.type
-        })
+        }
       }
     }
   }

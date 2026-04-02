@@ -39,22 +39,20 @@ export const BattleCombatLog = () => {
 
   const { combatLog, loot } = battle
 
-  const lootedCores = loot?.items?.map((item) => {
-    if (item.type === 'core') {
-      return (
-        item.quantity > 0 &&
-        `${item.quantity || 0}x ${ALL_CORES[item.id]?.abbreviation || ALL_DIGIMONS[item.id]?.name} cores`
-      )
-    }
+  const lootedItems = Object.values(loot?.items ?? {})
 
-    if (item.type === 'research') {
-      return `New research unlocked!`
-    }
-  })
+  const lootedCores = lootedItems
+    ?.filter((item) => item.type === 'core' && item.quantity > 0)
+    .map((item) => {
+      return `You found ${ALL_CORES[item.id]?.name || ALL_DIGIMONS[item.id]?.name} core (${item.quantity || 0}x)`
+    })
+
+  const hasNewResearch = lootedItems?.some((item) => item.type === 'research')
 
   const readableLoot = [
-    loot?.currency ? `${loot.currency}x Digital Coins` : '',
-    ...(lootedCores ?? [])
+    loot?.currency ? `You collected ${loot.currency} Digital Coins` : '',
+    ...(lootedCores ?? []),
+    hasNewResearch ? 'New research unlocked!' : ''
   ].filter((lootItem) => !!lootItem)
 
   const endBattle = () => {
@@ -73,8 +71,6 @@ export const BattleCombatLog = () => {
 
           {!!readableLoot.length && (
             <div className="loot">
-              <Typography>You and your party got:</Typography>
-
               {readableLoot.map((lootItem) => (
                 <Typography key={`combat-log-entry-${lootItem}`}>
                   {lootItem}

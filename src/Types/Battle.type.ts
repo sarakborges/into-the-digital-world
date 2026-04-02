@@ -13,7 +13,9 @@ export type ItemsLootType = {
 
 export type LootType = {
   currency: number
-  items: Array<ItemsLootType>
+  items: {
+    [key: string]: ItemsLootType
+  }
 }
 
 export type BattleType = {

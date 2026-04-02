@@ -24,7 +24,7 @@ export const endBattleHelper = ({
   }
 
   if (!!loot) {
-    for (let lootItem of loot.items) {
+    for (let lootItem of Object.values(loot.items)) {
       if (!lootItem.quantity) {
         continue
       }

@@ -9,14 +9,42 @@ export const BINARY_FOREST_KOROMON_LOOT_TABLE: Array<LootTableType> = [
     type: 'core',
     id: ALL_CORES.dragonsRoar.id,
     maxQuantity: 1,
-    dropChance: 30
+    dropChance: 100
+  },
+
+  {
+    type: 'core',
+    id: ALL_CORES.dragonsRoar.id,
+    maxQuantity: 1,
+    dropChance: 50
+  },
+
+  {
+    type: 'core',
+    id: ALL_CORES.dragonsRoar.id,
+    maxQuantity: 1,
+    dropChance: 10
   },
 
   {
     type: 'core',
     id: ALL_CORES.virusBusters.id,
     maxQuantity: 1,
-    dropChance: 30
+    dropChance: 100
+  },
+
+  {
+    type: 'core',
+    id: ALL_CORES.virusBusters.id,
+    maxQuantity: 1,
+    dropChance: 50
+  },
+
+  {
+    type: 'core',
+    id: ALL_CORES.virusBusters.id,
+    maxQuantity: 1,
+    dropChance: 10
   },
 
   {
