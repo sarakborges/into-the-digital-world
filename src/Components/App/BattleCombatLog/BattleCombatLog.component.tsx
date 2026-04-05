@@ -44,7 +44,7 @@ export const BattleCombatLog = () => {
   const lootedCores = lootedItems
     ?.filter((item) => item.type === 'core' && item.quantity > 0)
     .map((item) => {
-      return `You found ${ALL_CORES[item.id]?.name || ALL_DIGIMONS[item.id]?.name} core (${item.quantity || 0}x)`
+      return `You collected ${ALL_CORES[item.id]?.name || ALL_DIGIMONS[item.id]?.name} core (${item.quantity || 0}x)`
     })
 
   const hasNewResearch = lootedItems?.some((item) => item.type === 'research')

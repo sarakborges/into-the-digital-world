@@ -8,6 +8,9 @@ type CompositionContextType = {
   baseDigimon: DigimonType | undefined
   setBaseDigimon: React.Dispatch<React.SetStateAction<DigimonType | undefined>>
 
+  progress: number
+  setProgress: React.Dispatch<React.SetStateAction<number>>
+
   components: CompositionComponentsType
   setComponents: React.Dispatch<React.SetStateAction<CompositionComponentsType>>
 }
@@ -20,6 +23,7 @@ export const CompositionProvider = ({ children }: { children: ReactNode }) => {
   const [baseDigimon, setBaseDigimon] = useState<DigimonType | undefined>(
     undefined
   )
+  const [progress, setProgress] = useState<number>(0)
   const [components, setComponents] = useState<CompositionComponentsType>({})
 
   return (
@@ -27,6 +31,8 @@ export const CompositionProvider = ({ children }: { children: ReactNode }) => {
       value={{
         baseDigimon,
         setBaseDigimon,
+        progress,
+        setProgress,
         components,
         setComponents
       }}

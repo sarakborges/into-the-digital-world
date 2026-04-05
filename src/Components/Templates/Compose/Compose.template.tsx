@@ -61,9 +61,7 @@ export const ComposeTemplate = () => {
                 </header>
 
                 <main>
-                  <ComposeDigimonTemplate
-                    template={baseDigimon.compositionTemplate!}
-                  />
+                  <ComposeDigimonTemplate />
                 </main>
               </div>
             </main>

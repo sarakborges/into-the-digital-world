@@ -1,7 +1,6 @@
 import { useContext } from 'react'
 import { useNavigate } from 'react-router'
-
-import type { CompositionTemplateType } from '@/Types/Composition.type'
+import { FaMinus, FaPlus } from 'react-icons/fa'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
 
@@ -23,13 +22,8 @@ import { Icon } from '@/Components/System/Icon'
 import { ResourceBar } from '@/Components/App/ResourceBar'
 
 import './ComposeDigimonTemplate.style.scss'
-import { FaMinus, FaPlus } from 'react-icons/fa'
 
-export const ComposeDigimonTemplate = ({
-  template
-}: {
-  template: CompositionTemplateType
-}) => {
+export const ComposeDigimonTemplate = ({}: {}) => {
   const profileContext = useContext(ProfileContext)
   const compositionContext = useContext(CompositionContext)
 
@@ -38,8 +32,14 @@ export const ComposeDigimonTemplate = ({
   }
 
   const { profile, setProfile } = profileContext
-  const { baseDigimon, setBaseDigimon, components, setComponents } =
-    compositionContext
+  const {
+    baseDigimon,
+    setBaseDigimon,
+    components,
+    setComponents,
+    progress,
+    setProgress
+  } = compositionContext
 
   if (!baseDigimon) {
     return
@@ -62,7 +62,7 @@ export const ComposeDigimonTemplate = ({
     directory: string
     icon: string
   }> =
-    template?.data?.map((dataItem) => {
+    baseDigimon.compositionTemplate?.data?.map((dataItem) => {
       const playerCores = profile.cores[dataItem.id] || 0
 
       if (!!ALL_CORES[dataItem.id]) {
@@ -119,17 +119,22 @@ export const ComposeDigimonTemplate = ({
     navigate(ROUTES.COLLECTION.path)
   }
 
-  const getProgress = () => {
+  const updateComponent = ({ dataItem, quantity }) => {
+    const updatedComponents = { ...components }
+
+    updatedComponents[dataItem.id] = (components[dataItem.id] || 0) + quantity
+
     let progress = 0
 
-    for (let componentItem of Object.keys(components)) {
+    for (let componentItem of Object.keys(updatedComponents)) {
       progress +=
         baseDigimon.compositionTemplate!.data!.find(
           (dataItem) => dataItem.id === componentItem
-        )!.weight * components[componentItem]
+        )!.weight * updatedComponents[componentItem]
     }
 
-    return progress
+    setProgress(progress)
+    setComponents(updatedComponents)
   }
 
   return (
@@ -163,9 +168,9 @@ export const ComposeDigimonTemplate = ({
               <Button
                 disabled={(components[dataItem.id] || 0) <= 0}
                 onClick={() =>
-                  setComponents({
-                    ...components,
-                    [dataItem.id]: components[dataItem.id] - 1
+                  updateComponent({
+                    dataItem,
+                    quantity: -1
                   })
                 }
               >
@@ -178,12 +183,12 @@ export const ComposeDigimonTemplate = ({
                 disabled={
                   (profile.cores[dataItem.id] || 0) -
                     (components[dataItem.id] || 0) <=
-                    0 || getProgress() >= 100
+                    0 || progress >= 100
                 }
                 onClick={() =>
-                  setComponents({
-                    ...components,
-                    [dataItem.id]: (components[dataItem.id] || 0) + 1
+                  updateComponent({
+                    dataItem,
+                    quantity: 1
                   })
                 }
               >
@@ -197,7 +202,7 @@ export const ComposeDigimonTemplate = ({
       <div className="card compose-progress">
         <Typography>Composing progress:</Typography>
 
-        <ResourceBar maxValue={100} currentValue={getProgress()} />
+        <ResourceBar maxValue={100} currentValue={progress} />
       </div>
 
       <div className="compose-digimon-actions">
@@ -205,7 +210,7 @@ export const ComposeDigimonTemplate = ({
           {getTexts('COMPOSE_TEMPLATE_CANCEL')}
         </Button>
 
-        <Button onClick={compose} disabled={getProgress() < 100}>
+        <Button onClick={compose} disabled={progress < 100}>
           {getTexts('COMPOSE_TEMPLATE_CTA')}
         </Button>
       </div>
