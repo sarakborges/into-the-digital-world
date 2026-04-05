@@ -16,6 +16,7 @@ import { FullPicture } from '@/Components/System/FullPicture'
 import { Modal } from '@/Components/System/Modal'
 
 import './CollectionDetails.style.scss'
+import { Tag } from '@/Components/System/Tag'
 
 export const CollectionDetails = () => {
   const collectionContext = useContext(CollectionContext)
@@ -59,33 +60,37 @@ export const CollectionDetails = () => {
                         <Typography as="span">Attribute:</Typography>
 
                         <div className="attribute-item">
-                          <Icon
-                            src={`/cores/${
-                              DIGIMON_ATTRIBUTES[
-                                ALL_DIGIMONS[digimonDetails.baseDigimon]
-                                  .attribute
-                              ].icon
-                            }.jpg`}
-                            alt={`${ALL_DIGIMONS[digimonDetails.baseDigimon].name} attribute`}
-                          />
+                          <Tag>
+                            <Icon
+                              src={`/cores/${
+                                DIGIMON_ATTRIBUTES[
+                                  ALL_DIGIMONS[digimonDetails.baseDigimon]
+                                    .attribute
+                                ].icon
+                              }.jpg`}
+                              alt={`${ALL_DIGIMONS[digimonDetails.baseDigimon].name} attribute`}
+                            />
 
-                          <Typography as="span">
-                            {
-                              DIGIMON_ATTRIBUTES[
-                                ALL_DIGIMONS[digimonDetails.baseDigimon]
-                                  .attribute
-                              ].name
-                            }
-                          </Typography>
+                            <Typography as="span">
+                              {
+                                DIGIMON_ATTRIBUTES[
+                                  ALL_DIGIMONS[digimonDetails.baseDigimon]
+                                    .attribute
+                                ].name
+                              }
+                            </Typography>
+                          </Tag>
                         </div>
                       </section>
 
                       <section className="digimon-families">
                         <Typography as="span">Families:</Typography>
 
-                        {ALL_DIGIMONS[digimonDetails.baseDigimon].families.map(
-                          (familyItem) => (
-                            <div className="family-item">
+                        <div className="family-list">
+                          {ALL_DIGIMONS[
+                            digimonDetails.baseDigimon
+                          ].families.map((familyItem) => (
+                            <Tag>
                               <Icon
                                 src={`/cores/${
                                   DIGIMON_FAMILIES[familyItem].icon
@@ -96,9 +101,9 @@ export const CollectionDetails = () => {
                               <Typography as="span">
                                 {DIGIMON_FAMILIES[familyItem].name}
                               </Typography>
-                            </div>
-                          )
-                        )}
+                            </Tag>
+                          ))}
+                        </div>
                       </section>
                     </section>
 

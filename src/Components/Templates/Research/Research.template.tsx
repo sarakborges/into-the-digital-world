@@ -71,6 +71,8 @@ export const ResearchTemplate = () => {
                   </Typography>
                 </header>
 
+                <Typography as="span">Optional data:</Typography>
+
                 <ul>
                   {researchItem.compositionTemplate?.data.map((dataItem) => (
                     <li

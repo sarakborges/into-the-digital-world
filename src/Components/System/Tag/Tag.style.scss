@@ -1,16 +1,14 @@
 .tag {
-  padding: var(--size-xs) var(--size-sm);
+  display: flex;
+  place-items: center;
+  gap: var(--size-xs);
 
-  background-color: var(--tag-background);
-  border-radius: var(--size-md);
+  padding-right: var(--size-sm);
 
-  color: var(--tag-text);
-  font-size: var(--size-md);
+  background-color: var(--body-background);
+  border-radius: 0 var(--size-md) var(--size-md) 0;
 
-  text-shadow:
-    -1px -1px 1px #000,
-    1px -1px 1px #000,
-    -1px 1px 1px #000,
-    1px 1px 1px #000,
-    0 0 4px #fff;
+  .icon > img {
+    max-width: var(--size-lmd);
+  }
 }

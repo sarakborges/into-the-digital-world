@@ -10,6 +10,7 @@ import { Typography } from '@/Components/System/Typography'
 import { Tag } from '@/Components/System/Tag'
 
 import './DetailedDigimonCard.style.scss'
+import { Icon } from '@/Components/System/Icon'
 
 export const DetailedDigimonCard = ({ digimon }: { digimon: DigimonType }) => {
   return (
@@ -23,18 +24,25 @@ export const DetailedDigimonCard = ({ digimon }: { digimon: DigimonType }) => {
         <Typography as="h2">{digimon.name}</Typography>
 
         <section className="digimon-tags">
-          <Tag className={`digimon-attribute-${digimon.attribute}`}>
-            {DIGIMON_ATTRIBUTES[digimon.attribute].name}
+          <Tag>
+            <Icon
+              alt={`Digimon attribute ${DIGIMON_ATTRIBUTES[digimon.attribute].name}`}
+              src={`/cores/${DIGIMON_ATTRIBUTES[digimon.attribute].icon}.jpg`}
+            />
+
+            <Typography>
+              {DIGIMON_ATTRIBUTES[digimon.attribute].name}
+            </Typography>
           </Tag>
 
           {digimon.families.map((familyItem) => (
-            <Tag
-              key={`digimon-card-item-${digimon.id}-family-${familyItem}`}
-              className={`digimon-family-${DIGIMON_FAMILIES[
-                familyItem
-              ].abbreviation.toLocaleLowerCase()}`}
-            >
-              {DIGIMON_FAMILIES[familyItem].name}
+            <Tag key={`digimon-card-item-${digimon.id}-family-${familyItem}`}>
+              <Icon
+                alt={`Digimon family ${DIGIMON_FAMILIES[familyItem].name}`}
+                src={`/cores/${DIGIMON_FAMILIES[familyItem].icon}.jpg`}
+              />
+
+              <Typography>{DIGIMON_FAMILIES[familyItem].name}</Typography>
             </Tag>
           ))}
         </section>

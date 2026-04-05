@@ -57,6 +57,14 @@ export const PartnerDigimonCard = ({
   }
 
   const decompose = () => {
+    if (
+      !confirm(
+        'Decomposing your partner will give you one species core. This is irreversible. Are you sure you want to proceed?'
+      )
+    ) {
+      return
+    }
+
     const updatedParty = profile?.party?.filter(
       (partyItem) => partyItem !== digimonItem.id
     )
@@ -85,7 +93,7 @@ export const PartnerDigimonCard = ({
 
   return (
     <div
-      className="partner-digimon-card card"
+      className="partner-digimon-card"
       key={`partner-list-item-${digimonItem.id}`}
     >
       <main className="digimon-info">
@@ -100,6 +108,16 @@ export const PartnerDigimonCard = ({
             <Typography as="h2">
               {digimonItem.name || baseDigimon!.name}
             </Typography>
+
+            <section className="digimon-equipments">
+              <Typography>Equipments attatched:</Typography>
+
+              <div className="equipments-list">
+                {new Array(3).fill(undefined).map((equipmentItem) => (
+                  <div></div>
+                ))}
+              </div>
+            </section>
           </section>
         </aside>
       </main>

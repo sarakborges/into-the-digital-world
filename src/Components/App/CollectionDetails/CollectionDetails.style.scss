@@ -83,14 +83,6 @@
             display: flex;
             place-items: center;
             gap: var(--size-xs);
-
-            .icon {
-              max-width: var(--size-lmd);
-
-              > img {
-                max-width: 100%;
-              }
-            }
           }
         }
 
@@ -99,18 +91,10 @@
           flex-flow: column;
           gap: var(--size-xs);
 
-          .family-item {
+          .family-list {
             display: flex;
-            place-items: center;
+            flex-wrap: wrap;
             gap: var(--size-xs);
-
-            .icon {
-              max-width: var(--size-lmd);
-
-              > img {
-                max-width: 100%;
-              }
-            }
           }
         }
       }
