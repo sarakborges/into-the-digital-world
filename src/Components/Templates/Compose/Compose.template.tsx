@@ -9,6 +9,7 @@ import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
 import { Typography } from '@/Components/System/Typography'
 import { Portrait } from '@/Components/System/Portrait'
+import { Modal } from '@/Components/System/Modal'
 
 import { MenuWrapper } from '@/Components/App/MenuWrapper'
 import { DetailedDigimonCard } from '@/Components/App/DetailedDigimonCard'
@@ -35,36 +36,38 @@ export const ComposeTemplate = () => {
     <MenuWrapper>
       <main className="compose-template">
         {!!baseDigimon && (
-          <main className="digimon-template">
-            <div className="template-body">
-              <header>
-                <Portrait
-                  src={`/digimon_portraits/${baseDigimon.id}.jpg`}
-                  alt={`Composing ${baseDigimon.name}`}
-                  size="xs"
-                />
+          <Modal>
+            <main className="digimon-template">
+              <div className="template-body">
+                <header>
+                  <Portrait
+                    src={`/digimon_portraits/${baseDigimon.id}.jpg`}
+                    alt={`Composing ${baseDigimon.name}`}
+                    size="xs"
+                  />
+
+                  <main>
+                    <Typography as="h2">
+                      {getTexts('COMPOSE_DIGIMON_TEMPLATE_TITLE').replace(
+                        '[NAME]',
+                        baseDigimon.name
+                      )}
+                    </Typography>
+
+                    <Typography>
+                      {getTexts('COMPOSE_DIGIMON_TEMPLATE_SUBTITLE')}
+                    </Typography>
+                  </main>
+                </header>
 
                 <main>
-                  <Typography as="h2">
-                    {getTexts('COMPOSE_DIGIMON_TEMPLATE_TITLE').replace(
-                      '[NAME]',
-                      baseDigimon.name
-                    )}
-                  </Typography>
-
-                  <Typography>
-                    {getTexts('COMPOSE_DIGIMON_TEMPLATE_SUBTITLE')}
-                  </Typography>
+                  <ComposeDigimonTemplate
+                    template={baseDigimon.compositionTemplate!}
+                  />
                 </main>
-              </header>
-
-              <main>
-                <ComposeDigimonTemplate
-                  template={baseDigimon.compositionTemplate!}
-                />
-              </main>
-            </div>
-          </main>
+              </div>
+            </main>
+          </Modal>
         )}
 
         <header className="compose-header">

@@ -15,11 +15,10 @@ import { ALL_REGIONS } from '@/GameData/Regions'
 import { NpcContext } from '@/Contexts/Npc.context'
 import { ProfileContext } from '@/Contexts/Profile.context'
 
-import { getTexts } from '@/Texts'
-
 import { Typography } from '@/Components/System/Typography'
 import { Button } from '@/Components/System/Button'
 import { Portrait } from '@/Components/System/Portrait'
+import { Modal } from '@/Components/System/Modal'
 
 import { MapIcon } from '@/Components/App/MapIcon'
 
@@ -147,209 +146,217 @@ export const NpcDialog = () => {
   return (
     <>
       {!!currentNpc && (
-        <div className="npc-dialog">
-          <main className="npc-text">
-            <main className="npc-text-content">
-              {!currentInteraction && (
-                <>
-                  <Typography>
-                    {npcInfo?.welcomeText ||
-                      `${npcInfo?.name} is not in the mood for small talk.`}
-                  </Typography>
-
-                  {npcInfo?.interactions.map((interactionItem) => (
-                    <div
-                      key={`npc-${npcInfo.id}-interaction-${interactionItem.id}`}
-                      className="npc-interaction"
-                    >
-                      <Button onClick={() => openInteraction(interactionItem)}>
-                        <MapIcon mapType={MapTypes[interactionItem.type]} sm />
-
-                        <Typography>
-                          {interactionItem.questDetails?.name}
-                        </Typography>
-                      </Button>
-                    </div>
-                  ))}
-                </>
-              )}
-
-              {currentInteraction?.type === InteractionsTypes.QUEST && (
-                <article className="quest-description">
-                  <Typography as="h2">
-                    {currentInteraction.questDetails?.name}
-                  </Typography>
-
+        <Modal>
+          <div className="npc-dialog">
+            <main className="npc-text">
+              <main className="npc-text-content">
+                {!currentInteraction && (
                   <>
                     <Typography>
-                      {profile.quests?.inProgress?.some(
-                        (questItem) =>
-                          questItem.questId === currentInteraction.questId
-                      )
-                        ? currentInteraction.questDetails?.ongoingText
-                        : currentInteraction.questDetails?.description}
+                      {npcInfo?.welcomeText ||
+                        `${npcInfo?.name} is not in the mood for small talk.`}
                     </Typography>
 
-                    <div className="quest-objectives">
-                      <Typography as="span">Objectives:</Typography>
+                    {npcInfo?.interactions.map((interactionItem) => (
+                      <div
+                        key={`npc-${npcInfo.id}-interaction-${interactionItem.id}`}
+                        className="npc-interaction"
+                      >
+                        <Button
+                          onClick={() => openInteraction(interactionItem)}
+                        >
+                          <MapIcon
+                            mapType={MapTypes[interactionItem.type]}
+                            sm
+                          />
 
-                      {currentInteraction.questDetails?.objectives.map(
-                        (objectiveItem) => (
-                          <Typography
-                            key={`quest-${currentInteraction.id}-objective-${objectiveItem.id}`}
-                            as="span"
-                          >{`- ${
-                            currentInteraction.progress?.find?.(
-                              (progressItem) =>
-                                progressItem.id === objectiveItem.id
-                            )?.quantity || 0
-                          } / ${objectiveItem.quantity} ${
-                            objectiveItem.text
-                          }`}</Typography>
+                          <Typography>
+                            {interactionItem.questDetails?.name}
+                          </Typography>
+                        </Button>
+                      </div>
+                    ))}
+                  </>
+                )}
+
+                {currentInteraction?.type === InteractionsTypes.QUEST && (
+                  <article className="quest-description">
+                    <Typography as="h2">
+                      {currentInteraction.questDetails?.name}
+                    </Typography>
+
+                    <>
+                      <Typography>
+                        {profile.quests?.inProgress?.some(
+                          (questItem) =>
+                            questItem.questId === currentInteraction.questId
                         )
-                      )}
-                    </div>
+                          ? currentInteraction.questDetails?.ongoingText
+                          : currentInteraction.questDetails?.description}
+                      </Typography>
 
-                    <div className="quest-rewards">
-                      <Typography as="span">Rewards:</Typography>
+                      <div className="quest-objectives">
+                        <Typography as="span">Objectives:</Typography>
 
-                      {currentInteraction.questDetails?.rewards?.currency && (
-                        <section>
-                          <Typography as="span">
-                            <>- Digital coins: </>
-                            <>
-                              {
-                                currentInteraction.questDetails?.rewards
-                                  ?.currency
-                              }
-                            </>
-                          </Typography>
-                        </section>
-                      )}
+                        {currentInteraction.questDetails?.objectives.map(
+                          (objectiveItem) => (
+                            <Typography
+                              key={`quest-${currentInteraction.id}-objective-${objectiveItem.id}`}
+                              as="span"
+                            >{`- ${
+                              currentInteraction.progress?.find?.(
+                                (progressItem) =>
+                                  progressItem.id === objectiveItem.id
+                              )?.quantity || 0
+                            } / ${objectiveItem.quantity} ${
+                              objectiveItem.text
+                            }`}</Typography>
+                          )
+                        )}
+                      </div>
 
-                      {currentInteraction.questDetails?.rewards?.cores && (
-                        <>
-                          {Object.keys(
-                            currentInteraction.questDetails?.rewards?.cores
-                          ).map((coreItem) => (
-                            <section
-                              key={`quest-${currentInteraction.id}-reward-cores-${coreItem}`}
-                            >
-                              <Typography as="span">
-                                <>- </>
-                                <>{ALL_CORES[coreItem].name}</>
-                                <> cores: </>
+                      <div className="quest-rewards">
+                        <Typography as="span">Rewards:</Typography>
 
-                                <>
-                                  {
-                                    currentInteraction.questDetails?.rewards
-                                      ?.cores?.[coreItem]
-                                  }
-                                </>
-                              </Typography>
-                            </section>
-                          ))}
-                        </>
-                      )}
-
-                      {currentInteraction.questDetails?.rewards
-                        ?.updatedRegion && (
-                        <section>
-                          <Typography as="span">
-                            <>- New region accessible: </>
-                            <>
-                              {
-                                ALL_REGIONS[
+                        {currentInteraction.questDetails?.rewards?.currency && (
+                          <section>
+                            <Typography as="span">
+                              <>- Digital coins: </>
+                              <>
+                                {
                                   currentInteraction.questDetails?.rewards
-                                    ?.updatedRegion
-                                ].name
-                              }
-                            </>
-                          </Typography>
-                        </section>
-                      )}
-                    </div>
+                                    ?.currency
+                                }
+                              </>
+                            </Typography>
+                          </section>
+                        )}
 
-                    <div className="quest-buttons">
-                      {!profile.quests?.inProgress?.some(
-                        (questItem) =>
-                          questItem.questId === currentInteraction.questId
-                      ) && (
-                        <>
-                          <Button
-                            onClick={() =>
-                              acceptQuest(currentInteraction.questId)
-                            }
-                          >
-                            Accept quest
-                          </Button>
-                        </>
-                      )}
+                        {currentInteraction.questDetails?.rewards?.cores && (
+                          <>
+                            {Object.keys(
+                              currentInteraction.questDetails?.rewards?.cores
+                            ).map((coreItem) => (
+                              <section
+                                key={`quest-${currentInteraction.id}-reward-cores-${coreItem}`}
+                              >
+                                <Typography as="span">
+                                  <>- </>
+                                  <>{ALL_CORES[coreItem].name}</>
+                                  <> cores: </>
 
-                      {profile.quests?.inProgress?.some(
-                        (questItem) =>
-                          questItem.questId === currentInteraction.questId
-                      ) && (
-                        <>
-                          {profile.quests?.inProgress
-                            .find(
-                              (questItem) =>
-                                questItem.questId === currentInteraction.questId
-                            )
-                            ?.progress.every(
-                              (progressItem) =>
-                                progressItem.quantity >=
-                                ALL_QUESTS[
-                                  currentInteraction.questId!
-                                ].objectives.find(
-                                  (objectiveItem) =>
-                                    objectiveItem.id === progressItem.id
-                                ).quantity
-                            ) && (
+                                  <>
+                                    {
+                                      currentInteraction.questDetails?.rewards
+                                        ?.cores?.[coreItem]
+                                    }
+                                  </>
+                                </Typography>
+                              </section>
+                            ))}
+                          </>
+                        )}
+
+                        {currentInteraction.questDetails?.rewards
+                          ?.updatedRegion && (
+                          <section>
+                            <Typography as="span">
+                              <>- New region accessible: </>
+                              <>
+                                {
+                                  ALL_REGIONS[
+                                    currentInteraction.questDetails?.rewards
+                                      ?.updatedRegion
+                                  ].name
+                                }
+                              </>
+                            </Typography>
+                          </section>
+                        )}
+                      </div>
+
+                      <div className="quest-buttons">
+                        {!profile.quests?.inProgress?.some(
+                          (questItem) =>
+                            questItem.questId === currentInteraction.questId
+                        ) && (
+                          <>
                             <Button
                               onClick={() =>
-                                finishQuest(currentInteraction.questId)
+                                acceptQuest(currentInteraction.questId)
                               }
                             >
-                              Finish quest
+                              Accept quest
                             </Button>
-                          )}
+                          </>
+                        )}
 
-                          <Button
-                            onClick={() =>
-                              abbandonQuest(currentInteraction.questId)
-                            }
-                          >
-                            Abbandon quest
-                          </Button>
-                        </>
-                      )}
-                    </div>
-                  </>
-                </article>
-              )}
+                        {profile.quests?.inProgress?.some(
+                          (questItem) =>
+                            questItem.questId === currentInteraction.questId
+                        ) && (
+                          <>
+                            {profile.quests?.inProgress
+                              .find(
+                                (questItem) =>
+                                  questItem.questId ===
+                                  currentInteraction.questId
+                              )
+                              ?.progress.every(
+                                (progressItem) =>
+                                  progressItem.quantity >=
+                                  ALL_QUESTS[
+                                    currentInteraction.questId!
+                                  ].objectives.find(
+                                    (objectiveItem) =>
+                                      objectiveItem.id === progressItem.id
+                                  ).quantity
+                              ) && (
+                              <Button
+                                onClick={() =>
+                                  finishQuest(currentInteraction.questId)
+                                }
+                              >
+                                Finish quest
+                              </Button>
+                            )}
+
+                            <Button
+                              onClick={() =>
+                                abbandonQuest(currentInteraction.questId)
+                              }
+                            >
+                              Abbandon quest
+                            </Button>
+                          </>
+                        )}
+                      </div>
+                    </>
+                  </article>
+                )}
+              </main>
+
+              <div className="npc-actions">
+                {!!currentInteraction && (
+                  <Button onClick={closeInteraction}>Return</Button>
+                )}
+
+                <Button onClick={closeDialog}>Leave</Button>
+              </div>
             </main>
 
-            <div className="npc-actions">
-              {!!currentInteraction && (
-                <Button onClick={closeInteraction}>Return</Button>
-              )}
+            <aside className="npc-picture">
+              <header>
+                <Typography as="h2">{currentNpc.name}</Typography>
+              </header>
 
-              <Button onClick={closeDialog}>Leave</Button>
-            </div>
-          </main>
-
-          <aside className="npc-picture">
-            <header>
-              <Typography as="h2">{currentNpc.name}</Typography>
-            </header>
-
-            <Portrait
-              src={`/npcs/${npcInfo?.id}.jpg`}
-              alt={`NPC ${npcInfo?.name}`}
-            />
-          </aside>
-        </div>
+              <Portrait
+                src={`/npcs/${npcInfo?.id}.jpg`}
+                alt={`NPC ${npcInfo?.name}`}
+              />
+            </aside>
+          </div>
+        </Modal>
       )}
     </>
   )

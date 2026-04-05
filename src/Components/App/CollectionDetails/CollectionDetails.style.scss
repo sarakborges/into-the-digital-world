@@ -1,0 +1,147 @@
+.details-body {
+  display: flex;
+  flex-flow: column;
+  gap: var(--size-md);
+
+  width: var(--digimon-details-size);
+  padding: var(--size-md);
+
+  background-color: var(--digimon-card-background);
+  border-radius: var(--size-md);
+
+  > main {
+    display: flex;
+    gap: var(--size-md);
+  }
+
+  .digimon-picture {
+    max-width: var(--digimon-details-picture-size);
+    max-height: var(--digimon-details-picture-size);
+    overflow: hidden;
+
+    border-radius: var(--size-smd);
+  }
+
+  .digimon-info {
+    display: flex;
+    flex-flow: column;
+    gap: var(--size-smd);
+
+    flex: 1;
+
+    .digimon-name {
+      display: flex;
+      place-content: space-between;
+
+      .button {
+        display: flex;
+        place-items: center;
+        place-content: center;
+
+        aspect-ratio: 1;
+        padding: 0;
+
+        svg {
+          width: var(--size-md);
+          height: var(--size-md);
+        }
+      }
+    }
+
+    .digimon-attribute-families-moves {
+      display: flex;
+      gap: var(--size-xl);
+
+      .digimon-moves {
+        display: flex;
+        flex-flow: column;
+        gap: var(--size-xs);
+
+        .move-item {
+          display: flex;
+          place-items: center;
+
+          height: var(--size-lmd);
+
+          & .typography:before {
+            content: '- ';
+          }
+        }
+      }
+
+      .digimon-attribute-families {
+        display: flex;
+        flex-flow: column;
+        gap: var(--size-smd);
+
+        .digimon-attribute {
+          display: flex;
+          flex-flow: column;
+          gap: var(--size-xs);
+
+          .attribute-item {
+            display: flex;
+            place-items: center;
+            gap: var(--size-xs);
+
+            .icon {
+              max-width: var(--size-lmd);
+
+              > img {
+                max-width: 100%;
+              }
+            }
+          }
+        }
+
+        .digimon-families {
+          display: flex;
+          flex-flow: column;
+          gap: var(--size-xs);
+
+          .family-item {
+            display: flex;
+            place-items: center;
+            gap: var(--size-xs);
+
+            .icon {
+              max-width: var(--size-lmd);
+
+              > img {
+                max-width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .digimon-stats {
+      display: flex;
+      flex-flow: column;
+      gap: var(--size-sm);
+
+      > ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--size-xs);
+
+        > li {
+          display: flex;
+          place-items: center;
+          gap: var(--size-xs);
+
+          svg {
+            width: var(--size-lmd);
+            height: var(--size-lmd);
+          }
+        }
+      }
+    }
+  }
+}
+
+.modal + section {
+  max-height: calc(100vh - var(--size-lg) * 2);
+  overflow: hidden;
+}

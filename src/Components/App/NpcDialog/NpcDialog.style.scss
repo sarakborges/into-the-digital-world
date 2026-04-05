@@ -1,20 +1,4 @@
 .npc-dialog {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-
-  display: flex;
-  place-content: center;
-  place-items: flex-end;
-
-  width: 100%;
-  height: 100vh;
-  padding: var(--size-xl);
-
-  background-color: var(--modal-background);
-  backdrop-filter: blur(var(--size-xs));
-
   &:before {
     content: '';
 

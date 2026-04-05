@@ -7,22 +7,6 @@
   padding: var(--size-lg);
 
   .digimon-template {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-
-    display: flex;
-    place-items: center;
-    place-content: center;
-
-    width: 100%;
-    height: 100vh;
-    padding: var(--size-smd);
-
-    background-color: var(--modal-background);
-    backdrop-filter: blur(var(--size-xs));
-
     .template-body {
       display: flex;
       flex-flow: column;
