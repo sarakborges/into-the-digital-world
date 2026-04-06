@@ -28,6 +28,11 @@ export const MOCHIMON: DigimonType = {
       },
 
       {
+        id: ALL_CORES.noAttribute.id,
+        weight: 25
+      },
+
+      {
         id: ALL_CORES.natureSpirits.id,
         weight: 25
       },

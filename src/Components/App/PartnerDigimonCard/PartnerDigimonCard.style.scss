@@ -28,12 +28,12 @@
 
       flex: 1;
 
-      .digimon-equipments {
+      .digimon-upgrades {
         display: flex;
         flex-flow: column;
         gap: var(--size-xs);
 
-        .equipments-list {
+        .upgrades-list {
           display: flex;
           gap: var(--size-xs);
 

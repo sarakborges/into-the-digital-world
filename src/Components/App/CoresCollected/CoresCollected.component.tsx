@@ -103,9 +103,8 @@ export const CoresCollected = () => {
                         alt={`${coreItem!.name} core`}
                       />
 
-                      <Typography>{coreItem.name}</Typography>
-                      <Typography as="span">
-                        {coreItem.quantity || 0}
+                      <Typography>
+                        {coreItem.name} x{coreItem.quantity || 0}
                       </Typography>
                     </div>
                   ))}

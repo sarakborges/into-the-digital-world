@@ -109,10 +109,10 @@ export const PartnerDigimonCard = ({
               {digimonItem.name || baseDigimon!.name}
             </Typography>
 
-            <section className="digimon-equipments">
-              <Typography>Equipments attatched:</Typography>
+            <section className="digimon-upgrades">
+              <Typography>Upgrades installed:</Typography>
 
-              <div className="equipments-list">
+              <div className="upgrades-list">
                 {new Array(3).fill(undefined).map((equipmentItem) => (
                   <div></div>
                 ))}

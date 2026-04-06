@@ -28,6 +28,11 @@ export const TANEMON: DigimonType = {
       },
 
       {
+        id: ALL_CORES.noAttribute.id,
+        weight: 25
+      },
+
+      {
         id: ALL_CORES.jungleTroopers.id,
         weight: 25
       }

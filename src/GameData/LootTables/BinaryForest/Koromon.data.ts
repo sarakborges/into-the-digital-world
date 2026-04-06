@@ -49,6 +49,27 @@ export const BINARY_FOREST_KOROMON_LOOT_TABLE: Array<LootTableType> = [
 
   {
     type: 'core',
+    id: ALL_CORES.noAttribute.id,
+    maxQuantity: 1,
+    dropChance: 100
+  },
+
+  {
+    type: 'core',
+    id: ALL_CORES.noAttribute.id,
+    maxQuantity: 1,
+    dropChance: 50
+  },
+
+  {
+    type: 'core',
+    id: ALL_CORES.noAttribute.id,
+    maxQuantity: 1,
+    dropChance: 10
+  },
+
+  {
+    type: 'core',
     id: KOROMON.id,
     dropChance: 3,
     maxQuantity: 1

@@ -28,6 +28,11 @@ export const BUKAMON: DigimonType = {
       },
 
       {
+        id: ALL_CORES.noAttribute.id,
+        weight: 25
+      },
+
+      {
         id: ALL_CORES.deepSavers.id,
         weight: 25
       }
