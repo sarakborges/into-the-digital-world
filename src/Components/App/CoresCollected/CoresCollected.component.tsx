@@ -104,7 +104,7 @@ export const CoresCollected = () => {
                       />
 
                       <Typography>
-                        {coreItem.name} x{coreItem.quantity || 0}
+                        {coreItem.name} (x{coreItem.quantity || 0})
                       </Typography>
                     </div>
                   ))}
