@@ -1,7 +1,5 @@
 import { MapTypes, type MapType } from '@/Types/Map.type'
 
-import { TSUMEMON } from '@/GameData/Digimons'
-
 export const ROOT_CORE: MapType = {
   id: `ROOT_CORE`,
   name: `Root Core`,
@@ -11,14 +9,14 @@ export const ROOT_CORE: MapType = {
   enemyDigimons: [
     {
       id: `ROOT_CORE_TSUMEMON`,
-      baseDigimon: TSUMEMON.id
+      baseDigimon: 'TSUMEMON'
     }
   ],
 
   eliteDigimons: [
     {
       id: `ROOT_CORE_TSUMEMON_ELITE`,
-      baseDigimon: TSUMEMON.id,
+      baseDigimon: 'TSUMEMON',
       spawnChance: 30,
       extraStats: {
         hp: {

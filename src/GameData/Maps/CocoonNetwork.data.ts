@@ -1,14 +1,5 @@
 import { MapTypes, type MapType } from '@/Types/Map.type'
 
-import {
-  CHIBIMON,
-  GIGIMON,
-  MINOMON,
-  HOPMON,
-  KYOKYOMON,
-  WANYAMON
-} from '@/GameData/Digimons'
-
 export const COCOON_NETWORK: MapType = {
   id: `COCOON_NETWORK`,
   name: `Cocoon Network`,
@@ -18,32 +9,32 @@ export const COCOON_NETWORK: MapType = {
   enemyDigimons: [
     {
       id: `COCOON_NETWORK_CHIBIMON`,
-      baseDigimon: CHIBIMON.id
+      baseDigimon: 'CHIBIMON'
     },
 
     {
       id: `COCOON_NETWORK_GIGIMON`,
-      baseDigimon: GIGIMON.id
+      baseDigimon: 'GIGIMON'
     },
 
     {
       id: `COCOON_NETWORK_HOPMON`,
-      baseDigimon: HOPMON.id
+      baseDigimon: 'HOPMON'
     },
 
     {
       id: `COCOON_NETWORK_WANYAMON`,
-      baseDigimon: WANYAMON.id
+      baseDigimon: 'WANYAMON'
     },
 
     {
       id: `COCOON_NETWORK_KYOKYOMON`,
-      baseDigimon: KYOKYOMON.id
+      baseDigimon: 'KYOKYOMON'
     },
 
     {
       id: `SUBROOT_GROVE_MINOMON`,
-      baseDigimon: MINOMON.id
+      baseDigimon: 'MINOMON'
     }
   ]
 }

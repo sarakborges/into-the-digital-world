@@ -1,3 +1,5 @@
+import type { DigimonType } from '@/Types/Digimon.type'
+
 import { KOROMON } from '@/GameData/Digimons/Koromon.data'
 import { MOCHIMON } from '@/GameData/Digimons/Mochimon.data'
 import { NYAROMON } from '@/GameData/Digimons/Nyaromon.data'
@@ -24,8 +26,11 @@ import { UPAMON } from '@/GameData/Digimons/Upamon.data'
 import { WANYAMON } from '@/GameData/Digimons/Wanyamon.data'
 import { YARMON } from '@/GameData/Digimons/Yarmon.data'
 import { AGUMON } from '@/GameData/Digimons/Agumon.data'
+import { FLADRAMON } from '@/GameData/Digimons/Fladramon.data'
 
-export const ALL_DIGIMONS = {
+const allDigimons: {
+  [k: string]: DigimonType
+} = {
   KOROMON,
   TUNOMON,
   MOCHIMON,
@@ -51,10 +56,11 @@ export const ALL_DIGIMONS = {
   UPAMON,
   WANYAMON,
   YARMON,
-  AGUMON
+  AGUMON,
+  FLADRAMON
 }
 
-export const STARTERS = [
+const allStarters: Array<DigimonType> = [
   KOROMON,
   TUNOMON,
   PYOCOMON,
@@ -64,3 +70,6 @@ export const STARTERS = [
   TOKOMON,
   NYAROMON
 ]
+
+export const ALL_DIGIMONS = { ...allDigimons }
+export const ALL_STARTERS = [...allStarters]

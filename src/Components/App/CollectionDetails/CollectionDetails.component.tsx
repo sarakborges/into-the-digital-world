@@ -107,16 +107,14 @@ export const CollectionDetails = () => {
                       </section>
                     </section>
 
-                    {!!ALL_DIGIMONS[digimonDetails.baseDigimon]
-                      .specialMoves && (
+                    {!!ALL_DIGIMONS[digimonDetails.baseDigimon].specialMoves
+                      ?.length && (
                       <section className="digimon-moves">
                         <Typography as="span">Special Moves:</Typography>
 
-                        {(
-                          Object.values(
-                            ALL_DIGIMONS[digimonDetails.baseDigimon]
-                              .specialMoves
-                          ) as Array<{ id: string; name: string }>
+                        {Object.values(
+                          ALL_DIGIMONS[digimonDetails.baseDigimon]
+                            .specialMoves ?? {}
                         ).map((moveItem) => (
                           <div className="move-item">
                             <Typography as="span">{moveItem.name}</Typography>

@@ -1,8 +1,7 @@
 import type { LootTableType } from '@/Types/Digimon.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
-
-import { AGUMON, KOROMON } from '@/GameData/Digimons'
+import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
 export const BINARY_FOREST_KOROMON_LOOT_TABLE: Array<LootTableType> = [
   {
@@ -70,21 +69,21 @@ export const BINARY_FOREST_KOROMON_LOOT_TABLE: Array<LootTableType> = [
 
   {
     type: 'core',
-    id: KOROMON.id,
+    id: ALL_DIGIMONS.AGUMON.id,
     dropChance: 3,
     maxQuantity: 1
   },
 
   {
     type: 'research',
-    id: KOROMON.id,
+    id: ALL_DIGIMONS.AGUMON.id,
     dropChance: 5,
     maxQuantity: 1
   },
 
   {
     type: 'research',
-    id: AGUMON.id,
+    id: ALL_DIGIMONS.AGUMON.id,
     dropChance: 1,
     maxQuantity: 1
   }

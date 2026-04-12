@@ -1,9 +1,3 @@
-import { PRIMARY_VILLAGE_MERCHANT } from './PrimaryVillageMerchant.data'
-import { PRIMARY_VILLAGE_QUEST_GIVER } from './PrimaryVillageQuestGiver.data'
+import { PRIMARY_VILLAGE_QUEST_GIVER } from '@/GameData/Npcs/PrimaryVillageQuestGiver.data'
 
-export { PRIMARY_VILLAGE_MERCHANT, PRIMARY_VILLAGE_QUEST_GIVER }
-
-export const ALL_NPCS = {
-  PRIMARY_VILLAGE_MERCHANT,
-  PRIMARY_VILLAGE_QUEST_GIVER
-}
+export { PRIMARY_VILLAGE_QUEST_GIVER }

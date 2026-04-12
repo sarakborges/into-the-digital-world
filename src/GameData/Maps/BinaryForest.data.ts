@@ -1,16 +1,5 @@
 import { MapTypes, type MapType } from '@/Types/Map.type'
 
-import {
-  BUKAMON,
-  KOROMON,
-  MOCHIMON,
-  NYAROMON,
-  PYOCOMON,
-  TANEMON,
-  TOKOMON,
-  TUNOMON
-} from '@/GameData/Digimons'
-
 import { BINARY_FOREST_KOROMON_LOOT_TABLE } from '@/GameData/LootTables/BinaryForest/Koromon.data'
 import { BINARY_FOREST_TUNOMON_LOOT_TABLE } from '@/GameData/LootTables/BinaryForest/Tunomon.data'
 import { BINARY_FOREST_MOCHIMON_LOOT_TABLE } from '@/GameData/LootTables/BinaryForest/Mochimon.data'
@@ -31,49 +20,49 @@ export const BINARY_FOREST: MapType = {
   enemyDigimons: [
     {
       id: `BINARY_FOREST_KOROMON`,
-      baseDigimon: KOROMON.id,
+      baseDigimon: 'KOROMON',
       lootTable: BINARY_FOREST_KOROMON_LOOT_TABLE
     },
 
     {
       id: `BINARY_FOREST_TUNOMON`,
-      baseDigimon: TUNOMON.id,
+      baseDigimon: 'TUNOMON',
       lootTable: BINARY_FOREST_TUNOMON_LOOT_TABLE
     },
 
     {
       id: `BINARY_FOREST_MOCHIMON`,
-      baseDigimon: MOCHIMON.id,
+      baseDigimon: 'MOCHIMON',
       lootTable: BINARY_FOREST_MOCHIMON_LOOT_TABLE
     },
 
     {
       id: `BINARY_FOREST_NYAROMON`,
-      baseDigimon: NYAROMON.id,
+      baseDigimon: 'NYAROMON',
       lootTable: BINARY_FOREST_NYAROMON_LOOT_TABLE
     },
 
     {
       id: `BINARY_FOREST_TOKOMON`,
-      baseDigimon: TOKOMON.id,
+      baseDigimon: 'TOKOMON',
       lootTable: BINARY_FOREST_TOKOMON_LOOT_TABLE
     },
 
     {
       id: `BINARY_FOREST_TANEMON`,
-      baseDigimon: TANEMON.id,
+      baseDigimon: 'TANEMON',
       lootTable: BINARY_FOREST_TANEMON_LOOT_TABLE
     },
 
     {
       id: `BINARY_FOREST_BUKAMON`,
-      baseDigimon: BUKAMON.id,
+      baseDigimon: 'BUKAMON',
       lootTable: BINARY_FOREST_BUKAMON_LOOT_TABLE
     },
 
     {
       id: `BINARY_FOREST_PYOCOMON`,
-      baseDigimon: PYOCOMON.id,
+      baseDigimon: 'PYOCOMON',
       lootTable: BINARY_FOREST_PYOCOMON_LOOT_TABLE
     }
   ]

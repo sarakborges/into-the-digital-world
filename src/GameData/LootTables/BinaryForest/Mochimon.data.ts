@@ -1,8 +1,7 @@
 import type { LootTableType } from '@/Types/Digimon.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
-
-import { MOCHIMON } from '@/GameData/Digimons'
+import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
 export const BINARY_FOREST_MOCHIMON_LOOT_TABLE: Array<LootTableType> = [
   {
@@ -70,14 +69,14 @@ export const BINARY_FOREST_MOCHIMON_LOOT_TABLE: Array<LootTableType> = [
 
   {
     type: 'core',
-    id: MOCHIMON.id,
+    id: ALL_DIGIMONS.MOCHIMON.id,
     dropChance: 3,
     maxQuantity: 1
   },
 
   {
     type: 'research',
-    id: MOCHIMON.id,
+    id: ALL_DIGIMONS.MOCHIMON.id,
     dropChance: 5,
     maxQuantity: 1
   }

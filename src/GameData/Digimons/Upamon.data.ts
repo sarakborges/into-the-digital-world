@@ -2,7 +2,7 @@ import type { DigimonType } from '@/Types/Digimon.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
 
-export const UPAMON: DigimonType = {
+const upamon: DigimonType = {
   id: `UPAMON`,
   name: `Upamon`,
 
@@ -19,3 +19,5 @@ export const UPAMON: DigimonType = {
     spd: 17
   }
 }
+
+export const UPAMON = { ...upamon }

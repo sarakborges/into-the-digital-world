@@ -1,8 +1,7 @@
 import type { LootTableType } from '@/Types/Digimon.type'
 
 import { ALL_CORES } from '@/Consts/Cores.const'
-
-import { NYAROMON } from '@/GameData/Digimons'
+import { ALL_DIGIMONS } from '@/GameData/Digimons'
 
 export const BINARY_FOREST_NYAROMON_LOOT_TABLE: Array<LootTableType> = [
   {
@@ -70,14 +69,14 @@ export const BINARY_FOREST_NYAROMON_LOOT_TABLE: Array<LootTableType> = [
 
   {
     type: 'core',
-    id: NYAROMON.id,
+    id: ALL_DIGIMONS.NYAROMON.id,
     dropChance: 3,
     maxQuantity: 1
   },
 
   {
     type: 'research',
-    id: NYAROMON.id,
+    id: ALL_DIGIMONS.NYAROMON.id,
     dropChance: 5,
     maxQuantity: 1
   }

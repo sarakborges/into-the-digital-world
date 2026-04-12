@@ -7,7 +7,7 @@ import { ProfileContext } from '@/Contexts/Profile.context'
 
 import { ROUTES } from '@/Routes/Routes'
 
-import { STARTERS } from '@/GameData/Digimons'
+import { ALL_DIGIMONS, ALL_STARTERS } from '@/GameData/Digimons'
 
 import { Typography } from '@/Components/System/Typography'
 import { Input } from '@/Components/System/Input'
@@ -48,7 +48,7 @@ export const StarterSelectionTemplate = () => {
     const name = prompt('Do you want to name your partner? (optional)') || ''
 
     const starterPartner = {
-      id: digimonId,
+      id: digimonId || 0,
       name: name || '',
       baseDigimon: starterId
     }
@@ -93,21 +93,23 @@ export const StarterSelectionTemplate = () => {
         </header>
 
         <ul className="starters-list">
-          {STARTERS.map((starterItem) => (
+          {Object.values(ALL_STARTERS).map((starterItem) => (
             <li
               key={`starter-list-item-${starterItem.id}`}
               className="starters-list-item"
             >
-              <label>
-                <Input
-                  type="radio"
-                  name="starter-digimon"
-                  value={starterItem.id}
-                  onChange={selectDigimon}
-                />
+              {starterItem.id && (
+                <label>
+                  <Input
+                    type="radio"
+                    name="starter-digimon"
+                    value={starterItem.id}
+                    onChange={selectDigimon}
+                  />
 
-                <DetailedDigimonCard digimon={starterItem} />
-              </label>
+                  <DetailedDigimonCard digimon={starterItem} />
+                </label>
+              )}
             </li>
           ))}
         </ul>
