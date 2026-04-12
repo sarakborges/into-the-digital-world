@@ -7,7 +7,7 @@ import { ProfileContext } from '@/Contexts/Profile.context'
 
 import { ROUTES } from '@/Routes/Routes'
 
-import { ALL_DIGIMONS, ALL_STARTERS } from '@/GameData/Digimons'
+import { ALL_STARTERS } from '@/GameData/Digimons'
 
 import { Typography } from '@/Components/System/Typography'
 import { Input } from '@/Components/System/Input'

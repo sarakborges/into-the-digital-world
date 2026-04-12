@@ -48,14 +48,14 @@ export const BINARY_FOREST_TANEMON_LOOT_TABLE: Array<LootTableType> = [
 
   {
     type: 'core',
-    id: ALL_DIGIMONS.TAMEMON.id,
+    id: ALL_DIGIMONS.TANEMON.id,
     dropChance: 3,
     maxQuantity: 1
   },
 
   {
     type: 'research',
-    id: ALL_DIGIMONS.TAMEMON.id,
+    id: ALL_DIGIMONS.TANEMON.id,
     dropChance: 5,
     maxQuantity: 1
   }
