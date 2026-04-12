@@ -25,35 +25,6 @@ import { WANYAMON } from '@/GameData/Digimons/Wanyamon.data'
 import { YARMON } from '@/GameData/Digimons/Yarmon.data'
 import { AGUMON } from '@/GameData/Digimons/Agumon.data'
 
-export {
-  KOROMON,
-  TUNOMON,
-  MOCHIMON,
-  NYAROMON,
-  BUKAMON,
-  PYOCOMON,
-  TANEMON,
-  TOKOMON,
-  BUDMON,
-  CHIBIMON,
-  CHOCOMON,
-  DORIMON,
-  GIGIMON,
-  GUMMYMON,
-  HOPMON,
-  KYOKYOMON,
-  MINOMON,
-  PAGUMON,
-  PETITMERAMON,
-  POKOMON,
-  POROMON,
-  TSUMEMON,
-  UPAMON,
-  WANYAMON,
-  YARMON,
-  AGUMON
-}
-
 export const ALL_DIGIMONS = {
   KOROMON,
   TUNOMON,
