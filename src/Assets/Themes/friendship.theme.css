@@ -1,0 +1,17 @@
+.theme-friendship {
+  --color-primary: #3a6ea5;
+  --color-primary-strong: #274d73;
+  --color-primary-weak: #0f2236;
+
+  --color-secondary: #8fb6de;
+  --color-secondary-strong: #5f8fc4;
+  --color-secondary-weak: #2a3f57;
+
+  --color-cancel: #8a2f2f;
+  --color-cancel-strong: #5c1f1f;
+  --color-cancel-weak: #2e0f0f;
+
+  --color-neutral-weak: #f4f7fb;
+  --color-neutral: #7d8b9a;
+  --color-neutral-strong: #101820;
+}

@@ -1,0 +1,17 @@
+.theme-knowledge {
+  --color-primary: #7b61ff;
+  --color-primary-strong: #4b3db3;
+  --color-primary-weak: #1e1950;
+
+  --color-secondary: #b3a6ff;
+  --color-secondary-strong: #8575e6;
+  --color-secondary-weak: #3a3366;
+
+  --color-cancel: #ff4d4d;
+  --color-cancel-strong: #b33333;
+  --color-cancel-weak: #591919;
+
+  --color-neutral-weak: #f6f7ff;
+  --color-neutral: #8b8fa3;
+  --color-neutral-strong: #0f1020;
+}

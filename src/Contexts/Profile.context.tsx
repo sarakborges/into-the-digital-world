@@ -3,79 +3,39 @@ import type { ReactNode } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 
 import type { ProfileType } from '@/Types/Profile.type'
+import type { ProfileContextType } from '@/Types/Contexts/ProfileContext.type'
 
-import { ROUTES } from '@/Routes/Routes'
-
-type ProfileContextType = {
-  profile: ProfileType
-  setProfile: React.Dispatch<React.SetStateAction<ProfileType>>
-}
-
-export const ProfileContext = createContext<ProfileContextType | undefined>(
-  undefined
-)
+export const ProfileContext = createContext<ProfileContextType | null>(null)
 
 export const ProfileProvider = ({ children }: { children: ReactNode }) => {
   const navigate = useNavigate()
   const location = useLocation()
 
-  const [profile, setProfile] = useState<ProfileType>({
-    avatar: '',
-    currency: 0,
-    items: [],
-    name: '',
-    partners: [],
-    party: [],
-    points: 0,
-    researches: [],
-    templates: [],
-    cores: {},
-    quests: {}
-  })
+  const [profile, setProfile] = useState<ProfileType | null>(null)
 
   useEffect(() => {
     const localProfile = localStorage.getItem('profile')
 
+    // if (!localProfile) {
+    // navigate(ROUTES.CREATE_PROFILE.path)
+    // return
+    // }
+
+    const mockedProfile: ProfileType = {
+      name: `Hope`,
+      theme: `default`
+    }
+
+    setProfile(mockedProfile)
+
     if (!localProfile) {
-      navigate(ROUTES.CREATE_PROFILE.path)
-      return
-    }
-
-    const localProfileParsed = JSON.parse(localProfile)
-
-    if (
-      !localProfileParsed?.name &&
-      location.pathname !== ROUTES.CREATE_PROFILE.path
-    ) {
-      navigate(ROUTES.CREATE_PROFILE.path)
-      return
-    }
-
-    if (
-      !localProfileParsed?.partners?.length &&
-      location.pathname !== ROUTES.STARTER_SELECTION.path
-    ) {
-      navigate(ROUTES.STARTER_SELECTION.path)
-      return
-    }
-
-    setProfile(localProfileParsed)
-
-    if (
-      localProfileParsed?.name &&
-      localProfileParsed?.partners?.length &&
-      [ROUTES.STARTER_SELECTION.path, ROUTES.CREATE_PROFILE.path].includes(
-        location.pathname
-      )
-    ) {
-      navigate(ROUTES.HOME.path)
-      return
+      localStorage.setItem('profile', JSON.stringify(mockedProfile))
     }
   }, [])
 
   return (
     <ProfileContext.Provider value={{ profile, setProfile }}>
-      {children}
+      <div className={`theme-${profile?.theme}`}>{children}</div>
     </ProfileContext.Provider>
   )
 }

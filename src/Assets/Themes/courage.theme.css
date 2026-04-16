@@ -1,0 +1,17 @@
+.theme-courage {
+  --color-primary: #ff6b35;
+  --color-primary-strong: #d6451b;
+  --color-primary-weak: #5c1f0e;
+
+  --color-secondary: #ffb199;
+  --color-secondary-strong: #ff8a66;
+  --color-secondary-weak: #5a2a1a;
+
+  --color-cancel: #b83232;
+  --color-cancel-strong: #7a1f1f;
+  --color-cancel-weak: #3d0f0f;
+
+  --color-neutral-weak: #fff8f5;
+  --color-neutral: #a68a7a;
+  --color-neutral-strong: #1a1412;
+}

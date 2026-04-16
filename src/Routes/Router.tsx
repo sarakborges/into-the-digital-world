@@ -3,27 +3,9 @@ import { createBrowserRouter } from 'react-router'
 import { ROUTES } from '@/Routes/Routes'
 
 import { HomeRoute } from '@/Routes/Home.route'
-import { MapsRoute } from '@/Routes/Maps.route'
-import { BattleRoute } from '@/Routes/Battle.route'
-import { StarterSelectionRoute } from '@/Routes/StarterSelection.route'
-import { CreateProfileRoute } from '@/Routes/CreateProfile.route'
-import { SettingsRoute } from '@/Routes/Settings.route'
-import { WikiRoute } from '@/Routes/Wiki.route'
-import { ComposeRoute } from '@/Routes/Compose.route'
-import { CollectionRoute } from '@/Routes/Collection.route'
-import { ResearchRoute } from '@/Routes/Research.route'
 
 const routeComponents = {
-  home: HomeRoute,
-  maps: MapsRoute,
-  battle: BattleRoute,
-  starterSelection: StarterSelectionRoute,
-  createProfile: CreateProfileRoute,
-  settings: SettingsRoute,
-  wiki: WikiRoute,
-  compose: ComposeRoute,
-  collection: CollectionRoute,
-  research: ResearchRoute
+  home: HomeRoute
 }
 
 export const ROUTER = createBrowserRouter([

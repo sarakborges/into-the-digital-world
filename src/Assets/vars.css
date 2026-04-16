@@ -1,44 +1,19 @@
 :root {
   --color-primary: #75b5f2;
-  --color-primary-transparent: #75b6f26b;
-  --color-primary-active: #3694eb;
-  --color-highlight: #11e445;
-  --color-primary-darker: #153162;
-  --body-background: #0b1c3a;
-  --modal-background: #0b1c3ae5;
+  --color-primary-strong: #3694eb;
+  --color-primary-weak: #153162;
 
-  --color-currentTurn: #3e5c91;
+  --color-secondary: #11e445;
+  --color-secondary-strong: #0b1c3a;
+  --color-secondary-weak: #0b1c3a;
 
   --color-cancel: #d63737;
-  --color-cancel-hover: #cc5d5d;
-  --color-white: #fcfcfc;
-  --color-white-transparent: #fcfcfcaa;
-  --color-black: #353c45;
+  --color-cancel-strong: #cc5d5d;
+  --color-cancel-weak: #cc5d5d;
 
-  --color-attribute-vaccine: #208d28;
-  --color-attribute-virus: #c42726;
-  --color-attribute-data: #3848c6;
-  --color-attribute-unknown: #676767;
-  --color-attribute-noAttribute: #dfd936;
-
-  --color-family-nsp: #478559;
-  --color-family-nso: #4b579c;
-  --color-family-ds: #487cb6;
-  --color-family-vb: #f7f0e5;
-  --color-family-dr: #d33735;
-  --color-family-jt: #95a937;
-  --color-family-wg: #7bb7c5;
-  --color-family-uk: #676767;
-  --color-family-da: #0d0d0d;
-  --color-family-me: #88848c;
-
-  --color-map-type-combat: #993925;
-  --color-map-type-quest: #9f51bc;
-  --color-map-type-quest_repeatable: #3f86d7;
-  --color-map-type-commerce: #c1a519;
-  --color-map-type-event: #42a44e;
-
-  --typography-text: var(--color-white);
+  --color-neutral-weak: #fcfcfc;
+  --color-neutral: #999;
+  --color-neutral-strong: #151515;
 
   --size-xxs: 2px;
   --size-xs: 4px;
@@ -49,12 +24,6 @@
   --size-lg: 36px;
   --size-xl: 48px;
 
-  --size-field-default: 300px;
-
-  --font-weight-light: 300;
-  --font-weight-normal: 400;
-  --font-weight-bold: 700;
-
   --font-family: 'Winky Rough', sans-serif;
 
   --line-height-single: 1;
@@ -62,71 +31,4 @@
   --line-height-md: 1.5;
   --line-height-lg: 1.8;
   --line-height-double: 2;
-
-  --button-background: var(--color-primary-active);
-  --button-background-hover: var(--color-primary);
-  --button-cancel-background: var(--color-cancel);
-  --button-cancel-background-hover: var(--color-cancel-hover);
-  --button-text: var(--color-white);
-
-  --input-background: var(--color-white);
-  --input-border: transparent;
-  --input-border-focus: var(--color-primary);
-  --input-text: var(--color-black);
-
-  --field-background: var(--color-white);
-  --field-border: var(--color-primary);
-  --field-text: var(--color-black);
-
-  --portrait-size: 96px;
-  --portrait-size-sm: 68px;
-  --portrait-size-xs: 40px;
-  --portrait-size-lg: 128px;
-  --portrait-background: var(--color-primary);
-
-  --tag-background: var(--color-primary);
-  --tag-text: var(--color-white);
-
-  --sidebar-size: 320px;
-  --sidebar-background: var(--color-primary-darker);
-  --sidebar-subtitle-border: var(--color-primary);
-
-  --digivice-collected-cores-item-size: 72px;
-  --detailed-digimon-card-size: 560px;
-  --party-digimon-card-size: 560px;
-  --compose-template-size: 560px;
-  --digimon-details-size: 720px;
-  --digimon-details-picture-size: 280px;
-  --digimon-card-background: var(--color-primary-darker);
-
-  --map-minSize: 240px;
-  --map-details-size: 400px;
-  --map-details-background: var(--color-primary-darker);
-
-  --map-subtitles-background: var(--color-primary-darker);
-
-  --npc-modal-text-background: var(--color-primary-darker);
-  --npc-modal-picture-size: 96px;
-  --npc-modal-quests-size: 480px;
-  --npc-modal-max-height: calc(100vh - 160px);
-
-  --turn-order-spacing: 64px;
-  --turn-order-padding: 96px;
-
-  --party-item-card-background: var(--body-background);
-
-  --resource-bar-background: var(--color-primary-darker);
-  --resource-bar-hp-background-filled: #a13a52;
-  --resource-bar-sp-background-filled: #2c9569;
-  --resource-bar-regular-background-filled: var(--color-primary);
-  --regular-bar-background: var(--body-background);
-
-  --combat-board-negativeHeight: 408px;
-  --combat-board-spacing: 68px;
-  --combat-board-tile-width: 200px;
-  --combat-board-tile-height: 120px;
-  --combat-currentDigimonInfo-width: 320px;
-  --combat-log-width: 320px;
-
-  --research-card-width: 320px;
 }

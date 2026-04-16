@@ -1,0 +1,17 @@
+.theme-light {
+  --color-primary: #f4eaff;
+  --color-primary-strong: #d6c7f7;
+  --color-primary-weak: #f9f5ff;
+
+  --color-secondary: #fff0f6;
+  --color-secondary-strong: #e6d6f2;
+  --color-secondary-weak: #f5eefe;
+
+  --color-cancel: #d64545;
+  --color-cancel-strong: #942d2d;
+  --color-cancel-weak: #4a1616;
+
+  --color-neutral-weak: #ffffff;
+  --color-neutral: #c2bfd6;
+  --color-neutral-strong: #1a1826;
+}
