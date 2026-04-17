@@ -58,8 +58,7 @@ export const GameboardTemplate = () => {
             <div className="controller-col">
               <Button
                 disabled={
-                  typeof currentMap.grid[currentY - 1]?.[currentX] ===
-                    undefined ||
+                  currentMap.grid[currentY - 1]?.[currentX] === undefined ||
                   !currentMap.grid[currentY]?.[currentX]?.canMove.up
                 }
                 onClick={() => setLocation({ y: -1 })}
@@ -75,8 +74,7 @@ export const GameboardTemplate = () => {
             <div className="controller-col">
               <Button
                 disabled={
-                  typeof currentMap.grid[currentY]?.[currentX - 1] ===
-                    undefined ||
+                  currentMap.grid[currentY]?.[currentX - 1] === undefined ||
                   !currentMap.grid[currentY]?.[currentX]?.canMove.left
                 }
                 onClick={() => setLocation({ x: -1 })}
@@ -95,8 +93,7 @@ export const GameboardTemplate = () => {
             <div className="controller-col">
               <Button
                 disabled={
-                  typeof currentMap.grid[currentY]?.[currentX + 1] ===
-                    undefined ||
+                  currentMap.grid[currentY]?.[currentX + 1] === undefined ||
                   !currentMap.grid[currentY]?.[currentX]?.canMove.right
                 }
                 onClick={() => setLocation({ x: +1 })}
@@ -112,8 +109,7 @@ export const GameboardTemplate = () => {
             <div className="controller-col">
               <Button
                 disabled={
-                  typeof currentMap.grid[currentY + 1]?.[currentX] ===
-                    undefined ||
+                  currentMap.grid[currentY + 1]?.[currentX] === undefined ||
                   !currentMap.grid[currentY]?.[currentX]?.canMove.down
                 }
                 onClick={() => setLocation({ y: +1 })}
