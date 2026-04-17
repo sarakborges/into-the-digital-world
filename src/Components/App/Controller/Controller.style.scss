@@ -1,0 +1,50 @@
+.controller {
+  display: flex;
+  flex-flow: column;
+  place-items: center;
+  place-content: center;
+  gap: 4px;
+
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  z-index: 1;
+
+  padding: 8px;
+  overflow: hidden;
+
+  border-radius: 100%;
+  background-color: var(--color-primary-weak);
+
+  .controller-row {
+    display: flex;
+    place-items: center;
+    place-content: center;
+    gap: 4px;
+
+    .controller-col {
+      display: flex;
+      place-items: center;
+      place-content: center;
+
+      height: 32px;
+      aspect-ratio: 1/1;
+
+      .button {
+        padding: 4px;
+
+        svg {
+          width: 16px;
+          height: 16px;
+          aspect-ratio: 1/1;
+
+          color: var(--color-primary-weak);
+        }
+      }
+
+      .portrait {
+        border-radius: 100%;
+      }
+    }
+  }
+}
