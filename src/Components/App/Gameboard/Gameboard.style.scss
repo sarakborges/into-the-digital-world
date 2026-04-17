@@ -1,0 +1,39 @@
+.gameboard {
+  display: flex;
+  flex-flow: column;
+  place-items: center;
+  place-content: center;
+  gap: 4px;
+
+  .gameboard-row {
+    display: flex;
+    place-items: center;
+    place-content: center;
+    gap: 4px;
+
+    .gameboard-col {
+      height: 48px;
+      aspect-ratio: 1/1;
+      padding: 2px;
+
+      background-color: var(--color-primary-strong);
+
+      .tile {
+        display: flex;
+        place-items: center;
+        place-content: center;
+
+        > div {
+          border: 2px solid;
+
+          border-radius: 100%;
+          overflow: hidden;
+        }
+
+        & > .player-character {
+          border-color: var(--color-secondary);
+        }
+      }
+    }
+  }
+}
