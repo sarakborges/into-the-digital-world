@@ -1,0 +1,64 @@
+.dialog {
+  display: flex;
+  flex-flow: column;
+
+  header {
+    display: flex;
+    place-items: flex-end;
+
+    position: relative;
+
+    .portrait {
+      position: relative;
+      z-index: 2;
+
+      max-width: 64px;
+      padding: 2px;
+
+      border-radius: 100%;
+      border: 2px solid var(--color-primary-strong);
+
+      img {
+        border-radius: 100%;
+      }
+    }
+
+    .text {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 1;
+
+      padding-left: 68px;
+      padding-right: 8px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+
+      background-color: var(--color-primary-strong);
+      border-radius: 8px 8px 0 0;
+    }
+  }
+
+  main {
+    padding: 8px 16px;
+
+    border-radius: 0 8px 8px 8px;
+    background-color: var(--color-primary-strong);
+
+    white-space: pre;
+  }
+
+  footer {
+    display: flex;
+    place-content: flex-end;
+
+    margin-top: -12px;
+    padding-right: 8px;
+
+    .button {
+      padding: 4px;
+
+      background-color: var(--color-primary-weak);
+    }
+  }
+}

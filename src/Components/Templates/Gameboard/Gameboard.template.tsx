@@ -1,22 +1,31 @@
-import { useGame } from '@/Hooks/Game.hook'
+import { useProfile } from '@/Hooks/Profile.hook'
 
 import { Controller } from '@/Components/App/Controller'
 import { Gameboard } from '@/Components/App/Gameboard'
+import { Dialog } from '@/Components/App/Dialog'
 
 import './Gameboard.style.scss'
 
 export const GameboardTemplate = () => {
-  const { game } = useGame()
+  const { profile } = useProfile()
 
-  if (!game) {
-    return <></>
+  const dialogOptions = {
+    speaker: '???',
+    speakerAvatar: 'AGUMON',
+    text: `A human child? Don't move! I'll let the others know!\n*runs away*`
   }
 
   return (
     <div className="game-body">
       <div className="main-game">
-        <Gameboard />
-        <Controller />
+        {!!profile && (
+          <>
+            <Gameboard />
+            <Controller />
+          </>
+        )}
+
+        {!profile && <Dialog {...dialogOptions} />}
       </div>
     </div>
   )

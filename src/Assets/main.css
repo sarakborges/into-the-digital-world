@@ -29,8 +29,8 @@ body {
   width: 100%;
   min-height: 100vh;
 
-  color: var(--typography-text);
-  font-size: var(--size-md);
+  color: var(--text-color);
+  font-size: 16px;
   font-family: var(--font-family);
   font-weight: var(--font-weight-normal);
   line-height: var(--line-height-single);
