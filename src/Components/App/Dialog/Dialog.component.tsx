@@ -8,20 +8,22 @@ import './Dialog.style.scss'
 export const Dialog = ({
   speaker,
   speakerAvatar,
-  text
+  text,
+  options
 }: {
   speaker: string
   speakerAvatar: string
   text: string
+  options?: Array<{
+    text: string
+    action: () => void
+  }>
 }) => {
   return (
     <Modal>
       <main className="dialog">
         <header>
-          <Portrait
-            alt="Helper Digimon"
-            src={`/digimon_portraits/${speakerAvatar}.jpg`}
-          />
+          <Portrait alt="Helper Digimon" src={`/npcs/${speakerAvatar}.jpg`} />
 
           <Text>{speaker}</Text>
         </header>
@@ -30,9 +32,18 @@ export const Dialog = ({
           <Text>{text}</Text>
         </main>
 
-        <footer>
-          <Button>[...]</Button>
-        </footer>
+        {options?.length && (
+          <footer>
+            {options.map((option) => (
+              <Button
+                key={`dialog-option-${option.text}`}
+                onClick={option.action}
+              >
+                {option.text}
+              </Button>
+            ))}
+          </footer>
+        )}
       </main>
     </Modal>
   )

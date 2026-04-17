@@ -6,6 +6,8 @@ import { loadData } from '@/Helpers/loadData.helper'
 import type { GameType } from '@/Types/Game.type'
 import type { GameContextType } from '@/Types/Contexts/GameContext.type'
 
+import * as Zones from '@/GameData/Zones'
+
 import { useProfile } from '@/Hooks/Profile.hook'
 
 export const GameContext = createContext<GameContextType | null>(null)
@@ -21,12 +23,17 @@ export const GameProvider = ({ children }: { children: ReactNode }) => {
       setGame({
         currentMap: 'RootDomain',
         currentX: 1,
-        currentY: 1,
-        scene: ''
+        currentY: 1
       })
 
       return
     }
+
+    setGame({
+      currentMap: 'RootDomain',
+      currentX: Zones['RootDomain'].spawn.x,
+      currentY: Zones['RootDomain'].spawn.y
+    })
 
     setProfile(localProfile)
   }, [])

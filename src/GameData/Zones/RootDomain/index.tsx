@@ -7,6 +7,9 @@ import { A4 } from '@/GameData/Zones/RootDomain/a4.tile'
 import { A5 } from '@/GameData/Zones/RootDomain/a5.tile'
 
 export const RootDomain = {
+  id: `ROOT_DOMAIN`,
+  name: `Root Domain`,
+
   spawn: {
     x: 3,
     y: 3
