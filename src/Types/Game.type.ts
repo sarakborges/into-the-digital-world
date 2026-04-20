@@ -1,5 +1,6 @@
 export type GameType = {
-  currentMap: string
+  currentZone: string
+  currentScene: string
   currentX: number
   currentY: number
 }

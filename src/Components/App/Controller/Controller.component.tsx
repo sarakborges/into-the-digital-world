@@ -22,7 +22,7 @@ export const Controller = () => {
     return <></>
   }
 
-  const currentMap = { ...Zones[game.currentMap] }
+  const currentZone = { ...Zones[game.currentZone] }
 
   const setLocation = ({ x, y }: { x?: number; y?: number }) => {
     setGame((prevGame) => ({
@@ -40,9 +40,9 @@ export const Controller = () => {
         <div className="controller-col">
           <Button
             disabled={
-              currentMap.grid[game.currentY - 1]?.[game.currentX] ===
+              currentZone.grid[game.currentY - 1]?.[game.currentX] ===
                 undefined ||
-              !currentMap.grid[game.currentY]?.[game.currentX]?.canMove.up
+              !currentZone.grid[game.currentY]?.[game.currentX]?.canMove.up
             }
             onClick={() => setLocation({ y: -1 })}
           >
@@ -57,9 +57,9 @@ export const Controller = () => {
         <div className="controller-col">
           <Button
             disabled={
-              currentMap.grid[game.currentY]?.[game.currentX - 1] ===
+              currentZone.grid[game.currentY]?.[game.currentX - 1] ===
                 undefined ||
-              !currentMap.grid[game.currentY]?.[game.currentX]?.canMove.left
+              !currentZone.grid[game.currentY]?.[game.currentX]?.canMove.left
             }
             onClick={() => setLocation({ x: -1 })}
           >
@@ -77,9 +77,9 @@ export const Controller = () => {
         <div className="controller-col">
           <Button
             disabled={
-              currentMap.grid[game.currentY]?.[game.currentX + 1] ===
+              currentZone.grid[game.currentY]?.[game.currentX + 1] ===
                 undefined ||
-              !currentMap.grid[game.currentY]?.[game.currentX]?.canMove.right
+              !currentZone.grid[game.currentY]?.[game.currentX]?.canMove.right
             }
             onClick={() => setLocation({ x: +1 })}
           >
@@ -94,9 +94,9 @@ export const Controller = () => {
         <div className="controller-col">
           <Button
             disabled={
-              currentMap.grid[game.currentY + 1]?.[game.currentX] ===
+              currentZone.grid[game.currentY + 1]?.[game.currentX] ===
                 undefined ||
-              !currentMap.grid[game.currentY]?.[game.currentX]?.canMove.down
+              !currentZone.grid[game.currentY]?.[game.currentX]?.canMove.down
             }
             onClick={() => setLocation({ y: +1 })}
           >

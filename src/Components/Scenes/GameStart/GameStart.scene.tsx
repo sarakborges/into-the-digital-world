@@ -1,28 +1,22 @@
-import { useProfile } from '@/Hooks/Profile.hook'
+import { useGame } from '@/Hooks/Game.hook'
 
 import { Dialog } from '@/Components/App/Dialog'
-import { saveData } from '@/Helpers/saveData.helper'
 
 export const GameStart = () => {
-  const { setProfile } = useProfile()
+  const { setGame } = useGame()
 
   const dialogOptions = {
     speaker: '???',
-    speakerAvatar: 'AGUMON',
+    speakerAvatar: 'ROOT_DOMAIN-CULUMON',
     text: `A human child? Don't move! I'll let the others know!\n*runs away*`,
     options: [
       {
         text: `[...]`,
         action: () => {
-          const name = prompt(`Insert name to proceed`) || ''
-
-          const newProfile = {
-            name,
-            theme: ''
-          }
-
-          setProfile(newProfile)
-          saveData({ key: 'profile', value: newProfile })
+          setGame((prevState) => ({
+            ...prevState,
+            currentScene: 'introduction'
+          }))
         }
       }
     ]

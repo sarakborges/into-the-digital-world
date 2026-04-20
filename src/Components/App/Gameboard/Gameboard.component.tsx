@@ -13,13 +13,13 @@ export const Gameboard = () => {
     return <></>
   }
 
-  const currentMap = { ...Zones[game.currentMap] }
+  const currentZone = { ...Zones[game.currentZone] }
 
   return (
     <main className="gameboard">
-      {Object.keys(currentMap.grid).map((row) => (
+      {Object.keys(currentZone.grid).map((row) => (
         <div className="gameboard-row" key={`map-row-${row}`}>
-          {Object.keys(currentMap.grid[row]).map((col) => (
+          {Object.keys(currentZone.grid[row]).map((col) => (
             <div className="gameboard-col" key={`map-row-${row}-col-${col}`}>
               <div className="tile">
                 {game.currentX === Number(col) &&

@@ -22,11 +22,13 @@ export const Dialog = ({
   return (
     <Modal>
       <main className="dialog">
-        <header>
-          <Portrait alt="Helper Digimon" src={`/npcs/${speakerAvatar}.jpg`} />
+        {speaker && (
+          <header>
+            <Portrait alt="Helper Digimon" src={`/npcs/${speakerAvatar}.jpg`} />
 
-          <Text>{speaker}</Text>
-        </header>
+            <Text>{speaker}</Text>
+          </header>
+        )}
 
         <main>
           <Text>{text}</Text>

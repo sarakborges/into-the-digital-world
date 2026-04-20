@@ -10,31 +10,26 @@ import * as Zones from '@/GameData/Zones'
 
 import { useProfile } from '@/Hooks/Profile.hook'
 
-export const GameContext = createContext<GameContextType | null>(null)
+const defaultZone = Zones['RootDomain']
+
+const defaultGame = {
+  currentScene: 'gameStart',
+  currentZone: defaultZone.id,
+  currentX: defaultZone.spawn.x,
+  currentY: defaultZone.spawn.y
+}
+
+export const GameContext = createContext<GameContextType>({
+  game: defaultGame,
+  setGame: () => {}
+})
 
 export const GameProvider = ({ children }: { children: ReactNode }) => {
   const { setProfile } = useProfile()
-  const [game, setGame] = useState<GameType | null>(null)
+  const [game, setGame] = useState<GameType>(defaultGame)
 
   useEffect(() => {
     const localProfile = loadData({ key: 'profile' })
-
-    if (!localProfile) {
-      setGame({
-        currentMap: 'RootDomain',
-        currentX: 1,
-        currentY: 1
-      })
-
-      return
-    }
-
-    setGame({
-      currentMap: 'RootDomain',
-      currentX: Zones['RootDomain'].spawn.x,
-      currentY: Zones['RootDomain'].spawn.y
-    })
-
     setProfile(localProfile)
   }, [])
 
