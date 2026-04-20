@@ -11,8 +11,8 @@ export const Dialog = ({
   text,
   options
 }: {
-  speaker: string
-  speakerAvatar: string
+  speaker?: string
+  speakerAvatar?: string
   text: string
   options?: Array<{
     text: string

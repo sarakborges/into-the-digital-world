@@ -1,16 +1,19 @@
 import type { ProfileType } from '@/Types/Profile.type'
 
+import { useScene } from '@/Hooks/Scene.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
 
 import { Dialog } from '@/Components/App/Dialog'
+import { saveData } from '@/Helpers/saveData.helper'
 
-export const Introduction = () => {
+export const Introduction003 = () => {
+  const { setScene } = useScene()
   const { setProfile } = useProfile()
 
   const dialogOptions = {
     speaker: '???',
     speakerAvatar: 'ROOT_DOMAIN-PIYOMON',
-    text: `Oh dear! Hello, young one. Did you rest well?\n*cough*\nSorry for not introducing myself.\n*AHEM*\nMy name is Piyomon! What is yours?`,
+    text: `Oh dear! Hello, young one.\nMy name is Piyomon! What is yours?\n `,
     options: [
       {
         text: `[...]`,
@@ -23,6 +26,15 @@ export const Introduction = () => {
           }
 
           setProfile(profile)
+          saveData({
+            key: 'profile',
+            value: profile
+          })
+
+          setScene({
+            currentScene: 'introduction',
+            currentStage: '004'
+          })
         }
       }
     ]

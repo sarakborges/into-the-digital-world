@@ -1,9 +1,9 @@
-import { useGame } from '@/Hooks/Game.hook'
+import { useScene } from '@/Hooks/Scene.hook'
 
 import { Dialog } from '@/Components/App/Dialog'
 
-export const GameStart = () => {
-  const { setGame } = useGame()
+export const Introduction001 = () => {
+  const { setScene } = useScene()
 
   const dialogOptions = {
     speaker: '???',
@@ -13,10 +13,10 @@ export const GameStart = () => {
       {
         text: `[...]`,
         action: () => {
-          setGame((prevState) => ({
-            ...prevState,
-            currentScene: 'introduction'
-          }))
+          setScene({
+            currentScene: 'introduction',
+            currentStage: '002'
+          })
         }
       }
     ]

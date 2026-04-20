@@ -13,7 +13,6 @@ import { useProfile } from '@/Hooks/Profile.hook'
 const defaultZone = Zones['RootDomain']
 
 const defaultGame = {
-  currentScene: 'gameStart',
   currentZone: defaultZone.id,
   currentX: defaultZone.spawn.x,
   currentY: defaultZone.spawn.y
