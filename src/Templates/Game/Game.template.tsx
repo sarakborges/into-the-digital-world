@@ -1,26 +1,45 @@
+import { useEffect } from 'react'
+
+import { Scenes } from '@/Scenes'
+
 import { useScene } from '@/Hooks/Scene.hook'
+import { useProfile } from '@/Hooks/Profile.hook'
 
 import { Controller } from '@/Components/App/Controller'
 import { Gameboard } from '@/Components/App/Gameboard'
-
-import { Scenes } from '@/Scenes'
+import { Settings } from '@/Components/App/Settings'
 
 import './Game.style.scss'
 
 export const Game = () => {
-  const { scene } = useScene()
+  const { scene, setScene } = useScene()
+  const { profile } = useProfile()
+
+  useEffect(() => {
+    if (!profile) {
+      setScene({
+        currentScene: 'introduction',
+        currentStage: '001'
+      })
+    }
+  }, [])
 
   return (
     <div className="game-body">
       <div className="main-game">
-        {
-          Scenes[scene?.currentScene || 'introduction'][
-            scene?.currentStage || '001'
-          ]
-        }
+        <Settings />
 
-        <Gameboard />
-        <Controller />
+        <>
+          {!!scene?.currentScene &&
+            Scenes[scene?.currentScene][scene?.currentStage || '001']}
+        </>
+
+        {!scene && (
+          <>
+            <Gameboard />
+            <Controller />
+          </>
+        )}
       </div>
     </div>
   )

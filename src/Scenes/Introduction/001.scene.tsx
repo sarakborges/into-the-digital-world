@@ -6,9 +6,7 @@ export const Introduction001 = () => {
   const { setScene } = useScene()
 
   const dialogOptions = {
-    speaker: '???',
-    speakerAvatar: 'ROOT_DOMAIN-CULUMON',
-    text: `A human child? Don't move! I'll let the others know!\n*runs away*`,
+    text: `As you wake up, you realize you are not in your bed. This place looks totally alien. 0s and 1s floating. Data streams flowing through.`,
     options: [
       {
         text: `[...]`,

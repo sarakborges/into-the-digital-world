@@ -1,10 +1,10 @@
-import type { ProfileType } from '@/Types/Profile.type'
-
 import { useScene } from '@/Hooks/Scene.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
 
-import { Dialog } from '@/Components/App/Dialog'
 import { saveData } from '@/Helpers/saveData.helper'
+
+import { Dialog } from '@/Components/App/Dialog'
+import type { ProfileType } from '@/Types/Profile.type'
 
 export const Introduction003 = () => {
   const { setScene } = useScene()
@@ -12,8 +12,8 @@ export const Introduction003 = () => {
 
   const dialogOptions = {
     speaker: '???',
-    speakerAvatar: 'ROOT_DOMAIN-PIYOMON',
-    text: `Oh dear! Hello, young one.\nMy name is Piyomon! What is yours?\n `,
+    speakerAvatar: 'ROOT_DOMAIN-CULUMON',
+    text: `You look funny. Hi! I'm Culumon. What is your name?`,
     options: [
       {
         text: `[...]`,

@@ -1,0 +1,42 @@
+.settings {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  display: flex;
+  place-content: flex-end;
+
+  width: 100%;
+  padding: 8px;
+
+  header {
+    display: flex;
+    place-items: center;
+    place-content: space-between;
+
+    width: 100%;
+  }
+
+  .button {
+    padding: 4px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .modal {
+    flex-flow: column;
+    place-items: flex-end;
+    place-content: flex-start;
+
+    padding: 8px;
+
+    > main {
+      flex: 1;
+      width: 100%;
+    }
+  }
+}

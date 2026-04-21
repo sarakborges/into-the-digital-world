@@ -5,6 +5,10 @@
   place-content: center;
   gap: 4px;
 
+  padding: 4px;
+
+  background-color: var(--color-primary);
+
   .gameboard-row {
     display: flex;
     place-items: center;

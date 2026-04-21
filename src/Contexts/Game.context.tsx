@@ -1,14 +1,10 @@
-import { createContext, useEffect, useState } from 'react'
+import { createContext, useState } from 'react'
 import type { ReactNode } from 'react'
-
-import { loadData } from '@/Helpers/loadData.helper'
 
 import type { GameType } from '@/Types/Game.type'
 import type { GameContextType } from '@/Types/Contexts/GameContext.type'
 
 import * as Zones from '@/GameData/Zones'
-
-import { useProfile } from '@/Hooks/Profile.hook'
 
 const defaultZone = Zones['RootDomain']
 
@@ -24,13 +20,7 @@ export const GameContext = createContext<GameContextType>({
 })
 
 export const GameProvider = ({ children }: { children: ReactNode }) => {
-  const { setProfile } = useProfile()
   const [game, setGame] = useState<GameType>(defaultGame)
-
-  useEffect(() => {
-    const localProfile = loadData({ key: 'profile' })
-    setProfile(localProfile)
-  }, [])
 
   return (
     <GameContext.Provider value={{ game, setGame }}>

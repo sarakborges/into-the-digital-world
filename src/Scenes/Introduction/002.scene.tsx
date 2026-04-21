@@ -6,7 +6,7 @@ export const Introduction002 = () => {
   const { setScene } = useScene()
 
   const dialogOptions = {
-    text: `The strange creature floats away, and leave you alone in the room for a while. Now there are a few more strange creatures.`,
+    text: `You realize a strange, but cute, creature approaches.`,
     options: [
       {
         text: `[...]`,
