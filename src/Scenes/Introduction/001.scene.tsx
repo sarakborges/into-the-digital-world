@@ -9,7 +9,7 @@ export const Introduction001 = () => {
     text: `As you wake up, you realize you are not in your bed. This place looks totally alien. 0s and 1s floating. Data streams flowing through.`,
     options: [
       {
-        text: `[...]`,
+        text: `Continue`,
         action: () => {
           setScene({
             currentScene: 'introduction',

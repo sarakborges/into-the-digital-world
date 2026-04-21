@@ -9,7 +9,7 @@ export const Introduction002 = () => {
     text: `You realize a strange, but cute, creature approaches.`,
     options: [
       {
-        text: `[...]`,
+        text: `Continue`,
         action: () => {
           setScene({
             currentScene: 'introduction',

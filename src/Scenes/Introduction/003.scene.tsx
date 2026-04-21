@@ -13,10 +13,10 @@ export const Introduction003 = () => {
   const dialogOptions = {
     speaker: '???',
     speakerAvatar: 'ROOT_DOMAIN-CULUMON',
-    text: `You look funny. Hi! I'm Culumon. What is your name?`,
+    text: `Hi! You look funny.\n*giggles*\nI'm Culumon. What are you?\n `,
     options: [
       {
-        text: `[...]`,
+        text: `Tell your name`,
         action: () => {
           const name = prompt('Insert name to proceed') || ''
 
