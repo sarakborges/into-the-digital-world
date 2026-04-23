@@ -1,6 +1,7 @@
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useGame } from '@/Hooks/Game.hook'
 import { useScene } from '@/Hooks/Scene.hook'
+import { useSettings } from '@/Hooks/Settings.hook'
 
 import { deleteData } from '@/Helpers/deleteData.helper'
 
@@ -12,6 +13,7 @@ export const ResetGame = () => {
   const { setScene } = useScene()
   const { setGame } = useGame()
   const { setProfile } = useProfile()
+  const { setSettings } = useSettings()
 
   const defaultZone = Zones['RootDomain']
 
@@ -31,6 +33,10 @@ export const ResetGame = () => {
 
       setGame(defaultGame)
       setProfile(null)
+
+      setSettings({
+        isOpen: false
+      })
 
       setScene({
         currentScene: 'introduction',
