@@ -17,8 +17,10 @@ export const SettingsProvider = ({ children }: { children: ReactNode }) => {
   const [settings, setSettings] = useState<SettingsType>({ ...defaultSettings })
 
   return (
-    <SettingsContext.Provider value={{ settings, setSettings }}>
-      {children}
-    </SettingsContext.Provider>
+    <div className={`theme-${settings?.theme || 'default'}`}>
+      <SettingsContext.Provider value={{ settings, setSettings }}>
+        {children}
+      </SettingsContext.Provider>
+    </div>
   )
 }

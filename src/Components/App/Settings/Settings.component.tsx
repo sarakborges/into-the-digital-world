@@ -7,8 +7,6 @@ import { Modal } from '@/Components/System/Modal'
 import { Text } from '@/Components/System/Text'
 import { useSettings } from '@/Hooks/Settings.hook'
 
-import { ResetGame } from '@/Components/App/ResetGame'
-
 import './Settings.style.scss'
 
 export const Settings = () => {
@@ -19,10 +17,6 @@ export const Settings = () => {
     setSettings({ isOpen: !settings.isOpen })
   }
 
-  if (!profile) {
-    return
-  }
-
   const HeaderIcons = {
     cog: <FaCog />,
     times: <FaTimes />
@@ -30,7 +24,7 @@ export const Settings = () => {
 
   const TextHeader = ({ icon }: { icon: string }) => (
     <header>
-      <Text>{profile.name}</Text>
+      <Text>{profile?.name}</Text>
 
       <Button onClick={toggleModal}>{HeaderIcons[icon]}</Button>
     </header>
@@ -42,9 +36,7 @@ export const Settings = () => {
         <Modal>
           <TextHeader icon="times" />
 
-          <main>
-            <ResetGame />
-          </main>
+          <main></main>
         </Modal>
       )}
 

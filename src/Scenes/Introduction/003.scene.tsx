@@ -1,14 +1,11 @@
 import { useScene } from '@/Hooks/Scene.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
 
-import { saveData } from '@/Helpers/saveData.helper'
-
 import { Dialog } from '@/Components/App/Dialog'
-import type { ProfileType } from '@/Types/Profile.type'
 
 export const Introduction003 = () => {
   const { setScene } = useScene()
-  const { setProfile } = useProfile()
+  const { profile, setProfile } = useProfile()
 
   const dialogOptions = {
     speaker: '???',
@@ -20,16 +17,7 @@ export const Introduction003 = () => {
         action: () => {
           const name = prompt('Insert name to proceed') || ''
 
-          const profile: ProfileType = {
-            name,
-            theme: 'default'
-          }
-
-          setProfile(profile)
-          saveData({
-            key: 'profile',
-            value: profile
-          })
+          setProfile({ ...profile!, name })
 
           setScene({
             currentScene: 'introduction',
