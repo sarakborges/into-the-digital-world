@@ -12,5 +12,8 @@
     display: flex;
     flex-flow: column;
     gap: 8px;
+
+    max-height: 260px;
+    overflow: auto;
   }
 }

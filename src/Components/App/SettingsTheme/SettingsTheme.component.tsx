@@ -11,7 +11,7 @@ import './SettingsTheme.style.scss'
 export const SettingsTheme = () => {
   return (
     <div className="settings-theme">
-      <Text>{getTexts('THEME')}</Text>
+      <Text>{getTexts('THEMES_TITLE')}</Text>
 
       <div className="themes-list">
         {THEMES.map((theme) => (
