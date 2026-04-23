@@ -7,6 +7,11 @@ export const Introduction001 = () => {
 
   const dialogOptions = {
     text: `As you wake up, you realize you are not in your bed. This place looks totally alien. 0s and 1s floating. Data streams flowing through.`,
+    image: {
+      alt: 'The Digital World',
+      src: '/zones/root_domain.png'
+    },
+
     options: [
       {
         text: `Continue`,

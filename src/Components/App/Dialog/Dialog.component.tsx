@@ -9,12 +9,17 @@ export const Dialog = ({
   speaker,
   speakerAvatar,
   text,
+  image,
   options
 }: {
   speaker?: string
   speakerAvatar?: string
-  text: string
-  options?: Array<{
+  text?: string
+  image?: {
+    alt: string
+    src: string
+  }
+  options: Array<{
     text: string
     action: () => void
   }>
@@ -24,25 +29,28 @@ export const Dialog = ({
       <main className="dialog">
         {speaker && (
           <header>
-            <Portrait alt="Helper Digimon" src={`/npcs/${speakerAvatar}.jpg`} />
+            {speakerAvatar && (
+              <Portrait
+                alt="Helper Digimon"
+                src={`/npcs/${speakerAvatar}.jpg`}
+              />
+            )}
 
             <Text>{speaker}</Text>
           </header>
         )}
 
         <main>
-          <Text>{text}</Text>
+          {image && <Portrait {...image} />}
+          {text && <Text>{text}</Text>}
         </main>
 
         {options?.length && (
           <footer>
             {options.map((option) => (
-              <Button
-                key={`dialog-option-${option.text}`}
-                onClick={option.action}
-              >
-                {option.text}
-              </Button>
+              <div key={`dialog-option-${option.text}`}>
+                <Button onClick={option.action}>{option.text}</Button>
+              </div>
             ))}
           </footer>
         )}

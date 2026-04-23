@@ -7,6 +7,11 @@ export const Introduction002 = () => {
 
   const dialogOptions = {
     text: `You realize a strange, but cute, creature approaches.`,
+    image: {
+      alt: 'Strange creature',
+      src: '/digimons/CULUMON.jpg'
+    },
+
     options: [
       {
         text: `Continue`,

@@ -31,35 +31,42 @@
       bottom: 0;
       z-index: 1;
 
-      padding-left: 68px;
-      padding-right: 8px;
-      padding-top: 4px;
-      padding-bottom: 4px;
+      padding: 4px 8px;
 
       background-color: var(--color-primary);
       border-radius: 8px 8px 0 0;
     }
+
+    .portrait + .text {
+      padding-left: 68px;
+    }
   }
 
   main {
-    padding: 8px 16px;
+    display: flex;
+    flex-flow: column;
 
     border-radius: 0 8px 8px 8px;
     background-color: var(--color-primary);
 
-    white-space: pre;
+    padding: 4px 8px 8px;
+
+    > .portrait + .text {
+      padding-top: 4px;
+    }
   }
 
   footer {
     display: flex;
     place-content: flex-end;
+    flex-wrap: wrap;
+    gap: 8px;
 
-    margin-top: -16px;
-    padding-right: 12px;
+    padding-top: 8px;
 
     .button {
       background-color: var(--color-primary-strong);
-      padding: 4px;
+      padding: 4px 8px;
     }
   }
 }

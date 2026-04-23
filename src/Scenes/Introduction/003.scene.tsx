@@ -13,7 +13,7 @@ export const Introduction003 = () => {
   const dialogOptions = {
     speaker: '???',
     speakerAvatar: 'ROOT_DOMAIN-CULUMON',
-    text: `Hi! You look funny.\n*giggles*\nI'm Culumon. What are you?\n `,
+    text: `Hi! You look funny.\n*giggles*\nI'm Culumon. What are you?`,
     options: [
       {
         text: `Tell your name`,
