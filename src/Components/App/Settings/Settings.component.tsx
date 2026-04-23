@@ -7,19 +7,21 @@ import { Modal } from '@/Components/System/Modal'
 import { Text } from '@/Components/System/Text'
 import { useSettings } from '@/Hooks/Settings.hook'
 
+import { SettingsTheme } from '@/Components/App/SettingsTheme'
+
 import './Settings.style.scss'
 
 export const Settings = () => {
   const { profile } = useProfile()
   const { settings, setSettings } = useSettings()
 
-  const toggleModal = () => {
-    setSettings({ isOpen: !settings.isOpen })
-  }
-
   const HeaderIcons = {
     cog: <FaCog />,
     times: <FaTimes />
+  }
+
+  const toggleModal = () => {
+    setSettings({ ...settings, isOpen: !settings.isOpen })
   }
 
   const TextHeader = ({ icon }: { icon: string }) => (
@@ -36,7 +38,9 @@ export const Settings = () => {
         <Modal>
           <TextHeader icon="times" />
 
-          <main></main>
+          <main>
+            <SettingsTheme />
+          </main>
         </Modal>
       )}
 

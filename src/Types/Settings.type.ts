@@ -1,4 +1,4 @@
 export type SettingsType = {
   isOpen: boolean
-  theme?: string
+  theme: string
 }

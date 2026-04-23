@@ -3,9 +3,6 @@
   flex-flow: column;
   place-items: center;
   place-content: center;
-  gap: 4px;
-
-  padding: 4px;
 
   background-color: var(--color-primary);
 
@@ -13,12 +10,10 @@
     display: flex;
     place-items: center;
     place-content: center;
-    gap: 4px;
 
     .gameboard-col {
       height: 48px;
       aspect-ratio: 1/1;
-      padding: 2px;
 
       background-color: var(--color-primary-strong);
 

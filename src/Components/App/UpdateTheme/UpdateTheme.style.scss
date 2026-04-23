@@ -1,0 +1,65 @@
+.update-theme {
+  .button {
+    display: flex;
+    place-items: center;
+    place-items: center;
+    gap: 8px;
+
+    width: 100%;
+
+    background-color: transparent;
+    border-radius: 0;
+
+    .theme-colors {
+      position: relative;
+      overflow: hidden;
+
+      border-radius: 4px;
+
+      .icon {
+        width: 32px;
+        aspect-ratio: 1;
+        overflow: hidden;
+
+        &:before,
+        &:after {
+          content: '';
+
+          position: absolute;
+
+          width: 130%;
+          height: 130%;
+
+          transform: rotate(45deg);
+        }
+
+        &:before {
+          top: -60%;
+          left: -60%;
+
+          background-color: var(--color-primary);
+        }
+
+        &:after {
+          bottom: -60%;
+          right: -60%;
+
+          background-color: var(--color-secondary);
+        }
+      }
+    }
+
+    .text {
+      display: flex;
+
+      flex: 1;
+
+      text-transform: capitalize;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

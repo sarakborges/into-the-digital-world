@@ -4,6 +4,7 @@
 @import url('./reset.css');
 
 @import url('./Themes/default.theme.css');
+@import url('./Themes/alternative.theme.css');
 @import url('./Themes/courage.theme.css');
 @import url('./Themes/friendship.theme.css');
 @import url('./Themes/knowledge.theme.css');

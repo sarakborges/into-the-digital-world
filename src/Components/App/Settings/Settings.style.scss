@@ -16,14 +16,14 @@
     place-content: space-between;
 
     width: 100%;
-  }
 
-  .button {
-    padding: 4px;
+    .button {
+      padding: 4px;
 
-    svg {
-      width: 16px;
-      height: 16px;
+      svg {
+        width: 16px;
+        height: 16px;
+      }
     }
   }
 
@@ -35,8 +35,9 @@
     padding: 8px;
 
     > main {
-      flex: 1;
       width: 100%;
+      padding: 8px 0;
+      flex: 1;
     }
   }
 }
