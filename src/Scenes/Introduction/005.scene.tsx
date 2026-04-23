@@ -25,7 +25,7 @@ export const Introduction005 = () => {
         action: () => {
           saveData({
             key: `profile${profile?.id}`,
-            value: { ...profile }
+            value: { ...profile, lastSave: new Date() }
           })
 
           saveData({

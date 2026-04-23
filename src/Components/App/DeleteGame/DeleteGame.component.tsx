@@ -31,5 +31,9 @@ export const DeleteGame = ({ profileId }: { profileId: number }) => {
     }
   }
 
-  return <Button onClick={resetGame}>{getTexts('DELETE_GAME_FILE')}</Button>
+  return (
+    <Button onClick={resetGame} cancel>
+      {getTexts('DELETE_GAME_FILE')}
+    </Button>
+  )
 }

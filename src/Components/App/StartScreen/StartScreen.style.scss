@@ -1,0 +1,67 @@
+.start-screen {
+  display: flex;
+  flex-flow: column;
+  gap: 24px;
+
+  width: 100%;
+  padding: 8px;
+
+  > header {
+    display: flex;
+
+    .text {
+      font-size: 32px;
+      font-weight: 700;
+      text-align: center;
+      line-height: var(--line-height-sm);
+    }
+  }
+
+  > main {
+    display: flex;
+    flex-flow: column;
+    gap: 8px;
+
+    .new-game {
+      .button {
+        width: 100%;
+        padding: 8px;
+      }
+    }
+
+    .saved-games {
+      display: flex;
+      flex-flow: column;
+      gap: 8px;
+
+      .game-file {
+        display: flex;
+        place-items: center;
+        gap: 4px;
+
+        padding: 8px 8px 8px 16px;
+
+        border-radius: 4px;
+        background-color: var(--color-primary-weak);
+
+        header {
+          display: flex;
+          flex-flow: column;
+          gap: 4px;
+
+          flex: 1;
+        }
+
+        .game-options {
+          display: flex;
+          flex-flow: column;
+          gap: 4px;
+
+          .button {
+            padding: 4px 8px;
+          }
+        }
+      }
+    }
+  }
+}

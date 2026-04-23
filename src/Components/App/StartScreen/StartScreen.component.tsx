@@ -12,6 +12,8 @@ import { Text } from '@/Components/System/Text'
 
 import { DeleteGame } from '@/Components/App/DeleteGame'
 
+import './StartScreen.style.scss'
+
 export const StartScreen = () => {
   const { savedProfiles } = useSavedProfiles()
   const { setProfile } = useProfile()
@@ -23,7 +25,11 @@ export const StartScreen = () => {
     )
 
     const newId = (sortedProfiles?.[0]?.id ?? 0) + 1
-    const newProfile: ProfileType = { id: newId, name: '' }
+    const newProfile: ProfileType = {
+      id: newId,
+      name: '',
+      lastSave: ''
+    }
 
     setProfile(newProfile)
     setScene({ currentScene: 'introduction', currentStage: '001' })
@@ -40,24 +46,45 @@ export const StartScreen = () => {
   }
 
   return (
-    <>
-      <Button onClick={createNewProfile}>{getTexts('START_NEW_GAME')}</Button>
+    <main className="start-screen">
+      <header>
+        <Text as="span">{getTexts('START_SCREEN_TITLE')}</Text>
+      </header>
 
-      {savedProfiles?.map((profile) => (
-        <div key={`savedProfiles-${profile.id}`}>
-          <Text>
-            {getTexts('GAME_FILE_TITLE')
-              .replace(`[NAME]`, profile.name)
-              .replace(`[TIME]`, new Date().toDateString())}
-          </Text>
-
-          <Button onClick={() => loadProfile(profile.id)}>
-            {getTexts('LOAD_GAME')}
+      <main>
+        <div className="new-game">
+          <Button onClick={createNewProfile}>
+            {getTexts('START_NEW_GAME')}
           </Button>
-
-          <DeleteGame profileId={profile.id} />
         </div>
-      ))}
-    </>
+
+        <div className="saved-games">
+          {savedProfiles?.map((profile) => (
+            <div key={`savedProfiles-${profile.id}`} className="game-file">
+              <header>
+                <Text as="span">
+                  {getTexts('GAME_FILE_TITLE').replace(`[NAME]`, profile.name)}
+                </Text>
+
+                <Text as="span">
+                  {getTexts('GAME_FILE_TIME').replace(
+                    `[TIME]`,
+                    new Date(profile.lastSave).toLocaleString()
+                  )}
+                </Text>
+              </header>
+
+              <div className="game-options">
+                <Button onClick={() => loadProfile(profile.id)}>
+                  {getTexts('LOAD_GAME')}
+                </Button>
+
+                <DeleteGame profileId={profile.id} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </main>
+    </main>
   )
 }
