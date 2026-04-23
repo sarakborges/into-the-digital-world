@@ -6,6 +6,7 @@ import type { ProfileType } from '@/Types/Profile.type'
 
 import { getTexts } from '@/Texts'
 import { loadData } from '@/Helpers/loadData.helper'
+import { saveSession } from '@/Helpers/saveSession.helper'
 
 import { Button } from '@/Components/System/Button'
 import { Text } from '@/Components/System/Text'
@@ -41,6 +42,11 @@ export const StartScreen = () => {
     if (!profile) {
       return
     }
+
+    saveSession({
+      key: 'profile',
+      value: profile
+    })
 
     setProfile(profile)
   }
