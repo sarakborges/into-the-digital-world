@@ -42,7 +42,7 @@ export const Dialog = ({
 
         <main>
           {image && <Portrait {...image} />}
-          {text && <Text>{text}</Text>}
+          {text && <Text as="p">{text}</Text>}
         </main>
 
         {options?.length && (

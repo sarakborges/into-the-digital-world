@@ -7,7 +7,7 @@ export const Text = ({
   as?: 'p' | 'h1' | 'h2' | 'span'
   children
 }) => {
-  const Component = as || 'p'
+  const Component = as || 'span'
 
   return <Component className="text">{children}</Component>
 }
