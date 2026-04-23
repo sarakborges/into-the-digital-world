@@ -1,6 +1,8 @@
 import { useScene } from '@/Hooks/Scene.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
 
+import { getDialog } from '@/Texts'
+
 import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction003 = () => {
@@ -10,12 +12,12 @@ export const Introduction003 = () => {
   const dialogOptions = {
     speaker: '???',
     speakerAvatar: 'ROOT_DOMAIN-CULUMON',
-    text: `Hi! You look funny.\n*giggles*\nI'm Culumon. What are you?`,
+    text: getDialog('INTRODUCTION_003_TEXT'),
     options: [
       {
-        text: `Tell your name`,
+        text: getDialog('INTRODUCTION_003_ACTION'),
         action: () => {
-          const name = prompt('Insert name to proceed') || ''
+          const name = prompt(getDialog('INTRODUCTION_003_PROMPT')) || ''
 
           setProfile({ ...profile!, name })
 

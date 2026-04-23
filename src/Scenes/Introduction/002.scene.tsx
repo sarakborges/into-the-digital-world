@@ -1,20 +1,23 @@
 import { useScene } from '@/Hooks/Scene.hook'
 
+import { getDialog } from '@/Texts'
+
 import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction002 = () => {
   const { setScene } = useScene()
 
   const dialogOptions = {
-    text: `You realize a strange, but cute, creature approaches.`,
+    text: getDialog('INTRODUCTION_002_TEXT'),
+
     image: {
-      alt: 'Strange creature',
+      alt: getDialog('INTRODUCTION_002_ALT'),
       src: '/digimons/CULUMON.jpg'
     },
 
     options: [
       {
-        text: `Continue`,
+        text: getDialog('INTRODUCTION_002_ACTION'),
         action: () => {
           setScene({
             currentScene: 'introduction',

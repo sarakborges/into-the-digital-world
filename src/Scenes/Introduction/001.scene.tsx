@@ -1,20 +1,23 @@
 import { useScene } from '@/Hooks/Scene.hook'
 
+import { getDialog } from '@/Texts'
+
 import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction001 = () => {
   const { setScene } = useScene()
 
   const dialogOptions = {
-    text: `As you wake up, you realize you are not in your bed. This place looks totally alien. 0s and 1s floating. Data streams flowing through.`,
+    text: getDialog('INTRODUCTION_001_TEXT'),
+
     image: {
-      alt: 'The Digital World',
+      alt: getDialog('INTRODUCTION_001_ALT'),
       src: '/zones/root_domain.png'
     },
 
     options: [
       {
-        text: `Continue`,
+        text: getDialog('INTRODUCTION_001_ACTION'),
         action: () => {
           setScene({
             currentScene: 'introduction',

@@ -5,6 +5,7 @@ import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
 import { saveData } from '@/Helpers/saveData.helper'
 
 import { Dialog } from '@/Components/App/Dialog'
+import { getDialog } from '@/Texts'
 
 export const Introduction005 = () => {
   const { setScene } = useScene()
@@ -14,10 +15,13 @@ export const Introduction005 = () => {
   const dialogOptions = {
     speaker: 'Culumon',
     speakerAvatar: 'ROOT_DOMAIN-CULUMON',
-    text: `"${profile?.name}mon"? What a funny name!`,
+    text: getDialog('INTRODUCTION_005_TEXT').replace('[NAME]', profile?.name),
     options: [
       {
-        text: `- Only "${profile?.name}". No "mon".`,
+        text: getDialog('INTRODUCTION_005_ACTION').replace(
+          '[NAME]',
+          profile?.name
+        ),
         action: () => {
           saveData({
             key: `profile${profile?.id}`,

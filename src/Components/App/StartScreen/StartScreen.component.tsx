@@ -4,11 +4,13 @@ import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
 
 import type { ProfileType } from '@/Types/Profile.type'
 
+import { getTexts } from '@/Texts'
 import { loadData } from '@/Helpers/loadData.helper'
 
 import { Button } from '@/Components/System/Button'
-import { DeleteGame } from '../DeleteGame'
 import { Text } from '@/Components/System/Text'
+
+import { DeleteGame } from '@/Components/App/DeleteGame'
 
 export const StartScreen = () => {
   const { savedProfiles } = useSavedProfiles()
@@ -39,15 +41,19 @@ export const StartScreen = () => {
 
   return (
     <>
-      <Button onClick={createNewProfile}>Start new game</Button>
+      <Button onClick={createNewProfile}>{getTexts('START_NEW_GAME')}</Button>
 
       {savedProfiles?.map((profile) => (
         <div key={`savedProfiles-${profile.id}`}>
           <Text>
-            {profile.name} (last save at <>{new Date().toDateString()}</>)
+            {getTexts('GAME_FILE_TITLE')
+              .replace(`[NAME]`, profile.name)
+              .replace(`[TIME]`, new Date().toDateString())}
           </Text>
 
-          <Button onClick={() => loadProfile(profile.id)}>Load game</Button>
+          <Button onClick={() => loadProfile(profile.id)}>
+            {getTexts('LOAD_GAME')}
+          </Button>
 
           <DeleteGame profileId={profile.id} />
         </div>

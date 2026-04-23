@@ -1,20 +1,42 @@
-import * as EnTexts from '@/Texts/En.text'
+import { loadData } from '@/Helpers/loadData.helper'
 
-const texts = {
-  'en-us': EnTexts
+import * as EnTexts from '@/Texts/Texts/En.text'
+import * as EnDialogs from '@/Texts/Dialogs/En.text'
+
+export const getTexts = (textKey) => {
+  const texts = {
+    'en-us': EnTexts
+  }
+
+  const settings = loadData({ key: 'settings' })
+  const lang = settings?.lang || 'en-us'
+
+  if (!texts[lang]) {
+    return `Text "${textKey}" not found in default language.`
+  }
+
+  if (!texts[lang || 'en-us'][textKey]) {
+    return `Text "${textKey}" not found in lang "${lang}".`
+  }
+
+  return texts[lang][textKey]
 }
 
-export const getTexts = ({ key }) => {
-  const lang = localStorage.getItem('lang')
-  const parsedLang = JSON.parse(lang || '')
-
-  if (!texts[parsedLang]) {
-    return `Text "${key}" not found in lang in default language.`
+export const getDialog = (textKey) => {
+  const texts = {
+    'en-us': EnDialogs
   }
 
-  if (!texts[parsedLang || 'en-us'][key]) {
-    return `Text "${key}" not found in lang "${parsedLang}".`
+  const settings = loadData({ key: 'settings' })
+  const lang = settings?.lang || 'en-us'
+
+  if (!texts[lang]) {
+    return `Text "${textKey}" not found in default language.`
   }
 
-  return texts[parsedLang][key]
+  if (!texts[lang || 'en-us'][textKey]) {
+    return `Text "${textKey}" not found in lang "${lang}".`
+  }
+
+  return texts[lang][textKey]
 }

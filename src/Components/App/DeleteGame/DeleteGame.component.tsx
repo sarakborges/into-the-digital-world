@@ -1,3 +1,5 @@
+import { getTexts } from '@/Texts'
+
 import { deleteData } from '@/Helpers/deleteData.helper'
 import { saveData } from '@/Helpers/saveData.helper'
 
@@ -29,5 +31,5 @@ export const DeleteGame = ({ profileId }: { profileId: number }) => {
     }
   }
 
-  return <Button onClick={resetGame}>Delete game file</Button>
+  return <Button onClick={resetGame}>{getTexts('DELETE_GAME_FILE')}</Button>
 }

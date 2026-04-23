@@ -1,6 +1,8 @@
 import { useScene } from '@/Hooks/Scene.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
 
+import { getDialog } from '@/Texts'
+
 import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction004 = () => {
@@ -9,10 +11,10 @@ export const Introduction004 = () => {
 
   const dialogOptions = {
     speaker: profile?.name,
-    text: `My name is ${profile?.name}.`,
+    text: getDialog('INTRODUCTION_004_TEXT').replace('[NAME]', profile?.name),
     options: [
       {
-        text: `Continue`,
+        text: getDialog('INTRODUCTION_004_ACTION'),
         action: () => {
           setScene({
             currentScene: 'introduction',
