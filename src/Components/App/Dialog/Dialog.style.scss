@@ -51,6 +51,10 @@
 
     padding: 4px 8px 8px;
 
+    > .portrait {
+      padding-top: 4px;
+    }
+
     > .portrait + .text {
       padding-top: 4px;
     }
@@ -65,7 +69,6 @@
     padding-top: 8px;
 
     .button {
-      background-color: var(--color-primary-strong);
       padding: 4px 8px;
     }
   }

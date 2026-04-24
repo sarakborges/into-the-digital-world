@@ -18,13 +18,21 @@ export const SavedProfilesProvider = ({
   const profiles = loadData({ key: 'profiles' }) || null
 
   const [savedProfiles, setSavedProfiles] = useState<Array<ProfileType> | null>(
-    profiles
-      ?.map((profile) => loadData({ key: `profile${profile}` }))
-      .filter((profile) => !!profile)
+    null
   )
 
+  const loadProfiles = () => {
+    setSavedProfiles(
+      profiles
+        ?.map((profile) => loadData({ key: `profile${profile}` }))
+        .filter((profile) => !!profile)
+    )
+  }
+
   return (
-    <SavedProfilesContext.Provider value={{ savedProfiles, setSavedProfiles }}>
+    <SavedProfilesContext.Provider
+      value={{ savedProfiles, setSavedProfiles, loadProfiles }}
+    >
       {children}
     </SavedProfilesContext.Provider>
   )

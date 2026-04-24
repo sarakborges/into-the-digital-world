@@ -2,6 +2,8 @@ import { FaCog, FaTimes } from 'react-icons/fa'
 
 import { getTexts } from '@/Texts'
 
+import { deleteSession } from '@/Helpers/deleteSession.helper'
+
 import { useProfile } from '@/Hooks/Profile.hook'
 
 import { Button } from '@/Components/System/Button'
@@ -24,6 +26,7 @@ export const Settings = () => {
   const returnToMainScreen = () => {
     setProfile(null)
     setSettings({ ...settings, isOpen: false })
+    deleteSession({ key: 'profile' })
   }
 
   return (
@@ -41,7 +44,7 @@ export const Settings = () => {
           <main>
             {!!profile && (
               <Button onClick={returnToMainScreen}>
-                Return to main screen
+                {getTexts('RETURN_TO_MAIN_SCREEN')}
               </Button>
             )}
 

@@ -5,4 +5,5 @@ export type SavedProfilesContextType = {
   setSavedProfiles: React.Dispatch<
     React.SetStateAction<Array<ProfileType> | null>
   >
+  loadProfiles: () => void
 }

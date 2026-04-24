@@ -8,9 +8,14 @@ import { NewGame } from '@/Components/App/NewGame'
 import { GameFile } from '@/Components/App/GameFile'
 
 import './StartScreen.style.scss'
+import { useEffect } from 'react'
 
 export const StartScreen = () => {
-  const { savedProfiles } = useSavedProfiles()
+  const { savedProfiles, loadProfiles } = useSavedProfiles()
+
+  useEffect(() => {
+    loadProfiles()
+  }, [])
 
   return (
     <main className="start-screen">

@@ -6,3 +6,4 @@ export const LOAD_GAME = `Load game`
 export const DELETE_GAME_FILE = `Delete game`
 export const THEMES_TITLE = `Theme`
 export const SETTINGS_TITLE = `Settings`
+export const RETURN_TO_MAIN_SCREEN = `Return to main screen`

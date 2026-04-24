@@ -6,11 +6,12 @@ import { saveData } from '@/Helpers/saveData.helper'
 
 import { Dialog } from '@/Components/App/Dialog'
 import { getDialog } from '@/Texts'
+import { saveSession } from '@/Helpers/saveSession.helper'
 
 export const Introduction005 = () => {
   const { setScene } = useScene()
   const { profile } = useProfile()
-  const { savedProfiles } = useSavedProfiles()
+  const { savedProfiles, loadProfiles } = useSavedProfiles()
 
   const dialogOptions = {
     speaker: 'Culumon',
@@ -23,16 +24,29 @@ export const Introduction005 = () => {
           profile?.name
         ),
         action: () => {
+          const updatedProfile = { ...profile, lastSave: new Date() }
+
           saveData({
             key: `profile${profile?.id}`,
-            value: { ...profile, lastSave: new Date() }
+            value: updatedProfile
           })
+
+          saveSession({
+            key: 'profile',
+            value: updatedProfile
+          })
+
+          const updatedProfiles = [
+            ...(savedProfiles || [])?.map((profile) => profile.id),
+            profile?.id
+          ]
 
           saveData({
             key: 'profiles',
-            value: [...(savedProfiles || []), profile?.id]
+            value: updatedProfiles
           })
 
+          loadProfiles()
           setScene(null)
         }
       }
