@@ -16,7 +16,7 @@ export const Introduction005 = () => {
       profile?.name.slice(-3) !== 'mon'
         ? 'INTRODUCTION_005_TEXT'
         : 'INTRODUCTION_005_TEXT_ALT'
-    ).replace('[NAME]', profile?.name),
+    ).replaceAll('[NAME]', profile?.name),
     options: [
       {
         text: getDialog('SCENES_CONTINUE_BUTTON'),

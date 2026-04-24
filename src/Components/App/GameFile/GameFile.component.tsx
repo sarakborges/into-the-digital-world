@@ -14,11 +14,11 @@ export const GameFile = ({ profile }: { profile: ProfileType }) => {
     <div className="game-file">
       <header>
         <Text>
-          {getTexts('GAME_FILE_TITLE').replace(`[NAME]`, profile.name)}
+          {getTexts('GAME_FILE_TITLE').replaceAll(`[NAME]`, profile.name)}
         </Text>
 
         <Text>
-          {getTexts('GAME_FILE_TIME').replace(
+          {getTexts('GAME_FILE_TIME').replaceAll(
             `[TIME]`,
             new Date(profile.lastSave).toLocaleString()
           )}

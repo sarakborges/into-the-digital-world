@@ -11,7 +11,10 @@ export const Introduction004 = () => {
 
   const dialogOptions = {
     speaker: profile?.name,
-    text: getDialog('INTRODUCTION_004_TEXT').replace('[NAME]', profile?.name),
+    text: getDialog('INTRODUCTION_004_TEXT').replaceAll(
+      '[NAME]',
+      profile?.name
+    ),
     options: [
       {
         text: getDialog('SCENES_CONTINUE_BUTTON'),

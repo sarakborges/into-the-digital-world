@@ -16,10 +16,13 @@ export const Introduction006 = () => {
   const dialogOptions = {
     speaker: 'Culumon',
     speakerAvatar: 'ROOT_DOMAIN-CULUMON',
-    text: getDialog('INTRODUCTION_005_TEXT').replace('[NAME]', profile?.name),
+    text: getDialog('INTRODUCTION_005_TEXT').replaceAll(
+      '[NAME]',
+      profile?.name
+    ),
     options: [
       {
-        text: getDialog('INTRODUCTION_005_ACTION').replace(
+        text: getDialog('INTRODUCTION_005_ACTION').replaceAll(
           '[NAME]',
           profile?.name
         ),

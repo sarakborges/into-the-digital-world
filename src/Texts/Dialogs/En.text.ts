@@ -14,4 +14,4 @@ export const INTRODUCTION_004_TEXT = `My name is [NAME].`
 
 export const INTRODUCTION_005_TEXT = `"[NAME]mon"? What a funny name!`
 export const INTRODUCTION_005_TEXT_ALT = `"[NAME]"? First time meeting one of you!`
-export const INTRODUCTION_006_TEXT = `Not "[NAME]mon"? Only [NAME]`
+export const INTRODUCTION_006_TEXT = `Not "[NAME]mon". Only [NAME].`
