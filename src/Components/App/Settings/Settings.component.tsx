@@ -10,6 +10,7 @@ import { Modal } from '@/Components/System/Modal'
 import { Text } from '@/Components/System/Text'
 
 import { SettingsTheme } from '@/Components/App/SettingsTheme'
+import { SettingsLanguage } from '@/Components/App/SettingsLanguage'
 import { ReturnToMainScreen } from '@/Components/App/ReturnToMainScreen'
 
 import './Settings.style.scss'
@@ -36,6 +37,7 @@ export const Settings = () => {
 
           <main>
             <ReturnToMainScreen />
+            <SettingsLanguage />
             <SettingsTheme />
           </main>
         </Modal>

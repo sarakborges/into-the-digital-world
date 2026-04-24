@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
 
 import { getTexts } from '@/Texts'
@@ -8,7 +10,6 @@ import { NewGame } from '@/Components/App/NewGame'
 import { GameFile } from '@/Components/App/GameFile'
 
 import './StartScreen.style.scss'
-import { useEffect } from 'react'
 
 export const StartScreen = () => {
   const { savedProfiles, loadProfiles } = useSavedProfiles()

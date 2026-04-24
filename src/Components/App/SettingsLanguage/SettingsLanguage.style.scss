@@ -1,0 +1,18 @@
+.settings-language {
+  display: flex;
+  flex-flow: column;
+  gap: 8px;
+
+  padding: 8px;
+
+  background-color: var(--color-primary-weak);
+  border-radius: 8px;
+
+  .languages-list {
+    display: flex;
+    flex-flow: column;
+
+    max-height: 240px;
+    overflow: auto;
+  }
+}

@@ -6,10 +6,10 @@ import { Introduction005 } from './005.scene'
 import { Introduction006 } from './006.scene'
 
 export const IntroductionScenes = {
-  '001': <Introduction001 />,
-  '002': <Introduction002 />,
-  '003': <Introduction003 />,
-  '004': <Introduction004 />,
-  '005': <Introduction005 />,
-  '006': <Introduction006 />
+  '001': Introduction001,
+  '002': Introduction002,
+  '003': Introduction003,
+  '004': Introduction004,
+  '005': Introduction005,
+  '006': Introduction006
 }

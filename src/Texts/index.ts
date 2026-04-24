@@ -6,6 +6,8 @@ import * as EnDialogs from '@/Texts/Dialogs/En.text'
 import * as PtTexts from '@/Texts/Texts/Pt.text'
 import * as PtDialogs from '@/Texts/Dialogs/Pt.text'
 
+const defaultLanguage = 'en-us'
+
 export const getTexts = (textKey) => {
   const texts = {
     'en-us': EnTexts,
@@ -13,13 +15,13 @@ export const getTexts = (textKey) => {
   }
 
   const settings = loadData({ key: 'settings' })
-  const lang = settings?.lang || 'en-us'
+  const lang = settings?.language || defaultLanguage
 
   if (!texts[lang]) {
     return `Text "${textKey}" not found in default language.`
   }
 
-  if (!texts[lang || 'en-us'][textKey]) {
+  if (!texts[lang || defaultLanguage][textKey]) {
     return `Text "${textKey}" not found in lang "${lang}".`
   }
 
@@ -33,13 +35,13 @@ export const getDialog = (textKey) => {
   }
 
   const settings = loadData({ key: 'settings' })
-  const lang = settings?.lang || 'en-us'
+  const lang = settings?.language || defaultLanguage
 
   if (!texts[lang]) {
     return `Text "${textKey}" not found in default language.`
   }
 
-  if (!texts[lang || 'en-us'][textKey]) {
+  if (!texts[lang || defaultLanguage][textKey]) {
     return `Text "${textKey}" not found in lang "${lang}".`
   }
 

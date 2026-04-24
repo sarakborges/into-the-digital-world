@@ -1,5 +1,7 @@
 import { FaCircleCheck } from 'react-icons/fa6'
 
+import { getTexts } from '@/Texts'
+
 import { saveData } from '@/Helpers/saveData.helper'
 
 import { useSettings } from '@/Hooks/Settings.hook'
@@ -24,7 +26,7 @@ export const UpdateTheme = ({ theme }: { theme: string }) => {
           <div className="icon" />
         </div>
 
-        <Text>{theme}</Text>
+        <Text>{getTexts(`THEME_${theme.toLocaleUpperCase()}`)}</Text>
 
         {theme === settings.theme && <FaCircleCheck />}
       </Button>

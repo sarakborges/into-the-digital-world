@@ -7,7 +7,8 @@ import { loadData } from '@/Helpers/loadData.helper'
 
 const defaultSettings: SettingsType = {
   isOpen: false,
-  theme: 'default'
+  theme: 'default',
+  language: 'en-us'
 }
 
 export const SettingsContext = createContext<SettingsContextType>({
