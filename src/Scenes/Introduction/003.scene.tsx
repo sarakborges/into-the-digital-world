@@ -17,9 +17,18 @@ export const Introduction003 = () => {
       {
         text: getDialog('INTRODUCTION_003_ACTION'),
         action: () => {
-          const name = prompt(getDialog('INTRODUCTION_003_PROMPT')) || ''
+          const name = (prompt(getDialog('INTRODUCTION_003_PROMPT')) || '')
+            .trim()
+            .toLocaleLowerCase()
 
-          setProfile({ ...profile!, name })
+          if (!name) {
+            return
+          }
+
+          setProfile({
+            ...profile!,
+            name: name.charAt(0).toUpperCase() + name.slice(1)
+          })
 
           setScene({
             currentScene: 'introduction',

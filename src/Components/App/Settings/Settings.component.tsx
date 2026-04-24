@@ -2,31 +2,24 @@ import { FaCog, FaTimes } from 'react-icons/fa'
 
 import { getTexts } from '@/Texts'
 
-import { deleteSession } from '@/Helpers/deleteSession.helper'
-
 import { useProfile } from '@/Hooks/Profile.hook'
+import { useSettings } from '@/Hooks/Settings.hook'
 
 import { Button } from '@/Components/System/Button'
 import { Modal } from '@/Components/System/Modal'
 import { Text } from '@/Components/System/Text'
-import { useSettings } from '@/Hooks/Settings.hook'
 
 import { SettingsTheme } from '@/Components/App/SettingsTheme'
+import { ReturnToMainScreen } from '@/Components/App/ReturnToMainScreen'
 
 import './Settings.style.scss'
 
 export const Settings = () => {
-  const { profile, setProfile } = useProfile()
+  const { profile } = useProfile()
   const { settings, setSettings } = useSettings()
 
   const toggleModal = () => {
     setSettings({ ...settings, isOpen: !settings.isOpen })
-  }
-
-  const returnToMainScreen = () => {
-    setProfile(null)
-    setSettings({ ...settings, isOpen: false })
-    deleteSession({ key: 'profile' })
   }
 
   return (
@@ -42,12 +35,7 @@ export const Settings = () => {
           </header>
 
           <main>
-            {!!profile && (
-              <Button onClick={returnToMainScreen}>
-                {getTexts('RETURN_TO_MAIN_SCREEN')}
-              </Button>
-            )}
-
+            <ReturnToMainScreen />
             <SettingsTheme />
           </main>
         </Modal>

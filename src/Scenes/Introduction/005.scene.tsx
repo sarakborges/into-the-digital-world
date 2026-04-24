@@ -1,53 +1,30 @@
 import { useScene } from '@/Hooks/Scene.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
-import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
 
-import { saveData } from '@/Helpers/saveData.helper'
+import { getDialog } from '@/Texts'
 
 import { Dialog } from '@/Components/App/Dialog'
-import { getDialog } from '@/Texts'
-import { saveSession } from '@/Helpers/saveSession.helper'
 
 export const Introduction005 = () => {
   const { setScene } = useScene()
   const { profile } = useProfile()
-  const { savedProfiles, loadProfiles } = useSavedProfiles()
 
   const dialogOptions = {
     speaker: 'Culumon',
     speakerAvatar: 'ROOT_DOMAIN-CULUMON',
-    text: getDialog('INTRODUCTION_005_TEXT').replace('[NAME]', profile?.name),
+    text: getDialog(
+      profile?.name.slice(-3) !== 'mon'
+        ? 'INTRODUCTION_005_TEXT'
+        : 'INTRODUCTION_005_TEXT_ALT'
+    ).replace('[NAME]', profile?.name),
     options: [
       {
-        text: getDialog('INTRODUCTION_005_ACTION').replace(
-          '[NAME]',
-          profile?.name
-        ),
+        text: getDialog('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          const updatedProfile = { ...profile, lastSave: new Date() }
-
-          saveData({
-            key: `profile${profile?.id}`,
-            value: updatedProfile
+          setScene({
+            currentScene: 'introduction',
+            currentStage: '006'
           })
-
-          saveSession({
-            key: 'profile',
-            value: updatedProfile
-          })
-
-          const updatedProfiles = [
-            ...(savedProfiles || [])?.map((profile) => profile.id),
-            profile?.id
-          ]
-
-          saveData({
-            key: 'profiles',
-            value: updatedProfiles
-          })
-
-          loadProfiles()
-          setScene(null)
         }
       }
     ]

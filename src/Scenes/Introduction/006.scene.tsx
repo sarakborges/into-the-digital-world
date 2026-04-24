@@ -5,20 +5,20 @@ import { getDialog } from '@/Texts'
 
 import { Dialog } from '@/Components/App/Dialog'
 
-export const Introduction004 = () => {
+export const Introduction005 = () => {
   const { setScene } = useScene()
   const { profile } = useProfile()
 
   const dialogOptions = {
     speaker: profile?.name,
-    text: getDialog('INTRODUCTION_004_TEXT').replace('[NAME]', profile?.name),
+    text: getDialog('INTRODUCTION_006_TEXT').replace('[NAME]', profile?.name),
     options: [
       {
         text: getDialog('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({
             currentScene: 'introduction',
-            currentStage: '005'
+            currentStage: '007'
           })
         }
       }

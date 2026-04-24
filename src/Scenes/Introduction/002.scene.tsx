@@ -17,7 +17,7 @@ export const Introduction002 = () => {
 
     options: [
       {
-        text: getDialog('INTRODUCTION_002_ACTION'),
+        text: getDialog('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({
             currentScene: 'introduction',
