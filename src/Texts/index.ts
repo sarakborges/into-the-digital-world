@@ -3,9 +3,13 @@ import { loadData } from '@/Helpers/loadData.helper'
 import * as EnTexts from '@/Texts/Texts/En.text'
 import * as EnDialogs from '@/Texts/Dialogs/En.text'
 
+import * as PtTexts from '@/Texts/Texts/Pt.text'
+import * as PtDialogs from '@/Texts/Dialogs/Pt.text'
+
 export const getTexts = (textKey) => {
   const texts = {
-    'en-us': EnTexts
+    'en-us': EnTexts,
+    'pt-br': PtTexts
   }
 
   const settings = loadData({ key: 'settings' })
@@ -24,7 +28,8 @@ export const getTexts = (textKey) => {
 
 export const getDialog = (textKey) => {
   const texts = {
-    'en-us': EnDialogs
+    'en-us': EnDialogs,
+    'pt-br': PtDialogs
   }
 
   const settings = loadData({ key: 'settings' })
