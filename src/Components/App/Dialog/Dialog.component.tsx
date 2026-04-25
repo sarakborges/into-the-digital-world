@@ -1,3 +1,5 @@
+import type { DialogType } from '@/Types/Dialog.type'
+
 import { Portrait } from '@/Components/System/Portrait'
 import { Text } from '@/Components/System/Text'
 import { Modal } from '@/Components/System/Modal'
@@ -8,42 +10,23 @@ import './Dialog.style.scss'
 export const Dialog = ({
   speaker,
   speakerAvatar,
-  text,
-  image,
+  content,
   options
-}: {
-  speaker?: string
-  speakerAvatar?: string
-  text?: string
-  image?: {
-    alt: string
-    src: string
-  }
-  options: Array<{
-    text: string
-    action: () => void
-  }>
-}) => {
+}: DialogType) => {
   return (
     <Modal>
       <main className="dialog">
         {speaker && (
           <header>
             {speakerAvatar && (
-              <Portrait
-                alt="Helper Digimon"
-                src={`/npcs/${speakerAvatar}.jpg`}
-              />
+              <Portrait alt="Helper Digimon" src={`/${speakerAvatar}.jpg`} />
             )}
 
             <Text>{speaker}</Text>
           </header>
         )}
 
-        <main>
-          {image && <Portrait {...image} />}
-          {text && <Text as="p">{text}</Text>}
-        </main>
+        <main>{content}</main>
 
         {options?.length && (
           <footer>

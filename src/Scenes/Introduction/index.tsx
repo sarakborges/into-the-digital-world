@@ -4,6 +4,7 @@ import { Introduction003 } from './003.scene'
 import { Introduction004 } from './004.scene'
 import { Introduction005 } from './005.scene'
 import { Introduction006 } from './006.scene'
+import { Introduction007 } from './007.scene'
 
 export const IntroductionScenes = {
   '001': Introduction001,
@@ -11,5 +12,6 @@ export const IntroductionScenes = {
   '003': Introduction003,
   '004': Introduction004,
   '005': Introduction005,
-  '006': Introduction006
+  '006': Introduction006,
+  '007': Introduction007
 }

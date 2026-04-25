@@ -1,19 +1,28 @@
+import type { DialogType } from '@/Types/Dialog.type'
+
 import { useScene } from '@/Hooks/Scene.hook'
 
 import { getDialog } from '@/Texts'
+
+import { Text } from '@/Components/System/Text'
+import { Portrait } from '@/Components/System/Portrait'
 
 import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction002 = () => {
   const { setScene } = useScene()
 
-  const dialogOptions = {
-    text: getDialog('INTRODUCTION_002_TEXT'),
+  const dialogOptions: DialogType = {
+    content: (
+      <>
+        <Portrait
+          alt={getDialog('INTRODUCTION_002_IMAGE')}
+          src="/digimons/CULUMON.jpg"
+        />
 
-    image: {
-      alt: getDialog('INTRODUCTION_002_ALT'),
-      src: '/digimons/CULUMON.jpg'
-    },
+        <Text as="p">{getDialog('INTRODUCTION_002_TEXT')}</Text>
+      </>
+    ),
 
     options: [
       {

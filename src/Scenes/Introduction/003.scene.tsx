@@ -1,7 +1,11 @@
+import type { DialogType } from '@/Types/Dialog.type'
+
 import { useScene } from '@/Hooks/Scene.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
 
 import { getDialog } from '@/Texts'
+
+import { Text } from '@/Components/System/Text'
 
 import { Dialog } from '@/Components/App/Dialog'
 
@@ -9,10 +13,12 @@ export const Introduction003 = () => {
   const { setScene } = useScene()
   const { profile, setProfile } = useProfile()
 
-  const dialogOptions = {
+  const dialogOptions: DialogType = {
     speaker: '???',
-    speakerAvatar: 'ROOT_DOMAIN-CULUMON',
-    text: getDialog('INTRODUCTION_003_TEXT'),
+    speakerAvatar: 'npcs/ROOT_DOMAIN-CULUMON',
+
+    content: <Text as="p">{getDialog('INTRODUCTION_003_TEXT')}</Text>,
+
     options: [
       {
         text: getDialog('INTRODUCTION_003_ACTION'),

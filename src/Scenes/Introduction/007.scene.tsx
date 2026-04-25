@@ -4,25 +4,17 @@ import { useScene } from '@/Hooks/Scene.hook'
 
 import { getDialog } from '@/Texts'
 
-import { Text } from '@/Components/System/Text'
-import { Portrait } from '@/Components/System/Portrait'
-
 import { Dialog } from '@/Components/App/Dialog'
+import { Text } from '@/Components/System/Text'
 
-export const Introduction001 = () => {
+export const Introduction007 = () => {
   const { setScene } = useScene()
 
   const dialogOptions: DialogType = {
-    content: (
-      <>
-        <Portrait
-          alt={getDialog('INTRODUCTION_001_IMG')}
-          src="/zones/root_domain.png"
-        />
+    speaker: 'Culumon',
+    speakerAvatar: 'npcs/ROOT_DOMAIN-CULUMON',
 
-        <Text as="p">{getDialog('INTRODUCTION_001_TEXT')}</Text>
-      </>
-    ),
+    content: <Text as="p">{getDialog('INTRODUCTION_007_TEXT')}</Text>,
 
     options: [
       {
@@ -30,7 +22,7 @@ export const Introduction001 = () => {
         action: () => {
           setScene({
             currentScene: 'introduction',
-            currentStage: '002'
+            currentStage: '008'
           })
         }
       }
