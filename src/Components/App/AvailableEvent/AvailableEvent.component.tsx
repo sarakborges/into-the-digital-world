@@ -2,6 +2,8 @@ import type { NpcType } from '@/Types/Npc.type'
 
 import { useGame } from '@/Hooks/Game.hook'
 
+import { getTexts } from '@/Texts'
+
 import * as Zones from '@/GameData/Zones'
 
 import { Portrait } from '@/Components/System/Portrait'
@@ -40,8 +42,10 @@ export const AvailableEvent = () => {
           className="event"
         >
           <Portrait alt={event.name} src={`/${event.portrait}.jpg`} />
+
           <Text>{event.name}</Text>
-          <Button>Talk</Button>
+
+          <Button>{getTexts('NPC_INTERACT')}</Button>
         </div>
       ))}
     </aside>
