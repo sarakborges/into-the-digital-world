@@ -2,6 +2,8 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { useScene } from '@/Hooks/Scene.hook'
 
+import { NpcCulumon } from '@/GameData/Npcs/Culumon.npc'
+
 import { getDialog } from '@/Texts'
 
 import { Dialog } from '@/Components/App/Dialog'
@@ -11,8 +13,8 @@ export const Introduction007 = () => {
   const { setScene } = useScene()
 
   const dialogOptions: DialogType = {
-    speaker: 'Culumon',
-    speakerAvatar: 'npcs/ROOT_DOMAIN-CULUMON',
+    speaker: NpcCulumon.name,
+    speakerAvatar: NpcCulumon.portrait,
 
     content: <Text as="p">{getDialog('INTRODUCTION_007_TEXT')}</Text>,
 

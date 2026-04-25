@@ -5,6 +5,8 @@ import { useProfile } from '@/Hooks/Profile.hook'
 
 import { getDialog } from '@/Texts'
 
+import { NpcCulumon } from '@/GameData/Npcs/Culumon.npc'
+
 import { Text } from '@/Components/System/Text'
 
 import { Dialog } from '@/Components/App/Dialog'
@@ -15,7 +17,7 @@ export const Introduction003 = () => {
 
   const dialogOptions: DialogType = {
     speaker: '???',
-    speakerAvatar: 'npcs/ROOT_DOMAIN-CULUMON',
+    speakerAvatar: NpcCulumon.portrait,
 
     content: <Text as="p">{getDialog('INTRODUCTION_003_TEXT')}</Text>,
 

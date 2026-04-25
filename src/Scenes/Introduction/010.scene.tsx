@@ -4,13 +4,15 @@ import { useScene } from '@/Hooks/Scene.hook'
 
 import { getDialog } from '@/Texts'
 
-import { saveProfile } from '@/Helpers/saveProfile.helper'
+import { NpcCulumon } from '@/GameData/Npcs/Culumon.npc'
 
+import { saveProfile } from '@/Helpers/saveProfile.helper'
 import { Text } from '@/Components/System/Text'
 
-import { Dialog } from '@/Components/App/Dialog'
 import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
+
+import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction010 = () => {
   const { setScene } = useScene()
@@ -18,8 +20,8 @@ export const Introduction010 = () => {
   const { savedProfiles, loadProfiles } = useSavedProfiles()
 
   const dialogOptions: DialogType = {
-    speaker: 'Culumon',
-    speakerAvatar: 'npcs/ROOT_DOMAIN-CULUMON',
+    speaker: NpcCulumon.name,
+    speakerAvatar: NpcCulumon.portrait,
 
     content: <Text as="p">{getDialog('INTRODUCTION_010_TEXT')}</Text>,
 
