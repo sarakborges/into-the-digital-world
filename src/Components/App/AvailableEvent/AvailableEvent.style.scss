@@ -6,7 +6,7 @@
   padding: 4px;
   flex: 1;
 
-  background-color: var(--color-primary-weak);
+  background-color: var(--color-primary);
   border-radius: 4px;
 
   .event {
@@ -30,6 +30,8 @@
       padding: 2px 4px;
 
       font-size: 12px;
+
+      background-color: var(--color-primary-strong);
     }
   }
 }

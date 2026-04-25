@@ -9,7 +9,7 @@
   overflow: hidden;
 
   border-radius: 100%;
-  background-color: var(--color-primary-weak);
+  background-color: var(--color-primary);
 
   .controller-row {
     display: flex;
@@ -27,6 +27,8 @@
 
       .button {
         padding: 4px;
+
+        background-color: var(--color-primary-strong);
 
         svg {
           width: 16px;
