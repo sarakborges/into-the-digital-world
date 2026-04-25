@@ -1,5 +1,5 @@
 export const defaultTile = {
-  texture: '',
+  texture: 'black',
 
   canMove: {
     up: true,

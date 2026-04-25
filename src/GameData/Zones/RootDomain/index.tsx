@@ -1,59 +1,30 @@
+import type { ZoneType } from '@/Types/Zone.type'
+
 import { defaultTile } from '@/GameData/Zones/default.tile'
 
-import { A1 } from '@/GameData/Zones/RootDomain/a1.tile'
-import { A2 } from '@/GameData/Zones/RootDomain/a2.tile'
-import { A3 } from '@/GameData/Zones/RootDomain/a3.tile'
-import { A4 } from '@/GameData/Zones/RootDomain/a4.tile'
-import { A5 } from '@/GameData/Zones/RootDomain/a5.tile'
+const createRow = (size: number) =>
+  Object.fromEntries(
+    Array.from({ length: size }, (_, i) => [i + 1, { ...defaultTile }])
+  )
 
-export const RootDomain = {
+const createGrid = (size: number) =>
+  Object.fromEntries(
+    Array.from({ length: size }, (_, i) => [i + 1, createRow(size)])
+  )
+
+export const RootDomain: ZoneType = {
   id: `RootDomain`,
   name: `Root Domain`,
 
   spawn: {
-    x: 3,
-    y: 3
+    x: 4,
+    y: 4
   },
 
-  grid: {
-    1: {
-      1: A1,
-      2: A2,
-      3: A3,
-      4: A4,
-      5: A5
-    },
+  gridSize: {
+    x: 15,
+    y: 15
+  },
 
-    2: {
-      1: defaultTile,
-      2: defaultTile,
-      3: defaultTile,
-      4: defaultTile,
-      5: defaultTile
-    },
-
-    3: {
-      1: defaultTile,
-      2: defaultTile,
-      3: defaultTile,
-      4: defaultTile,
-      5: defaultTile
-    },
-
-    4: {
-      1: defaultTile,
-      2: defaultTile,
-      3: defaultTile,
-      4: defaultTile,
-      5: defaultTile
-    },
-
-    5: {
-      1: defaultTile,
-      2: defaultTile,
-      3: defaultTile,
-      4: defaultTile,
-      5: defaultTile
-    }
-  }
+  grid: createGrid(15)
 }

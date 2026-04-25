@@ -18,8 +18,6 @@ body {
   display: flex;
   place-content: center;
   place-items: center;
-
-  background-color: var(--body-background);
 }
 
 #root {

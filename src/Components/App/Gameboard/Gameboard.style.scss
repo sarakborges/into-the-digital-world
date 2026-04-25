@@ -1,38 +1,99 @@
 .gameboard {
-  display: flex;
-  flex-flow: column;
-  place-items: center;
-  place-content: center;
+  /* Gameboard */
+  --view-size: 7;
+  --dead-zone: 2;
 
-  background-color: var(--color-primary);
+  --tile-size: 42px;
+
+  /* movement step = tile only */
+  --step: var(--tile-size);
+
+  --center: calc((var(--view-size) - 1) / 2);
+
+  --min-offset-x: calc(-1 * (var(--grid-size-x) - var(--view-size)));
+  --min-offset-y: calc(-1 * (var(--grid-size-y) - var(--view-size)));
+  --max-offset: 0;
+
+  display: flex;
+
+  width: calc(var(--tile-size) * var(--view-size));
+  aspect-ratio: 1;
+
+  overflow: hidden;
+  background-color: var(--color-neutral-strong);
+
+  .gameboard-body {
+    display: flex;
+    flex-direction: column;
+
+    will-change: transform;
+
+    transform: translate3d(
+      calc(
+        clamp(
+            var(--min-offset-x),
+            calc(
+              clamp(
+                (var(--center) - (var(--x) - 1) - var(--dead-zone)),
+                (var(--center) - (var(--x) - 1)),
+                (var(--center) - (var(--x) - 1) + var(--dead-zone))
+              )
+            ),
+            var(--max-offset)
+          ) *
+          var(--step)
+      ),
+      calc(
+        clamp(
+            var(--min-offset-y),
+            calc(
+              clamp(
+                (var(--center) - (var(--y) - 1) - var(--dead-zone)),
+                (var(--center) - (var(--y) - 1)),
+                (var(--center) - (var(--y) - 1) + var(--dead-zone))
+              )
+            ),
+            var(--max-offset)
+          ) *
+          var(--step)
+      ),
+      0
+    );
+
+    background-color: var(--color-primary);
+  }
 
   .gameboard-row {
     display: flex;
-    place-items: center;
-    place-content: center;
+  }
 
-    .gameboard-col {
-      height: 48px;
-      aspect-ratio: 1/1;
+  .gameboard-col {
+    height: var(--tile-size);
+    aspect-ratio: 1;
+  }
 
-      background-color: var(--color-primary-strong);
+  .tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-      .tile {
-        display: flex;
-        place-items: center;
-        place-content: center;
+    height: 100%;
+    aspect-ratio: 1;
 
-        > div {
-          border: 2px solid;
+    outline: 1px solid var(--color-primary-strong);
 
-          border-radius: 100%;
-          overflow: hidden;
-        }
+    &[data-tiletype='black'] {
+      background-color: var(--color-neutral-strong);
+    }
 
-        & > .player-character {
-          border-color: var(--color-secondary);
-        }
-      }
+    > div {
+      border: 2px solid;
+      border-radius: 100%;
+      overflow: hidden;
+    }
+
+    > .player-character {
+      border-color: var(--color-secondary);
     }
   }
 }
