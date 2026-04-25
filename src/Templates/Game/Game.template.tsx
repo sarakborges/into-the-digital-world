@@ -6,6 +6,7 @@ import { useScene } from '@/Hooks/Scene.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useSettings } from '@/Hooks/Settings.hook'
 
+import { AvailableEvent } from '@/Components/App/AvailableEvent'
 import { Controller } from '@/Components/App/Controller'
 import { Gameboard } from '@/Components/App/Gameboard'
 import { Settings } from '@/Components/App/Settings'
@@ -28,7 +29,13 @@ export const Game = () => {
         {!scene && (
           <>
             {!profile && <StartScreen />}
-            {!!profile && <Controller />}
+
+            {!!profile && (
+              <div className="screen-footer">
+                <AvailableEvent />
+                <Controller />
+              </div>
+            )}
           </>
         )}
 

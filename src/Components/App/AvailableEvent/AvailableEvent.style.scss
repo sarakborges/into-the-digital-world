@@ -1,0 +1,35 @@
+.available-events {
+  display: flex;
+  flex-flow: column;
+  gap: 4px;
+
+  padding: 4px;
+  flex: 1;
+
+  background-color: var(--color-primary-weak);
+  border-radius: 4px;
+
+  .event {
+    display: flex;
+    place-items: center;
+    gap: 6px;
+
+    padding-right: 2px;
+
+    .portrait {
+      max-width: 28px;
+
+      border-radius: 100%;
+    }
+
+    .text {
+      flex: 1;
+    }
+
+    .button {
+      padding: 2px 4px;
+
+      font-size: 12px;
+    }
+  }
+}

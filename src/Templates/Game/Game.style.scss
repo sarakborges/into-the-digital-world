@@ -27,3 +27,18 @@
 
   background-color: var(--color-primary-strong);
 }
+
+.screen-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+
+  display: flex;
+  place-items: flex-end;
+  place-content: flex-end;
+  gap: 8px;
+
+  width: 100%;
+  padding: 8px;
+}
