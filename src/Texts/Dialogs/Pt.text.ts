@@ -18,3 +18,10 @@ export const INTRODUCTION_006_TEXT = `Não é "[NAME]mon". É só [NAME]. Aliás
 export const INTRODUCTION_006_TEXT_ALT = `Obrigado, eu acho? Aliás. Por que você disse que eu sou diferente?`
 
 export const INTRODUCTION_007_TEXT = `Porque você não tá renderizando direito! Você é tipo um glitch!`
+
+export const INTRODUCTION_008_TEXT = `Você olha para suas mãos, e tudo que você vê é distorcido. Exatamente como Culumon disse. Um glitch.`
+export const INTRODUCTION_008_IMAGE = `Você parece totalmente um glitch.`
+
+export const INTRODUCTION_009_TEXT = `O-o que aconteceu comigo?!`
+
+export const INTRODUCTION_010_TEXT = `Essa é a primeira vez que eu vejo isso! Mas não se preocupa! Eu conheço alguém que pode ajudar. Me siga!\n*flutuando para longe*`

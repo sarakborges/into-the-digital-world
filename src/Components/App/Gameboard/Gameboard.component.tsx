@@ -26,7 +26,7 @@ export const Gameboard = () => {
                   game.currentY === Number(row) && (
                     <div className="player-character">
                       <Portrait
-                        src="/digimon_portraits/AGUMON.jpg"
+                        src="/avatars/glitch.jpg"
                         alt="Player character"
                       />
                     </div>

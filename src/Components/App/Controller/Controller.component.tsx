@@ -67,10 +67,7 @@ export const Controller = () => {
         </div>
 
         <div className="controller-col">
-          <Portrait
-            src="/digimon_portraits/AGUMON.jpg"
-            alt="Player character"
-          />
+          <Portrait src="/avatars/glitch.jpg" alt="Player character" />
         </div>
 
         <div className="controller-col">

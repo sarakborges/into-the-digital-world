@@ -28,16 +28,11 @@ export const Game = () => {
         {!scene && (
           <>
             {!profile && <StartScreen />}
-
-            {!!profile && (
-              <>
-                <Gameboard />
-                <Controller />
-              </>
-            )}
+            {!!profile && <Controller />}
           </>
         )}
 
+        {!!profile && <Gameboard />}
         {!!scene && <Scene />}
       </div>
     </div>

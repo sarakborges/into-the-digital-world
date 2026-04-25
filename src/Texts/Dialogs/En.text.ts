@@ -19,3 +19,10 @@ export const INTRODUCTION_006_TEXT = `Not "[NAME]mon". Only [NAME]. By the way, 
 export const INTRODUCTION_006_TEXT_ALT = `Thanks, I guess. By the way, why did you say I look funny?`
 
 export const INTRODUCTION_007_TEXT = `Because you are not rendering correctly! You're totally glitched!`
+
+export const INTRODUCTION_008_TEXT = `You take a look at your hands, and all you can see is distorted. Exactly like Culumon said. A glitch.`
+export const INTRODUCTION_008_IMAGE = `You look totally glitched.`
+
+export const INTRODUCTION_009_TEXT = `W-what happened to me?!`
+
+export const INTRODUCTION_010_TEXT = `This is the first time I seen it! But worry not! I know someone who might help. Follow me!\n*floats away*`
