@@ -1,4 +1,6 @@
-export const defaultTile = {
+import type { TileType } from '@/Types/Tile.type'
+
+export const defaultTile: TileType = {
   texture: 'black',
 
   canMove: {
