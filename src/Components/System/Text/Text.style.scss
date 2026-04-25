@@ -3,21 +3,21 @@
   line-height: var(--line-height-single);
 
   &:is(h1) {
-    font-size: var(--size-lg);
+    font-size: 24px;
     font-weight: var(--font-weight-bold);
   }
 
   &:is(h2) {
-    font-size: var(--size-lmd);
+    font-size: 20px;
     font-weight: var(--font-weight-bold);
   }
 
   &:is(span) {
-    font-size: var(--size-md);
+    font-size: 16px;
   }
 
   &:is(p) {
-    font-size: var(--size-md);
+    font-size: 16px;
     line-height: var(--line-height-md);
 
     white-space: pre-wrap;
