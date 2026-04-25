@@ -1,4 +1,4 @@
-export const START_SCREEN_TITLE = `Bem vindo, ao Mundo Digital!`
+export const START_SCREEN_TITLE = `Bem vindo ao Mundo Digital!`
 
 export const START_NEW_GAME = `Novo jogo`
 export const GAME_FILE_TITLE = `[NAME]`
