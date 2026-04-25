@@ -1,14 +1,19 @@
-import { useGame } from '@/Hooks/Game.hook'
 import * as Zones from '@/GameData/Zones'
 
-import { Portrait } from '@/Components/System/Portrait'
+import { useGame } from '@/Hooks/Game.hook'
+import { useProfile } from '@/Hooks/Profile.hook'
+
+import { Tile } from '@/Components/App/Tile'
 
 import './Gameboard.style.scss'
 
 export const Gameboard = () => {
   const { game } = useGame()
+  const { profile } = useProfile()
 
-  if (!game) return null
+  if (!game || !profile) {
+    return null
+  }
 
   const currentZone = Zones[game.currentZone]
 
@@ -16,41 +21,26 @@ export const Gameboard = () => {
     .map(Number)
     .sort((a, b) => a - b)
 
+  const gameboardVars = {
+    '--x': game.currentX,
+    '--y': game.currentY,
+    '--grid-size-x': currentZone.gridSize.x,
+    '--grid-size-y': currentZone.gridSize.y
+  } as React.CSSProperties
+
   return (
-    <main
-      className="gameboard"
-      style={
-        {
-          '--x': game.currentX,
-          '--y': game.currentY,
-          '--grid-size-x': currentZone.gridSize.x,
-          '--grid-size-y': currentZone.gridSize.y
-        } as React.CSSProperties
-      }
-    >
+    <main className="gameboard" style={gameboardVars}>
       <div className="gameboard-body">
-        {sortedRows.map((row) => {
-          const sortedCols = Object.keys(currentZone.grid[row])
+        {sortedRows.map((y) => {
+          const sortedCols = Object.keys(currentZone.grid[y])
             .map(Number)
             .sort((a, b) => a - b)
 
           return (
-            <div className="gameboard-row" key={`row-${row}`}>
-              {sortedCols.map((col) => (
-                <div className="gameboard-col" key={`row-${row}-col-${col}`}>
-                  <div
-                    className="tile"
-                    data-tiletype={currentZone.grid[row][col].texture || ''}
-                  >
-                    {game.currentX === col && game.currentY === row && (
-                      <div className="player-character">
-                        <Portrait
-                          src="/avatars/glitch.jpg"
-                          alt="Player character"
-                        />
-                      </div>
-                    )}
-                  </div>
+            <div className="gameboard-y" key={`y-${y}`}>
+              {sortedCols.map((x) => (
+                <div className="gameboard-x" key={`y-${y}-x-${x}`}>
+                  <Tile {...{ x, y }} />
                 </div>
               ))}
             </div>

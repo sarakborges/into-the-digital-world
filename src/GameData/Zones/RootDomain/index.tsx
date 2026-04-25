@@ -2,15 +2,47 @@ import type { ZoneType } from '@/Types/Zone.type'
 
 import { defaultTile } from '@/GameData/Zones/default.tile'
 
-const createRow = (size: number) =>
-  Object.fromEntries(
-    Array.from({ length: size }, (_, i) => [i + 1, { ...defaultTile }])
-  )
+import { NpcCulumon } from '@/GameData/Npcs/Culumon.npc'
 
-const createGrid = (size: number) =>
-  Object.fromEntries(
-    Array.from({ length: size }, (_, i) => [i + 1, createRow(size)])
-  )
+const defaultRow = {
+  1: { ...defaultTile },
+  2: { ...defaultTile },
+  3: { ...defaultTile },
+  4: { ...defaultTile },
+  5: { ...defaultTile },
+  6: { ...defaultTile },
+  7: { ...defaultTile }
+}
+
+const defaultGrid = {
+  1: { ...defaultRow },
+  2: { ...defaultRow },
+  3: { ...defaultRow },
+
+  4: {
+    1: { ...defaultTile },
+    2: {
+      npc: NpcCulumon,
+      texture: 'black',
+
+      canMove: {
+        up: true,
+        down: true,
+        left: true,
+        right: true
+      }
+    },
+    3: { ...defaultTile },
+    4: { ...defaultTile },
+    5: { ...defaultTile },
+    6: { ...defaultTile },
+    7: { ...defaultTile }
+  },
+
+  5: { ...defaultRow },
+  6: { ...defaultRow },
+  7: { ...defaultRow }
+}
 
 export const RootDomain: ZoneType = {
   id: `RootDomain`,
@@ -22,9 +54,9 @@ export const RootDomain: ZoneType = {
   },
 
   gridSize: {
-    x: 15,
-    y: 15
+    x: 7,
+    y: 7
   },
 
-  grid: createGrid(15)
+  grid: defaultGrid
 }

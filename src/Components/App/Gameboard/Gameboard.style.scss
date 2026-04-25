@@ -63,37 +63,12 @@
     background-color: var(--color-primary);
   }
 
-  .gameboard-row {
+  .gameboard-y {
     display: flex;
   }
 
-  .gameboard-col {
+  .gameboard-x {
     height: var(--tile-size);
     aspect-ratio: 1;
-  }
-
-  .tile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    height: 100%;
-    aspect-ratio: 1;
-
-    outline: 1px solid var(--color-primary-strong);
-
-    &[data-tiletype='black'] {
-      background-color: var(--color-neutral-strong);
-    }
-
-    > div {
-      border: 2px solid;
-      border-radius: 100%;
-      overflow: hidden;
-    }
-
-    > .player-character {
-      border-color: var(--color-secondary);
-    }
   }
 }

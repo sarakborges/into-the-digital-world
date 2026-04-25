@@ -1,7 +1,7 @@
 import type { NpcType } from '@/Types/Npc.type'
 
 export type TileType = {
-  npc: NpcType
+  npc?: NpcType
   texture?: string
 
   canMove: {
