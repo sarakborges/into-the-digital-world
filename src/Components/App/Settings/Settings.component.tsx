@@ -46,7 +46,7 @@ export const Settings = () => {
 
       <header>
         <div className="player">
-          <PlayerAvatar />
+          {!!profile && <PlayerAvatar />}
           <Text>{profile?.name}</Text>
         </div>
 

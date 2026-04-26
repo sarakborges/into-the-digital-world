@@ -32,14 +32,7 @@ export const Tile = ({ x, y }: { x: number; y: number }) => {
 
       {game.currentX === x && game.currentY === y && (
         <div className="player-character">
-          {!!profile?.avatar && <PlayerAvatar />}
-
-          {!profile?.avatar && (
-            <Portrait
-              src="/avatars/glitch.jpg"
-              alt={`${profile?.name} avatar`}
-            />
-          )}
+          <PlayerAvatar />
         </div>
       )}
     </div>

@@ -72,14 +72,7 @@ export const Controller = () => {
         </div>
 
         <div className="controller-col">
-          {!!profile?.avatar && <PlayerAvatar />}
-
-          {!profile?.avatar && (
-            <Portrait
-              src="/avatars/glitch.jpg"
-              alt={`${profile?.name} avatar`}
-            />
-          )}
+          <PlayerAvatar />
         </div>
 
         <div className="controller-col">

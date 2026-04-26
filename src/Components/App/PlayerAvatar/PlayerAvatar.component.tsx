@@ -16,6 +16,12 @@ import './PlayerAvatar.style.scss'
 export const PlayerAvatar = () => {
   const { profile } = useProfile()
 
+  if (!profile?.avatar) {
+    return (
+      <Portrait src="/avatars/glitch.jpg" alt={`${profile?.name} avatar`} />
+    )
+  }
+
   const clothes =
     AVATAR_CLOTHES[Math.floor(Math.random() * AVATAR_CLOTHES.length)]
   const eyes = AVATAR_EYES[Math.floor(Math.random() * AVATAR_EYES.length)]
