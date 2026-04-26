@@ -38,7 +38,7 @@ export const InteractableNpcs = () => {
 
   const talkToNpc = () => {
     setScene({
-      currentScene: 'customization',
+      currentScene: 'avatarCustomization',
       currentStage: '001'
     })
   }

@@ -7,11 +7,10 @@ import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { Text } from '@/Components/System/Text'
-
+import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 import { Dialog } from '@/Components/App/Dialog'
 
-export const AvatarCustomization001 = () => {
+export const AvatarCustomization002 = () => {
   const { setScene } = useScene()
   const { profile } = useProfile()
 
@@ -19,23 +18,13 @@ export const AvatarCustomization001 = () => {
     speaker: AllNpcs.angewomon.name,
     speakerAvatar: AllNpcs.angewomon.portrait,
 
-    content: (
-      <Text as="p">
-        {getDialogs('AVATAR_CUSTOMIZATION_001_TEXT').replaceAll(
-          '[NAME]',
-          profile?.name
-        )}
-      </Text>
-    ),
+    content: <PlayerAvatar />,
 
     options: [
       {
-        text: getDialogs('SCENES_CONTINUE_BUTTON'),
+        text: getDialogs('SCENES_LEAVE_BUTTON'),
         action: () => {
-          setScene({
-            currentScene: 'avatarCustomization',
-            currentStage: '002'
-          })
+          setScene(null)
         }
       }
     ]

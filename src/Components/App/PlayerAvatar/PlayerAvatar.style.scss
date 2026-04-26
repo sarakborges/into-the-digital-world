@@ -1,0 +1,22 @@
+.player-avatar {
+  position: relative;
+
+  width: 24px;
+  aspect-ratio: 1;
+
+  background-color: var(--color-neutral-weak);
+  border-radius: 100%;
+
+  > .portrait {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    img {
+      border-radius: 100%;
+    }
+  }
+}

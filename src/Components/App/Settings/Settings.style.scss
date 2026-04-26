@@ -19,6 +19,12 @@
 
     width: 100%;
 
+    .player {
+      display: flex;
+      place-items: center;
+      gap: 6px;
+    }
+
     .button {
       padding: 4px;
 
@@ -34,7 +40,13 @@
     place-items: flex-end;
     place-content: flex-start;
 
-    padding: 8px;
+    padding: 0;
+
+    header {
+      padding: 8px;
+
+      background-color: var(--color-primary-strong);
+    }
 
     > main {
       display: flex;
@@ -42,7 +54,7 @@
       gap: 16px;
 
       width: 100%;
-      padding: 16px 0;
+      padding: 16px 8px;
       flex: 1;
 
       > .text {

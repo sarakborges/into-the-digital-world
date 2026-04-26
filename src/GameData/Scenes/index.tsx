@@ -12,7 +12,7 @@ export const Scene = () => {
 
   const Scenes = {
     introduction: IntroductionScenes,
-    customization: AvatarCustomizationScenes
+    avatarCustomization: AvatarCustomizationScenes
   }
 
   const RenderedScene = Scenes[scene.currentScene][scene.currentStage]

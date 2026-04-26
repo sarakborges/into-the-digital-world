@@ -12,6 +12,7 @@ import { Text } from '@/Components/System/Text'
 import { SettingsTheme } from '@/Components/App/SettingsTheme'
 import { SettingsLanguage } from '@/Components/App/SettingsLanguage'
 import { ReturnToMainScreen } from '@/Components/App/ReturnToMainScreen'
+import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 
 import './Settings.style.scss'
 
@@ -44,7 +45,10 @@ export const Settings = () => {
       )}
 
       <header>
-        <Text>{profile?.name}</Text>
+        <div className="player">
+          <PlayerAvatar />
+          <Text>{profile?.name}</Text>
+        </div>
 
         <Button onClick={toggleModal}>{<FaCog />}</Button>
       </header>

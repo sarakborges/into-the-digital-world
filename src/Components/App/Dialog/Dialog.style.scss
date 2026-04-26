@@ -49,9 +49,7 @@
     border-radius: 0 8px 8px 8px;
     background-color: var(--color-primary);
 
-    max-height: calc(var(--line-height-md) * 16px * 5.5 + 6px);
     padding: 4px 8px 8px;
-    overflow: auto;
 
     > .portrait {
       padding-top: 4px;
@@ -59,6 +57,11 @@
 
     > .portrait + .text {
       padding-top: 4px;
+    }
+
+    .text {
+      max-height: calc(var(--line-height-md) * 16px * 4.75);
+      overflow: auto;
     }
   }
 

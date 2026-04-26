@@ -6,11 +6,14 @@ import {
 } from 'react-icons/fa'
 
 import { useGame } from '@/Hooks/Game.hook'
+import { useProfile } from '@/Hooks/Profile.hook'
 
 import * as Zones from '@/GameData/Zones'
 
 import { Portrait } from '@/Components/System/Portrait'
 import { Button } from '@/Components/System/Button'
+
+import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 
 import './Controller.style.scss'
 
@@ -20,6 +23,8 @@ export const Controller = () => {
   if (!game) {
     return <></>
   }
+
+  const { profile } = useProfile()
 
   const currentZone = { ...Zones[game.currentZone] }
 
@@ -67,7 +72,14 @@ export const Controller = () => {
         </div>
 
         <div className="controller-col">
-          <Portrait src="/avatars/glitch.jpg" alt="Player character" />
+          {!!profile?.avatar && <PlayerAvatar />}
+
+          {!profile?.avatar && (
+            <Portrait
+              src="/avatars/glitch.jpg"
+              alt={`${profile?.name} avatar`}
+            />
+          )}
         </div>
 
         <div className="controller-col">
