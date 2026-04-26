@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
 
-import { Scene } from '@/Scenes'
+import { Scene } from '@/GameData/Scenes'
 
 import { useScene } from '@/Hooks/Scene.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useSettings } from '@/Hooks/Settings.hook'
 
-import { AvailableEvent } from '@/Components/App/AvailableEvent'
+import { InteractableNpcs } from '@/Components/App/InteractableNpcs'
 import { Controller } from '@/Components/App/Controller'
 import { Gameboard } from '@/Components/App/Gameboard'
 import { Settings } from '@/Components/App/Settings'
@@ -32,7 +32,7 @@ export const Game = () => {
 
             {!!profile && (
               <div className="screen-footer">
-                <AvailableEvent />
+                <InteractableNpcs />
                 <Controller />
               </div>
             )}

@@ -1,0 +1,66 @@
+.interactable-npcs {
+  display: flex;
+  flex-flow: column;
+  gap: 4px;
+
+  padding: 4px;
+  flex: 1;
+
+  border-radius: 4px;
+
+  .npc {
+    display: flex;
+    flex-flow: column;
+
+    padding-right: 2px;
+
+    header {
+      position: relative;
+
+      .portrait {
+        position: relative;
+        z-index: 2;
+
+        display: flex;
+        gap: 6px;
+
+        max-width: 48px;
+        padding: 2px;
+
+        border: 2px solid var(--color-primary);
+        border-radius: 100%;
+
+        img {
+          border-radius: 100%;
+        }
+      }
+
+      .text {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 1;
+
+        padding: 4px 8px;
+        padding-left: 50px;
+
+        background-color: var(--color-primary);
+        border-radius: 8px 8px 0 0;
+      }
+    }
+
+    footer {
+      display: flex;
+      flex-flow: column;
+
+      border-radius: 0 8px 8px 8px;
+      background-color: var(--color-primary);
+
+      padding: 4px;
+
+      .button {
+        padding: 2px 0;
+      }
+    }
+  }
+}

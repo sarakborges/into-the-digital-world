@@ -4,7 +4,7 @@ import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
 
 import type { ProfileType } from '@/Types/Profile.type'
 
-import { getTexts } from '@/Texts'
+import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { Button } from '@/Components/System/Button'
 

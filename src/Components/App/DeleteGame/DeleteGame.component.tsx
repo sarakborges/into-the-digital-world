@@ -1,5 +1,4 @@
-import { getTexts } from '@/Texts'
-
+import { getTexts } from '@/Helpers/getTexts.helper'
 import { deleteData } from '@/Helpers/deleteData.helper'
 import { saveData } from '@/Helpers/saveData.helper'
 

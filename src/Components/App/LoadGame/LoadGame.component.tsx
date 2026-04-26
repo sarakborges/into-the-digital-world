@@ -1,6 +1,6 @@
 import { useProfile } from '@/Hooks/Profile.hook'
 
-import { getTexts } from '@/Texts'
+import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { loadData } from '@/Helpers/loadData.helper'
 import { saveSession } from '@/Helpers/saveSession.helper'

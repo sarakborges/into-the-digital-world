@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
 
-import { getTexts } from '@/Texts'
+import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { Text } from '@/Components/System/Text'
 

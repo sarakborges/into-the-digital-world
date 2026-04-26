@@ -1,6 +1,6 @@
 import type { ProfileType } from '@/Types/Profile.type'
 
-import { getTexts } from '@/Texts'
+import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { Text } from '@/Components/System/Text'
 

@@ -1,8 +1,9 @@
 import type { NpcType } from '@/Types/Npc.type'
 
 import { useGame } from '@/Hooks/Game.hook'
+import { useScene } from '@/Hooks/Scene.hook'
 
-import { getTexts } from '@/Texts'
+import { getTexts } from '@/Helpers/getTexts.helper'
 
 import * as Zones from '@/GameData/Zones'
 
@@ -10,10 +11,11 @@ import { Portrait } from '@/Components/System/Portrait'
 import { Text } from '@/Components/System/Text'
 import { Button } from '@/Components/System/Button'
 
-import './AvailableEvent.style.scss'
+import './InteractableNpcs.style.scss'
 
-export const AvailableEvent = () => {
-  const { game, setGame } = useGame()
+export const InteractableNpcs = () => {
+  const { game } = useGame()
+  const { setScene } = useScene()
 
   if (!game) {
     return
@@ -34,18 +36,29 @@ export const AvailableEvent = () => {
     return
   }
 
+  const talkToNpc = () => {
+    setScene({
+      currentScene: 'customization',
+      currentStage: '001'
+    })
+  }
+
   return (
-    <aside className="available-events">
+    <aside className="interactable-npcs">
       {filteredEvents.map((event) => (
         <div
-          key={`available-event-y-${game.currentY}-x${game.currentX}-${event.id}`}
-          className="event"
+          key={`interactable-npc-y-${game.currentY}-x${game.currentX}-${event.id}`}
+          className="npc"
         >
-          <Portrait alt={event.name} src={`/${event.portrait}.jpg`} />
+          <header>
+            <Portrait alt={event.name} src={`/${event.portrait}.jpg`} />
 
-          <Text>{event.name}</Text>
+            <Text>{event.name}</Text>
+          </header>
 
-          <Button>{getTexts('NPC_INTERACT')}</Button>
+          <footer>
+            <Button onClick={talkToNpc}>{getTexts('NPC_INTERACT')}</Button>
+          </footer>
         </div>
       ))}
     </aside>

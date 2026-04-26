@@ -1,5 +1,3 @@
-export const SCENES_CONTINUE_BUTTON = `Continue`
-
 export const INTRODUCTION_001_TEXT = `As you wake up, you realize you are not in your bed. This place looks totally alien. 0s and 1s floating. Data streams flowing through.`
 export const INTRODUCTION_001_IMAGE = `The Digital World`
 

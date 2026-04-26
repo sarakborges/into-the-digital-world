@@ -4,7 +4,7 @@ import { useScene } from '@/Hooks/Scene.hook'
 
 import { NpcCulumon } from '@/GameData/Npcs/Culumon.npc'
 
-import { getDialog } from '@/Texts'
+import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 import { Dialog } from '@/Components/App/Dialog'
 import { Text } from '@/Components/System/Text'
@@ -16,11 +16,11 @@ export const Introduction007 = () => {
     speaker: NpcCulumon.name,
     speakerAvatar: NpcCulumon.portrait,
 
-    content: <Text as="p">{getDialog('INTRODUCTION_007_TEXT')}</Text>,
+    content: <Text as="p">{getDialogs('INTRODUCTION_007_TEXT')}</Text>,
 
     options: [
       {
-        text: getDialog('SCENES_CONTINUE_BUTTON'),
+        text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({
             currentScene: 'introduction',

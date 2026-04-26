@@ -3,7 +3,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { useScene } from '@/Hooks/Scene.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
 
-import { getDialog } from '@/Texts'
+import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 import { Text } from '@/Components/System/Text'
 import { Portrait } from '@/Components/System/Portrait'
@@ -22,18 +22,18 @@ export const Introduction006 = () => {
       <>
         <Text as="p">
           {profile?.name.slice(-3) !== 'mon'
-            ? getDialog('INTRODUCTION_006_TEXT').replaceAll(
+            ? getDialogs('INTRODUCTION_006_TEXT').replaceAll(
                 '[NAME]',
                 profile?.name
               )
-            : getDialog('INTRODUCTION_006_TEXT_ALT')}
+            : getDialogs('INTRODUCTION_006_TEXT_ALT')}
         </Text>
       </>
     ),
 
     options: [
       {
-        text: getDialog('SCENES_CONTINUE_BUTTON'),
+        text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({
             currentScene: 'introduction',

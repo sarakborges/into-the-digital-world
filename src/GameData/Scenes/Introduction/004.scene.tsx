@@ -1,36 +1,38 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { useScene } from '@/Hooks/Scene.hook'
+import { useProfile } from '@/Hooks/Profile.hook'
 
-import { getDialog } from '@/Texts'
+import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 import { Text } from '@/Components/System/Text'
-import { Portrait } from '@/Components/System/Portrait'
 
 import { Dialog } from '@/Components/App/Dialog'
 
-export const Introduction001 = () => {
+export const Introduction004 = () => {
   const { setScene } = useScene()
+  const { profile } = useProfile()
 
   const dialogOptions: DialogType = {
-    content: (
-      <>
-        <Portrait
-          alt={getDialog('INTRODUCTION_001_IMG')}
-          src="/zones/root_domain.png"
-        />
+    speaker: profile?.name,
+    speakerAvatar: `avatars/glitch`,
 
-        <Text as="p">{getDialog('INTRODUCTION_001_TEXT')}</Text>
-      </>
+    content: (
+      <Text as="p">
+        {getDialogs('INTRODUCTION_004_TEXT').replaceAll(
+          '[NAME]',
+          profile?.name
+        )}
+      </Text>
     ),
 
     options: [
       {
-        text: getDialog('SCENES_CONTINUE_BUTTON'),
+        text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({
             currentScene: 'introduction',
-            currentStage: '002'
+            currentStage: '005'
           })
         }
       }

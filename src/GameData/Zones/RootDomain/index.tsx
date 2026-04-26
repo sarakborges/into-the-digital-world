@@ -2,7 +2,7 @@ import type { ZoneType } from '@/Types/Zone.type'
 
 import { defaultTile } from '@/GameData/Zones/default.tile'
 
-import { NpcCulumon } from '@/GameData/Npcs/Culumon.npc'
+import { AllNpcs } from '@/GameData/Npcs'
 
 const defaultRow = {
   1: { ...defaultTile },
@@ -22,7 +22,7 @@ const defaultGrid = {
   4: {
     1: { ...defaultTile },
     2: {
-      npc: NpcCulumon,
+      npc: AllNpcs.angewomon,
       texture: 'black',
 
       canMove: {

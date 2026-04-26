@@ -1,6 +1,6 @@
 import { LANGUAGES } from '@/Consts/Languages.const'
 
-import { getTexts } from '@/Texts'
+import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { Text } from '@/Components/System/Text'
 

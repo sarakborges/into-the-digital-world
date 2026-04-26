@@ -2,7 +2,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { useScene } from '@/Hooks/Scene.hook'
 
-import { getDialog } from '@/Texts'
+import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 import { NpcCulumon } from '@/GameData/Npcs/Culumon.npc'
 
@@ -23,11 +23,11 @@ export const Introduction010 = () => {
     speaker: NpcCulumon.name,
     speakerAvatar: NpcCulumon.portrait,
 
-    content: <Text as="p">{getDialog('INTRODUCTION_010_TEXT')}</Text>,
+    content: <Text as="p">{getDialogs('INTRODUCTION_010_TEXT')}</Text>,
 
     options: [
       {
-        text: getDialog('SCENES_CONTINUE_BUTTON'),
+        text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
           saveProfile({
             profile: profile!,

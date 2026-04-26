@@ -3,7 +3,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { useScene } from '@/Hooks/Scene.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
 
-import { getDialog } from '@/Texts'
+import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 import { NpcCulumon } from '@/GameData/Npcs/Culumon.npc'
 
@@ -19,13 +19,13 @@ export const Introduction003 = () => {
     speaker: '???',
     speakerAvatar: NpcCulumon.portrait,
 
-    content: <Text as="p">{getDialog('INTRODUCTION_003_TEXT')}</Text>,
+    content: <Text as="p">{getDialogs('INTRODUCTION_003_TEXT')}</Text>,
 
     options: [
       {
-        text: getDialog('INTRODUCTION_003_ACTION'),
+        text: getDialogs('INTRODUCTION_003_ACTION'),
         action: () => {
-          const name = (prompt(getDialog('INTRODUCTION_003_PROMPT')) || '')
+          const name = (prompt(getDialogs('INTRODUCTION_003_PROMPT')) || '')
             .trim()
             .toLocaleLowerCase()
 

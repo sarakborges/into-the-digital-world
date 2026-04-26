@@ -1,6 +1,6 @@
 import { FaCircleCheck } from 'react-icons/fa6'
 
-import { getTexts } from '@/Texts'
+import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { saveData } from '@/Helpers/saveData.helper'
 
