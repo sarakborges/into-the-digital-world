@@ -3,16 +3,13 @@
   flex-flow: column;
   gap: 4px;
 
-  padding: 4px;
   flex: 1;
-
-  border-radius: 4px;
 
   .npc {
     display: flex;
-    flex-flow: column;
-
-    padding-right: 2px;
+    place-items: flex-end;
+    place-content: space-between;
+    gap: 4px;
 
     header {
       position: relative;
@@ -41,25 +38,17 @@
         bottom: 0;
         z-index: 1;
 
-        padding: 4px 8px;
-        padding-left: 50px;
+        padding: 4px;
+        padding-left: 48px;
 
         background-color: var(--color-primary);
-        border-radius: 8px 8px 0 0;
+        border-radius: 4px;
       }
     }
 
     footer {
-      display: flex;
-      flex-flow: column;
-
-      border-radius: 0 8px 8px 8px;
-      background-color: var(--color-primary);
-
-      padding: 4px;
-
       .button {
-        padding: 2px 0;
+        padding: 2px 8px;
       }
     }
   }

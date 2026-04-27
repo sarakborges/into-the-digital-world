@@ -5,8 +5,6 @@ import { useProfile } from '@/Hooks/Profile.hook'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
-import { AllNpcs } from '@/GameData/Npcs'
-
 import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 import { Dialog } from '@/Components/App/Dialog'
 
@@ -15,10 +13,10 @@ export const AvatarCustomization002 = () => {
   const { profile } = useProfile()
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.angewomon.name,
-    speakerAvatar: AllNpcs.angewomon.portrait,
+    speaker: profile?.name,
+    speakerAvatar: 'avatars/glitch',
 
-    content: <PlayerAvatar />,
+    content: <></>,
 
     options: [
       {

@@ -39,7 +39,7 @@ export const Controller = () => {
   return (
     <aside className="controller">
       <div className="controller-row">
-        <div className="controller-col"></div>
+        <div className="controller-col" />
 
         <div className="controller-col">
           <Button
@@ -54,7 +54,7 @@ export const Controller = () => {
           </Button>
         </div>
 
-        <div className="controller-col"></div>
+        <div className="controller-col" />
       </div>
 
       <div className="controller-row">
@@ -71,9 +71,7 @@ export const Controller = () => {
           </Button>
         </div>
 
-        <div className="controller-col">
-          <PlayerAvatar />
-        </div>
+        <div className="controller-col" />
 
         <div className="controller-col">
           <Button
@@ -90,7 +88,7 @@ export const Controller = () => {
       </div>
 
       <div className="controller-row">
-        <div className="controller-col"></div>
+        <div className="controller-col" />
 
         <div className="controller-col">
           <Button
@@ -105,7 +103,7 @@ export const Controller = () => {
           </Button>
         </div>
 
-        <div className="controller-col"></div>
+        <div className="controller-col" />
       </div>
     </aside>
   )

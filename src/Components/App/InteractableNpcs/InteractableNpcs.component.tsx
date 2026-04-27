@@ -51,9 +51,8 @@ export const InteractableNpcs = () => {
           className="npc"
         >
           <header>
-            <Portrait alt={event.name} src={`/${event.portrait}.jpg`} />
-
             <Text>{event.name}</Text>
+            <Portrait alt={event.name} src={`/${event.portrait}.jpg`} />
           </header>
 
           <footer>
