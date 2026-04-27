@@ -31,9 +31,7 @@ export const AvatarCustomization = () => {
         <PlayerAvatar replaceAvatar={customization.avatar} />
       </header>
 
-      {!!customization.layer && (
-        <AvatarCustomizationOptions layer={customization.layer} />
-      )}
+      {!!customization.layer && <AvatarCustomizationOptions />}
 
       {!customization.layer && (
         <>
