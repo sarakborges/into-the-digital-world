@@ -18,3 +18,12 @@ export const LANGUAGE_PTBR = `🇧🇷 Português`
 export const LANGUAGE_ENUS = `🇺🇸 Inglês`
 
 export const NPC_INTERACT = `Falar`
+
+export const AVATAR_CUSTOMIZATION_NOLAYER_TITLE = `Renderização atual:`
+export const AVATAR_CUSTOMIZATION_OPTIONS_TITLE = `O que você quer descrever agora?`
+export const AVATAR_CUSTOMIZATION_RETURN = `Descrever outra coisa`
+export const AVATAR_CUSTOMIZATION_SKIN = `Tom de pele`
+export const AVATAR_CUSTOMIZATION_HAIR = `Estilo de cabelo`
+export const AVATAR_CUSTOMIZATION_HAIR_COLOR = `Cor do cabelo`
+export const AVATAR_CUSTOMIZATION_EYES = `Cor dos olhos`
+export const AVATAR_CUSTOMIZATION_CLOTHES = `Roupas`

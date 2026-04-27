@@ -1,0 +1,37 @@
+.avatar-customization {
+  display: flex;
+  flex-flow: column;
+  gap: 8px;
+
+  header {
+    display: flex;
+    flex-flow: column;
+    gap: 8px;
+
+    .player-avatar {
+      width: 100%;
+    }
+  }
+
+  .avatar-options {
+    display: flex;
+    flex-flow: column;
+    gap: 8px;
+
+    .options-list {
+      display: flex;
+      flex-flow: column;
+      gap: 2px;
+
+      .button {
+        padding: 0 8px;
+
+        background-color: transparent;
+
+        &:before {
+          content: '- ';
+        }
+      }
+    }
+  }
+}

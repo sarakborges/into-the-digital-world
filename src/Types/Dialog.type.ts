@@ -2,7 +2,7 @@ export type DialogType = {
   speaker?: string
   speakerAvatar?: string
   content: React.ReactNode
-  options: Array<{
+  options?: Array<{
     text: string
     action: () => void
   }>

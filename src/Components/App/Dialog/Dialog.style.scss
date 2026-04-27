@@ -4,7 +4,7 @@
 
   width: 100%;
 
-  header {
+  > header {
     display: flex;
     place-items: flex-end;
 
@@ -42,7 +42,7 @@
     }
   }
 
-  main {
+  > main {
     display: flex;
     flex-flow: column;
 
@@ -59,13 +59,13 @@
       padding-top: 4px;
     }
 
-    .text {
+    > .text {
       max-height: calc(var(--line-height-md) * 16px * 4.75);
       overflow: auto;
     }
   }
 
-  footer {
+  > footer {
     display: flex;
     place-content: flex-end;
     flex-wrap: wrap;

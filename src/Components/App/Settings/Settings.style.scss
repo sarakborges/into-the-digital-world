@@ -25,10 +25,15 @@
       gap: 6px;
     }
 
-    .portrait {
-      height: 24px;
+    .portrait,
+    .player-avatar {
+      width: 24px;
 
       border-radius: 100%;
+
+      img {
+        border-radius: 100%;
+      }
     }
 
     .button {

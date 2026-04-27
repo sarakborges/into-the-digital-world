@@ -8,7 +8,9 @@ import * as AvatarCustomizationPt from '@/GameData/Dialogs/AvatarCustomization/P
 
 const EnDialogs = {
   SCENES_CONTINUE_BUTTON: `Continue`,
+  SCENES_CONFIRM_BUTTON: `Confirm`,
   SCENES_LEAVE_BUTTON: `Leave`,
+  SCENES_BACK_BUTTON: `Go back`,
 
   ...IntroductionEn,
   ...AvatarCustomizationEn
@@ -16,7 +18,9 @@ const EnDialogs = {
 
 const PtDialogs = {
   SCENES_CONTINUE_BUTTON: `Continuar`,
+  SCENES_CONFIRM_BUTTON: `Confirmar`,
   SCENES_LEAVE_BUTTON: `Sair`,
+  SCENES_BACK_BUTTON: `Voltar`,
 
   ...IntroductionPt,
   ...AvatarCustomizationPt
