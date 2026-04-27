@@ -16,7 +16,9 @@ export const PlayerAvatar = ({
 
   if (!avatar) {
     return (
-      <Portrait src="/avatars/glitch.jpg" alt={`${profile?.name} avatar`} />
+      <div className="player-avatar">
+        <Portrait src="/avatars/glitch.jpg" alt={`${profile?.name} avatar`} />
+      </div>
     )
   }
 

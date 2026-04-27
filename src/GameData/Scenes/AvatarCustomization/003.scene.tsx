@@ -20,7 +20,7 @@ export const AvatarCustomization003 = () => {
   const dialogOptions: DialogType = {
     content: <AvatarCustomization />,
     options: [
-      !!customization.layer && {
+      !!customization?.layer && {
         text: getDialogs('SCENES_BACK_BUTTON'),
         action: () => {
           setCustomization({ avatar: customization.avatar })

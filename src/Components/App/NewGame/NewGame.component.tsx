@@ -1,10 +1,13 @@
-import { useProfile } from '@/Hooks/Profile.hook'
-import { useScene } from '@/Hooks/Scene.hook'
-import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
+import * as Zones from '@/GameData/Zones'
 
 import type { ProfileType } from '@/Types/Profile.type'
 
 import { getTexts } from '@/Helpers/getTexts.helper'
+
+import { useProfile } from '@/Hooks/Profile.hook'
+import { useGame } from '@/Hooks/Game.hook'
+import { useScene } from '@/Hooks/Scene.hook'
+import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
 
 import { Button } from '@/Components/System/Button'
 
@@ -14,6 +17,7 @@ export const NewGame = () => {
   const { savedProfiles } = useSavedProfiles()
   const { setProfile } = useProfile()
   const { setScene } = useScene()
+  const { setGame } = useGame()
 
   const createNewProfile = () => {
     const sortedProfiles = [...(savedProfiles || [])].sort(
@@ -26,6 +30,14 @@ export const NewGame = () => {
       name: '',
       lastSave: ''
     }
+
+    const currentZone = Zones.RootDomain
+
+    setGame({
+      currentX: currentZone.spawn.x,
+      currentY: currentZone.spawn.y,
+      currentZone: currentZone.id
+    })
 
     setProfile(newProfile)
     setScene({ currentScene: 'introduction', currentStage: '001' })

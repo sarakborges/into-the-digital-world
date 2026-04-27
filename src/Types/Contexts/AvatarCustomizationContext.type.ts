@@ -4,11 +4,11 @@ export type AvatarCustomizationContextType = {
   customization: {
     avatar: AvatarType
     layer?: keyof AvatarType
-  }
+  } | null
   setCustomization: React.Dispatch<
     React.SetStateAction<{
       avatar: AvatarType
       layer?: keyof AvatarType
-    }>
+    } | null>
   >
 }

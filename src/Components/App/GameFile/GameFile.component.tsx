@@ -6,12 +6,15 @@ import { Text } from '@/Components/System/Text'
 
 import { LoadGame } from '@/Components/App/LoadGame'
 import { DeleteGame } from '@/Components/App/DeleteGame'
+import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 
 import './GameFile.style.scss'
 
 export const GameFile = ({ profile }: { profile: ProfileType }) => {
   return (
     <div className="game-file">
+      <PlayerAvatar replaceAvatar={profile?.avatar} />
+
       <header>
         <Text>
           {getTexts('GAME_FILE_TITLE').replaceAll(`[NAME]`, profile.name)}

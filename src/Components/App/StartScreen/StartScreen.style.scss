@@ -8,24 +8,32 @@
 
   > header {
     display: flex;
+    place-content: center;
 
     .text {
       font-size: 32px;
       font-weight: 700;
       text-align: center;
       line-height: var(--line-height-sm);
+      white-space: pre-wrap;
     }
   }
 
   > main {
     display: flex;
     flex-flow: column;
-    gap: 8px;
+    gap: 32px;
 
     .saved-games {
       display: flex;
       flex-flow: column;
       gap: 8px;
+
+      .games-list {
+        display: flex;
+        flex-flow: column;
+        gap: 8px;
+      }
     }
   }
 }

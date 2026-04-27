@@ -1,10 +1,11 @@
-export const START_SCREEN_TITLE = `Bem vindo ao Mundo Digital!`
+export const START_SCREEN_TITLE = `Bem vindo ao\nMundo Digital!`
 
 export const START_NEW_GAME = `Novo jogo`
+export const SAVED_GAMES = `Jogos salvos:`
 export const GAME_FILE_TITLE = `[NAME]`
 export const GAME_FILE_TIME = `[TIME]`
-export const LOAD_GAME = `Carregar jogo`
-export const DELETE_GAME_FILE = `Excluir jogo`
+export const LOAD_GAME = `Carregar`
+export const DELETE_GAME_FILE = `Excluir`
 
 export const SETTINGS_TITLE = `Configurações`
 export const RETURN_TO_MAIN_SCREEN = `Voltar para a tela inicial`
