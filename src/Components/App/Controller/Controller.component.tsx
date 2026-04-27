@@ -6,14 +6,10 @@ import {
 } from 'react-icons/fa'
 
 import { useGame } from '@/Hooks/Game.hook'
-import { useProfile } from '@/Hooks/Profile.hook'
 
 import * as Zones from '@/GameData/Zones'
 
-import { Portrait } from '@/Components/System/Portrait'
 import { Button } from '@/Components/System/Button'
-
-import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 
 import './Controller.style.scss'
 
@@ -23,8 +19,6 @@ export const Controller = () => {
   if (!game) {
     return <></>
   }
-
-  const { profile } = useProfile()
 
   const currentZone = { ...Zones[game.currentZone] }
 
@@ -39,8 +33,6 @@ export const Controller = () => {
   return (
     <aside className="controller">
       <div className="controller-row">
-        <div className="controller-col" />
-
         <div className="controller-col">
           <Button
             disabled={
@@ -53,8 +45,6 @@ export const Controller = () => {
             <FaArrowUp />
           </Button>
         </div>
-
-        <div className="controller-col" />
       </div>
 
       <div className="controller-row">
@@ -88,8 +78,6 @@ export const Controller = () => {
       </div>
 
       <div className="controller-row">
-        <div className="controller-col" />
-
         <div className="controller-col">
           <Button
             disabled={
@@ -102,8 +90,6 @@ export const Controller = () => {
             <FaArrowDown />
           </Button>
         </div>
-
-        <div className="controller-col" />
       </div>
     </aside>
   )
