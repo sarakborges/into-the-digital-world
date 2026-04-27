@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import { useAvatarCustomization } from '@/Hooks/AvatarCustomization.hook'
 
 import { getTexts } from '@/Helpers/getTexts.helper'
