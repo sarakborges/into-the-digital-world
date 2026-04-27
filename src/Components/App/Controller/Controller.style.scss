@@ -15,14 +15,14 @@
     display: flex;
     place-items: center;
     place-content: center;
-    gap: 4px;
+    gap: 6px;
 
     .controller-col {
       display: flex;
       place-items: center;
       place-content: center;
 
-      height: 32px;
+      height: 24px;
       aspect-ratio: 1/1;
 
       .button {
@@ -36,7 +36,7 @@
       }
 
       .portrait {
-        border-radius: 4px;
+        border-radius: 100%;
       }
     }
   }
