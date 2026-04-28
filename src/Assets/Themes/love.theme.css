@@ -1,11 +1,11 @@
 .theme-love {
-  --color-primary: #e53935;
-  --color-primary-strong: #b23a4e;
-  --color-primary-weak: #4a1a24;
+  --color-primary: #bf3e3c;
+  --color-primary-strong: #dc3b38;
+  --color-primary-weak: #e16866;
 
-  --color-secondary: #f4a3b1;
-  --color-secondary-strong: #d97c8c;
-  --color-secondary-weak: #5a2a33;
+  --color-secondary: #f84bb5;
+  --color-secondary-strong: #f10a99;
+  --color-secondary-weak: #eb88c5;
 
   --color-cancel: #b33939;
   --color-cancel-strong: #7a2424;
@@ -14,4 +14,7 @@
   --color-neutral-weak: #fff6f8;
   --color-neutral: #a8959a;
   --color-neutral-strong: #1a1416;
+
+  --text-color: #fff;
+  --modal-color: #bf3e3c99;
 }

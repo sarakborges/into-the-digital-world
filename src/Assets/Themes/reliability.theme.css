@@ -1,11 +1,11 @@
 .theme-reliability {
-  --color-primary: #4a4a4a;
-  --color-primary-strong: #2f2f2f;
-  --color-primary-weak: #1a1a1a;
+  --color-primary: #3a3d46;
+  --color-primary-strong: #23262e;
+  --color-primary-weak: #4f5465;
 
-  --color-secondary: #8c8c8c;
-  --color-secondary-strong: #6b6b6b;
-  --color-secondary-weak: #3d3d3d;
+  --color-secondary: #3b6953;
+  --color-secondary-strong: #2a7d55;
+  --color-secondary-weak: #5a8771;
 
   --color-cancel: #a94444;
   --color-cancel-strong: #6e2c2c;
@@ -14,4 +14,7 @@
   --color-neutral-weak: #f7f7f7;
   --color-neutral: #9a9a9a;
   --color-neutral-strong: #121212;
+
+  --text-color: #fff;
+  --modal-color: #3a3d4699;
 }

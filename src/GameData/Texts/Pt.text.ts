@@ -13,6 +13,14 @@ export const RETURN_TO_MAIN_SCREEN = `Voltar para a tela inicial`
 export const THEMES_TITLE = `Tema`
 export const THEME_DEFAULT = `Padrão`
 export const THEME_ALTERNATIVE = `Alternativo`
+export const THEME_COURAGE = `Coragem`
+export const THEME_FRIENDSHIP = `Amizade`
+export const THEME_LOVE = `Amor`
+export const THEME_KNOWLEDGE = `Conhecimento`
+export const THEME_SINCERITY = `Sinceridade`
+export const THEME_RELIABILITY = `Confiança`
+export const THEME_HOPE = `Esperança`
+export const THEME_LIGHT = `Luz`
 
 export const LANGUAGES_TITLE = `Linguagem`
 export const LANGUAGE_PTBR = `🇧🇷 Português`

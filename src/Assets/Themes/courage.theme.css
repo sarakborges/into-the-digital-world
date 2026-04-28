@@ -1,11 +1,11 @@
 .theme-courage {
-  --color-primary: #ff6b35;
-  --color-primary-strong: #d6451b;
-  --color-primary-weak: #5c1f0e;
+  --color-primary: #d04323;
+  --color-primary-strong: #ac1a00;
+  --color-primary-weak: #ff6955;
 
-  --color-secondary: #ffb199;
-  --color-secondary-strong: #ff8a66;
-  --color-secondary-weak: #5a2a1a;
+  --color-secondary: #fa6400;
+  --color-secondary-strong: #ac4500;
+  --color-secondary-weak: #ff9955;
 
   --color-cancel: #b83232;
   --color-cancel-strong: #7a1f1f;
@@ -14,4 +14,7 @@
   --color-neutral-weak: #fff8f5;
   --color-neutral: #a68a7a;
   --color-neutral-strong: #1a1412;
+
+  --text-color: #fff;
+  --modal-color: #d0432399;
 }
