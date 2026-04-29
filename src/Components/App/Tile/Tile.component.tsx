@@ -24,7 +24,7 @@ export const Tile = ({ x, y }: { x: number; y: number }) => {
       {!!currentZone.grid[y][x].npc && (
         <div className="npc">
           <Portrait
-            src={`/${currentZone.grid[y][x].npc.portrait}.jpg`}
+            src={`/${currentZone.grid[y][x].npc.portrait}.webp`}
             alt={currentZone.grid[y][x].npc.name}
           />
         </div>

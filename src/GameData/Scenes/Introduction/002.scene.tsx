@@ -17,7 +17,7 @@ export const Introduction002 = () => {
       <>
         <Portrait
           alt={getDialogs('INTRODUCTION_002_IMAGE')}
-          src="/digimons/CULUMON.jpg"
+          src="/digimons/CULUMON.webp"
         />
 
         <Text as="p">{getDialogs('INTRODUCTION_002_TEXT')}</Text>

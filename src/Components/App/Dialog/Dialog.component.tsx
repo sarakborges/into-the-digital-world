@@ -19,7 +19,7 @@ export const Dialog = ({
         {speaker && (
           <header>
             {speakerAvatar && (
-              <Portrait alt="Helper Digimon" src={`/${speakerAvatar}.jpg`} />
+              <Portrait alt="Helper Digimon" src={`/${speakerAvatar}.webp`} />
             )}
 
             <Text>{speaker}</Text>

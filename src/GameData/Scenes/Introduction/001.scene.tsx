@@ -17,7 +17,7 @@ export const Introduction001 = () => {
       <>
         <Portrait
           alt={getDialogs('INTRODUCTION_001_IMG')}
-          src="/zones/root_domain.png"
+          src="/zones/root_domain.webp"
         />
 
         <Text as="p">{getDialogs('INTRODUCTION_001_TEXT')}</Text>

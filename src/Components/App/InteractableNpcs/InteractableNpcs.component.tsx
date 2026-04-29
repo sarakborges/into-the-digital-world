@@ -52,7 +52,7 @@ export const InteractableNpcs = () => {
         >
           <header>
             <Text>{event.name}</Text>
-            <Portrait alt={event.name} src={`/${event.portrait}.jpg`} />
+            <Portrait alt={event.name} src={`/${event.portrait}.webp`} />
           </header>
 
           <footer>

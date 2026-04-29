@@ -1,5 +1,5 @@
 export const AVATAR_OPTIONS = {
-  expression: ['DEFAULT'],
+  expression: ['1'],
   skin: ['1', '2', '3', '4', '5', '6'],
   hair: ['1', '2', '3', '4', '5', '6', '7', '8'],
   hairColor: ['BLONDE', 'DARK_BROWN'],
