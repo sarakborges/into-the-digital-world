@@ -11,7 +11,7 @@ import './AvatarCustomizationOptions.style.scss'
 export const AvatarCustomizationOptions = () => {
   const { customization, setCustomization } = useAvatarCustomization()
 
-  if (!customization.layer) {
+  if (!customization?.layer) {
     return
   }
 
