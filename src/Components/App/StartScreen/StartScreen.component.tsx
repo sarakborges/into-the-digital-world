@@ -32,12 +32,14 @@ export const StartScreen = () => {
             <Text as="h2">{getTexts('SAVED_GAMES')}</Text>
 
             <div className="games-list">
-              {savedProfiles?.map((profile) => (
-                <GameFile
-                  profile={profile}
-                  key={`savedProfiles-${profile.id}`}
-                />
-              ))}
+              {savedProfiles
+                ?.sort((a, b) => (a.lastSave > b.lastSave ? -1 : 1))
+                .map((profile) => (
+                  <GameFile
+                    profile={profile}
+                    key={`savedProfiles-${profile.id}`}
+                  />
+                ))}
             </div>
           </div>
         )}
