@@ -24,10 +24,10 @@ export const InteractableNpcs = () => {
   const currentZone = { ...Zones[game.currentZone] }
 
   const events: { [k: string]: NpcType } = {
-    'x-1y0': currentZone.grid[game.currentY][game.currentX - 1].npc,
-    'x+1y0': currentZone.grid[game.currentY][game.currentX + 1].npc,
-    'xy+1': currentZone.grid[game.currentY - 1][game.currentX].npc,
-    'x0y+1': currentZone.grid[game.currentY + 1][game.currentX].npc
+    'x-1y0': currentZone.grid[game.currentY][game.currentX - 1]?.npc,
+    'x+1y0': currentZone.grid[game.currentY][game.currentX + 1]?.npc,
+    'xy+1': currentZone.grid[game.currentY - 1][game.currentX]?.npc,
+    'x0y+1': currentZone.grid[game.currentY + 1][game.currentX]?.npc
   }
 
   const filteredEvents = Object.values(events).filter((event) => !!event)

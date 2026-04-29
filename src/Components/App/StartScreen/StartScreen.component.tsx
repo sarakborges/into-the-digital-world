@@ -27,15 +27,20 @@ export const StartScreen = () => {
       <main>
         <NewGame />
 
-        <div className="saved-games">
-          <Text as="h2">{getTexts('SAVED_GAMES')}</Text>
+        {!!savedProfiles?.length && (
+          <div className="saved-games">
+            <Text as="h2">{getTexts('SAVED_GAMES')}</Text>
 
-          <div className="games-list">
-            {savedProfiles?.map((profile) => (
-              <GameFile profile={profile} key={`savedProfiles-${profile.id}`} />
-            ))}
+            <div className="games-list">
+              {savedProfiles?.map((profile) => (
+                <GameFile
+                  profile={profile}
+                  key={`savedProfiles-${profile.id}`}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </main>
     </main>
   )

@@ -1,11 +1,9 @@
+import type { ZoneType } from '@/Types/Zone.type'
 import type { GameType } from '@/Types/Game.type'
 import type { SceneType } from '@/Types/Scene.type'
-import type { ZoneType } from '@/Types/Zone.type'
 
 import { defaultTile } from '@/GameData/Zones/default.tile'
-import { BinaryForest } from '@/GameData/Zones/BinaryForest'
-
-import { AllNpcs } from '@/GameData/Npcs'
+import { RootDomain } from '@/GameData/Zones/RootDomain'
 
 const defaultRow = {
   1: { ...defaultTile },
@@ -23,25 +21,7 @@ const defaultGrid = {
   3: { ...defaultRow },
 
   4: {
-    1: { ...defaultTile },
-
-    2: {
-      npc: AllNpcs.angewomon,
-      texture: 'black',
-
-      canMove: {
-        up: true,
-        down: true,
-        left: true,
-        right: true
-      }
-    },
-    3: { ...defaultTile },
-    4: { ...defaultTile },
-    5: { ...defaultTile },
-    6: { ...defaultTile },
-
-    7: {
+    1: {
       texture: 'white',
 
       canMove: {
@@ -60,11 +40,18 @@ const defaultGrid = {
       }) => {
         setGame?.((prevGame) => ({
           ...prevGame,
-          currentZone: BinaryForest.id,
-          currentX: 1
+          currentZone: RootDomain.id,
+          currentX: 7
         }))
       }
-    }
+    },
+
+    2: { ...defaultTile },
+    3: { ...defaultTile },
+    4: { ...defaultTile },
+    5: { ...defaultTile },
+    6: { ...defaultTile },
+    7: { ...defaultTile }
   },
 
   5: { ...defaultRow },
@@ -72,9 +59,9 @@ const defaultGrid = {
   7: { ...defaultRow }
 }
 
-export const RootDomain: ZoneType = {
-  id: `RootDomain`,
-  name: `Root Domain`,
+export const BinaryForest: ZoneType = {
+  id: `BinaryForest`,
+  name: `Binary Forest`,
 
   spawn: {
     x: 4,

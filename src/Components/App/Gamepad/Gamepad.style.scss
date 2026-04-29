@@ -1,4 +1,4 @@
-.controller {
+.gamepad {
   display: flex;
   flex-flow: column;
   place-items: center;
@@ -11,13 +11,13 @@
   border-radius: 100%;
   background-color: var(--color-primary);
 
-  .controller-row {
+  .gamepad-row {
     display: flex;
     place-items: center;
     place-content: center;
     gap: 4px;
 
-    .controller-col {
+    .gamepad-col {
       display: flex;
       place-items: center;
       place-content: center;

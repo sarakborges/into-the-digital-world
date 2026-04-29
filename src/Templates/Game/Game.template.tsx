@@ -7,7 +7,7 @@ import { useProfile } from '@/Hooks/Profile.hook'
 import { useSettings } from '@/Hooks/Settings.hook'
 
 import { InteractableNpcs } from '@/Components/App/InteractableNpcs'
-import { Controller } from '@/Components/App/Controller'
+import { Gamepad } from '@/Components/App/Gamepad'
 import { Gameboard } from '@/Components/App/Gameboard'
 import { Settings } from '@/Components/App/Settings'
 import { StartScreen } from '@/Components/App/StartScreen'
@@ -33,7 +33,7 @@ export const Game = () => {
             {!!profile && (
               <div className="screen-footer">
                 <InteractableNpcs />
-                <Controller />
+                <Gamepad />
               </div>
             )}
           </>

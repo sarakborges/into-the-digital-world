@@ -1,3 +1,19 @@
+.gameboard-title {
+  display: flex;
+
+  width: 100%;
+  padding: 0 4px;
+
+  .text {
+    padding: 4px 8px;
+
+    font-size: 24px;
+
+    background-color: var(--color-primary);
+    border-radius: 8px 8px 0 0;
+  }
+}
+
 .gameboard {
   /* Gameboard */
   --view-size: 7;
@@ -16,7 +32,8 @@
 
   display: flex;
 
-  width: calc(var(--tile-size) * var(--view-size));
+  width: calc(var(--tile-size) * var(--view-size) + 2px);
+  padding: 1px;
   aspect-ratio: 1;
 
   overflow: hidden;

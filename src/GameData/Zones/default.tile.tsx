@@ -1,7 +1,5 @@
 import type { TileType } from '@/Types/Tile.type'
 
-import { NpcCulumon } from '@/GameData/Npcs/Culumon.npc'
-
 export const defaultTile: TileType = {
   texture: 'black',
 

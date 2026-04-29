@@ -3,6 +3,8 @@ import * as Zones from '@/GameData/Zones'
 import { useGame } from '@/Hooks/Game.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
 
+import { Text } from '@/Components/System/Text'
+
 import { Tile } from '@/Components/App/Tile'
 
 import './Gameboard.style.scss'
@@ -29,24 +31,30 @@ export const Gameboard = () => {
   } as React.CSSProperties
 
   return (
-    <main className="gameboard" style={gameboardVars}>
-      <div className="gameboard-body">
-        {sortedRows.map((y) => {
-          const sortedCols = Object.keys(currentZone.grid[y])
-            .map(Number)
-            .sort((a, b) => a - b)
+    <>
+      <header className="gameboard-title">
+        <Text>{currentZone.name}</Text>
+      </header>
 
-          return (
-            <div className="gameboard-y" key={`y-${y}`}>
-              {sortedCols.map((x) => (
-                <div className="gameboard-x" key={`y-${y}-x-${x}`}>
-                  <Tile {...{ x, y }} />
-                </div>
-              ))}
-            </div>
-          )
-        })}
-      </div>
-    </main>
+      <main className="gameboard" style={gameboardVars}>
+        <div className="gameboard-body">
+          {sortedRows.map((y) => {
+            const sortedCols = Object.keys(currentZone.grid[y])
+              .map(Number)
+              .sort((a, b) => a - b)
+
+            return (
+              <div className="gameboard-y" key={`y-${y}`}>
+                {sortedCols.map((x) => (
+                  <div className="gameboard-x" key={`y-${y}-x-${x}`}>
+                    <Tile {...{ x, y }} />
+                  </div>
+                ))}
+              </div>
+            )
+          })}
+        </div>
+      </main>
+    </>
   )
 }
