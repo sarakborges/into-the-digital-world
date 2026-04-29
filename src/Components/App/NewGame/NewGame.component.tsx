@@ -34,8 +34,8 @@ export const NewGame = () => {
     const currentZone = Zones.RootDomain
 
     setGame({
-      currentX: currentZone.spawn.x,
-      currentY: currentZone.spawn.y,
+      currentX: 4,
+      currentY: 4,
       currentZone: currentZone.id
     })
 

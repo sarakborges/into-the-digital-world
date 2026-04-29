@@ -10,8 +10,8 @@ const defaultZone = Zones['RootDomain']
 
 const defaultGame = {
   currentZone: defaultZone.id,
-  currentX: defaultZone.spawn.x,
-  currentY: defaultZone.spawn.y
+  currentX: 4,
+  currentY: 4
 }
 
 export const GameContext = createContext<GameContextType>({

@@ -4,11 +4,6 @@ export type ZoneType = {
   id: string
   name: string
 
-  spawn: {
-    x: number
-    y: number
-  }
-
   gridSize: {
     x: number
     y: number

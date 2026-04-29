@@ -1,12 +1,12 @@
 import type { TileType } from '@/Types/Tile.type'
 
-export const defaultTile: TileType = {
-  texture: 'gray',
+export const RootDomainY7X1: TileType = {
+  texture: 'red',
 
   canMove: {
     up: true,
-    down: true,
-    left: true,
+    down: false,
+    left: false,
     right: true
   }
 }

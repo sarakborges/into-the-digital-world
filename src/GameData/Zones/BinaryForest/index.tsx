@@ -22,7 +22,7 @@ const defaultGrid = {
 
   4: {
     1: {
-      texture: 'white',
+      texture: 'black',
 
       canMove: {
         up: true,
@@ -62,11 +62,6 @@ const defaultGrid = {
 export const BinaryForest: ZoneType = {
   id: `BinaryForest`,
   name: `Binary Forest`,
-
-  spawn: {
-    x: 4,
-    y: 4
-  },
 
   gridSize: {
     x: 7,
