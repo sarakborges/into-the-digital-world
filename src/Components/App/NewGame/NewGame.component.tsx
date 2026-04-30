@@ -31,8 +31,8 @@ export const NewGame = () => {
       lastSave: '',
 
       currentZone: currentZone.id,
-      currentX: 4,
-      currentY: 4
+      currentX: 7,
+      currentY: 7
     }
 
     setProfile(newProfile)

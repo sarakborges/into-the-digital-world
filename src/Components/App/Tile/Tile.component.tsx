@@ -18,12 +18,17 @@ export const Tile = ({ x, y }: { x: number; y: number }) => {
   const currentZone = { ...Zones[profile.currentZone] }
 
   return (
-    <div className="tile" data-tiletype={currentZone.grid[y][x].texture || ''}>
-      {!!currentZone.grid[y][x].npc && (
+    <div
+      className="tile"
+      data-tiletype={currentZone.grid[y]?.[x]?.texture || 'black'}
+      data-y={y}
+      data-x={x}
+    >
+      {!!currentZone.grid?.[y]?.[x]?.npc && (
         <div className="npc">
           <Portrait
-            src={`/${currentZone.grid[y][x].npc.portrait}.webp`}
-            alt={currentZone.grid[y][x].npc.name}
+            src={`/${currentZone.grid?.[y]?.[x].npc.portrait}.webp`}
+            alt={currentZone.grid?.[y]?.[x].npc.name}
           />
         </div>
       )}

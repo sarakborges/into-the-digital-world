@@ -49,75 +49,86 @@ import { RootDomainY7X5 } from './y7x5'
 import { RootDomainY7X6 } from './y7x6'
 import { RootDomainY7X7 } from './y7x7'
 
+const outOfBoundsTile = {
+  texture: 'black',
+
+  canMove: {
+    up: false,
+    down: false,
+    left: false,
+    right: false
+  }
+}
+
 const grid = {
-  1: {
-    1: RootDomainY1X1,
-    2: RootDomainY1X2,
-    3: RootDomainY1X3,
-    4: RootDomainY1X4,
-    5: RootDomainY1X5,
-    6: RootDomainY1X6,
-    7: RootDomainY1X7
-  },
-
-  2: {
-    1: RootDomainY2X1,
-    2: RootDomainY2X2,
-    3: RootDomainY2X3,
-    4: RootDomainY2X4,
-    5: RootDomainY2X5,
-    6: RootDomainY2X6,
-    7: RootDomainY2X7
-  },
-
-  3: {
-    1: RootDomainY3X1,
-    2: RootDomainY3X2,
-    3: defaultTile,
-    4: defaultTile,
-    5: defaultTile,
-    6: RootDomainY3X6,
-    7: RootDomainY3X7
-  },
-
   4: {
-    1: RootDomainY4X1,
-    2: RootDomainY4X2,
-    3: RootDomainY4X3,
-    4: { ...defaultTile },
-    5: { ...defaultTile },
-    6: { ...defaultTile },
-    7: RootDomainY4X7
+    4: RootDomainY1X1,
+    5: RootDomainY1X2,
+    6: RootDomainY1X3,
+    7: RootDomainY1X4,
+    8: RootDomainY1X5,
+    9: RootDomainY1X6,
+    10: RootDomainY1X7
   },
 
   5: {
-    1: RootDomainY5X1,
-    2: RootDomainY5X2,
-    3: defaultTile,
-    4: defaultTile,
-    5: defaultTile,
-    6: RootDomainY5X6,
-    7: RootDomainY5X7
+    4: RootDomainY2X1,
+    5: RootDomainY2X2,
+    6: RootDomainY2X3,
+    7: RootDomainY2X4,
+    8: RootDomainY2X5,
+    9: RootDomainY2X6,
+    10: RootDomainY2X7
   },
 
   6: {
-    1: RootDomainY6X1,
-    2: RootDomainY6X2,
-    3: RootDomainY6X3,
-    4: RootDomainY6X4,
-    5: RootDomainY6X5,
-    6: RootDomainY6X6,
-    7: RootDomainY6X7
+    4: RootDomainY3X1,
+    5: RootDomainY3X2,
+    6: defaultTile,
+    7: defaultTile,
+    8: defaultTile,
+    9: RootDomainY3X6,
+    10: RootDomainY3X7
   },
 
   7: {
-    1: RootDomainY7X1,
-    2: RootDomainY7X2,
-    3: RootDomainY7X3,
-    4: RootDomainY7X4,
-    5: RootDomainY7X5,
-    6: RootDomainY7X6,
-    7: RootDomainY7X7
+    4: RootDomainY4X1,
+    5: RootDomainY4X2,
+    6: RootDomainY4X3,
+    7: { ...defaultTile },
+    8: { ...defaultTile },
+    9: { ...defaultTile },
+    10: RootDomainY4X7
+  },
+
+  8: {
+    4: RootDomainY5X1,
+    5: RootDomainY5X2,
+    6: defaultTile,
+    7: defaultTile,
+    8: defaultTile,
+    9: RootDomainY5X6,
+    10: RootDomainY5X7
+  },
+
+  9: {
+    4: RootDomainY6X1,
+    5: RootDomainY6X2,
+    6: RootDomainY6X3,
+    7: RootDomainY6X4,
+    8: RootDomainY6X5,
+    9: RootDomainY6X6,
+    10: RootDomainY6X7
+  },
+
+  10: {
+    4: RootDomainY7X1,
+    5: RootDomainY7X2,
+    6: RootDomainY7X3,
+    7: RootDomainY7X4,
+    8: RootDomainY7X5,
+    9: RootDomainY7X6,
+    10: RootDomainY7X7
   }
 }
 

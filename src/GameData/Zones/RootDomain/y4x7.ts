@@ -5,13 +5,13 @@ import type { SceneType } from '@/Types/Scene.type'
 import { BinaryForest } from '@/GameData/Zones/BinaryForest'
 
 export const RootDomainY4X7: TileType = {
-  texture: 'black',
+  texture: 'white',
 
   canMove: {
-    up: true,
-    down: true,
+    up: false,
+    down: false,
     left: true,
-    right: true
+    right: false
   },
 
   onEnter: ({
@@ -27,7 +27,7 @@ export const RootDomainY4X7: TileType = {
     setProfile((prevProfile) => ({
       ...prevProfile!,
       currentZone: BinaryForest.id,
-      currentX: 1
+      currentX: 2
     }))
   }
 }

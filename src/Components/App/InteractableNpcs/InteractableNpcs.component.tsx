@@ -24,10 +24,10 @@ export const InteractableNpcs = () => {
   const currentZone = { ...Zones[profile.currentZone || 'RootDomain'] }
 
   const events: { [k: string]: NpcType } = {
-    'x-1y0': currentZone.grid[profile.currentY][profile.currentX - 1]?.npc,
-    'x+1y0': currentZone.grid[profile.currentY][profile.currentX + 1]?.npc,
-    'xy+1': currentZone.grid[profile.currentY - 1][profile.currentX]?.npc,
-    'x0y+1': currentZone.grid[profile.currentY + 1][profile.currentX]?.npc
+    'x-1y0': currentZone.grid?.[profile.currentY]?.[profile.currentX - 1]?.npc,
+    'x+1y0': currentZone.grid?.[profile.currentY]?.[profile.currentX + 1]?.npc,
+    'xy+1': currentZone.grid?.[profile.currentY - 1]?.[profile.currentX]?.npc,
+    'x0y+1': currentZone.grid?.[profile.currentY + 1]?.[profile.currentX]?.npc
   }
 
   const filteredEvents = Object.values(events).filter((event) => !!event)

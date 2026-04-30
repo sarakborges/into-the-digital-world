@@ -1,3 +1,19 @@
+:root {
+  /* Gameboard */
+  --dead-zone: 2;
+
+  --tile-size: calc((100vw/var(--view-size)) * 1px);
+
+  /* movement step = tile only */
+  --step: var(--tile-size);
+
+  --center: calc((var(--view-size) - 1) / 2);
+
+  --min-offset-x: calc(-1 * (var(--grid-size-x) - var(--view-size)));
+  --min-offset-y: calc(-1 * (var(--grid-size-y) - var(--view-size)));
+  --max-offset: 0;
+}
+
 .gameboard-title {
   display: flex;
 
@@ -14,76 +30,61 @@
   }
 }
 
-.gameboard {
-  /* Gameboard */
-  --view-size: 7;
-  --dead-zone: 2;
-
-  --tile-size: 50px;
-
-  /* movement step = tile only */
-  --step: var(--tile-size);
-
-  --center: calc((var(--view-size) - 1) / 2);
-
-  --min-offset-x: calc(-1 * (var(--grid-size-x) - var(--view-size)));
-  --min-offset-y: calc(-1 * (var(--grid-size-y) - var(--view-size)));
-  --max-offset: 0;
-
+.gameboard-wrapper {
   display: flex;
+  flex-flow: column;
 
-  width: calc(var(--tile-size) * var(--view-size) + 2px);
-  aspect-ratio: 1;
+  width: 100%;
 
-  overflow: hidden;
-
-  .gameboard-body {
+  .gameboard {
     display: flex;
-    flex-direction: column;
 
-    will-change: transform;
-
-    transform: translate3d(
-      calc(
-        clamp(
-            var(--min-offset-x),
-            calc(
-              clamp(
-                (var(--center) - (var(--x) - 1) - var(--dead-zone)),
-                (var(--center) - (var(--x) - 1)),
-                (var(--center) - (var(--x) - 1) + var(--dead-zone))
-              )
-            ),
-            var(--max-offset)
-          ) *
-          var(--step)
-      ),
-      calc(
-        clamp(
-            var(--min-offset-y),
-            calc(
-              clamp(
-                (var(--center) - (var(--y) - 1) - var(--dead-zone)),
-                (var(--center) - (var(--y) - 1)),
-                (var(--center) - (var(--y) - 1) + var(--dead-zone))
-              )
-            ),
-            var(--max-offset)
-          ) *
-          var(--step)
-      ),
-      0
-    );
-
-    background-color: var(--color-primary);
-  }
-
-  .gameboard-y {
-    display: flex;
-  }
-
-  .gameboard-x {
-    height: var(--tile-size);
+    width: 100%;
     aspect-ratio: 1;
+
+    overflow: hidden;
+
+    .gameboard-body {
+      display: grid;
+      grid-template-columns: repeat(var(--view-size), 1fr);
+
+      width: 100%;
+
+      will-change: transform;
+
+      transform: translate3d(
+        calc(
+          clamp(
+              var(--min-offset-x),
+              calc(
+                clamp(
+                  (var(--center) - (var(--x) - 1) - var(--dead-zone)),
+                  (var(--center) - (var(--x) - 1)),
+                  (var(--center) - (var(--x) - 1) + var(--dead-zone))
+                )
+              ),
+              var(--max-offset)
+            ) *
+            var(--step)
+        ),
+        calc(
+          clamp(
+              var(--min-offset-y),
+              calc(
+                clamp(
+                  (var(--center) - (var(--y) - 1) - var(--dead-zone)),
+                  (var(--center) - (var(--y) - 1)),
+                  (var(--center) - (var(--y) - 1) + var(--dead-zone))
+                )
+              ),
+              var(--max-offset)
+            ) *
+            var(--step)
+        ),
+        0
+      );
+
+      background-color: var(--color-primary);
+    }
   }
 }
