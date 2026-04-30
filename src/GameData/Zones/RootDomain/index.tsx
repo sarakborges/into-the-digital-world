@@ -35,9 +35,9 @@ const grid = {
 
   6: {
     5: RootDomainY6X5,
-    6: defaultTile,
-    7: defaultTile,
-    8: defaultTile,
+    6: { ...defaultTile },
+    7: { ...defaultTile },
+    8: { ...defaultTile },
     9: RootDomainY6X9
   },
 
@@ -52,9 +52,9 @@ const grid = {
 
   8: {
     5: RootDomainY8X5,
-    6: defaultTile,
-    7: defaultTile,
-    8: defaultTile,
+    6: { ...defaultTile },
+    7: { ...defaultTile },
+    8: { ...defaultTile },
     9: RootDomainY8X9
   },
 
@@ -70,11 +70,5 @@ const grid = {
 export const RootDomain: ZoneType = {
   id: `RootDomain`,
   name: `Root Domain`,
-
-  gridSize: {
-    x: 7,
-    y: 7
-  },
-
   grid
 }

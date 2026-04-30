@@ -2,8 +2,6 @@
   /* Gameboard */
   --dead-zone: 2;
 
-  --tile-size: calc((100vw/var(--view-size)) * 1px);
-
   /* movement step = tile only */
   --step: var(--tile-size);
 
@@ -38,17 +36,22 @@
 
   .gameboard {
     display: flex;
+    place-items: center;
+    place-content: center;
 
     width: 100%;
     aspect-ratio: 1;
 
     overflow: hidden;
 
+    background-color: var(--color-neutral-strong);
+
     .gameboard-body {
       display: grid;
-      grid-template-columns: repeat(var(--view-size), 1fr);
-
-      width: 100%;
+      grid-template-columns: repeat(
+        var(--view-size),
+        calc(var(--tile-size) * 1px)
+      );
 
       will-change: transform;
 

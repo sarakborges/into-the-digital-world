@@ -8,14 +8,11 @@ export const BinaryForest: ZoneType = {
   id: `BinaryForest`,
   name: `Binary Forest`,
 
-  gridSize: {
-    x: 7,
-    y: 7
-  },
+  gridSize: 7,
 
   grid: {
     7: {
-      1: {
+      5: {
         texture: 'white',
 
         canMove: {
@@ -39,12 +36,13 @@ export const BinaryForest: ZoneType = {
           setProfile?.((prevProfile) => ({
             ...prevProfile!,
             currentZone: RootDomain.id,
+            currentY: 7,
             currentX: 9
           }))
         }
       },
 
-      2: {
+      6: {
         texture: 'gray',
 
         canMove: {

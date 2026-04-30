@@ -3,11 +3,7 @@ import type { TileType } from '@/Types/Tile.type'
 export type ZoneType = {
   id: string
   name: string
-
-  gridSize: {
-    x: number
-    y: number
-  }
+  gridSize?: number
 
   grid: {
     [k: number]: {

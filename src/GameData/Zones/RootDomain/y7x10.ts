@@ -27,7 +27,8 @@ export const RootDomainY7X10: TileType = {
     setProfile((prevProfile) => ({
       ...prevProfile!,
       currentZone: BinaryForest.id,
-      currentX: 2
+      currentY: 7,
+      currentX: 6
     }))
   }
 }

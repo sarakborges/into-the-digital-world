@@ -17,14 +17,19 @@ export const Gameboard = () => {
   }
 
   const currentZone = { ...Zones[profile.currentZone || 'RootDomain'] }
-  const viewSize = 13
+  const viewSize = currentZone.gridSize > 13 ? currentZone.gridSize : 13
+
+  const tileSize = Math.floor(
+    (document.querySelector('.main-game')?.clientWidth || 0) / viewSize
+  )
 
   const gameboardVars = {
     '--x': profile.currentX,
     '--y': profile.currentY,
-    '--grid-size-x': currentZone.gridSize.x,
-    '--grid-size-y': currentZone.gridSize.y,
-    '--view-size': viewSize
+    '--grid-size-x': currentZone.gridSize,
+    '--grid-size-y': currentZone.gridSize,
+    '--view-size': viewSize,
+    '--tile-size': tileSize
   } as React.CSSProperties
 
   return (
@@ -35,30 +40,18 @@ export const Gameboard = () => {
 
       <main className="gameboard">
         <div className="gameboard-body">
-          {new Array(
-            currentZone.gridSize.y > viewSize
-              ? currentZone.gridSize.y
-              : viewSize
-          )
-            .fill(null)
-            .map((_, y) => {
-              return (
-                <Fragment key={`y-${y + 1}`}>
-                  {new Array(
-                    currentZone.gridSize.x > viewSize
-                      ? currentZone.gridSize.x
-                      : viewSize
-                  )
-                    .fill(null)
-                    .map((_, x) => (
-                      <Tile
-                        {...{ x: x + 1, y: y + 1 }}
-                        key={`y-${y + 1}-x-${x + 1}`}
-                      />
-                    ))}
-                </Fragment>
-              )
-            })}
+          {new Array(viewSize).fill(null).map((_, y) => {
+            return (
+              <Fragment key={`y-${y + 1}`}>
+                {new Array(viewSize).fill(null).map((_, x) => (
+                  <Tile
+                    {...{ x: x + 1, y: y + 1 }}
+                    key={`y-${y + 1}-x-${x + 1}`}
+                  />
+                ))}
+              </Fragment>
+            )
+          })}
         </div>
       </main>
     </div>
