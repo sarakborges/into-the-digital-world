@@ -9,6 +9,8 @@ export const DELETE_GAME_FILE = `Delete`
 
 export const SETTINGS_TITLE = `Settings`
 export const RETURN_TO_MAIN_SCREEN = `Return to main screen`
+export const SAVE_GAME = `Save game`
+export const GAME_SAVED = `Game saved`
 
 export const THEMES_TITLE = `Theme`
 export const THEME_DEFAULT = `Default`

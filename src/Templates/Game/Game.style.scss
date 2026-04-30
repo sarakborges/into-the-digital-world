@@ -17,8 +17,7 @@
   place-items: center;
   place-content: center;
 
-  min-width: 360px;
-  max-width: 360px;
+  width: clamp(360px, 480px, 100%);
   min-height: 100dvh;
   max-height: 100dvh;
   overflow: auto;

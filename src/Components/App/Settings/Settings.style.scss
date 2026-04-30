@@ -8,16 +8,18 @@
   place-content: flex-end;
 
   width: 100%;
-  padding: 8px;
 
   background-color: var(--color-primary-strong);
 
-  header {
+  .settings-header {
     display: flex;
     place-items: center;
     place-content: space-between;
 
     width: 100%;
+    padding: 8px;
+
+    background-color: var(--color-primary-strong);
 
     .player {
       display: flex;
@@ -53,12 +55,6 @@
 
     padding: 0;
 
-    header {
-      padding: 8px;
-
-      background-color: var(--color-primary-strong);
-    }
-
     > main {
       display: flex;
       flex-flow: column;
@@ -67,6 +63,14 @@
       width: 100%;
       padding: 16px 8px;
       flex: 1;
+
+      > header {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+
+        width: 100%;
+      }
 
       > .text {
         font-weight: 700;

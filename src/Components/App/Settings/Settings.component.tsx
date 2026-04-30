@@ -13,6 +13,7 @@ import { SettingsTheme } from '@/Components/App/SettingsTheme'
 import { SettingsLanguage } from '@/Components/App/SettingsLanguage'
 import { ReturnToMainScreen } from '@/Components/App/ReturnToMainScreen'
 import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
+import { SaveGame } from '@/Components/App/SaveGame'
 
 import './Settings.style.scss'
 
@@ -28,7 +29,7 @@ export const Settings = () => {
     <div className="settings">
       {!!settings.isOpen && (
         <Modal>
-          <header>
+          <header className="settings-header">
             <Text>{getTexts('SETTINGS_TITLE')}</Text>
 
             <Button onClick={toggleModal}>
@@ -37,14 +38,18 @@ export const Settings = () => {
           </header>
 
           <main>
-            <ReturnToMainScreen />
+            <header>
+              <ReturnToMainScreen />
+              <SaveGame />
+            </header>
+
             <SettingsLanguage />
             <SettingsTheme />
           </main>
         </Modal>
       )}
 
-      <header>
+      <header className="settings-header">
         <div className="player">
           {!!profile && <PlayerAvatar />}
           <Text>{profile?.name}</Text>

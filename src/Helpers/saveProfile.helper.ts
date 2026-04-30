@@ -23,10 +23,12 @@ export const saveProfile = ({
       value: updatedProfile
     })
 
-    const updatedProfiles = [
-      ...(savedProfiles || [])?.map((profile) => profile.id),
-      profile?.id
-    ]
+    const updatedProfiles = Array.from(
+      new Set([
+        ...(savedProfiles || [])?.map((profile) => profile.id),
+        profile?.id
+      ])
+    )
 
     saveData({
       key: 'profiles',
