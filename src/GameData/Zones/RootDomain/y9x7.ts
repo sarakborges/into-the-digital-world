@@ -1,14 +1,11 @@
 import type { TileType } from '@/Types/Tile.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
-
-export const RootDomainY4X2: TileType = {
-  npc: AllNpcs.angewomon,
+export const RootDomainY9X7: TileType = {
   texture: 'gray',
 
   canMove: {
     up: true,
-    down: true,
+    down: false,
     left: true,
     right: true
   }

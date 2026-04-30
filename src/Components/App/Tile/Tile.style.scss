@@ -17,10 +17,6 @@
     background-color: var(--color-neutral-weak);
   }
 
-  &[data-tiletype='red'] {
-    background-color: var(--color-cancel);
-  }
-
   > div {
     border-radius: 100%;
     overflow: hidden;

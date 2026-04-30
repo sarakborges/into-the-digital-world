@@ -4,7 +4,7 @@ import type { SceneType } from '@/Types/Scene.type'
 
 import { BinaryForest } from '@/GameData/Zones/BinaryForest'
 
-export const RootDomainY4X7: TileType = {
+export const RootDomainY7X10: TileType = {
   texture: 'white',
 
   canMove: {

@@ -4,9 +4,9 @@ export const RootDomainY5X6: TileType = {
   texture: 'gray',
 
   canMove: {
-    up: true,
+    up: false,
     down: true,
     left: true,
-    right: false
+    right: true
   }
 }

@@ -6,7 +6,7 @@ export const RootDomainY6X5: TileType = {
   canMove: {
     up: true,
     down: false,
-    left: true,
+    left: false,
     right: true
   }
 }
