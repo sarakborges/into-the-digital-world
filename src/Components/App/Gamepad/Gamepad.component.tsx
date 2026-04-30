@@ -6,12 +6,10 @@ import {
 } from 'react-icons/fa'
 
 import type { ZoneType } from '@/Types/Zone.type'
-import type { SceneType } from '@/Types/Scene.type'
-import type { GameType } from '@/Types/Game.type'
 
 import * as Zones from '@/GameData/Zones'
 
-import { useGame } from '@/Hooks/Game.hook'
+import { useProfile } from '@/Hooks/Profile.hook'
 import { useScene } from '@/Hooks/Scene.hook'
 
 import { Button } from '@/Components/System/Button'
@@ -19,27 +17,27 @@ import { Button } from '@/Components/System/Button'
 import './Gamepad.style.scss'
 
 export const Gamepad = () => {
-  const { game, setGame } = useGame()
+  const { profile, setProfile } = useProfile()
   const { setScene } = useScene()
 
-  if (!game) {
+  if (!profile) {
     return <></>
   }
 
-  const currentZone: ZoneType = { ...Zones[game.currentZone] }
+  const currentZone: ZoneType = { ...Zones[profile.currentZone] }
 
   const setLocation = ({ x, y }: { x?: number; y?: number }) => {
-    const updatedX = game.currentX + (x || 0)
-    const updatedY = game.currentY + (y || 0)
+    const updatedX = profile.currentX + (x || 0)
+    const updatedY = profile.currentY + (y || 0)
 
-    setGame((prevGame) => ({
-      ...prevGame!,
+    setProfile((prevProfile) => ({
+      ...prevProfile!,
       currentX: updatedX,
       currentY: updatedY
     }))
 
     currentZone?.grid[updatedY][updatedX]?.onEnter?.({
-      setGame,
+      setProfile,
       setScene
     })
   }
@@ -50,9 +48,10 @@ export const Gamepad = () => {
         <div className="gamepad-col">
           <Button
             disabled={
-              currentZone.grid[game.currentY - 1]?.[game.currentX] ===
+              currentZone.grid[profile.currentY - 1]?.[profile.currentX] ===
                 undefined ||
-              !currentZone.grid[game.currentY]?.[game.currentX]?.canMove.up
+              !currentZone.grid[profile.currentY]?.[profile.currentX]?.canMove
+                .up
             }
             onClick={() => setLocation({ y: -1 })}
           >
@@ -65,9 +64,10 @@ export const Gamepad = () => {
         <div className="gamepad-col">
           <Button
             disabled={
-              currentZone.grid[game.currentY]?.[game.currentX - 1] ===
+              currentZone.grid[profile.currentY]?.[profile.currentX - 1] ===
                 undefined ||
-              !currentZone.grid[game.currentY]?.[game.currentX]?.canMove.left
+              !currentZone.grid[profile.currentY]?.[profile.currentX]?.canMove
+                .left
             }
             onClick={() => setLocation({ x: -1 })}
           >
@@ -80,9 +80,10 @@ export const Gamepad = () => {
         <div className="gamepad-col">
           <Button
             disabled={
-              currentZone.grid[game.currentY]?.[game.currentX + 1] ===
+              currentZone.grid[profile.currentY]?.[profile.currentX + 1] ===
                 undefined ||
-              !currentZone.grid[game.currentY]?.[game.currentX]?.canMove.right
+              !currentZone.grid[profile.currentY]?.[profile.currentX]?.canMove
+                .right
             }
             onClick={() => setLocation({ x: +1 })}
           >
@@ -95,9 +96,10 @@ export const Gamepad = () => {
         <div className="gamepad-col">
           <Button
             disabled={
-              currentZone.grid[game.currentY + 1]?.[game.currentX] ===
+              currentZone.grid[profile.currentY + 1]?.[profile.currentX] ===
                 undefined ||
-              !currentZone.grid[game.currentY]?.[game.currentX]?.canMove.down
+              !currentZone.grid[profile.currentY]?.[profile.currentX]?.canMove
+                .down
             }
             onClick={() => setLocation({ y: +1 })}
           >

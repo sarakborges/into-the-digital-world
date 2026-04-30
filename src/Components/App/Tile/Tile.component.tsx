@@ -1,6 +1,5 @@
 import * as Zones from '@/GameData/Zones'
 
-import { useGame } from '@/Hooks/Game.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
 
 import { Portrait } from '@/Components/System/Portrait'
@@ -10,14 +9,13 @@ import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 import './Tile.style.scss'
 
 export const Tile = ({ x, y }: { x: number; y: number }) => {
-  const { game } = useGame()
   const { profile } = useProfile()
 
-  if (!game || !profile) {
+  if (!profile) {
     return null
   }
 
-  const currentZone = Zones[game.currentZone]
+  const currentZone = { ...Zones[profile.currentZone] }
 
   return (
     <div className="tile" data-tiletype={currentZone.grid[y][x].texture || ''}>
@@ -30,7 +28,7 @@ export const Tile = ({ x, y }: { x: number; y: number }) => {
         </div>
       )}
 
-      {game.currentX === x && game.currentY === y && (
+      {profile.currentX === x && profile.currentY === y && (
         <div className="player-character">
           <PlayerAvatar />
         </div>

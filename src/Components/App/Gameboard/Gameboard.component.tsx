@@ -1,6 +1,5 @@
 import * as Zones from '@/GameData/Zones'
 
-import { useGame } from '@/Hooks/Game.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
 
 import { Text } from '@/Components/System/Text'
@@ -10,22 +9,21 @@ import { Tile } from '@/Components/App/Tile'
 import './Gameboard.style.scss'
 
 export const Gameboard = () => {
-  const { game } = useGame()
   const { profile } = useProfile()
 
-  if (!game || !profile) {
+  if (!profile) {
     return null
   }
 
-  const currentZone = Zones[game.currentZone]
+  const currentZone = { ...Zones[profile.currentZone || 'RootDomain'] }
 
   const sortedRows = Object.keys(currentZone.grid)
     .map(Number)
     .sort((a, b) => a - b)
 
   const gameboardVars = {
-    '--x': game.currentX,
-    '--y': game.currentY,
+    '--x': profile.currentX,
+    '--y': profile.currentY,
     '--grid-size-x': currentZone.gridSize.x,
     '--grid-size-y': currentZone.gridSize.y
   } as React.CSSProperties

@@ -5,4 +5,8 @@ export type ProfileType = {
   name: string
   lastSave: string
   avatar?: AvatarType
+
+  currentZone: string
+  currentX: number
+  currentY: number
 }

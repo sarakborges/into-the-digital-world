@@ -5,7 +5,6 @@ import type { ProfileType } from '@/Types/Profile.type'
 import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { useProfile } from '@/Hooks/Profile.hook'
-import { useGame } from '@/Hooks/Game.hook'
 import { useScene } from '@/Hooks/Scene.hook'
 import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
 
@@ -17,7 +16,6 @@ export const NewGame = () => {
   const { savedProfiles } = useSavedProfiles()
   const { setProfile } = useProfile()
   const { setScene } = useScene()
-  const { setGame } = useGame()
 
   const createNewProfile = () => {
     const sortedProfiles = [...(savedProfiles || [])].sort(
@@ -25,19 +23,17 @@ export const NewGame = () => {
     )
 
     const newId = (sortedProfiles?.[0]?.id ?? 0) + 1
+    const currentZone = Zones.RootDomain
+
     const newProfile: ProfileType = {
       id: newId,
       name: '',
-      lastSave: ''
-    }
+      lastSave: '',
 
-    const currentZone = Zones.RootDomain
-
-    setGame({
+      currentZone: currentZone.id,
       currentX: 4,
-      currentY: 4,
-      currentZone: currentZone.id
-    })
+      currentY: 4
+    }
 
     setProfile(newProfile)
     setScene({ currentScene: 'introduction', currentStage: '001' })

@@ -1,4 +1,4 @@
-import type { GameType } from '@/Types/Game.type'
+import type { ProfileType } from '@/Types/Profile.type'
 import type { SceneType } from '@/Types/Scene.type'
 import type { NpcType } from '@/Types/Npc.type'
 
@@ -14,10 +14,10 @@ export type TileType = {
   }
 
   onEnter?: ({
-    setGame,
+    setProfile,
     setScene
   }: {
-    setGame: React.Dispatch<React.SetStateAction<GameType>>
+    setProfile: React.Dispatch<React.SetStateAction<ProfileType | null>>
     setScene: React.Dispatch<React.SetStateAction<SceneType | null>>
   }) => void
 }

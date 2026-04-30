@@ -5,6 +5,7 @@ import { Scene } from '@/GameData/Scenes'
 import { useScene } from '@/Hooks/Scene.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useSettings } from '@/Hooks/Settings.hook'
+import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
 
 import { InteractableNpcs } from '@/Components/App/InteractableNpcs'
 import { Gamepad } from '@/Components/App/Gamepad'
@@ -18,8 +19,11 @@ export const Game = () => {
   const { scene } = useScene()
   const { profile } = useProfile()
   const { settings } = useSettings()
+  const { loadProfiles } = useSavedProfiles()
 
-  useEffect(() => {}, [settings])
+  useEffect(() => {
+    loadProfiles()
+  }, [settings])
 
   return (
     <div className="game-body">

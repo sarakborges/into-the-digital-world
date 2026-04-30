@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-
 import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
 
 import { getTexts } from '@/Helpers/getTexts.helper'
@@ -12,11 +10,7 @@ import { GameFile } from '@/Components/App/GameFile'
 import './StartScreen.style.scss'
 
 export const StartScreen = () => {
-  const { savedProfiles, loadProfiles } = useSavedProfiles()
-
-  useEffect(() => {
-    loadProfiles()
-  }, [])
+  const { savedProfiles } = useSavedProfiles()
 
   return (
     <main className="start-screen">
