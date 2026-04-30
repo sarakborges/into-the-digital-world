@@ -1,5 +1,5 @@
 import type { ZoneType } from '@/Types/Zone.type'
-import type { GameType } from '@/Types/Game.type'
+import type { ProfileType } from '@/Types/Profile.type'
 import type { SceneType } from '@/Types/Scene.type'
 
 import { defaultTile } from '@/GameData/Zones/default.tile'
@@ -32,14 +32,18 @@ const defaultGrid = {
       },
 
       onEnter: ({
-        setGame,
+        setProfile,
         setScene
       }: {
-        setGame: React.Dispatch<React.SetStateAction<GameType>>
+        setProfile: React.Dispatch<React.SetStateAction<ProfileType | null>>
         setScene: React.Dispatch<React.SetStateAction<SceneType | null>>
       }) => {
-        setGame?.((prevGame) => ({
-          ...prevGame,
+        if (!setProfile) {
+          return
+        }
+
+        setProfile?.((prevProfile) => ({
+          ...prevProfile!,
           currentZone: RootDomain.id,
           currentX: 7
         }))
