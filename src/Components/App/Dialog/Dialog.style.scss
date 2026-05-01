@@ -53,6 +53,10 @@
 
     > .portrait {
       padding-top: 4px;
+
+      img {
+        width: 100%;
+      }
     }
 
     > .portrait + .text {

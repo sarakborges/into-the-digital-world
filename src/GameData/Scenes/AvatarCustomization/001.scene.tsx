@@ -13,11 +13,10 @@ import { Dialog } from '@/Components/App/Dialog'
 
 export const AvatarCustomization001 = () => {
   const { setScene } = useScene()
-  const { profile } = useProfile()
+  const { profile, setProfile } = useProfile()
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.angewomon.name,
-    speakerAvatar: AllNpcs.angewomon.portrait,
+    speaker: AllNpcs.angewomon,
 
     content: (
       <Text as="p">
@@ -32,6 +31,14 @@ export const AvatarCustomization001 = () => {
       {
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
+          setProfile({
+            ...profile!,
+            npcAcquintances: [
+              ...(profile?.npcAcquintances ?? []),
+              AllNpcs.angewomon.id
+            ]
+          })
+
           setScene({
             currentScene: 'avatarCustomization',
             currentStage: '002'

@@ -15,13 +15,6 @@ export const BinaryForest: ZoneType = {
       5: {
         texture: 'white',
 
-        canMove: {
-          up: true,
-          down: true,
-          left: true,
-          right: true
-        },
-
         onEnter: ({
           setProfile,
           setScene
@@ -43,14 +36,7 @@ export const BinaryForest: ZoneType = {
       },
 
       6: {
-        texture: 'gray',
-
-        canMove: {
-          up: true,
-          down: true,
-          left: true,
-          right: true
-        }
+        texture: 'gray'
       }
     }
   }

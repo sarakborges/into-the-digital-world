@@ -6,13 +6,6 @@ export type TileType = {
   npc?: NpcType
   texture?: string
 
-  canMove: {
-    up?: boolean
-    down?: boolean
-    left?: boolean
-    right?: boolean
-  }
-
   onEnter?: ({
     setProfile,
     setScene

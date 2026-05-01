@@ -9,4 +9,6 @@ export type ProfileType = {
   currentZone: string
   currentX: number
   currentY: number
+
+  npcAcquintances: Array<string>
 }

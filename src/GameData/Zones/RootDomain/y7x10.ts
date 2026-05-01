@@ -7,13 +7,6 @@ import { BinaryForest } from '@/GameData/Zones/BinaryForest'
 export const RootDomainY7X10: TileType = {
   texture: 'white',
 
-  canMove: {
-    up: false,
-    down: false,
-    left: true,
-    right: false
-  },
-
   onEnter: ({
     setProfile
   }: {

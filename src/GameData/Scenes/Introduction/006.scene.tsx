@@ -6,7 +6,6 @@ import { useProfile } from '@/Hooks/Profile.hook'
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 import { Text } from '@/Components/System/Text'
-import { Portrait } from '@/Components/System/Portrait'
 
 import { Dialog } from '@/Components/App/Dialog'
 
@@ -15,8 +14,7 @@ export const Introduction006 = () => {
   const { profile } = useProfile()
 
   const dialogOptions: DialogType = {
-    speaker: profile?.name,
-    speakerAvatar: `avatars/glitch`,
+    speaker: { id: 'player', name: profile!.name, portrait: `avatars/glitch` },
 
     content: (
       <>

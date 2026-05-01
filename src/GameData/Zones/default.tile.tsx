@@ -1,12 +1,5 @@
 import type { TileType } from '@/Types/Tile.type'
 
 export const defaultTile: TileType = {
-  texture: 'gray',
-
-  canMove: {
-    up: true,
-    down: true,
-    left: true,
-    right: true
-  }
+  texture: 'gray'
 }

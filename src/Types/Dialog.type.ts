@@ -1,6 +1,7 @@
+import type { NpcType } from '@/Types/Npc.type'
+
 export type DialogType = {
-  speaker?: string
-  speakerAvatar?: string
+  speaker?: NpcType
   content: React.ReactNode
   options?: Array<{
     text: string

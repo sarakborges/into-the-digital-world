@@ -5,7 +5,7 @@ import { useProfile } from '@/Hooks/Profile.hook'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
-import { NpcCulumon } from '@/GameData/Npcs/Culumon.npc'
+import { AllNpcs } from '@/GameData/Npcs'
 
 import { Text } from '@/Components/System/Text'
 
@@ -16,8 +16,7 @@ export const Introduction003 = () => {
   const { profile, setProfile } = useProfile()
 
   const dialogOptions: DialogType = {
-    speaker: '???',
-    speakerAvatar: NpcCulumon.portrait,
+    speaker: AllNpcs.culumon,
 
     content: <Text as="p">{getDialogs('INTRODUCTION_003_TEXT')}</Text>,
 
@@ -35,7 +34,11 @@ export const Introduction003 = () => {
 
           setProfile({
             ...profile!,
-            name: name.charAt(0).toUpperCase() + name.slice(1)
+            name: name.charAt(0).toUpperCase() + name.slice(1),
+            npcAcquintances: [
+              ...(profile?.npcAcquintances ?? []),
+              AllNpcs.culumon.id
+            ]
           })
 
           setScene({

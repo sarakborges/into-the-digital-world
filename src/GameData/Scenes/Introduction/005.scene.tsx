@@ -3,7 +3,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { useScene } from '@/Hooks/Scene.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
 
-import { NpcCulumon } from '@/GameData/Npcs/Culumon.npc'
+import { AllNpcs } from '@/GameData/Npcs'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
@@ -16,8 +16,7 @@ export const Introduction005 = () => {
   const { profile } = useProfile()
 
   const dialogOptions: DialogType = {
-    speaker: NpcCulumon.name,
-    speakerAvatar: NpcCulumon.portrait,
+    speaker: AllNpcs.culumon,
 
     content: (
       <Text as="p">

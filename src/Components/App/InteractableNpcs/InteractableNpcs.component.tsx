@@ -51,7 +51,11 @@ export const InteractableNpcs = () => {
           className="npc"
         >
           <header>
-            <Text>{event.name}</Text>
+            <Text>
+              {profile?.npcAcquintances?.includes(event.id)
+                ? event.name
+                : '???'}
+            </Text>
             <Portrait alt={event.name} src={`/${event.portrait}.webp`} />
           </header>
 

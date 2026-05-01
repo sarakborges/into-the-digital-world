@@ -42,17 +42,35 @@ export const Gamepad = () => {
     })
   }
 
+  const prevX = profile?.currentX - 1
+  const nextX = profile?.currentX + 1
+
+  const prevY = profile?.currentY - 1
+  const nextY = profile?.currentY + 1
+
+  const existsPrevX = !!currentZone.grid[profile.currentY]?.[prevX]
+  const existsPrevY = !!currentZone.grid[prevY]?.[profile.currentX]
+
+  const existsNextX = !!currentZone.grid[profile.currentY]?.[nextX]
+  const existsNextY = !!currentZone.grid[nextY]?.[profile.currentX]
+
+  const npcExistsInPrevX = !!currentZone.grid[profile.currentY]?.[prevX]?.npc
+  const npcExistsInPrevY = !!currentZone.grid[prevY]?.[profile.currentX]?.npc
+
+  const npcExistsInNextX = !!currentZone.grid[profile.currentY]?.[nextX]?.npc
+  const npcExistsInNextY = !!currentZone.grid[nextY]?.[profile.currentX]?.npc
+
+  const canMovePrevX = existsPrevX && !npcExistsInPrevX
+  const canMovePrevY = existsPrevY && !npcExistsInPrevY
+  const canMoveNextX = existsNextX && !npcExistsInNextX
+  const canMoveNextY = existsNextY && !npcExistsInNextY
+
   return (
     <aside className="gamepad">
       <div className="gamepad-row">
         <div className="gamepad-col">
           <Button
-            disabled={
-              currentZone.grid[profile.currentY - 1]?.[profile.currentX] ===
-                undefined ||
-              !currentZone.grid[profile.currentY]?.[profile.currentX]?.canMove
-                .up
-            }
+            disabled={!canMovePrevY}
             onClick={() => setLocation({ y: -1 })}
           >
             <FaArrowUp />
@@ -63,12 +81,7 @@ export const Gamepad = () => {
       <div className="gamepad-row">
         <div className="gamepad-col">
           <Button
-            disabled={
-              currentZone.grid[profile.currentY]?.[profile.currentX - 1] ===
-                undefined ||
-              !currentZone.grid[profile.currentY]?.[profile.currentX]?.canMove
-                .left
-            }
+            disabled={!canMovePrevX}
             onClick={() => setLocation({ x: -1 })}
           >
             <FaArrowLeft />
@@ -79,12 +92,7 @@ export const Gamepad = () => {
 
         <div className="gamepad-col">
           <Button
-            disabled={
-              currentZone.grid[profile.currentY]?.[profile.currentX + 1] ===
-                undefined ||
-              !currentZone.grid[profile.currentY]?.[profile.currentX]?.canMove
-                .right
-            }
+            disabled={!canMoveNextX}
             onClick={() => setLocation({ x: +1 })}
           >
             <FaArrowRight />
@@ -95,12 +103,7 @@ export const Gamepad = () => {
       <div className="gamepad-row">
         <div className="gamepad-col">
           <Button
-            disabled={
-              currentZone.grid[profile.currentY + 1]?.[profile.currentX] ===
-                undefined ||
-              !currentZone.grid[profile.currentY]?.[profile.currentX]?.canMove
-                .down
-            }
+            disabled={!canMoveNextY}
             onClick={() => setLocation({ y: +1 })}
           >
             <FaArrowDown />

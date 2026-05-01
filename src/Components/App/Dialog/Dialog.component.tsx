@@ -1,5 +1,7 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
+import { useProfile } from '@/Hooks/Profile.hook'
+
 import { Portrait } from '@/Components/System/Portrait'
 import { Text } from '@/Components/System/Text'
 import { Modal } from '@/Components/System/Modal'
@@ -7,22 +9,27 @@ import { Button } from '@/Components/System/Button'
 
 import './Dialog.style.scss'
 
-export const Dialog = ({
-  speaker,
-  speakerAvatar,
-  content,
-  options
-}: DialogType) => {
+export const Dialog = ({ speaker, content, options }: DialogType) => {
+  const { profile } = useProfile()
+
   return (
     <Modal>
       <main className="dialog">
         {speaker && (
           <header>
-            {speakerAvatar && (
-              <Portrait alt="Helper Digimon" src={`/${speakerAvatar}.webp`} />
+            {speaker.portrait && (
+              <Portrait
+                alt="Helper Digimon"
+                src={`/${speaker.portrait}.webp`}
+              />
             )}
 
-            <Text>{speaker}</Text>
+            <Text>
+              {profile?.npcAcquintances?.includes(speaker.id) ||
+              speaker.id === 'player'
+                ? speaker.name
+                : `???`}
+            </Text>
           </header>
         )}
 
