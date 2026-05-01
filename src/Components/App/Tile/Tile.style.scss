@@ -5,18 +5,6 @@
 
   aspect-ratio: 1;
 
-  &[data-tiletype='black'] {
-    background-color: var(--color-neutral-strong);
-  }
-
-  &[data-tiletype='gray'] {
-    background-color: var(--color-neutral);
-  }
-
-  &[data-tiletype='white'] {
-    background-color: var(--color-neutral-weak);
-  }
-
   > div {
     border-radius: 100%;
     overflow: hidden;

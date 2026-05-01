@@ -38,3 +38,5 @@ export const AVATAR_CUSTOMIZATION_HAIR = `Hair style`
 export const AVATAR_CUSTOMIZATION_HAIR_COLOR = `Hair color`
 export const AVATAR_CUSTOMIZATION_EYES = `Eyes color`
 export const AVATAR_CUSTOMIZATION_CLOTHES = `Clothes`
+
+export const CURRENT_ZONE = `Current zone: [ZONE]`

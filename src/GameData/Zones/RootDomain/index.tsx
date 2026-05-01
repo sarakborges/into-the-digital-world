@@ -70,5 +70,6 @@ const grid = {
 export const RootDomain: ZoneType = {
   id: `RootDomain`,
   name: `Root Domain`,
+  gridSize: 19,
   grid
 }

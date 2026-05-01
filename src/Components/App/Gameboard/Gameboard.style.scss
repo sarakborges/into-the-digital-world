@@ -14,17 +14,14 @@
 
 .gameboard-title {
   display: flex;
+  place-content: flex-end;
 
   width: 100%;
-  padding: 0 8px 8px;
 
   .text {
     padding: 4px 8px;
 
     font-size: 24px;
-
-    background-color: var(--color-primary);
-    border-radius: 8px;
   }
 }
 
@@ -53,6 +50,7 @@
         calc(var(--tile-size) * 1px)
       );
 
+      background-size: calc(var(--view-size) * var(--tile-size) * 1px);
       will-change: transform;
 
       transform: translate3d(

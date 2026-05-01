@@ -8,6 +8,7 @@ import { Tile } from '@/Components/App/Tile'
 
 import './Gameboard.style.scss'
 import { Fragment } from 'react/jsx-runtime'
+import { getTexts } from '@/Helpers/getTexts.helper'
 
 export const Gameboard = () => {
   const { profile } = useProfile()
@@ -17,7 +18,7 @@ export const Gameboard = () => {
   }
 
   const currentZone = { ...Zones[profile.currentZone || 'RootDomain'] }
-  const viewSize = currentZone.gridSize > 13 ? currentZone.gridSize : 13
+  const viewSize = 13
 
   const tileSize = Math.floor(
     (document.querySelector('.main-game')?.clientWidth || 0) / viewSize
@@ -35,11 +36,18 @@ export const Gameboard = () => {
   return (
     <div style={gameboardVars} className="gameboard-wrapper">
       <header className="gameboard-title">
-        <Text>{currentZone.name}</Text>
+        <Text>
+          {getTexts('CURRENT_ZONE').replaceAll('[ZONE]', currentZone.name)}
+        </Text>
       </header>
 
       <main className="gameboard">
-        <div className="gameboard-body">
+        <div
+          className="gameboard-body"
+          style={{
+            backgroundImage: `url('/zones/maps/${currentZone.id}.png')`
+          }}
+        >
           {new Array(viewSize).fill(null).map((_, y) => {
             return (
               <Fragment key={`y-${y + 1}`}>
