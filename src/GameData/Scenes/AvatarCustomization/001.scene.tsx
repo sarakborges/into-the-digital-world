@@ -33,10 +33,7 @@ export const AvatarCustomization001 = () => {
         action: () => {
           setProfile({
             ...profile!,
-            npcAcquintances: [
-              ...(profile?.npcAcquintances ?? []),
-              AllNpcs.angewomon.id
-            ]
+            npcAcquintances: [...profile!.npcAcquintances, AllNpcs.angewomon.id]
           })
 
           setScene({

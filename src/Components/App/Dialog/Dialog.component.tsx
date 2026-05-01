@@ -25,7 +25,7 @@ export const Dialog = ({ speaker, content, options }: DialogType) => {
             )}
 
             <Text>
-              {profile?.npcAcquintances?.includes(speaker.id) ||
+              {profile?.npcAcquintances.includes(speaker.id) ||
               speaker.id === 'player'
                 ? speaker.name
                 : `???`}

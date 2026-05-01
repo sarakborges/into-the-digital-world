@@ -35,10 +35,7 @@ export const Introduction003 = () => {
           setProfile({
             ...profile!,
             name: name.charAt(0).toUpperCase() + name.slice(1),
-            npcAcquintances: [
-              ...(profile?.npcAcquintances ?? []),
-              AllNpcs.culumon.id
-            ]
+            npcAcquintances: [...profile!.npcAcquintances, AllNpcs.culumon.id]
           })
 
           setScene({
