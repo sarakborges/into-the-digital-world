@@ -1,9 +1,15 @@
 .tile {
+  position: absolute;
+  top: calc((var(--y) - 1) * var(--tile-size));
+  left: calc((var(--x) - 1) * var(--tile-size));
+  z-index: 1;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  aspect-ratio: 1;
+  width: var(--tile-size);
+  height: var(--tile-size);
 
   > div {
     border-radius: 100%;

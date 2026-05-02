@@ -1,35 +1,25 @@
-:root {
-  /* Gameboard */
-  --dead-zone: 2;
-
-  /* movement step = tile only */
-  --step: var(--tile-size);
-
-  --center: calc((var(--view-size) - 1) / 2);
-
-  --min-offset-x: calc(-1 * (var(--grid-size-x) - var(--view-size)));
-  --min-offset-y: calc(-1 * (var(--grid-size-y) - var(--view-size)));
-  --max-offset: 0;
-}
-
-.gameboard-title {
-  display: flex;
-  place-content: flex-end;
-
-  width: 100%;
-
-  .text {
-    padding: 4px 8px;
-
-    font-size: 24px;
-  }
-}
-
 .gameboard-wrapper {
   display: flex;
   flex-flow: column;
+  place-items: center;
 
   width: 100%;
+  padding-top: 40px;
+  flex: 1;
+
+  .gameboard-title {
+    display: flex;
+    place-content: flex-end;
+
+    width: 100%;
+
+    background-color: var(--color-primary-strong);
+
+    .text {
+      padding: 4px 8px;
+      font-size: 24px;
+    }
+  }
 
   .gameboard {
     display: flex;
@@ -38,54 +28,48 @@
 
     width: 100%;
     aspect-ratio: 1;
-
     overflow: hidden;
 
     background-color: var(--color-neutral-strong);
 
-    .gameboard-body {
-      display: grid;
-      grid-template-columns: repeat(
-        var(--view-size),
-        calc(var(--tile-size) * 1px)
-      );
+    --dead-zone: 2;
+    --tile-size: calc(100% / var(--view-size));
 
-      background-size: calc(var(--view-size) * var(--tile-size) * 1px);
+    .gameboard-body {
+      --min-offset-x: calc(-1 * (var(--grid-size) - var(--view-size)));
+      --min-offset-y: calc(-1 * (var(--grid-size) - var(--view-size)));
+      --max-offset: calc(var(--grid-size) - var(--view-size));
+      --center: calc((var(--view-size) - 1) / 2);
+
+      position: relative;
+
+      height: calc(var(--grid-size) * var(--tile-size));
+      aspect-ratio: 1;
+
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+
       will-change: transform;
 
       transform: translate3d(
         calc(
           clamp(
               var(--min-offset-x),
-              calc(
-                clamp(
-                  (var(--center) - (var(--x) - 1) - var(--dead-zone)),
-                  (var(--center) - (var(--x) - 1)),
-                  (var(--center) - (var(--x) - 1) + var(--dead-zone))
-                )
-              ),
+              calc(var(--center) - (var(--current-x) - 1)),
               var(--max-offset)
             ) *
-            var(--step)
+            var(--tile-size)
         ),
         calc(
           clamp(
               var(--min-offset-y),
-              calc(
-                clamp(
-                  (var(--center) - (var(--y) - 1) - var(--dead-zone)),
-                  (var(--center) - (var(--y) - 1)),
-                  (var(--center) - (var(--y) - 1) + var(--dead-zone))
-                )
-              ),
+              calc(var(--center) - (var(--current-y) - 1)),
               var(--max-offset)
             ) *
-            var(--step)
+            var(--tile-size)
         ),
         0
       );
-
-      background-color: var(--color-primary);
     }
   }
 }

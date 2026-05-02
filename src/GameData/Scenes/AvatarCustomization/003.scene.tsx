@@ -1,6 +1,7 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
+import { saveSession } from '@/Helpers/saveSession.helper'
 
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useScene } from '@/Hooks/Scene.hook'
@@ -36,6 +37,7 @@ export const AvatarCustomization003 = () => {
           setScene(null)
           setCustomization({ avatar: customization.avatar })
           setProfile(updatedProfile)
+          saveSession({ key: 'profile', value: updatedProfile })
         }
       }
     ].filter((option) => !!option)

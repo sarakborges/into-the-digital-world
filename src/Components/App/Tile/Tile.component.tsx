@@ -15,10 +15,22 @@ export const Tile = ({ x, y }: { x: number; y: number }) => {
     return null
   }
 
-  const currentZone = { ...Zones[profile.currentZone] }
+  const currentZone = Zones[profile.currentZone]
+
+  if (
+    !currentZone.grid?.[y]?.[x]?.npc &&
+    !(profile.currentX === x && profile.currentY === y)
+  ) {
+    return
+  }
+
+  const tileVars = {
+    '--x': x,
+    '--y': y
+  } as React.CSSProperties
 
   return (
-    <div className="tile" data-y={y} data-x={x}>
+    <div className="tile" style={tileVars}>
       {!!currentZone.grid?.[y]?.[x]?.npc && (
         <div className="npc">
           <Portrait

@@ -4,6 +4,7 @@ import { useScene } from '@/Hooks/Scene.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
+import { saveSession } from '@/Helpers/saveSession.helper'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
@@ -32,11 +33,14 @@ export const Introduction003 = () => {
             return
           }
 
-          setProfile({
+          const updatedProfile = {
             ...profile!,
             name: name.charAt(0).toUpperCase() + name.slice(1),
             npcAcquintances: [...profile!.npcAcquintances, AllNpcs.culumon.id]
-          })
+          }
+
+          setProfile(updatedProfile)
+          saveSession({ key: 'profile', value: updatedProfile })
 
           setScene({
             currentScene: 'introduction',
