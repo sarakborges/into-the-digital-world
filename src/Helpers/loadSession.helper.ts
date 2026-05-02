@@ -3,6 +3,6 @@ export const loadSession = ({ key }: { key: string }) => {
     const data = sessionStorage.getItem(`itdw_${key}`) || ''
     return JSON.parse(data)
   } catch {
-    console.error(`Error loading session: itdw_${key}`)
+    console.warn(`Error loading session: itdw_${key}`)
   }
 }

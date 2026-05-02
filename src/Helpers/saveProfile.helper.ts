@@ -35,6 +35,6 @@ export const saveProfile = ({
       value: updatedProfiles
     })
   } catch (e) {
-    console.error(e)
+    console.warn(e)
   }
 }

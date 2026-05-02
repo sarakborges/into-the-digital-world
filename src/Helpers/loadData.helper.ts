@@ -3,6 +3,6 @@ export const loadData = ({ key }: { key: string }) => {
     const data = localStorage.getItem(`itdw_${key}`) || ''
     return JSON.parse(data)
   } catch {
-    console.error(`Error loading data: itdw_${key}`)
+    console.warn(`Error loading data: itdw_${key}`)
   }
 }
