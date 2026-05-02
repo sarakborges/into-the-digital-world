@@ -32,7 +32,7 @@ export const NewGame = () => {
 
       currentZone: currentZone.id,
       currentX: 7,
-      currentY: 7,
+      currentY: 10,
 
       npcAcquintances: []
     }

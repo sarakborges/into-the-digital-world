@@ -1,8 +1,7 @@
 import type { ZoneType } from '@/Types/Zone.type'
-import type { ProfileType } from '@/Types/Profile.type'
-import type { SceneType } from '@/Types/Scene.type'
 
 import { RootDomain } from '@/GameData/Zones/RootDomain'
+import { warpTo } from '@/Helpers/warpTo.helper'
 
 export const BinaryForest: ZoneType = {
   id: `BinaryForest`,
@@ -15,28 +14,9 @@ export const BinaryForest: ZoneType = {
       5: {
         texture: 'white',
 
-        onEnter: ({
-          setProfile,
-          setScene
-        }: {
-          setProfile: React.Dispatch<React.SetStateAction<ProfileType | null>>
-          setScene: React.Dispatch<React.SetStateAction<SceneType | null>>
-        }) => {
-          if (!setProfile) {
-            return
-          }
-
-          setProfile?.((prevProfile) => ({
-            ...prevProfile!,
-            currentZone: RootDomain.id,
-            currentY: 7,
-            currentX: 9
-          }))
+        onEnter: ({ setProfile }) => {
+          warpTo({ setProfile, zoneId: RootDomain.id, x: 9, y: 7 })
         }
-      },
-
-      6: {
-        texture: 'gray'
       }
     }
   }
