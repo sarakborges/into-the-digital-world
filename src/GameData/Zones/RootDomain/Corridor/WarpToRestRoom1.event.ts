@@ -2,9 +2,9 @@ import type { TileType } from '@/Types/Tile.type'
 
 import { warpTo } from '@/Helpers/warpTo.helper'
 
-import { RootDomainCorridor } from '@/GameData/Zones'
+import { RootDomainRestRoom1 } from '@/GameData/Zones'
 
-export const WarpToCorridor: TileType = {
+export const WarpToRestRoom1: TileType = {
   events: {
     onEnter: (props) => {
       const { profile, setProfile } = props
@@ -12,9 +12,9 @@ export const WarpToCorridor: TileType = {
       warpTo({
         profile,
         setProfile,
-        zoneId: RootDomainCorridor.id,
-        x: 2,
-        y: 9
+        zoneId: RootDomainRestRoom1.id,
+        x: 9,
+        y: 17
       })
     }
   }

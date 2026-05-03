@@ -13,8 +13,8 @@ export const WarpToCorridor: TileType = {
         profile,
         setProfile,
         zoneId: RootDomainCorridor.id,
-        x: 2,
-        y: 9
+        x: 6,
+        y: 8
       })
     }
   }
