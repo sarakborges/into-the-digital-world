@@ -2,6 +2,6 @@ import type { TileType } from '@/Types/Tile.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-export const RootDomainGennai: TileType = {
+export const Gennai: TileType = {
   npc: AllNpcs.gennai
 }

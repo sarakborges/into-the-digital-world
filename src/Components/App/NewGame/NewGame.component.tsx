@@ -23,7 +23,7 @@ export const NewGame = () => {
     )
 
     const newId = (sortedProfiles?.[0]?.id ?? 0) + 1
-    const currentZone = Zones.RootDomain
+    const currentZone = Zones.RootDomainMainRoom
 
     const newProfile: ProfileType = {
       id: newId,
@@ -31,8 +31,8 @@ export const NewGame = () => {
       lastSave: '',
 
       currentZone: currentZone.id,
-      currentX: 7,
-      currentY: 10,
+      currentX: 9,
+      currentY: 4,
 
       npcAcquintances: []
     }

@@ -17,7 +17,7 @@ export const Introduction003 = () => {
   const { profile, setProfile } = useProfile()
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.culumon,
+    speaker: AllNpcs.gennai,
 
     content: <Text as="p">{getDialogs('INTRODUCTION_003_TEXT')}</Text>,
 
@@ -36,7 +36,7 @@ export const Introduction003 = () => {
           const updatedProfile = {
             ...profile!,
             name: name.charAt(0).toUpperCase() + name.slice(1),
-            npcAcquintances: [...profile!.npcAcquintances, AllNpcs.culumon.id]
+            npcAcquintances: [...profile!.npcAcquintances, AllNpcs.gennai.id]
           }
 
           setProfile(updatedProfile)

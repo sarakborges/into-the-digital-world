@@ -1,2 +1,5 @@
-export { RootDomain } from './RootDomain'
+// Root Domain
+export { RootDomainMainRoom } from './RootDomain/MainRoom'
+
+// Binary Forest
 export { BinaryForest } from './BinaryForest'

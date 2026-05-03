@@ -1,6 +1,6 @@
 import type { ZoneType } from '@/Types/Zone.type'
 
-import { RootDomain } from '@/GameData/Zones/RootDomain'
+import { RootDomainMainRoom } from '@/GameData/Zones'
 import { warpTo } from '@/Helpers/warpTo.helper'
 
 export const BinaryForest: ZoneType = {
@@ -15,7 +15,7 @@ export const BinaryForest: ZoneType = {
         texture: 'white',
 
         onEnter: ({ setProfile }) => {
-          warpTo({ setProfile, zoneId: RootDomain.id, x: 9, y: 7 })
+          warpTo({ setProfile, zoneId: RootDomainMainRoom.id, x: 9, y: 7 })
         }
       }
     }

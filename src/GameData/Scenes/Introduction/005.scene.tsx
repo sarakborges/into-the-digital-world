@@ -16,7 +16,7 @@ export const Introduction005 = () => {
   const { profile } = useProfile()
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.culumon,
+    speaker: AllNpcs.gennai,
 
     content: (
       <Text as="p">

@@ -4,7 +4,7 @@ import { warpTo } from '@/Helpers/warpTo.helper'
 
 import { BinaryForest } from '@/GameData/Zones/BinaryForest'
 
-export const RootDomainWarpToBinaryForest: TileType = {
+export const WarpToBinaryForest: TileType = {
   onEnter: ({ setProfile }) => {
     warpTo({
       setProfile,

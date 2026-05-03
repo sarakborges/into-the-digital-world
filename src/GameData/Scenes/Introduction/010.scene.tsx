@@ -17,7 +17,7 @@ export const Introduction010 = () => {
   const { loadProfiles } = useSavedProfiles()
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.culumon,
+    speaker: AllNpcs.gennai,
 
     content: <Text as="p">{getDialogs('INTRODUCTION_010_TEXT')}</Text>,
 

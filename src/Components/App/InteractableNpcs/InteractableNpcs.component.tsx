@@ -21,7 +21,7 @@ export const InteractableNpcs = () => {
     return
   }
 
-  const currentZone = { ...Zones[profile.currentZone || 'RootDomain'] }
+  const currentZone = { ...Zones[profile.currentZone || 'RootDomainMainRoom'] }
 
   const events: { [k: string]: NpcType } = {
     'x-1y0': currentZone.grid?.[profile.currentY]?.[profile.currentX - 1]?.npc,
