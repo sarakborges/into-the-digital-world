@@ -120,17 +120,17 @@ const filledGrid = fillGrid({ grid, gridSize })
 
 const mergedGrid = mergeZoneTiles({
   grid: filledGrid,
-  events: [
+  tiles: [
     {
       x: 9,
       y: 18,
-      tile: WarpToBinaryForest
+      data: WarpToBinaryForest
     },
 
     {
       x: 9,
       y: 3,
-      tile: Gennai
+      data: Gennai
     }
   ]
 })

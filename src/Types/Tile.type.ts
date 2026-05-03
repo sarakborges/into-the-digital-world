@@ -13,4 +13,8 @@ export type TileType = {
     setProfile: React.Dispatch<React.SetStateAction<ProfileType | null>>
     setScene: React.Dispatch<React.SetStateAction<SceneType | null>>
   }) => void
+
+  events?: {
+    [k: string]: ({}: any) => void
+  }
 }

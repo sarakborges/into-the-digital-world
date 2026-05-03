@@ -3,22 +3,25 @@ import type { TileType } from '@/Types/Tile.type'
 
 export const mergeZoneTiles = ({
   grid,
-  events
+  tiles
 }: {
   grid: GridType
-  events: Array<{
+  tiles: Array<{
     x: number
     y: number
-    tile: TileType
+    data: TileType
   }>
 }): GridType => {
-  for (let event of events) {
-    if (!!event.tile.npc) {
-      grid[event.y][event.x] = { npc: event.tile.npc }
+  for (let tile of tiles) {
+    if (!!tile.data.npc) {
+      grid[tile.y][tile.x] = { ...grid[tile.y][tile.x], npc: tile.data.npc }
     }
 
-    if (!!event.tile.onEnter) {
-      grid[event.y][event.x] = { onEnter: event.tile.onEnter }
+    if (!!tile.data.events) {
+      grid[tile.y][tile.x] = {
+        ...grid[tile.y][tile.x],
+        events: tile.data.events
+      }
     }
   }
 

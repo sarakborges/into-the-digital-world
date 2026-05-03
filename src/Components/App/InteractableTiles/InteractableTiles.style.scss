@@ -1,11 +1,11 @@
-.interactable-npcs {
+.interactable-tiles {
   display: flex;
   flex-flow: column;
   gap: 4px;
 
   flex: 1;
 
-  .npc {
+  .events {
     display: flex;
     place-items: flex-end;
     gap: 2px;

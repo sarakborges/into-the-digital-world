@@ -2,7 +2,8 @@ export const AVATAR_OPTIONS = {
   expression: ['1'],
   skin: ['1', '2', '3', '4', '5', '6'],
   hair: ['1', '2', '3', '4', '5', '6', '7', '8'],
-  hairColor: ['BLONDE', 'DARK_BROWN'],
+
+  hairColor: ['BLONDE', 'DARK_BROWN', 'ORANGE'],
 
   eyes: ['BLUE', 'BROWN', 'GREEN', 'PURPLE', 'DARK_BROWN', 'LIGHT_BROWN'],
 

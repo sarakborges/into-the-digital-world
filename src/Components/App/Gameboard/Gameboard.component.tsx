@@ -21,8 +21,7 @@ export const Gameboard = () => {
     return null
   }
 
-  const currentZone: ZoneType =
-    Zones[profile.currentZone || 'RootDomainMainRoom']
+  const currentZone: ZoneType = Zones[profile.currentZone]
 
   const gameboardVars = {
     '--view-size': currentZone.gridSize || 0 > 13 ? currentZone.gridSize : 13
