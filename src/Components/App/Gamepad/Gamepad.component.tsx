@@ -48,17 +48,17 @@ export const Gamepad = () => {
   const prevY = profile?.currentY - 1
   const nextY = profile?.currentY + 1
 
-  const existsPrevX = !!currentZone.grid[profile.currentY]?.[prevX]
-  const existsPrevY = !!currentZone.grid[prevY]?.[profile.currentX]
+  const existsPrevX = !!currentZone.grid[profile.currentY][prevX]
+  const existsPrevY = !!currentZone.grid[prevY][profile.currentX]
 
-  const existsNextX = !!currentZone.grid[profile.currentY]?.[nextX]
-  const existsNextY = !!currentZone.grid[nextY]?.[profile.currentX]
+  const existsNextX = !!currentZone.grid[profile.currentY][nextX]
+  const existsNextY = !!currentZone.grid[nextY][profile.currentX]
 
-  const npcExistsInPrevX = !!currentZone.grid[profile.currentY]?.[prevX]?.npc
-  const npcExistsInPrevY = !!currentZone.grid[prevY]?.[profile.currentX]?.npc
+  const npcExistsInPrevX = !!currentZone.grid[profile.currentY][prevX]?.npc
+  const npcExistsInPrevY = !!currentZone.grid[prevY][profile.currentX]?.npc
 
-  const npcExistsInNextX = !!currentZone.grid[profile.currentY]?.[nextX]?.npc
-  const npcExistsInNextY = !!currentZone.grid[nextY]?.[profile.currentX]?.npc
+  const npcExistsInNextX = !!currentZone.grid[profile.currentY][nextX]?.npc
+  const npcExistsInNextY = !!currentZone.grid[nextY][profile.currentX]?.npc
 
   const canMovePrevX = existsPrevX && !npcExistsInPrevX
   const canMovePrevY = existsPrevY && !npcExistsInPrevY

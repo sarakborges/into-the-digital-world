@@ -42,12 +42,9 @@ export const Gameboard = () => {
         <div className="gameboard-body" style={gameboardBodyVars}>
           {new Array(currentZone.gridSize).fill(null).map((_, y) => {
             return (
-              <Fragment key={`y-${y + 1}`}>
+              <Fragment key={`y-${y}`}>
                 {new Array(currentZone.gridSize).fill(null).map((_, x) => (
-                  <Tile
-                    {...{ x: x + 1, y: y + 1 }}
-                    key={`y-${y + 1}-x-${x + 1}`}
-                  />
+                  <Tile {...{ x, y }} key={`y-${y}-x-${x}`} />
                 ))}
               </Fragment>
             )

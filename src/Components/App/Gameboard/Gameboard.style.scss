@@ -17,7 +17,7 @@
 
     .text {
       padding: 4px 8px;
-      font-size: 24px;
+      font-size: 20px;
     }
   }
 
@@ -39,7 +39,7 @@
       --min-offset-x: calc(-1 * (var(--grid-size) - var(--view-size)));
       --min-offset-y: calc(-1 * (var(--grid-size) - var(--view-size)));
       --max-offset: calc(var(--grid-size) - var(--view-size));
-      --center: calc((var(--view-size) - 1) / 2);
+      --center: calc(var(--view-size) / 2);
 
       position: relative;
 
@@ -55,7 +55,7 @@
         calc(
           clamp(
               var(--min-offset-x),
-              calc(var(--center) - (var(--current-x) - 1)),
+              calc(var(--center) - var(--current-x)),
               var(--max-offset)
             ) *
             var(--tile-size)
@@ -63,7 +63,7 @@
         calc(
           clamp(
               var(--min-offset-y),
-              calc(var(--center) - (var(--current-y) - 1)),
+              calc(var(--center) - var(--current-y)),
               var(--max-offset)
             ) *
             var(--tile-size)

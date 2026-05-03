@@ -1,7 +1,5 @@
-import { NpcAngewomon } from './Angewomon.npc'
-import { NpcCulumon } from './Culumon.npc'
+import { NpcGennai } from './Gennai.npc'
 
 export const AllNpcs = {
-  culumon: NpcCulumon,
-  angewomon: NpcAngewomon
+  gennai: NpcGennai
 }

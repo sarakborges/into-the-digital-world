@@ -1,7 +1,7 @@
 .tile {
   position: absolute;
-  top: calc((var(--y) - 1) * var(--tile-size));
-  left: calc((var(--x) - 1) * var(--tile-size));
+  top: calc(var(--y) * var(--tile-size));
+  left: calc(var(--x) * var(--tile-size));
   z-index: 1;
 
   display: flex;
