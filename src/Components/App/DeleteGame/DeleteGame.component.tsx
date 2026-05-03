@@ -26,7 +26,7 @@ export const DeleteGame = ({ profileId }: { profileId: number }) => {
         savedProfiles?.filter((profile) => profile.id !== profileId) || null
       )
     } catch (e) {
-      console.log(e)
+      console.warn(e)
     }
   }
 

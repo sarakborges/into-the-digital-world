@@ -19,7 +19,7 @@ export const SaveGame = () => {
       saveProfile({ profile, savedProfiles })
       alert(getTexts('GAME_SAVED'))
     } catch (e) {
-      console.log(e)
+      console.warn(e)
     }
   }
 

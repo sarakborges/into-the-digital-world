@@ -31,8 +31,6 @@ export const InteractableTiles = () => {
     'x:0,y:+1': currentZone.grid?.[profile.currentY + 1]?.[profile.currentX]
   }
 
-  console.log(currentZone.grid)
-
   const filteredTiles = Object.values(tiles).filter(
     (tile) => !!tile.npc || !!tile.events
   )
