@@ -30,11 +30,13 @@ export const NewGame = () => {
       name: '',
       lastSave: '',
 
-      currentZone: currentZone.id,
-      currentX: 9,
-      currentY: 4,
+      currentZone: {
+        id: currentZone.id,
+        x: 9,
+        y: 4
+      },
 
-      npcAcquintances: []
+      npcAcquintances: {}
     }
 
     setProfile(newProfile)

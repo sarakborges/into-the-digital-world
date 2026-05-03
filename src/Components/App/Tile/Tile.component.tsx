@@ -15,11 +15,11 @@ export const Tile = ({ x, y }: { x: number; y: number }) => {
     return null
   }
 
-  const currentZone = Zones[profile.currentZone]
+  const currentZone = Zones[profile.currentZone.id]
 
   if (
     !currentZone.grid?.[y]?.[x]?.npc &&
-    !(profile.currentX === x && profile.currentY === y)
+    !(profile.currentZone.x === x && profile.currentZone.y === y)
   ) {
     return
   }
@@ -40,7 +40,7 @@ export const Tile = ({ x, y }: { x: number; y: number }) => {
         </div>
       )}
 
-      {profile.currentX === x && profile.currentY === y && (
+      {profile.currentZone.x === x && profile.currentZone.y === y && (
         <div className="player-character">
           <PlayerAvatar />
         </div>

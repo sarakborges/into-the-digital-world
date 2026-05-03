@@ -21,15 +21,15 @@ export const Gameboard = () => {
     return null
   }
 
-  const currentZone: ZoneType = Zones[profile.currentZone]
+  const currentZone: ZoneType = Zones[profile.currentZone.id]
 
   const gameboardVars = {
     '--view-size': currentZone.gridSize || 0 > 13 ? currentZone.gridSize : 13
   } as React.CSSProperties
 
   const gameboardBodyVars = {
-    '--current-x': profile.currentX,
-    '--current-y': profile.currentY,
+    '--current-x': profile.currentZone.x,
+    '--current-y': profile.currentZone.y,
     '--grid-size': currentZone.gridSize,
     backgroundImage: `url('/zones/${currentZone.background}.webp')`
   } as React.CSSProperties

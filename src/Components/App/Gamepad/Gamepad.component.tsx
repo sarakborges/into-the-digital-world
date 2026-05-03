@@ -26,45 +26,49 @@ export const Gamepad = () => {
     return <></>
   }
 
-  const currentZone: ZoneType = { ...Zones[profile.currentZone] }
+  const currentZone: ZoneType = Zones[profile.currentZone.id]
 
   const setLocation = ({ x, y }: { x?: number; y?: number }) => {
-    const updatedX = profile.currentX + (x || 0)
-    const updatedY = profile.currentY + (y || 0)
+    const updatedX = profile.currentZone.x + (x || 0)
+    const updatedY = profile.currentZone.y + (y || 0)
 
     const updatedProfile = {
       ...profile,
-      currentX: updatedX,
-      currentY: updatedY
+
+      currentZone: {
+        id: currentZone.id,
+        x: updatedX,
+        y: updatedY
+      }
     }
 
     setProfile(updatedProfile)
     saveSession({ key: 'profile', value: updatedProfile })
 
     currentZone?.grid[updatedY][updatedX]?.onEnter?.({
-      profile,
+      updatedProfile,
       setProfile,
       setScene
     })
   }
 
-  const prevX = profile?.currentX - 1
-  const nextX = profile?.currentX + 1
+  const prevX = profile.currentZone.x - 1
+  const nextX = profile.currentZone.x + 1
 
-  const prevY = profile?.currentY - 1
-  const nextY = profile?.currentY + 1
+  const prevY = profile.currentZone.y - 1
+  const nextY = profile.currentZone.y + 1
 
-  const existsPrevX = !!currentZone.grid[profile.currentY][prevX]
-  const existsPrevY = !!currentZone.grid[prevY][profile.currentX]
+  const existsPrevX = !!currentZone.grid[profile.currentZone.y][prevX]
+  const existsPrevY = !!currentZone.grid[prevY][profile.currentZone.x]
 
-  const existsNextX = !!currentZone.grid[profile.currentY][nextX]
-  const existsNextY = !!currentZone.grid[nextY][profile.currentX]
+  const existsNextX = !!currentZone.grid[profile.currentZone.y][nextX]
+  const existsNextY = !!currentZone.grid[nextY][profile.currentZone.x]
 
-  const npcExistsInPrevX = !!currentZone.grid[profile.currentY][prevX]?.npc
-  const npcExistsInPrevY = !!currentZone.grid[prevY][profile.currentX]?.npc
+  const npcExistsInPrevX = !!currentZone.grid[profile.currentZone.y][prevX]?.npc
+  const npcExistsInPrevY = !!currentZone.grid[prevY][profile.currentZone.x]?.npc
 
-  const npcExistsInNextX = !!currentZone.grid[profile.currentY][nextX]?.npc
-  const npcExistsInNextY = !!currentZone.grid[nextY][profile.currentX]?.npc
+  const npcExistsInNextX = !!currentZone.grid[profile.currentZone.y][nextX]?.npc
+  const npcExistsInNextY = !!currentZone.grid[nextY][profile.currentZone.x]?.npc
 
   const canMovePrevX = existsPrevX && !npcExistsInPrevX
   const canMovePrevY = existsPrevY && !npcExistsInPrevY

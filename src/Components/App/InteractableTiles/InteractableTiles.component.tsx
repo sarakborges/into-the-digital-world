@@ -22,13 +22,17 @@ export const InteractableTiles = () => {
     return
   }
 
-  const currentZone = Zones[profile.currentZone]
+  const currentZone = Zones[profile.currentZone.id]
 
   const tiles: { [k: string]: TileType } = {
-    'x:-1,y:0': currentZone.grid?.[profile.currentY]?.[profile.currentX - 1],
-    'x:+1,y:0': currentZone.grid?.[profile.currentY]?.[profile.currentX + 1],
-    'x:0,y:-1': currentZone.grid?.[profile.currentY - 1]?.[profile.currentX],
-    'x:0,y:+1': currentZone.grid?.[profile.currentY + 1]?.[profile.currentX]
+    'x:-1,y:0':
+      currentZone.grid?.[profile.currentZone.y]?.[profile.currentZone.x - 1],
+    'x:+1,y:0':
+      currentZone.grid?.[profile.currentZone.y]?.[profile.currentZone.x + 1],
+    'x:0,y:-1':
+      currentZone.grid?.[profile.currentZone.y - 1]?.[profile.currentZone.x],
+    'x:0,y:+1':
+      currentZone.grid?.[profile.currentZone.y + 1]?.[profile.currentZone.x]
   }
 
   const filteredTiles = Object.values(tiles).filter(
@@ -49,13 +53,15 @@ export const InteractableTiles = () => {
         (tile) =>
           !!tile.npc?.id && (
             <Fragment
-              key={`interactable-tile-y-${profile.currentY}-x${profile.currentX}-${tile.npc?.id}`}
+              key={`interactable-tile-y-${profile.currentZone.y}-x${profile.currentZone.x}-${tile.npc?.id}`}
             >
               {!!tile.events && (
                 <div className="events">
                   <header>
                     <Text>
-                      {profile?.npcAcquintances.includes(tile.npc?.id || '')
+                      {Object.keys(profile!.npcAcquintances).includes(
+                        tile.npc?.id || ''
+                      )
                         ? tile.npc?.name
                         : '???'}
                     </Text>
@@ -69,7 +75,7 @@ export const InteractableTiles = () => {
                   <footer>
                     {Object.values(tile.events).map((event) => (
                       <div
-                        key={`interactable-tile-y-${profile.currentY}-x${profile.currentX}-${tile.npc?.id}-${event}`}
+                        key={`interactable-tile-y-${profile.currentZone.y}-x${profile.currentZone.x}-${tile.npc?.id}-${event}`}
                       >
                         <Button
                           onClick={() => {
