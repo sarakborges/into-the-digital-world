@@ -9,7 +9,7 @@ export const WarpToRestRoom1 = (props) => {
     profile,
     setProfile,
     zoneId: RootDomainRestRoom1.id,
-    x: 9,
-    y: 16
+    x: 6,
+    y: 10
   })
 }

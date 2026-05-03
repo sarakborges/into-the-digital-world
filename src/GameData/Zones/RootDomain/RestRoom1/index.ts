@@ -17,47 +17,83 @@ const fullFloorRow = {
   7: floorTile,
   8: floorTile,
   9: floorTile,
-  10: floorTile,
-  11: floorTile,
-  12: floorTile,
-  13: floorTile,
-  14: floorTile,
-  15: floorTile,
-  16: floorTile,
-  17: floorTile
+  10: floorTile
 }
 
 const grid: GridType = {
-  8: { ...fullFloorRow },
-  9: { ...fullFloorRow },
-  10: { ...fullFloorRow },
-  11: { ...fullFloorRow },
+  2: {
+    1: floorTile,
+    2: floorTile,
+    10: floorTile,
+    11: floorTile
+  },
 
-  14: {
+  3: {
+    1: floorTile,
+    2: floorTile,
+    3: floorTile,
+    4: floorTile,
     5: floorTile,
     6: floorTile,
     7: floorTile,
     8: floorTile,
     9: floorTile,
     10: floorTile,
-    11: floorTile,
-    12: floorTile,
-    13: floorTile,
-    14: floorTile,
-    15: floorTile,
-    16: floorTile
+    11: floorTile
   },
-  15: {
+
+  4: { ...fullFloorRow },
+
+  5: {
+    3: floorTile,
+    4: floorTile,
+    5: floorTile,
+    6: floorTile,
+    7: floorTile,
     8: floorTile,
     9: floorTile,
     10: floorTile
   },
-  16: {
-    9: floorTile
+
+  6: { ...fullFloorRow },
+  7: { ...fullFloorRow },
+
+  8: {
+    3: floorTile,
+    4: floorTile,
+    5: floorTile,
+    6: floorTile,
+    7: floorTile,
+    8: floorTile,
+    9: floorTile,
+    10: floorTile,
+    11: floorTile
+  },
+
+  9: {
+    4: floorTile,
+    5: floorTile,
+    6: floorTile,
+    7: floorTile,
+    8: floorTile,
+    9: floorTile,
+    10: floorTile,
+    11: floorTile
+  },
+
+  10: {
+    4: floorTile,
+    5: floorTile,
+    6: floorTile,
+    7: floorTile,
+    8: floorTile,
+    9: floorTile,
+    10: floorTile,
+    11: floorTile
   }
 }
 
-const gridSize = 19
+const gridSize = 13
 const filledGrid = fillGrid({ grid, gridSize })
 
 export const RootDomainRestRoom1: ZoneType = {
@@ -73,8 +109,8 @@ export const RootDomainRestRoom1: ZoneType = {
 
   tiles: [
     {
-      x: 9,
-      y: 17,
+      x: 6,
+      y: 11,
       event: 'warpToCorridor'
     }
   ]
