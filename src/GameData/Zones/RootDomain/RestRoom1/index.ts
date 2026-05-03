@@ -1,7 +1,6 @@
 import type { GridType } from '@/Types/Grid.type'
 import type { ZoneType } from '@/Types/Zone.type'
 
-import { mergeZoneTiles } from '@/Helpers/mergeZoneTiles.helper'
 import { fillGrid } from '@/Helpers/fillGrid'
 
 import { floorTile } from '@/GameData/Zones/floor.tile'
@@ -61,21 +60,22 @@ const grid: GridType = {
 const gridSize = 19
 const filledGrid = fillGrid({ grid, gridSize })
 
-const mergedGrid = mergeZoneTiles({
-  grid: filledGrid,
-  tiles: [
-    {
-      x: 9,
-      y: 17,
-      data: WarpToCorridor
-    }
-  ]
-})
-
 export const RootDomainRestRoom1: ZoneType = {
   id: `RootDomainRestRoom1`,
   background: `RootDomain/RestRoomLeft`,
   name: `Root Domain`,
   gridSize,
-  grid: mergedGrid
+  grid: filledGrid,
+
+  events: {
+    warpToCorridor: WarpToCorridor
+  },
+
+  tiles: [
+    {
+      x: 9,
+      y: 17,
+      event: 'warpToCorridor'
+    }
+  ]
 }

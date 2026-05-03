@@ -1,13 +1,12 @@
 import type { GridType } from '@/Types/Grid.type'
 import type { ZoneType } from '@/Types/Zone.type'
 
-import { mergeZoneTiles } from '@/Helpers/mergeZoneTiles.helper'
 import { fillGrid } from '@/Helpers/fillGrid'
 
 import { floorTile } from '@/GameData/Zones/floor.tile'
+import { AllNpcs } from '@/GameData/Npcs'
 
 import { WarpToCorridor } from './WarpToCorridor.event'
-import { Gennai } from './Gennai.event'
 
 const fullFloorRow = {
   1: floorTile,
@@ -116,27 +115,36 @@ const grid: GridType = {
 const gridSize = 19
 const filledGrid = fillGrid({ grid, gridSize })
 
-const mergedGrid = mergeZoneTiles({
-  grid: filledGrid,
-  tiles: [
-    {
-      x: 9,
-      y: 18,
-      data: WarpToCorridor
-    },
-
-    {
-      x: 9,
-      y: 3,
-      data: Gennai
-    }
-  ]
-})
-
 export const RootDomainMainRoom: ZoneType = {
   id: `RootDomainMainRoom`,
   background: `RootDomain/MainRoom`,
   name: `Root Domain`,
   gridSize,
-  grid: mergedGrid
+  grid: filledGrid,
+
+  events: {
+    openCustomizationDialog: ({ setScene }) => {
+      setScene({
+        currentScene: 'avatarCustomization',
+        currentStage: '001'
+      })
+    },
+
+    warpToCorridor: WarpToCorridor
+  },
+
+  tiles: [
+    {
+      x: 9,
+      y: 18,
+      event: 'warpToCorridor'
+    },
+
+    {
+      x: 9,
+      y: 3,
+      npc: AllNpcs.gennai,
+      event: 'openCustomizationDialog'
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 import { Fragment } from 'react/jsx-runtime'
 
-import type { TileType } from '@/Types/Tile.type'
+import type { ZoneType } from '@/Types/Zone.type'
 
 import { getTexts } from '@/Helpers/getTexts.helper'
 
@@ -8,7 +8,6 @@ import * as Zones from '@/GameData/Zones'
 
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useScene } from '@/Hooks/Scene.hook'
-import { useGame } from '@/Hooks/Game.hook'
 
 import { Portrait } from '@/Components/System/Portrait'
 import { Text } from '@/Components/System/Text'
@@ -19,46 +18,45 @@ import './InteractableTiles.style.scss'
 export const InteractableTiles = () => {
   const { profile, setProfile } = useProfile()
   const { setScene } = useScene()
-  const { game, setGame } = useGame()
 
   if (!profile) {
     return
   }
 
-  const currentZone = Zones[profile.currentZone.id]
+  const currentZone: ZoneType = Zones[profile.currentZone.id]
 
-  const tiles: { [k: string]: TileType } = {
-    'x:-1,y:0':
-      currentZone?.grid[profile.currentZone.y]?.[profile.currentZone.x - 1],
-    'x:+1,y:0':
-      currentZone?.grid[profile.currentZone.y]?.[profile.currentZone.x + 1],
-    'x:0,y:-1':
-      currentZone?.grid[profile.currentZone.y - 1]?.[profile.currentZone.x],
-    'x:0,y:+1':
-      currentZone?.grid[profile.currentZone.y + 1]?.[profile.currentZone.x]
-  }
-
-  const filteredTiles = Object.values(tiles).filter(
-    (tile) => !!tile?.npc || !!tile?.events
-  )
-
-  if (!filteredTiles.length) {
-    return
+  const surroundingTiles = {
+    prevX: currentZone.tiles.find(
+      (tile) =>
+        tile.x === profile.currentZone.x - 1 && tile.y === profile.currentZone.y
+    ),
+    nextX: currentZone.tiles.find(
+      (tile) =>
+        tile.x === profile.currentZone.x + 1 && tile.y === profile.currentZone.y
+    ),
+    prevY: currentZone.tiles.find(
+      (tile) =>
+        tile.y === profile.currentZone.y - 1 && tile.x === profile.currentZone.x
+    ),
+    nextY: currentZone.tiles.find(
+      (tile) =>
+        tile.y === profile.currentZone.y + 1 && tile.x === profile.currentZone.x
+    )
   }
 
   const triggerEvent = (event) => {
-    setGame({ ...game, event })
+    currentZone?.events?.[event]?.({ setScene, setProfile, profile })
   }
 
   return (
     <aside className="interactable-tiles">
-      {filteredTiles.map(
+      {Object.values(surroundingTiles).map(
         (tile) =>
-          !!tile.npc?.id && (
+          !!tile?.npc && (
             <Fragment
-              key={`interactable-tile-y-${profile.currentZone.y}-x${profile.currentZone.x}-${tile.npc?.id}`}
+              key={`interactable-tile-y-${tile.y}-x${tile.x}-${tile.npc?.id}`}
             >
-              {!!tile.events && (
+              {!!tile?.event && (
                 <div className="events">
                   <header>
                     <Text>
@@ -76,19 +74,15 @@ export const InteractableTiles = () => {
                   </header>
 
                   <footer>
-                    {Object.keys(tile.events).map((event) => (
-                      <div
-                        key={`interactable-tile-y-${profile.currentZone.y}-x${profile.currentZone.x}-${tile.npc?.id}-${event}`}
+                    <div>
+                      <Button
+                        onClick={() => {
+                          triggerEvent(tile.event)
+                        }}
                       >
-                        <Button
-                          onClick={() => {
-                            triggerEvent(event)
-                          }}
-                        >
-                          {getTexts('NPC_INTERACT')}
-                        </Button>
-                      </div>
-                    ))}
+                        {getTexts('NPC_INTERACT')}
+                      </Button>
+                    </div>
                   </footer>
                 </div>
               )}

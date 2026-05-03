@@ -22,7 +22,6 @@ import './Gamepad.style.scss'
 export const Gamepad = () => {
   const { profile, setProfile } = useProfile()
   const { setScene } = useScene()
-  const { game, setGame } = useGame()
 
   if (!profile) {
     return <></>
@@ -47,47 +46,86 @@ export const Gamepad = () => {
     setProfile(updatedProfile)
     saveSession({ key: 'profile', value: updatedProfile })
 
-    const onEnter = currentZone.grid[updatedY][updatedX]?.events?.onEnter
-    if (!onEnter) {
+    const currentTile = currentZone.tiles.find(
+      (tile) => tile.x === updatedX && tile.y === updatedY
+    )
+    if (!currentTile?.event) {
       return
     }
 
-    onEnter({
+    currentZone.events?.[currentTile?.event]({
       profile: updatedProfile,
-      setProfile
-    })
-
-    setGame({
-      event: null
+      setProfile,
+      setScene
     })
   }
 
-  const prevX = profile.currentZone.x - 1
-  const nextX = profile.currentZone.x + 1
+  const surroundingTilesPositions = {
+    prevX: profile.currentZone.x - 1,
+    nextX: profile.currentZone.x + 1,
+    prevY: profile.currentZone.y - 1,
+    nextY: profile.currentZone.y + 1
+  }
 
-  const prevY = profile.currentZone.y - 1
-  const nextY = profile.currentZone.y + 1
+  const existsInGrid = {
+    prevX:
+      !!currentZone?.grid[profile.currentZone.y]?.[
+        surroundingTilesPositions.prevX
+      ],
+    nextX:
+      !!currentZone?.grid[profile.currentZone.y]?.[
+        surroundingTilesPositions.nextX
+      ],
+    prevY:
+      !!currentZone?.grid[surroundingTilesPositions.prevY]?.[
+        profile.currentZone.x
+      ],
+    nextY:
+      !!currentZone?.grid[surroundingTilesPositions.nextY]?.[
+        profile.currentZone.x
+      ]
+  }
 
-  const existsPrevX = !!currentZone?.grid[profile.currentZone.y]?.[prevX]
-  const existsPrevY = !!currentZone?.grid[prevY]?.[profile.currentZone.x]
+  const surroundingTiles = {
+    prevX: currentZone.tiles.find(
+      (tile) =>
+        tile.x === profile.currentZone.x - 1 && tile.y === profile.currentZone.y
+    ),
 
-  const existsNextX = !!currentZone?.grid[profile.currentZone.y]?.[nextX]
-  const existsNextY = !!currentZone?.grid[nextY]?.[profile.currentZone.x]
+    nextX: currentZone.tiles.find(
+      (tile) =>
+        tile.x === profile.currentZone.x + 1 && tile.y === profile.currentZone.y
+    ),
 
-  const npcExistsInPrevX =
-    !!currentZone?.grid[profile.currentZone.y]?.[prevX]?.npc
-  const npcExistsInPrevY =
-    !!currentZone?.grid[prevY]?.[profile.currentZone.x]?.npc
+    prevY: currentZone.tiles.find(
+      (tile) =>
+        tile.x === profile.currentZone.x && tile.y === profile.currentZone.y - 1
+    ),
 
-  const npcExistsInNextX =
-    !!currentZone?.grid[profile.currentZone.y]?.[nextX]?.npc
-  const npcExistsInNextY =
-    !!currentZone?.grid[nextY]?.[profile.currentZone.x]?.npc
+    nextY: currentZone.tiles.find(
+      (tile) =>
+        tile.x === profile.currentZone.x && tile.y === profile.currentZone.y + 1
+    )
+  }
 
-  const canMovePrevX = existsPrevX && !npcExistsInPrevX
-  const canMovePrevY = existsPrevY && !npcExistsInPrevY
-  const canMoveNextX = existsNextX && !npcExistsInNextX
-  const canMoveNextY = existsNextY && !npcExistsInNextY
+  const npcExistsInPrevX = !!surroundingTiles.prevX?.npc
+  const npcExistsInNextX = !!surroundingTiles.nextX?.npc
+  const npcExistsInPrevY = !!surroundingTiles.prevY?.npc
+  const npcExistsInNextY = !!surroundingTiles.nextY?.npc
+
+  const eventExistsInPrevX = !!surroundingTiles.prevX?.event
+  const eventExistsInNextX = !!surroundingTiles.nextX?.event
+  const eventExistsInPrevY = !!surroundingTiles.prevY?.event
+  const eventExistsInNextY = !!surroundingTiles.nextY?.event
+
+  const canMovePrevX =
+    existsInGrid.prevX || (!npcExistsInPrevX && eventExistsInPrevX)
+  const canMoveNextX =
+    existsInGrid.nextX || (!npcExistsInNextX && eventExistsInNextX)
+  const canMovePrevY =
+    existsInGrid.prevY || (!npcExistsInPrevY && eventExistsInPrevY)
+  const canMoveNextY =
+    existsInGrid.nextY || (!npcExistsInNextY && eventExistsInNextY)
 
   return (
     <aside className="gamepad">

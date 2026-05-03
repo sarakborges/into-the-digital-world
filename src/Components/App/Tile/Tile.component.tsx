@@ -1,3 +1,5 @@
+import type { ZoneType } from '@/Types/Zone.type'
+
 import * as Zones from '@/GameData/Zones'
 
 import { useProfile } from '@/Hooks/Profile.hook'
@@ -15,10 +17,14 @@ export const Tile = ({ x, y }: { x: number; y: number }) => {
     return null
   }
 
-  const currentZone = Zones[profile.currentZone.id]
+  const currentZone: ZoneType = Zones[profile.currentZone.id]
+
+  const currentTile = currentZone.tiles.find(
+    (tile) => tile.x === x && tile.y === y
+  )
 
   if (
-    !currentZone?.grid?.[y]?.[x]?.npc &&
+    !currentTile?.npc &&
     !(profile.currentZone.x === x && profile.currentZone.y === y)
   ) {
     return
@@ -31,11 +37,11 @@ export const Tile = ({ x, y }: { x: number; y: number }) => {
 
   return (
     <div className="tile" style={tileVars}>
-      {!!currentZone?.grid?.[y]?.[x]?.npc && (
+      {currentTile?.npc && (
         <div className="npc">
           <Portrait
-            src={`/${currentZone?.grid?.[y]?.[x].npc.portrait}.webp`}
-            alt={currentZone?.grid?.[y]?.[x].npc.name}
+            src={`/${currentTile.npc.portrait}.webp`}
+            alt={currentTile.npc.name}
           />
         </div>
       )}
