@@ -18,7 +18,7 @@ export const Tile = ({ x, y }: { x: number; y: number }) => {
   const currentZone = Zones[profile.currentZone.id]
 
   if (
-    !currentZone.grid?.[y]?.[x]?.npc &&
+    !currentZone?.grid?.[y]?.[x]?.npc &&
     !(profile.currentZone.x === x && profile.currentZone.y === y)
   ) {
     return
@@ -31,11 +31,11 @@ export const Tile = ({ x, y }: { x: number; y: number }) => {
 
   return (
     <div className="tile" style={tileVars}>
-      {!!currentZone.grid?.[y]?.[x]?.npc && (
+      {!!currentZone?.grid?.[y]?.[x]?.npc && (
         <div className="npc">
           <Portrait
-            src={`/${currentZone.grid?.[y]?.[x].npc.portrait}.webp`}
-            alt={currentZone.grid?.[y]?.[x].npc.name}
+            src={`/${currentZone?.grid?.[y]?.[x].npc.portrait}.webp`}
+            alt={currentZone?.grid?.[y]?.[x].npc.name}
           />
         </div>
       )}

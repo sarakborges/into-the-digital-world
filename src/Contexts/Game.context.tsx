@@ -5,12 +5,16 @@ import type { GameType } from '@/Types/Game.type'
 import type { GameContextType } from '@/Types/Contexts/GameContext.type'
 
 export const GameContext = createContext<GameContextType>({
-  game: null,
+  game: {
+    event: null
+  },
   setGame: () => {}
 })
 
 export const GameProvider = ({ children }: { children: ReactNode }) => {
-  const [game, setGame] = useState<GameType | null>(null)
+  const [game, setGame] = useState<GameType | null>({
+    event: null
+  })
 
   return (
     <GameContext.Provider value={{ game, setGame }}>

@@ -21,9 +21,12 @@ export const warpTo = ({
 
   const updatedProfile = {
     ...profile,
-    currentZone: zoneId,
-    currentX: x,
-    currentY: y
+
+    currentZone: {
+      id: zoneId,
+      x: x,
+      y: y
+    }
   }
 
   setProfile(updatedProfile)

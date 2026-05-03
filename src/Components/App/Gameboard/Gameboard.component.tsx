@@ -24,30 +24,30 @@ export const Gameboard = () => {
   const currentZone: ZoneType = Zones[profile.currentZone.id]
 
   const gameboardVars = {
-    '--view-size': currentZone.gridSize || 0 > 13 ? currentZone.gridSize : 13
+    '--view-size': currentZone?.gridSize || 0 > 13 ? currentZone.gridSize : 13
   } as React.CSSProperties
 
   const gameboardBodyVars = {
     '--current-x': profile.currentZone.x,
     '--current-y': profile.currentZone.y,
-    '--grid-size': currentZone.gridSize,
-    backgroundImage: `url('/zones/${currentZone.background}.webp')`
+    '--grid-size': currentZone?.gridSize,
+    backgroundImage: `url('/zones/${currentZone?.background}.webp')`
   } as React.CSSProperties
 
   return (
     <div className="gameboard-wrapper">
       <header className="gameboard-title">
         <Text>
-          {getTexts('CURRENT_ZONE').replaceAll('[ZONE]', currentZone.name)}
+          {getTexts('CURRENT_ZONE').replaceAll('[ZONE]', currentZone?.name)}
         </Text>
       </header>
 
       <main className="gameboard" style={gameboardVars}>
         <div className="gameboard-body" style={gameboardBodyVars}>
-          {new Array(currentZone.gridSize).fill(null).map((_, y) => {
+          {new Array(currentZone?.gridSize).fill(null).map((_, y) => {
             return (
               <Fragment key={`y-${y}`}>
-                {new Array(currentZone.gridSize).fill(null).map((_, x) => (
+                {new Array(currentZone?.gridSize).fill(null).map((_, x) => (
                   <Tile {...{ x, y }} key={`y-${y}-x-${x}`} />
                 ))}
               </Fragment>

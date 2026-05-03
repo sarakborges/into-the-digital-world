@@ -6,9 +6,6 @@ import { fillGrid } from '@/Helpers/fillGrid'
 
 import { floorTile } from '@/GameData/Zones/floor.tile'
 
-import { WarpToCorridor } from './WarpToCorridor.event'
-import { Gennai } from './Gennai.event'
-
 const fullFloorRow = {
   1: floorTile,
   2: floorTile,
@@ -109,7 +106,9 @@ const grid: GridType = {
   16: { ...fullFloorRow },
 
   17: {
-    9: floorTile
+    8: floorTile,
+    9: floorTile,
+    10: floorTile
   }
 }
 
@@ -118,24 +117,12 @@ const filledGrid = fillGrid({ grid, gridSize })
 
 const mergedGrid = mergeZoneTiles({
   grid: filledGrid,
-  tiles: [
-    {
-      x: 9,
-      y: 18,
-      data: WarpToCorridor
-    },
-
-    {
-      x: 9,
-      y: 3,
-      data: Gennai
-    }
-  ]
+  tiles: []
 })
 
-export const RootDomainMainRoom: ZoneType = {
-  id: `RootDomainMainRoom`,
-  background: `RootDomain/MainRoom`,
+export const RootDomainCorridor: ZoneType = {
+  id: `RootDomainCorridor`,
+  background: `RootDomain/Corridor`,
   name: `Root Domain`,
   gridSize,
   grid: mergedGrid
