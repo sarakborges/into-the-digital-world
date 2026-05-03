@@ -1,3 +1,9 @@
+import { Fragment } from 'react/jsx-runtime'
+
+import type { ZoneType } from '@/Types/Zone.type'
+
+import { getTexts } from '@/Helpers/getTexts.helper'
+
 import * as Zones from '@/GameData/Zones'
 
 import { useProfile } from '@/Hooks/Profile.hook'
@@ -7,8 +13,6 @@ import { Text } from '@/Components/System/Text'
 import { Tile } from '@/Components/App/Tile'
 
 import './Gameboard.style.scss'
-import { Fragment } from 'react/jsx-runtime'
-import { getTexts } from '@/Helpers/getTexts.helper'
 
 export const Gameboard = () => {
   const { profile } = useProfile()
@@ -17,17 +21,18 @@ export const Gameboard = () => {
     return null
   }
 
-  const currentZone = { ...Zones[profile.currentZone || 'RootDomainMainRoom'] }
+  const currentZone: ZoneType =
+    Zones[profile.currentZone || 'RootDomainMainRoom']
 
   const gameboardVars = {
-    '--view-size': currentZone.gridSize > 13 ? currentZone.gridSize : 13
+    '--view-size': currentZone.gridSize || 0 > 13 ? currentZone.gridSize : 13
   } as React.CSSProperties
 
   const gameboardBodyVars = {
     '--current-x': profile.currentX,
     '--current-y': profile.currentY,
     '--grid-size': currentZone.gridSize,
-    backgroundImage: `url('/zones/maps/${currentZone.id}.png')`
+    backgroundImage: `url('/zones/${currentZone.background}.webp')`
   } as React.CSSProperties
 
   return (

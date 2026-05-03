@@ -6,8 +6,8 @@ import { fillGrid } from '@/Helpers/fillGrid'
 
 import { floorTile } from '@/GameData/Zones/floor.tile'
 
-import { WarpToBinaryForest } from './WarpToBinaryForest.tile'
-import { Gennai } from './Gennai.tile'
+import { WarpToBinaryForest } from './WarpToBinaryForest.event'
+import { Gennai } from './Gennai.event'
 
 const fullFloorRow = {
   1: floorTile,
@@ -137,6 +137,7 @@ const mergedGrid = mergeZoneTiles({
 
 export const RootDomainMainRoom: ZoneType = {
   id: `RootDomainMainRoom`,
+  background: `RootDomain/MainRoom`,
   name: `Root Domain`,
   gridSize,
   grid: mergedGrid
