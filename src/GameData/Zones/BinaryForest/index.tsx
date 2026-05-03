@@ -6,6 +6,7 @@ import { warpTo } from '@/Helpers/warpTo.helper'
 export const BinaryForest: ZoneType = {
   id: `BinaryForest`,
   name: `Binary Forest`,
+  background: '',
 
   gridSize: 7,
 
@@ -14,8 +15,16 @@ export const BinaryForest: ZoneType = {
       5: {
         texture: 'white',
 
-        onEnter: ({ setProfile }) => {
-          warpTo({ setProfile, zoneId: RootDomainMainRoom.id, x: 9, y: 7 })
+        onEnter: (props) => {
+          const { profile, setProfile } = props
+
+          warpTo({
+            profile,
+            setProfile,
+            zoneId: RootDomainMainRoom.id,
+            x: 9,
+            y: 7
+          })
         }
       }
     }

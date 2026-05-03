@@ -5,8 +5,11 @@ import { warpTo } from '@/Helpers/warpTo.helper'
 import { BinaryForest } from '@/GameData/Zones/BinaryForest'
 
 export const WarpToBinaryForest: TileType = {
-  onEnter: ({ setProfile }) => {
+  onEnter: (props) => {
+    const { profile, setProfile } = props
+
     warpTo({
+      profile,
       setProfile,
       zoneId: BinaryForest.id,
       x: 6,

@@ -7,6 +7,8 @@ import {
 
 import type { ZoneType } from '@/Types/Zone.type'
 
+import { saveSession } from '@/Helpers/saveSession.helper'
+
 import * as Zones from '@/GameData/Zones'
 
 import { useProfile } from '@/Hooks/Profile.hook'
@@ -30,13 +32,17 @@ export const Gamepad = () => {
     const updatedX = profile.currentX + (x || 0)
     const updatedY = profile.currentY + (y || 0)
 
-    setProfile((prevProfile) => ({
-      ...prevProfile!,
+    const updatedProfile = {
+      ...profile,
       currentX: updatedX,
       currentY: updatedY
-    }))
+    }
+
+    setProfile(updatedProfile)
+    saveSession({ key: 'profile', value: updatedProfile })
 
     currentZone?.grid[updatedY][updatedX]?.onEnter?.({
+      profile,
       setProfile,
       setScene
     })
