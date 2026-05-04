@@ -115,43 +115,47 @@ const grid: GridType = {
 const gridSize = 19
 const filledGrid = fillGrid({ grid, gridSize })
 
-export const RootDomainMainRoom: ZoneType = {
-  id: `RootDomainMainRoom`,
-  background: `RootDomain/MainRoom`,
-  name: `Root Domain`,
-  gridSize,
-  grid: filledGrid,
+export const RootDomainMainRoom = () => {
+  const zoneDetails: ZoneType = {
+    id: `RootDomainMainRoom`,
+    background: `RootDomain/MainRoom`,
+    name: `Root Domain`,
+    gridSize,
+    grid: filledGrid,
 
-  events: {
-    openCustomizationDialog: ({ setScene }) => {
-      setScene({
-        currentScene: 'avatarCustomization',
-        currentStage: '001'
-      })
-    },
-
-    warpToCorridor: WarpToCorridor
-  },
-
-  tiles: [
-    {
-      x: 9,
-      y: 18,
-      event: {
-        eventName: 'warpToCorridor'
-      }
-    },
-
-    {
-      x: 9,
-      y: 3,
-      npc: {
-        npcInfo: AllNpcs.gennai
+    events: {
+      openCustomizationDialog: ({ setScene }) => {
+        setScene({
+          currentScene: 'avatarCustomization',
+          currentStage: '001'
+        })
       },
 
-      event: {
-        eventName: 'openCustomizationDialog'
+      warpToCorridor: (props) => WarpToCorridor(props)
+    },
+
+    tiles: [
+      {
+        x: 9,
+        y: 18,
+        event: {
+          eventName: 'warpToCorridor'
+        }
+      },
+
+      {
+        x: 9,
+        y: 3,
+        npc: {
+          npcInfo: AllNpcs.gennai
+        },
+
+        event: {
+          eventName: 'openCustomizationDialog'
+        }
       }
-    }
-  ]
+    ]
+  }
+
+  return zoneDetails
 }

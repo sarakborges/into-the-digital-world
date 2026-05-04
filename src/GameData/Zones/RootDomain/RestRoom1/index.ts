@@ -3,9 +3,14 @@ import type { ZoneType } from '@/Types/Zone.type'
 
 import { fillGrid } from '@/Helpers/fillGrid'
 
+import { AllNpcs } from '@/GameData/Npcs'
 import { floorTile } from '@/GameData/Zones/floor.tile'
 
+import { useScene } from '@/Hooks/Scene.hook'
+
 import { WarpToCorridor } from './WarpToCorridor.event'
+import { SCENES } from '@/Consts/Scenes.const'
+import type { SceneType } from '@/Types/Scene.type'
 
 const fullFloorRow = {
   1: floorTile,
@@ -96,24 +101,37 @@ const grid: GridType = {
 const gridSize = 13
 const filledGrid = fillGrid({ grid, gridSize })
 
-export const RootDomainRestRoom1: ZoneType = {
-  id: `RootDomainRestRoom1`,
-  background: `RootDomain/RestRoomLeft`,
-  name: `Root Domain`,
-  gridSize,
-  grid: filledGrid,
+export const RootDomainRestRoom1 = ({ scene }): ZoneType => {
+  const zoneDetails: ZoneType = {
+    id: `RootDomainRestRoom1`,
+    background: `RootDomain/RestRoomLeft`,
+    name: `Root Domain`,
+    gridSize,
+    grid: filledGrid,
 
-  events: {
-    warpToCorridor: WarpToCorridor
-  },
+    events: {
+      warpToCorridor: (props) => WarpToCorridor(props)
+    },
 
-  tiles: [
-    {
-      x: 6,
-      y: 11,
-      event: {
-        eventName: 'warpToCorridor'
+    tiles: [
+      {
+        x: 6,
+        y: 11,
+        event: {
+          eventName: 'warpToCorridor'
+        }
+      },
+
+      {
+        x: 6,
+        y: 11,
+        npc: {
+          npcInfo: AllNpcs.gennai,
+          condition: scene?.currentScene === SCENES.introduction.id
+        }
       }
-    }
-  ]
+    ]
+  }
+
+  return zoneDetails
 }

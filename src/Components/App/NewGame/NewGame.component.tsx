@@ -16,7 +16,7 @@ import { saveSession } from '@/Helpers/saveSession.helper'
 export const NewGame = () => {
   const { savedProfiles } = useSavedProfiles()
   const { setProfile } = useProfile()
-  const { setScene } = useScene()
+  const { scene, setScene } = useScene()
 
   const createNewProfile = () => {
     const sortedProfiles = [...(savedProfiles || [])].sort(
@@ -33,7 +33,7 @@ export const NewGame = () => {
       currentScene: 'introduction',
 
       currentZone: {
-        id: Zones.RootDomainRestRoom1.id,
+        id: Zones.RootDomainRestRoom1({ scene: scene! }).id,
         x: 3,
         y: 5
       },

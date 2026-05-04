@@ -26,7 +26,7 @@ export const Game = () => {
       <div className="main-game">
         <Settings />
 
-        {!scene && !profile?.currentScene && (
+        {!scene && (
           <>
             {!profile && <StartScreen />}
 
@@ -40,7 +40,7 @@ export const Game = () => {
         )}
 
         {!!profile && <Gameboard />}
-        {(!!scene || !!profile?.currentScene) && <Scene />}
+        {!!scene && <Scene />}
       </div>
     </div>
   )

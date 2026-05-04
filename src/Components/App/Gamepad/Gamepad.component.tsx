@@ -21,13 +21,13 @@ import './Gamepad.style.scss'
 
 export const Gamepad = () => {
   const { profile, setProfile } = useProfile()
-  const { setScene } = useScene()
+  const { scene, setScene } = useScene()
 
   if (!profile) {
     return <></>
   }
 
-  const currentZone: ZoneType = Zones[profile.currentZone.id]
+  const currentZone: ZoneType = Zones[profile.currentZone.id]({ scene })
 
   const setLocation = ({ x, y }: { x?: number; y?: number }) => {
     const updatedX = profile.currentZone.x + (x || 0)
@@ -47,8 +47,12 @@ export const Gamepad = () => {
     saveSession({ key: 'profile', value: updatedProfile })
 
     const currentTile = currentZone.tiles.find(
-      (tile) => tile.x === updatedX && tile.y === updatedY
+      (tile) =>
+        tile.x === updatedX &&
+        tile.y === updatedY &&
+        (!!tile.event?.condition || tile.event?.condition === undefined)
     )
+
     if (!currentTile?.event) {
       return
     }
@@ -56,7 +60,8 @@ export const Gamepad = () => {
     currentZone.events?.[currentTile?.event.eventName]({
       profile: updatedProfile,
       setProfile,
-      setScene
+      setScene,
+      scene
     })
   }
 

@@ -17,13 +17,13 @@ import './InteractableTiles.style.scss'
 
 export const InteractableTiles = () => {
   const { profile, setProfile } = useProfile()
-  const { setScene } = useScene()
+  const { scene, setScene } = useScene()
 
-  if (!profile) {
+  if (!profile?.currentZone) {
     return
   }
 
-  const currentZone: ZoneType = Zones[profile.currentZone.id]
+  const currentZone: ZoneType = Zones[profile.currentZone.id]({ scene })
 
   const surroundingTiles = {
     prevX: currentZone.tiles.find(

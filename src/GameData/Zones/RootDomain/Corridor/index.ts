@@ -38,33 +38,37 @@ const grid: GridType = {
 const gridSize = 19
 const filledGrid = fillGrid({ grid, gridSize })
 
-export const RootDomainCorridor: ZoneType = {
-  id: `RootDomainCorridor`,
-  background: `RootDomain/Corridor`,
-  name: `Root Domain`,
-  gridSize,
-  grid: filledGrid,
+export const RootDomainCorridor = () => {
+  const zoneDetails: ZoneType = {
+    id: `RootDomainCorridor`,
+    background: `RootDomain/Corridor`,
+    name: `Root Domain`,
+    gridSize,
+    grid: filledGrid,
 
-  events: {
-    warpToMainRoom: WarpToMainRoom,
-    warpToRestRoom1: WarpToRestRoom1
-  },
-
-  tiles: [
-    {
-      x: 1,
-      y: 9,
-      event: {
-        eventName: 'warpToMainRoom'
-      }
+    events: {
+      warpToMainRoom: (props) => WarpToMainRoom(props),
+      warpToRestRoom1: (props) => WarpToRestRoom1(props)
     },
 
-    {
-      x: 6,
-      y: 7,
-      event: {
-        eventName: 'warpToRestRoom1'
+    tiles: [
+      {
+        x: 1,
+        y: 9,
+        event: {
+          eventName: 'warpToMainRoom'
+        }
+      },
+
+      {
+        x: 6,
+        y: 7,
+        event: {
+          eventName: 'warpToRestRoom1'
+        }
       }
-    }
-  ]
+    ]
+  }
+
+  return zoneDetails
 }

@@ -7,6 +7,7 @@ import { getTexts } from '@/Helpers/getTexts.helper'
 import * as Zones from '@/GameData/Zones'
 
 import { useProfile } from '@/Hooks/Profile.hook'
+import { useScene } from '@/Hooks/Scene.hook'
 
 import { Text } from '@/Components/System/Text'
 
@@ -16,12 +17,13 @@ import './Gameboard.style.scss'
 
 export const Gameboard = () => {
   const { profile } = useProfile()
+  const { scene } = useScene()
 
   if (!profile) {
     return null
   }
 
-  const currentZone: ZoneType = Zones[profile.currentZone.id]
+  const currentZone: ZoneType = Zones[profile?.currentZone.id]({ scene })
 
   const gameboardVars = {
     '--view-size': currentZone?.gridSize || 0 > 13 ? currentZone.gridSize : 13

@@ -1,26 +1,16 @@
-import { useScene } from '@/Hooks/Scene.hook'
+import { SCENES } from '@/Consts/Scenes.const'
 
-import { IntroductionScenes } from './Introduction'
-import { AvatarCustomizationScenes } from './AvatarCustomization'
-import { useProfile } from '@/Hooks/Profile.hook'
+import { useScene } from '@/Hooks/Scene.hook'
 
 export const Scene = () => {
   const { scene } = useScene()
-  const { profile } = useProfile()
 
-  if (!scene && !profile?.currentScene) {
+  if (!scene) {
     return
   }
 
-  const Scenes = {
-    introduction: IntroductionScenes,
-    avatarCustomization: AvatarCustomizationScenes
-  }
-
   const RenderedScene =
-    Scenes[scene?.currentScene || profile?.currentScene!][
-      scene?.currentStage || '001'
-    ]
+    SCENES[scene?.currentScene!][scene?.currentStage || '001']
 
   return <RenderedScene />
 }

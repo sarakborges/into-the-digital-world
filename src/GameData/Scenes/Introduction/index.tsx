@@ -15,6 +15,7 @@ import { Introduction014 } from './014.scene'
 import { Introduction015 } from './015.scene'
 
 export const IntroductionScenes = {
+  id: 'introduction',
   '001': Introduction001,
   '002': Introduction002,
   '003': Introduction003,

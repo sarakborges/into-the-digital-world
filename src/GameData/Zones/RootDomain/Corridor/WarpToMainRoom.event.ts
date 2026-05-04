@@ -8,7 +8,7 @@ export const WarpToMainRoom = (props) => {
   warpTo({
     profile,
     setProfile,
-    zoneId: RootDomainMainRoom.id,
+    zoneId: RootDomainMainRoom().id,
     x: 9,
     y: 17
   })

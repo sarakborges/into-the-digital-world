@@ -8,7 +8,7 @@ export const WarpToCorridor = (props) => {
   warpTo({
     profile,
     setProfile,
-    zoneId: RootDomainCorridor.id,
+    zoneId: RootDomainCorridor().id,
     x: 2,
     y: 9
   })
