@@ -119,20 +119,16 @@ export const Gamepad = () => {
   const eventExistsInNextY = !!surroundingTiles.nextY?.event
 
   const canMovePrevX =
-    existsInGrid.prevX &&
-    (!npcExistsInPrevX || (!npcExistsInPrevX && eventExistsInPrevX))
+    (existsInGrid.prevX || eventExistsInPrevX) && !npcExistsInPrevX
 
   const canMoveNextX =
-    existsInGrid.nextX &&
-    (!npcExistsInNextX || (!npcExistsInNextX && eventExistsInNextX))
+    (existsInGrid.nextX || eventExistsInNextX) && !npcExistsInNextX
 
   const canMovePrevY =
-    existsInGrid.prevY &&
-    (!npcExistsInPrevY || (!npcExistsInPrevY && eventExistsInPrevY))
+    (eventExistsInPrevY || existsInGrid.prevY) && !npcExistsInPrevY
 
   const canMoveNextY =
-    existsInGrid.nextY &&
-    (!npcExistsInNextY || (!npcExistsInNextY && eventExistsInNextY))
+    (eventExistsInNextY || existsInGrid.nextY) && !npcExistsInNextY
 
   return (
     <aside className="gamepad">
