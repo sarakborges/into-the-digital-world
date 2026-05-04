@@ -12,13 +12,13 @@ export const SaveGame = () => {
   const { scene } = useScene()
   const { savedProfiles } = useSavedProfiles()
 
-  if (!profile || !savedProfiles) {
+  if (!profile) {
     return
   }
 
   const saveGame = () => {
     try {
-      saveProfile({ profile, savedProfiles })
+      saveProfile({ profile, savedProfiles: savedProfiles || [] })
       alert(getTexts('GAME_SAVED'))
     } catch (e) {
       console.warn(e)
