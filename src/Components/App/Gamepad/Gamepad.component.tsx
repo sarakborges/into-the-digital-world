@@ -53,7 +53,7 @@ export const Gamepad = () => {
       return
     }
 
-    currentZone.events?.[currentTile?.event]({
+    currentZone.events?.[currentTile?.event.eventName]({
       profile: updatedProfile,
       setProfile,
       setScene
@@ -119,13 +119,20 @@ export const Gamepad = () => {
   const eventExistsInNextY = !!surroundingTiles.nextY?.event
 
   const canMovePrevX =
-    existsInGrid.prevX || (!npcExistsInPrevX && eventExistsInPrevX)
+    existsInGrid.prevX &&
+    (!npcExistsInPrevX || (!npcExistsInPrevX && eventExistsInPrevX))
+
   const canMoveNextX =
-    existsInGrid.nextX || (!npcExistsInNextX && eventExistsInNextX)
+    existsInGrid.nextX &&
+    (!npcExistsInNextX || (!npcExistsInNextX && eventExistsInNextX))
+
   const canMovePrevY =
-    existsInGrid.prevY || (!npcExistsInPrevY && eventExistsInPrevY)
+    existsInGrid.prevY &&
+    (!npcExistsInPrevY || (!npcExistsInPrevY && eventExistsInPrevY))
+
   const canMoveNextY =
-    existsInGrid.nextY || (!npcExistsInNextY && eventExistsInNextY)
+    existsInGrid.nextY &&
+    (!npcExistsInNextY || (!npcExistsInNextY && eventExistsInNextY))
 
   return (
     <aside className="gamepad">

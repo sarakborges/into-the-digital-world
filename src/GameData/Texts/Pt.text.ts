@@ -25,9 +25,9 @@ export const THEME_HOPE = `Esperança`
 export const THEME_LIGHT = `Luz`
 
 export const LANGUAGES_TITLE = `Idioma`
-export const LANGUAGE_PTBR = `🇧🇷 Português`
-export const LANGUAGE_RS = `🇧🇷 Gaudério`
-export const LANGUAGE_ENUS = `🇺🇸 Inglês`
+export const LANGUAGE_PTBR = `Português`
+export const LANGUAGE_RS = `Gaudério`
+export const LANGUAGE_ENUS = `Inglês`
 
 export const NPC_INTERACT = `Conversar`
 

@@ -16,7 +16,15 @@ export type ZoneType = {
   tiles: Array<{
     x: number
     y: number
-    event?: string
-    npc?: NpcType
+
+    event?: {
+      condition?: boolean
+      eventName: string
+    }
+
+    npc?: {
+      condition?: boolean
+      npcInfo: NpcType
+    }
   }>
 }

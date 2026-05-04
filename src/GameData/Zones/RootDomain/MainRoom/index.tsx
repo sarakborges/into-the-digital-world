@@ -137,14 +137,21 @@ export const RootDomainMainRoom: ZoneType = {
     {
       x: 9,
       y: 18,
-      event: 'warpToCorridor'
+      event: {
+        eventName: 'warpToCorridor'
+      }
     },
 
     {
       x: 9,
       y: 3,
-      npc: AllNpcs.gennai,
-      event: 'openCustomizationDialog'
+      npc: {
+        npcInfo: AllNpcs.gennai
+      },
+
+      event: {
+        eventName: 'openCustomizationDialog'
+      }
     }
   ]
 }

@@ -10,6 +10,7 @@ import { Button } from '@/Components/System/Button'
 import { Text } from '@/Components/System/Text'
 
 import './UpdateLanguage.style.scss'
+import { Portrait } from '@/Components/System/Portrait'
 
 export const UpdateLanguage = ({ language }: { language: string }) => {
   const { settings, setSettings } = useSettings()
@@ -25,8 +26,8 @@ export const UpdateLanguage = ({ language }: { language: string }) => {
         onClick={updateLanguage}
         disabled={language === settings.language}
       >
-        <div className={`language-colors language-${language}`}>
-          <div className="icon" />
+        <div className={`language-flag`}>
+          <Portrait alt={language} src={`/languages/${language}.webp`} />
         </div>
 
         <Text>

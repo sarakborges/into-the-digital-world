@@ -11,6 +11,20 @@
 
     background-color: transparent;
 
+    .language-flag {
+      border-radius: 4px;
+      border: 2px solid var(--color-neutral-weak);
+
+      .portrait {
+        max-width: 24px;
+        aspect-ratio: auto;
+
+        img {
+          aspect-ratio: auto;
+        }
+      }
+    }
+
     .text {
       display: flex;
 

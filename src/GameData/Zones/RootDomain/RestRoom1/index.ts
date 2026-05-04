@@ -111,7 +111,9 @@ export const RootDomainRestRoom1: ZoneType = {
     {
       x: 6,
       y: 11,
-      event: 'warpToCorridor'
+      event: {
+        eventName: 'warpToCorridor'
+      }
     }
   ]
 }

@@ -37,14 +37,16 @@ export const Tile = ({ x, y }: { x: number; y: number }) => {
 
   return (
     <div className="tile" style={tileVars}>
-      {currentTile?.npc && (
-        <div className="npc">
-          <Portrait
-            src={`/${currentTile.npc.portrait}.webp`}
-            alt={currentTile.npc.name}
-          />
-        </div>
-      )}
+      {currentTile?.npc &&
+        (currentTile?.npc.condition === undefined ||
+          !!currentTile?.npc.condition) && (
+          <div className="npc">
+            <Portrait
+              src={`/${currentTile.npc.npcInfo.portrait}.webp`}
+              alt={currentTile.npc.npcInfo.name}
+            />
+          </div>
+        )}
 
       {profile.currentZone.x === x && profile.currentZone.y === y && (
         <div className="player-character">

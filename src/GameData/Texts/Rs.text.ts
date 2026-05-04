@@ -25,9 +25,9 @@ export const THEME_HOPE = `Vai dar bom`
 export const THEME_LIGHT = `Clareado`
 
 export const LANGUAGES_TITLE = `Idioma`
-export const LANGUAGE_PTBR = `🇧🇷 Português`
-export const LANGUAGE_RS = `🇧🇷 Gaudério`
-export const LANGUAGE_ENUS = `🇺🇸 Inglês`
+export const LANGUAGE_PTBR = `Português`
+export const LANGUAGE_RS = `Gaudério`
+export const LANGUAGE_ENUS = `Inglês`
 
 export const NPC_INTERACT = `Trocar uma ideia`
 
