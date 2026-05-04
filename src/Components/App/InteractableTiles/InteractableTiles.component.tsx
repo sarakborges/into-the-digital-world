@@ -78,7 +78,7 @@ export const InteractableTiles = () => {
                     <div>
                       <Button
                         onClick={() => {
-                          triggerEvent(tile.event)
+                          triggerEvent(tile.event?.eventName)
                         }}
                       >
                         {getTexts('NPC_INTERACT')}
