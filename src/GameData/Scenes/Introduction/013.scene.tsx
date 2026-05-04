@@ -1,31 +1,38 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { useScene } from '@/Hooks/Scene.hook'
-
 import { getDialogs } from '@/Helpers/getDialogs.helper'
-
-import { AllNpcs } from '@/GameData/Npcs'
 
 import { Text } from '@/Components/System/Text'
 
+import { useScene } from '@/Hooks/Scene.hook'
+
+import { Portrait } from '@/Components/System/Portrait'
+
 import { Dialog } from '@/Components/App/Dialog'
 
-export const Introduction003 = () => {
+export const Introduction013 = () => {
   const { setScene } = useScene()
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.gennai,
+    content: (
+      <>
+        <Text as="p">{getDialogs('INTRODUCTION_013_TEXT')}</Text>
 
-    content: <Text as="p">{getDialogs('INTRODUCTION_003_TEXT')}</Text>,
+        <Portrait
+          alt={getDialogs('INTRODUCTION_013_IMAGE')}
+          src="/npcs/bootmon.webp"
+        />
+      </>
+    ),
 
     options: [
       {
-        id: 'scene-introduction-003-continue',
+        id: 'scene-introduction-013-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({
             currentScene: 'introduction',
-            currentStage: '004'
+            currentStage: '014'
           })
         }
       }

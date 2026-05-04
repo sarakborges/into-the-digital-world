@@ -1,27 +1,30 @@
 .input-wrapper {
   display: flex;
   flex-flow: column;
-  gap: var(--size-smd);
+  gap: 8px;
 
   > label {
-    font-size: var(--size-md);
+    font-size: 16px;
+    color: var(--color-neutral-weak);
   }
 
   .input {
-    padding: var(--size-sm) var(--size-smd);
+    padding: 4px 8px;
 
-    border-radius: var(--size-sm);
-    background-color: var(--input-background);
-    border: 2px solid var(--input-border);
+    border-radius: 8px;
+    background-color: var(--color-neutral-weak);
+    border: 2px solid var(--color-neutral-weak);
 
-    color: var(--input-text);
-    font-size: var(--size-md);
+    color: var(--color-neutral-strong);
+    font-size: 16px;
 
-    transition: border-color 0.3s, opacity 0.3s;
+    transition:
+      border-color 0.3s,
+      opacity 0.3s;
 
     &:not(:disabled) {
       &:focus {
-        border-color: var(--input-border-focus);
+        border-color: var(--color-secondary-strong);
       }
     }
 

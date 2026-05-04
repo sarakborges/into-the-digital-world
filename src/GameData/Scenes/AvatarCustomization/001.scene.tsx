@@ -29,6 +29,7 @@ export const AvatarCustomization001 = () => {
 
     options: [
       {
+        id: 'scene-avatarCustomization-001-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({

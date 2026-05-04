@@ -1,31 +1,31 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { useScene } from '@/Hooks/Scene.hook'
-
 import { AllNpcs } from '@/GameData/Npcs'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
-import { Dialog } from '@/Components/App/Dialog'
 import { Text } from '@/Components/System/Text'
 
-export const Introduction007 = () => {
+import { useScene } from '@/Hooks/Scene.hook'
+import { useProfile } from '@/Hooks/Profile.hook'
+
+import { Dialog } from '@/Components/App/Dialog'
+
+export const Introduction015 = () => {
   const { setScene } = useScene()
+  const { profile } = useProfile()
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.gennai,
+    speaker: { id: 'player', name: profile!.name, portrait: `avatars/glitch` },
 
-    content: <Text as="p">{getDialogs('INTRODUCTION_007_TEXT')}</Text>,
+    content: <Text as="p">{getDialogs('INTRODUCTION_015_TEXT')}</Text>,
 
     options: [
       {
-        id: 'scene-introduction-007-continue',
+        id: 'scene-introduction-015-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setScene({
-            currentScene: 'introduction',
-            currentStage: '008'
-          })
+          setScene(null)
         }
       }
     ]

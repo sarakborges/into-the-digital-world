@@ -17,20 +17,17 @@ export const Introduction006 = () => {
     speaker: { id: 'player', name: profile!.name, portrait: `avatars/glitch` },
 
     content: (
-      <>
-        <Text as="p">
-          {profile?.name.slice(-3) !== 'mon'
-            ? getDialogs('INTRODUCTION_006_TEXT').replaceAll(
-                '[NAME]',
-                profile?.name
-              )
-            : getDialogs('INTRODUCTION_006_TEXT_ALT')}
-        </Text>
-      </>
+      <Text as="p">
+        {getDialogs('INTRODUCTION_006_TEXT').replaceAll(
+          '[NAME]',
+          profile?.name
+        )}
+      </Text>
     ),
 
     options: [
       {
+        id: 'scene-introduction-006-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({

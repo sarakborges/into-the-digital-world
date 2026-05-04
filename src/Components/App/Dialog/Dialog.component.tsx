@@ -39,7 +39,9 @@ export const Dialog = ({ speaker, content, options }: DialogType) => {
           <footer>
             {options.map((option) => (
               <div key={`dialog-option-${option.text}`}>
-                <Button onClick={option.action}>{option.text}</Button>
+                <Button id={option.id} onClick={option.action}>
+                  {option.text}
+                </Button>
               </div>
             ))}
           </footer>

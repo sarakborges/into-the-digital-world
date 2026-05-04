@@ -15,17 +15,18 @@ export const Introduction002 = () => {
   const dialogOptions: DialogType = {
     content: (
       <>
+        <Text as="p">{getDialogs('INTRODUCTION_002_TEXT')}</Text>
+
         <Portrait
           alt={getDialogs('INTRODUCTION_002_IMAGE')}
-          src="/digimons/CULUMON.webp"
+          src="/npcs/gennai.webp"
         />
-
-        <Text as="p">{getDialogs('INTRODUCTION_002_TEXT')}</Text>
       </>
     ),
 
     options: [
       {
+        id: 'scene-introduction-002-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({

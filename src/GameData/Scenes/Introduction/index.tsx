@@ -8,6 +8,11 @@ import { Introduction007 } from './007.scene'
 import { Introduction008 } from './008.scene'
 import { Introduction009 } from './009.scene'
 import { Introduction010 } from './010.scene'
+import { Introduction011 } from './011.scene'
+import { Introduction012 } from './012.scene'
+import { Introduction013 } from './013.scene'
+import { Introduction014 } from './014.scene'
+import { Introduction015 } from './015.scene'
 
 export const IntroductionScenes = {
   '001': Introduction001,
@@ -19,5 +24,10 @@ export const IntroductionScenes = {
   '007': Introduction007,
   '008': Introduction008,
   '009': Introduction009,
-  '010': Introduction010
+  '010': Introduction010,
+  '011': Introduction011,
+  '012': Introduction012,
+  '013': Introduction013,
+  '014': Introduction014,
+  '015': Introduction015
 }

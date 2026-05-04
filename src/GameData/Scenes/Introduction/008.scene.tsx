@@ -1,31 +1,26 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { useScene } from '@/Hooks/Scene.hook'
+import { useProfile } from '@/Hooks/Profile.hook'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 import { Text } from '@/Components/System/Text'
-import { Portrait } from '@/Components/System/Portrait'
 
 import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction008 = () => {
+  const { profile } = useProfile()
   const { setScene } = useScene()
 
   const dialogOptions: DialogType = {
-    content: (
-      <>
-        <Portrait
-          alt={getDialogs('INTRODUCTION_008_IMAGE')}
-          src="/avatars/glitch.webp"
-        />
+    speaker: { id: 'player', name: profile!.name, portrait: `avatars/glitch` },
 
-        <Text as="p">{getDialogs('INTRODUCTION_008_TEXT')}</Text>
-      </>
-    ),
+    content: <Text as="p">{getDialogs('INTRODUCTION_008_TEXT')}</Text>,
 
     options: [
       {
+        id: 'scene-introduction-008-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({
