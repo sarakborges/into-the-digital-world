@@ -8,7 +8,6 @@ import { useProfile } from '@/Hooks/Profile.hook'
 import { AllNpcs } from '@/GameData/Npcs'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
-import { saveSession } from '@/Helpers/saveSession.helper'
 
 import { Text } from '@/Components/System/Text'
 import { Input } from '@/Components/System/Input'
@@ -60,8 +59,6 @@ export const Introduction005 = () => {
             .trim()
             .toLocaleLowerCase()
 
-          console.log(name)
-
           const updatedProfile = {
             ...profile!,
             name: name.charAt(0).toUpperCase() + name.slice(1),
@@ -72,7 +69,6 @@ export const Introduction005 = () => {
           }
 
           setProfile(updatedProfile)
-          saveSession({ key: 'profile', value: updatedProfile })
 
           setScene({
             currentScene: 'introduction',

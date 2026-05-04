@@ -11,6 +11,7 @@ import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
 import { Button } from '@/Components/System/Button'
 
 import './NewGame.style.scss'
+import { saveSession } from '@/Helpers/saveSession.helper'
 
 export const NewGame = () => {
   const { savedProfiles } = useSavedProfiles()
@@ -29,6 +30,8 @@ export const NewGame = () => {
       name: '',
       lastSave: '',
 
+      currentScene: 'introduction',
+
       currentZone: {
         id: Zones.RootDomainRestRoom1.id,
         x: 3,
@@ -38,8 +41,11 @@ export const NewGame = () => {
       npcAcquintances: {}
     }
 
+    const currentScene = { currentScene: 'introduction', currentStage: '001' }
+
     setProfile(newProfile)
-    setScene({ currentScene: 'introduction', currentStage: '001' })
+    setScene(currentScene)
+    saveSession({ key: 'profile', value: newProfile })
   }
 
   return (

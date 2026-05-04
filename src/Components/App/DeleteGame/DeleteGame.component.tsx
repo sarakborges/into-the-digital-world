@@ -9,6 +9,10 @@ import { Button } from '@/Components/System/Button'
 export const DeleteGame = ({ profileId }: { profileId: number }) => {
   const { savedProfiles, setSavedProfiles } = useSavedProfiles()
 
+  if (!profileId) {
+    return
+  }
+
   const resetGame = () => {
     if (!confirm('This is irreversible. Are you sure you want to proceed?')) {
       return
@@ -17,14 +21,15 @@ export const DeleteGame = ({ profileId }: { profileId: number }) => {
     try {
       deleteData({ key: `profile${profileId}` })
 
+      const updatedProfiles =
+        savedProfiles?.filter((profile) => profile.id !== profileId) || null
+
+      setSavedProfiles(updatedProfiles)
+
       saveData({
         key: 'profiles',
-        value: [savedProfiles?.filter((profile) => profile.id !== profileId)]
+        value: updatedProfiles?.map((profile) => profile.id)
       })
-
-      setSavedProfiles(
-        savedProfiles?.filter((profile) => profile.id !== profileId) || null
-      )
     } catch (e) {
       console.warn(e)
     }

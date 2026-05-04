@@ -1,6 +1,9 @@
+import { useEffect } from 'react'
+
 import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
 
 import { getTexts } from '@/Helpers/getTexts.helper'
+import { loadData } from '@/Helpers/loadData.helper'
 
 import { Text } from '@/Components/System/Text'
 
@@ -10,7 +13,21 @@ import { GameFile } from '@/Components/App/GameFile'
 import './StartScreen.style.scss'
 
 export const StartScreen = () => {
-  const { savedProfiles } = useSavedProfiles()
+  const profiles = loadData({ key: 'profiles' }) || null
+
+  const { savedProfiles, setSavedProfiles } = useSavedProfiles()
+
+  const loadProfiles = () => {
+    setSavedProfiles(
+      profiles
+        ?.map((profile) => loadData({ key: `profile${profile}` }))
+        .filter((profile) => !!profile)
+    )
+  }
+
+  useEffect(() => {
+    loadProfiles()
+  }, [])
 
   return (
     <main className="start-screen">

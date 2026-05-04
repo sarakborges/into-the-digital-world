@@ -1,25 +1,34 @@
-export const INTRODUCTION_001_TEXT = `Ao acordar, você percebe que não está na sua cama. Este lugar parece totalmente alienígena. 0s e 1s flutuando. Fluxos de dados atravessando tudo.`
-export const INTRODUCTION_001_IMAGE = `O Mundo Digital`
+export const INTRODUCTION_001_TEXT = `Você acorda.\nAo fazer isso, percebe que este lugar não é o seu quarto.\n\nVocê ouve um som estranho, quase como se estivesse em um jogo cyberpunk.`
 
-export const INTRODUCTION_002_TEXT = `Você percebe que uma criatura estranha, mas fofa, se aproxima.`
-export const INTRODUCTION_002_IMAGE = `Criatura estranha`
+export const INTRODUCTION_002_TEXT = `A porta se abre, e este homem idoso aparece. Ele parece amigável e começa uma conversa com você.`
+export const INTRODUCTION_002_IMAGE = `Gennai`
 
-export const INTRODUCTION_003_TEXT = `Oi! Você é diferente.\n*risadinhas*\nEu sou Culumon. O que você é?`
-export const INTRODUCTION_003_ACTION = `Dizer seu nome`
-export const INTRODUCTION_003_PROMPT = `Insira seu nome para continuar`
+export const INTRODUCTION_003_TEXT = `Olá, jovem. Então os rumores eram verdadeiros. O mundo mais uma vez precisa de equilíbrio. Ainda bem que encontramos você primeiro.`
 
-export const INTRODUCTION_004_TEXT = `Ahn? Eu sou [NAME]. Você também parece diferente.`
+export const INTRODUCTION_004_TEXT = `Perdoe-me. Esqueci de me apresentar. Pode me chamar de Gennai. Sou o último sobrevivente dos agentes da Homeostase. Estive procurando pelas crianças escolhidas por muito tempo. Você tem um papel muito importante a desempenhar no futuro do nosso Mundo Digital.`
 
-export const INTRODUCTION_005_TEXT = `"[NAME]mon"? Que nome engraçado!`
-export const INTRODUCTION_005_TEXT_ALT = `"[NAME]"? Primeira vez que encontro alguém como você!`
-export const INTRODUCTION_006_TEXT = `Não é "[NAME]mon". É só [NAME]. Aliás. Por que você disse que eu sou diferente?`
-export const INTRODUCTION_006_TEXT_ALT = `Obrigado, eu acho? Aliás. Por que você disse que eu sou diferente?`
+export const INTRODUCTION_005_TEXT = `Eu sei que é muita informação. Leve o tempo que precisar para processar tudo isso. Enquanto isso, por que não se apresenta para mim?`
+export const INTRODUCTION_005_INPUT = `Insira seu nome`
+export const INTRODUCTION_005_INPUT_PLACEHOLDER = `Criança escolhida`
 
-export const INTRODUCTION_007_TEXT = `Porque você não tá renderizando direito! Você é tipo um glitch!`
+export const INTRODUCTION_006_TEXT = `Uhm. Eu sou [NAME].\nO que você quer dizer com "crianças escolhidas"? E "Mundo Digital"? A idade já está pesando, senhor? Ou você só gosta de fazer roleplay?`
 
-export const INTRODUCTION_008_TEXT = `Você olha para suas mãos, e tudo que você vê é distorcido. Exatamente como Culumon disse. Um glitch.`
-export const INTRODUCTION_008_IMAGE = `Você parece totalmente um glitch.`
+export const INTRODUCTION_007_TEXT = `Espirituosa, não é? Não se preocupe. Vou explicar tudo no devido tempo. Mas não, a idade não me afeta. Esta é apenas a aparência do meu avatar. Falando nisso, parece que você precisa arrumar o seu.`
 
-export const INTRODUCTION_009_TEXT = `O-o que aconteceu comigo?!`
+export const INTRODUCTION_008_TEXT = `Como assim arrumar meu avatar?`
 
-export const INTRODUCTION_010_TEXT = `Essa é a primeira vez que eu vejo isso! Mas não se preocupa! Eu conheço alguém que pode ajudar. Me siga!\n*flutuando para longe*`
+export const INTRODUCTION_009_TEXT = `Você olha para suas mãos e tudo o que vê é um monte de pixels flutuando aleatoriamente, em vez de mãos. O mesmo acontece com o resto do seu corpo.`
+export const INTRODUCTION_009_IMAGE = `Você parece totalmente bugada.`
+
+export const INTRODUCTION_010_TEXT = `Que diabos?! O que você fez comigo?!`
+
+export const INTRODUCTION_011_TEXT = `Calma. Isso não é culpa minha. Mas a boa notícia é: eu sei como consertar.\n\nAqui. Pegue isto. É chamado de Digivice. Você pode achar ele bem familiar ao seu celular.`
+
+export const INTRODUCTION_012_TEXT = `Gennai estende a mão, e você vê algo que parece um celular. Assim como ele disse. Você fica meio desconfiada, mas acaba pegando o dispositivo.`
+
+export const INTRODUCTION_013_TEXT = `Assim que você pega o dispositivo, ele liga sozinho. Na tela, esse carinha aparece.`
+export const INTRODUCTION_013_IMAGE = `Bootmon`
+
+export const INTRODUCTION_014_TEXT = `MESTRE, VOCÊ FINALMENTE ACORDOU! Meu nome é Bootmon. Estou ao seu serviço para ligar o seu Digivice sempre que necessário.\n\nSe me der licença, meu trabalho está concluído.`
+
+export const INTRODUCTION_015_TEXT = `Estou ficando mais confusa a cada segundo. Como ter um celular novo vai me consertar? E quem é aquele cara no telefone? Ele me chamou de mestre. Que esquisito. Isso me dá arrepios.`

@@ -1,4 +1,5 @@
 import type { DialogType } from '@/Types/Dialog.type'
+import type { ProfileType } from '@/Types/Profile.type'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 import { saveSession } from '@/Helpers/saveSession.helper'
@@ -34,7 +35,11 @@ export const AvatarCustomization002 = () => {
             return
           }
 
-          const updatedProfile = { ...profile!, avatar: customization.avatar }
+          const updatedProfile: ProfileType = {
+            ...profile!,
+            avatar: customization.avatar,
+            currentScene: null
+          }
 
           setScene(null)
           setCustomization({ avatar: customization.avatar })

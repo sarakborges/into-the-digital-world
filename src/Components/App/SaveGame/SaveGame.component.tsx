@@ -5,9 +5,11 @@ import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
 
 import { Button } from '@/Components/System/Button'
 import { saveProfile } from '@/Helpers/saveProfile.helper'
+import { useScene } from '@/Hooks/Scene.hook'
 
 export const SaveGame = () => {
   const { profile } = useProfile()
+  const { scene } = useScene()
   const { savedProfiles } = useSavedProfiles()
 
   if (!profile || !savedProfiles) {
@@ -23,5 +25,9 @@ export const SaveGame = () => {
     }
   }
 
-  return <Button onClick={saveGame}>{getTexts('SAVE_GAME')}</Button>
+  return (
+    <Button onClick={saveGame} disabled={!!scene || !!profile.currentScene}>
+      {getTexts('SAVE_GAME')}
+    </Button>
+  )
 }

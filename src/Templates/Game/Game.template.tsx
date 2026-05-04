@@ -5,7 +5,6 @@ import { Scene } from '@/GameData/Scenes'
 import { useScene } from '@/Hooks/Scene.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useSettings } from '@/Hooks/Settings.hook'
-import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
 
 import { InteractableTiles } from '@/Components/App/InteractableTiles'
 import { Gamepad } from '@/Components/App/Gamepad'
@@ -19,18 +18,15 @@ export const Game = () => {
   const { scene } = useScene()
   const { profile } = useProfile()
   const { settings } = useSettings()
-  const { loadProfiles } = useSavedProfiles()
 
-  useEffect(() => {
-    loadProfiles()
-  }, [settings])
+  useEffect(() => {}, [settings])
 
   return (
     <div className="game-body">
       <div className="main-game">
         <Settings />
 
-        {!scene && (
+        {!scene && !profile?.currentScene && (
           <>
             {!profile && <StartScreen />}
 
@@ -44,7 +40,7 @@ export const Game = () => {
         )}
 
         {!!profile && <Gameboard />}
-        {!!scene && <Scene />}
+        {(!!scene || !!profile?.currentScene) && <Scene />}
       </div>
     </div>
   )
