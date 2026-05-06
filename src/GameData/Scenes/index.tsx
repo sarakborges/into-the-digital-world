@@ -12,6 +12,10 @@ export const Scene = () => {
   const RenderedScene =
     SCENES[scene?.currentScene!][scene?.currentStage || '001']
 
+  if (!RenderedScene) {
+    return <></>
+  }
+
   return (
     <div className="scene">
       <RenderedScene />
