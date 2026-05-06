@@ -1,5 +1,8 @@
 .scene {
   .modal {
+    top: auto;
+    bottom: 0;
+
     .dialog {
       position: relative;
       z-index: 101;

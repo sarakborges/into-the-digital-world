@@ -5,6 +5,7 @@ import { Scene } from '@/GameData/Scenes'
 import { useScene } from '@/Hooks/Scene.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useSettings } from '@/Hooks/Settings.hook'
+import { useDigivice } from '@/Hooks/Digivice.hook'
 
 import { Text } from '@/Components/System/Text'
 
@@ -22,6 +23,7 @@ export const Game = () => {
   const { scene } = useScene()
   const { profile } = useProfile()
   const { settings } = useSettings()
+  const { digivice } = useDigivice()
 
   useEffect(() => {}, [settings])
 
@@ -30,8 +32,12 @@ export const Game = () => {
       <div className="main-game">
         <header className="game-header">
           <div className="player">
-            {!!profile && <PlayerAvatar />}
-            <Text>{profile?.name}</Text>
+            {!settings.isOpen && !digivice.isOpen && (
+              <>
+                {!!profile && <PlayerAvatar />}
+                <Text>{profile?.name}</Text>
+              </>
+            )}
           </div>
 
           <div className="game-header-actions">

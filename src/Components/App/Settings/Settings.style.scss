@@ -1,11 +1,7 @@
 .settings {
   .settings-header {
-    display: flex;
-    place-items: center;
-    place-content: space-between;
-
     width: 100%;
-    padding: 8px;
+    padding: 12px 8px 4px;
 
     background-color: var(--color-primary-strong);
 
@@ -20,10 +16,14 @@
   }
 
   .modal {
+    z-index: 102;
+
     flex-flow: column;
     place-items: flex-end;
     place-content: flex-start;
+    gap: 8px;
 
+    height: 100dvh;
     padding: 0;
 
     > main {
@@ -35,7 +35,7 @@
       padding: 8px;
       flex: 1;
 
-      background-color: var(--color-primary-strong);
+      background-color: var(--color-primary-weak);
 
       > header {
         display: grid;

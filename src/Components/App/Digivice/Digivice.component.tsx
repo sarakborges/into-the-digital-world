@@ -1,4 +1,3 @@
-import { FaTimes } from 'react-icons/fa'
 import { HiOutlineDevicePhoneMobile } from 'react-icons/hi2'
 
 import { useScene } from '@/Hooks/Scene.hook'
@@ -8,6 +7,8 @@ import { useSettings } from '@/Hooks/Settings.hook'
 
 import { Button } from '@/Components/System/Button'
 import { Modal } from '@/Components/System/Modal'
+import { Portrait } from '@/Components/System/Portrait'
+import { Text } from '@/Components/System/Text'
 
 import './Digivice.style.scss'
 
@@ -44,11 +45,17 @@ export const Digivice = () => {
       {!!digivice.isOpen && (
         <Modal>
           <main>
-            <header className="digivice-header">
-              <Button onClick={toggleModal}>
-                <FaTimes />
+            <div className="digivice-body">
+              <Button
+                data-warning={
+                  scene?.currentScene === 'introduction' &&
+                  scene.currentStage === '023'
+                }
+              >
+                <Portrait alt="" src="/apps/fashion.png" />
+                <Text>Fashion</Text>
               </Button>
-            </header>
+            </div>
           </main>
         </Modal>
       )}

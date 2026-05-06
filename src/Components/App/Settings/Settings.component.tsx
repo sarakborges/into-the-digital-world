@@ -3,11 +3,11 @@ import { FaCog } from 'react-icons/fa'
 import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { useSettings } from '@/Hooks/Settings.hook'
+import { useDigivice } from '@/Hooks/Digivice.hook'
 
 import { Button } from '@/Components/System/Button'
 import { Modal } from '@/Components/System/Modal'
 import { Text } from '@/Components/System/Text'
-import { useDigivice } from '@/Hooks/Digivice.hook'
 
 import { SettingsTheme } from '@/Components/App/SettingsTheme'
 import { SettingsLanguage } from '@/Components/App/SettingsLanguage'
