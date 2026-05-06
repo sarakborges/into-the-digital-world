@@ -27,6 +27,62 @@
   background-color: var(--color-primary-strong);
 }
 
+.game-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  place-items: center;
+  place-content: space-between;
+
+  width: 100%;
+  padding: 8px;
+
+  background-color: var(--color-primary-strong);
+
+  .player {
+    display: flex;
+    place-items: center;
+    gap: 6px;
+  }
+
+  .player-avatar {
+    width: 24px;
+
+    border-radius: 100%;
+
+    img {
+      border-radius: 100%;
+    }
+  }
+
+  .game-header-actions {
+    display: flex;
+    gap: 8px;
+
+    .button {
+      position: relative;
+      z-index: 100;
+
+      padding: 4px;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  .modal {
+    flex-flow: column;
+    place-items: flex-end;
+    place-content: flex-start;
+
+    padding: 0;
+  }
+}
+
 .screen-footer {
   position: absolute;
   left: 0;

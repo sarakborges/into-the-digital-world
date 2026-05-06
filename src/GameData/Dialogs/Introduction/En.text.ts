@@ -32,3 +32,19 @@ export const INTRODUCTION_013_IMAGE = `Bootmon`
 export const INTRODUCTION_014_TEXT = `MASTER, YOU FINALLY WOKE UP! My name is Bootmon. I am at your service to turn on your Digivice, whenever is needed.\n\nIf you excuse me, my job is done.`
 
 export const INTRODUCTION_015_TEXT = `I'm getting more confused by the second. How having a new phone will fix me? And what is that guy on the phone? He called me master. What a weirdo. Gives me the creeps.`
+
+export const INTRODUCTION_016_TEXT = `Don't mind the way Bootmon talks. Keep in mind that he, and all other Appmons are there to help you.`
+
+export const INTRODUCTION_017_TEXT = `I still don't get it. What is a Appmon?`
+
+export const INTRODUCTION_018_TEXT = `It's short for Application Monster. The same as Digimon is short for Digital Monster. You'll get it quickly, I can feel.`
+
+export const INTRODUCTION_019_TEXT = `Alright... I guess. Now, care to explain this "avatar" thing and how to fix me?`
+
+export const INTRODUCTION_020_TEXT = `Sure thing. The avatar is your appearance in the Digital World. Probably because you are not a digital creature, like us, your avatar is unset. And thats why you need to fix it.`
+
+export const INTRODUCTION_021_TEXT = `To do that, is very easy. You need to call Dressmon to help. You do that via your Digivice. If it looks like your celphone in the other world, it is beacuse it functions alike.`
+
+export const INTRODUCTION_022_TEXT = `Click on the glowing Digivice icon at the top right corner of your screen, close to the settings menu.`
+
+export const INTRODUCTION_023_TEXT = `See? Just like a regular phone. Just open the Fashion program, and follow Dressmon instructions.`

@@ -1,83 +1,90 @@
-.dialog {
-  display: flex;
-  flex-flow: column;
-
-  width: 100%;
-
-  > header + main {
-    border-radius: 0 8px 8px 8px;
-  }
-
-  > header {
-    display: flex;
-    place-items: flex-end;
-
-    position: relative;
-
-    .portrait {
+.scene {
+  .modal {
+    .dialog {
       position: relative;
-      z-index: 2;
+      z-index: 101;
 
-      max-width: 58px;
-      padding: 2px;
+      display: flex;
+      flex-flow: column;
 
-      border-radius: 100%;
-      border: 2px solid var(--color-primary);
+      width: 100%;
 
-      img {
-        border-radius: 100%;
+      > header + main {
+        border-radius: 0 8px 8px 8px;
       }
-    }
 
-    .text {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      z-index: 1;
+      > header {
+        display: flex;
+        place-items: flex-end;
 
-      padding: 4px 8px;
+        position: relative;
 
-      background-color: var(--color-primary);
-      border-radius: 8px 8px 0 0;
-    }
+        .portrait {
+          position: relative;
+          z-index: 2;
 
-    .portrait + .text {
-      padding-left: 58px;
-    }
-  }
+          max-width: 58px;
+          padding: 2px;
 
-  > main {
-    display: flex;
-    flex-flow: column;
-    gap: 16px;
+          border-radius: 100%;
+          border: 2px solid var(--color-primary);
 
-    background-color: var(--color-primary);
-    border-radius: 8px;
+          img {
+            border-radius: 100%;
+          }
+        }
 
-    max-height: calc(100dvh - 240px);
-    overflow: auto;
+        .text {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          z-index: 1;
 
-    padding: 4px 8px 8px;
+          padding: 4px 8px;
 
-    > .portrait {
-      padding-top: 4px;
+          background-color: var(--color-primary);
+          border-radius: 8px 8px 0 0;
+        }
 
-      img {
-        width: 100%;
+        .portrait + .text {
+          padding-left: 58px;
+        }
       }
-    }
-  }
 
-  > footer {
-    display: flex;
-    place-content: flex-end;
-    flex-wrap: wrap;
-    gap: 8px;
+      > main {
+        display: flex;
+        flex-flow: column;
+        gap: 16px;
 
-    padding-top: 8px;
+        background-color: var(--color-primary);
+        border-radius: 8px;
 
-    .button {
-      padding: 4px 8px;
+        max-height: calc(100dvh - 240px);
+        overflow: auto;
+
+        padding: 4px 8px 8px;
+
+        > .portrait {
+          padding-top: 4px;
+
+          img {
+            width: 100%;
+          }
+        }
+      }
+
+      > footer {
+        display: flex;
+        place-content: flex-end;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        padding-top: 8px;
+
+        .button {
+          padding: 4px 8px;
+        }
+      }
     }
   }
 }

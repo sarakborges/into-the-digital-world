@@ -1,0 +1,30 @@
+.digivice {
+  > button {
+    transition: box-shadow 0.3s;
+
+    &.animated {
+      animation: warning 2s linear infinite;
+    }
+  }
+
+  .modal {
+    flex-flow: column;
+    place-items: flex-end;
+    place-content: flex-start;
+
+    padding: 0;
+
+    > main {
+      width: 100%;
+      padding: 8px;
+      flex: 1;
+
+      background-color: var(--color-primary-strong);
+
+      .digivice-header {
+        display: flex;
+        place-content: flex-end;
+      }
+    }
+  }
+}

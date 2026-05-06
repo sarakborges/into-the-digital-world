@@ -13,6 +13,14 @@ import { Introduction012 } from './012.scene'
 import { Introduction013 } from './013.scene'
 import { Introduction014 } from './014.scene'
 import { Introduction015 } from './015.scene'
+import { Introduction016 } from './016.scene'
+import { Introduction017 } from './017.scene'
+import { Introduction018 } from './018.scene'
+import { Introduction019 } from './019.scene'
+import { Introduction020 } from './020.scene'
+import { Introduction021 } from './021.scene'
+import { Introduction022 } from './022.scene'
+import { Introduction023 } from './023.scene'
 
 export const IntroductionScenes = {
   id: 'introduction',
@@ -30,5 +38,13 @@ export const IntroductionScenes = {
   '012': Introduction012,
   '013': Introduction013,
   '014': Introduction014,
-  '015': Introduction015
+  '015': Introduction015,
+  '016': Introduction016,
+  '017': Introduction017,
+  '018': Introduction018,
+  '019': Introduction019,
+  '020': Introduction020,
+  '021': Introduction021,
+  '022': Introduction022,
+  '023': Introduction023
 }

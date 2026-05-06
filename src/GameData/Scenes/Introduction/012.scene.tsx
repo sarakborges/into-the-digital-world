@@ -2,10 +2,10 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
-import { Text } from '@/Components/System/Text'
-
 import { useScene } from '@/Hooks/Scene.hook'
+import { useProfile } from '@/Hooks/Profile.hook'
 
+import { Text } from '@/Components/System/Text'
 import { Portrait } from '@/Components/System/Portrait'
 
 import { Dialog } from '@/Components/App/Dialog'

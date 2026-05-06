@@ -29,6 +29,7 @@ export const NewGame = () => {
       id: newId,
       name: '',
       lastSave: '',
+      items: {},
 
       currentScene: 'introduction',
 

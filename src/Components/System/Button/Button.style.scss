@@ -1,4 +1,18 @@
 .button {
+  @keyframes warning {
+    0% {
+      box-shadow: 0 0 0 transparent;
+    }
+
+    50% {
+      box-shadow: 0 0 8px 4px var(--color-secondary-strong);
+    }
+
+    100% {
+      box-shadow: 0 0 0 transparent;
+    }
+  }
+
   display: flex;
   place-content: center;
   place-items: center;

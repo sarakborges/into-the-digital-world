@@ -6,11 +6,15 @@ import { useScene } from '@/Hooks/Scene.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useSettings } from '@/Hooks/Settings.hook'
 
+import { Text } from '@/Components/System/Text'
+
 import { InteractableTiles } from '@/Components/App/InteractableTiles'
 import { Gamepad } from '@/Components/App/Gamepad'
 import { Gameboard } from '@/Components/App/Gameboard'
 import { Settings } from '@/Components/App/Settings'
+import { Digivice } from '@/Components/App/Digivice'
 import { StartScreen } from '@/Components/App/StartScreen'
+import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 
 import './Game.style.scss'
 
@@ -24,7 +28,17 @@ export const Game = () => {
   return (
     <div className="game-body">
       <div className="main-game">
-        <Settings />
+        <header className="game-header">
+          <div className="player">
+            {!!profile && <PlayerAvatar />}
+            <Text>{profile?.name}</Text>
+          </div>
+
+          <div className="game-header-actions">
+            <Digivice />
+            <Settings />
+          </div>
+        </header>
 
         {!scene && (
           <>
@@ -39,7 +53,7 @@ export const Game = () => {
           </>
         )}
 
-        {!!profile && <Gameboard />}
+        {!!profile?.currentZone && <Gameboard />}
         {!!scene && <Scene />}
       </div>
     </div>

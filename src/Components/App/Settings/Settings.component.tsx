@@ -12,13 +12,11 @@ import { Text } from '@/Components/System/Text'
 import { SettingsTheme } from '@/Components/App/SettingsTheme'
 import { SettingsLanguage } from '@/Components/App/SettingsLanguage'
 import { ReturnToMainScreen } from '@/Components/App/ReturnToMainScreen'
-import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 import { SaveGame } from '@/Components/App/SaveGame'
 
 import './Settings.style.scss'
 
 export const Settings = () => {
-  const { profile } = useProfile()
   const { settings, setSettings } = useSettings()
 
   const toggleModal = () => {
@@ -49,14 +47,7 @@ export const Settings = () => {
         </Modal>
       )}
 
-      <header className="settings-header">
-        <div className="player">
-          {!!profile && <PlayerAvatar />}
-          <Text>{profile?.name}</Text>
-        </div>
-
-        <Button onClick={toggleModal}>{<FaCog />}</Button>
-      </header>
+      <Button onClick={toggleModal}>{<FaCog />}</Button>
     </div>
   )
 }

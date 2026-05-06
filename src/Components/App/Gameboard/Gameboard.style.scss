@@ -8,16 +8,20 @@
   flex: 1;
 
   .gameboard-title {
+    position: relative;
+    z-index: 1;
+
     display: flex;
-    place-content: flex-end;
+    place-content: center;
 
     width: 100%;
-
-    background-color: var(--color-primary-strong);
+    margin-bottom: -16px;
 
     .text {
-      padding: 4px 8px;
-      font-size: 20px;
+      padding: 4px;
+      font-size: 24px;
+      font-weight: 300;
+      text-shadow: 0 0 8px var(--color-neutral-weak);
     }
   }
 

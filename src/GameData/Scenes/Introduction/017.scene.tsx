@@ -9,23 +9,23 @@ import { Text } from '@/Components/System/Text'
 
 import { Dialog } from '@/Components/App/Dialog'
 
-export const Introduction015 = () => {
+export const Introduction017 = () => {
   const { setScene } = useScene()
   const { profile } = useProfile()
 
   const dialogOptions: DialogType = {
     speaker: { id: 'player', name: profile!.name, portrait: `avatars/glitch` },
 
-    content: <Text as="p">{getDialogs('INTRODUCTION_015_TEXT')}</Text>,
+    content: <Text as="p">{getDialogs('INTRODUCTION_017_TEXT')}</Text>,
 
     options: [
       {
-        id: 'scene-introduction-015-continue',
+        id: 'scene-introduction-017-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({
             currentScene: 'introduction',
-            currentStage: '016'
+            currentStage: '018'
           })
         }
       }
