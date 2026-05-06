@@ -21,16 +21,10 @@
     .options-list {
       display: flex;
       flex-flow: column;
-      gap: 2px;
+      gap: 4px;
 
       .button {
         padding: 0 8px;
-
-        background-color: transparent;
-
-        &:before {
-          content: '- ';
-        }
       }
     }
   }

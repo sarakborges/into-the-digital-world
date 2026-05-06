@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import type { AvatarType } from '@/Types/Avatar.type'
 
 import { AVATAR_OPTIONS } from '@/Consts/Avatars.const'
@@ -15,7 +17,6 @@ import { useAvatarCustomization } from '@/Hooks/AvatarCustomization.hook'
 import { AvatarCustomizationOptions } from '@/Components/App/AvatarCustomizationOptions'
 
 import './AvatarCustomization.style.scss'
-import { useEffect } from 'react'
 
 export const AvatarCustomization = () => {
   const { customization, setCustomization } = useAvatarCustomization()
@@ -76,7 +77,7 @@ export const AvatarCustomization = () => {
       {!customization?.layer && (
         <>
           <div className="avatar-options">
-            <Text>{getTexts('AVATAR_CUSTOMIZATION_OPTIONS_TITLE')}</Text>
+            <Text as="p">{getTexts('AVATAR_CUSTOMIZATION_OPTIONS_TITLE')}</Text>
 
             <div className="options-list">
               {(Object.keys(options) as Array<keyof typeof options>).map(

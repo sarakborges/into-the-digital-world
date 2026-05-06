@@ -48,3 +48,5 @@ export const INTRODUCTION_021_TEXT = `To do that, is very easy. You need to call
 export const INTRODUCTION_022_TEXT = `Click on the glowing Digivice icon at the top right corner of your screen.`
 
 export const INTRODUCTION_023_TEXT = `See? Just like a regular phone. Now open the Fashion program, the one glowing, and follow Dressmon instructions.`
+
+export const INTRODUCTION_024_TEXT = `Hello, master! I am Dressmon, and I am here to assist you on creating the most exquisite avatar!`

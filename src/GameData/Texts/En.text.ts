@@ -32,8 +32,8 @@ export const LANGUAGE_ENUS = `English`
 export const NPC_INTERACT = `Talk`
 
 export const AVATAR_CUSTOMIZATION_NOLAYER_TITLE = `Current render:`
-export const AVATAR_CUSTOMIZATION_OPTIONS_TITLE = `What you want to describe now?`
-export const AVATAR_CUSTOMIZATION_RETURN = `Describe something else`
+export const AVATAR_CUSTOMIZATION_OPTIONS_TITLE = `Confirm to keep this avatar, or select one of the following options to customize`
+export const AVATAR_CUSTOMIZATION_RETURN = `Pick something else`
 export const AVATAR_CUSTOMIZATION_SKIN = `Skin tone`
 export const AVATAR_CUSTOMIZATION_HAIR = `Hair style`
 export const AVATAR_CUSTOMIZATION_HAIR_COLOR = `Hair color`

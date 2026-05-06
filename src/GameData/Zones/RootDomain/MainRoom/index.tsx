@@ -124,13 +124,6 @@ export const RootDomainMainRoom = () => {
     grid: filledGrid,
 
     events: {
-      openCustomizationDialog: ({ setScene }) => {
-        setScene({
-          currentScene: 'avatarCustomization',
-          currentStage: '001'
-        })
-      },
-
       warpToCorridor: (props) => WarpToCorridor(props)
     },
 
@@ -148,10 +141,6 @@ export const RootDomainMainRoom = () => {
         y: 3,
         npc: {
           npcInfo: AllNpcs.gennai
-        },
-
-        event: {
-          eventName: 'openCustomizationDialog'
         }
       }
     ]

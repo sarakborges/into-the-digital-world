@@ -9,24 +9,31 @@ import { AllNpcs } from '@/GameData/Npcs'
 import { Text } from '@/Components/System/Text'
 
 import { Dialog } from '@/Components/App/Dialog'
+import { useDigivice } from '@/Hooks/Digivice.hook'
 
-export const AvatarCustomization001 = () => {
+import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
+
+export const AvatarCustomization003 = () => {
   const { setScene } = useScene()
+  const { digivice, setDigivice } = useDigivice()
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.dressmon,
 
-    content: <Text as="p">{getDialogs('AVATAR_CUSTOMIZATION_001_TEXT')}</Text>,
+    content: (
+      <>
+        <Text as="p">{getDialogs('AVATAR_CUSTOMIZATION_003_TEXT')}</Text>
+        <PlayerAvatar />
+      </>
+    ),
 
     options: [
       {
-        id: 'scene-avatarCustomization-001-continue',
+        id: 'scene-avatarCustomization-003-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setScene({
-            currentScene: 'avatarCustomization',
-            currentStage: '002'
-          })
+          setDigivice({ ...digivice, isOpen: false })
+          setScene(null)
         }
       }
     ]

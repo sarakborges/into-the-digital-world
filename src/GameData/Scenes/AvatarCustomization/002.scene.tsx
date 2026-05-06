@@ -41,7 +41,11 @@ export const AvatarCustomization002 = () => {
             currentScene: null
           }
 
-          setScene(null)
+          setScene({
+            currentScene: 'avatarCustomization',
+            currentStage: '003'
+          })
+
           setCustomization({ avatar: customization.avatar })
           setProfile(updatedProfile)
           saveSession({ key: 'profile', value: updatedProfile })

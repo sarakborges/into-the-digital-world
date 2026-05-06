@@ -18,7 +18,7 @@ export const Digivice = () => {
   const { settings, setSettings } = useSettings()
   const { scene, setScene } = useScene()
 
-  if (!Object.keys(profile!.items || {}).includes('digivice')) {
+  if (!Object.keys(profile?.items || {}).includes('digivice')) {
     return
   }
 
@@ -40,6 +40,25 @@ export const Digivice = () => {
     }
   }
 
+  const goToCustomization = () => {
+    if (
+      scene?.currentScene === 'introduction' &&
+      scene.currentStage === '023'
+    ) {
+      setScene({
+        currentScene: 'introduction',
+        currentStage: '024'
+      })
+
+      return
+    }
+
+    setScene({
+      currentScene: 'avatarCustomization',
+      currentStage: '001'
+    })
+  }
+
   return (
     <div className="digivice">
       {!!digivice.isOpen && (
@@ -51,6 +70,7 @@ export const Digivice = () => {
                   scene?.currentScene === 'introduction' &&
                   scene.currentStage === '023'
                 }
+                onClick={goToCustomization}
               >
                 <Portrait alt="" src="/apps/fashion.png" />
                 <Text>Fashion</Text>
@@ -65,7 +85,7 @@ export const Digivice = () => {
         data-warning={
           scene?.currentScene === 'introduction' && scene.currentStage === '022'
         }
-        data-isOpen={digivice.isOpen}
+        data-isopen={digivice.isOpen}
       >
         {<HiOutlineDevicePhoneMobile />}
       </Button>

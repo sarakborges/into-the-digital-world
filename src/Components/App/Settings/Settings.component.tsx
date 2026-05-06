@@ -48,7 +48,7 @@ export const Settings = () => {
         </Modal>
       )}
 
-      <Button onClick={toggleModal} data-isOpen={settings.isOpen}>
+      <Button onClick={toggleModal} data-isopen={settings.isOpen}>
         {<FaCog />}
       </Button>
     </div>
