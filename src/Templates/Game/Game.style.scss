@@ -71,6 +71,10 @@
         width: 16px;
         height: 16px;
       }
+
+      &[data-isOpen='true'] {
+        background-color: var(--color-cancel);
+      }
     }
   }
 

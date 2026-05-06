@@ -1,10 +1,6 @@
 .digivice {
   > button {
     transition: box-shadow 0.3s;
-
-    &.animated {
-      animation: warning 2s linear infinite;
-    }
   }
 
   .modal {

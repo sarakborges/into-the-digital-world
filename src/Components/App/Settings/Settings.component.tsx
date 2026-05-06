@@ -1,13 +1,13 @@
-import { FaCog, FaTimes } from 'react-icons/fa'
+import { FaCog } from 'react-icons/fa'
 
 import { getTexts } from '@/Helpers/getTexts.helper'
 
-import { useProfile } from '@/Hooks/Profile.hook'
 import { useSettings } from '@/Hooks/Settings.hook'
 
 import { Button } from '@/Components/System/Button'
 import { Modal } from '@/Components/System/Modal'
 import { Text } from '@/Components/System/Text'
+import { useDigivice } from '@/Hooks/Digivice.hook'
 
 import { SettingsTheme } from '@/Components/App/SettingsTheme'
 import { SettingsLanguage } from '@/Components/App/SettingsLanguage'
@@ -18,9 +18,14 @@ import './Settings.style.scss'
 
 export const Settings = () => {
   const { settings, setSettings } = useSettings()
+  const { digivice, setDigivice } = useDigivice()
 
   const toggleModal = () => {
     setSettings({ ...settings, isOpen: !settings.isOpen })
+
+    if (!!digivice.isOpen) {
+      setDigivice({ ...digivice, isOpen: false })
+    }
   }
 
   return (
@@ -29,10 +34,6 @@ export const Settings = () => {
         <Modal>
           <header className="settings-header">
             <Text>{getTexts('SETTINGS_TITLE')}</Text>
-
-            <Button onClick={toggleModal}>
-              <FaTimes />
-            </Button>
           </header>
 
           <main>
@@ -47,7 +48,9 @@ export const Settings = () => {
         </Modal>
       )}
 
-      <Button onClick={toggleModal}>{<FaCog />}</Button>
+      <Button onClick={toggleModal} data-isOpen={settings.isOpen}>
+        {<FaCog />}
+      </Button>
     </div>
   )
 }

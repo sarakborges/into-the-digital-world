@@ -3,16 +3,18 @@ import { HiOutlineDevicePhoneMobile } from 'react-icons/hi2'
 
 import { useScene } from '@/Hooks/Scene.hook'
 import { useDigivice } from '@/Hooks/Digivice.hook'
+import { useProfile } from '@/Hooks/Profile.hook'
+import { useSettings } from '@/Hooks/Settings.hook'
 
 import { Button } from '@/Components/System/Button'
 import { Modal } from '@/Components/System/Modal'
 
 import './Digivice.style.scss'
-import { useProfile } from '@/Hooks/Profile.hook'
 
 export const Digivice = () => {
   const { profile } = useProfile()
   const { digivice, setDigivice } = useDigivice()
+  const { settings, setSettings } = useSettings()
   const { scene, setScene } = useScene()
 
   if (!Object.keys(profile!.items || {}).includes('digivice')) {
@@ -30,6 +32,10 @@ export const Digivice = () => {
         currentScene: 'introduction',
         currentStage: '023'
       })
+    }
+
+    if (!!settings.isOpen) {
+      setSettings({ ...settings, isOpen: false })
     }
   }
 
@@ -49,11 +55,10 @@ export const Digivice = () => {
 
       <Button
         onClick={toggleModal}
-        className={
+        data-warning={
           scene?.currentScene === 'introduction' && scene.currentStage === '022'
-            ? 'animated'
-            : ''
         }
+        data-isOpen={digivice.isOpen}
       >
         {<HiOutlineDevicePhoneMobile />}
       </Button>

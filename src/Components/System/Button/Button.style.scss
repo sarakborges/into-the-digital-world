@@ -13,6 +13,10 @@
     }
   }
 
+  &[data-warning='true'] {
+    animation: warning 2s linear infinite;
+  }
+
   display: flex;
   place-content: center;
   place-items: center;
