@@ -1,4 +1,7 @@
+import { Fragment } from 'react/jsx-runtime'
 import { HiOutlineDevicePhoneMobile } from 'react-icons/hi2'
+
+import { AllApps } from '@/Consts/DigiviceApps'
 
 import { useScene } from '@/Hooks/Scene.hook'
 import { useDigivice } from '@/Hooks/Digivice.hook'
@@ -7,8 +10,6 @@ import { useSettings } from '@/Hooks/Settings.hook'
 
 import { Button } from '@/Components/System/Button'
 import { Modal } from '@/Components/System/Modal'
-import { Portrait } from '@/Components/System/Portrait'
-import { Text } from '@/Components/System/Text'
 
 import './Digivice.style.scss'
 
@@ -40,41 +41,17 @@ export const Digivice = () => {
     }
   }
 
-  const goToCustomization = () => {
-    if (
-      scene?.currentScene === 'introduction' &&
-      scene.currentStage === '023'
-    ) {
-      setScene({
-        currentScene: 'introduction',
-        currentStage: '024'
-      })
-
-      return
-    }
-
-    setScene({
-      currentScene: 'avatarCustomization',
-      currentStage: '001'
-    })
-  }
-
   return (
     <div className="digivice">
       {!!digivice.isOpen && (
         <Modal>
           <main>
             <div className="digivice-body">
-              <Button
-                data-warning={
-                  scene?.currentScene === 'introduction' &&
-                  scene.currentStage === '023'
-                }
-                onClick={goToCustomization}
-              >
-                <Portrait alt="" src="/apps/fashion.png" />
-                <Text>Fashion</Text>
-              </Button>
+              {Object.values(AllApps).map((app) => (
+                <Fragment key={`digivice-apps-${app.id}`}>
+                  {app.component}
+                </Fragment>
+              ))}
             </div>
           </main>
         </Modal>

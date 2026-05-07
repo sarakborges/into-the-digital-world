@@ -32,7 +32,7 @@ export const Game = () => {
       <div className="main-game">
         <header className="game-header">
           <div className="player">
-            {!settings.isOpen && !digivice.isOpen && (
+            {!settings.isOpen && (
               <>
                 {!!profile && <PlayerAvatar />}
                 <Text>{profile?.name}</Text>

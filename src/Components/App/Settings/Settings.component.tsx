@@ -12,7 +12,6 @@ import { Text } from '@/Components/System/Text'
 import { SettingsTheme } from '@/Components/App/SettingsTheme'
 import { SettingsLanguage } from '@/Components/App/SettingsLanguage'
 import { ReturnToMainScreen } from '@/Components/App/ReturnToMainScreen'
-import { SaveGame } from '@/Components/App/SaveGame'
 
 import './Settings.style.scss'
 
@@ -39,7 +38,6 @@ export const Settings = () => {
           <main>
             <header>
               <ReturnToMainScreen />
-              <SaveGame />
             </header>
 
             <SettingsLanguage />

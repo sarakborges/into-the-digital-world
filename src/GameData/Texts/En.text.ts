@@ -9,7 +9,11 @@ export const DELETE_GAME_FILE = `Delete`
 
 export const SETTINGS_TITLE = `Settings`
 export const RETURN_TO_MAIN_SCREEN = `Return to start screen`
-export const SAVE_GAME = `Save game`
+
+export const APPS_SAVE = `Save data`
+export const APPS_FASHION = `Fashion`
+
+export const SAVE_DISABLED = `Service unavailable while interacting with someone or something.`
 export const GAME_SAVED = `Game saved`
 
 export const THEMES_TITLE = `Theme`
