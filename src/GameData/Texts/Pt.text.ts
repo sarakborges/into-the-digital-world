@@ -8,9 +8,13 @@ export const LOAD_GAME = `Carregar`
 export const DELETE_GAME_FILE = `Excluir`
 
 export const SETTINGS_TITLE = `Configurações`
-export const RETURN_TO_MAIN_SCREEN = `Voltar à tela inicial`
-export const SAVE_GAME = `Salvar jogo`
-export const GAME_SAVED = `Jogo salvo`
+
+export const APPS_SAVE = `Salvar`
+export const APPS_FASHION = `Fashion`
+export const APPS_LOGOFF = `Log off`
+
+export const SAVE_DISABLED = `Serviço indisponível enquanto interagindo com alguém ou algo.`
+export const GAME_SAVED = `Informações salvas`
 
 export const THEMES_TITLE = `Tema`
 export const THEME_DEFAULT = `Padrão`

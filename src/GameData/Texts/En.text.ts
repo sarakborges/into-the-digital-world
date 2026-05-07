@@ -14,7 +14,7 @@ export const APPS_FASHION = `Fashion`
 export const APPS_LOGOFF = `Log off`
 
 export const SAVE_DISABLED = `Service unavailable while interacting with someone or something.`
-export const GAME_SAVED = `Game saved`
+export const GAME_SAVED = `Data saved`
 
 export const THEMES_TITLE = `Theme`
 export const THEME_DEFAULT = `Default`
