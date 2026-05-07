@@ -13,21 +13,21 @@ export const SAVE_GAME = `Salvar jogo`
 export const GAME_SAVED = `Jogo salvo, barbaridade`
 
 export const THEMES_TITLE = `Tema`
-export const THEME_DEFAULT = `Padrão`
-export const THEME_ALTERNATIVE = `Alternativo`
+export const THEME_DEFAULT = `O de sempre`
+export const THEME_ALTERNATIVE = `Esquisitão`
 export const THEME_COURAGE = `Raça`
 export const THEME_FRIENDSHIP = `Parceria`
 export const THEME_LOVE = `Bem-querer`
-export const THEME_KNOWLEDGE = `Sabedoria`
+export const THEME_KNOWLEDGE = `Galo véio`
 export const THEME_SINCERITY = `Sem frescura`
 export const THEME_RELIABILITY = `Firmeza`
 export const THEME_HOPE = `Vai dar bom`
 export const THEME_LIGHT = `Clareado`
 
 export const LANGUAGES_TITLE = `Idioma`
-export const LANGUAGE_PTBR = `Português`
+export const LANGUAGE_PTBR = `Normal`
 export const LANGUAGE_RS = `Gaudério`
-export const LANGUAGE_ENUS = `Inglês`
+export const LANGUAGE_ENUS = `Gringo`
 
 export const NPC_INTERACT = `Trocar uma ideia`
 

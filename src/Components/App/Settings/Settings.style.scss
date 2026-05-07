@@ -37,14 +37,6 @@
 
       background-color: var(--color-primary-weak);
 
-      > header {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-
-        width: 100%;
-      }
-
       > .text {
         font-weight: 700;
         font-size: 24px;

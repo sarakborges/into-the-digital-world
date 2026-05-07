@@ -11,7 +11,6 @@ import { Text } from '@/Components/System/Text'
 
 import { SettingsTheme } from '@/Components/App/SettingsTheme'
 import { SettingsLanguage } from '@/Components/App/SettingsLanguage'
-import { ReturnToMainScreen } from '@/Components/App/ReturnToMainScreen'
 
 import './Settings.style.scss'
 
@@ -36,10 +35,6 @@ export const Settings = () => {
           </header>
 
           <main>
-            <header>
-              <ReturnToMainScreen />
-            </header>
-
             <SettingsLanguage />
             <SettingsTheme />
           </main>
