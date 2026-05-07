@@ -16,14 +16,10 @@ import './Settings.style.scss'
 
 export const Settings = () => {
   const { settings, setSettings } = useSettings()
-  const { digivice, setDigivice } = useDigivice()
+  const { digivice } = useDigivice()
 
   const toggleModal = () => {
     setSettings({ ...settings, isOpen: !settings.isOpen })
-
-    if (!!digivice.isOpen) {
-      setDigivice({ ...digivice, isOpen: false })
-    }
   }
 
   return (
@@ -41,7 +37,11 @@ export const Settings = () => {
         </Modal>
       )}
 
-      <Button onClick={toggleModal} data-isopen={settings.isOpen}>
+      <Button
+        onClick={toggleModal}
+        data-isopen={settings.isOpen}
+        disabled={!!digivice.isOpen}
+      >
         {<FaCog />}
       </Button>
     </div>

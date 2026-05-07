@@ -2,44 +2,32 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
-import { AllNpcs } from '@/GameData/Npcs'
-
 import { useScene } from '@/Hooks/Scene.hook'
-import { useProfile } from '@/Hooks/Profile.hook'
 
 import { Text } from '@/Components/System/Text'
 
 import { Dialog } from '@/Components/App/Dialog'
 
-export const Introduction024 = () => {
+export const Introduction028 = () => {
   const { setScene } = useScene()
-  const { profile, setProfile } = useProfile()
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.dressmon,
+    speaker: 'player',
 
-    content: <Text as="p">{getDialogs('INTRODUCTION_024_TEXT')}</Text>,
+    content: <Text as="p">{getDialogs('INTRODUCTION_028_TEXT')}</Text>,
 
     options: [
       {
-        id: 'scene-introduction-024-continue',
+        id: 'scene-introduction-028-confirm',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setProfile({
-            ...profile!,
-            npcAcquintances: {
-              ...profile!.npcAcquintances,
-              [AllNpcs.dressmon.id]: {}
-            }
-          })
-
           setScene({
             currentScene: 'introduction',
-            currentStage: '025'
+            currentStage: '029'
           })
         }
       }
-    ]
+    ].filter((option) => !!option)
   }
 
   return <Dialog {...dialogOptions} />

@@ -5,11 +5,15 @@ import { useScene } from '@/Hooks/Scene.hook'
 import { Button } from '@/Components/System/Button'
 import { Portrait } from '@/Components/System/Portrait'
 import { Text } from '@/Components/System/Text'
+import { useDigivice } from '@/Hooks/Digivice.hook'
 
 export const AppFashion = () => {
   const { scene, setScene } = useScene()
+  const { digivice, setDigivice } = useDigivice()
 
   const goToCustomization = () => {
+    setDigivice({ ...digivice, isOpen: false })
+
     if (
       scene?.currentScene === 'introduction' &&
       scene.currentStage === '023'

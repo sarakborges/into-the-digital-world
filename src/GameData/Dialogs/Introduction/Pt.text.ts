@@ -33,20 +33,30 @@ export const INTRODUCTION_014_TEXT = `MESTRE, VOCÊ FINALMENTE ACORDOU! Meu nome
 
 export const INTRODUCTION_015_TEXT = `Estou ficando mais confusa a cada segundo. Como ter um celular novo vai me consertar? E quem é aquele cara no telefone? Ele me chamou de mestre. Que esquisito. Isso me dá arrepios.`
 
-export const INTRODUCTION_016_TEXT = `Não liga pro jeito que o Bootmon fala. Tenha em mente que ele, e todos os outros Appmons, tão aqui para ajudar você.`
+export const INTRODUCTION_016_TEXT = `Não ligue para o jeito que o Bootmon fala. Tenha em mente que ele, e todos os os outros Appmons, estão aqui para ajudar você.`
 
 export const INTRODUCTION_017_TEXT = `Eu ainda não entendi. O que é um Appmon?`
 
-export const INTRODUCTION_018_TEXT = `É a abreviação de Application Monster. O mesmo que Digimon é abreviação para Digital Monster. Você vai pegar rápido, eu sinto.`
+export const INTRODUCTION_018_TEXT = `É a abreviação de Application Monster. Da mesma forma que Digimon é abreviação de Digital Monster. Você vai se acostumar rápido, acredito eu.`
 
-export const INTRODUCTION_019_TEXT = `Tá bom... Eu acho. Agora, se importa em me explicar esse negócio de "avatar", e como me consertar?`
+export const INTRODUCTION_019_TEXT = `Tá bom... eu acho. Agora, você pode me explicar esse negócio de "avatar" e como me consertar?`
 
-export const INTRODUCTION_020_TEXT = `Claro. O avatar é a sua aparência no Mundo Digital. Provavelmente porque você não é uma criatura digital, como nós, o seu avatar não está implementado. E por isso que você precisa consertar.`
+export const INTRODUCTION_020_TEXT = `Claro. O avatar é a sua aparência no Mundo Digital. Como você não é uma criatura digital como nós, o seu avatar provavelmente não foi implementado corretamente. É por isso que você está assim.`
 
-export const INTRODUCTION_021_TEXT = `Pra fazer isso, é bem fácil. Você precisa chamar Dressmon para ajudar. Você faz isso através do seu Digivice. Se parece com seu celular no outro mundo, é porque funciona parecido.`
+export const INTRODUCTION_021_TEXT = `Para resolver isso é simples. Você só precisa chamar Dressmon para ajudar. Faça isso através do seu Digivice. Ele parece um celular do seu mundo porque funciona de maneira parecida.`
 
-export const INTRODUCTION_022_TEXT = `Clique no ícone brilhante do Digivice no canto superior direito da sua tela.`
+export const INTRODUCTION_022_TEXT = `Clique no ícone brilhando do Digivice no canto superior direito da tela.`
 
-export const INTRODUCTION_023_TEXT = `Viu? Só um celular normal. Agora, abra o programa Fashion, aquele brilhando, e siga as instruções de Dressmon.`
+export const INTRODUCTION_023_TEXT = `Viu? É praticamente um celular comum. Agora abra o aplicativo Fashion, aquele brilhando, e siga as instruções de Dressmon.`
 
-export const INTRODUCTION_024_TEXT = `Olá, mestre! Eu sou Dressmon, e estou aqui para lhe auxiliar na criação do avatar mais lindíssimo!`
+export const INTRODUCTION_024_TEXT = `Olá, mestre! Eu sou Dressmon e estou aqui para ajudar você a criar o avatar mais lindíssimo de todos!`
+
+export const INTRODUCTION_025_TEXT = `Eu gerei um avatar temporário aleatório para você, mestre! Se não gostar, pode modificar à vontade. Sem ressentimentos.\n*bochechas inflando*`
+
+export const INTRODUCTION_026_TEXT = `Agora sim! Esse visual combina perfeitamente com você, mestre!`
+
+export const INTRODUCTION_027_TEXT = `Você olha para si mesma e tudo parece certo agora. Finalmente seu avatar está sendo renderizado corretamente.`
+
+export const INTRODUCTION_028_TEXT = `Uau! Valeu, velho. É muito bom parecer comigo de novo!`
+
+export const INTRODUCTION_029_TEXT = `Fico feliz em ter ajudado. Agora venha comigo, tudo bem? Quero mostrar este lugar para você. Acho que vai achar nossa base bem interessante. E fique à vontade para explorar também.`

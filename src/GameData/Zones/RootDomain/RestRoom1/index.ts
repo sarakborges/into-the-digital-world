@@ -127,7 +127,9 @@ export const RootDomainRestRoom1 = ({ scene }): ZoneType => {
         y: 11,
         npc: {
           npcInfo: AllNpcs.gennai,
-          condition: scene?.currentScene === SCENES.introduction.id
+          condition:
+            scene?.currentScene === SCENES.introduction.id &&
+            scene?.currentStage !== '001'
         }
       }
     ]

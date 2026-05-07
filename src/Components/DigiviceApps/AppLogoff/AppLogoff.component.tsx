@@ -13,7 +13,7 @@ import { useDigivice } from '@/Hooks/Digivice.hook'
 export const AppLogoff = () => {
   const { profile, setProfile } = useProfile()
   const { digivice, setDigivice } = useDigivice()
-  const { setScene } = useScene()
+  const { scene, setScene } = useScene()
 
   if (!profile) {
     return
@@ -28,7 +28,7 @@ export const AppLogoff = () => {
   }
 
   return (
-    <Button onClick={returnToMainScreen}>
+    <Button onClick={returnToMainScreen} disabled={!!scene}>
       <Portrait alt={getTexts('APPS_LOGOFF')} src="/apps/logoff.png" />
       <Text>{getTexts('APPS_LOGOFF')}</Text>
     </Button>

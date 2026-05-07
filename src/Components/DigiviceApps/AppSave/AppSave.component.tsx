@@ -14,7 +14,7 @@ export const AppSave = () => {
   const { profile } = useProfile()
   const { savedProfiles } = useSavedProfiles()
   const { scene } = useScene()
-  const { digivice, setDigivice } = useDigivice()
+  const { digivice } = useDigivice()
 
   if (!profile) {
     return
@@ -29,15 +29,13 @@ export const AppSave = () => {
 
       saveProfile({ profile, savedProfiles: savedProfiles || [] })
       alert(getTexts('GAME_SAVED'))
-
-      setDigivice({ ...digivice, isOpen: false })
     } catch (e) {
       console.warn(e)
     }
   }
 
   return (
-    <Button onClick={saveGame}>
+    <Button onClick={saveGame} disabled={!!scene}>
       <Portrait alt={getTexts('APPS_SAVE')} src="/apps/save.png" />
       <Text>{getTexts('APPS_SAVE')}</Text>
     </Button>

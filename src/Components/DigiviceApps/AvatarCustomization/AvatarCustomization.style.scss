@@ -20,11 +20,10 @@
 
     .options-list {
       display: flex;
-      flex-flow: column;
-      gap: 4px;
+      gap: 8px;
 
       .button {
-        padding: 0 8px;
+        padding: 0 4px;
       }
     }
   }

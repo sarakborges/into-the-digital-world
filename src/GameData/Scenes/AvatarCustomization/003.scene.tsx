@@ -11,8 +11,6 @@ import { Text } from '@/Components/System/Text'
 import { Dialog } from '@/Components/App/Dialog'
 import { useDigivice } from '@/Hooks/Digivice.hook'
 
-import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
-
 export const AvatarCustomization003 = () => {
   const { setScene } = useScene()
   const { digivice, setDigivice } = useDigivice()
@@ -20,12 +18,7 @@ export const AvatarCustomization003 = () => {
   const dialogOptions: DialogType = {
     speaker: AllNpcs.dressmon,
 
-    content: (
-      <>
-        <Text as="p">{getDialogs('AVATAR_CUSTOMIZATION_003_TEXT')}</Text>
-        <PlayerAvatar />
-      </>
-    ),
+    content: <Text as="p">{getDialogs('AVATAR_CUSTOMIZATION_003_TEXT')}</Text>,
 
     options: [
       {

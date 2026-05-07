@@ -22,7 +22,22 @@
 
         position: relative;
 
-        .portrait {
+        > .portrait {
+          position: relative;
+          z-index: 2;
+
+          max-width: 58px;
+          padding: 2px;
+
+          border-radius: 100%;
+          border: 2px solid var(--color-primary);
+
+          img {
+            border-radius: 100%;
+          }
+        }
+
+        .player-avatar {
           position: relative;
           z-index: 2;
 
@@ -49,7 +64,7 @@
           border-radius: 8px 8px 0 0;
         }
 
-        .portrait + .text {
+        :is(.portrait, .player-avatar) + .text {
           padding-left: 58px;
         }
       }

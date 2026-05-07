@@ -68,7 +68,6 @@ export const AvatarCustomization = () => {
   return (
     <div className="avatar-customization">
       <header>
-        <Text>{getTexts('AVATAR_CUSTOMIZATION_NOLAYER_TITLE')}</Text>
         <PlayerAvatar replaceAvatar={customization?.avatar} />
       </header>
 

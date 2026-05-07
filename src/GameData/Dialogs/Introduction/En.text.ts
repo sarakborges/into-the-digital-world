@@ -50,3 +50,13 @@ export const INTRODUCTION_022_TEXT = `Click on the glowing Digivice icon at the 
 export const INTRODUCTION_023_TEXT = `See? Just like a regular phone. Now open the Fashion program, the one glowing, and follow Dressmon instructions.`
 
 export const INTRODUCTION_024_TEXT = `Hello, master! I am Dressmon, and I am here to assist you on creating the most exquisite avatar!`
+
+export const INTRODUCTION_025_TEXT = `I've generated a random temporary avatar for you, master! If you don't like it, you can modify it. No hard feelings.\n*cheeks inflate*`
+
+export const INTRODUCTION_026_TEXT = `Now, this is a proper look for you, master!`
+
+export const INTRODUCTION_027_TEXT = `You take a look at yourself, and everything seems right. Now your avatar is rendered correctly.`
+
+export const INTRODUCTION_028_TEXT = `Woah! Thanks, old man. Feels great to look like myself again!`
+
+export const INTRODUCTION_029_TEXT = `I'm glad I was helpful. Now, follow me, won't you? I want to show you around. I think you will find our headquarters quite interesting. Feel free to explore too.`

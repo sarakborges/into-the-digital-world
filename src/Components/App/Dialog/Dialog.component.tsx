@@ -7,6 +7,8 @@ import { Text } from '@/Components/System/Text'
 import { Modal } from '@/Components/System/Modal'
 import { Button } from '@/Components/System/Button'
 
+import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
+
 import './Dialog.style.scss'
 
 export const Dialog = ({ speaker, content, options }: DialogType) => {
@@ -15,7 +17,7 @@ export const Dialog = ({ speaker, content, options }: DialogType) => {
   return (
     <Modal>
       <main className="dialog">
-        {speaker && (
+        {speaker && speaker !== 'player' && (
           <header>
             {speaker.portrait && (
               <Portrait
@@ -30,6 +32,14 @@ export const Dialog = ({ speaker, content, options }: DialogType) => {
                 ? speaker.name
                 : `???`}
             </Text>
+          </header>
+        )}
+
+        {speaker && speaker === 'player' && (
+          <header>
+            <PlayerAvatar />
+
+            <Text>{profile?.name}</Text>
           </header>
         )}
 

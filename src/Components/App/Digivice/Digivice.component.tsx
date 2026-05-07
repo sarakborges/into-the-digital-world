@@ -35,10 +35,6 @@ export const Digivice = () => {
         currentStage: '023'
       })
     }
-
-    if (!!settings.isOpen) {
-      setSettings({ ...settings, isOpen: false })
-    }
   }
 
   return (
@@ -63,6 +59,14 @@ export const Digivice = () => {
           scene?.currentScene === 'introduction' && scene.currentStage === '022'
         }
         data-isopen={digivice.isOpen}
+        disabled={
+          (scene?.currentScene === 'introduction' &&
+            ['023', '024', '025', '026', '027', '028', '029'].includes(
+              scene.currentStage
+            ) &&
+            !!digivice.isOpen) ||
+          settings.isOpen
+        }
       >
         {<HiOutlineDevicePhoneMobile />}
       </Button>
