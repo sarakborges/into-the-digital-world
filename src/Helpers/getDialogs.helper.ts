@@ -16,6 +16,10 @@ import * as LogoffEn from '@/GameData/Dialogs/Logoff/En.text'
 import * as LogoffPt from '@/GameData/Dialogs/Logoff/Pt.text'
 import * as LogoffRs from '@/GameData/Dialogs/Logoff/Rs.text'
 
+import * as GetStarterDigimonEn from '@/GameData/Dialogs/GetStarterDigimon/En.text'
+import * as GetStarterDigimonPt from '@/GameData/Dialogs/GetStarterDigimon/Pt.text'
+import * as GetStarterDigimonRs from '@/GameData/Dialogs/GetStarterDigimon/Rs.text'
+
 const EnDialogs = {
   SCENES_CONTINUE_BUTTON: `Continue`,
   SCENES_CONFIRM_BUTTON: `Confirm`,
@@ -25,7 +29,8 @@ const EnDialogs = {
   ...IntroductionEn,
   ...AvatarCustomizationEn,
   ...SaveGameEn,
-  ...LogoffEn
+  ...LogoffEn,
+  ...GetStarterDigimonEn
 }
 
 const PtDialogs = {
@@ -37,19 +42,21 @@ const PtDialogs = {
   ...IntroductionPt,
   ...AvatarCustomizationPt,
   ...SaveGamePt,
-  ...LogoffPt
+  ...LogoffPt,
+  ...GetStarterDigimonPt
 }
 
 const RsDialogs = {
   SCENES_CONTINUE_BUTTON: `Vamo dale`,
   SCENES_CONFIRM_BUTTON: `Certo que sim`,
-  SCENES_LEAVE_BUTTON: `Vaza`,
+  SCENES_LEAVE_BUTTON: `Vazare`,
   SCENES_BACK_BUTTON: `Calma lá`,
 
   ...IntroductionRs,
   ...AvatarCustomizationRs,
   ...SaveGameRs,
-  ...LogoffRs
+  ...LogoffRs,
+  ...GetStarterDigimonRs
 }
 
 const defaultLanguage = 'en-us'

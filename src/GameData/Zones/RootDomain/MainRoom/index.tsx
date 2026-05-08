@@ -1,5 +1,6 @@
 import type { GridType } from '@/Types/Grid.type'
 import type { ZoneType } from '@/Types/Zone.type'
+import type { ProfileType } from '@/Types/Profile.type'
 
 import { fillGrid } from '@/Helpers/fillGrid'
 
@@ -7,6 +8,7 @@ import { floorTile } from '@/GameData/Zones/floor.tile'
 import { AllNpcs } from '@/GameData/Npcs'
 
 import { WarpToCorridor } from './WarpToCorridor.event'
+import { TriggerGetStarterDigimon } from './TriggerGetStarterDigimon.event'
 
 const fullFloorRow = {
   1: floorTile,
@@ -115,7 +117,7 @@ const grid: GridType = {
 const gridSize = 19
 const filledGrid = fillGrid({ grid, gridSize })
 
-export const RootDomainMainRoom = () => {
+export const RootDomainMainRoom = ({ profile }: { profile: ProfileType }) => {
   const zoneDetails: ZoneType = {
     id: `RootDomainMainRoom`,
     background: `RootDomain/MainRoom`,
@@ -124,7 +126,8 @@ export const RootDomainMainRoom = () => {
     grid: filledGrid,
 
     events: {
-      warpToCorridor: (props) => WarpToCorridor(props)
+      warpToCorridor: (props) => WarpToCorridor(props),
+      triggerGetStarterDigimon: (props) => TriggerGetStarterDigimon(props)
     },
 
     tiles: [
@@ -141,6 +144,11 @@ export const RootDomainMainRoom = () => {
         y: 3,
         npc: {
           npcInfo: AllNpcs.gennai
+        },
+
+        event: {
+          eventName: 'triggerGetStarterDigimon',
+          condition: !profile?.doneScenes?.includes('getStarterDigimon')
         }
       }
     ]

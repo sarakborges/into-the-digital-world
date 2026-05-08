@@ -1,16 +1,15 @@
 import type { GridType } from '@/Types/Grid.type'
 import type { ZoneType } from '@/Types/Zone.type'
+import type { SceneType } from '@/Types/Scene.type'
 
 import { fillGrid } from '@/Helpers/fillGrid'
+
+import { SCENES } from '@/Consts/Scenes.const'
 
 import { AllNpcs } from '@/GameData/Npcs'
 import { floorTile } from '@/GameData/Zones/floor.tile'
 
-import { useScene } from '@/Hooks/Scene.hook'
-
 import { WarpToCorridor } from './WarpToCorridor.event'
-import { SCENES } from '@/Consts/Scenes.const'
-import type { SceneType } from '@/Types/Scene.type'
 
 const fullFloorRow = {
   1: floorTile,
@@ -101,7 +100,11 @@ const grid: GridType = {
 const gridSize = 13
 const filledGrid = fillGrid({ grid, gridSize })
 
-export const RootDomainRestRoom1 = ({ scene }): ZoneType => {
+export const RootDomainRestRoom1 = ({
+  scene
+}: {
+  scene: SceneType
+}): ZoneType => {
   const zoneDetails: ZoneType = {
     id: `RootDomainRestRoom1`,
     background: `RootDomain/RestRoomLeft`,

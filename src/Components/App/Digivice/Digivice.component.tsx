@@ -61,10 +61,8 @@ export const Digivice = () => {
         data-isopen={digivice.isOpen}
         disabled={
           (scene?.currentScene === 'introduction' &&
-            ['023', '024', '025', '026', '027', '028', '029'].includes(
-              scene.currentStage
-            ) &&
-            !!digivice.isOpen) ||
+            !['022'].includes(scene.currentStage)) ||
+          (!!scene && scene?.currentScene !== 'introduction') ||
           settings.isOpen
         }
       >
