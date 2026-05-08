@@ -1,4 +1,3 @@
-import { Fragment } from 'react/jsx-runtime'
 import { HiOutlineDevicePhoneMobile } from 'react-icons/hi2'
 
 import { AllApps } from '@/Consts/DigiviceApps'
@@ -44,9 +43,7 @@ export const Digivice = () => {
           <main>
             <div className="digivice-body">
               {Object.values(AllApps).map((app) => (
-                <Fragment key={`digivice-apps-${app.id}`}>
-                  {app.component}
-                </Fragment>
+                <div key={`digivice-apps-${app.id}`}>{app.component}</div>
               ))}
             </div>
           </main>
