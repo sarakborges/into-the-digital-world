@@ -6,10 +6,8 @@ import { AllNpcs } from '@/GameData/Npcs'
 
 import { useProfile } from '@/Hooks/Profile.hook'
 import { deleteSession } from '@/Helpers/deleteSession.helper'
-import { saveProfile } from '@/Helpers/saveProfile.helper'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
-import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
 
 import { Text } from '@/Components/System/Text'
 
@@ -18,7 +16,6 @@ import { saveSession } from '@/Helpers/saveSession.helper'
 
 export const Logoff001 = () => {
   const { profile, setProfile } = useProfile()
-  const { savedProfiles } = useSavedProfiles()
   const { setScene } = useScene()
 
   const isFirstTimeLoggingOff = !Object.keys(profile!.npcAcquintances).includes(
@@ -51,12 +48,6 @@ export const Logoff001 = () => {
             }
 
             setProfile(updatedProfile)
-
-            saveProfile({
-              profile: updatedProfile,
-              savedProfiles: savedProfiles || []
-            })
-
             saveSession({ key: 'profile', value: updatedProfile })
           }
 
