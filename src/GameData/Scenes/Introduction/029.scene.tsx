@@ -14,7 +14,7 @@ import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction029 = () => {
   const { setScene } = useScene()
-  const { profile } = useProfile()
+  const { profile, setProfile } = useProfile()
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.gennai,
@@ -26,10 +26,18 @@ export const Introduction029 = () => {
         id: 'scene-introduction-029-confirm',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
+          const updatedProfile = {
+            ...profile!,
+            currentScene: null,
+            doneScenes: [...profile!.doneScenes, 'introduction']
+          }
+
           setScene(null)
+
+          setProfile(updatedProfile)
           saveSession({
             key: 'profile',
-            value: { ...profile!, currentScene: null }
+            value: updatedProfile
           })
         }
       }

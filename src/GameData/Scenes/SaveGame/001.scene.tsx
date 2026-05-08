@@ -15,7 +15,7 @@ import { Text } from '@/Components/System/Text'
 import { Dialog } from '@/Components/App/Dialog'
 
 export const SaveGame001 = () => {
-  const { profile } = useProfile()
+  const { profile, setProfile } = useProfile()
   const { savedProfiles } = useSavedProfiles()
   const { setScene } = useScene()
 
@@ -49,10 +49,7 @@ export const SaveGame001 = () => {
               : { ...profile!.npcAcquintances }
           }
 
-          saveProfile({
-            profile: updatedProfile,
-            savedProfiles: savedProfiles || []
-          })
+          setProfile(updatedProfile)
           setScene(null)
         }
       },
@@ -76,6 +73,7 @@ export const SaveGame001 = () => {
             savedProfiles: savedProfiles || []
           })
 
+          setProfile(updatedProfile)
           setScene({
             currentScene: 'saveGame',
             currentStage: '002'

@@ -50,6 +50,8 @@ export const Logoff001 = () => {
               }
             }
 
+            setProfile(updatedProfile)
+
             saveProfile({
               profile: updatedProfile,
               savedProfiles: savedProfiles || []
@@ -66,21 +68,6 @@ export const Logoff001 = () => {
         id: 'scene-logoff-001-confirm',
         text: getDialogs('SCENES_CONFIRM_BUTTON'),
         action: () => {
-          if (!!isFirstTimeLoggingOff) {
-            const updatedProfile = {
-              ...profile!,
-              npcAcquintances: {
-                ...profile!.npcAcquintances,
-                [AllNpcs.logamon.id]: {}
-              }
-            }
-
-            saveProfile({
-              profile: updatedProfile,
-              savedProfiles: savedProfiles || []
-            })
-          }
-
           setProfile(null)
           setScene(null)
 

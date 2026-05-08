@@ -17,6 +17,7 @@ export type ProfileType = {
   }
 
   currentScene: string | null
+  doneScenes: Array<string>
 
   npcAcquintances: {
     [key: string]: {}

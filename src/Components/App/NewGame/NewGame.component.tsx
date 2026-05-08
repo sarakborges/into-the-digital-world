@@ -32,6 +32,7 @@ export const NewGame = () => {
       items: {},
 
       currentScene: 'introduction',
+      doneScenes: [],
 
       currentZone: {
         id: Zones.RootDomainRestRoom1({ scene: scene! }).id,
