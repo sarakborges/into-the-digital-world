@@ -8,6 +8,11 @@
     background-image: url('/digivice_backgrounds/alternative.webp');
   }
 }
+.theme-courage {
+  .digivice-body {
+    background-image: url('/digivice_backgrounds/courage.webp');
+  }
+}
 .theme-friendship {
   .digivice-body {
     background-image: url('/digivice_backgrounds/friendship.webp');
@@ -114,8 +119,8 @@
           }
 
           &:not(:disabled):hover {
-            background-color: var(--color-secondary-strong);
-            box-shadow: 0 0 4px 4px var(--color-secondary-strong);
+            background-color: var(--color-secondary);
+            box-shadow: 0 0 4px 4px var(--color-secondary);
           }
         }
       }
