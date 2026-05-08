@@ -1,7 +1,11 @@
 import { IntroductionScenes } from '@/GameData/Scenes/Introduction'
 import { AvatarCustomizationScenes } from '@/GameData/Scenes/AvatarCustomization'
+import { SaveGameScenes } from '@/GameData/Scenes/SaveGame'
+import { LogoffScenes } from '@/GameData/Scenes/Logoff'
 
 export const SCENES = {
   introduction: IntroductionScenes,
-  avatarCustomization: AvatarCustomizationScenes
+  avatarCustomization: AvatarCustomizationScenes,
+  saveGame: SaveGameScenes,
+  logoff: LogoffScenes
 }

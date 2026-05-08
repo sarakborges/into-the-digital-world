@@ -8,6 +8,14 @@ import * as AvatarCustomizationEn from '@/GameData/Dialogs/AvatarCustomization/E
 import * as AvatarCustomizationPt from '@/GameData/Dialogs/AvatarCustomization/Pt.text'
 import * as AvatarCustomizationRs from '@/GameData/Dialogs/AvatarCustomization/Rs.text'
 
+import * as SaveGameEn from '@/GameData/Dialogs/SaveGame/En.text'
+import * as SaveGamePt from '@/GameData/Dialogs/SaveGame/Pt.text'
+import * as SaveGameRs from '@/GameData/Dialogs/SaveGame/Rs.text'
+
+import * as LogoffEn from '@/GameData/Dialogs/Logoff/En.text'
+import * as LogoffPt from '@/GameData/Dialogs/Logoff/Pt.text'
+import * as LogoffRs from '@/GameData/Dialogs/Logoff/Rs.text'
+
 const EnDialogs = {
   SCENES_CONTINUE_BUTTON: `Continue`,
   SCENES_CONFIRM_BUTTON: `Confirm`,
@@ -15,7 +23,9 @@ const EnDialogs = {
   SCENES_BACK_BUTTON: `Go back`,
 
   ...IntroductionEn,
-  ...AvatarCustomizationEn
+  ...AvatarCustomizationEn,
+  ...SaveGameEn,
+  ...LogoffEn
 }
 
 const PtDialogs = {
@@ -25,7 +35,9 @@ const PtDialogs = {
   SCENES_BACK_BUTTON: `Voltar`,
 
   ...IntroductionPt,
-  ...AvatarCustomizationPt
+  ...AvatarCustomizationPt,
+  ...SaveGamePt,
+  ...LogoffPt
 }
 
 const RsDialogs = {
@@ -35,7 +47,9 @@ const RsDialogs = {
   SCENES_BACK_BUTTON: `Calma lá`,
 
   ...IntroductionRs,
-  ...AvatarCustomizationRs
+  ...AvatarCustomizationRs,
+  ...SaveGameRs,
+  ...LogoffRs
 }
 
 const defaultLanguage = 'en-us'

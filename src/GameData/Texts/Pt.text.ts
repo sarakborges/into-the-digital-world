@@ -35,13 +35,13 @@ export const LANGUAGE_ENUS = `Inglês`
 
 export const NPC_INTERACT = `Conversar`
 
-export const AVATAR_CUSTOMIZATION_NOLAYER_TITLE = `Visual atual:`
-export const AVATAR_CUSTOMIZATION_OPTIONS_TITLE = `O que você quer definir agora?`
-export const AVATAR_CUSTOMIZATION_RETURN = `Descrever outra coisa`
-export const AVATAR_CUSTOMIZATION_SKIN = `Tom de pele`
-export const AVATAR_CUSTOMIZATION_HAIR = `Estilo de cabelo`
-export const AVATAR_CUSTOMIZATION_HAIR_COLOR = `Cor do cabelo`
-export const AVATAR_CUSTOMIZATION_EYES = `Cor dos olhos`
-export const AVATAR_CUSTOMIZATION_CLOTHES = `Roupas`
+export const AVATARCUSTOMIZATION_NOLAYER_TITLE = `Visual atual:`
+export const AVATARCUSTOMIZATION_OPTIONS_TITLE = `O que você quer definir agora?`
+export const AVATARCUSTOMIZATION_RETURN = `Descrever outra coisa`
+export const AVATARCUSTOMIZATION_SKIN = `Tom de pele`
+export const AVATARCUSTOMIZATION_HAIR = `Estilo de cabelo`
+export const AVATARCUSTOMIZATION_HAIR_COLOR = `Cor do cabelo`
+export const AVATARCUSTOMIZATION_EYES = `Cor dos olhos`
+export const AVATARCUSTOMIZATION_CLOTHES = `Roupas`
 
 export const CURRENT_ZONE = `Zona atual: [ZONE]`

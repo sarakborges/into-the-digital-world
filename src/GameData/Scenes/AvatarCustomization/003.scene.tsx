@@ -18,7 +18,7 @@ export const AvatarCustomization003 = () => {
   const dialogOptions: DialogType = {
     speaker: AllNpcs.dressmon,
 
-    content: <Text as="p">{getDialogs('AVATAR_CUSTOMIZATION_003_TEXT')}</Text>,
+    content: <Text as="p">{getDialogs('AVATARCUSTOMIZATION_003_TEXT')}</Text>,
 
     options: [
       {

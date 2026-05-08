@@ -61,11 +61,7 @@ export const Introduction005 = () => {
 
           const updatedProfile = {
             ...profile!,
-            name: name.charAt(0).toUpperCase() + name.slice(1),
-            npcAcquintances: {
-              ...profile?.npcAcquintances,
-              [AllNpcs.gennai.id]: {}
-            }
+            name: name.charAt(0).toUpperCase() + name.slice(1)
           }
 
           setProfile(updatedProfile)

@@ -35,13 +35,13 @@ export const LANGUAGE_ENUS = `Gringo`
 
 export const NPC_INTERACT = `Trocar uma ideia`
 
-export const AVATAR_CUSTOMIZATION_NOLAYER_TITLE = `Como tu tá agora:`
-export const AVATAR_CUSTOMIZATION_OPTIONS_TITLE = `O que tu quer ajeitar agora?`
-export const AVATAR_CUSTOMIZATION_RETURN = `Mexer em outra coisa`
-export const AVATAR_CUSTOMIZATION_SKIN = `Tom de pele`
-export const AVATAR_CUSTOMIZATION_HAIR = `Cabelo`
-export const AVATAR_CUSTOMIZATION_HAIR_COLOR = `Cor do cabelo`
-export const AVATAR_CUSTOMIZATION_EYES = `Cor dos olhos`
-export const AVATAR_CUSTOMIZATION_CLOTHES = `Roupa`
+export const AVATARCUSTOMIZATION_NOLAYER_TITLE = `Como tu tá agora:`
+export const AVATARCUSTOMIZATION_OPTIONS_TITLE = `O que tu quer ajeitar agora?`
+export const AVATARCUSTOMIZATION_RETURN = `Mexer em outra coisa`
+export const AVATARCUSTOMIZATION_SKIN = `Tom de pele`
+export const AVATARCUSTOMIZATION_HAIR = `Cabelo`
+export const AVATARCUSTOMIZATION_HAIR_COLOR = `Cor do cabelo`
+export const AVATARCUSTOMIZATION_EYES = `Cor dos olhos`
+export const AVATARCUSTOMIZATION_CLOTHES = `Roupa`
 
 export const CURRENT_ZONE = `Lugar atual: [ZONE]`

@@ -23,11 +23,11 @@ export const AvatarCustomization = () => {
   const { profile } = useProfile()
 
   const options = {
-    skin: getTexts('AVATAR_CUSTOMIZATION_SKIN'),
-    hair: getTexts('AVATAR_CUSTOMIZATION_HAIR'),
-    hairColor: getTexts('AVATAR_CUSTOMIZATION_HAIR_COLOR'),
-    eyes: getTexts('AVATAR_CUSTOMIZATION_EYES'),
-    clothes: getTexts('AVATAR_CUSTOMIZATION_CLOTHES')
+    skin: getTexts('AVATARCUSTOMIZATION_SKIN'),
+    hair: getTexts('AVATARCUSTOMIZATION_HAIR'),
+    hairColor: getTexts('AVATARCUSTOMIZATION_HAIR_COLOR'),
+    eyes: getTexts('AVATARCUSTOMIZATION_EYES'),
+    clothes: getTexts('AVATARCUSTOMIZATION_CLOTHES')
   }
 
   const randomAvatar = {
@@ -76,7 +76,7 @@ export const AvatarCustomization = () => {
       {!customization?.layer && (
         <>
           <div className="avatar-options">
-            <Text as="p">{getTexts('AVATAR_CUSTOMIZATION_OPTIONS_TITLE')}</Text>
+            <Text as="p">{getTexts('AVATARCUSTOMIZATION_OPTIONS_TITLE')}</Text>
 
             <div className="options-list">
               {(Object.keys(options) as Array<keyof typeof options>).map(

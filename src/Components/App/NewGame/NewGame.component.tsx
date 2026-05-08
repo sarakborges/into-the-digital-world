@@ -14,7 +14,7 @@ import './NewGame.style.scss'
 import { saveSession } from '@/Helpers/saveSession.helper'
 
 export const NewGame = () => {
-  const { savedProfiles } = useSavedProfiles()
+  const { savedProfiles, setSavedProfiles } = useSavedProfiles()
   const { setProfile } = useProfile()
   const { scene, setScene } = useScene()
 
@@ -43,6 +43,8 @@ export const NewGame = () => {
     }
 
     const currentScene = { currentScene: 'introduction', currentStage: '001' }
+
+    setSavedProfiles([...sortedProfiles, newProfile])
 
     setProfile(newProfile)
     setScene(currentScene)
