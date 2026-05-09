@@ -53,14 +53,14 @@ export const Gamepad = () => {
       (tile) =>
         tile.x === updatedX &&
         tile.y === updatedY &&
-        (!!tile.event?.condition || tile.event?.condition === undefined)
+        (!!tile.condition || tile.condition === undefined)
     )
 
     if (!currentTile?.event) {
       return
     }
 
-    currentZone.events?.[currentTile?.event.eventName]({
+    currentZone.events?.[currentTile?.event]({
       profile: updatedProfile,
       setProfile,
       setScene,
