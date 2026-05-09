@@ -120,19 +120,19 @@ export const RootDomainRestRoom1 = ({
       {
         x: 6,
         y: 11,
-        event: {
-          eventName: 'warpToCorridor'
-        }
+        event: 'warpToCorridor'
       },
 
       {
         x: 6,
         y: 11,
+
+        condition:
+          scene?.currentScene === SCENES.introduction.id &&
+          scene?.currentStage !== '001',
+
         npc: {
-          npcInfo: AllNpcs.gennai,
-          condition:
-            scene?.currentScene === SCENES.introduction.id &&
-            scene?.currentStage !== '001'
+          npcInfo: AllNpcs.gennai
         }
       }
     ]

@@ -29,21 +29,24 @@ export const NewGame = () => {
       id: newId,
       name: '',
       lastSave: '',
-      items: {},
-
       currentScene: 'introduction',
+      items: {},
+      meaningfulChoices: {},
+      npcAcquintances: {},
+      partnerDigimons: {},
       doneScenes: [],
 
       currentZone: {
         id: Zones.RootDomainRestRoom1({ scene: scene! }).id,
         x: 3,
         y: 5
-      },
-
-      npcAcquintances: {}
+      }
     }
 
-    const currentScene = { currentScene: 'introduction', currentStage: '001' }
+    const currentScene = {
+      currentScene: 'introduction',
+      currentStage: '001'
+    }
 
     setSavedProfiles([...sortedProfiles, newProfile])
 

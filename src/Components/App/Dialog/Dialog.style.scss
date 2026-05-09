@@ -83,10 +83,25 @@
         padding: 4px 8px 8px;
 
         > .portrait {
-          padding-top: 4px;
-
           img {
             width: 100%;
+          }
+        }
+
+        .dialog-reactions {
+          display: flex;
+          flex-flow: column;
+          gap: 4px;
+
+          .button {
+            gap: 4px;
+
+            background-color: transparent;
+
+            svg {
+              width: 24px;
+              height: 24px;
+            }
           }
         }
       }

@@ -55,17 +55,13 @@ export const RootDomainCorridor = () => {
       {
         x: 1,
         y: 9,
-        event: {
-          eventName: 'warpToMainRoom'
-        }
+        event: 'warpToMainRoom'
       },
 
       {
         x: 6,
         y: 7,
-        event: {
-          eventName: 'warpToRestRoom1'
-        }
+        event: 'warpToRestRoom1'
       }
     ]
   }

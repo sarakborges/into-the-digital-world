@@ -23,26 +23,34 @@ export const InteractableTiles = () => {
     return
   }
 
-  const currentZone: ZoneType = Zones[profile.currentZone.id]({ scene })
+  const currentZone: ZoneType = Zones[profile.currentZone.id]({
+    scene,
+    profile
+  })
 
-  const surroundingTiles = {
-    prevX: currentZone.tiles.find(
+  const surroundingTiles = [
+    ...currentZone.tiles.filter(
       (tile) =>
         tile.x === profile.currentZone.x - 1 && tile.y === profile.currentZone.y
     ),
-    nextX: currentZone.tiles.find(
+    ...currentZone.tiles.filter(
       (tile) =>
         tile.x === profile.currentZone.x + 1 && tile.y === profile.currentZone.y
     ),
-    prevY: currentZone.tiles.find(
+    ...currentZone.tiles.filter(
       (tile) =>
         tile.y === profile.currentZone.y - 1 && tile.x === profile.currentZone.x
     ),
-    nextY: currentZone.tiles.find(
+    ...currentZone.tiles.filter(
       (tile) =>
         tile.y === profile.currentZone.y + 1 && tile.x === profile.currentZone.x
     )
-  }
+  ].filter(
+    (tile) =>
+      !!tile.event &&
+      !!tile.npc &&
+      (tile.condition === undefined || !!tile.condition)
+  )
 
   const triggerEvent = (event) => {
     currentZone?.events?.[event]?.({ setScene, setProfile, profile })
@@ -50,46 +58,42 @@ export const InteractableTiles = () => {
 
   return (
     <aside className="interactable-tiles">
-      {Object.values(surroundingTiles).map(
-        (tile) =>
-          !!tile?.npc &&
-          (tile.npc.condition === undefined || !!tile.npc.condition) && (
-            <Fragment
-              key={`interactable-tile-y-${tile.y}-x${tile.x}-${tile.npc?.npcInfo.id}`}
-            >
-              {!!tile?.event && (
-                <div className="events">
-                  <header>
-                    <Text>
-                      {Object.keys(profile!.npcAcquintances).includes(
-                        tile.npc?.npcInfo.id || ''
-                      )
-                        ? tile.npc?.npcInfo.name
-                        : '???'}
-                    </Text>
+      {surroundingTiles.map((tile) => (
+        <Fragment
+          key={`interactable-tile-y-${tile!.y}-x${tile!.x}-${tile!.npc!.npcInfo.id}`}
+        >
+          {!!tile?.event && (
+            <div className="events">
+              <header>
+                <Text>
+                  {Object.keys(profile!.npcAcquintances).includes(
+                    tile.npc!.npcInfo.id || ''
+                  )
+                    ? tile.npc!.npcInfo.name
+                    : '???'}
+                </Text>
 
-                    <Portrait
-                      alt={tile.npc?.npcInfo.name || ''}
-                      src={`/${tile.npc?.npcInfo.portrait}.webp`}
-                    />
-                  </header>
+                <Portrait
+                  alt={tile.npc!.npcInfo.name || ''}
+                  src={`/${tile.npc!.npcInfo.portrait}.webp`}
+                />
+              </header>
 
-                  <footer>
-                    <div>
-                      <Button
-                        onClick={() => {
-                          triggerEvent(tile.event?.eventName)
-                        }}
-                      >
-                        {getTexts('NPC_INTERACT')}
-                      </Button>
-                    </div>
-                  </footer>
+              <footer>
+                <div>
+                  <Button
+                    onClick={() => {
+                      triggerEvent(tile.event!)
+                    }}
+                  >
+                    {getTexts('NPC_INTERACT')}
+                  </Button>
                 </div>
-              )}
-            </Fragment>
-          )
-      )}
+              </footer>
+            </div>
+          )}
+        </Fragment>
+      ))}
     </aside>
   )
 }

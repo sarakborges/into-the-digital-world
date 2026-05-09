@@ -1,0 +1,40 @@
+import type { DialogType } from '@/Types/Dialog.type'
+
+import { getDialogs } from '@/Helpers/getDialogs.helper'
+
+import { Text } from '@/Components/System/Text'
+
+import { useScene } from '@/Hooks/Scene.hook'
+import { useProfile } from '@/Hooks/Profile.hook'
+
+import { Dialog } from '@/Components/App/Dialog'
+
+export const GetStarterDigimon005 = () => {
+  const { profile } = useProfile()
+  const { setScene } = useScene()
+
+  const dialogOptions: DialogType = {
+    content: (
+      <Text as="p">
+        {getDialogs(
+          `GETSTARTERDIGIMON_005_TEXT_${profile?.meaningfulChoices.dorimonMeeting.toLocaleUpperCase()}`
+        )}
+      </Text>
+    ),
+
+    options: [
+      {
+        id: 'scene-getstarterdigimon-005-continue',
+        text: getDialogs('SCENES_CONTINUE_BUTTON'),
+        action: () => {
+          setScene({
+            currentScene: 'getStarterDigimon',
+            currentStage: '006'
+          })
+        }
+      }
+    ]
+  }
+
+  return <Dialog {...dialogOptions} />
+}

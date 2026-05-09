@@ -1,4 +1,5 @@
 import type { AvatarType } from '@/Types/Avatar.type'
+import type { DigimonType } from '@/Types/Digimon.type'
 
 export type ProfileType = {
   id: number
@@ -19,7 +20,15 @@ export type ProfileType = {
   currentScene: string | null
   doneScenes: Array<string>
 
+  partnerDigimons: {
+    [key: string]: DigimonType
+  }
+
   npcAcquintances: {
     [key: string]: {}
+  }
+
+  meaningfulChoices: {
+    [key: string]: string
   }
 }

@@ -21,10 +21,17 @@ export const Tile = ({ x, y }: { x: number; y: number }) => {
     return null
   }
 
-  const currentZone: ZoneType = Zones[profile.currentZone.id]({ scene })
+  const currentZone: ZoneType = Zones[profile.currentZone.id]({
+    scene,
+    profile
+  })
 
   const currentTiles = currentZone.tiles.filter(
-    (tile) => tile.x === x && tile.y === y
+    (tile) =>
+      tile.x === x &&
+      tile.y === y &&
+      !!tile.npc &&
+      (tile.condition === undefined || !!tile.condition)
   )
 
   const tileVars = {
@@ -35,18 +42,13 @@ export const Tile = ({ x, y }: { x: number; y: number }) => {
   return (
     <div className="tile" style={tileVars}>
       {currentTiles.map((tile) => (
-        <Fragment
-          key={`tile-${y}-${x}-${tile.npc?.npcInfo.id || tile.event?.eventName}`}
-        >
-          {tile.npc &&
-            (tile?.npc.condition === undefined || !!tile?.npc.condition) && (
-              <div className="npc">
-                <Portrait
-                  src={`/${tile.npc.npcInfo.portrait}.webp`}
-                  alt={tile.npc.npcInfo.name}
-                />
-              </div>
-            )}
+        <Fragment key={`tile-${y}-${x}-${tile.npc?.npcInfo.id || tile.event}`}>
+          <div className="npc">
+            <Portrait
+              src={`/${tile!.npc!.npcInfo.portrait}.webp`}
+              alt={tile!.npc!.npcInfo.name}
+            />
+          </div>
         </Fragment>
       ))}
 

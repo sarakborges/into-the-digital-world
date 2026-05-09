@@ -4,44 +4,37 @@ import { AllNpcs } from '@/GameData/Npcs'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
+import { Text } from '@/Components/System/Text'
+
 import { useScene } from '@/Hooks/Scene.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
 
-import { Text } from '@/Components/System/Text'
-
 import { Dialog } from '@/Components/App/Dialog'
-import { Portrait } from '@/Components/System/Portrait'
 
-export const GetStarterDigimon002 = () => {
+export const GetStarterDigimon009 = () => {
   const { setScene } = useScene()
-  const { profile, setProfile } = useProfile()
+  const { profile } = useProfile()
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.gennai,
 
     content: (
-      <>
-        <Text as="p">{getDialogs('GETSTARTERDIGIMON_002_TEXT')}</Text>
-        <Portrait
-          alt={getDialogs('GETSTARTERDIGIMON_002_IMG')}
-          src="/digimons/DORIMON.webp"
-        />
-      </>
+      <Text as="p">
+        {getDialogs(`GETSTARTERDIGIMON_009_TEXT`).replaceAll(
+          '[NAME]',
+          profile?.name
+        )}
+      </Text>
     ),
 
     options: [
       {
-        id: 'scene-getstarterdigimon-002-continue',
+        id: 'scene-getstarterdigimon-009-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({
             currentScene: 'getStarterDigimon',
-            currentStage: '003'
-          })
-
-          setProfile({
-            ...profile!,
-            npcAcquintances: { ...profile!.npcAcquintances, dorimon: {} }
+            currentStage: '010'
           })
         }
       }

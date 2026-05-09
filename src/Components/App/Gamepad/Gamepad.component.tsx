@@ -27,7 +27,10 @@ export const Gamepad = () => {
     return <></>
   }
 
-  const currentZone: ZoneType = Zones[profile.currentZone.id]({ scene })
+  const currentZone: ZoneType = Zones[profile.currentZone.id]({
+    scene,
+    profile
+  })
 
   const setLocation = ({ x, y }: { x?: number; y?: number }) => {
     const updatedX = profile.currentZone.x + (x || 0)

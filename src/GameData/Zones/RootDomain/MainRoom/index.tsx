@@ -134,9 +134,7 @@ export const RootDomainMainRoom = ({ profile }: { profile: ProfileType }) => {
       {
         x: 9,
         y: 18,
-        event: {
-          eventName: 'warpToCorridor'
-        }
+        event: 'warpToCorridor'
       },
 
       {
@@ -145,11 +143,22 @@ export const RootDomainMainRoom = ({ profile }: { profile: ProfileType }) => {
         npc: {
           npcInfo: AllNpcs.gennai
         },
+        condition:
+          !!profile?.doneScenes.includes('introduction') &&
+          !!profile?.doneScenes.includes('getStarterDigimon')
+      },
 
-        event: {
-          eventName: 'triggerGetStarterDigimon',
-          condition: !profile?.doneScenes?.includes('getStarterDigimon')
-        }
+      {
+        x: 9,
+        y: 3,
+        event: 'triggerGetStarterDigimon',
+        npc: {
+          npcInfo: AllNpcs.gennai
+        },
+
+        condition:
+          !!profile?.doneScenes.includes('introduction') &&
+          !profile?.doneScenes.includes('getStarterDigimon')
       }
     ]
   }
