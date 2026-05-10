@@ -29,12 +29,14 @@ export const NewGame = () => {
       id: newId,
       name: '',
       lastSave: '',
+      currentTitle: 'chosenChild',
       currentScene: 'introduction',
       items: {},
       meaningfulChoices: {},
       npcAcquintances: {},
       partnerDigimons: {},
       doneScenes: [],
+      titles: ['chosenChild'],
 
       currentZone: {
         id: Zones.RootDomainRestRoom1({ scene: scene! }).id,

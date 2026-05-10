@@ -18,8 +18,11 @@ export const APPS_ACQUINTANCES = `Acquintances`
 export const APPS_JOURNAL = `Journal`
 export const APPS_LOCATION = `Location`
 
-export const PROFILE_NAME = `Name: `
-export const PROFILE_CURRENCY = `Digital coins: `
+export const PROFILE_NAME = `[NAME],`
+export const PROFILE_TITLE = `\n"[TITLE]"`
+export const PROFILE_CURRENCY = `D$ [CURRENCY]`
+
+export const TITLES_CHOSENCHILD = `The chosen child`
 
 export const GAME_SAVED = `Data saved`
 
@@ -42,8 +45,7 @@ export const LANGUAGE_ENUS = `English`
 
 export const NPC_INTERACT = `Talk`
 
-export const AVATARCUSTOMIZATION_OPTIONS_TITLE = `Confirm to keep this avatar, or select one of the following options to customize`
-export const AVATARCUSTOMIZATION_RETURN = `Pick something else`
+export const AVATARCUSTOMIZATION_OPTIONS_TITLE = `Tap to customize:`
 export const AVATARCUSTOMIZATION_SKIN = `Skin tone`
 export const AVATARCUSTOMIZATION_HAIR = `Hair style`
 export const AVATARCUSTOMIZATION_HAIR_COLOR = `Hair color`

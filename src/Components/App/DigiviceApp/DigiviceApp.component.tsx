@@ -17,7 +17,24 @@ export const DigiviceApp = ({ app }) => {
     return
   }
 
+  const isFashion = app.id === 'fashion'
+  const isIntroduction = scene?.currentScene === 'introduction'
+
+  const isAppDisabled = !!isIntroduction && !isFashion
+  const isAppHighlighted = !!isFashion && !!isIntroduction
+
   const openApp = () => {
+    if (!!isFashion && !!isIntroduction) {
+      setScene({
+        currentScene: 'introduction',
+        currentStage: '024'
+      })
+
+      setDigivice({ ...digivice, isOpen: false })
+
+      return
+    }
+
     setScene({
       currentScene: app.scene,
       currentStage: '001'
@@ -27,7 +44,12 @@ export const DigiviceApp = ({ app }) => {
   }
 
   return (
-    <Button onClick={openApp} disabled={!!scene}>
+    <Button
+      onClick={openApp}
+      disabled={!!isAppDisabled}
+      data-warning={isAppHighlighted}
+      data-appid={app.id}
+    >
       <Portrait
         alt={getTexts(`APPS_${app.id.toLocaleUpperCase()}`)}
         src={`/apps/${app.id}.png`}

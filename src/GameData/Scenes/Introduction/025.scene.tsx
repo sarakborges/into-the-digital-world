@@ -1,8 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 import type { ProfileType } from '@/Types/Profile.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
-
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 import { useProfile } from '@/Hooks/Profile.hook'
@@ -10,10 +8,7 @@ import { useScene } from '@/Hooks/Scene.hook'
 import { useAvatarCustomization } from '@/Hooks/AvatarCustomization.hook'
 import { useDigivice } from '@/Hooks/Digivice.hook'
 
-import { Text } from '@/Components/System/Text'
-
 import { Dialog } from '@/Components/App/Dialog'
-
 import { AvatarCustomization } from '@/Components/App/AvatarCustomization'
 
 export const Introduction025 = () => {
@@ -23,14 +18,7 @@ export const Introduction025 = () => {
   const { customization, setCustomization } = useAvatarCustomization()
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.dressmon,
-
-    content: (
-      <>
-        <Text as="p">{getDialogs('INTRODUCTION_025_TEXT')}</Text>
-        <AvatarCustomization />
-      </>
-    ),
+    content: <AvatarCustomization />,
 
     options: [
       !!customization?.layer && {

@@ -1,8 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 import type { ProfileType } from '@/Types/Profile.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
-
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 import { saveSession } from '@/Helpers/saveSession.helper'
 
@@ -19,8 +17,6 @@ export const AvatarCustomization002 = () => {
   const { customization, setCustomization } = useAvatarCustomization()
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.dressmon,
-
     content: <AvatarCustomization />,
 
     options: [

@@ -1,9 +1,10 @@
 .player-profile {
   display: flex;
-  gap: 8px;
+  place-items: flex-start;
+  gap: 12px;
 
   .profile-avatar {
-    width: 96px;
+    width: 120px;
 
     padding: 2px;
 
@@ -21,13 +22,18 @@
   .profile-info {
     display: flex;
     flex-flow: column;
-    gap: 4px;
+    gap: 8px;
 
     padding: 8px 0;
 
-    .profile-info-item {
+    > header {
       display: flex;
-      gap: 4px;
+      flex-flow: column;
+      gap: 2px;
+
+      > .text {
+        font-size: 20px;
+      }
     }
   }
 }

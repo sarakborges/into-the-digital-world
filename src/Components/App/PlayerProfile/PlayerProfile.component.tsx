@@ -17,15 +17,27 @@ export const PlayerProfile = () => {
       </aside>
 
       <main className="profile-info">
-        <div className="profile-info-item">
-          <Text>{getTexts('PROFILE_NAME')}</Text>
-          <Text>{profile?.name}</Text>
-        </div>
+        <header>
+          <Text>
+            {getTexts('PROFILE_NAME').replaceAll('[NAME]', profile?.name)}
+          </Text>
 
-        <div className="profile-info-item">
-          <Text>{getTexts('PROFILE_CURRENCY')}</Text>
-          <Text>{profile?.currency || 0}</Text>
-        </div>
+          <Text>
+            {getTexts('PROFILE_TITLE').replaceAll(
+              '[TITLE]',
+              getTexts(`TITLES_${profile?.currentTitle.toLocaleUpperCase()}`)
+            )}
+          </Text>
+        </header>
+
+        <main>
+          <Text>
+            {getTexts('PROFILE_CURRENCY').replaceAll(
+              '[CURRENCY]',
+              profile?.currency || 0
+            )}
+          </Text>
+        </main>
       </main>
     </div>
   )

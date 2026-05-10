@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { FaPaintBrush } from 'react-icons/fa'
 
 import type { AvatarType } from '@/Types/Avatar.type'
 
@@ -68,17 +69,15 @@ export const AvatarCustomization = () => {
   return (
     <div className="avatar-customization">
       <header>
-        <PlayerAvatar replaceAvatar={customization?.avatar} />
-      </header>
+        {!customization?.layer && (
+          <>
+            <div className="profile-avatar">
+              <PlayerAvatar replaceAvatar={customization?.avatar} />
+            </div>
 
-      {!!customization?.layer && <AvatarCustomizationOptions />}
+            <div className="avatar-options">
+              <Text>{getTexts('AVATARCUSTOMIZATION_OPTIONS_TITLE')}</Text>
 
-      {!customization?.layer && (
-        <>
-          <div className="avatar-options">
-            <Text as="p">{getTexts('AVATARCUSTOMIZATION_OPTIONS_TITLE')}</Text>
-
-            <div className="options-list">
               {(Object.keys(options) as Array<keyof typeof options>).map(
                 (option) => (
                   <div key={`avatar-options-${option}`}>
@@ -87,15 +86,18 @@ export const AvatarCustomization = () => {
                         setCustomization({ ...customization!, layer: option })
                       }
                     >
-                      {options[option]}
+                      <FaPaintBrush />
+                      <Text>{options[option]}</Text>
                     </Button>
                   </div>
                 )
               )}
             </div>
-          </div>
-        </>
-      )}
+          </>
+        )}
+
+        {!!customization?.layer && <AvatarCustomizationOptions />}
+      </header>
     </div>
   )
 }
