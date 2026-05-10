@@ -20,7 +20,7 @@ export const DigiviceApp = ({ app }) => {
   const isFashion = app.id === 'fashion'
   const isIntroduction = scene?.currentScene === 'introduction'
 
-  const isAppDisabled = !!isIntroduction && !isFashion
+  const isAppDisabled = !!scene && !!isIntroduction && !isFashion
   const isAppHighlighted = !!isFashion && !!isIntroduction
 
   const openApp = () => {
@@ -29,6 +29,10 @@ export const DigiviceApp = ({ app }) => {
         currentScene: 'introduction',
         currentStage: '024'
       })
+
+      setDigivice({ ...digivice, currentApp: app.app })
+
+      return
     }
 
     setScene({

@@ -26,7 +26,6 @@ import { Introduction025 } from './025.scene'
 import { Introduction026 } from './026.scene'
 import { Introduction027 } from './027.scene'
 import { Introduction028 } from './028.scene'
-import { Introduction029 } from './029.scene'
 
 export const IntroductionScenes = {
   id: 'introduction',
@@ -57,6 +56,5 @@ export const IntroductionScenes = {
   '025': Introduction025,
   '026': Introduction026,
   '027': Introduction027,
-  '028': Introduction028,
-  '029': Introduction029
+  '028': Introduction028
 }

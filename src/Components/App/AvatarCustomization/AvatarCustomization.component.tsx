@@ -2,10 +2,13 @@ import { useEffect } from 'react'
 import { FaPaintBrush } from 'react-icons/fa'
 
 import type { AvatarType } from '@/Types/Avatar.type'
+import type { ProfileType } from '@/Types/Profile.type'
 
 import { AVATAR_OPTIONS } from '@/Consts/Avatars.const'
 
 import { getTexts } from '@/Helpers/getTexts.helper'
+import { getDialogs } from '@/Helpers/getDialogs.helper'
+import { saveSession } from '@/Helpers/saveSession.helper'
 
 import { Button } from '@/Components/System/Button'
 
@@ -14,14 +17,18 @@ import { Text } from '@/Components/System/Text'
 
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useAvatarCustomization } from '@/Hooks/AvatarCustomization.hook'
+import { useScene } from '@/Hooks/Scene.hook'
 
 import { AvatarCustomizationOptions } from '@/Components/App/AvatarCustomizationOptions'
 
 import './AvatarCustomization.style.scss'
+import { useDigivice } from '@/Hooks/Digivice.hook'
 
 export const AvatarCustomization = () => {
   const { customization, setCustomization } = useAvatarCustomization()
-  const { profile } = useProfile()
+  const { profile, setProfile } = useProfile()
+  const { scene, setScene } = useScene()
+  const { digivice, setDigivice } = useDigivice()
 
   const options = {
     skin: getTexts('AVATARCUSTOMIZATION_SKIN'),
@@ -62,6 +69,39 @@ export const AvatarCustomization = () => {
 
   const avatar: AvatarType = profile?.avatar ?? randomAvatar
 
+  const saveAvatar = () => {
+    if (!customization) {
+      return
+    }
+
+    const updatedProfile: ProfileType = {
+      ...profile!,
+      avatar: customization.avatar
+    }
+
+    if (!profile?.avatar) {
+      setScene({
+        currentScene: 'introduction',
+        currentStage: '025'
+      })
+
+      setProfile(updatedProfile)
+      saveSession({ key: 'profile', value: updatedProfile })
+      setDigivice({ ...digivice, isOpen: false, currentApp: undefined })
+
+      return
+    }
+
+    setScene({
+      currentScene: 'avatarCustomization',
+      currentStage: '002'
+    })
+
+    setCustomization({ avatar: customization.avatar })
+    setProfile(updatedProfile)
+    saveSession({ key: 'profile', value: updatedProfile })
+  }
+
   useEffect(() => {
     setCustomization({ avatar })
   }, [])
@@ -71,17 +111,18 @@ export const AvatarCustomization = () => {
       <header>
         {!customization?.layer && (
           <>
-            <div className="profile-avatar">
+            <header className="profile-avatar">
               <PlayerAvatar replaceAvatar={customization?.avatar} />
-            </div>
+            </header>
 
-            <div className="avatar-options">
+            <main className="avatar-options">
               <Text>{getTexts('AVATARCUSTOMIZATION_OPTIONS_TITLE')}</Text>
 
               {(Object.keys(options) as Array<keyof typeof options>).map(
                 (option) => (
                   <div key={`avatar-options-${option}`}>
                     <Button
+                      disabled={!!scene}
                       onClick={() =>
                         setCustomization({ ...customization!, layer: option })
                       }
@@ -92,7 +133,13 @@ export const AvatarCustomization = () => {
                   </div>
                 )
               )}
-            </div>
+            </main>
+
+            <footer>
+              <Button onClick={saveAvatar}>
+                <Text>{getDialogs('SCENES_CONFIRM_BUTTON')}</Text>
+              </Button>
+            </footer>
           </>
         )}
 

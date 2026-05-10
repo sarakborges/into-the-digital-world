@@ -12,6 +12,8 @@ export const Introduction027 = () => {
   const { setScene } = useScene()
 
   const dialogOptions: DialogType = {
+    speaker: 'player',
+
     content: <Text as="p">{getDialogs('INTRODUCTION_027_TEXT')}</Text>,
 
     options: [

@@ -102,10 +102,10 @@ export const Digivice = () => {
 
       <Button
         onClick={toggleModal}
+        cancel={!!digivice.isOpen}
         data-warning={
           scene?.currentScene === 'introduction' && scene.currentStage === '022'
         }
-        data-isopen={digivice.isOpen}
         disabled={
           (scene?.currentScene === 'introduction' &&
             !['022'].includes(scene.currentStage)) ||

@@ -1,58 +1,35 @@
 import type { DialogType } from '@/Types/Dialog.type'
-import type { ProfileType } from '@/Types/Profile.type'
+
+import { useScene } from '@/Hooks/Scene.hook'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
-import { saveSession } from '@/Helpers/saveSession.helper'
 
-import { useProfile } from '@/Hooks/Profile.hook'
-import { useScene } from '@/Hooks/Scene.hook'
-import { useAvatarCustomization } from '@/Hooks/AvatarCustomization.hook'
+import { AllNpcs } from '@/GameData/Npcs'
+
+import { Text } from '@/Components/System/Text'
 
 import { Dialog } from '@/Components/App/Dialog'
-import { AvatarCustomization } from '@/Components/App/AvatarCustomization'
+import { useDigivice } from '@/Hooks/Digivice.hook'
 
 export const AvatarCustomization002 = () => {
-  const { profile, setProfile } = useProfile()
   const { setScene } = useScene()
-  const { customization, setCustomization } = useAvatarCustomization()
+  const { digivice, setDigivice } = useDigivice()
 
   const dialogOptions: DialogType = {
-    content: <AvatarCustomization />,
+    speaker: AllNpcs.dressmon,
+
+    content: <Text as="p">{getDialogs('AVATARCUSTOMIZATION_002_TEXT')}</Text>,
 
     options: [
-      !!customization?.layer && {
-        id: 'scene-avatarCustomization-002-back',
-        text: getDialogs('SCENES_BACK_BUTTON'),
+      {
+        id: 'scene-avatarCustomization-002-continue',
+        text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setCustomization({ avatar: customization.avatar })
-        }
-      },
-
-      !customization?.layer && {
-        id: 'scene-avatarCustomization-002-confirm',
-        text: getDialogs('SCENES_CONFIRM_BUTTON'),
-        action: () => {
-          if (!customization) {
-            return
-          }
-
-          const updatedProfile: ProfileType = {
-            ...profile!,
-            avatar: customization.avatar,
-            currentScene: null
-          }
-
-          setScene({
-            currentScene: 'avatarCustomization',
-            currentStage: '003'
-          })
-
-          setCustomization({ avatar: customization.avatar })
-          setProfile(updatedProfile)
-          saveSession({ key: 'profile', value: updatedProfile })
+          setDigivice({ ...digivice, currentApp: undefined })
+          setScene(null)
         }
       }
-    ].filter((option) => !!option)
+    ]
   }
 
   return <Dialog {...dialogOptions} />
