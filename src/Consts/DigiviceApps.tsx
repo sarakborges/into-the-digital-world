@@ -1,6 +1,11 @@
+import { AvatarCustomization } from '@/Components/App/AvatarCustomization'
+import { PlayerProfile } from '@/Components/App/PlayerProfile'
+
 export const APP_PROFILE = {
   id: 'profile',
-  scene: 'profile'
+  app: 'profile',
+  scene: 'profile',
+  component: <PlayerProfile />
 }
 
 export const APP_SAVE = {
@@ -10,7 +15,9 @@ export const APP_SAVE = {
 
 export const APP_FASHION = {
   id: 'fashion',
-  scene: 'avatarCustomization'
+  app: 'fashion',
+  scene: 'avatarCustomization',
+  component: <AvatarCustomization />
 }
 
 export const APP_LOGOFF = {

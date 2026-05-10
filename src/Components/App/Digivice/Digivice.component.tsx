@@ -13,6 +13,10 @@ import { Modal } from '@/Components/System/Modal'
 import { DigiviceApp } from '@/Components/App/DigiviceApp'
 
 import './Digivice.style.scss'
+import { Text } from '@/Components/System/Text'
+import { getTexts } from '@/Helpers/getTexts.helper'
+import { FaTimes } from 'react-icons/fa'
+import { Portrait } from '@/Components/System/Portrait'
 
 export const Digivice = () => {
   const { profile } = useProfile()
@@ -25,7 +29,11 @@ export const Digivice = () => {
   }
 
   const toggleModal = () => {
-    setDigivice({ ...digivice, isOpen: !digivice.isOpen })
+    setDigivice({
+      ...digivice,
+      isOpen: !digivice.isOpen,
+      currentApp: undefined
+    })
 
     if (
       scene?.currentScene === 'introduction' &&
@@ -38,17 +46,55 @@ export const Digivice = () => {
     }
   }
 
+  const closeApp = () => {
+    setDigivice({
+      ...digivice,
+      currentApp: undefined
+    })
+  }
+
   return (
     <div className="digivice">
       {!!digivice.isOpen && (
         <Modal>
           <main>
             <div className="digivice-body">
-              {Object.values(AllApps).map((app) => (
-                <div key={`digivice-apps-${app.id}`}>
-                  <DigiviceApp app={app} />
+              {!digivice.currentApp && (
+                <div className="digivice-apps">
+                  {Object.values(AllApps).map((app) => (
+                    <div key={`digivice-apps-${app.id}`}>
+                      <DigiviceApp app={app} />
+                    </div>
+                  ))}
                 </div>
-              ))}
+              )}
+
+              {!!digivice.currentApp && !!AllApps[digivice.currentApp] && (
+                <div className="current-app">
+                  <header className="app-header">
+                    <div className="app-identifier">
+                      <Portrait
+                        alt={getTexts(
+                          `APPS_${AllApps[digivice.currentApp].id.toLocaleUpperCase()}`
+                        )}
+                        src={`/apps/${AllApps[digivice.currentApp].id}.png`}
+                      />
+
+                      <Text>
+                        {getTexts(
+                          `APPS_${AllApps[digivice.currentApp].id.toLocaleUpperCase()}`
+                        )}
+                      </Text>
+                    </div>
+
+                    <Button cancel onClick={closeApp} disabled={!!scene}>
+                      <FaTimes />
+                    </Button>
+                  </header>
+
+                  <main>{AllApps[digivice.currentApp].component}</main>
+                </div>
+              )}
             </div>
           </main>
         </Modal>

@@ -25,7 +25,7 @@ export const AvatarCustomization003 = () => {
         id: 'scene-avatarCustomization-003-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setDigivice({ ...digivice, isOpen: false })
+          setDigivice({ ...digivice, currentApp: undefined })
           setScene(null)
         }
       }

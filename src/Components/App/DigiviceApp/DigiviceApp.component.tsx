@@ -29,10 +29,6 @@ export const DigiviceApp = ({ app }) => {
         currentScene: 'introduction',
         currentStage: '024'
       })
-
-      setDigivice({ ...digivice, isOpen: false })
-
-      return
     }
 
     setScene({
@@ -40,7 +36,7 @@ export const DigiviceApp = ({ app }) => {
       currentStage: '001'
     })
 
-    setDigivice({ ...digivice, isOpen: false })
+    setDigivice({ ...digivice, currentApp: app.app })
   }
 
   return (
@@ -48,12 +44,12 @@ export const DigiviceApp = ({ app }) => {
       onClick={openApp}
       disabled={!!isAppDisabled}
       data-warning={isAppHighlighted}
-      data-appid={app.id}
     >
       <Portrait
         alt={getTexts(`APPS_${app.id.toLocaleUpperCase()}`)}
         src={`/apps/${app.id}.png`}
       />
+
       <Text>{getTexts(`APPS_${app.id.toLocaleUpperCase()}`)}</Text>
     </Button>
   )

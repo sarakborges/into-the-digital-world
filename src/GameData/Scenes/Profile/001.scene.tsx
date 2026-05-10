@@ -52,10 +52,7 @@ export const Profile001 = () => {
             saveSession({ key: 'profile', value: updatedProfile })
           }
 
-          setScene({
-            currentScene: 'profile',
-            currentStage: '002'
-          })
+          setScene(null)
         }
       }
     ]

@@ -50,7 +50,7 @@ export const Game = () => {
           <>
             {!profile && <StartScreen />}
 
-            {!!profile && (
+            {!!profile && !digivice.isOpen && (
               <div className="screen-footer">
                 <InteractableTiles />
                 <Gamepad />

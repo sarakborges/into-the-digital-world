@@ -23,10 +23,7 @@ export const AvatarCustomization001 = () => {
         id: 'scene-avatarCustomization-001-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setScene({
-            currentScene: 'avatarCustomization',
-            currentStage: '002'
-          })
+          setScene(null)
         }
       }
     ]
