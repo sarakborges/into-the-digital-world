@@ -13,6 +13,10 @@ export const APPS_PROFILE = `Profile`
 export const APPS_SAVE = `Save data`
 export const APPS_FASHION = `Fashion`
 export const APPS_LOGOFF = `Log off`
+export const APPS_ACHIEVEMENTS = `Achievements`
+export const APPS_ACQUINTANCES = `Acquintances`
+export const APPS_JOURNAL = `Journal`
+export const APPS_LOCATION = `Location`
 
 export const PROFILE_NAME = `Name: `
 export const PROFILE_CURRENCY = `Digital coins: `

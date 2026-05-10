@@ -18,9 +18,33 @@ export const APP_LOGOFF = {
   scene: 'logoff'
 }
 
+export const APP_ACHIEVEMENTS = {
+  id: 'achievements',
+  scene: 'achievements'
+}
+
+export const APP_ACQUINTANCES = {
+  id: 'acquintances',
+  scene: 'acquintances'
+}
+
+export const APP_LOCATION = {
+  id: 'location',
+  scene: 'changeZone'
+}
+
+export const APP_JOURNAL = {
+  id: 'journal',
+  scene: 'questsLog'
+}
+
 export const AllApps = {
   profile: APP_PROFILE,
   fashion: APP_FASHION,
+  location: APP_LOCATION,
+  journal: APP_JOURNAL,
+  acquintances: APP_ACQUINTANCES,
+  achievements: APP_ACHIEVEMENTS,
   save: APP_SAVE,
   logoff: APP_LOGOFF
 }
