@@ -1,24 +1,22 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { useScene } from '@/Hooks/Scene.hook'
+import { AllNpcs } from '@/GameData/Npcs'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
+
+import { useScene } from '@/Hooks/Scene.hook'
+import { useProfile } from '@/Hooks/Profile.hook'
 
 import { Text } from '@/Components/System/Text'
 
 import { Dialog } from '@/Components/App/Dialog'
-import { useProfile } from '@/Hooks/Profile.hook'
 
 export const GetStarterDigimon003 = () => {
   const { profile } = useProfile()
   const { setScene } = useScene()
 
   const dialogOptions: DialogType = {
-    speaker: {
-      id: 'dorimon',
-      name: 'Dorimon',
-      portrait: 'digimon_portraits/DORIMON'
-    },
+    speaker: AllNpcs.dorimon,
 
     content: (
       <Text as="p">

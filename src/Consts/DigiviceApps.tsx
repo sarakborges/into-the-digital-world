@@ -1,3 +1,4 @@
+import { Acquintances } from '@/Components/App/Acquintances'
 import { AvatarCustomization } from '@/Components/App/AvatarCustomization'
 import { PlayerProfile } from '@/Components/App/PlayerProfile'
 
@@ -32,7 +33,9 @@ export const APP_ACHIEVEMENTS = {
 
 export const APP_ACQUINTANCES = {
   id: 'acquintances',
-  scene: 'acquintances'
+  scene: 'acquintances',
+  app: 'acquintances',
+  component: <Acquintances />
 }
 
 export const APP_LOCATION = {

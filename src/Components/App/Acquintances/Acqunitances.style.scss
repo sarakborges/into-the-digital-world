@@ -1,0 +1,38 @@
+.acquintances {
+  display: flex;
+  flex-flow: column;
+  gap: 12px;
+
+  .acquintances-category {
+    display: flex;
+    flex-flow: column;
+    gap: 4px;
+
+    > .text {
+      padding-bottom: 4px;
+
+      border-bottom: 1px solid var(--color-secondary-strong);
+
+      font-size: 20px;
+      text-transform: capitalize;
+    }
+
+    .acquintances-list {
+      display: flex;
+      flex-flow: column;
+      gap: 2px;
+
+      .button {
+        place-content: flex-start;
+        gap: 8px;
+
+        .portrait {
+          max-height: 24px;
+          overflow: hidden;
+
+          border-radius: 100%;
+        }
+      }
+    }
+  }
+}
