@@ -6,6 +6,7 @@ export type ProfileType = {
   name: string
   lastSave: string
   avatar?: AvatarType
+  currency?: number
 
   items: {
     [k: string]: {}

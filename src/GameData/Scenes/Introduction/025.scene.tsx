@@ -14,7 +14,7 @@ import { Text } from '@/Components/System/Text'
 
 import { Dialog } from '@/Components/App/Dialog'
 
-import { AvatarCustomization } from '@/Components/DigiviceApps/AvatarCustomization'
+import { AvatarCustomization } from '@/Components/App/AvatarCustomization'
 
 export const Introduction025 = () => {
   const { profile, setProfile } = useProfile()

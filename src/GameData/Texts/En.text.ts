@@ -9,11 +9,14 @@ export const DELETE_GAME_FILE = `Delete`
 
 export const SETTINGS_TITLE = `Settings`
 
+export const APPS_PROFILE = `Profile`
 export const APPS_SAVE = `Save data`
 export const APPS_FASHION = `Fashion`
 export const APPS_LOGOFF = `Log off`
 
-export const SAVE_DISABLED = `Service unavailable while interacting with someone or something.`
+export const PROFILE_NAME = `Name: `
+export const PROFILE_CURRENCY = `Digital coins: `
+
 export const GAME_SAVED = `Data saved`
 
 export const THEMES_TITLE = `Theme`

@@ -10,12 +10,14 @@ import { useSettings } from '@/Hooks/Settings.hook'
 import { Button } from '@/Components/System/Button'
 import { Modal } from '@/Components/System/Modal'
 
+import { DigiviceApp } from '@/Components/App/DigiviceApp'
+
 import './Digivice.style.scss'
 
 export const Digivice = () => {
   const { profile } = useProfile()
   const { digivice, setDigivice } = useDigivice()
-  const { settings, setSettings } = useSettings()
+  const { settings } = useSettings()
   const { scene, setScene } = useScene()
 
   if (!Object.keys(profile?.items || {}).includes('digivice')) {
@@ -43,7 +45,9 @@ export const Digivice = () => {
           <main>
             <div className="digivice-body">
               {Object.values(AllApps).map((app) => (
-                <div key={`digivice-apps-${app.id}`}>{app.component}</div>
+                <div key={`digivice-apps-${app.id}`}>
+                  <DigiviceApp app={app} />
+                </div>
               ))}
             </div>
           </main>

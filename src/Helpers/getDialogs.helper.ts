@@ -1,24 +1,11 @@
 import { loadData } from '@/Helpers/loadData.helper'
 
-import * as IntroductionEn from '@/GameData/Dialogs/Introduction/En.text'
-import * as IntroductionPt from '@/GameData/Dialogs/Introduction/Pt.text'
-import * as IntroductionRs from '@/GameData/Dialogs/Introduction/Rs.text'
-
-import * as AvatarCustomizationEn from '@/GameData/Dialogs/AvatarCustomization/En.text'
-import * as AvatarCustomizationPt from '@/GameData/Dialogs/AvatarCustomization/Pt.text'
-import * as AvatarCustomizationRs from '@/GameData/Dialogs/AvatarCustomization/Rs.text'
-
-import * as SaveGameEn from '@/GameData/Dialogs/SaveGame/En.text'
-import * as SaveGamePt from '@/GameData/Dialogs/SaveGame/Pt.text'
-import * as SaveGameRs from '@/GameData/Dialogs/SaveGame/Rs.text'
-
-import * as LogoffEn from '@/GameData/Dialogs/Logoff/En.text'
-import * as LogoffPt from '@/GameData/Dialogs/Logoff/Pt.text'
-import * as LogoffRs from '@/GameData/Dialogs/Logoff/Rs.text'
-
-import * as GetStarterDigimonEn from '@/GameData/Dialogs/GetStarterDigimon/En.text'
-import * as GetStarterDigimonPt from '@/GameData/Dialogs/GetStarterDigimon/Pt.text'
-import * as GetStarterDigimonRs from '@/GameData/Dialogs/GetStarterDigimon/Rs.text'
+import { IntroductionDialogs } from '@/GameData/Dialogs/Introduction'
+import { AvatarCustomizationDialogs } from '@/GameData/Dialogs/AvatarCustomization'
+import { GetStarterDigimonDialogs } from '@/GameData/Dialogs/GetStarterDigimon'
+import { SaveGameDialogs } from '@/GameData/Dialogs/SaveGame'
+import { LogoffDialogs } from '@/GameData/Dialogs/Logoff'
+import { ProfileDialogs } from '@/GameData/Dialogs/Profile'
 
 const EnDialogs = {
   SCENES_CONTINUE_BUTTON: `Continue`,
@@ -26,11 +13,12 @@ const EnDialogs = {
   SCENES_LEAVE_BUTTON: `Leave`,
   SCENES_BACK_BUTTON: `Go back`,
 
-  ...IntroductionEn,
-  ...AvatarCustomizationEn,
-  ...SaveGameEn,
-  ...LogoffEn,
-  ...GetStarterDigimonEn
+  ...IntroductionDialogs.En,
+  ...AvatarCustomizationDialogs.En,
+  ...SaveGameDialogs.En,
+  ...LogoffDialogs.En,
+  ...GetStarterDigimonDialogs.En,
+  ...ProfileDialogs.En
 }
 
 const PtDialogs = {
@@ -39,11 +27,12 @@ const PtDialogs = {
   SCENES_LEAVE_BUTTON: `Sair`,
   SCENES_BACK_BUTTON: `Voltar`,
 
-  ...IntroductionPt,
-  ...AvatarCustomizationPt,
-  ...SaveGamePt,
-  ...LogoffPt,
-  ...GetStarterDigimonPt
+  ...IntroductionDialogs.Pt,
+  ...AvatarCustomizationDialogs.Pt,
+  ...SaveGameDialogs.Pt,
+  ...LogoffDialogs.Pt,
+  ...GetStarterDigimonDialogs.Pt,
+  ...ProfileDialogs.Pt
 }
 
 const RsDialogs = {
@@ -52,11 +41,12 @@ const RsDialogs = {
   SCENES_LEAVE_BUTTON: `Vazare`,
   SCENES_BACK_BUTTON: `Calma lá`,
 
-  ...IntroductionRs,
-  ...AvatarCustomizationRs,
-  ...SaveGameRs,
-  ...LogoffRs,
-  ...GetStarterDigimonRs
+  ...IntroductionDialogs.Rs,
+  ...AvatarCustomizationDialogs.Rs,
+  ...SaveGameDialogs.Rs,
+  ...LogoffDialogs.Rs,
+  ...GetStarterDigimonDialogs.Rs,
+  ...ProfileDialogs.Rs
 }
 
 const defaultLanguage = 'en-us'

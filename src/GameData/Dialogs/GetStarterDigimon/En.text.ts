@@ -10,7 +10,7 @@ export const GETSTARTERDIGIMON_004_OPTION_ACCEPT = `Hold them`
 export const GETSTARTERDIGIMON_004_OPTION_NEUTRAL = `Do nothing`
 export const GETSTARTERDIGIMON_004_OPTION_REFUSE = `Protect your chest and push them off`
 
-export const GETSTARTERDIGIMON_005_TEXT_ACCEPT = `You hold Dorimon close to your chest, as them begin to rub their face against it.`
+export const GETSTARTERDIGIMON_005_TEXT_ACCEPT = `You hold Dorimon close to your chest, as they begin to rub their face against it.`
 export const GETSTARTERDIGIMON_005_TEXT_NEUTRAL = `You get surprised, and don't react on time. Even though Dorimon is extremely light weight, the leap was so energetic that it makes you fall on your butt, with the little creature on top of you.`
 export const GETSTARTERDIGIMON_005_TEXT_REFUSE = `You push Dorimon away, making him fall to the ground. Maybe you did that out of reflexes. Or you really meant it. Whatever the case, Dorimon looks sad.`
 

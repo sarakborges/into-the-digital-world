@@ -1,23 +1,25 @@
-import { AppFashion } from '@/Components/DigiviceApps/AppFashion'
-import { AppLogoff } from '@/Components/DigiviceApps/AppLogoff'
-import { AppSave } from '@/Components/DigiviceApps/AppSave'
+export const APP_PROFILE = {
+  id: 'profile',
+  scene: 'profile'
+}
 
 export const APP_SAVE = {
   id: 'save',
-  component: <AppSave />
+  scene: 'saveGame'
 }
 
 export const APP_FASHION = {
   id: 'fashion',
-  component: <AppFashion />
+  scene: 'avatarCustomization'
 }
 
 export const APP_LOGOFF = {
   id: 'logoff',
-  component: <AppLogoff />
+  scene: 'logoff'
 }
 
 export const AllApps = {
+  profile: APP_PROFILE,
   fashion: APP_FASHION,
   save: APP_SAVE,
   logoff: APP_LOGOFF
