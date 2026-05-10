@@ -1,20 +1,11 @@
 .theme-sincerity {
-  --color-primary: #3ecf6d;
-  --color-primary-strong: #159e40;
-  --color-primary-weak: #75d192;
+  --color-primary: #42cf72;
+  --color-primary-strong: #1fa24b;
+  --color-primary-weak: #79d79a;
 
-  --color-secondary: #d162b7;
-  --color-secondary-strong: #d62daf;
-  --color-secondary-weak: #df8dcb;
+  --color-secondary: #c86ab1;
+  --color-secondary-strong: #b94d9e;
+  --color-secondary-weak: #d998c8;
 
-  --color-cancel: #c94c4c;
-  --color-cancel-strong: #8a3333;
-  --color-cancel-weak: #451919;
-
-  --color-neutral-weak: #f3fff8;
-  --color-neutral: #8aa99a;
-  --color-neutral-strong: #0e1a14;
-
-  --text-color: #fff;
-  --modal-color: #3ecf6d99;
+  --modal-color: #42cf7280;
 }

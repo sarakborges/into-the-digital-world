@@ -48,10 +48,10 @@ export const APP_JOURNAL = {
 export const AllApps = {
   profile: APP_PROFILE,
   fashion: APP_FASHION,
-  location: APP_LOCATION,
-  journal: APP_JOURNAL,
+  // location: APP_LOCATION,
+  // journal: APP_JOURNAL,
   acquintances: APP_ACQUINTANCES,
-  achievements: APP_ACHIEVEMENTS,
+  // achievements: APP_ACHIEVEMENTS,
   save: APP_SAVE,
   logoff: APP_LOGOFF
 }

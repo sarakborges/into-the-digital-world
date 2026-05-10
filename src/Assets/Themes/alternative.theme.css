@@ -1,20 +1,11 @@
 .theme-alternative {
-  --color-primary: #6255c3;
-  --color-primary-strong: #4b37e0;
-  --color-primary-weak: #a297f0;
+  --color-primary: #6b5ce7;
+  --color-primary-strong: #5746e0;
+  --color-primary-weak: #9d92f5;
 
-  --color-secondary: #27a8a2;
-  --color-secondary-strong: #11817c;
-  --color-secondary-weak: #5fafab;
+  --color-secondary: #31b7d3;
+  --color-secondary-strong: #1997b3;
+  --color-secondary-weak: #5fc9de;
 
-  --color-cancel: #d63737;
-  --color-cancel-strong: #a82626;
-  --color-cancel-weak: #5c1414;
-
-  --color-neutral-weak: #f8fbff;
-  --color-neutral: #8c9bab;
-  --color-neutral-strong: #121821;
-
-  --text-color: #fff;
-  --modal-color: #6255c399;
+  --modal-color: #6b5ce780;
 }

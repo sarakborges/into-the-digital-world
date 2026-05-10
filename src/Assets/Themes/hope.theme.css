@@ -1,20 +1,11 @@
 .theme-hope {
   --color-primary: #e3bf3c;
-  --color-primary-strong: #e5bb25;
-  --color-primary-weak: #c1b27f;
+  --color-primary-strong: #d4ab16;
+  --color-primary-weak: #d7c27a;
 
-  --color-secondary: #82d146;
-  --color-secondary-strong: #6bc12a;
-  --color-secondary-weak: #a5d184;
+  --color-secondary: #63b8f2;
+  --color-secondary-strong: #3d9fe0;
+  --color-secondary-weak: #8fc8ee;
 
-  --color-cancel: #c94c4c;
-  --color-cancel-strong: #8a3333;
-  --color-cancel-weak: #451919;
-
-  --color-neutral-weak: #fffef8;
-  --color-neutral: #c2bca3;
-  --color-neutral-strong: #1a1810;
-
-  --text-color: #fff;
-  --modal-color: #f6d14d99;
+  --modal-color: #e3bf3c80;
 }

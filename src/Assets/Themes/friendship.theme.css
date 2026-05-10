@@ -1,20 +1,11 @@
 .theme-friendship {
-  --color-primary: #0060f2;
-  --color-primary-strong: #0043a8;
-  --color-primary-weak: #3d75c8;
+  --color-primary: #1870f2;
+  --color-primary-strong: #0a52bf;
+  --color-primary-weak: #4d88d6;
 
-  --color-secondary: #ccb638;
-  --color-secondary-strong: #edcc0f;
-  --color-secondary-weak: #e7d675;
+  --color-secondary: #3fc7c2;
+  --color-secondary-strong: #22aaa5;
+  --color-secondary-weak: #74d7d3;
 
-  --color-cancel: #8a2f2f;
-  --color-cancel-strong: #5c1f1f;
-  --color-cancel-weak: #2e0f0f;
-
-  --color-neutral-weak: #f4f7fb;
-  --color-neutral: #7d8b9a;
-  --color-neutral-strong: #101820;
-
-  --text-color: #fff;
-  --modal-color: #0060f299;
+  --modal-color: #1870f280;
 }

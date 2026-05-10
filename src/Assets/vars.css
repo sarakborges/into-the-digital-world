@@ -1,12 +1,13 @@
 :root {
-  --size-xxs: 2px;
-  --size-xs: 4px;
-  --size-sm: 8px;
-  --size-smd: 12px;
-  --size-md: 16px;
-  --size-lmd: 24px;
-  --size-lg: 36px;
-  --size-xl: 48px;
+  --color-cancel: #e04848;
+  --color-cancel-strong: #bb3434;
+  --color-cancel-weak: #f08b8b;
+
+  --color-neutral-weak: #f8fbff;
+  --color-neutral: #8c9bab;
+  --color-neutral-strong: #121821;
+
+  --text-color: #fff;
 
   --font-family: 'Winky Rough', sans-serif;
 

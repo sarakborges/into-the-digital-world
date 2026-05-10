@@ -25,7 +25,7 @@ export const SaveGame002 = () => {
         id: 'scene-savegame-002-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setDigivice({ ...digivice, isOpen: false })
+          setDigivice({ ...digivice, currentApp: undefined })
           setScene(null)
         }
       }

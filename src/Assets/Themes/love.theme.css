@@ -1,20 +1,11 @@
 .theme-love {
-  --color-primary: #bf3e3c;
-  --color-primary-strong: #dc3b38;
-  --color-primary-weak: #e16866;
+  --color-primary: #c94a47;
+  --color-primary-strong: #b93532;
+  --color-primary-weak: #de7875;
 
-  --color-secondary: #f84bb5;
-  --color-secondary-strong: #f10a99;
-  --color-secondary-weak: #eb88c5;
+  --color-secondary: #e85aad;
+  --color-secondary-strong: #d93d96;
+  --color-secondary-weak: #e79ac8;
 
-  --color-cancel: #b33939;
-  --color-cancel-strong: #7a2424;
-  --color-cancel-weak: #3d1212;
-
-  --color-neutral-weak: #fff6f8;
-  --color-neutral: #a8959a;
-  --color-neutral-strong: #1a1416;
-
-  --text-color: #fff;
-  --modal-color: #bf3e3c99;
+  --modal-color: #c94a4780;
 }
