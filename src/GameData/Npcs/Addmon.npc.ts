@@ -1,0 +1,8 @@
+import type { NpcType } from '@/Types/Npc.type'
+
+export const NpcAddmon: NpcType = {
+  id: 'addmon',
+  name: 'Addmon',
+  portrait: 'npc_portraits/addmon',
+  category: 'appmon'
+}
