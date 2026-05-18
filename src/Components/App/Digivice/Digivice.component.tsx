@@ -1,11 +1,18 @@
 import { HiOutlineDevicePhoneMobile } from 'react-icons/hi2'
+import { IoCaretBack } from 'react-icons/io5'
+import { FaTimes } from 'react-icons/fa'
+import { BiSolidSquareRounded } from 'react-icons/bi'
 
 import { AllApps } from '@/Consts/DigiviceApps'
+
+import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { useScene } from '@/Hooks/Scene.hook'
 import { useDigivice } from '@/Hooks/Digivice.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useSettings } from '@/Hooks/Settings.hook'
+import { Text } from '@/Components/System/Text'
+import { Portrait } from '@/Components/System/Portrait'
 
 import { Button } from '@/Components/System/Button'
 import { Modal } from '@/Components/System/Modal'
@@ -13,10 +20,6 @@ import { Modal } from '@/Components/System/Modal'
 import { DigiviceApp } from '@/Components/App/DigiviceApp'
 
 import './Digivice.style.scss'
-import { Text } from '@/Components/System/Text'
-import { getTexts } from '@/Helpers/getTexts.helper'
-import { FaTimes } from 'react-icons/fa'
-import { Portrait } from '@/Components/System/Portrait'
 
 export const Digivice = () => {
   const { profile } = useProfile()
@@ -30,9 +33,7 @@ export const Digivice = () => {
 
   const toggleModal = () => {
     setDigivice({
-      ...digivice,
-      isOpen: !digivice.isOpen,
-      currentApp: undefined
+      isOpen: !digivice.isOpen
     })
 
     if (
@@ -48,8 +49,22 @@ export const Digivice = () => {
 
   const closeApp = () => {
     setDigivice({
-      ...digivice,
-      currentApp: undefined
+      isOpen: false
+    })
+  }
+
+  const pressBackButton = () => {
+    if (!!digivice.currentAcquintance) {
+      setDigivice({
+        ...digivice,
+        currentAcquintance: ''
+      })
+
+      return
+    }
+
+    setDigivice({
+      isOpen: true
     })
   }
 
@@ -93,6 +108,24 @@ export const Digivice = () => {
                   </header>
 
                   <main>{AllApps[digivice.currentApp].component}</main>
+
+                  <footer>
+                    <Button onClick={pressBackButton}>
+                      <IoCaretBack />
+                    </Button>
+
+                    <Button
+                      onClick={() =>
+                        setDigivice({
+                          ...digivice,
+                          currentAcquintance: undefined,
+                          currentApp: undefined
+                        })
+                      }
+                    >
+                      <BiSolidSquareRounded />
+                    </Button>
+                  </footer>
                 </div>
               )}
             </div>

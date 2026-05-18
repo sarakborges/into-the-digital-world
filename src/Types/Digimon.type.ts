@@ -1,6 +1,5 @@
 export type DigimonType = {
   id: number
   name?: string
-
-  baseDigimon: {}
+  baseDigimon: string
 }

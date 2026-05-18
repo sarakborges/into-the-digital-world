@@ -1,23 +1,22 @@
-import { Button } from '@/Components/System/Button'
-import './AcquintanceDetails.style.scss'
-import { Portrait } from '@/Components/System/Portrait'
-import { Text } from '@/Components/System/Text'
-import { AllNpcs } from '@/GameData/Npcs'
 import { getTexts } from '@/Helpers/getTexts.helper'
+
+import { AllNpcs } from '@/GameData/Npcs'
+
 import { useDigivice } from '@/Hooks/Digivice.hook'
 
+import { Portrait } from '@/Components/System/Portrait'
+import { Text } from '@/Components/System/Text'
+
+import './AcquintanceDetails.style.scss'
+
 export const AcquintanceDetails = () => {
-  const { digivice, setDigivice } = useDigivice()
+  const { digivice } = useDigivice()
 
   if (!digivice.currentAcquintance) {
     return <></>
   }
 
   const npc = AllNpcs[digivice.currentAcquintance]
-
-  const clearCurrentAcquintance = () => {
-    setDigivice({ ...digivice, currentAcquintance: undefined })
-  }
 
   return (
     <div className="npc-profile">
@@ -26,12 +25,6 @@ export const AcquintanceDetails = () => {
           <div className="npc-avatar">
             <Portrait alt={npc.name} src={`/npc_portraits/${npc.id}.webp`} />
           </div>
-        </aside>
-
-        <aside>
-          <Button onClick={clearCurrentAcquintance}>
-            {getTexts('BUTTON_RETURN')}
-          </Button>
         </aside>
 
         <main className="npc-info">

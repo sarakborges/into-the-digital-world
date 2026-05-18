@@ -31,6 +31,12 @@ export const APP_ACHIEVEMENTS = {
   scene: 'achievements'
 }
 
+export const APP_ENCYCLOPEDIA = {
+  id: 'encyclopedia',
+  scene: 'encyclopedia',
+  app: 'encyclopedia'
+}
+
 export const APP_ACQUINTANCES = {
   id: 'acquintances',
   scene: 'acquintances',
@@ -53,6 +59,7 @@ export const AllApps = {
   fashion: APP_FASHION,
   // location: APP_LOCATION,
   // journal: APP_JOURNAL,
+  encyclopedia: APP_ENCYCLOPEDIA,
   acquintances: APP_ACQUINTANCES,
   // achievements: APP_ACHIEVEMENTS,
   save: APP_SAVE,

@@ -91,6 +91,11 @@
         box-shadow: 0 0 16px var(--color-neutral-strong);
 
         .current-app {
+          display: flex;
+          flex-flow: column;
+
+          min-height: 100%;
+
           background-color: var(--color-secondary-weak);
 
           .app-header {
@@ -119,16 +124,37 @@
               .text {
                 font-size: 20px;
               }
-
-              svg {
-                width: 16px;
-                height: 16px;
-              }
             }
           }
 
           > main {
+            flex: 1;
             padding: 8px;
+          }
+
+          > footer {
+            position: sticky;
+            bottom: 0;
+            left: 0;
+            z-index: 105;
+
+            display: flex;
+            place-content: space-evenly;
+
+            width: 100%;
+
+            background-color: var(--color-neutral-strong);
+
+            .button {
+              padding: 8px;
+
+              background-color: transparent;
+
+              svg {
+                width: 20px;
+                height: 20px;
+              }
+            }
           }
         }
 
