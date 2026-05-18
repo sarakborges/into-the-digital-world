@@ -1,5 +1,5 @@
 import { DigimonDorimon } from './Dorimon.digimon'
 
-export const AllNpcs = {
-  gennai: DigimonDorimon
+export const AllDigimons = {
+  dorimon: DigimonDorimon
 }

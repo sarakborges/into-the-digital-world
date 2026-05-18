@@ -1,5 +1,6 @@
 import { Acquintances } from '@/Components/App/Acquintances'
 import { AvatarCustomization } from '@/Components/App/AvatarCustomization'
+import { Encyclopedia } from '@/Components/App/Encyclopedia'
 import { PlayerProfile } from '@/Components/App/PlayerProfile'
 
 export const APP_PROFILE = {
@@ -34,7 +35,8 @@ export const APP_ACHIEVEMENTS = {
 export const APP_ENCYCLOPEDIA = {
   id: 'encyclopedia',
   scene: 'encyclopedia',
-  app: 'encyclopedia'
+  app: 'encyclopedia',
+  component: <Encyclopedia />
 }
 
 export const APP_ACQUINTANCES = {

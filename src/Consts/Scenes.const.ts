@@ -5,6 +5,7 @@ import { LogoffScenes } from '@/GameData/Scenes/Logoff'
 import { GetStarterDigimonScenes } from '@/GameData/Scenes/GetStarterDigimon'
 import { ProfileScenes } from '@/GameData/Scenes/Profile'
 import { AcquintancesScenes } from '@/GameData/Scenes/Acquintances'
+import { EncyclopediaScenes } from '@/GameData/Scenes/Encyclopedia'
 
 export const SCENES = {
   introduction: IntroductionScenes,
@@ -13,5 +14,6 @@ export const SCENES = {
   logoff: LogoffScenes,
   getStarterDigimon: GetStarterDigimonScenes,
   acquintances: AcquintancesScenes,
-  profile: ProfileScenes
+  profile: ProfileScenes,
+  encyclopedia: EncyclopediaScenes
 }

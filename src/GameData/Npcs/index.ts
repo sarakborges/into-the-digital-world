@@ -6,6 +6,7 @@ import { NpcLogamon } from './Logamon.npc'
 import { NpcMirrormon } from './Mirrormon.npc'
 import { NpcAddmon } from './Addmon.npc'
 import { NpcDorimon } from './Dorimon.npc'
+import { NpcBookmon } from './Bookmon.npc'
 
 export const AllNpcs = {
   gennai: NpcGennai,
@@ -15,5 +16,6 @@ export const AllNpcs = {
   logamon: NpcLogamon,
   mirrormon: NpcMirrormon,
   addmon: NpcAddmon,
-  dorimon: NpcDorimon
+  dorimon: NpcDorimon,
+  bookmon: NpcBookmon
 }
