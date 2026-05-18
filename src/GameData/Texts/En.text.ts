@@ -1,5 +1,7 @@
 export const START_SCREEN_TITLE = `Welcome Into the\nDigital World!`
 
+export const BUTTON_RETURN = `Return`
+
 export const START_NEW_GAME = `New game`
 export const SAVED_GAMES = `Saved files:`
 export const GAME_FILE_TITLE = `[NAME]`
@@ -22,7 +24,11 @@ export const PROFILE_NAME = `[NAME],`
 export const PROFILE_TITLE = `\n"[TITLE]"`
 export const PROFILE_CURRENCY = `D$ [CURRENCY]`
 
+export const ACQUINTANCE_NAME = `[NAME],`
+
 export const TITLES_CHOSENCHILD = `The chosen child`
+
+export const TITLES_GENNAI = `Last of Homeostasis's agents`
 
 export const GAME_SAVED = `Data saved`
 

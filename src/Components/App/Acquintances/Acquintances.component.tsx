@@ -11,11 +11,15 @@ import { Button } from '@/Components/System/Button'
 import { Portrait } from '@/Components/System/Portrait'
 import { Text } from '@/Components/System/Text'
 
+import { AcquintanceDetails } from '@/Components/App/AcquintanceDetails'
+
 import './Acqunitances.style.scss'
+import { useDigivice } from '@/Hooks/Digivice.hook'
 
 export const Acquintances = () => {
   const { profile } = useProfile()
   const { scene } = useScene()
+  const { digivice, setDigivice } = useDigivice()
 
   const acquintances: {
     [k: string]: Array<NpcType>
@@ -35,6 +39,17 @@ export const Acquintances = () => {
     acquintances[npc.category].push(npc)
   }
 
+  if (!!digivice.currentAcquintance) {
+    return <AcquintanceDetails />
+  }
+
+  const setAcquintance = (id) => {
+    setDigivice({
+      ...digivice,
+      currentAcquintance: id
+    })
+  }
+
   return (
     <div className="acquintances">
       {Object.keys(acquintances).map((category) => (
@@ -49,6 +64,7 @@ export const Acquintances = () => {
                   .map((npc) => (
                     <Button
                       key={`acquintances-${category}-${npc.id}`}
+                      onClick={() => setAcquintance(npc.id)}
                       disabled={!!scene}
                     >
                       <Portrait alt={npc.name} src={`/${npc.portrait}.webp`} />

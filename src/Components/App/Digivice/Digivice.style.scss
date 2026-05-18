@@ -94,6 +94,11 @@
           background-color: var(--color-secondary-weak);
 
           .app-header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 104;
+
             display: flex;
             place-content: space-between;
             place-items: center;

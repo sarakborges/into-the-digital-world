@@ -64,7 +64,7 @@
     display: flex;
     gap: 8px;
 
-    .button {
+    > div > .button {
       position: relative;
       z-index: 103;
 
