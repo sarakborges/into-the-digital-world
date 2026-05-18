@@ -1,21 +1,23 @@
+import { AllDigimons } from '@/GameData/Digimons'
+
 import { useProfile } from '@/Hooks/Profile.hook'
 
-import { Text } from '@/Components/System/Text'
+import { Button } from '@/Components/System/Button'
 
 import './Encyclopedia.style.scss'
-import { AllDigimons } from '@/GameData/Digimons'
 
 export const Encyclopedia = () => {
   const { profile } = useProfile()
 
-  const partners = profile?.partnerDigimons!
+  const partners = Object.values(profile?.partnerDigimons!).map((partner) => ({
+    ...partner,
+    baseDigimon: AllDigimons[partner.baseDigimon]
+  }))
 
   return (
     <>
-      {Object.values(partners).map((partner) => (
-        <>
-          <Text>{AllDigimons[partner.baseDigimon].name}</Text>
-        </>
+      {partners.map((partner) => (
+        <Button>{partner?.baseDigimon?.name}</Button>
       ))}
     </>
   )
