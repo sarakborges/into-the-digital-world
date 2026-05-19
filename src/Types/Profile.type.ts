@@ -8,6 +8,7 @@ export type ProfileType = {
   avatar?: AvatarType
   currency?: number
   currentTitle: string
+  currentParty: Array<number>
 
   items: {
     [k: string]: {}

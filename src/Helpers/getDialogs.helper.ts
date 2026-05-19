@@ -7,6 +7,7 @@ import { SaveGameDialogs } from '@/GameData/Dialogs/SaveGame'
 import { LogoffDialogs } from '@/GameData/Dialogs/Logoff'
 import { ProfileDialogs } from '@/GameData/Dialogs/Profile'
 import { AcquintancesDialogs } from '@/GameData/Dialogs/Acquintances'
+import { EncyclopediaDialogs } from '@/GameData/Dialogs/Encyclopedia'
 
 const EnDialogs = {
   SCENES_CONTINUE_BUTTON: `Continue`,
@@ -20,7 +21,8 @@ const EnDialogs = {
   ...LogoffDialogs.En,
   ...GetStarterDigimonDialogs.En,
   ...ProfileDialogs.En,
-  ...AcquintancesDialogs.En
+  ...AcquintancesDialogs.En,
+  ...EncyclopediaDialogs.En
 }
 
 const PtDialogs = {
@@ -35,7 +37,8 @@ const PtDialogs = {
   ...LogoffDialogs.Pt,
   ...GetStarterDigimonDialogs.Pt,
   ...ProfileDialogs.Pt,
-  ...AcquintancesDialogs.Pt
+  ...AcquintancesDialogs.Pt,
+  ...EncyclopediaDialogs.Pt
 }
 
 const RsDialogs = {
@@ -50,7 +53,8 @@ const RsDialogs = {
   ...LogoffDialogs.Rs,
   ...GetStarterDigimonDialogs.Rs,
   ...ProfileDialogs.Rs,
-  ...AcquintancesDialogs.Rs
+  ...AcquintancesDialogs.Rs,
+  ...EncyclopediaDialogs.Rs
 }
 
 const defaultLanguage = 'en-us'

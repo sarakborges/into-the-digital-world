@@ -18,17 +18,36 @@
       flex-flow: column;
       gap: 2px;
 
-      .button {
-        place-content: flex-start;
+      .npc-item {
+        display: flex;
+        place-items: center;
         gap: 8px;
 
         padding: 4px 8px;
+
+        background-color: var(--color-secondary);
+        border-radius: 4px;
 
         .portrait {
           max-height: 24px;
           overflow: hidden;
 
           border-radius: 100%;
+        }
+
+        > header {
+          flex: 1;
+        }
+
+        .button {
+          place-content: flex-start;
+
+          padding: 4px;
+
+          svg {
+            width: 20px;
+            height: 20px;
+          }
         }
       }
     }

@@ -1,24 +1,117 @@
+import { TbListDetails } from 'react-icons/tb'
+
+import { getTexts } from '@/Helpers/getTexts.helper'
+
 import { AllDigimons } from '@/GameData/Digimons'
 
 import { useProfile } from '@/Hooks/Profile.hook'
+import { useScene } from '@/Hooks/Scene.hook'
 
 import { Button } from '@/Components/System/Button'
+import { Text } from '@/Components/System/Text'
+import { Portrait } from '@/Components/System/Portrait'
 
 import './Encyclopedia.style.scss'
+import { BsArrowDown, BsArrowUp } from 'react-icons/bs'
 
 export const Encyclopedia = () => {
-  const { profile } = useProfile()
+  const { profile, setProfile } = useProfile()
+  const { scene } = useScene()
 
-  const partners = Object.values(profile?.partnerDigimons!).map((partner) => ({
-    ...partner,
-    baseDigimon: AllDigimons[partner.baseDigimon]
-  }))
+  const allPartners = Object.values(profile?.partnerDigimons!).map(
+    (partner) => ({
+      ...partner,
+      baseDigimon: AllDigimons[partner.baseDigimon]
+    })
+  )
+
+  const partners = {
+    inParty: allPartners.filter(
+      (partner) => !!profile?.currentParty.includes(partner.id)
+    ),
+
+    others: allPartners.filter(
+      (partner) => !profile?.currentParty.includes(partner.id)
+    )
+  }
+
+  const removeFromParty = (id: number) => {
+    setProfile({
+      ...profile!,
+      currentParty:
+        profile!.currentParty.filter((partner) => partner !== id) ?? []
+    })
+  }
+
+  const addToParty = (id: number) => {
+    setProfile({
+      ...profile!,
+      currentParty: [...profile!.currentParty, id]
+    })
+  }
 
   return (
-    <>
-      {partners.map((partner) => (
-        <Button>{partner?.baseDigimon?.name}</Button>
+    <div className="encyclopedia">
+      {Object.keys(partners).map((category) => (
+        <div
+          className="encyclopedia-category"
+          key={`encyclopedia-partners-${category}`}
+        >
+          <Text>
+            {getTexts(`ENCYCLOPEDIA_CATEGORY_${category.toLocaleUpperCase()}`)}
+          </Text>
+
+          <div className="encyclopedia-list">
+            {!!partners[category].length ? (
+              partners[category].map((partner) => (
+                <div
+                  className="encyclopedia-partner"
+                  key={`encyclopedia-partner-${partner.id}`}
+                >
+                  <aside className="partner-avatar">
+                    <Portrait
+                      alt={partner.name || partner.baseDigimon.name}
+                      src={`/digimon_portraits/${partner.baseDigimon.id.toLocaleUpperCase()}.webp`}
+                    />
+                  </aside>
+
+                  <header className="partner-name">
+                    <Text>{partner?.name || partner?.baseDigimon?.name}</Text>
+
+                    {partner?.name && <Text>{partner?.baseDigimon?.name}</Text>}
+                  </header>
+
+                  <footer>
+                    <Button disabled={!!scene}>
+                      <TbListDetails />
+                    </Button>
+
+                    {category === 'inParty' && (
+                      <Button
+                        disabled={!!scene || profile!.currentParty.length < 2}
+                        onClick={() => removeFromParty(partner.id)}
+                      >
+                        <BsArrowDown />
+                      </Button>
+                    )}
+
+                    {category === 'others' && (
+                      <Button
+                        disabled={!!scene || profile!.currentParty.length > 2}
+                        onClick={() => addToParty(partner.id)}
+                      >
+                        <BsArrowUp />
+                      </Button>
+                    )}
+                  </footer>
+                </div>
+              ))
+            ) : (
+              <Text>{getTexts('ENCYCLOPEDIA_NO_OTHERS')}</Text>
+            )}
+          </div>
+        </div>
       ))}
-    </>
+    </div>
   )
 }

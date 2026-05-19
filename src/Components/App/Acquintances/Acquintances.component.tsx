@@ -1,9 +1,11 @@
 import { Fragment } from 'react/jsx-runtime'
+import { TbListDetails } from 'react-icons/tb'
 
 import type { NpcType } from '@/Types/Npc.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
+import { useDigivice } from '@/Hooks/Digivice.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useScene } from '@/Hooks/Scene.hook'
 
@@ -14,7 +16,6 @@ import { Text } from '@/Components/System/Text'
 import { AcquintanceDetails } from '@/Components/App/AcquintanceDetails'
 
 import './Acqunitances.style.scss'
-import { useDigivice } from '@/Hooks/Digivice.hook'
 
 export const Acquintances = () => {
   const { profile } = useProfile()
@@ -62,15 +63,30 @@ export const Acquintances = () => {
                 {acquintances[category]
                   .sort((a, b) => (a.id > b.id ? 1 : -1))
                   .map((npc) => (
-                    <Button
+                    <div
+                      className="npc-item"
                       key={`acquintances-${category}-${npc.id}`}
-                      onClick={() => setAcquintance(npc.id)}
-                      disabled={!!scene}
                     >
-                      <Portrait alt={npc.name} src={`/${npc.portrait}.webp`} />
+                      <aside>
+                        <Portrait
+                          alt={npc.name}
+                          src={`/${npc.portrait}.webp`}
+                        />
+                      </aside>
 
-                      <Text>{npc.name}</Text>
-                    </Button>
+                      <header>
+                        <Text>{npc.name}</Text>
+                      </header>
+
+                      <footer>
+                        <Button
+                          onClick={() => setAcquintance(npc.id)}
+                          disabled={!!scene}
+                        >
+                          <TbListDetails />
+                        </Button>
+                      </footer>
+                    </div>
                   ))}
               </div>
             </div>

@@ -1,0 +1,67 @@
+.encyclopedia {
+  display: flex;
+  flex-flow: column;
+  gap: 12px;
+
+  .encyclopedia-category {
+    display: flex;
+    flex-flow: column;
+    gap: 4px;
+
+    > .text {
+      font-size: 20px;
+    }
+
+    .encyclopedia-list {
+      display: flex;
+      flex-flow: column;
+      gap: 2px;
+
+      .encyclopedia-partner {
+        display: flex;
+        place-items: center;
+        gap: 8px;
+
+        padding: 4px 8px;
+
+        background-color: var(--color-secondary);
+        border-radius: 4px;
+
+        .portrait {
+          width: 24px;
+          min-width: 24px;
+          overflow: hidden;
+
+          border-radius: 100%;
+        }
+
+        .partner-name {
+          display: flex;
+          flex-flow: column;
+          place-items: flex-start;
+          gap: 2px;
+
+          flex: 1;
+
+          .text:nth-child(2) {
+            font-size: 12px;
+          }
+        }
+
+        footer {
+          display: flex;
+          gap: 2px;
+
+          .button {
+            padding: 4px;
+
+            svg {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
