@@ -25,6 +25,9 @@ export const PROFILE_NAME = `[NAME],`
 export const PROFILE_TITLE = `\n"[TITLE]"`
 export const PROFILE_CURRENCY = `D$ [CURRENCY]`
 
+export const BATTLE_PARTY_PLAYER = `Your party`
+export const BATTLE_PARTY_ENEMY = `Enemy party`
+
 export const ACQUINTANCE_NAME = `[NAME],`
 
 export const ENCYCLOPEDIA_CATEGORY_INPARTY = `Current party:`

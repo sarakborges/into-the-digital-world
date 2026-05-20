@@ -10,6 +10,7 @@ import { Text } from '@/Components/System/Text'
 import { BattleParty } from '@/Components/App/BattleParty'
 
 import './Battlefield.style.scss'
+import { getTexts } from '@/Helpers/getTexts.helper'
 
 export const Battlefield = () => {
   const { battle, setBattle } = useBattle()
@@ -33,12 +34,12 @@ export const Battlefield = () => {
     }
   } = {
     allies: {
-      title: 'Your party',
+      title: getTexts('BATTLE_PARTY_PLAYER'),
       list: []
     },
 
     enemies: {
-      title: 'Enemy party',
+      title: getTexts('BATTLE_PARTY_ENEMY'),
       list: []
     }
   }
@@ -59,7 +60,7 @@ export const Battlefield = () => {
     <div className="battlefield">
       <div className="digimon-parties">
         {Object.keys(parties).map((party) => (
-          <div>
+          <div key={`party-${party}`}>
             <header>
               <Text>{parties[party].title}</Text>
             </header>
