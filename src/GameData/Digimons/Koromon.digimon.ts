@@ -5,6 +5,8 @@ export const DigimonKoromon: BaseDigimonType = {
   name: 'Koromon',
   description: ``,
   portrait: 'digimon_portraits/KOROMON',
+  attribute: 'noattribute',
+  families: [],
 
   stats: {
     vit: 24,
