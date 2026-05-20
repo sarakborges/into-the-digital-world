@@ -1,0 +1,101 @@
+.battle-party {
+  display: flex;
+  flex-flow: column;
+  gap: 16px;
+
+  .party-member {
+    > header {
+      display: flex;
+      place-items: flex-start;
+
+      .portrait {
+        position: relative;
+        z-index: 2;
+
+        display: flex;
+        gap: 6px;
+
+        max-width: 58px;
+        min-width: 58px;
+        padding: 2px;
+        margin-right: -24px;
+
+        border: 2px solid var(--color-primary);
+        border-radius: 100%;
+
+        img {
+          border-radius: 100%;
+        }
+      }
+
+      > div {
+        display: flex;
+        flex-flow: column;
+        gap: 4px;
+
+        width: calc(100% - 38px);
+
+        .digimon-name {
+          display: flex;
+
+          .text {
+            position: relative;
+            z-index: 1;
+
+            max-width: 100%;
+            padding: 4px;
+            padding-left: 24px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            background-color: var(--color-primary);
+            border-radius: 8px 8px 8px 32px;
+          }
+        }
+
+        .resources {
+          display: flex;
+          flex-flow: column;
+          gap: 4px;
+
+          padding-left: 28px;
+
+          .resource-bar {
+            position: relative;
+
+            display: flex;
+            place-items: center;
+
+            > .text {
+              position: absolute;
+
+              width: 100%;
+              padding: 0 8px;
+            }
+
+            &:after {
+              content: '';
+
+              width: var(--fill);
+              height: 8px;
+
+              border-radius: 4px;
+            }
+
+            &:nth-child(1) {
+              &:after {
+                background-color: var(--color-hp);
+              }
+            }
+
+            &:nth-child(2) {
+              &:after {
+                background-color: var(--color-sp);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

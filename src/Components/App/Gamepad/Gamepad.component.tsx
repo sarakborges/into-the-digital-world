@@ -11,6 +11,7 @@ import { saveSession } from '@/Helpers/saveSession.helper'
 import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
 
 import * as Zones from '@/GameData/Zones'
+import { AllDigimons } from '@/GameData/Digimons'
 
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useScene } from '@/Hooks/Scene.hook'
@@ -23,7 +24,7 @@ import './Gamepad.style.scss'
 export const Gamepad = () => {
   const { profile, setProfile } = useProfile()
   const { scene, setScene } = useScene()
-  const { battle, setBattle } = useBattle()
+  const { setBattle } = useBattle()
 
   if (!profile) {
     return <></>
@@ -57,18 +58,28 @@ export const Gamepad = () => {
     if (!!possibleSpawns) {
       const enemiesSpawned: Array<string> = []
 
-      for (let spawn of possibleSpawns) {
-        if (
-          enemiesSpawned.length >=
-          (currentZone.grid[updatedY][updatedX]!.maxEnemies || 3)
-        ) {
+      const enemyQuantity = Math.floor(
+        generateRandomNumber({
+          min: 0,
+          max: (currentZone.grid[updatedY][updatedX]!.maxEnemies || 3) * 5
+        }) / 5
+      )
+
+      while (true) {
+        if (enemiesSpawned.length >= enemyQuantity) {
           break
         }
 
-        const rng = generateRandomNumber({ min: 0, max: 100 })
+        for (let spawn of possibleSpawns) {
+          if (enemiesSpawned.length >= enemyQuantity) {
+            break
+          }
 
-        if (rng < spawn.spawningChance) {
-          enemiesSpawned.push(spawn.id)
+          const rng = generateRandomNumber({ min: 0, max: 100 })
+
+          if (rng < spawn.spawningChance) {
+            enemiesSpawned.push(spawn.id)
+          }
         }
       }
 
@@ -79,7 +90,11 @@ export const Gamepad = () => {
         })
 
         setBattle({
-          enemies: enemiesSpawned
+          allies: profile.currentParty.map(
+            (ally) => AllDigimons[profile.partnerDigimons[ally].baseDigimon]
+          ),
+
+          enemies: enemiesSpawned.map((enemy) => AllDigimons[enemy])
         })
       }
 

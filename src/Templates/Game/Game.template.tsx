@@ -16,7 +16,7 @@ import { Settings } from '@/Components/App/Settings'
 import { Digivice } from '@/Components/App/Digivice'
 import { StartScreen } from '@/Components/App/StartScreen'
 import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
-import { Battlefield } from '@/Components/Battlefield'
+import { Battlefield } from '@/Components/App/Battlefield'
 
 import './Game.style.scss'
 

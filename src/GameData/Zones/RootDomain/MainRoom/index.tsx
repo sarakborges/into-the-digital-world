@@ -6,30 +6,21 @@ import { fillGrid } from '@/Helpers/fillGrid'
 
 import { floorTile } from '@/GameData/Zones/floor.tile'
 import { AllNpcs } from '@/GameData/Npcs'
+import { AllDigimons } from '@/GameData/Digimons'
 
 import { WarpToCorridor } from './WarpToCorridor.event'
 import { TriggerGetStarterDigimon } from './TriggerGetStarterDigimon.event'
 
-floorTile.maxEnemies = 1
+floorTile.maxEnemies = 3
 floorTile.possibleSpawns = [
   {
-    id: 'koromon',
-    spawningChance: 50
+    id: AllDigimons.koromon.id,
+    spawningChance: 100
   },
 
   {
-    id: 'tunomon',
-    spawningChance: 50
-  },
-
-  {
-    id: 'mocchimon',
-    spawningChance: 50
-  },
-
-  {
-    id: 'tokomon',
-    spawningChance: 50
+    id: AllDigimons.dorimon.id,
+    spawningChance: 100
   }
 ]
 

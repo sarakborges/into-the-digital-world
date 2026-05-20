@@ -4,5 +4,5 @@ export const DigimonDorimon: BaseDigimonType = {
   id: 'dorimon',
   name: 'Dorimon',
   description: ``,
-  portrait: 'digimon_portraits/dorimon'
+  portrait: 'digimon_portraits/DORIMON'
 }

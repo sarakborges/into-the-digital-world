@@ -11,7 +11,6 @@ import { getDialogs } from '@/Helpers/getDialogs.helper'
 import { Text } from '@/Components/System/Text'
 
 import { Dialog } from '@/Components/App/Dialog'
-import { saveSession } from '@/Helpers/saveSession.helper'
 
 export const BattleStart = () => {
   const { profile, setProfile } = useProfile()
