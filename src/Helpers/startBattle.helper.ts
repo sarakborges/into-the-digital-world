@@ -11,10 +11,14 @@ export const startBattle = ({
   profile: ProfileType
   tile: TileType
 }) => {
+  if (!tile) {
+    return
+  }
+
   const { possibleSpawns, maxEnemies } = tile
   const enemiesSpawned: Array<string> = []
 
-  if (!possibleSpawns) {
+  if (!possibleSpawns?.length) {
     return
   }
 

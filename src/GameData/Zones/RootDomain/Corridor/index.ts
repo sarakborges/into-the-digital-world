@@ -9,23 +9,23 @@ import { WarpToMainRoom } from './WarpToMainRoom.event'
 import { WarpToRestRoom1 } from './WarpToRestRoom1.event'
 
 const fullFloorRow = {
-  1: floorTile,
-  2: floorTile,
-  3: floorTile,
-  4: floorTile,
-  5: floorTile,
-  6: floorTile,
-  7: floorTile,
-  8: floorTile,
-  9: floorTile,
-  10: floorTile,
-  11: floorTile,
-  12: floorTile,
-  13: floorTile,
-  14: floorTile,
-  15: floorTile,
-  16: floorTile,
-  17: floorTile
+  1: { ...floorTile },
+  2: { ...floorTile },
+  3: { ...floorTile },
+  4: { ...floorTile },
+  5: { ...floorTile },
+  6: { ...floorTile },
+  7: { ...floorTile },
+  8: { ...floorTile },
+  9: { ...floorTile },
+  10: { ...floorTile },
+  11: { ...floorTile },
+  12: { ...floorTile },
+  13: { ...floorTile },
+  14: { ...floorTile },
+  15: { ...floorTile },
+  16: { ...floorTile },
+  17: { ...floorTile }
 }
 
 const grid: GridType = {

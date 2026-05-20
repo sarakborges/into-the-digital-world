@@ -11,86 +11,90 @@ import { AllDigimons } from '@/GameData/Digimons'
 import { WarpToCorridor } from './WarpToCorridor.event'
 import { TriggerGetStarterDigimon } from './TriggerGetStarterDigimon.event'
 
-floorTile.maxEnemies = 3
-floorTile.possibleSpawns = [
-  {
-    id: AllDigimons.koromon.id,
-    spawningChance: 100
-  },
+const currentFloorTile = {
+  ...floorTile,
+  maxEnemies: 3,
 
-  {
-    id: AllDigimons.dorimon.id,
-    spawningChance: 100
-  }
-]
+  possibleSpawns: [
+    {
+      id: AllDigimons.koromon.id,
+      spawningChance: 100
+    },
+
+    {
+      id: AllDigimons.dorimon.id,
+      spawningChance: 100
+    }
+  ]
+}
 
 const fullFloorRow = {
-  1: floorTile,
-  2: floorTile,
-  3: floorTile,
-  4: floorTile,
-  5: floorTile,
-  6: floorTile,
-  7: floorTile,
-  8: floorTile,
-  9: floorTile,
-  10: floorTile,
-  11: floorTile,
-  12: floorTile,
-  13: floorTile,
-  14: floorTile,
-  15: floorTile,
-  16: floorTile,
-  17: floorTile
+  1: { ...currentFloorTile },
+  2: { ...currentFloorTile },
+  3: { ...currentFloorTile },
+  4: { ...currentFloorTile },
+  5: { ...currentFloorTile },
+  6: { ...currentFloorTile },
+  7: { ...currentFloorTile },
+  8: { ...currentFloorTile },
+  9: { ...currentFloorTile },
+  10: { ...currentFloorTile },
+  11: { ...currentFloorTile },
+  12: { ...currentFloorTile },
+  13: { ...currentFloorTile },
+  14: { ...currentFloorTile },
+  15: { ...currentFloorTile },
+  16: { ...currentFloorTile },
+  17: { ...currentFloorTile }
 }
 
 const coreRow = {
-  1: floorTile,
-  2: floorTile,
-  3: floorTile,
-  4: floorTile,
-  5: floorTile,
-  6: floorTile,
-  12: floorTile,
-  13: floorTile,
-  14: floorTile,
-  15: floorTile,
-  16: floorTile,
-  17: floorTile
+  1: { ...currentFloorTile },
+  2: { ...currentFloorTile },
+  3: { ...currentFloorTile },
+  4: { ...currentFloorTile },
+  5: { ...currentFloorTile },
+  6: { ...currentFloorTile },
+  12: { ...currentFloorTile },
+  13: { ...currentFloorTile },
+  14: { ...currentFloorTile },
+  15: { ...currentFloorTile },
+  16: { ...currentFloorTile },
+  17: { ...currentFloorTile }
 }
 
 const grid: GridType = {
   2: {
-    1: floorTile,
-    2: floorTile,
-    3: floorTile,
-    4: floorTile,
-    5: floorTile,
-    7: floorTile,
-    11: floorTile,
-    13: floorTile,
-    14: floorTile,
-    15: floorTile,
-    16: floorTile,
-    17: floorTile
+    1: { ...currentFloorTile },
+    2: { ...currentFloorTile },
+    3: { ...currentFloorTile },
+    4: { ...currentFloorTile },
+    5: { ...currentFloorTile },
+    7: { ...currentFloorTile },
+    11: { ...currentFloorTile },
+    13: { ...currentFloorTile },
+    14: { ...currentFloorTile },
+    15: { ...currentFloorTile },
+    16: { ...currentFloorTile },
+    17: { ...currentFloorTile }
   },
 
   3: {
-    2: floorTile,
-    3: floorTile,
-    4: floorTile,
-    5: floorTile,
-    6: floorTile,
-    7: floorTile,
-    8: floorTile,
-    9: floorTile,
-    10: floorTile,
-    11: floorTile,
-    12: floorTile,
-    13: floorTile,
-    14: floorTile,
-    15: floorTile,
-    16: floorTile
+    2: { ...currentFloorTile },
+    3: { ...currentFloorTile },
+    4: { ...currentFloorTile },
+    5: { ...currentFloorTile },
+    6: { ...currentFloorTile },
+    7: { ...currentFloorTile },
+    8: { ...currentFloorTile },
+    9: { ...currentFloorTile },
+    10: { ...currentFloorTile },
+    11: { ...currentFloorTile },
+    12: { ...currentFloorTile },
+    13: { ...currentFloorTile },
+    14: { ...currentFloorTile },
+    15: { ...currentFloorTile },
+    16: { ...currentFloorTile }
   },
 
   4: { ...fullFloorRow },
@@ -106,25 +110,25 @@ const grid: GridType = {
   14: { ...fullFloorRow },
 
   15: {
-    2: floorTile,
-    3: floorTile,
-    4: floorTile,
-    6: floorTile,
-    7: floorTile,
-    8: floorTile,
-    9: floorTile,
-    10: floorTile,
-    11: floorTile,
-    12: floorTile,
-    14: floorTile,
-    15: floorTile,
-    16: floorTile
+    2: { ...currentFloorTile },
+    3: { ...currentFloorTile },
+    4: { ...currentFloorTile },
+    6: { ...currentFloorTile },
+    7: { ...currentFloorTile },
+    8: { ...currentFloorTile },
+    9: { ...currentFloorTile },
+    10: { ...currentFloorTile },
+    11: { ...currentFloorTile },
+    12: { ...currentFloorTile },
+    14: { ...currentFloorTile },
+    15: { ...currentFloorTile },
+    16: { ...currentFloorTile }
   },
 
   16: { ...fullFloorRow },
 
   17: {
-    9: floorTile
+    9: { ...currentFloorTile }
   }
 }
 
