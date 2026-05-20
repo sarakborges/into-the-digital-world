@@ -8,12 +8,13 @@ import {
 import type { ZoneType } from '@/Types/Zone.type'
 
 import { saveSession } from '@/Helpers/saveSession.helper'
+import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
 
 import * as Zones from '@/GameData/Zones'
 
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useScene } from '@/Hooks/Scene.hook'
-import { useGame } from '@/Hooks/Game.hook'
+import { useBattle } from '@/Hooks/Battle.hook'
 
 import { Button } from '@/Components/System/Button'
 
@@ -22,6 +23,7 @@ import './Gamepad.style.scss'
 export const Gamepad = () => {
   const { profile, setProfile } = useProfile()
   const { scene, setScene } = useScene()
+  const { battle, setBattle } = useBattle()
 
   if (!profile) {
     return <></>
@@ -47,6 +49,38 @@ export const Gamepad = () => {
     }
 
     setProfile(updatedProfile)
+
+    const possibleSpawns = currentZone.grid[updatedY][
+      updatedX
+    ]?.possibleSpawns?.sort(() => Math.random() - 0.5)
+
+    if (!!possibleSpawns) {
+      const enemiesSpawned: Array<string> = []
+
+      for (let spawn of possibleSpawns) {
+        if (enemiesSpawned.length === 3) {
+          break
+        }
+
+        const rng = generateRandomNumber({ min: 0, max: 100 })
+
+        if (rng < spawn.spawningChance) {
+          enemiesSpawned.push(spawn.id)
+        }
+      }
+
+      if (enemiesSpawned.length > 0) {
+        setScene({
+          currentScene: 'battle',
+          currentStage: 'start'
+        })
+
+        setBattle({})
+      }
+
+      return
+    }
+
     saveSession({ key: 'profile', value: updatedProfile })
 
     const currentTile = currentZone.tiles.find(
@@ -56,16 +90,16 @@ export const Gamepad = () => {
         (!!tile.condition || tile.condition === undefined)
     )
 
-    if (!currentTile?.event) {
+    if (!!currentTile?.event) {
+      currentZone.events?.[currentTile?.event]({
+        profile: updatedProfile,
+        setProfile,
+        setScene,
+        scene
+      })
+
       return
     }
-
-    currentZone.events?.[currentTile?.event]({
-      profile: updatedProfile,
-      setProfile,
-      setScene,
-      scene
-    })
   }
 
   const surroundingTilesPositions = {

@@ -1,6 +1,6 @@
 import { Encyclopedia001 } from './001.scene'
 
 export const EncyclopediaScenes = {
-  id: 'acquintances',
+  id: 'encyclopedia',
   '001': Encyclopedia001
 }

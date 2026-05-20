@@ -131,9 +131,7 @@ export const RootDomainRestRoom1 = ({
           scene?.currentScene === SCENES.introduction.id &&
           scene?.currentStage !== '001',
 
-        npc: {
-          npcInfo: AllNpcs.gennai
-        }
+        npc: AllNpcs.gennai
       }
     ]
   }

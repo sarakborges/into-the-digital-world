@@ -7,6 +7,7 @@ import { SettingsProvider } from '@/Contexts/Settings.context'
 import { DigiviceProvider } from '@/Contexts/Digivice.context'
 import { SavedProfilesProvider } from '@/Contexts/SavedProfiles.context'
 import { AvatarCustomizationProvider } from '@/Contexts/AvatarCustomization.context'
+import { BattleProvider } from '@/Contexts/Battle.context'
 
 import { Game } from '@/Templates/Game'
 
@@ -20,7 +21,8 @@ const RenderProviders = ({ children }) => {
     SceneProvider,
     SettingsProvider,
     DigiviceProvider,
-    AvatarCustomizationProvider
+    AvatarCustomizationProvider,
+    BattleProvider
   ].reduce(
     (PrevProvider, CurrentProvider) => (
       <CurrentProvider>{PrevProvider}</CurrentProvider>

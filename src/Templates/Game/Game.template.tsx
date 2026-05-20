@@ -16,6 +16,7 @@ import { Settings } from '@/Components/App/Settings'
 import { Digivice } from '@/Components/App/Digivice'
 import { StartScreen } from '@/Components/App/StartScreen'
 import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
+import { Battlefield } from '@/Components/Battlefield'
 
 import './Game.style.scss'
 
@@ -46,21 +47,27 @@ export const Game = () => {
           </div>
         </header>
 
-        {!scene && (
-          <>
-            {!profile && <StartScreen />}
+        {!!profile?.currentlyInBattle && <Battlefield />}
 
-            {!!profile && !digivice.isOpen && (
-              <div className="screen-footer">
-                <InteractableTiles />
-                <Gamepad />
-              </div>
+        {!profile?.currentlyInBattle && (
+          <>
+            {!scene && (
+              <>
+                {!profile && <StartScreen />}
+
+                {!!profile && !digivice.isOpen && (
+                  <div className="screen-footer">
+                    <InteractableTiles />
+                    <Gamepad />
+                  </div>
+                )}
+              </>
             )}
+
+            {!!profile?.currentZone && <Gameboard />}
+            {!!scene && <Scene />}
           </>
         )}
-
-        {!!profile?.currentZone && <Gameboard />}
-        {!!scene && <Scene />}
       </div>
     </div>
   )

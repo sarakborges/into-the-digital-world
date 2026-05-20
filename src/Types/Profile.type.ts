@@ -7,8 +7,12 @@ export type ProfileType = {
   lastSave: string
   avatar?: AvatarType
   currency?: number
+  currentlyInBattle?: boolean
   currentTitle: string
   currentParty: Array<number>
+  currentScene: string | null
+  doneScenes: Array<string>
+  titles: Array<string>
 
   items: {
     [k: string]: {}
@@ -19,10 +23,6 @@ export type ProfileType = {
     x: number
     y: number
   }
-
-  currentScene: string | null
-  doneScenes: Array<string>
-  titles: Array<string>
 
   partnerDigimons: {
     [key: string]: DigimonType

@@ -29,32 +29,14 @@ const PtDialogs = {
   SCENES_CONTINUE_BUTTON: `Continuar`,
   SCENES_CONFIRM_BUTTON: `Confirmar`,
   SCENES_LEAVE_BUTTON: `Sair`,
-  SCENES_BACK_BUTTON: `Voltar`,
-
-  ...IntroductionDialogs.Pt,
-  ...AvatarCustomizationDialogs.Pt,
-  ...SaveGameDialogs.Pt,
-  ...LogoffDialogs.Pt,
-  ...GetStarterDigimonDialogs.Pt,
-  ...ProfileDialogs.Pt,
-  ...AcquintancesDialogs.Pt,
-  ...EncyclopediaDialogs.Pt
+  SCENES_BACK_BUTTON: `Voltar`
 }
 
 const RsDialogs = {
   SCENES_CONTINUE_BUTTON: `Vamo dale`,
   SCENES_CONFIRM_BUTTON: `Certo que sim`,
   SCENES_LEAVE_BUTTON: `Vazare`,
-  SCENES_BACK_BUTTON: `Calma lá`,
-
-  ...IntroductionDialogs.Rs,
-  ...AvatarCustomizationDialogs.Rs,
-  ...SaveGameDialogs.Rs,
-  ...LogoffDialogs.Rs,
-  ...GetStarterDigimonDialogs.Rs,
-  ...ProfileDialogs.Rs,
-  ...AcquintancesDialogs.Rs,
-  ...EncyclopediaDialogs.Rs
+  SCENES_BACK_BUTTON: `Calma lá`
 }
 
 const defaultLanguage = 'en-us'

@@ -1,5 +1,5 @@
-import type { GridType } from './Grid.type'
-import type { NpcType } from './Npc.type'
+import type { GridType } from '@/Types/Grid.type'
+import type { NpcType } from '@/Types/Npc.type'
 
 export type ZoneType = {
   id: string
@@ -19,9 +19,6 @@ export type ZoneType = {
     condition?: boolean
 
     event?: string
-
-    npc?: {
-      npcInfo: NpcType
-    }
+    npc?: NpcType
   }>
 }

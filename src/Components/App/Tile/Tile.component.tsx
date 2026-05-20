@@ -42,11 +42,11 @@ export const Tile = ({ x, y }: { x: number; y: number }) => {
   return (
     <div className="tile" style={tileVars}>
       {currentTiles.map((tile) => (
-        <Fragment key={`tile-${y}-${x}-${tile.npc?.npcInfo.id || tile.event}`}>
+        <Fragment key={`tile-${y}-${x}-${tile.npc?.id || tile.event}`}>
           <div className="npc">
             <Portrait
-              src={`/${tile!.npc!.npcInfo.portrait}.webp`}
-              alt={tile!.npc!.npcInfo.name}
+              src={`/${tile!.npc!.portrait}.webp`}
+              alt={tile!.npc!.name}
             />
           </div>
         </Fragment>

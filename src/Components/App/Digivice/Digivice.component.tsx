@@ -143,7 +143,8 @@ export const Digivice = () => {
           (scene?.currentScene === 'introduction' &&
             !['022'].includes(scene.currentStage)) ||
           (!!scene && scene?.currentScene !== 'introduction') ||
-          settings.isOpen
+          settings.isOpen ||
+          !!profile?.currentlyInBattle
         }
       >
         {<HiOutlineDevicePhoneMobile />}

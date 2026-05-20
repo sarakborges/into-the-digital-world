@@ -10,6 +10,28 @@ import { AllNpcs } from '@/GameData/Npcs'
 import { WarpToCorridor } from './WarpToCorridor.event'
 import { TriggerGetStarterDigimon } from './TriggerGetStarterDigimon.event'
 
+floorTile.possibleSpawns = [
+  {
+    id: 'koromon',
+    spawningChance: 50
+  },
+
+  {
+    id: 'tunomon',
+    spawningChance: 50
+  },
+
+  {
+    id: 'mocchimon',
+    spawningChance: 50
+  },
+
+  {
+    id: 'tokomon',
+    spawningChance: 50
+  }
+]
+
 const fullFloorRow = {
   1: floorTile,
   2: floorTile,
@@ -140,9 +162,8 @@ export const RootDomainMainRoom = ({ profile }: { profile: ProfileType }) => {
       {
         x: 9,
         y: 3,
-        npc: {
-          npcInfo: AllNpcs.gennai
-        },
+        npc: AllNpcs.gennai,
+
         condition:
           !!profile?.doneScenes.includes('introduction') &&
           !!profile?.doneScenes.includes('getStarterDigimon')
@@ -152,9 +173,7 @@ export const RootDomainMainRoom = ({ profile }: { profile: ProfileType }) => {
         x: 9,
         y: 3,
         event: 'triggerGetStarterDigimon',
-        npc: {
-          npcInfo: AllNpcs.gennai
-        },
+        npc: AllNpcs.gennai,
 
         condition:
           !!profile?.doneScenes.includes('introduction') &&

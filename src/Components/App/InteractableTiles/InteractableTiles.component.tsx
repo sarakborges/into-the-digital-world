@@ -60,22 +60,22 @@ export const InteractableTiles = () => {
     <aside className="interactable-tiles">
       {surroundingTiles.map((tile) => (
         <Fragment
-          key={`interactable-tile-y-${tile!.y}-x${tile!.x}-${tile!.npc!.npcInfo.id}`}
+          key={`interactable-tile-y-${tile!.y}-x${tile!.x}-${tile!.npc!.id}`}
         >
           {!!tile?.event && (
             <div className="events">
               <header>
                 <Text>
                   {Object.keys(profile!.npcAcquintances).includes(
-                    tile.npc!.npcInfo.id || ''
+                    tile.npc!.id || ''
                   )
-                    ? tile.npc!.npcInfo.name
+                    ? tile.npc!.name
                     : '???'}
                 </Text>
 
                 <Portrait
-                  alt={tile.npc!.npcInfo.name || ''}
-                  src={`/${tile.npc!.npcInfo.portrait}.webp`}
+                  alt={tile.npc!.name || ''}
+                  src={`/${tile.npc!.portrait}.webp`}
                 />
               </header>
 
