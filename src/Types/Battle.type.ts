@@ -1,6 +1,6 @@
-import type { BaseDigimonType } from './BaseDigimon.type'
+import type { PartyDigimonType } from './PartyDigimon.type'
 
 export type BattleType = {
-  allies: Array<BaseDigimonType>
-  enemies: Array<BaseDigimonType>
+  allies: Array<PartyDigimonType>
+  enemies: Array<PartyDigimonType>
 }

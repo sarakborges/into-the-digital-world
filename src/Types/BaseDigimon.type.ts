@@ -3,4 +3,15 @@ export type BaseDigimonType = {
   name: string
   description: string
   portrait: string
+
+  attribute: 'vaccine' | 'virus' | 'data' | 'noattribute'
+  families: Array<string>
+
+  stats: {
+    vit: number
+    sta: number
+    pow: number
+    res: number
+    spe: number
+  }
 }

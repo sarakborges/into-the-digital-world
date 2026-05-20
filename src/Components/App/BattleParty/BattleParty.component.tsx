@@ -1,4 +1,6 @@
-import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
+import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
+
+import { getPercentage } from '@/Helpers/getPercentage'
 
 import { Portrait } from '@/Components/System/Portrait'
 import { Text } from '@/Components/System/Text'
@@ -8,29 +10,23 @@ import './BattleParty.style.scss'
 export const BattleParty = ({
   party
 }: {
-  party: Array<BaseDigimonType & {}>
-}) => {
-  const partyWithData: Array<
-    BaseDigimonType & {
-      hp: number
-      sp: number
-    }
-  > = []
-
-  for (let digimon in party) {
-    partyWithData.push({
-      ...party[digimon],
-      hp: 100,
-      sp: 100
-    })
+  party: {
+    title: string
+    list: Array<PartyDigimonType>
   }
-
-  const resourceBars = ['hp', 'sp']
+}) => {
+  const resources = {
+    hp: 'vit',
+    sp: 'sta'
+  }
 
   return (
     <div className="battle-party">
-      {party!.map((digimon, digimonIndex) => (
-        <div key={`battle-party-${digimonIndex}`} className="party-member">
+      {party!.list.map((digimon, digimonIndex) => (
+        <div
+          key={`battle-party-${party.title}-digimon-${digimonIndex}`}
+          className="party-member"
+        >
           <header>
             <Portrait alt={digimon.name} src={`/${digimon.portrait}.webp`} />
 
@@ -40,17 +36,26 @@ export const BattleParty = ({
               </div>
 
               <div className="resources">
-                {resourceBars.map((resourceBar) => (
+                {Object.keys(resources).map((resource) => (
                   <div
-                    key={`digimon-${digimon.id}-${resourceBar}`}
                     className="resource-bar"
+                    key={`battle-party-${party.title}-digimon-${digimonIndex}-resources-${resource}`}
                     style={
                       {
-                        '--fill': `${digimon[resourceBar]}%`
+                        '--fill': `${getPercentage({
+                          current: digimon[resource],
+                          max: digimon.stats[resources[resource]]
+                        })}%`
                       } as React.CSSProperties
                     }
                   >
-                    <Text>{digimon[resourceBar]}%</Text>
+                    <Text>
+                      {getPercentage({
+                        current: digimon[resource],
+                        max: digimon.stats[resources[resource]]
+                      })}
+                      %
+                    </Text>
                   </div>
                 ))}
               </div>
