@@ -10,6 +10,7 @@ import { AllNpcs } from '@/GameData/Npcs'
 import { WarpToCorridor } from './WarpToCorridor.event'
 import { TriggerGetStarterDigimon } from './TriggerGetStarterDigimon.event'
 
+floorTile.maxEnemies = 1
 floorTile.possibleSpawns = [
   {
     id: 'koromon',

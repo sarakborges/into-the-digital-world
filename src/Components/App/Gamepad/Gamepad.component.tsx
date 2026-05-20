@@ -58,7 +58,10 @@ export const Gamepad = () => {
       const enemiesSpawned: Array<string> = []
 
       for (let spawn of possibleSpawns) {
-        if (enemiesSpawned.length === 3) {
+        if (
+          enemiesSpawned.length >=
+          (currentZone.grid[updatedY][updatedX]!.maxEnemies || 3)
+        ) {
           break
         }
 
@@ -75,7 +78,9 @@ export const Gamepad = () => {
           currentStage: 'start'
         })
 
-        setBattle({})
+        setBattle({
+          enemies: enemiesSpawned
+        })
       }
 
       return

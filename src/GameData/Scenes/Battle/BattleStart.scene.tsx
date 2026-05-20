@@ -50,7 +50,6 @@ export const BattleStart = () => {
             }
 
             setProfile(updatedProfile)
-            saveSession({ key: 'profile', value: updatedProfile })
           }
 
           setScene(null)
