@@ -8,10 +8,9 @@ import {
 import type { ZoneType } from '@/Types/Zone.type'
 
 import { saveSession } from '@/Helpers/saveSession.helper'
-import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
+import { startBattle } from '@/Helpers/startBattle.helper'
 
 import * as Zones from '@/GameData/Zones'
-import { AllDigimons } from '@/GameData/Digimons'
 
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useScene } from '@/Hooks/Scene.hook'
@@ -20,15 +19,14 @@ import { useBattle } from '@/Hooks/Battle.hook'
 import { Button } from '@/Components/System/Button'
 
 import './Gamepad.style.scss'
-import { startBattle } from '@/Helpers/startBattle.helper'
 
 export const Gamepad = () => {
   const { profile, setProfile } = useProfile()
   const { scene, setScene } = useScene()
-  const { battle, setBattle } = useBattle()
+  const { setBattle } = useBattle()
 
   if (!profile) {
-    return <></>
+    return
   }
 
   const currentZone: ZoneType = Zones[profile.currentZone.id]({
@@ -63,7 +61,13 @@ export const Gamepad = () => {
         currentStage: 'start'
       })
 
-      setBattle(battleStarted)
+      setBattle({
+        ...battleStarted,
+        mapPosition: {
+          x: updatedX,
+          y: updatedY
+        }
+      })
 
       return
     }

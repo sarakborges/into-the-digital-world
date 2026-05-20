@@ -1,19 +1,19 @@
 import { useEffect } from 'react'
 
-import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
-import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
+import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { useBattle } from '@/Hooks/Battle.hook'
+import { useScene } from '@/Hooks/Scene.hook'
 
 import { Text } from '@/Components/System/Text'
 
 import { BattleParty } from '@/Components/App/BattleParty'
 
 import './Battlefield.style.scss'
-import { getTexts } from '@/Helpers/getTexts.helper'
 
 export const Battlefield = () => {
   const { battle } = useBattle()
+  const { scene, setScene } = useScene()
 
   if (!battle) {
     return
@@ -25,6 +25,15 @@ export const Battlefield = () => {
     allies: getTexts('BATTLE_PARTY_ALLIES'),
     enemies: getTexts('BATTLE_PARTY_ENEMIES')
   }
+
+  useEffect(() => {
+    const currentTurn = battle.turnOrder[0]
+
+    setScene({
+      currentScene: 'battle',
+      currentStage: `${currentTurn.party}Turn`
+    })
+  }, [battle.turnOrder])
 
   return (
     <div className="battlefield">

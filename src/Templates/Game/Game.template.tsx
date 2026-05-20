@@ -64,10 +64,11 @@ export const Game = () => {
               </>
             )}
 
-            {!!profile?.currentZone && <Gameboard />}
-            {!!scene && <Scene />}
+            {<Gameboard />}
           </>
         )}
+
+        {<Scene />}
       </div>
     </div>
   )

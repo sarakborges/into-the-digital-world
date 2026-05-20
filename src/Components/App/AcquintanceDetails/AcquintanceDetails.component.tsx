@@ -13,7 +13,7 @@ export const AcquintanceDetails = () => {
   const { digivice } = useDigivice()
 
   if (!digivice.currentAcquintance) {
-    return <></>
+    return
   }
 
   const npc = AllNpcs[digivice.currentAcquintance]

@@ -8,4 +8,9 @@ export type BattleType = {
     party: string
     index: number
   }>
+
+  mapPosition: {
+    x: number
+    y: number
+  }
 }

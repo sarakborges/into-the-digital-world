@@ -13,7 +13,7 @@ export const Scene = () => {
     SCENES[scene?.currentScene!][scene?.currentStage || '001']
 
   if (!RenderedScene) {
-    return <></>
+    return
   }
 
   return (

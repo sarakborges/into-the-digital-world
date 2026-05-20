@@ -1,7 +1,8 @@
 import type { ProfileType } from '@/Types/Profile.type'
 import type { TileType } from '@/Types/Tile.type'
-import { generateRandomNumber } from './generateRandomNumber.helper'
-import type { BattleType } from '@/Types/Battle.type'
+
+import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
+
 import { AllDigimons } from '@/GameData/Digimons'
 
 export const startBattle = ({
@@ -59,7 +60,7 @@ export const startBattle = ({
     sp: AllDigimons[digimon].stats.sta
   }))
 
-  const battle: BattleType = {
+  const battle = {
     allies,
     enemies,
     turnOrder: [

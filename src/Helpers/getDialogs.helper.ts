@@ -8,6 +8,7 @@ import { LogoffDialogs } from '@/GameData/Dialogs/Logoff'
 import { ProfileDialogs } from '@/GameData/Dialogs/Profile'
 import { AcquintancesDialogs } from '@/GameData/Dialogs/Acquintances'
 import { EncyclopediaDialogs } from '@/GameData/Dialogs/Encyclopedia'
+import { BattleDialogs } from '@/GameData/Dialogs/Battle'
 
 const EnDialogs = {
   SCENES_CONTINUE_BUTTON: `Continue`,
@@ -22,7 +23,8 @@ const EnDialogs = {
   ...GetStarterDigimonDialogs.En,
   ...ProfileDialogs.En,
   ...AcquintancesDialogs.En,
-  ...EncyclopediaDialogs.En
+  ...EncyclopediaDialogs.En,
+  ...BattleDialogs.En
 }
 
 const PtDialogs = {
