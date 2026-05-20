@@ -13,68 +13,18 @@ import './Battlefield.style.scss'
 import { getTexts } from '@/Helpers/getTexts.helper'
 
 export const Battlefield = () => {
-  const { battle, setBattle } = useBattle()
+  const { battle } = useBattle()
 
   if (!battle) {
     return
   }
 
-  const mapPartyDigimon = (digimon: BaseDigimonType) => {
-    return {
-      ...digimon,
-      hp: digimon.stats.vit,
-      sp: digimon.stats.sta
-    }
-  }
-
   const parties: {
-    [k: string]: {
-      title: string
-      list: Array<PartyDigimonType>
-    }
+    [k: string]: string
   } = {
-    allies: {
-      title: getTexts('BATTLE_PARTY_ALLIES'),
-      list: []
-    },
-
-    enemies: {
-      title: getTexts('BATTLE_PARTY_ENEMIES'),
-      list: []
-    }
+    allies: getTexts('BATTLE_PARTY_ALLIES'),
+    enemies: getTexts('BATTLE_PARTY_ENEMIES')
   }
-
-  useEffect(() => {
-    parties.allies.list = battle.allies.map((ally) => mapPartyDigimon(ally))
-    parties.enemies.list = battle.enemies.map((enemy) => mapPartyDigimon(enemy))
-
-    setBattle({
-      ...battle,
-
-      allies: parties.allies.list,
-      enemies: parties.enemies.list,
-
-      turnOrder: [
-        ...parties.allies.list.map((digimon, digimonIndex) => ({
-          party: 'allies',
-          index: digimonIndex,
-          digimon
-        })),
-
-        ...parties.enemies.list.map((digimon, digimonIndex) => ({
-          party: 'enemies',
-          index: digimonIndex,
-          digimon
-        }))
-      ].sort((a, b) =>
-        a.digimon.stats.spe !== b.digimon.stats.spe
-          ? a.digimon.stats.spe > b.digimon.stats.spe
-            ? 1
-            : -1
-          : Math.random()
-      )
-    })
-  }, [])
 
   return (
     <div className="battlefield">
@@ -82,13 +32,13 @@ export const Battlefield = () => {
         {Object.keys(parties).map((party) => (
           <div key={`party-${party}`}>
             <header>
-              <Text>{parties[party].title}</Text>
+              <Text>{parties[party]}</Text>
             </header>
 
             <main>
               <BattleParty
                 party={{
-                  title: parties[party].title,
+                  title: parties[party],
                   list: battle[party]
                 }}
               />

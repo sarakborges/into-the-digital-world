@@ -20,11 +20,12 @@ import { useBattle } from '@/Hooks/Battle.hook'
 import { Button } from '@/Components/System/Button'
 
 import './Gamepad.style.scss'
+import { startBattle } from '@/Helpers/startBattle.helper'
 
 export const Gamepad = () => {
   const { profile, setProfile } = useProfile()
   const { scene, setScene } = useScene()
-  const { setBattle } = useBattle()
+  const { battle, setBattle } = useBattle()
 
   if (!profile) {
     return <></>
@@ -51,52 +52,18 @@ export const Gamepad = () => {
 
     setProfile(updatedProfile)
 
-    const possibleSpawns = currentZone.grid[updatedY][
-      updatedX
-    ]?.possibleSpawns?.sort(() => Math.random() - 0.5)
+    const battleStarted = startBattle({
+      tile: currentZone.grid[updatedY][updatedX]!,
+      profile
+    })
 
-    if (!!possibleSpawns) {
-      const enemiesSpawned: Array<string> = []
+    if (!!battleStarted) {
+      setScene({
+        currentScene: 'battle',
+        currentStage: 'start'
+      })
 
-      const enemyQuantity = Math.floor(
-        generateRandomNumber({
-          min: 0,
-          max: (currentZone.grid[updatedY][updatedX]!.maxEnemies || 3) * 5
-        }) / 5
-      )
-
-      while (true) {
-        if (enemiesSpawned.length >= enemyQuantity) {
-          break
-        }
-
-        for (let spawn of possibleSpawns) {
-          if (enemiesSpawned.length >= enemyQuantity) {
-            break
-          }
-
-          const rng = generateRandomNumber({ min: 0, max: 100 })
-
-          if (rng < spawn.spawningChance) {
-            enemiesSpawned.push(spawn.id)
-          }
-        }
-      }
-
-      if (enemiesSpawned.length > 0) {
-        setScene({
-          currentScene: 'battle',
-          currentStage: 'start'
-        })
-
-        setBattle({
-          allies: profile.currentParty.map(
-            (ally) => AllDigimons[profile.partnerDigimons[ally].baseDigimon]
-          ),
-
-          enemies: enemiesSpawned.map((enemy) => AllDigimons[enemy])
-        })
-      }
+      setBattle(battleStarted)
 
       return
     }
