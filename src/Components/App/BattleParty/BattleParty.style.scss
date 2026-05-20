@@ -20,7 +20,7 @@
         padding: 2px;
         margin-right: -24px;
 
-        border: 2px solid var(--color-primary);
+        border: 2px solid var(--color-secondary);
         border-radius: 100%;
 
         img {
@@ -48,7 +48,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
 
-            background-color: var(--color-primary);
+            background-color: var(--color-secondary);
             border-radius: 8px 8px 8px 32px;
           }
         }
