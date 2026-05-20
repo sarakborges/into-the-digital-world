@@ -34,12 +34,12 @@ export const Battlefield = () => {
     }
   } = {
     allies: {
-      title: getTexts('BATTLE_PARTY_PLAYER'),
+      title: getTexts('BATTLE_PARTY_ALLIES'),
       list: []
     },
 
     enemies: {
-      title: getTexts('BATTLE_PARTY_ENEMY'),
+      title: getTexts('BATTLE_PARTY_ENEMIES'),
       list: []
     }
   }
@@ -52,7 +52,27 @@ export const Battlefield = () => {
       ...battle,
 
       allies: parties.allies.list,
-      enemies: parties.enemies.list
+      enemies: parties.enemies.list,
+
+      turnOrder: [
+        ...parties.allies.list.map((digimon, digimonIndex) => ({
+          party: 'allies',
+          index: digimonIndex,
+          digimon
+        })),
+
+        ...parties.enemies.list.map((digimon, digimonIndex) => ({
+          party: 'enemies',
+          index: digimonIndex,
+          digimon
+        }))
+      ].sort((a, b) =>
+        a.digimon.stats.spe !== b.digimon.stats.spe
+          ? a.digimon.stats.spe > b.digimon.stats.spe
+            ? 1
+            : -1
+          : Math.random()
+      )
     })
   }, [])
 
