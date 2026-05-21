@@ -30,13 +30,13 @@ export const startBattle = ({
     }) / 5
   )
 
-  while (enemiesSpawned.length < enemyQuantity) {
+  while (enemiesSpawned.length < (enemyQuantity || 1)) {
     const randomizedPossibleSpawns = possibleSpawns?.sort(
       () => Math.random() - 0.5
     )
 
     for (let spawn of randomizedPossibleSpawns!) {
-      if (enemiesSpawned.length >= enemyQuantity) {
+      if (enemiesSpawned.length >= (enemyQuantity || 1)) {
         break
       }
 
@@ -48,16 +48,25 @@ export const startBattle = ({
     }
   }
 
-  const allies = Object.keys(profile.partnerDigimons).map((digimon) => ({
-    ...AllDigimons[profile.partnerDigimons[digimon].baseDigimon],
-    hp: AllDigimons[profile.partnerDigimons[digimon].baseDigimon].stats.vit,
-    sp: AllDigimons[profile.partnerDigimons[digimon].baseDigimon].stats.sta
-  }))
+  const allies = Object.keys(profile.partnerDigimons).map(
+    (digimon, digimonIndex) => ({
+      ...AllDigimons[profile.partnerDigimons[digimon].baseDigimon],
+      name:
+        profile.partnerDigimons[digimon].name ||
+        AllDigimons[profile.partnerDigimons[digimon].baseDigimon].name,
+      hp: AllDigimons[profile.partnerDigimons[digimon].baseDigimon].stats.vit,
+      sp: AllDigimons[profile.partnerDigimons[digimon].baseDigimon].stats.sta,
+      party: 'allies',
+      index: digimonIndex
+    })
+  )
 
-  const enemies = enemiesSpawned.map((digimon) => ({
+  const enemies = enemiesSpawned.map((digimon, digimonIndex) => ({
     ...AllDigimons[digimon],
     hp: AllDigimons[digimon].stats.vit,
-    sp: AllDigimons[digimon].stats.sta
+    sp: AllDigimons[digimon].stats.sta,
+    party: 'enemies',
+    index: digimonIndex
   }))
 
   const battle = {

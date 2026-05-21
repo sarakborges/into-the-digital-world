@@ -27,8 +27,8 @@ export const BattleStart = () => {
       <Text as="p">
         {getDialogs(
           !!isFirstTimeSeeingBattle
-            ? 'ENCYCLOPEDIA_001_TEXT_ALT'
-            : 'ENCYCLOPEDIA_001_TEXT'
+            ? 'BATTLE_START_TEXT_ALT'
+            : 'BATTLE_START_TEXT'
         )}
       </Text>
     ),
@@ -51,7 +51,19 @@ export const BattleStart = () => {
             setProfile(updatedProfile)
           }
 
-          setScene(null)
+          if (!isFirstTimeSeeingBattle) {
+            const updatedProfile = {
+              ...profile!,
+              currentlyInBattle: true
+            }
+
+            setProfile(updatedProfile)
+          }
+
+          setScene({
+            currentScene: 'battle',
+            currentStage: 'turn'
+          })
         }
       }
     ]

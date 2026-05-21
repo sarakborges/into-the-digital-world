@@ -7,7 +7,11 @@ export type BattleType = {
   turnOrder: Array<{
     party: string
     index: number
+    digimon: PartyDigimonType
   }>
+
+  lastDamage?: number
+  lastTarget?: PartyDigimonType
 
   mapPosition: {
     x: number

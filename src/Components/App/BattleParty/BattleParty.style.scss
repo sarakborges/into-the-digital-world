@@ -4,6 +4,20 @@
   gap: 16px;
 
   .party-member {
+    &[data-defeated='true'] {
+      opacity: 0.25;
+    }
+
+    &[data-currentturn='true'] {
+      .portrait {
+        border: 2px solid var(--color-secondary);
+      }
+
+      > header > div .digimon-name .text {
+        background-color: var(--color-secondary);
+      }
+    }
+
     > header {
       display: flex;
       place-items: flex-start;
@@ -20,7 +34,7 @@
         padding: 2px;
         margin-right: -24px;
 
-        border: 2px solid var(--color-secondary);
+        border: 2px solid var(--color-primary);
         border-radius: 100%;
 
         img {
@@ -48,7 +62,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
 
-            background-color: var(--color-secondary);
+            background-color: var(--color-primary);
             border-radius: 8px 8px 8px 32px;
           }
         }

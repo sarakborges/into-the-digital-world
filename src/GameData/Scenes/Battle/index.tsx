@@ -1,10 +1,14 @@
+import { BattleAttack } from './BattleAttack.scene'
 import { BattleStart } from './BattleStart.scene'
-import { AlliesTurn } from './AlliesTurn.scene'
-import { EnemiesTurn } from './EnemiesTurn.scene'
+import { BattleTurn } from './BattleTurn.scene'
+import { BattleEnd } from './BattleEnd.scene'
+import { BattleEpilogue } from './BattleEpilogue.scene'
 
 export const BattleScenes = {
   id: 'Battle',
   start: BattleStart,
-  alliesTurn: AlliesTurn,
-  enemiesTurn: EnemiesTurn
+  turn: BattleTurn,
+  attack: BattleAttack,
+  end: BattleEnd,
+  epilogue: BattleEpilogue
 }
