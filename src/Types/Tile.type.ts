@@ -5,8 +5,16 @@ export type TileType = {
   event?: string
   maxEnemies?: number
 
-  possibleSpawns?: Array<{
-    id: string
-    spawningChance: number
-  }>
+  possibleSpawns?: {
+    [digimonId: string]: {
+      spawnChance: number
+
+      lootTable?: {
+        [itemId: string]: {
+          dropChance: number
+          quantity: number
+        }
+      }
+    }
+  }
 }

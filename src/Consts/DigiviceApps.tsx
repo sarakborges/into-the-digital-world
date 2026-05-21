@@ -15,6 +15,11 @@ export const APP_SAVE = {
   scene: 'saveGame'
 }
 
+export const APP_INVENTORY = {
+  id: 'inventory',
+  scene: 'inventory'
+}
+
 export const APP_FASHION = {
   id: 'fashion',
   app: 'fashion',
@@ -62,6 +67,7 @@ export const AllApps = {
   // location: APP_LOCATION,
   // journal: APP_JOURNAL,
   encyclopedia: APP_ENCYCLOPEDIA,
+  inventory: APP_INVENTORY,
   acquintances: APP_ACQUINTANCES,
   // achievements: APP_ACHIEVEMENTS,
   save: APP_SAVE,

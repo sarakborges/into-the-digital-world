@@ -23,7 +23,7 @@ export const Acquintances = () => {
   const { digivice, setDigivice } = useDigivice()
 
   const acquintances: {
-    [k: string]: Array<NpcType>
+    [acquintanceCategory: string]: Array<NpcType>
   } = {
     general: [],
     digimon: [],

@@ -19,7 +19,7 @@ export const startBattle = ({
   const { possibleSpawns, maxEnemies } = tile
   const enemiesSpawned: Array<string> = []
 
-  if (!possibleSpawns?.length) {
+  if (!possibleSpawns || !Object.keys(possibleSpawns!).length) {
     return
   }
 
@@ -30,20 +30,24 @@ export const startBattle = ({
     }) / 5
   )
 
-  while (enemiesSpawned.length < (enemyQuantity || 1)) {
-    const randomizedPossibleSpawns = possibleSpawns?.sort(
+  if (enemyQuantity <= 0) {
+    return
+  }
+
+  while (enemiesSpawned.length < enemyQuantity) {
+    const randomizedPossibleSpawns = Object.keys(possibleSpawns!).sort(
       () => Math.random() - 0.5
     )
 
     for (let spawn of randomizedPossibleSpawns!) {
-      if (enemiesSpawned.length >= (enemyQuantity || 1)) {
+      if (enemiesSpawned.length >= enemyQuantity) {
         break
       }
 
       const rng = generateRandomNumber({ min: 0, max: 100 })
 
-      if (rng < spawn.spawningChance) {
-        enemiesSpawned.push(spawn.id)
+      if (rng < possibleSpawns[spawn].spawnChance) {
+        enemiesSpawned.push(spawn)
       }
     }
   }

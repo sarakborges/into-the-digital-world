@@ -15,17 +15,15 @@ const currentFloorTile = {
   ...floorTile,
   maxEnemies: 3,
 
-  possibleSpawns: [
-    {
-      id: AllDigimons.koromon.id,
-      spawningChance: 100
+  possibleSpawns: {
+    [AllDigimons.koromon.id]: {
+      spawnChance: 100
     },
 
-    {
-      id: AllDigimons.dorimon.id,
-      spawningChance: 100
+    [AllDigimons.dorimon.id]: {
+      spawnChance: 100
     }
-  ]
+  }
 }
 
 const fullFloorRow = {

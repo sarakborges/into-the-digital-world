@@ -15,7 +15,7 @@ export type ProfileType = {
   titles: Array<string>
 
   items: {
-    [k: string]: {}
+    [itemId: string]: {}
   }
 
   currentZone: {

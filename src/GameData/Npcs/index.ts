@@ -8,6 +8,7 @@ import { NpcAddmon } from './Addmon.npc'
 import { NpcDorimon } from './Dorimon.npc'
 import { NpcBookmon } from './Bookmon.npc'
 import { NpcOujamon } from './Oujamon.npc'
+import { NpcConsulmon } from './Consulmon.npc'
 
 export const AllNpcs = {
   gennai: NpcGennai,
@@ -19,5 +20,6 @@ export const AllNpcs = {
   addmon: NpcAddmon,
   dorimon: NpcDorimon,
   bookmon: NpcBookmon,
-  oujamon: NpcOujamon
+  oujamon: NpcOujamon,
+  consulmon: NpcConsulmon
 }

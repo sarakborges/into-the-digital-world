@@ -16,7 +16,7 @@ export const Battlefield = () => {
   }
 
   const parties: {
-    [k: string]: string
+    [partySide: string]: string
   } = {
     allies: getTexts('BATTLE_PARTY_ALLIES'),
     enemies: getTexts('BATTLE_PARTY_ENEMIES')
