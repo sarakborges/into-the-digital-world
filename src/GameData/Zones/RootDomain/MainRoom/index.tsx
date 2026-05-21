@@ -8,8 +8,8 @@ import { floorTile } from '@/GameData/Zones/floor.tile'
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllDigimons } from '@/GameData/Digimons'
 
-import { WarpToCorridor } from './WarpToCorridor.event'
-import { TriggerGetStarterDigimon } from './TriggerGetStarterDigimon.event'
+import { WarpToCorridor } from './Events/WarpToCorridor.event'
+import { TriggerGetStarterDigimon } from './Events/TriggerGetStarterDigimon.event'
 
 const currentFloorTile = {
   ...floorTile,

@@ -9,7 +9,7 @@ import { SCENES } from '@/Consts/Scenes.const'
 import { AllNpcs } from '@/GameData/Npcs'
 import { floorTile } from '@/GameData/Zones/floor.tile'
 
-import { WarpToCorridor } from './WarpToCorridor.event'
+import { WarpToCorridor } from './Events/WarpToCorridor.event'
 
 const fullFloorRow = {
   1: { ...floorTile },

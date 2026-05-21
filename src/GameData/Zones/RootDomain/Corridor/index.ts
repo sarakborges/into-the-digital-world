@@ -5,8 +5,8 @@ import { fillGrid } from '@/Helpers/fillGrid'
 
 import { floorTile } from '@/GameData/Zones/floor.tile'
 
-import { WarpToMainRoom } from './WarpToMainRoom.event'
-import { WarpToRestRoom1 } from './WarpToRestRoom1.event'
+import { WarpToMainRoom } from './Events/WarpToMainRoom.event'
+import { WarpToRestRoom1 } from './Events/WarpToRestRoom1.event'
 
 const fullFloorRow = {
   1: { ...floorTile },
