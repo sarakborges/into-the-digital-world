@@ -12,7 +12,7 @@ export const startBattle = ({
   profile: ProfileType
   tile: TileType
 }) => {
-  if (!tile) {
+  if (!tile || !profile.currentParty.length) {
     return
   }
 
