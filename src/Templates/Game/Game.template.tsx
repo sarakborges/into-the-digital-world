@@ -26,8 +26,6 @@ export const Game = () => {
   const { settings } = useSettings()
   const { digivice } = useDigivice()
 
-  console.log(profile?.currentlyInBattle)
-
   useEffect(() => {}, [settings])
 
   return (

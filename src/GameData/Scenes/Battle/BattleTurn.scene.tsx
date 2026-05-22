@@ -11,6 +11,7 @@ import { Text } from '@/Components/System/Text'
 
 import { Dialog } from '@/Components/App/Dialog'
 import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
+import type { BattleType } from '@/Types/Battle.type'
 
 export const BattleTurn = () => {
   const { setScene } = useScene()
@@ -18,24 +19,54 @@ export const BattleTurn = () => {
 
   const [currentTurn, ...otherTurns] = battle?.turnOrder!
 
-  const possibleTargets =
-    currentTurn.party === 'allies' ? battle?.enemies : battle?.allies
+  const doAttack = () => {
+    const possibleTargets =
+      currentTurn.party === 'allies' ? battle?.enemies : battle?.allies
 
-  const rngTarget = generateRandomNumber({
-    min: 0,
-    max: possibleTargets!.length - 1
-  })
+    const rngTarget = generateRandomNumber({
+      min: 0,
+      max: possibleTargets!.length - 1
+    })
 
-  const target = possibleTargets![rngTarget]
+    const target = possibleTargets![rngTarget]
 
-  const powVsRes = currentTurn.digimon.stats.pow - target.stats.res
-  const damage = Math.max(
-    0,
-    Math.ceil(
-      powVsRes +
-        generateRandomNumber({ min: powVsRes / -10, max: powVsRes / 10 })
+    const powVsRes = currentTurn.digimon.stats.pow - target.stats.res
+    const damage = Math.max(
+      0,
+      Math.ceil(
+        powVsRes +
+          generateRandomNumber({
+            min: powVsRes / -10,
+            max: powVsRes / 10
+          })
+      )
     )
-  )
+
+    const updatedBattle: BattleType = {
+      ...battle!,
+
+      combatLog: [
+        {
+          attacker: currentTurn.digimon.name,
+          target: target.name,
+          damage,
+          party: currentTurn.party
+        },
+        ...battle!.combatLog
+      ]
+    }
+
+    target.hp -= damage
+
+    setBattle({
+      ...updatedBattle
+    })
+
+    setScene({
+      currentScene: 'battle',
+      currentStage: 'attack'
+    })
+  }
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.oujamon,
@@ -53,49 +84,7 @@ export const BattleTurn = () => {
         id: 'scene-battle-battleturn-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          let updatedTurnOrder = [...otherTurns, currentTurn]
-
-          if (target.hp - damage <= 0) {
-            target.hp = 0
-
-            updatedTurnOrder = updatedTurnOrder.filter(
-              (digimon) =>
-                digimon.party !== target.party || digimon.index !== rngTarget
-            )
-
-            if (
-              updatedTurnOrder.every((digimon) => digimon.party === 'allies') ||
-              updatedTurnOrder.every((digimon) => digimon.party === 'enemies')
-            ) {
-              setBattle({
-                ...battle!,
-                turnOrder: updatedTurnOrder,
-                lastTarget: target,
-                lastDamage: damage
-              })
-
-              setScene({
-                currentScene: 'battle',
-                currentStage: 'end'
-              })
-
-              return
-            }
-          }
-
-          target.hp -= damage
-
-          setBattle({
-            ...battle!,
-            turnOrder: updatedTurnOrder,
-            lastTarget: target,
-            lastDamage: damage
-          })
-
-          setScene({
-            currentScene: 'battle',
-            currentStage: 'attack'
-          })
+          doAttack()
         }
       }
     ]

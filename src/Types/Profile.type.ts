@@ -16,7 +16,7 @@ export type ProfileType = {
   titles: Array<string>
 
   items: {
-    [itemId: string]: ItemType
+    [itemId: string]: ItemType & { amount: number }
   }
 
   currentZone: {

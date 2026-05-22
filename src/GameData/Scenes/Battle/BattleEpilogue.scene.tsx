@@ -21,16 +21,10 @@ export const BattleEpilogue = () => {
   const { profile, setProfile } = useProfile()
   const { setGame } = useGame()
 
-  const battleResult = battle?.turnOrder.every(
-    (digimon) => digimon.party === 'allies'
-  )
-    ? 'victory'
-    : 'defeat'
-
   const dialogOptions: DialogType = {
     content: (
       <Text as="p">
-        {getDialogs(`BATTLE_EPILOGUE_${battleResult.toLocaleUpperCase()}`)}
+        {getDialogs(`BATTLE_EPILOGUE_${battle!.result!.toLocaleUpperCase()}`)}
       </Text>
     ),
 
@@ -44,7 +38,7 @@ export const BattleEpilogue = () => {
             currentlyInBattle: false
           }
 
-          if (battleResult === 'victory') {
+          if (battle!.result === 'victory') {
             warpTo({
               setGame,
               profile: updatedProfile!,
@@ -54,7 +48,7 @@ export const BattleEpilogue = () => {
             })
           }
 
-          if (battleResult === 'defeat') {
+          if (battle!.result === 'defeat') {
             warpTo({
               setGame,
               profile: updatedProfile!,

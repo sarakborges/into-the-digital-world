@@ -36,7 +36,8 @@ export const Introduction021 = () => {
 
             items: {
               [AllItems.digivice.id]: {
-                ...AllItems.digivice
+                ...AllItems.digivice,
+                amount: 1
               }
             }
           })

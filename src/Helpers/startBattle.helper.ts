@@ -70,12 +70,14 @@ export const startBattle = ({
     hp: AllDigimons[digimon].stats.vit,
     sp: AllDigimons[digimon].stats.sta,
     party: 'enemies',
-    index: digimonIndex
+    index: digimonIndex,
+    lootTable: { ...tile.possibleSpawns![digimon].lootTable }
   }))
 
   const battle = {
     allies,
     enemies,
+    combatLog: [],
     turnOrder: [
       ...allies.map((digimon, digimonIndex) => ({
         party: 'allies',

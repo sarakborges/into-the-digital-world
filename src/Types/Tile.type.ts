@@ -12,7 +12,7 @@ export type TileType = {
       lootTable?: {
         [itemId: string]: {
           dropChance: number
-          quantity: number
+          amount: number
         }
       }
     }

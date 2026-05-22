@@ -10,6 +10,8 @@ import { useScene } from '@/Hooks/Scene.hook'
 import { Text } from '@/Components/System/Text'
 
 import { Dialog } from '@/Components/App/Dialog'
+import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
+import { AllItems } from '@/GameData/Items'
 
 export const BattleEnd = () => {
   const { setScene } = useScene()
@@ -35,10 +37,36 @@ export const BattleEnd = () => {
         id: 'scene-battle-battleend-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
+          const battleResult = battle!.turnOrder.every(
+            (digimon) => digimon.party === 'allies'
+          )
+            ? 'victory'
+            : 'defeat'
+
+          const loot = {}
+
+          if (battleResult === 'victory') {
+            for (let digimon of battle!.enemies) {
+              if (!!digimon.lootTable) {
+                for (let item of Object.keys(digimon.lootTable)) {
+                  const itemDetails = digimon.lootTable[item]
+                  const rng = generateRandomNumber({ min: 0, max: 100 })
+
+                  if (rng < itemDetails.dropChance) {
+                    loot[item] = {
+                      ...AllItems[item],
+                      amount: itemDetails.amount
+                    }
+                  }
+                }
+              }
+            }
+          }
+
           setBattle({
             ...battle!,
-            allies: [],
-            enemies: []
+            result: battleResult,
+            loot
           })
 
           setScene({

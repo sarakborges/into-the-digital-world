@@ -11,19 +11,22 @@ import { AllDigimons } from '@/GameData/Digimons'
 
 import { WarpToCorridor } from './Events/WarpToCorridor.event'
 import { TriggerGetStarterDigimon } from './Events/TriggerGetStarterDigimon.event'
+import { AllItems } from '@/GameData/Items'
 
 const currentFloorTile: TileType = {
   ...floorTile,
-  maxEnemies: 3,
+  maxEnemies: 1,
 
   possibleSpawns: {
     [AllDigimons.koromon.id]: {
       spawnChance: 100,
-      lootTable: {}
-    },
 
-    [AllDigimons.dorimon.id]: {
-      spawnChance: 100
+      lootTable: {
+        [AllItems.koromonCore.id]: {
+          dropChance: 100,
+          amount: 1
+        }
+      }
     }
   }
 }

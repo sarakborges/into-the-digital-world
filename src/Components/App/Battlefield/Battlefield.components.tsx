@@ -7,6 +7,7 @@ import { Text } from '@/Components/System/Text'
 import { BattleParty } from '@/Components/App/BattleParty'
 
 import './Battlefield.style.scss'
+import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 export const Battlefield = () => {
   const { battle } = useBattle()
@@ -24,32 +25,60 @@ export const Battlefield = () => {
 
   return (
     <div className="battlefield">
-      <div className="digimon-parties">
-        {Object.keys(parties).map(
-          (party) =>
-            !(
-              battle?.turnOrder.every(
-                (digimon) => digimon.party === 'allies'
-              ) ||
-              battle?.turnOrder.every((digimon) => digimon.party === 'enemies')
-            ) && (
-              <div key={`party-${party}`}>
-                <header>
-                  <Text>{parties[party]}</Text>
-                </header>
+      {!!(
+        battle?.turnOrder.every((digimon) => digimon.party === 'allies') ||
+        battle?.turnOrder.every((digimon) => digimon.party === 'enemies')
+      ) && (
+        <div className="combat-log">
+          <Text>Combat log:</Text>
 
-                <main>
-                  <BattleParty
-                    party={{
-                      title: parties[party],
-                      list: battle[party]
-                    }}
-                  />
-                </main>
-              </div>
-            )
-        )}
-      </div>
+          {[...battle.combatLog.reverse()].map((logEntry, logIndex) => (
+            <Text as="p">
+              {getDialogs('BATTLE_LOG_TURN')
+                .replaceAll('[TURN]', logIndex + 1)
+                .replaceAll(
+                  '[PARTY]',
+                  logEntry.party === 'enemies'
+                    ? getDialogs('BATTLE_ATTACK_ENEMIES')
+                    : ''
+                )
+                .replaceAll('[NAME]', logEntry.attacker)
+                .replaceAll('[TARGET]', logEntry.target)
+                .replaceAll(
+                  '[TARGETPARTY]',
+                  logEntry.party === 'allies'
+                    ? getDialogs('BATTLE_TARGET_ENEMIES')
+                    : ''
+                )
+                .replaceAll('[DAMAGE]', logEntry.damage)}
+            </Text>
+          ))}
+        </div>
+      )}
+
+      {!(
+        battle?.turnOrder.every((digimon) => digimon.party === 'allies') ||
+        battle?.turnOrder.every((digimon) => digimon.party === 'enemies')
+      ) && (
+        <div className="digimon-parties">
+          {Object.keys(parties).map((party) => (
+            <div key={`party-${party}`}>
+              <header>
+                <Text>{parties[party]}</Text>
+              </header>
+
+              <main>
+                <BattleParty
+                  party={{
+                    title: parties[party],
+                    list: battle[party]
+                  }}
+                />
+              </main>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   )
 }

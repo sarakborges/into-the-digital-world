@@ -13,9 +13,9 @@ import { Dialog } from '@/Components/App/Dialog'
 
 export const BattleAttack = () => {
   const { setScene } = useScene()
-  const { battle } = useBattle()
+  const { battle, setBattle } = useBattle()
 
-  const [currentTurn] = battle?.turnOrder!
+  const lastTurn = battle?.combatLog[0]!
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.oujamon,
@@ -23,9 +23,21 @@ export const BattleAttack = () => {
     content: (
       <Text as="p">
         {getDialogs('BATTLE_ATTACK')
-          .replaceAll('[NAME]', currentTurn.digimon.name)
-          .replaceAll('[TARGET]', battle?.lastTarget?.name)
-          .replaceAll('[DAMAGE]', battle?.lastDamage)}
+          .replaceAll(
+            '[PARTY]',
+            lastTurn.party === 'enemies'
+              ? getDialogs('BATTLE_ATTACK_ENEMIES')
+              : ''
+          )
+          .replaceAll('[NAME]', lastTurn.attacker)
+          .replaceAll('[TARGET]', lastTurn.target)
+          .replaceAll(
+            '[TARGETPARTY]',
+            lastTurn.party === 'allies'
+              ? getDialogs('BATTLE_TARGET_ENEMIES')
+              : ''
+          )
+          .replaceAll('[DAMAGE]', lastTurn.damage)}
       </Text>
     ),
 
@@ -34,6 +46,30 @@ export const BattleAttack = () => {
         id: 'scene-battle-battleattack-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
+          const [currentTurn, ...otherTurns] = battle?.turnOrder!
+          const updatedTurnOrder = [...otherTurns, currentTurn]
+
+          const filteredTurnOrder = updatedTurnOrder.filter(
+            (digimon) => digimon.digimon.hp > 0
+          )
+
+          setBattle({
+            ...battle!,
+            turnOrder: filteredTurnOrder
+          })
+
+          if (
+            filteredTurnOrder.every((digimon) => digimon.party === 'allies') ||
+            filteredTurnOrder.every((digimon) => digimon.party === 'enemies')
+          ) {
+            setScene({
+              currentScene: 'battle',
+              currentStage: 'end'
+            })
+
+            return
+          }
+
           setScene({
             currentScene: 'battle',
             currentStage: 'turn'
