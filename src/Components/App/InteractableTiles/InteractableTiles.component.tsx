@@ -8,6 +8,7 @@ import * as Zones from '@/GameData/Zones'
 
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useScene } from '@/Hooks/Scene.hook'
+import { useGame } from '@/Hooks/Game.hook'
 
 import { Portrait } from '@/Components/System/Portrait'
 import { Text } from '@/Components/System/Text'
@@ -18,6 +19,7 @@ import './InteractableTiles.style.scss'
 export const InteractableTiles = () => {
   const { profile, setProfile } = useProfile()
   const { scene, setScene } = useScene()
+  const { setGame } = useGame()
 
   if (!profile?.currentZone) {
     return
@@ -53,7 +55,7 @@ export const InteractableTiles = () => {
   )
 
   const triggerEvent = (event) => {
-    currentZone?.events?.[event]?.({ setScene, setProfile, profile })
+    currentZone?.events?.[event]?.({ setScene, setProfile, profile, setGame })
   }
 
   return (

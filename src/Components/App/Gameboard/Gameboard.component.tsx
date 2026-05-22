@@ -8,6 +8,7 @@ import * as Zones from '@/GameData/Zones'
 
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useScene } from '@/Hooks/Scene.hook'
+import { useGame } from '@/Hooks/Game.hook'
 
 import { Text } from '@/Components/System/Text'
 import { Portrait } from '@/Components/System/Portrait'
@@ -18,18 +19,22 @@ import './Gameboard.style.scss'
 
 export const Gameboard = () => {
   const { profile } = useProfile()
+  const { game } = useGame()
   const { scene } = useScene()
 
   if (!profile?.currentZone) {
     return
   }
 
-  const currentZone: ZoneType = Zones[profile.currentZone.id]({ scene })
+  const currentZone: ZoneType = Zones[profile.currentZone.id]({
+    scene
+  })
 
   const gameboardBodyVars = {
     '--current-x': profile.currentZone.x,
     '--current-y': profile.currentZone.y,
     '--grid-size': currentZone.gridSize,
+    '--is-warping': !game?.isWarping ? 1 : 0,
     backgroundImage: `url('/zones/${currentZone.background}.webp')`
   } as React.CSSProperties
 
@@ -57,7 +62,9 @@ export const Gameboard = () => {
 
           {currentZone.tiles.map((tile) => {
             return (
-              <Fragment key={`zone-${currentZone.id}-x${tile.x}-y${tile.y}`}>
+              <Fragment
+                key={`zone-${currentZone.id}-x${tile.x}-y${tile.y}-${!!tile.npc ? 'npc' : 'event'}`}
+              >
                 {!!tile.npc && (
                   <div
                     className="character"

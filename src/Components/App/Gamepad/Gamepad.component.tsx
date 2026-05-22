@@ -15,6 +15,7 @@ import * as Zones from '@/GameData/Zones'
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useScene } from '@/Hooks/Scene.hook'
 import { useBattle } from '@/Hooks/Battle.hook'
+import { useGame } from '@/Hooks/Game.hook'
 
 import { Button } from '@/Components/System/Button'
 
@@ -24,6 +25,7 @@ export const Gamepad = () => {
   const { profile, setProfile } = useProfile()
   const { scene, setScene } = useScene()
   const { setBattle } = useBattle()
+  const { game, setGame } = useGame()
 
   if (!profile) {
     return
@@ -85,6 +87,7 @@ export const Gamepad = () => {
       currentZone.events?.[currentTile?.event]({
         profile: updatedProfile,
         setProfile,
+        setGame,
         setScene,
         scene
       })
@@ -168,7 +171,7 @@ export const Gamepad = () => {
       <div className="gamepad-row">
         <div className="gamepad-col">
           <Button
-            disabled={!canMovePrevY}
+            disabled={!canMovePrevY || !!game?.isWarping}
             onClick={() => setLocation({ y: -1 })}
           >
             <FaArrowUp />
@@ -179,7 +182,7 @@ export const Gamepad = () => {
       <div className="gamepad-row">
         <div className="gamepad-col">
           <Button
-            disabled={!canMovePrevX}
+            disabled={!canMovePrevX || !!game?.isWarping}
             onClick={() => setLocation({ x: -1 })}
           >
             <FaArrowLeft />
@@ -190,7 +193,7 @@ export const Gamepad = () => {
 
         <div className="gamepad-col">
           <Button
-            disabled={!canMoveNextX}
+            disabled={!canMoveNextX || !!game?.isWarping}
             onClick={() => setLocation({ x: +1 })}
           >
             <FaArrowRight />
@@ -201,7 +204,7 @@ export const Gamepad = () => {
       <div className="gamepad-row">
         <div className="gamepad-col">
           <Button
-            disabled={!canMoveNextY}
+            disabled={!canMoveNextY || !!game?.isWarping}
             onClick={() => setLocation({ y: +1 })}
           >
             <FaArrowDown />

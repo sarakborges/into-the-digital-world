@@ -53,9 +53,12 @@
       background-size: cover;
       background-repeat: no-repeat;
 
+      opacity: var(--is-warping);
+
       transition:
         top 0.3s,
-        left 0.3s;
+        left 0.3s,
+        opacity 0.3s;
 
       .character {
         position: absolute;
