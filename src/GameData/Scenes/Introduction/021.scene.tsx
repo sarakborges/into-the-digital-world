@@ -3,6 +3,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 import { AllNpcs } from '@/GameData/Npcs'
+import { AllItems } from '@/GameData/Items'
 
 import { useScene } from '@/Hooks/Scene.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
@@ -30,7 +31,15 @@ export const Introduction021 = () => {
             currentStage: '022'
           })
 
-          setProfile({ ...profile!, items: { digivice: {} } })
+          setProfile({
+            ...profile!,
+
+            items: {
+              [AllItems.digivice.id]: {
+                ...AllItems.digivice
+              }
+            }
+          })
         }
       }
     ]

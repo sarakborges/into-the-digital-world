@@ -1,7 +1,7 @@
 .gameboard-wrapper {
   display: flex;
   flex-flow: column;
-  place-items: center;
+  align-items: center;
 
   width: 100%;
   padding-top: 40px;
@@ -12,7 +12,7 @@
     z-index: 1;
 
     display: flex;
-    place-content: center;
+    justify-content: center;
 
     width: 100%;
     margin-bottom: -16px;
@@ -26,54 +26,57 @@
   }
 
   .gameboard {
-    display: flex;
-    place-items: center;
-    place-content: center;
+    --tile-size: 32px;
+    --view-size: 19;
+
+    position: relative;
 
     width: 100%;
     aspect-ratio: 1;
+
     overflow: hidden;
 
     background-color: var(--color-neutral-strong);
 
-    --dead-zone: 2;
-    --tile-size: calc(100% / var(--view-size));
-
     .gameboard-body {
-      --min-offset-x: calc(-1 * (var(--grid-size) - var(--view-size)));
-      --min-offset-y: calc(-1 * (var(--grid-size) - var(--view-size)));
-      --max-offset: calc(var(--grid-size) - var(--view-size));
-      --center: calc(var(--view-size) / 2);
+      position: absolute;
+      top: calc(
+        50% - (var(--tile-size) / 2) - (var(--tile-size) * var(--current-y))
+      );
+      left: calc(
+        50% - (var(--tile-size) / 2) - (var(--tile-size) * var(--current-x))
+      );
 
-      position: relative;
-
+      width: calc(var(--grid-size) * var(--tile-size));
       height: calc(var(--grid-size) * var(--tile-size));
-      aspect-ratio: 1;
 
-      background-size: 100% 100%;
+      background-size: cover;
       background-repeat: no-repeat;
 
-      will-change: transform;
+      transition:
+        top 0.3s,
+        left 0.3s;
 
-      transform: translate3d(
-        calc(
-          clamp(
-              var(--min-offset-x),
-              calc(var(--center) - var(--current-x)),
-              var(--max-offset)
-            ) *
-            var(--tile-size)
-        ),
-        calc(
-          clamp(
-              var(--min-offset-y),
-              calc(var(--center) - var(--current-y)),
-              var(--max-offset)
-            ) *
-            var(--tile-size)
-        ),
-        0
-      );
+      .character {
+        position: absolute;
+        top: calc((var(--tile-size) * var(--character-y)));
+        left: calc((var(--tile-size) * var(--character-x)));
+
+        width: var(--tile-size);
+        height: var(--tile-size);
+
+        overflow: hidden;
+
+        border-radius: 100%;
+        border: 2px solid var(--color-secondary);
+
+        opacity: var(--character-opacity);
+
+        transition:
+          top 0.3s linear,
+          left 0.3s linear,
+          opacity 0.3s linear;
+      }
     }
   }
 }

@@ -1,6 +1,7 @@
 import type { GridType } from '@/Types/Grid.type'
 import type { ZoneType } from '@/Types/Zone.type'
 import type { ProfileType } from '@/Types/Profile.type'
+import type { TileType } from '@/Types/Tile.type'
 
 import { fillGrid } from '@/Helpers/fillGrid'
 
@@ -11,13 +12,14 @@ import { AllDigimons } from '@/GameData/Digimons'
 import { WarpToCorridor } from './Events/WarpToCorridor.event'
 import { TriggerGetStarterDigimon } from './Events/TriggerGetStarterDigimon.event'
 
-const currentFloorTile = {
+const currentFloorTile: TileType = {
   ...floorTile,
   maxEnemies: 3,
 
   possibleSpawns: {
     [AllDigimons.koromon.id]: {
-      spawnChance: 100
+      spawnChance: 100,
+      lootTable: {}
     },
 
     [AllDigimons.dorimon.id]: {

@@ -10,8 +10,9 @@ import { useProfile } from '@/Hooks/Profile.hook'
 import { useScene } from '@/Hooks/Scene.hook'
 
 import { Text } from '@/Components/System/Text'
+import { Portrait } from '@/Components/System/Portrait'
 
-import { Tile } from '@/Components/App/Tile'
+import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 
 import './Gameboard.style.scss'
 
@@ -24,10 +25,6 @@ export const Gameboard = () => {
   }
 
   const currentZone: ZoneType = Zones[profile.currentZone.id]({ scene })
-
-  const gameboardVars = {
-    '--view-size': currentZone.gridSize || 0 > 13 ? currentZone.gridSize : 13
-  } as React.CSSProperties
 
   const gameboardBodyVars = {
     '--current-x': profile.currentZone.x,
@@ -44,14 +41,40 @@ export const Gameboard = () => {
         </Text>
       </header>
 
-      <main className="gameboard" style={gameboardVars}>
+      <main className="gameboard">
         <div className="gameboard-body" style={gameboardBodyVars}>
-          {new Array(currentZone.gridSize).fill(null).map((_, y) => {
+          <div
+            className="character"
+            style={
+              {
+                '--character-x': profile.currentZone.x,
+                '--character-y': profile.currentZone.y
+              } as React.CSSProperties
+            }
+          >
+            <PlayerAvatar />
+          </div>
+
+          {currentZone.tiles.map((tile) => {
             return (
-              <Fragment key={`y-${y}`}>
-                {new Array(currentZone.gridSize).fill(null).map((_, x) => (
-                  <Tile {...{ x, y }} key={`y-${y}-x-${x}`} />
-                ))}
+              <Fragment key={`zone-${currentZone.id}-x${tile.x}-y${tile.y}`}>
+                {!!tile.npc && (
+                  <div
+                    className="character"
+                    style={
+                      {
+                        '--character-x': tile.x,
+                        '--character-y': tile.y,
+                        '--character-opacity': !!tile.condition ? 1 : 0
+                      } as React.CSSProperties
+                    }
+                  >
+                    <Portrait
+                      src={`/${tile!.npc.portrait}.webp`}
+                      alt={tile!.npc.name}
+                    />
+                  </div>
+                )}
               </Fragment>
             )
           })}

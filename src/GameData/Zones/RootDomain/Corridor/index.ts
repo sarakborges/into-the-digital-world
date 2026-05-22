@@ -19,23 +19,16 @@ const fullFloorRow = {
   8: { ...floorTile },
   9: { ...floorTile },
   10: { ...floorTile },
-  11: { ...floorTile },
-  12: { ...floorTile },
-  13: { ...floorTile },
-  14: { ...floorTile },
-  15: { ...floorTile },
-  16: { ...floorTile },
-  17: { ...floorTile }
+  11: { ...floorTile }
 }
 
 const grid: GridType = {
-  8: { ...fullFloorRow },
-  9: { ...fullFloorRow },
-  10: { ...fullFloorRow },
-  11: { ...fullFloorRow }
+  5: { ...fullFloorRow },
+  6: { ...fullFloorRow },
+  7: { ...fullFloorRow }
 }
 
-const gridSize = 19
+const gridSize = 13
 const filledGrid = fillGrid({ grid, gridSize })
 
 export const RootDomainCorridor = () => {
@@ -53,14 +46,14 @@ export const RootDomainCorridor = () => {
 
     tiles: [
       {
-        x: 1,
-        y: 9,
+        x: 0,
+        y: 6,
         event: 'warpToMainRoom'
       },
 
       {
-        x: 6,
-        y: 7,
+        x: 4,
+        y: 4,
         event: 'warpToRestRoom1'
       }
     ]

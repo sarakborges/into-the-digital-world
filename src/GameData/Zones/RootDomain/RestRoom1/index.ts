@@ -94,6 +94,10 @@ const grid: GridType = {
     9: { ...floorTile },
     10: { ...floorTile },
     11: { ...floorTile }
+  },
+
+  11: {
+    6: { ...floorTile }
   }
 }
 
@@ -119,13 +123,13 @@ export const RootDomainRestRoom1 = ({
     tiles: [
       {
         x: 6,
-        y: 11,
+        y: 12,
         event: 'warpToCorridor'
       },
 
       {
         x: 6,
-        y: 11,
+        y: 12,
 
         condition:
           scene?.currentScene === SCENES.introduction.id &&
