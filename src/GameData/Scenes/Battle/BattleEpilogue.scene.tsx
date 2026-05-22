@@ -3,7 +3,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 import { saveSession } from '@/Helpers/saveSession.helper'
 
-import * as Zones from '@/GameData/Zones'
+import { AllZones } from '@/GameData/Zones'
 
 import { useBattle } from '@/Hooks/Battle.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
@@ -62,7 +62,7 @@ export const BattleEpilogue = () => {
               setProfile,
               x: 3,
               y: 5,
-              zoneId: Zones.RootDomainRestRoom1({ scene: scene! }).id
+              zoneId: AllZones.rootDomainRestRoom1({ scene: scene! }).id
             })
           }
 

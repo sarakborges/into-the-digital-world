@@ -1,12 +1,13 @@
-import { IntroductionScenes } from '@/GameData/Scenes/Introduction'
-import { AvatarCustomizationScenes } from '@/GameData/Scenes/AvatarCustomization'
-import { SaveGameScenes } from '@/GameData/Scenes/SaveGame'
-import { LogoffScenes } from '@/GameData/Scenes/Logoff'
-import { GetStarterDigimonScenes } from '@/GameData/Scenes/GetStarterDigimon'
-import { ProfileScenes } from '@/GameData/Scenes/Profile'
-import { AcquintancesScenes } from '@/GameData/Scenes/Acquintances'
-import { EncyclopediaScenes } from '@/GameData/Scenes/Encyclopedia'
-import { BattleScenes } from '@/GameData/Scenes/Battle'
+import { IntroductionScenes } from './Introduction'
+import { AvatarCustomizationScenes } from './AvatarCustomization'
+import { SaveGameScenes } from './SaveGame'
+import { LogoffScenes } from './Logoff'
+import { GetStarterDigimonScenes } from './GetStarterDigimon'
+import { ProfileScenes } from './Profile'
+import { AcquintancesScenes } from './Acquintances'
+import { EncyclopediaScenes } from './Encyclopedia'
+import { BattleScenes } from './Battle'
+import { InventoryScenes } from './Inventory'
 
 import { useScene } from '@/Hooks/Scene.hook'
 
@@ -19,7 +20,8 @@ export const AllScenes = {
   acquintances: AcquintancesScenes,
   profile: ProfileScenes,
   encyclopedia: EncyclopediaScenes,
-  battle: BattleScenes
+  battle: BattleScenes,
+  inventory: InventoryScenes
 }
 
 export const Scene = () => {

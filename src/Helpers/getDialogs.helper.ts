@@ -9,6 +9,20 @@ import { ProfileDialogs } from '@/GameData/Dialogs/Profile'
 import { AcquintancesDialogs } from '@/GameData/Dialogs/Acquintances'
 import { EncyclopediaDialogs } from '@/GameData/Dialogs/Encyclopedia'
 import { BattleDialogs } from '@/GameData/Dialogs/Battle'
+import { InventoryDialogs } from '@/GameData/Dialogs/Inventory'
+
+const dialogs = {
+  IntroductionDialogs,
+  AvatarCustomizationDialogs,
+  SaveGameDialogs,
+  LogoffDialogs,
+  GetStarterDigimonDialogs,
+  ProfileDialogs,
+  AcquintancesDialogs,
+  EncyclopediaDialogs,
+  BattleDialogs,
+  InventoryDialogs
+}
 
 const EnDialogs = {
   SCENES_CONTINUE_BUTTON: `Continue`,
@@ -16,38 +30,43 @@ const EnDialogs = {
   SCENES_LEAVE_BUTTON: `Leave`,
   SCENES_BACK_BUTTON: `Go back`,
 
-  ...IntroductionDialogs.En,
-  ...AvatarCustomizationDialogs.En,
-  ...SaveGameDialogs.En,
-  ...LogoffDialogs.En,
-  ...GetStarterDigimonDialogs.En,
-  ...ProfileDialogs.En,
-  ...AcquintancesDialogs.En,
-  ...EncyclopediaDialogs.En,
-  ...BattleDialogs.En
+  ...Object.keys(dialogs).reduce(
+    (prev, cur) => ({ ...prev, ...dialogs[cur].En }),
+    {}
+  )
 }
 
-const PtDialogs = {
-  SCENES_CONTINUE_BUTTON: `Continuar`,
-  SCENES_CONFIRM_BUTTON: `Confirmar`,
-  SCENES_LEAVE_BUTTON: `Sair`,
-  SCENES_BACK_BUTTON: `Voltar`
-}
+// const PtDialogs = {
+//   SCENES_CONTINUE_BUTTON: `Continuar`,
+//   SCENES_CONFIRM_BUTTON: `Confirmar`,
+//   SCENES_LEAVE_BUTTON: `Sair`,
+//   SCENES_BACK_BUTTON: `Voltar`,
 
-const RsDialogs = {
-  SCENES_CONTINUE_BUTTON: `Vamo dale`,
-  SCENES_CONFIRM_BUTTON: `Certo que sim`,
-  SCENES_LEAVE_BUTTON: `Vazare`,
-  SCENES_BACK_BUTTON: `Calma lá`
-}
+// ...Object.keys(dialogs).reduce(
+//     (prev, cur) => ({ ...prev, ...dialogs[cur].Pt }),
+//     {}
+//   )
+// }
+
+// const RsDialogs = {
+//   SCENES_CONTINUE_BUTTON: `Vamo dale`,
+//   SCENES_CONFIRM_BUTTON: `Certo que sim`,
+//   SCENES_LEAVE_BUTTON: `Vazare`,
+//   SCENES_BACK_BUTTON: `Calma lá`
+
+// ...Object.keys(dialogs).reduce(
+//     (prev, cur) => ({ ...prev, ...dialogs[cur].Rs }),
+//     {}
+//   )
+// }
 
 const defaultLanguage = 'en-us'
 
 export const getDialogs = (textKey) => {
   const texts = {
-    'en-us': EnDialogs,
-    'pt-br': PtDialogs,
-    rs: RsDialogs
+    'en-us': EnDialogs
+    // 'pt-br': PtDialogs,
+    // rs: RsDialogs
   }
 
   const settings = loadData({ key: 'settings' })

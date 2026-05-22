@@ -4,7 +4,7 @@ import type { ZoneType } from '@/Types/Zone.type'
 
 import { getTexts } from '@/Helpers/getTexts.helper'
 
-import * as Zones from '@/GameData/Zones'
+import { AllZones } from '@/GameData/Zones'
 
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useScene } from '@/Hooks/Scene.hook'
@@ -25,7 +25,7 @@ export const InteractableTiles = () => {
     return
   }
 
-  const currentZone: ZoneType = Zones[profile.currentZone.id]({
+  const currentZone: ZoneType = AllZones[profile.currentZone.id]({
     scene,
     profile
   })

@@ -5,13 +5,14 @@ import type { TileType } from '@/Types/Tile.type'
 
 import { fillGrid } from '@/Helpers/fillGrid'
 
+import { AllItems } from '@/GameData/Items'
+import { AllScenes } from '@/GameData/Scenes'
 import { floorTile } from '@/GameData/Zones/floor.tile'
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllDigimons } from '@/GameData/Digimons'
 
 import { WarpToCorridor } from './Events/WarpToCorridor.event'
 import { TriggerGetStarterDigimon } from './Events/TriggerGetStarterDigimon.event'
-import { AllItems } from '@/GameData/Items'
 
 const currentFloorTile: TileType = {
   ...floorTile,
@@ -140,7 +141,7 @@ const filledGrid = fillGrid({ grid, gridSize })
 
 export const RootDomainMainRoom = ({ profile }: { profile: ProfileType }) => {
   const zoneDetails: ZoneType = {
-    id: `RootDomainMainRoom`,
+    id: `rootDomainMainRoom`,
     background: `RootDomain/MainRoom`,
     name: `Root Domain`,
     gridSize,
@@ -166,8 +167,8 @@ export const RootDomainMainRoom = ({ profile }: { profile: ProfileType }) => {
         npc: AllNpcs.gennai,
 
         condition:
-          !!profile?.doneScenes.includes('introduction') &&
-          !!profile?.doneScenes.includes('getStarterDigimon')
+          !!profile?.doneScenes.includes(AllScenes.introduction.id) &&
+          !!profile?.doneScenes.includes(AllScenes.getStarterDigimon.id)
       },
 
       {
@@ -178,8 +179,8 @@ export const RootDomainMainRoom = ({ profile }: { profile: ProfileType }) => {
         npc: AllNpcs.gennai,
 
         condition:
-          !!profile?.doneScenes.includes('introduction') &&
-          !profile?.doneScenes.includes('getStarterDigimon')
+          !!profile?.doneScenes.includes(AllScenes.introduction.id) &&
+          !profile?.doneScenes.includes(AllScenes.getStarterDigimon.id)
       }
     ]
   }

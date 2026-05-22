@@ -1,4 +1,10 @@
 // Root Domain
-export { RootDomainMainRoom } from './RootDomain/MainRoom'
-export { RootDomainCorridor } from './RootDomain/Corridor'
-export { RootDomainRestRoom1 } from './RootDomain/RestRoom1'
+import { RootDomainMainRoom } from './RootDomain/MainRoom'
+import { RootDomainCorridor } from './RootDomain/Corridor'
+import { RootDomainRestRoom1 } from './RootDomain/RestRoom1'
+
+export const AllZones = {
+  rootDomainCorridor: RootDomainCorridor,
+  rootDomainMainRoom: RootDomainMainRoom,
+  rootDomainRestRoom1: RootDomainRestRoom1
+}

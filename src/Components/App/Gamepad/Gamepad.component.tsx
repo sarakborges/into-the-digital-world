@@ -10,7 +10,7 @@ import type { ZoneType } from '@/Types/Zone.type'
 import { saveSession } from '@/Helpers/saveSession.helper'
 import { startBattle } from '@/Helpers/startBattle.helper'
 
-import * as Zones from '@/GameData/Zones'
+import { AllZones } from '@/GameData/Zones'
 
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useScene } from '@/Hooks/Scene.hook'
@@ -31,7 +31,7 @@ export const Gamepad = () => {
     return
   }
 
-  const currentZone: ZoneType = Zones[profile.currentZone.id]({
+  const currentZone: ZoneType = AllZones[profile.currentZone.id]({
     scene,
     profile
   })
@@ -144,10 +144,14 @@ export const Gamepad = () => {
     )
   }
 
-  const npcExistsInPrevX = !!surroundingTiles.prevX?.npc
-  const npcExistsInNextX = !!surroundingTiles.nextX?.npc
-  const npcExistsInPrevY = !!surroundingTiles.prevY?.npc
-  const npcExistsInNextY = !!surroundingTiles.nextY?.npc
+  const npcExistsInPrevX =
+    !!surroundingTiles.prevX?.npc && !!surroundingTiles.prevX.condition
+  const npcExistsInNextX =
+    !!surroundingTiles.nextX?.npc && !!surroundingTiles.nextX.condition
+  const npcExistsInPrevY =
+    !!surroundingTiles.prevY?.npc && !!surroundingTiles.prevY.condition
+  const npcExistsInNextY =
+    !!surroundingTiles.nextY?.npc && !!surroundingTiles.nextY.condition
 
   const eventExistsInPrevX = !!surroundingTiles.prevX?.event
   const eventExistsInNextX = !!surroundingTiles.nextX?.event

@@ -2,6 +2,7 @@ import { Acquintances } from '@/Components/App/Acquintances'
 import { AvatarCustomization } from '@/Components/App/AvatarCustomization'
 import { Encyclopedia } from '@/Components/App/Encyclopedia'
 import { PlayerProfile } from '@/Components/App/PlayerProfile'
+import { Inventory } from '@/Components/App/Inventory'
 
 export const APP_PROFILE = {
   id: 'profile',
@@ -17,7 +18,9 @@ export const APP_SAVE = {
 
 export const APP_INVENTORY = {
   id: 'inventory',
-  scene: 'inventory'
+  scene: 'inventory',
+  app: 'inventory',
+  component: <Inventory />
 }
 
 export const APP_FASHION = {

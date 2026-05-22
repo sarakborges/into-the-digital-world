@@ -110,7 +110,7 @@ export const RootDomainRestRoom1 = ({
   scene: SceneType
 }): ZoneType => {
   const zoneDetails: ZoneType = {
-    id: `RootDomainRestRoom1`,
+    id: `rootDomainRestRoom1`,
     background: `RootDomain/RestRoomLeft`,
     name: `Root Domain`,
     gridSize,
@@ -131,7 +131,7 @@ export const RootDomainRestRoom1 = ({
       {
         id: 'introductionGennai',
         x: 6,
-        y: 12,
+        y: 7,
 
         condition:
           scene?.currentScene === AllScenes.introduction.id &&

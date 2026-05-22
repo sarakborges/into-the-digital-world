@@ -33,7 +33,7 @@ const filledGrid = fillGrid({ grid, gridSize })
 
 export const RootDomainCorridor = () => {
   const zoneDetails: ZoneType = {
-    id: `RootDomainCorridor`,
+    id: `rootDomainCorridor`,
     background: `RootDomain/Corridor`,
     name: `Root Domain`,
     gridSize,

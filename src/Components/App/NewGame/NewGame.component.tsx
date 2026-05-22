@@ -1,4 +1,4 @@
-import * as Zones from '@/GameData/Zones'
+import { AllZones } from '@/GameData/Zones'
 
 import type { ProfileType } from '@/Types/Profile.type'
 
@@ -40,7 +40,7 @@ export const NewGame = () => {
       titles: ['chosenChild'],
 
       currentZone: {
-        id: Zones.RootDomainRestRoom1({ scene: scene! }).id,
+        id: AllZones.rootDomainRestRoom1({ scene: scene! }).id,
         x: 3,
         y: 5
       }

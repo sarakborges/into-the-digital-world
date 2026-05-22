@@ -1,6 +1,6 @@
 import { warpTo } from '@/Helpers/warpTo.helper'
 
-import { RootDomainMainRoom } from '@/GameData/Zones'
+import { AllZones } from '@/GameData/Zones'
 
 export const WarpToMainRoom = (props) => {
   const { profile, setProfile, setGame } = props
@@ -9,7 +9,7 @@ export const WarpToMainRoom = (props) => {
     profile,
     setProfile,
     setGame,
-    zoneId: RootDomainMainRoom({ profile }).id,
+    zoneId: AllZones.rootDomainMainRoom({ profile }).id,
     x: 9,
     y: 17
   })
