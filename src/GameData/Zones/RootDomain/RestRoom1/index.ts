@@ -4,7 +4,7 @@ import type { SceneType } from '@/Types/Scene.type'
 
 import { fillGrid } from '@/Helpers/fillGrid'
 
-import { SCENES } from '@/Consts/Scenes.const'
+import { AllScenes } from '@/GameData/Scenes'
 
 import { AllNpcs } from '@/GameData/Npcs'
 import { floorTile } from '@/GameData/Zones/floor.tile'
@@ -134,7 +134,7 @@ export const RootDomainRestRoom1 = ({
         y: 12,
 
         condition:
-          scene?.currentScene === SCENES.introduction.id &&
+          scene?.currentScene === AllScenes.introduction.id &&
           scene?.currentStage !== '001',
 
         npc: AllNpcs.gennai
