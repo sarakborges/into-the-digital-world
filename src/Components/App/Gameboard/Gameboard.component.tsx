@@ -43,7 +43,7 @@ export const Gameboard = () => {
       className="gameboard-wrapper"
       style={
         {
-          '--is-battling': !profile.currentlyInBattle ? '100cqw' : 0
+          '--is-visible': !profile.currentlyInBattle ? 1 : 0
         } as React.CSSProperties
       }
     >

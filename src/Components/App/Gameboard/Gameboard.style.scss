@@ -1,14 +1,21 @@
 .gameboard-wrapper {
+  position: absolute;
+  top: 40px;
+  left: 0;
+
   display: flex;
   flex-flow: column;
   align-items: center;
 
   width: 100%;
-  max-height: var(--is-battling);
-  padding-top: 40px;
+  max-height: calc(var(--is-visible) * 100cqw);
   flex: 1;
 
-  transition: max-height 0.3s;
+  opacity: var(--is-visible);
+
+  transition:
+    opacity 0.3s,
+    max-height 0.3s;
 
   .gameboard-title {
     position: relative;
