@@ -1,6 +1,5 @@
 import type { AvatarType } from '@/Types/Avatar.type'
 import type { DigimonType } from '@/Types/Digimon.type'
-import type { ItemType } from '@/Types/Item.type'
 
 export type ProfileType = {
   id: number
@@ -16,7 +15,7 @@ export type ProfileType = {
   titles: Array<string>
 
   items: {
-    [itemId: string]: ItemType & { amount: number }
+    [itemId: string]: number
   }
 
   currentZone: {

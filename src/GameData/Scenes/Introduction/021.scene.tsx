@@ -35,10 +35,7 @@ export const Introduction021 = () => {
             ...profile!,
 
             items: {
-              [AllItems.digivice.id]: {
-                ...AllItems.digivice,
-                amount: 1
-              }
+              [AllItems.digivice.id]: 1
             }
           })
         }

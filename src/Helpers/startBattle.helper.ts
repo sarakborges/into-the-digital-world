@@ -80,13 +80,13 @@ export const startBattle = ({
     combatLog: [],
     turnOrder: [
       ...allies.map((digimon, digimonIndex) => ({
-        party: 'allies',
+        party: 'allies' as 'allies' | 'enemies',
         index: digimonIndex,
         digimon
       })),
 
       ...enemies.map((digimon, digimonIndex) => ({
-        party: 'enemies',
+        party: 'enemies' as 'allies' | 'enemies',
         index: digimonIndex,
         digimon
       }))

@@ -39,6 +39,13 @@ export const BattleEpilogue = () => {
           }
 
           if (battle!.result === 'victory') {
+            if (!!battle!.loot) {
+              for (let item of Object.keys(battle!.loot)) {
+                updatedProfile.items[item] =
+                  (updatedProfile.items[item] || 0) + battle!.loot[item].amount
+              }
+            }
+
             warpTo({
               setGame,
               profile: updatedProfile!,
