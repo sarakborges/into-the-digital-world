@@ -31,6 +31,11 @@ export const BATTLE_PARTY_ENEMIES = `Enemy party`
 
 export const ACQUINTANCE_NAME = `[NAME],`
 
+export const BATTLE_LOG_TURN = `Turn [TURN]:\n[PARTY][NAME] attacked [TARGETPARTY][TARGET] and dealt [DAMAGE] damage.`
+export const BATTLE_LOG_TITLE = `Combat log:`
+export const BATTLE_TARGET_ENEMIES = `enemy `
+export const BATTLE_ATTACK_ENEMIES = `Enemy `
+
 export const ENCYCLOPEDIA_CATEGORY_INPARTY = `Current party:`
 export const ENCYCLOPEDIA_CATEGORY_OTHERS = `Your other Digimons:`
 export const ENCYCLOPEDIA_NO_OTHERS = `Try composing new Digimons!`

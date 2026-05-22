@@ -3,6 +3,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { AllNpcs } from '@/GameData/Npcs'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
+import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { useBattle } from '@/Hooks/Battle.hook'
 import { useScene } from '@/Hooks/Scene.hook'
@@ -26,16 +27,14 @@ export const BattleAttack = () => {
           .replaceAll(
             '[PARTY]',
             lastTurn.party === 'enemies'
-              ? getDialogs('BATTLE_ATTACK_ENEMIES')
+              ? getTexts('BATTLE_ATTACK_ENEMIES')
               : ''
           )
           .replaceAll('[NAME]', lastTurn.attacker)
           .replaceAll('[TARGET]', lastTurn.target)
           .replaceAll(
             '[TARGETPARTY]',
-            lastTurn.party === 'allies'
-              ? getDialogs('BATTLE_TARGET_ENEMIES')
-              : ''
+            lastTurn.party === 'allies' ? getTexts('BATTLE_TARGET_ENEMIES') : ''
           )
           .replaceAll('[DAMAGE]', lastTurn.damage)}
       </Text>
