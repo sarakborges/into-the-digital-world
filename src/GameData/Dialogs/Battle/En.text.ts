@@ -9,5 +9,5 @@ export const BATTLE_ATTACK = `[PARTY][NAME] attacked [TARGETPARTY][TARGET] and d
 export const BATTLE_END_VICTORY = `End of battle! You rocked, master!`
 export const BATTLE_END_DEFEAT = `End of battle! I am sorry, master... But you have been defeated this time. We need to retreat quickly!`
 
-export const BATTLE_EPILOGUE_VICTORY = `Enemies become data streams, and you capture their data with your Digivice.`
+export const BATTLE_EPILOGUE_VICTORY = `Enemies become data streams, and you capture them with your Digivice.`
 export const BATTLE_EPILOGUE_DEFEAT = `As the enemies approach you and your fainted partners, you pull your Digivice and initiate Locamon, rushing back to the headquarters.`
