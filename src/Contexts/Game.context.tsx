@@ -6,14 +6,14 @@ import type { GameContextType } from '@/Types/Contexts/GameContext.type'
 
 export const GameContext = createContext<GameContextType>({
   game: {
-    event: null
+    isWarping: false
   },
   setGame: () => {}
 })
 
 export const GameProvider = ({ children }: { children: ReactNode }) => {
   const [game, setGame] = useState<GameType | null>({
-    event: null
+    isWarping: false
   })
 
   return (

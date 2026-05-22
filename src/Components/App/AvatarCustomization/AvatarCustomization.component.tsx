@@ -136,7 +136,7 @@ export const AvatarCustomization = () => {
             </main>
 
             <footer>
-              <Button onClick={saveAvatar}>
+              <Button disabled={!!scene} onClick={saveAvatar}>
                 <Text>{getDialogs('SCENES_CONFIRM_BUTTON')}</Text>
               </Button>
             </footer>
