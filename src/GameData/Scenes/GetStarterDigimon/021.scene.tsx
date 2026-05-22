@@ -41,7 +41,8 @@ export const GetStarterDigimon021 = () => {
             partnerDigimons: {
               1: {
                 id: 1,
-                baseDigimon: 'dorimon'
+                baseDigimon: 'dorimon',
+                isStarter: true
               }
             }
           }
