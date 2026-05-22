@@ -150,12 +150,14 @@ export const RootDomainMainRoom = ({ profile }: { profile: ProfileType }) => {
 
     tiles: [
       {
+        id: 'warpToCorridor',
         x: 9,
         y: 18,
         event: 'warpToCorridor'
       },
 
       {
+        id: 'gennaiTBA',
         x: 9,
         y: 3,
         npc: AllNpcs.gennai,
@@ -166,6 +168,7 @@ export const RootDomainMainRoom = ({ profile }: { profile: ProfileType }) => {
       },
 
       {
+        id: 'gennaiGetStarter',
         x: 9,
         y: 3,
         event: 'triggerGetStarterDigimon',

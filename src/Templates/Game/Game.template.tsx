@@ -26,6 +26,8 @@ export const Game = () => {
   const { settings } = useSettings()
   const { digivice } = useDigivice()
 
+  console.log(profile?.currentlyInBattle)
+
   useEffect(() => {}, [settings])
 
   return (
@@ -49,24 +51,20 @@ export const Game = () => {
 
         {!!profile?.currentlyInBattle && <Battlefield />}
 
-        {!profile?.currentlyInBattle && (
+        {!scene && (
           <>
-            {!scene && (
-              <>
-                {!profile && <StartScreen />}
+            {!profile && <StartScreen />}
 
-                {!!profile && !digivice.isOpen && (
-                  <div className="screen-footer">
-                    <InteractableTiles />
-                    <Gamepad />
-                  </div>
-                )}
-              </>
+            {!!profile && !digivice.isOpen && (
+              <div className="screen-footer">
+                <InteractableTiles />
+                <Gamepad />
+              </div>
             )}
-
-            {<Gameboard />}
           </>
         )}
+
+        <Gameboard />
 
         {<Scene />}
       </div>

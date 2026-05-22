@@ -122,12 +122,14 @@ export const RootDomainRestRoom1 = ({
 
     tiles: [
       {
+        id: 'warpToCorridor',
         x: 6,
         y: 12,
         event: 'warpToCorridor'
       },
 
       {
+        id: 'introductionGennai',
         x: 6,
         y: 12,
 

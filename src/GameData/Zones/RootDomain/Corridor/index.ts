@@ -46,12 +46,14 @@ export const RootDomainCorridor = () => {
 
     tiles: [
       {
+        id: 'warpToMainRoom',
         x: 0,
         y: 6,
         event: 'warpToMainRoom'
       },
 
       {
+        id: 'warpToRestRoom1',
         x: 4,
         y: 4,
         event: 'warpToRestRoom1'

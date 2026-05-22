@@ -14,6 +14,7 @@ export type ZoneType = {
   }
 
   tiles: Array<{
+    id: string
     x: number
     y: number
     condition?: boolean

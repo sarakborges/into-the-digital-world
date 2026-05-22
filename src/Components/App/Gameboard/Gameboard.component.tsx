@@ -39,7 +39,14 @@ export const Gameboard = () => {
   } as React.CSSProperties
 
   return (
-    <div className="gameboard-wrapper">
+    <div
+      className="gameboard-wrapper"
+      style={
+        {
+          '--is-battling': !profile.currentlyInBattle ? '100cqw' : 0
+        } as React.CSSProperties
+      }
+    >
       <header className="gameboard-title">
         <Text>
           {getTexts('CURRENT_ZONE').replaceAll('[ZONE]', currentZone.name)}
@@ -63,7 +70,7 @@ export const Gameboard = () => {
           {currentZone.tiles.map((tile) => {
             return (
               <Fragment
-                key={`zone-${currentZone.id}-x${tile.x}-y${tile.y}-${!!tile.npc ? 'npc' : 'event'}`}
+                key={`zone-${currentZone.id}-x${tile.x}-y${tile.y}-${tile.id}`}
               >
                 {!!tile.npc && (
                   <div
