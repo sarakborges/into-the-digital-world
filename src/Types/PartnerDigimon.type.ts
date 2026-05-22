@@ -1,4 +1,4 @@
-export type DigimonType = {
+export type PartnerDigimonType = {
   id: number
   name?: string
   baseDigimon: string
