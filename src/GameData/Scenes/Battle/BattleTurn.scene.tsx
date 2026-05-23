@@ -50,7 +50,8 @@ export const BattleTurn = () => {
           attacker: currentTurn.digimon.name,
           target: target.name,
           damage,
-          party: currentTurn.party
+          party: currentTurn.party,
+          hasFainted: target.hp - damage <= 0
         },
         ...battle!.combatLog
       ]

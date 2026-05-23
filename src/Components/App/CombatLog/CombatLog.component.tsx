@@ -38,6 +38,15 @@ export const CombatLog = () => {
               )
               .replaceAll('[DAMAGE]', logEntry.damage)}
           </Text>
+
+          {!!logEntry.hasFainted && (
+            <Text>
+              {getTexts('BATTLE_LOG_DEFEATED').replaceAll(
+                '[TARGET]',
+                logEntry.target
+              )}
+            </Text>
+          )}
         </div>
       ))}
     </div>

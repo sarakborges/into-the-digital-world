@@ -11,41 +11,20 @@
     font-size: 20px;
   }
 
-  .loot-item {
+  .loot-list {
     display: flex;
-    place-items: center;
-    gap: 8px;
+    flex-flow: column;
+    gap: 12px;
 
     padding: 12px;
 
-    background-color: var(--color-secondary-strong);
+    background-color: var(--color-secondary);
     border-radius: 12px;
 
-    .core-item {
-      position: relative;
-
-      width: 40px;
-      height: 40px;
-
-      > .portrait {
-        position: absolute;
-      }
-
-      > .portrait:nth-child(1) {
-        top: 0;
-        left: 0;
-        z-index: 2;
-
-        width: 40px;
-      }
-
-      > .portrait:nth-child(2) {
-        top: 6px;
-        left: 6px;
-        z-index: 1;
-
-        width: 28px;
-      }
+    .loot-item {
+      display: flex;
+      place-items: center;
+      gap: 8px;
     }
   }
 }

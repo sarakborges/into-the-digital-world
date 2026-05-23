@@ -3,7 +3,8 @@ import { AllItems } from '@/GameData/Items'
 import { useBattle } from '@/Hooks/Battle.hook'
 
 import { Text } from '@/Components/System/Text'
-import { Portrait } from '@/Components/System/Portrait'
+
+import { ItemCore } from '@/Components/App/ItemCore'
 
 import './CombatLoot.style.scss'
 
@@ -18,24 +19,17 @@ export const CombatLoot = () => {
     <div className="combat-loot">
       <Text>Loot:</Text>
 
-      {Object.keys(battle.loot!).map((item) => (
-        <div className="loot-item" key={`combat-loot-item-${item}`}>
-          {AllItems[item].category === 'core' && (
-            <div className="core-item">
-              <Portrait alt="Core border" src={`/items/chip.png`} />
+      <div className="loot-list">
+        {Object.keys(battle.loot!).map((item) => (
+          <div className="loot-item" key={`combat-loot-item-${item}`}>
+            {AllItems[item].category === 'core' && <ItemCore item={item} />}
 
-              <Portrait
-                alt={AllItems[item].name}
-                src={`/${AllItems[item].portrait}.webp`}
-              />
-            </div>
-          )}
-
-          <Text as="p">
-            {`${AllItems[item].name} x${battle.loot![item].amount}`}
-          </Text>
-        </div>
-      ))}
+            <Text as="p">
+              {`${AllItems[item].name} x${battle.loot![item].amount}`}
+            </Text>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

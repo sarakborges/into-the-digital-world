@@ -35,6 +35,7 @@ export const BATTLE_LOG_TURN = `Turn [TURN]:\n[PARTY][NAME] attacked [TARGETPART
 export const BATTLE_LOG_TITLE = `Combat log:`
 export const BATTLE_TARGET_ENEMIES = `enemy `
 export const BATTLE_ATTACK_ENEMIES = `Enemy `
+export const BATTLE_LOG_DEFEATED = `[TARGET] has been defeated.`
 
 export const ENCYCLOPEDIA_CATEGORY_INPARTY = `Current party:`
 export const ENCYCLOPEDIA_CATEGORY_OTHERS = `Your other Digimons:`

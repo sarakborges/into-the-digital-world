@@ -12,9 +12,13 @@
   }
 
   .log-entry {
+    display: flex;
+    flex-flow: column;
+    gap: 12px;
+
     padding: 12px;
 
-    background-color: var(--color-secondary-strong);
+    background-color: var(--color-secondary);
     border-radius: 12px;
   }
 }
