@@ -28,7 +28,9 @@ export const DeleteGame = ({ profileId }: { profileId: number }) => {
 
       saveData({
         key: 'profiles',
-        value: updatedProfiles?.map((profile) => profile.id)
+        value: updatedProfiles
+          ?.map((profile) => profile.id)
+          .filter((profile) => profile !== profileId)
       })
     } catch (e) {
       console.warn(e)

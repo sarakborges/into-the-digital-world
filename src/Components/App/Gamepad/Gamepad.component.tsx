@@ -83,7 +83,10 @@ export const Gamepad = () => {
         (!!tile.condition || tile.condition === undefined)
     )
 
-    if (!!currentTile?.event) {
+    if (
+      !!currentTile?.event &&
+      (currentTile.condition === undefined || !!currentTile?.condition)
+    ) {
       currentZone.events?.[currentTile?.event]({
         profile: updatedProfile,
         setProfile,
@@ -145,29 +148,29 @@ export const Gamepad = () => {
   }
 
   const npcExistsInPrevX = !!surroundingTiles.prevX?.some(
-    (tile) => !!tile.npc && !!tile.condition
+    (tile) => !!tile.npc && (tile.condition === undefined || !!tile.condition)
   )
   const npcExistsInNextX = !!surroundingTiles.nextX?.some(
-    (tile) => !!tile.npc && !!tile.condition
+    (tile) => !!tile.npc && (tile.condition === undefined || !!tile.condition)
   )
   const npcExistsInPrevY = !!surroundingTiles.prevY?.some(
-    (tile) => !!tile.npc && !!tile.condition
+    (tile) => !!tile.npc && (tile.condition === undefined || !!tile.condition)
   )
   const npcExistsInNextY = !!surroundingTiles.nextY?.some(
-    (tile) => !!tile.npc && !!tile.condition
+    (tile) => !!tile.npc && (tile.condition === undefined || !!tile.condition)
   )
 
   const eventExistsInPrevX = !!surroundingTiles.prevX?.some(
-    (tile) => tile.event && !!tile.condition
+    (tile) => tile.event && (tile.condition === undefined || !!tile.condition)
   )
   const eventExistsInNextX = !!surroundingTiles.nextX?.some(
-    (tile) => tile.event && !!tile.condition
+    (tile) => tile.event && (tile.condition === undefined || !!tile.condition)
   )
   const eventExistsInPrevY = !!surroundingTiles.prevY?.some(
-    (tile) => tile.event && !!tile.condition
+    (tile) => tile.event && (tile.condition === undefined || !!tile.condition)
   )
   const eventExistsInNextY = !!surroundingTiles.nextY?.some(
-    (tile) => tile.event && !!tile.condition
+    (tile) => tile.event && (tile.condition === undefined || !!tile.condition)
   )
 
   const canMovePrevX =

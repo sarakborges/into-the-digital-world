@@ -22,12 +22,25 @@ const currentFloorTile: TileType = {
     [AllDigimons.koromon.id]: {
       spawnChance: 100,
 
-      lootTable: {
-        [AllItems.koromonCore.id]: {
+      lootTable: [
+        {
+          itemId: AllItems.koromonCore.id,
+          dropChance: 100,
+          amount: 1
+        },
+
+        {
+          itemId: AllItems.koromonCore.id,
+          dropChance: 100,
+          amount: 1
+        },
+
+        {
+          itemId: AllItems.koromonCore.id,
           dropChance: 100,
           amount: 1
         }
-      }
+      ]
     }
   }
 }

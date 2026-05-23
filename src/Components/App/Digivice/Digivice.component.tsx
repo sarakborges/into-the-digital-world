@@ -1,19 +1,18 @@
 import { HiOutlineDevicePhoneMobile } from 'react-icons/hi2'
 import { IoCaretBack } from 'react-icons/io5'
-import { FaTimes } from 'react-icons/fa'
 import { BiSolidSquareRounded } from 'react-icons/bi'
 
 import { AllApps } from '@/Consts/DigiviceApps'
+import { AllScenes } from '@/GameData/Scenes'
 
 import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { useScene } from '@/Hooks/Scene.hook'
 import { useDigivice } from '@/Hooks/Digivice.hook'
 import { useProfile } from '@/Hooks/Profile.hook'
-import { useSettings } from '@/Hooks/Settings.hook'
+
 import { Text } from '@/Components/System/Text'
 import { Portrait } from '@/Components/System/Portrait'
-
 import { Button } from '@/Components/System/Button'
 import { Modal } from '@/Components/System/Modal'
 
@@ -24,12 +23,27 @@ import './Digivice.style.scss'
 export const Digivice = () => {
   const { profile } = useProfile()
   const { digivice, setDigivice } = useDigivice()
-  const { settings } = useSettings()
   const { scene, setScene } = useScene()
 
   if (!Object.keys(profile?.items || {}).includes('digivice')) {
     return
   }
+
+  const isOpenDigiviceScene =
+    scene?.currentScene === AllScenes.introduction.id &&
+    scene?.currentStage === '022'
+
+  const isSceneBlockingButtons = !!scene && !isOpenDigiviceScene
+
+  const isFashionOpen = digivice.currentApp === 'fashion'
+  const playerHasAvatar = !!profile?.avatar
+
+  const isFirstCustomization = !!isFashionOpen && !playerHasAvatar
+
+  const areButtonsDisabled =
+    isSceneBlockingButtons ||
+    isFirstCustomization ||
+    !!profile?.currentlyInBattle
 
   const toggleModal = () => {
     setDigivice({
@@ -45,12 +59,6 @@ export const Digivice = () => {
         currentStage: '023'
       })
     }
-  }
-
-  const closeApp = () => {
-    setDigivice({
-      isOpen: false
-    })
   }
 
   const pressBackButton = () => {
@@ -101,16 +109,15 @@ export const Digivice = () => {
                         )}
                       </Text>
                     </div>
-
-                    <Button cancel onClick={closeApp} disabled={!!scene}>
-                      <FaTimes />
-                    </Button>
                   </header>
 
                   <main>{AllApps[digivice.currentApp].component}</main>
 
                   <footer>
-                    <Button onClick={pressBackButton}>
+                    <Button
+                      onClick={pressBackButton}
+                      disabled={areButtonsDisabled}
+                    >
                       <IoCaretBack />
                     </Button>
 
@@ -122,6 +129,7 @@ export const Digivice = () => {
                           currentApp: undefined
                         })
                       }
+                      disabled={!!areButtonsDisabled}
                     >
                       <BiSolidSquareRounded />
                     </Button>
@@ -139,13 +147,7 @@ export const Digivice = () => {
         data-warning={
           scene?.currentScene === 'introduction' && scene.currentStage === '022'
         }
-        disabled={
-          (scene?.currentScene === 'introduction' &&
-            !['022'].includes(scene.currentStage)) ||
-          (!!scene && scene?.currentScene !== 'introduction') ||
-          settings.isOpen ||
-          !!profile?.currentlyInBattle
-        }
+        disabled={areButtonsDisabled}
       >
         {<HiOutlineDevicePhoneMobile />}
       </Button>

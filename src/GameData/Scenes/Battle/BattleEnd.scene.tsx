@@ -47,15 +47,14 @@ export const BattleEnd = () => {
 
           if (battleResult === 'victory') {
             for (let digimon of battle!.enemies) {
-              if (!!digimon.lootTable) {
-                for (let item of Object.keys(digimon.lootTable)) {
-                  const itemDetails = digimon.lootTable[item]
+              if (!!digimon.lootTable?.length) {
+                for (let item of digimon.lootTable) {
                   const rng = generateRandomNumber({ min: 0, max: 100 })
 
-                  if (rng < itemDetails.dropChance) {
-                    loot[item] = {
-                      ...AllItems[item],
-                      amount: itemDetails.amount
+                  if (rng < item.dropChance) {
+                    loot[item.itemId] = {
+                      ...AllItems[item.itemId],
+                      amount: (loot[item.itemId]?.amount || 0) + item.amount
                     }
                   }
                 }

@@ -71,7 +71,7 @@ export const startBattle = ({
     sp: AllDigimons[digimon].stats.sta,
     party: 'enemies',
     index: digimonIndex,
-    lootTable: { ...tile.possibleSpawns![digimon].lootTable }
+    lootTable: [...(tile.possibleSpawns![digimon].lootTable ?? [])]
   }))
 
   const battle = {

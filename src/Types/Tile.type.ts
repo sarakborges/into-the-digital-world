@@ -9,12 +9,11 @@ export type TileType = {
     [digimonId: string]: {
       spawnChance: number
 
-      lootTable?: {
-        [itemId: string]: {
-          dropChance: number
-          amount: number
-        }
-      }
+      lootTable?: Array<{
+        itemId: string
+        dropChance: number
+        amount: number
+      }>
     }
   }
 }

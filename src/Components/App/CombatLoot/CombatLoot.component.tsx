@@ -11,7 +11,7 @@ import './CombatLoot.style.scss'
 export const CombatLoot = () => {
   const { battle } = useBattle()
 
-  if (!battle) {
+  if (!battle || !Object.keys(battle.loot!).length) {
     return
   }
 

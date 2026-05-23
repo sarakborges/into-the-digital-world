@@ -5,12 +5,11 @@ export type BattleType = {
   allies: Array<PartyDigimonType>
   enemies: Array<
     PartyDigimonType & {
-      lootTable?: {
-        [itemId: string]: {
-          dropChance: number
-          amount: number
-        }
-      }
+      lootTable?: Array<{
+        itemId: string
+        dropChance: number
+        amount: number
+      }>
     }
   >
   result?: 'victory' | 'defeat'

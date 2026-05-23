@@ -2,16 +2,12 @@ import type { ProfileType } from '@/Types/Profile.type'
 
 import { saveData } from '@/Helpers/saveData.helper'
 import { saveSession } from '@/Helpers/saveSession.helper'
+import { loadData } from '@/Helpers/loadData.helper'
 
-export const saveProfile = ({
-  profile,
-  savedProfiles
-}: {
-  profile: ProfileType
-  savedProfiles: Array<ProfileType>
-}) => {
+export const saveProfile = ({ profile }: { profile: ProfileType }) => {
   try {
     const updatedProfile = { ...profile, lastSave: new Date() }
+    const savedProfiles = loadData({ key: 'profiles' })
 
     saveData({
       key: `profile${profile?.id}`,
@@ -25,10 +21,12 @@ export const saveProfile = ({
 
     const updatedProfiles = Array.from(
       new Set([
-        ...(savedProfiles || [])?.map((profile) => profile.id),
-        profile?.id
+        ...savedProfiles?.map((savedProfile) => savedProfile),
+        profile.id
       ])
     )
+
+    console.log(savedProfiles)
 
     saveData({
       key: 'profiles',

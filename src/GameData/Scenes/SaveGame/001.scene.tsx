@@ -8,7 +8,6 @@ import { saveProfile } from '@/Helpers/saveProfile.helper'
 import { AllNpcs } from '@/GameData/Npcs'
 
 import { useProfile } from '@/Hooks/Profile.hook'
-import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
 
 import { Text } from '@/Components/System/Text'
 
@@ -16,7 +15,6 @@ import { Dialog } from '@/Components/App/Dialog'
 
 export const SaveGame001 = () => {
   const { profile, setProfile } = useProfile()
-  const { savedProfiles } = useSavedProfiles()
   const { setScene } = useScene()
 
   const isFirstTimeSaving = !Object.keys(profile!.npcAcquintances).includes(
@@ -69,8 +67,7 @@ export const SaveGame001 = () => {
           }
 
           saveProfile({
-            profile: updatedProfile,
-            savedProfiles: savedProfiles || []
+            profile: updatedProfile
           })
 
           setProfile(updatedProfile)
