@@ -1,3 +1,5 @@
+import { Fragment } from 'react/jsx-runtime'
+
 import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { AllItems } from '@/GameData/Items'
@@ -5,11 +7,11 @@ import { AllItems } from '@/GameData/Items'
 import { useProfile } from '@/Hooks/Profile.hook'
 
 import { Text } from '@/Components/System/Text'
+import { Portrait } from '@/Components/System/Portrait'
 
 import { ItemCore } from '@/Components/App/ItemCore'
 
 import './Inventory.style.scss'
-import { Portrait } from '@/Components/System/Portrait'
 
 export const Inventory = () => {
   const { profile } = useProfile()
@@ -31,9 +33,9 @@ export const Inventory = () => {
 
   return (
     <div className="inventory">
-      {Object.keys(categories).map(
-        (category) =>
-          Object.keys(categories[category]).length > 0 && (
+      {Object.keys(categories).map((category) => (
+        <Fragment key={`inventory-category-${category}`}>
+          {Object.keys(categories[category]).length > 0 && (
             <div className="item-category">
               <Text>
                 {getTexts(`INVENTORY_CATEGORY_${category.toLocaleUpperCase()}`)}
@@ -41,7 +43,10 @@ export const Inventory = () => {
 
               <div className="items-list">
                 {Object.keys(categories[category]).map((item) => (
-                  <div className="item">
+                  <div
+                    className="item"
+                    key={`inventory-category-${category}-item-${item}`}
+                  >
                     {AllItems[item].category === 'core' && (
                       <ItemCore item={item} />
                     )}
@@ -61,8 +66,9 @@ export const Inventory = () => {
                 ))}
               </div>
             </div>
-          )
-      )}
+          )}
+        </Fragment>
+      ))}
     </div>
   )
 }
