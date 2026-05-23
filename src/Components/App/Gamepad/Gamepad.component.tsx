@@ -123,40 +123,52 @@ export const Gamepad = () => {
   }
 
   const surroundingTiles = {
-    prevX: currentZone.tiles.find(
+    prevX: currentZone.tiles.filter(
       (tile) =>
         tile.x === profile.currentZone.x - 1 && tile.y === profile.currentZone.y
     ),
 
-    nextX: currentZone.tiles.find(
+    nextX: currentZone.tiles.filter(
       (tile) =>
         tile.x === profile.currentZone.x + 1 && tile.y === profile.currentZone.y
     ),
 
-    prevY: currentZone.tiles.find(
+    prevY: currentZone.tiles.filter(
       (tile) =>
         tile.x === profile.currentZone.x && tile.y === profile.currentZone.y - 1
     ),
 
-    nextY: currentZone.tiles.find(
+    nextY: currentZone.tiles.filter(
       (tile) =>
         tile.x === profile.currentZone.x && tile.y === profile.currentZone.y + 1
     )
   }
 
-  const npcExistsInPrevX =
-    !!surroundingTiles.prevX?.npc && !!surroundingTiles.prevX.condition
-  const npcExistsInNextX =
-    !!surroundingTiles.nextX?.npc && !!surroundingTiles.nextX.condition
-  const npcExistsInPrevY =
-    !!surroundingTiles.prevY?.npc && !!surroundingTiles.prevY.condition
-  const npcExistsInNextY =
-    !!surroundingTiles.nextY?.npc && !!surroundingTiles.nextY.condition
+  const npcExistsInPrevX = !!surroundingTiles.prevX?.some(
+    (tile) => !!tile.npc && !!tile.condition
+  )
+  const npcExistsInNextX = !!surroundingTiles.nextX?.some(
+    (tile) => !!tile.npc && !!tile.condition
+  )
+  const npcExistsInPrevY = !!surroundingTiles.prevY?.some(
+    (tile) => !!tile.npc && !!tile.condition
+  )
+  const npcExistsInNextY = !!surroundingTiles.nextY?.some(
+    (tile) => !!tile.npc && !!tile.condition
+  )
 
-  const eventExistsInPrevX = !!surroundingTiles.prevX?.event
-  const eventExistsInNextX = !!surroundingTiles.nextX?.event
-  const eventExistsInPrevY = !!surroundingTiles.prevY?.event
-  const eventExistsInNextY = !!surroundingTiles.nextY?.event
+  const eventExistsInPrevX = !!surroundingTiles.prevX?.some(
+    (tile) => tile.event && !!tile.condition
+  )
+  const eventExistsInNextX = !!surroundingTiles.nextX?.some(
+    (tile) => tile.event && !!tile.condition
+  )
+  const eventExistsInPrevY = !!surroundingTiles.prevY?.some(
+    (tile) => tile.event && !!tile.condition
+  )
+  const eventExistsInNextY = !!surroundingTiles.nextY?.some(
+    (tile) => tile.event && !!tile.condition
+  )
 
   const canMovePrevX =
     (existsInGrid.prevX || eventExistsInPrevX) && !npcExistsInPrevX

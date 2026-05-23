@@ -3,19 +3,21 @@ import { AllZones } from '@/GameData/Zones'
 import type { ProfileType } from '@/Types/Profile.type'
 
 import { getTexts } from '@/Helpers/getTexts.helper'
+import { saveSession } from '@/Helpers/saveSession.helper'
 
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useScene } from '@/Hooks/Scene.hook'
 import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
+import { useDigivice } from '@/Hooks/Digivice.hook'
 
 import { Button } from '@/Components/System/Button'
 
 import './NewGame.style.scss'
-import { saveSession } from '@/Helpers/saveSession.helper'
 
 export const NewGame = () => {
   const { savedProfiles, setSavedProfiles } = useSavedProfiles()
   const { setProfile } = useProfile()
+  const { setDigivice } = useDigivice()
   const { scene, setScene } = useScene()
 
   const createNewProfile = () => {
@@ -55,6 +57,7 @@ export const NewGame = () => {
 
     setProfile(newProfile)
     setScene(currentScene)
+    setDigivice({ isOpen: false })
     saveSession({ key: 'profile', value: newProfile })
   }
 

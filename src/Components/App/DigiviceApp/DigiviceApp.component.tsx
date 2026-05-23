@@ -1,5 +1,7 @@
 import { getTexts } from '@/Helpers/getTexts.helper'
 
+import { AllScenes } from '@/GameData/Scenes'
+
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useScene } from '@/Hooks/Scene.hook'
 import { useDigivice } from '@/Hooks/Digivice.hook'
@@ -18,9 +20,14 @@ export const DigiviceApp = ({ app }) => {
   }
 
   const isFashion = app.id === 'fashion'
+  const isSave = app.id === 'save'
+  const isLogoff = app.id === 'logoff'
   const isIntroduction = scene?.currentScene === 'introduction'
 
-  const isAppDisabled = !!scene && !!isIntroduction && !isFashion
+  const isAppDisabled =
+    (!!scene && !!isIntroduction && !isFashion) ||
+    (!profile.doneScenes.includes(AllScenes.getStarterDigimon.id) &&
+      !(isFashion || isSave || isLogoff))
   const isAppHighlighted = !!isFashion && !!isIntroduction
 
   const openApp = () => {

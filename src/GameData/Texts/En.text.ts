@@ -41,6 +41,11 @@ export const ENCYCLOPEDIA_CATEGORY_INPARTY = `Current party:`
 export const ENCYCLOPEDIA_CATEGORY_OTHERS = `Your other Digimons:`
 export const ENCYCLOPEDIA_NO_OTHERS = `Try composing new Digimons!`
 
+export const INVENTORY_CATEGORY_GENERAL = `General`
+export const INVENTORY_CATEGORY_KEYITEM = `Key items`
+export const INVENTORY_CATEGORY_EQUIPMENT = `Equipments`
+export const INVENTORY_CATEGORY_CORE = `Cores`
+
 export const TITLES_CHOSENCHILD = `The chosen child`
 
 export const TITLES_GENNAI = `Last of Homeostasis's agents`

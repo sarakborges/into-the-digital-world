@@ -1,0 +1,48 @@
+.inventory {
+  display: flex;
+  flex-flow: column;
+  gap: 16px;
+
+  .item-category {
+    display: flex;
+    flex-flow: column;
+    gap: 8px;
+
+    > .text {
+      font-size: 20px;
+    }
+
+    .items-list {
+      display: flex;
+      flex-flow: column;
+      gap: 12px;
+
+      .item {
+        display: flex;
+        place-items: center;
+        gap: 8px;
+
+        padding: 8px;
+        padding-right: 12px;
+
+        background-color: var(--color-secondary);
+        border-radius: 12px;
+
+        > .portrait {
+          max-width: 40px;
+          overflow: hidden;
+
+          border: 2px solid var(--color-secondary-strong);
+          border-radius: 16px;
+        }
+
+        > .text {
+          display: flex;
+          place-content: space-between;
+
+          flex: 1;
+        }
+      }
+    }
+  }
+}
