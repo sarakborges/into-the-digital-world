@@ -40,14 +40,14 @@ export const Acquintances = () => {
     acquintances[npc.category].push(npc)
   }
 
-  if (!!digivice.currentAcquintance) {
+  if (!!digivice.currentDetails) {
     return <AcquintanceDetails />
   }
 
   const setAcquintance = (id) => {
     setDigivice({
       ...digivice,
-      currentAcquintance: id
+      currentDetails: id
     })
   }
 

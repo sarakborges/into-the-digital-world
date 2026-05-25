@@ -2,12 +2,10 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { useProfile } from '@/Hooks/Profile.hook'
 
-import { Portrait } from '@/Components/System/Portrait'
-import { Text } from '@/Components/System/Text'
 import { Modal } from '@/Components/System/Modal'
 import { Button } from '@/Components/System/Button'
 
-import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
+import { CharacterHeader } from '@/Components/App/CharacterHeader'
 
 import './Dialog.style.scss'
 
@@ -17,30 +15,18 @@ export const Dialog = ({ speaker, content, options }: DialogType) => {
   return (
     <Modal>
       <main className="dialog">
-        {speaker && speaker !== 'player' && (
-          <header>
-            {speaker.portrait && (
-              <Portrait
-                alt="Helper Digimon"
-                src={`/${speaker.portrait}.webp`}
-              />
-            )}
-
-            <Text>
-              {Object.keys(profile!.npcAcquintances).includes(speaker.id) ||
-              speaker.id === 'player'
-                ? speaker.name
-                : `???`}
-            </Text>
-          </header>
-        )}
-
-        {speaker && speaker === 'player' && (
-          <header>
-            <PlayerAvatar />
-
-            <Text>{profile?.name}</Text>
-          </header>
+        {!!speaker && (
+          <CharacterHeader
+            character={{
+              ...speaker,
+              isPlayer: speaker.id === 'player',
+              name:
+                Object.keys(profile!.npcAcquintances).includes(speaker.id) ||
+                speaker.id === 'player'
+                  ? speaker.name
+                  : `???`
+            }}
+          />
         )}
 
         <main>{content}</main>

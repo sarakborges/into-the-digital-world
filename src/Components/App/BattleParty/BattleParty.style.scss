@@ -17,96 +17,50 @@
         background-color: var(--color-secondary);
       }
     }
+  }
 
-    > header {
+  .character-header {
+    .resources {
       display: flex;
-      place-items: flex-start;
+      flex-flow: column;
+      gap: 4px;
 
-      .portrait {
+      padding-left: 16px;
+
+      .resource-bar {
         position: relative;
-        z-index: 2;
 
         display: flex;
-        gap: 6px;
+        place-items: center;
 
-        max-width: 58px;
-        min-width: 58px;
-        padding: 2px;
-        margin-right: -24px;
+        > .text {
+          position: absolute;
 
-        border: 2px solid var(--color-primary);
-        border-radius: 100%;
+          width: 100%;
+          padding: 0 4px;
 
-        img {
-          border-radius: 100%;
+          font-size: 12px;
+          text-align: right;
         }
-      }
 
-      > div {
-        display: flex;
-        flex-flow: column;
-        gap: 4px;
+        &:after {
+          content: '';
 
-        width: calc(100% - 38px);
+          width: var(--fill);
+          height: 8px;
 
-        .digimon-name {
-          display: flex;
+          border-radius: 4px;
+        }
 
-          .text {
-            position: relative;
-            z-index: 1;
-
-            max-width: 100%;
-            padding: 4px;
-            padding-left: 24px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-
-            background-color: var(--color-primary);
-            border-radius: 8px 8px 8px 32px;
+        &:nth-child(1) {
+          &:after {
+            background-color: var(--color-hp);
           }
         }
 
-        .resources {
-          display: flex;
-          flex-flow: column;
-          gap: 4px;
-
-          padding-left: 28px;
-
-          .resource-bar {
-            position: relative;
-
-            display: flex;
-            place-items: center;
-
-            > .text {
-              position: absolute;
-
-              width: 100%;
-              padding: 0 8px;
-            }
-
-            &:after {
-              content: '';
-
-              width: var(--fill);
-              height: 8px;
-
-              border-radius: 4px;
-            }
-
-            &:nth-child(1) {
-              &:after {
-                background-color: var(--color-hp);
-              }
-            }
-
-            &:nth-child(2) {
-              &:after {
-                background-color: var(--color-sp);
-              }
-            }
+        &:nth-child(2) {
+          &:after {
+            background-color: var(--color-sp);
           }
         }
       }

@@ -4,7 +4,7 @@ import { useProfile } from '@/Hooks/Profile.hook'
 
 import { Text } from '@/Components/System/Text'
 
-import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
+import { CharacterHeader } from '@/Components/App/CharacterHeader'
 
 import './PlayerProfile.style.scss'
 
@@ -13,24 +13,11 @@ export const PlayerProfile = () => {
 
   return (
     <div className="player-profile">
-      <header className="player-header">
-        <aside className="profile-avatar">
-          <PlayerAvatar />
-        </aside>
-
-        <main>
-          <Text>
-            {getTexts('PROFILE_NAME').replaceAll('[NAME]', profile?.name)}
-          </Text>
-
-          <Text>
-            {getTexts('PROFILE_TITLE').replaceAll(
-              '[TITLE]',
-              getTexts(`TITLES_${profile?.currentTitle.toLocaleUpperCase()}`)
-            )}
-          </Text>
-        </main>
-      </header>
+      <CharacterHeader character={{ ...profile!, isPlayer: true }} lg>
+        <Text>
+          {getTexts(`TITLES_${profile?.currentTitle.toLocaleUpperCase()}`)}
+        </Text>
+      </CharacterHeader>
 
       {/* <main className="profile-info">
         <Text>

@@ -24,30 +24,32 @@ export const PlayerAvatar = ({
 
   return (
     <div className="player-avatar">
-      <Portrait
-        src={`/avatars/clothes/${avatar?.clothes}.webp`}
-        alt={`${profile?.name} avatar clothes`}
-      />
+      <div className="avatar-layers">
+        <Portrait
+          src={`/avatars/clothes/${avatar?.clothes}.webp`}
+          alt={`${profile?.name} avatar clothes`}
+        />
 
-      <Portrait
-        src={`/avatars/skins/${avatar?.skin}.webp`}
-        alt={`${profile?.name} avatar skin`}
-      />
+        <Portrait
+          src={`/avatars/skins/${avatar?.skin}.webp`}
+          alt={`${profile?.name} avatar skin`}
+        />
 
-      <Portrait
-        src={`/avatars/expressions/${avatar?.expression}.webp`}
-        alt={`${profile?.name} avatar expression`}
-      />
+        <Portrait
+          src={`/avatars/expressions/${avatar?.expression}.webp`}
+          alt={`${profile?.name} avatar expression`}
+        />
 
-      <Portrait
-        src={`/avatars/eyes/${avatar?.expression}-${avatar?.eyes}.webp`}
-        alt={`${profile?.name} avatar eyes`}
-      />
+        <Portrait
+          src={`/avatars/eyes/${avatar?.expression}-${avatar?.eyes}.webp`}
+          alt={`${profile?.name} avatar eyes`}
+        />
 
-      <Portrait
-        src={`/avatars/hairs/${avatar?.hair}-${avatar?.hairColor}.webp`}
-        alt={`${profile?.name} avatar hair`}
-      />
+        <Portrait
+          src={`/avatars/hairs/${avatar?.hair}-${avatar?.hairColor}.webp`}
+          alt={`${profile?.name} avatar hair`}
+        />
+      </div>
     </div>
   )
 }

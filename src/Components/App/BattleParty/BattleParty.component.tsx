@@ -4,8 +4,9 @@ import { getPercentage } from '@/Helpers/getPercentage'
 
 import { useBattle } from '@/Hooks/Battle.hook'
 
-import { Portrait } from '@/Components/System/Portrait'
 import { Text } from '@/Components/System/Text'
+
+import { CharacterHeader } from '@/Components/App/CharacterHeader'
 
 import './BattleParty.style.scss'
 
@@ -36,40 +37,36 @@ export const BattleParty = ({
           }
           data-defeated={digimon.hp === 0}
         >
-          <header>
-            <Portrait alt={digimon.name} src={`/${digimon.portrait}.webp`} />
+          <CharacterHeader character={digimon}>
+            <div className="resources">
+              {Object.keys(resources).map((resource) => (
+                <div
+                  className="resource-bar"
+                  key={`battle-party-${party.title}-digimon-${digimonIndex}-resources-${resource}`}
+                  style={
+                    {
+                      '--fill': `${getPercentage({
+                        current: digimon[resource],
+                        max: digimon.stats[resources[resource]]
+                      })}%`
+                    } as React.CSSProperties
+                  }
+                >
+                  <Text>
+                    <>{resource.toLocaleUpperCase()}: </>
 
-            <div>
-              <div className="digimon-name">
-                <Text>{digimon.name}</Text>
-              </div>
-
-              <div className="resources">
-                {Object.keys(resources).map((resource) => (
-                  <div
-                    className="resource-bar"
-                    key={`battle-party-${party.title}-digimon-${digimonIndex}-resources-${resource}`}
-                    style={
-                      {
-                        '--fill': `${getPercentage({
-                          current: digimon[resource],
-                          max: digimon.stats[resources[resource]]
-                        })}%`
-                      } as React.CSSProperties
-                    }
-                  >
-                    <Text>
+                    <>
                       {getPercentage({
                         current: digimon[resource],
                         max: digimon.stats[resources[resource]]
                       })}
                       %
-                    </Text>
-                  </div>
-                ))}
-              </div>
+                    </>
+                  </Text>
+                </div>
+              ))}
             </div>
-          </header>
+          </CharacterHeader>
         </div>
       ))}
     </div>

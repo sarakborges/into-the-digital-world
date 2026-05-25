@@ -8,33 +8,24 @@ import { Portrait } from '@/Components/System/Portrait'
 import { Text } from '@/Components/System/Text'
 
 import './AcquintanceDetails.style.scss'
+import { CharacterHeader } from '../CharacterHeader'
 
 export const AcquintanceDetails = () => {
   const { digivice } = useDigivice()
 
-  if (!digivice.currentAcquintance) {
+  if (!digivice.currentDetails) {
     return
   }
 
-  const npc = AllNpcs[digivice.currentAcquintance]
+  const npc = AllNpcs[digivice.currentDetails]
 
   return (
     <div className="npc-profile">
-      <header className="npc-header">
-        <aside className="profile-avatar">
-          <div className="npc-avatar">
-            <Portrait alt={npc.name} src={`/npc_portraits/${npc.id}.webp`} />
-          </div>
-        </aside>
-
-        <main className="npc-info">
-          <Text>
-            {getTexts('ACQUINTANCE_NAME').replaceAll('[NAME]', npc?.name)}
-          </Text>
-
-          {!!npc.title && <Text>{getTexts(npc.title)}</Text>}
-        </main>
-      </header>
+      <div className="npc-header">
+        <CharacterHeader character={npc} lg>
+          <>{!!npc.title && <Text>{getTexts(npc.title)}</Text>}</>
+        </CharacterHeader>
+      </div>
 
       <main>
         <Text as="p">{npc.description}</Text>

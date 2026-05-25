@@ -22,14 +22,10 @@ export const APPS_LOCATION = `Location`
 export const APPS_ENCYCLOPEDIA = `Encyclopedia`
 export const APPS_INVENTORY = `Inventory`
 
-export const PROFILE_NAME = `[NAME],`
-export const PROFILE_TITLE = `\n"[TITLE]"`
 export const PROFILE_CURRENCY = `D$ [CURRENCY]`
 
 export const BATTLE_PARTY_ALLIES = `Your party`
 export const BATTLE_PARTY_ENEMIES = `Enemy party`
-
-export const ACQUINTANCE_NAME = `[NAME],`
 
 export const BATTLE_LOG_TURN = `Turn [TURN]:\n[PARTY][NAME] attacked [TARGETPARTY][TARGET] and dealt [DAMAGE] damage.`
 export const BATTLE_LOG_TITLE = `Combat log:`
@@ -40,6 +36,7 @@ export const BATTLE_LOG_DEFEATED = `[TARGET] has been defeated.`
 export const ENCYCLOPEDIA_CATEGORY_INPARTY = `Current party:`
 export const ENCYCLOPEDIA_CATEGORY_OTHERS = `Your other Digimons:`
 export const ENCYCLOPEDIA_NO_OTHERS = `Try composing new Digimons!`
+export const ENCYCLOPEDIA_FULL_PICTURE = `Full body picture:`
 
 export const INVENTORY_CATEGORY_GENERAL = `General`
 export const INVENTORY_CATEGORY_KEYITEM = `Key items`

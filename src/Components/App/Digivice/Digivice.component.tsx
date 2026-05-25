@@ -62,10 +62,10 @@ export const Digivice = () => {
   }
 
   const pressBackButton = () => {
-    if (!!digivice.currentAcquintance) {
+    if (!!digivice.currentDetails) {
       setDigivice({
         ...digivice,
-        currentAcquintance: ''
+        currentDetails: undefined
       })
 
       return
@@ -125,7 +125,7 @@ export const Digivice = () => {
                       onClick={() =>
                         setDigivice({
                           ...digivice,
-                          currentAcquintance: undefined,
+                          currentDetails: undefined,
                           currentApp: undefined
                         })
                       }

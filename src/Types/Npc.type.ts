@@ -3,6 +3,7 @@ export type NpcType = {
   title?: string
   name: string
   description?: string
+  fullImage: string
   portrait: string
   category?: 'appmon' | 'digimon' | 'general'
 }

@@ -12,61 +12,19 @@
 
       width: 100%;
 
-      > header + main {
-        border-radius: 0 8px 8px 8px;
+      .character-header {
+        .portrait {
+          border-radius: 100% 100% 0 0;
+        }
+
+        .character-name {
+          .text {
+          }
+        }
       }
 
-      > header {
-        display: flex;
-        place-items: flex-end;
-
-        position: relative;
-
-        > .portrait {
-          position: relative;
-          z-index: 2;
-
-          max-width: 58px;
-          padding: 2px;
-
-          border-radius: 100%;
-          border: 2px solid var(--color-secondary);
-
-          img {
-            border-radius: 100%;
-          }
-        }
-
-        .player-avatar {
-          position: relative;
-          z-index: 2;
-
-          max-width: 58px;
-          padding: 2px;
-
-          border-radius: 100%;
-          border: 2px solid var(--color-secondary);
-
-          img {
-            border-radius: 100%;
-          }
-        }
-
-        .text {
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          z-index: 1;
-
-          padding: 4px 8px;
-
-          background-color: var(--color-secondary);
-          border-radius: 8px 8px 0 0;
-        }
-
-        :is(.portrait, .player-avatar) + .text {
-          padding-left: 58px;
-        }
+      .character-header + main {
+        border-radius: 0 8px 8px 8px;
       }
 
       > main {
@@ -74,7 +32,7 @@
         flex-flow: column;
         gap: 16px;
 
-        background-color: var(--color-secondary);
+        background-color: var(--color-secondary-strong);
         border-radius: 8px;
 
         max-height: calc(100dvh - 240px);

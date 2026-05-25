@@ -37,11 +37,11 @@
     opacity 0.3s;
 
   &:not(.cancel) {
-    background-color: var(--color-secondary);
+    background-color: var(--color-secondary-strong);
 
     &:not(:disabled) {
       &:hover {
-        background-color: var(--color-secondary-strong);
+        background-color: var(--color-secondary);
       }
     }
   }

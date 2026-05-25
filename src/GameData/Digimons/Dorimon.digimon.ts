@@ -5,6 +5,7 @@ export const DigimonDorimon: BaseDigimonType = {
   name: 'Dorimon',
   description: ``,
   portrait: 'digimon_portraits/DORIMON',
+  fullImage: 'digimons/DORIMON',
   attribute: 'noattribute',
   families: [],
 

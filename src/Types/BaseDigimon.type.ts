@@ -2,6 +2,7 @@ export type BaseDigimonType = {
   id: string
   name: string
   description: string
+  fullImage: string
   portrait: string
 
   attribute: 'vaccine' | 'virus' | 'data' | 'noattribute'

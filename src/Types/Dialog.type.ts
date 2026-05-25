@@ -1,7 +1,7 @@
 import type { NpcType } from '@/Types/Npc.type'
 
 export type DialogType = {
-  speaker?: NpcType | 'player'
+  speaker?: NpcType
   content: React.ReactNode
   options?: Array<{
     id: string

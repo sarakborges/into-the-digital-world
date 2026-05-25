@@ -1,3 +1,4 @@
+import { BsArrowDown, BsArrowUp } from 'react-icons/bs'
 import { TbListDetails } from 'react-icons/tb'
 
 import { getTexts } from '@/Helpers/getTexts.helper'
@@ -6,17 +7,24 @@ import { AllDigimons } from '@/GameData/Digimons'
 
 import { useProfile } from '@/Hooks/Profile.hook'
 import { useScene } from '@/Hooks/Scene.hook'
+import { useDigivice } from '@/Hooks/Digivice.hook'
 
 import { Button } from '@/Components/System/Button'
 import { Text } from '@/Components/System/Text'
 import { Portrait } from '@/Components/System/Portrait'
 
+import { PartnerDetails } from '@/Components/App/PartnerDetails'
+
 import './Encyclopedia.style.scss'
-import { BsArrowDown, BsArrowUp } from 'react-icons/bs'
 
 export const Encyclopedia = () => {
   const { profile, setProfile } = useProfile()
+  const { digivice, setDigivice } = useDigivice()
   const { scene } = useScene()
+
+  if (!!digivice.currentDetails) {
+    return <PartnerDetails />
+  }
 
   const allPartners = Object.values(profile?.partnerDigimons!).map(
     (partner) => ({
@@ -47,6 +55,13 @@ export const Encyclopedia = () => {
     setProfile({
       ...profile!,
       currentParty: [...profile!.currentParty, id]
+    })
+  }
+
+  const seeDetails = (id: number) => {
+    setDigivice({
+      ...digivice,
+      currentDetails: id
     })
   }
 
@@ -82,7 +97,10 @@ export const Encyclopedia = () => {
                   </header>
 
                   <footer>
-                    <Button disabled={!!scene}>
+                    <Button
+                      disabled={!!scene}
+                      onClick={() => seeDetails(partner.id)}
+                    >
                       <TbListDetails />
                     </Button>
 
