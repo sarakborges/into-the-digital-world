@@ -12,11 +12,21 @@
     &:not([data-islg='true']) .portrait {
       max-width: 58px;
       min-width: 58px;
+
+      .avatar-content {
+        max-width: 58px;
+        min-width: 58px;
+      }
     }
 
     &[data-islg='true'] .portrait {
       max-width: 80px;
       min-width: 80px;
+
+      .avatar-content {
+        max-width: 80px;
+        min-width: 80px;
+      }
     }
   }
 
@@ -30,10 +40,7 @@
     }
 
     .avatar-content {
-      max-width: 58px;
-      min-width: 58px;
-
-      border-radius: 100% 100% 0 0;
+      border-radius: 100% 100% 0 100%;
       background-color: var(--color-secondary-strong);
     }
 
