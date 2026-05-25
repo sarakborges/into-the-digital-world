@@ -10,11 +10,16 @@
 
     &[data-currentturn='true'] {
       .portrait {
-        border: 2px solid var(--color-secondary);
+        border: 2px solid var(--color-secondary-weak);
+        background-color: var(--color-secondary-weak);
+
+        img {
+          border-color: var(--color-secondary-weak);
+        }
       }
 
-      > header > div .digimon-name .text {
-        background-color: var(--color-secondary);
+      > header > div .character-name .text {
+        background-color: var(--color-secondary-weak);
       }
     }
   }
@@ -25,7 +30,7 @@
       flex-flow: column;
       gap: 4px;
 
-      padding-left: 16px;
+      padding-left: 4px;
 
       .resource-bar {
         position: relative;
@@ -35,12 +40,14 @@
 
         > .text {
           position: absolute;
+          top: -6px;
 
           width: 100%;
           padding: 0 4px;
 
           font-size: 12px;
           text-align: right;
+          text-shadow: 0 0 8px var(--color-neutral-strong);
         }
 
         &:after {

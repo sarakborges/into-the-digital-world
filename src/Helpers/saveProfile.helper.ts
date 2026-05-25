@@ -26,8 +26,6 @@ export const saveProfile = ({ profile }: { profile: ProfileType }) => {
       ])
     )
 
-    console.log(savedProfiles)
-
     saveData({
       key: 'profiles',
       value: updatedProfiles

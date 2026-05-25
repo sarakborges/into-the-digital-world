@@ -25,7 +25,9 @@ export type BattleType = {
     target: string
     damage: number
     party: 'allies' | 'enemies'
-    hasFainted: boolean
+    isDefeated: boolean
+    isCrit: boolean
+    isHit: boolean
   }>
 
   mapPosition: {

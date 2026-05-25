@@ -30,38 +30,80 @@ export const BattleTurn = () => {
 
     const target = possibleTargets![rngTarget]
 
-    const powVsRes = currentTurn.digimon.stats.pow - target.stats.res
-    const damage = Math.max(
-      0,
-      Math.ceil(
-        powVsRes +
-          generateRandomNumber({
-            min: powVsRes / -10,
-            max: powVsRes / 10
-          })
-      )
-    )
+    const hit =
+      currentTurn.digimon.stats.tec + generateRandomNumber({ min: 0, max: 5 })
+    const evade =
+      target.stats.agi * 0.7 + generateRandomNumber({ min: 0, max: 5 })
 
-    const updatedBattle: BattleType = {
-      ...battle!,
+    const rngHit = generateRandomNumber({ min: 1, max: 20 })
 
-      combatLog: [
-        {
-          attacker: currentTurn.digimon.name,
-          target: target.name,
-          damage,
-          party: currentTurn.party,
-          hasFainted: target.hp - damage <= 0
-        },
-        ...battle!.combatLog
-      ]
+    if (rngHit === 1 || evade > hit) {
+      const updatedBattle: BattleType = {
+        ...battle!,
+
+        combatLog: [
+          {
+            attacker: currentTurn.digimon.name,
+            target: target.name,
+            damage: 0,
+            party: currentTurn.party,
+            isDefeated: false,
+            isCrit: false,
+            isHit: false
+          },
+          ...battle!.combatLog
+        ]
+      }
+
+      setBattle({
+        ...updatedBattle
+      })
     }
 
-    target.hp -= damage
+    if (rngHit === 20 || hit >= evade) {
+      const powVsRes =
+        currentTurn.digimon.stats.pow *
+        (currentTurn.digimon.stats.pow /
+          (currentTurn.digimon.stats.pow + target.stats.res))
 
-    setBattle({
-      ...updatedBattle
-    })
+      const isCrit = rngHit === 20
+
+      const damage = Math.max(
+        0,
+        Math.ceil(
+          Math.ceil(
+            powVsRes +
+              generateRandomNumber({
+                min: powVsRes / -10,
+                max: powVsRes / 10
+              })
+          ) * (!!isCrit ? 1.5 : 1)
+        )
+      )
+
+      const updatedBattle: BattleType = {
+        ...battle!,
+
+        combatLog: [
+          {
+            attacker: currentTurn.digimon.name,
+            target: target.name,
+            damage,
+            party: currentTurn.party,
+            isDefeated: target.hp - damage <= 0,
+            isCrit,
+            isHit: true
+          },
+          ...battle!.combatLog
+        ]
+      }
+
+      target.hp -= damage
+
+      setBattle({
+        ...updatedBattle
+      })
+    }
 
     setScene({
       currentScene: 'battle',

@@ -13,6 +13,8 @@ export type BaseDigimonType = {
     sta: number
     pow: number
     res: number
-    spe: number
+    tec: number
+    agi: number
+    ini: number
   }
 }

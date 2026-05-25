@@ -4,6 +4,8 @@ import { useBattle } from '@/Hooks/Battle.hook'
 
 import { Text } from '@/Components/System/Text'
 
+import { CombatLogEntry } from '@/Components/App/CombatLogEntry'
+
 import './CombatLog.style.scss'
 
 export const CombatLog = () => {
@@ -19,34 +21,7 @@ export const CombatLog = () => {
 
       {[...battle.combatLog.reverse()].map((logEntry, logIndex) => (
         <div className="log-entry" key={`combat-log-entry-${logIndex + 1}`}>
-          <Text as="p">
-            {getTexts('BATTLE_LOG_TURN')
-              .replaceAll('[TURN]', logIndex + 1)
-              .replaceAll(
-                '[PARTY]',
-                logEntry.party === 'enemies'
-                  ? getTexts('BATTLE_ATTACK_ENEMIES')
-                  : ''
-              )
-              .replaceAll('[NAME]', logEntry.attacker)
-              .replaceAll('[TARGET]', logEntry.target)
-              .replaceAll(
-                '[TARGETPARTY]',
-                logEntry.party === 'allies'
-                  ? getTexts('BATTLE_TARGET_ENEMIES')
-                  : ''
-              )
-              .replaceAll('[DAMAGE]', logEntry.damage)}
-          </Text>
-
-          {!!logEntry.hasFainted && (
-            <Text>
-              {getTexts('BATTLE_LOG_DEFEATED').replaceAll(
-                '[TARGET]',
-                logEntry.target
-              )}
-            </Text>
-          )}
+          <CombatLogEntry logEntry={{ ...logEntry, index: logIndex + 1 }} />
         </div>
       ))}
     </div>

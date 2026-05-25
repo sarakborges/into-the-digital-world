@@ -27,7 +27,9 @@ export const PROFILE_CURRENCY = `D$ [CURRENCY]`
 export const BATTLE_PARTY_ALLIES = `Your party`
 export const BATTLE_PARTY_ENEMIES = `Enemy party`
 
-export const BATTLE_LOG_TURN = `Turn [TURN]:\n[PARTY][NAME] attacked [TARGETPARTY][TARGET] and dealt [DAMAGE] damage.`
+export const BATTLE_LOG_TURN = `Turn [TURN]:\n[PARTY][NAME] attacked [TARGETPARTY][TARGET] and dealt [DAMAGE] damage.[CRITICAL]`
+export const BATTLE_LOG_CRITICAL = ` It was a critical hit!`
+export const BATTLE_LOG_MISS = `Turn [TURN]:\n[PARTY][NAME] attacked [TARGETPARTY][TARGET], but missed.`
 export const BATTLE_LOG_TITLE = `Combat log:`
 export const BATTLE_TARGET_ENEMIES = `enemy `
 export const BATTLE_ATTACK_ENEMIES = `Enemy `
