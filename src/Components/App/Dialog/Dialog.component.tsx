@@ -19,10 +19,10 @@ export const Dialog = ({ speaker, content, options }: DialogType) => {
           <CharacterHeader
             character={{
               ...speaker,
-              isPlayer: speaker.id === 'player',
+              isPlayer: !!speaker.isPlayer,
               name:
                 Object.keys(profile!.npcAcquintances).includes(speaker.id) ||
-                speaker.id === 'player'
+                !!speaker.isPlayer
                   ? speaker.name
                   : `???`
             }}

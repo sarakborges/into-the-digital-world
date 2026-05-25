@@ -14,7 +14,7 @@ export const Introduction015 = () => {
   const { profile } = useProfile()
 
   const dialogOptions: DialogType = {
-    speaker: { id: 'player', name: profile!.name, portrait: `avatars/glitch` },
+    speaker: { ...profile!, isPlayer: true },
 
     content: <Text as="p">{getDialogs('INTRODUCTION_015_TEXT')}</Text>,
 

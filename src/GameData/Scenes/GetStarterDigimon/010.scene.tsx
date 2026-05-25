@@ -4,15 +4,17 @@ import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 import { Text } from '@/Components/System/Text'
 
+import { useProfile } from '@/Hooks/Profile.hook'
 import { useScene } from '@/Hooks/Scene.hook'
 
 import { Dialog } from '@/Components/App/Dialog'
 
 export const GetStarterDigimon010 = () => {
   const { setScene } = useScene()
+  const { profile } = useProfile()
 
   const dialogOptions: DialogType = {
-    speaker: 'player',
+    speaker: { ...profile!, isPlayer: true },
 
     content: <Text as="p">{getDialogs(`GETSTARTERDIGIMON_010_TEXT`)}</Text>,
 
