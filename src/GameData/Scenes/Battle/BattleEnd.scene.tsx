@@ -24,7 +24,7 @@ export const BattleEnd = () => {
     : 'defeat'
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.oujamon,
+    speaker: AllNpcs.appmon.oujamon,
 
     content: (
       <Text as="p">

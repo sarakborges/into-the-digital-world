@@ -17,7 +17,7 @@ export const Introduction028 = () => {
   const { profile, setProfile } = useProfile()
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.gennai,
+    speaker: AllNpcs.general.gennai,
 
     content: <Text as="p">{getDialogs('INTRODUCTION_028_TEXT')}</Text>,
 

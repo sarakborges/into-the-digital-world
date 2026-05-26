@@ -14,7 +14,7 @@ export const GetStarterDigimon012 = () => {
   const { setScene } = useScene()
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.gennai,
+    speaker: AllNpcs.general.gennai,
 
     content: <Text as="p">{getDialogs(`GETSTARTERDIGIMON_012_TEXT`)}</Text>,
 

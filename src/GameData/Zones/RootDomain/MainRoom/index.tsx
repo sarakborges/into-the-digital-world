@@ -177,7 +177,7 @@ export const RootDomainMainRoom = ({ profile }: { profile: ProfileType }) => {
         id: 'gennaiTBA',
         x: 9,
         y: 3,
-        npc: AllNpcs.gennai,
+        npc: AllNpcs.general.gennai,
 
         condition:
           !!profile?.doneScenes.includes(AllScenes.introduction.id) &&
@@ -189,7 +189,7 @@ export const RootDomainMainRoom = ({ profile }: { profile: ProfileType }) => {
         x: 9,
         y: 3,
         event: 'triggerGetStarterDigimon',
-        npc: AllNpcs.gennai,
+        npc: AllNpcs.general.gennai,
 
         condition:
           !!profile?.doneScenes.includes(AllScenes.introduction.id) &&

@@ -7,7 +7,6 @@ import { Inventory } from '@/Components/App/Inventory'
 export const APP_PROFILE = {
   id: 'profile',
   app: 'profile',
-  scene: 'profile',
   component: <PlayerProfile />
 }
 
@@ -18,7 +17,6 @@ export const APP_SAVE = {
 
 export const APP_INVENTORY = {
   id: 'inventory',
-  scene: 'inventory',
   app: 'inventory',
   component: <Inventory />
 }
@@ -36,20 +34,17 @@ export const APP_LOGOFF = {
 }
 
 export const APP_ACHIEVEMENTS = {
-  id: 'achievements',
-  scene: 'achievements'
+  id: 'achievements'
 }
 
 export const APP_ENCYCLOPEDIA = {
   id: 'encyclopedia',
-  scene: 'encyclopedia',
   app: 'encyclopedia',
   component: <Encyclopedia />
 }
 
 export const APP_ACQUINTANCES = {
   id: 'acquintances',
-  scene: 'acquintances',
   app: 'acquintances',
   component: <Acquintances />
 }
@@ -60,8 +55,7 @@ export const APP_LOCATION = {
 }
 
 export const APP_JOURNAL = {
-  id: 'journal',
-  scene: 'questsLog'
+  id: 'journal'
 }
 
 export const AllApps = {

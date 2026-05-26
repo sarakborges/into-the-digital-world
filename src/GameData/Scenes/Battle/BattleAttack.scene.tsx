@@ -17,7 +17,7 @@ export const BattleAttack = () => {
   const logEntry = battle?.combatLog[0]!
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.oujamon,
+    speaker: AllNpcs.appmon.oujamon,
 
     content: (
       <CombatLogEntry

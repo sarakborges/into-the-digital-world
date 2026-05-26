@@ -16,7 +16,7 @@ export const AvatarCustomization002 = () => {
   const { digivice, setDigivice } = useDigivice()
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.dressmon,
+    speaker: AllNpcs.appmon.dressmon,
 
     content: <Text as="p">{getDialogs('AVATARCUSTOMIZATION_002_TEXT')}</Text>,
 

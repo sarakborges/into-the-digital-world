@@ -27,7 +27,7 @@ export const Introduction005 = () => {
   }, [])
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.gennai,
+    speaker: AllNpcs.general.gennai,
 
     content: (
       <>

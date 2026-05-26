@@ -16,49 +16,22 @@ export const BattleStart = () => {
   const { profile, setProfile } = useProfile()
   const { setScene } = useScene()
 
-  const isFirstTimeSeeingBattle = !Object.keys(
-    profile!.npcAcquintances
-  ).includes(AllNpcs.oujamon.id)
-
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.oujamon,
+    speaker: AllNpcs.appmon.oujamon,
 
-    content: (
-      <Text as="p">
-        {getDialogs(
-          !!isFirstTimeSeeingBattle
-            ? 'BATTLE_START_TEXT_ALT'
-            : 'BATTLE_START_TEXT'
-        )}
-      </Text>
-    ),
+    content: <Text as="p">{getDialogs('BATTLE_START_TEXT')}</Text>,
 
     options: [
       {
         id: 'scene-battle-001-confirm',
         text: getDialogs('SCENES_CONFIRM_BUTTON'),
         action: () => {
-          if (!!isFirstTimeSeeingBattle) {
-            const updatedProfile = {
-              ...profile!,
-              currentlyInBattle: true,
-              npcAcquintances: {
-                ...profile!.npcAcquintances,
-                [AllNpcs.oujamon.id]: {}
-              }
-            }
-
-            setProfile(updatedProfile)
+          const updatedProfile = {
+            ...profile!,
+            currentlyInBattle: true
           }
 
-          if (!isFirstTimeSeeingBattle) {
-            const updatedProfile = {
-              ...profile!,
-              currentlyInBattle: true
-            }
-
-            setProfile(updatedProfile)
-          }
+          setProfile(updatedProfile)
 
           setScene({
             currentScene: 'battle',

@@ -137,7 +137,7 @@ export const RootDomainRestRoom1 = ({
           scene?.currentScene === AllScenes.introduction.id &&
           scene?.currentStage !== '001',
 
-        npc: AllNpcs.gennai
+        npc: AllNpcs.general.gennai
       }
     ]
   }

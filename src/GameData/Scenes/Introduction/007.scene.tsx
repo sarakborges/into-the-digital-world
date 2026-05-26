@@ -13,7 +13,7 @@ export const Introduction007 = () => {
   const { setScene } = useScene()
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.gennai,
+    speaker: AllNpcs.general.gennai,
 
     content: <Text as="p">{getDialogs('INTRODUCTION_007_TEXT')}</Text>,
 

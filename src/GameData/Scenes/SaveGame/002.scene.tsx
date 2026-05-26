@@ -16,7 +16,7 @@ export const SaveGame002 = () => {
   const { digivice, setDigivice } = useDigivice()
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.savemon,
+    speaker: AllNpcs.appmon.savemon,
 
     content: <Text as="p">{getDialogs('SAVEGAME_002_TEXT')}</Text>,
 

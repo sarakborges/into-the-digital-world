@@ -3,11 +3,7 @@ import { AvatarCustomizationScenes } from './AvatarCustomization'
 import { SaveGameScenes } from './SaveGame'
 import { LogoffScenes } from './Logoff'
 import { GetStarterDigimonScenes } from './GetStarterDigimon'
-import { ProfileScenes } from './Profile'
-import { AcquintancesScenes } from './Acquintances'
-import { EncyclopediaScenes } from './Encyclopedia'
 import { BattleScenes } from './Battle'
-import { InventoryScenes } from './Inventory'
 import { RenamePartnerScenes } from './RenamePartner'
 
 import { useScene } from '@/Hooks/Scene.hook'
@@ -18,11 +14,7 @@ export const AllScenes = {
   saveGame: SaveGameScenes,
   logoff: LogoffScenes,
   getStarterDigimon: GetStarterDigimonScenes,
-  acquintances: AcquintancesScenes,
-  profile: ProfileScenes,
-  encyclopedia: EncyclopediaScenes,
   battle: BattleScenes,
-  inventory: InventoryScenes,
   renamePartner: RenamePartnerScenes
 }
 

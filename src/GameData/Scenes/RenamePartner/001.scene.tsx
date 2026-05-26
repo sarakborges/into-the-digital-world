@@ -24,7 +24,7 @@ export const RenamePartner001 = () => {
   const baseDigimon = AllDigimons[digimon?.baseDigimon!]
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.bookmon,
+    speaker: AllNpcs.appmon.bookmon,
 
     content: (
       <>

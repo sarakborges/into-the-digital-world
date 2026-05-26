@@ -2,8 +2,9 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
+import { AllItems } from '@/GameData/Items'
+
 import { useScene } from '@/Hooks/Scene.hook'
-import { useProfile } from '@/Hooks/Profile.hook'
 
 import { Text } from '@/Components/System/Text'
 import { Portrait } from '@/Components/System/Portrait'
@@ -19,7 +20,7 @@ export const Introduction012 = () => {
         <Text as="p">{getDialogs('INTRODUCTION_012_TEXT')}</Text>,
         <Portrait
           alt={getDialogs('INTRODUCTION_011_IMAGE')}
-          src="/items/digivice.webp"
+          src={`/${AllItems.digivice.portrait}.webp`}
         />
       </>
     ),

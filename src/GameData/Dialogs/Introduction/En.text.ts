@@ -26,14 +26,11 @@ export const INTRODUCTION_011_TEXT = `Calm down. This is not my fault. But the g
 
 export const INTRODUCTION_012_TEXT = `Gennai reaches his hand, and you see what resembles a celphone. Just as he said. You're kinda skeptical, but end up taking the device.`
 
-export const INTRODUCTION_013_TEXT = `Just as you take the device, it boots itself. On it's display, this fella appears.`
-export const INTRODUCTION_013_IMAGE = `Bootmon`
+export const INTRODUCTION_013_TEXT = `Just as you take the device, it boots itself.`
 
-export const INTRODUCTION_014_TEXT = `MASTER, YOU FINALLY WOKE UP! My name is Bootmon. I am at your service to turn on your Digivice, whenever is needed.\n\nIf you excuse me, my job is done.`
+export const INTRODUCTION_015_TEXT = `I'm getting more confused by the second. How having a new phone will fix me?`
 
-export const INTRODUCTION_015_TEXT = `I'm getting more confused by the second. How having a new phone will fix me? And what is that guy on the phone? He called me master. What a weirdo. Gives me the creeps.`
-
-export const INTRODUCTION_016_TEXT = `Don't mind the way Bootmon talks. Keep in mind that he, and all other Appmons are there to help you.`
+export const INTRODUCTION_016_TEXT = `Keep in mind that all Appmons are there to help you. That's how.`
 
 export const INTRODUCTION_017_TEXT = `I still don't get it. What is a Appmon?`
 

@@ -12,45 +12,21 @@ import { getDialogs } from '@/Helpers/getDialogs.helper'
 import { Text } from '@/Components/System/Text'
 
 import { Dialog } from '@/Components/App/Dialog'
-import { saveSession } from '@/Helpers/saveSession.helper'
 
 export const Logoff001 = () => {
-  const { profile, setProfile } = useProfile()
+  const { setProfile } = useProfile()
   const { setScene } = useScene()
 
-  const isFirstTimeLoggingOff = !Object.keys(profile!.npcAcquintances).includes(
-    AllNpcs.logamon.id
-  )
-
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.logamon,
+    speaker: AllNpcs.appmon.logamon,
 
-    content: (
-      <Text as="p">
-        {getDialogs(
-          !!isFirstTimeLoggingOff ? 'LOGOFF_001_TEXT_ALT' : 'LOGOFF_001_TEXT'
-        )}
-      </Text>
-    ),
+    content: <Text as="p">{getDialogs('LOGOFF_001_TEXT')}</Text>,
 
     options: [
       {
         id: 'scene-logoff-001-refuse',
         text: getDialogs('SCENES_BACK_BUTTON'),
         action: () => {
-          if (!!isFirstTimeLoggingOff) {
-            const updatedProfile = {
-              ...profile!,
-              npcAcquintances: {
-                ...profile!.npcAcquintances,
-                [AllNpcs.logamon.id]: {}
-              }
-            }
-
-            setProfile(updatedProfile)
-            saveSession({ key: 'profile', value: updatedProfile })
-          }
-
           setScene(null)
         }
       },

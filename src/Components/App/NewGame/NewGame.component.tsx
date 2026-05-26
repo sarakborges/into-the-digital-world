@@ -1,6 +1,7 @@
-import { AllZones } from '@/GameData/Zones'
-
 import type { ProfileType } from '@/Types/Profile.type'
+
+import { AllZones } from '@/GameData/Zones'
+import { AllNpcs } from '@/GameData/Npcs'
 
 import { getTexts } from '@/Helpers/getTexts.helper'
 import { saveSession } from '@/Helpers/saveSession.helper'
@@ -36,7 +37,9 @@ export const NewGame = () => {
       currentParty: [],
       items: {},
       meaningfulChoices: {},
-      npcAcquintances: {},
+      npcAcquintances: {
+        ...AllNpcs.appmon
+      },
       partnerDigimons: {},
       doneScenes: [],
       titles: ['chosenChild'],

@@ -24,7 +24,7 @@ export const GetStarterDigimon021 = () => {
   }
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.gennai,
+    speaker: AllNpcs.general.gennai,
 
     content: (
       <Text as="p">

@@ -10,7 +10,7 @@ import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction023 = () => {
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.gennai,
+    speaker: AllNpcs.general.gennai,
 
     content: <Text as="p">{getDialogs('INTRODUCTION_023_TEXT')}</Text>
   }

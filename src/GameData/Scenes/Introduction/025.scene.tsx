@@ -14,7 +14,7 @@ export const Introduction025 = () => {
   const { setScene } = useScene()
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.dressmon,
+    speaker: AllNpcs.appmon.dressmon,
 
     content: <Text as="p">{getDialogs('INTRODUCTION_025_TEXT')}</Text>,
 

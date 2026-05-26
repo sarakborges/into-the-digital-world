@@ -16,7 +16,7 @@ export const GetStarterDigimon003 = () => {
   const { setScene } = useScene()
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.dorimon,
+    speaker: AllNpcs.digimon.dorimon,
 
     content: (
       <Text as="p">

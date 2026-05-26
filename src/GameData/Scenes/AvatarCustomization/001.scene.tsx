@@ -14,7 +14,7 @@ export const AvatarCustomization001 = () => {
   const { setScene } = useScene()
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.dressmon,
+    speaker: AllNpcs.appmon.dressmon,
 
     content: <Text as="p">{getDialogs('AVATARCUSTOMIZATION_001_TEXT')}</Text>,
 

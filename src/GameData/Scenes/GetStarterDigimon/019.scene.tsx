@@ -16,7 +16,7 @@ export const GetStarterDigimon019 = () => {
   const { profile } = useProfile()
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.dorimon,
+    speaker: AllNpcs.digimon.dorimon,
 
     content: (
       <Text as="p">

@@ -7,8 +7,9 @@ import { useDigivice } from '@/Hooks/Digivice.hook'
 import { Portrait } from '@/Components/System/Portrait'
 import { Text } from '@/Components/System/Text'
 
+import { CharacterHeader } from '@/Components/App/CharacterHeader'
+
 import './AcquintanceDetails.style.scss'
-import { CharacterHeader } from '../CharacterHeader'
 
 export const AcquintanceDetails = () => {
   const { digivice } = useDigivice()
@@ -17,7 +18,9 @@ export const AcquintanceDetails = () => {
     return
   }
 
-  const npc = AllNpcs[digivice.currentDetails]
+  const npc = { ...AllNpcs.appmon, ...AllNpcs.digimon, ...AllNpcs.general }[
+    digivice.currentDetails
+  ]!
 
   return (
     <div className="npc-profile">

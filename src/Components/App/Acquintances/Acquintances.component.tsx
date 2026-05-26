@@ -22,24 +22,6 @@ export const Acquintances = () => {
   const { scene } = useScene()
   const { digivice, setDigivice } = useDigivice()
 
-  const acquintances: {
-    [acquintanceCategory: string]: Array<NpcType>
-  } = {
-    general: [],
-    digimon: [],
-    appmon: []
-  }
-
-  for (let acquintance of Object.keys(profile?.npcAcquintances!)) {
-    if (acquintance === AllNpcs.dorimon.id) {
-      continue
-    }
-
-    const npc = AllNpcs[acquintance]
-
-    acquintances[npc.category].push(npc)
-  }
-
   if (!!digivice.currentDetails) {
     return <AcquintanceDetails />
   }
@@ -53,46 +35,58 @@ export const Acquintances = () => {
 
   return (
     <div className="acquintances">
-      {Object.keys(acquintances).map((category) => (
-        <Fragment key={`acquintances-${category}`}>
-          {!!acquintances[category].length && (
-            <div className="acquintances-category">
-              <Text>{category}</Text>
+      {Object.keys(AllNpcs).map(
+        (category) =>
+          !!Object.keys(AllNpcs[category]).filter(
+            (npc) =>
+              AllNpcs.digimon.dorimon.id !== npc &&
+              Object.keys(profile!.npcAcquintances!).includes(npc)
+          ).length && (
+            <Fragment key={`acquintances-${category}`}>
+              <div className="acquintances-category">
+                <Text>{category}</Text>
 
-              <div className="acquintances-list">
-                {acquintances[category]
-                  .sort((a, b) => (a.id > b.id ? 1 : -1))
-                  .map((npc) => (
-                    <div
-                      className="npc-item"
-                      key={`acquintances-${category}-${npc.id}`}
-                    >
-                      <aside>
-                        <Portrait
-                          alt={npc.name}
-                          src={`/${npc.portrait}.webp`}
-                        />
-                      </aside>
+                <div className="acquintances-list">
+                  {Object.keys(AllNpcs[category])
+                    .filter(
+                      (npc) =>
+                        AllNpcs.digimon.dorimon.id !== npc &&
+                        Object.keys(profile!.npcAcquintances!).includes(npc)
+                    )
+                    .sort((a, b) => (a > b ? 1 : -1))
+                    .map((npc) => (
+                      <div
+                        className="npc-item"
+                        key={`acquintances-${category}-${AllNpcs[category][npc].id}`}
+                      >
+                        <aside>
+                          <Portrait
+                            alt={AllNpcs[category][npc].name}
+                            src={`/${AllNpcs[category][npc].portrait}.webp`}
+                          />
+                        </aside>
 
-                      <header>
-                        <Text>{npc.name}</Text>
-                      </header>
+                        <header>
+                          <Text>{AllNpcs[category][npc].name}</Text>
+                        </header>
 
-                      <footer>
-                        <Button
-                          onClick={() => setAcquintance(npc.id)}
-                          disabled={!!scene}
-                        >
-                          <TbListDetails />
-                        </Button>
-                      </footer>
-                    </div>
-                  ))}
+                        <footer>
+                          <Button
+                            onClick={() =>
+                              setAcquintance(AllNpcs[category][npc].id)
+                            }
+                            disabled={!!scene}
+                          >
+                            <TbListDetails />
+                          </Button>
+                        </footer>
+                      </div>
+                    ))}
+                </div>
               </div>
-            </div>
-          )}
-        </Fragment>
-      ))}
+            </Fragment>
+          )
+      )}
       <></>
     </div>
   )

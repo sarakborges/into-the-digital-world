@@ -6,24 +6,13 @@ import { Text } from '@/Components/System/Text'
 
 import { useScene } from '@/Hooks/Scene.hook'
 
-import { Portrait } from '@/Components/System/Portrait'
-
 import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction013 = () => {
   const { setScene } = useScene()
 
   const dialogOptions: DialogType = {
-    content: (
-      <>
-        <Text as="p">{getDialogs('INTRODUCTION_013_TEXT')}</Text>
-
-        <Portrait
-          alt={getDialogs('INTRODUCTION_013_IMAGE')}
-          src="/npcs/bootmon.webp"
-        />
-      </>
-    ),
+    content: <Text as="p">{getDialogs('INTRODUCTION_013_TEXT')}</Text>,
 
     options: [
       {
@@ -32,7 +21,7 @@ export const Introduction013 = () => {
         action: () => {
           setScene({
             currentScene: 'introduction',
-            currentStage: '014'
+            currentStage: '015'
           })
         }
       }

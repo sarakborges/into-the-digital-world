@@ -42,12 +42,16 @@ export const DigiviceApp = ({ app }) => {
       return
     }
 
+    setDigivice({ ...digivice, currentApp: app.app })
+
+    if (!app.scene) {
+      return
+    }
+
     setScene({
       currentScene: app.scene,
       currentStage: '001'
     })
-
-    setDigivice({ ...digivice, currentApp: app.app })
   }
 
   return (

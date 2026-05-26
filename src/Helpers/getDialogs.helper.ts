@@ -5,11 +5,7 @@ import { AvatarCustomizationDialogs } from '@/GameData/Dialogs/AvatarCustomizati
 import { GetStarterDigimonDialogs } from '@/GameData/Dialogs/GetStarterDigimon'
 import { SaveGameDialogs } from '@/GameData/Dialogs/SaveGame'
 import { LogoffDialogs } from '@/GameData/Dialogs/Logoff'
-import { ProfileDialogs } from '@/GameData/Dialogs/Profile'
-import { AcquintancesDialogs } from '@/GameData/Dialogs/Acquintances'
-import { EncyclopediaDialogs } from '@/GameData/Dialogs/Encyclopedia'
 import { BattleDialogs } from '@/GameData/Dialogs/Battle'
-import { InventoryDialogs } from '@/GameData/Dialogs/Inventory'
 import { RenamePartnerDialogs } from '@/GameData/Dialogs/RenamePartner'
 
 const dialogs = {
@@ -18,11 +14,7 @@ const dialogs = {
   SaveGameDialogs,
   LogoffDialogs,
   GetStarterDigimonDialogs,
-  ProfileDialogs,
-  AcquintancesDialogs,
-  EncyclopediaDialogs,
   BattleDialogs,
-  InventoryDialogs,
   RenamePartnerDialogs
 }
 
