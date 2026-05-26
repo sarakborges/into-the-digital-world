@@ -3,10 +3,8 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 import { saveSession } from '@/Helpers/saveSession.helper'
 
-import { AllZones } from '@/GameData/Zones'
-
 import { useBattle } from '@/Hooks/Battle.hook'
-import { useProfile } from '@/Hooks/Profile.hook'
+import { useProfileStore } from '@/Stores/Profile.store'
 import { useScene } from '@/Hooks/Scene.hook'
 
 import { Text } from '@/Components/System/Text'
@@ -16,9 +14,9 @@ import { warpTo } from '@/Helpers/warpTo.helper'
 import { useGame } from '@/Hooks/Game.hook'
 
 export const BattleEpilogue = () => {
-  const { scene, setScene } = useScene()
+  const { setScene } = useScene()
   const { battle, setBattle } = useBattle()
-  const { profile, setProfile } = useProfile()
+  const profile = useProfileStore((state) => state.profile)
   const { setGame } = useGame()
 
   const dialogOptions: DialogType = {
@@ -48,21 +46,19 @@ export const BattleEpilogue = () => {
 
             warpTo({
               setGame,
-              profile: updatedProfile!,
-              setProfile,
               ...battle?.mapPosition!,
-              zoneId: updatedProfile!.currentZone.id
+              zoneId: updatedProfile!.currentZone.id,
+              mapId: updatedProfile!.currentZone.map
             })
           }
 
           if (battle!.result === 'defeat') {
             warpTo({
               setGame,
-              profile: updatedProfile!,
-              setProfile,
               x: 3,
               y: 5,
-              zoneId: AllZones.rootDomainRestRoom1({ scene: scene! }).id
+              zoneId: 'rootDomain',
+              mapId: 'restRoom1'
             })
           }
 

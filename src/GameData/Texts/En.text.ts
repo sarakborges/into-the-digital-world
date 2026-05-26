@@ -19,7 +19,7 @@ export const APPS_ACHIEVEMENTS = `Achievements`
 export const APPS_ACQUINTANCES = `Acquintances`
 export const APPS_JOURNAL = `Journal`
 export const APPS_LOCATION = `Location`
-export const APPS_ENCYCLOPEDIA = `Encyclopedia`
+export const APPS_PARTNERSLIST = `My Digimon Partners`
 export const APPS_INVENTORY = `Inventory`
 
 export const DIGIMON_STATS_VIT_NAME = `Vitality`

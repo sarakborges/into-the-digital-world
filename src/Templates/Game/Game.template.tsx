@@ -2,8 +2,10 @@ import { useEffect } from 'react'
 
 import { Scene } from '@/GameData/Scenes'
 
+import { loadSession } from '@/Helpers/loadSession.helper'
+
 import { useScene } from '@/Hooks/Scene.hook'
-import { useProfile } from '@/Hooks/Profile.hook'
+import { useProfileStore } from '@/Stores/Profile.store'
 import { useSettings } from '@/Hooks/Settings.hook'
 import { useDigivice } from '@/Hooks/Digivice.hook'
 
@@ -21,8 +23,10 @@ import { Battlefield } from '@/Components/App/Battlefield'
 import './Game.style.scss'
 
 export const Game = () => {
+  const profile =
+    useProfileStore((state) => state.profile) || loadSession({ key: 'profile' })
+
   const { scene } = useScene()
-  const { profile } = useProfile()
   const { settings } = useSettings()
   const { digivice } = useDigivice()
 

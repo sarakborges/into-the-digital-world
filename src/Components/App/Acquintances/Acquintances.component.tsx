@@ -6,7 +6,7 @@ import type { NpcType } from '@/Types/Npc.type'
 import { AllNpcs } from '@/GameData/Npcs'
 
 import { useDigivice } from '@/Hooks/Digivice.hook'
-import { useProfile } from '@/Hooks/Profile.hook'
+import { useProfileStore } from '@/Stores/Profile.store'
 import { useScene } from '@/Hooks/Scene.hook'
 
 import { Button } from '@/Components/System/Button'
@@ -18,7 +18,7 @@ import { AcquintanceDetails } from '@/Components/App/AcquintanceDetails'
 import './Acqunitances.style.scss'
 
 export const Acquintances = () => {
-  const { profile } = useProfile()
+  const profile = useProfileStore((state) => state.profile)
   const { scene } = useScene()
   const { digivice, setDigivice } = useDigivice()
 

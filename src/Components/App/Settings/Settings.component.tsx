@@ -3,7 +3,6 @@ import { FaCog, FaTimes } from 'react-icons/fa'
 import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { useSettings } from '@/Hooks/Settings.hook'
-import { useDigivice } from '@/Hooks/Digivice.hook'
 
 import { Button } from '@/Components/System/Button'
 import { Modal } from '@/Components/System/Modal'
@@ -16,7 +15,6 @@ import './Settings.style.scss'
 
 export const Settings = () => {
   const { settings, setSettings } = useSettings()
-  const { digivice } = useDigivice()
 
   const toggleModal = () => {
     setSettings({ ...settings, isOpen: !settings.isOpen })

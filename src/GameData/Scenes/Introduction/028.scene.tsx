@@ -6,7 +6,7 @@ import { getDialogs } from '@/Helpers/getDialogs.helper'
 import { saveSession } from '@/Helpers/saveSession.helper'
 
 import { useScene } from '@/Hooks/Scene.hook'
-import { useProfile } from '@/Hooks/Profile.hook'
+import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Text } from '@/Components/System/Text'
 
@@ -14,7 +14,8 @@ import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction028 = () => {
   const { setScene } = useScene()
-  const { profile, setProfile } = useProfile()
+  const profile = useProfileStore((state) => state.profile)
+  const setProfile = useProfileStore((state) => state.setProfile)
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.general.gennai,

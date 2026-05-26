@@ -1,25 +1,24 @@
-import type { ProfileType } from '@/Types/Profile.type'
+import { useProfileStore } from '@/Stores/Profile.store'
 import type { GameType } from '@/Types/Game.type'
 
 import { saveSession } from '@/Helpers/saveSession.helper'
 
 export const warpTo = ({
   setGame,
-  profile,
-  setProfile,
   zoneId,
   mapId,
   x,
   y
 }: {
   setGame: React.Dispatch<React.SetStateAction<GameType | null>>
-  profile: ProfileType
-  setProfile: React.Dispatch<React.SetStateAction<ProfileType | null>>
   zoneId: string
   mapId: string
   x: number
   y: number
 }) => {
+  const profile = useProfileStore((state) => state.profile)
+  const setProfile = useProfileStore((state) => state.setProfile)
+
   if (!setProfile || !setGame) {
     return
   }
@@ -30,7 +29,7 @@ export const warpTo = ({
 
   setTimeout(() => {
     const updatedProfile = {
-      ...profile,
+      ...profile!,
 
       currentZone: {
         id: zoneId,

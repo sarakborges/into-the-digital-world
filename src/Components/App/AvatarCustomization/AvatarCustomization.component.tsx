@@ -10,25 +10,26 @@ import { getTexts } from '@/Helpers/getTexts.helper'
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 import { saveSession } from '@/Helpers/saveSession.helper'
 
-import { Button } from '@/Components/System/Button'
-
-import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
-import { Text } from '@/Components/System/Text'
-
-import { useProfile } from '@/Hooks/Profile.hook'
 import { useAvatarCustomization } from '@/Hooks/AvatarCustomization.hook'
 import { useScene } from '@/Hooks/Scene.hook'
 import { useDigivice } from '@/Hooks/Digivice.hook'
+import { useProfileStore } from '@/Stores/Profile.store'
 
+import { Button } from '@/Components/System/Button'
+import { Text } from '@/Components/System/Text'
+
+import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 import { AvatarCustomizationOptions } from '@/Components/App/AvatarCustomizationOptions'
 
 import './AvatarCustomization.style.scss'
 
 export const AvatarCustomization = () => {
   const { customization, setCustomization } = useAvatarCustomization()
-  const { profile, setProfile } = useProfile()
   const { scene, setScene } = useScene()
   const { digivice, setDigivice } = useDigivice()
+
+  const profile = useProfileStore((state) => state.profile)
+  const setProfile = useProfileStore((state) => state.setProfile)
 
   const options = {
     skin: getTexts('AVATARCUSTOMIZATION_SKIN'),

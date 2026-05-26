@@ -6,14 +6,15 @@ import { AllNpcs } from '@/GameData/Npcs'
 import { AllItems } from '@/GameData/Items'
 
 import { useScene } from '@/Hooks/Scene.hook'
-import { useProfile } from '@/Hooks/Profile.hook'
+import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Text } from '@/Components/System/Text'
 
 import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction021 = () => {
-  const { profile, setProfile } = useProfile()
+  const profile = useProfileStore((state) => state.profile)
+  const setProfile = useProfileStore((state) => state.setProfile)
   const { setScene } = useScene()
 
   const dialogOptions: DialogType = {

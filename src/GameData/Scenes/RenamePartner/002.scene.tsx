@@ -6,7 +6,7 @@ import { AllNpcs } from '@/GameData/Npcs'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
-import { useProfile } from '@/Hooks/Profile.hook'
+import { useProfileStore } from '@/Stores/Profile.store'
 import { useDigivice } from '@/Hooks/Digivice.hook'
 
 import { Text } from '@/Components/System/Text'
@@ -15,7 +15,7 @@ import { Dialog } from '@/Components/App/Dialog'
 import { AllDigimons } from '@/GameData/Digimons'
 
 export const RenamePartner002 = () => {
-  const { profile } = useProfile()
+  const profile = useProfileStore((state) => state.profile)
   const { setScene } = useScene()
   const { digivice } = useDigivice()
 

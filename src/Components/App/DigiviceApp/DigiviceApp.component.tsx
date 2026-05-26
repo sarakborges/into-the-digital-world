@@ -2,7 +2,7 @@ import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { AllScenes } from '@/GameData/Scenes'
 
-import { useProfile } from '@/Hooks/Profile.hook'
+import { useProfileStore } from '@/Stores/Profile.store'
 import { useScene } from '@/Hooks/Scene.hook'
 import { useDigivice } from '@/Hooks/Digivice.hook'
 
@@ -11,7 +11,8 @@ import { Text } from '@/Components/System/Text'
 import { Portrait } from '@/Components/System/Portrait'
 
 export const DigiviceApp = ({ app }) => {
-  const { profile } = useProfile()
+  const profile = useProfileStore((state) => state.profile)
+
   const { scene, setScene } = useScene()
   const { digivice, setDigivice } = useDigivice()
 

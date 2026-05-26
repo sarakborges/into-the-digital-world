@@ -6,7 +6,7 @@ import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { AllZones } from '@/GameData/Zones'
 
-import { useProfile } from '@/Hooks/Profile.hook'
+import { useProfileStore } from '@/Stores/Profile.store'
 import { useScene } from '@/Hooks/Scene.hook'
 import { useGame } from '@/Hooks/Game.hook'
 
@@ -18,7 +18,8 @@ import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 import './Gameboard.style.scss'
 
 export const Gameboard = () => {
-  const { profile } = useProfile()
+  const profile = useProfileStore((state) => state.profile)
+
   const { game } = useGame()
   const { scene } = useScene()
 

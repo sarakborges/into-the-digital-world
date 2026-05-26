@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { useScene } from '@/Hooks/Scene.hook'
-import { useProfile } from '@/Hooks/Profile.hook'
+import { useProfileStore } from '@/Stores/Profile.store'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
@@ -16,7 +16,8 @@ import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction005 = () => {
   const { setScene } = useScene()
-  const { profile, setProfile } = useProfile()
+  const profile = useProfileStore((state) => state.profile)
+  const setProfile = useProfileStore((state) => state.setProfile)
 
   useEffect(() => {
     const sceneContinue = document.querySelector(

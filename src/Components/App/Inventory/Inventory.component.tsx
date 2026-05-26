@@ -4,7 +4,7 @@ import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { AllItems } from '@/GameData/Items'
 
-import { useProfile } from '@/Hooks/Profile.hook'
+import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Text } from '@/Components/System/Text'
 import { Portrait } from '@/Components/System/Portrait'
@@ -14,7 +14,7 @@ import { ItemCore } from '@/Components/App/ItemCore'
 import './Inventory.style.scss'
 
 export const Inventory = () => {
-  const { profile } = useProfile()
+  const profile = useProfileStore((state) => state.profile)
 
   if (!profile || !Object.keys(profile.items).length) {
     return

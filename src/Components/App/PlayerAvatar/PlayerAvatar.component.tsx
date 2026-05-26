@@ -1,6 +1,6 @@
 import type { AvatarType } from '@/Types/Avatar.type'
 
-import { useProfile } from '@/Hooks/Profile.hook'
+import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Portrait } from '@/Components/System/Portrait'
 
@@ -11,7 +11,8 @@ export const PlayerAvatar = ({
 }: {
   replaceAvatar?: AvatarType
 }) => {
-  const { profile } = useProfile()
+  const profile = useProfileStore((state) => state.profile)
+
   const avatar = replaceAvatar ?? profile?.avatar
 
   return (

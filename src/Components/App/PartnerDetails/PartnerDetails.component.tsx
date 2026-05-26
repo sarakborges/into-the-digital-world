@@ -9,7 +9,7 @@ import { DIGIMON_ATTRIBUTES } from '@/Consts/Attributes.const'
 
 import { AllDigimons } from '@/GameData/Digimons'
 
-import { useProfile } from '@/Hooks/Profile.hook'
+import { useProfileStore } from '@/Stores/Profile.store'
 import { useDigivice } from '@/Hooks/Digivice.hook'
 import { useScene } from '@/Hooks/Scene.hook'
 
@@ -23,7 +23,9 @@ import { CharacterHeader } from '@/Components/App/CharacterHeader'
 import './PartnerDetails.style.scss'
 
 export const PartnerDetails = () => {
-  const { profile, setProfile } = useProfile()
+  const setProfile = useProfileStore((state) => state.setProfile)
+  const profile = useProfileStore((state) => state.profile)
+
   const { digivice } = useDigivice()
   const { scene, setScene } = useScene()
 

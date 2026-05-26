@@ -4,7 +4,7 @@ import { useScene } from '@/Hooks/Scene.hook'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { useProfile } from '@/Hooks/Profile.hook'
+import { useProfileStore } from '@/Stores/Profile.store'
 import { deleteSession } from '@/Helpers/deleteSession.helper'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
@@ -14,7 +14,7 @@ import { Text } from '@/Components/System/Text'
 import { Dialog } from '@/Components/App/Dialog'
 
 export const Logoff001 = () => {
-  const { setProfile } = useProfile()
+  const setProfile = useProfileStore((state) => state.setProfile)
   const { setScene } = useScene()
 
   const dialogOptions: DialogType = {

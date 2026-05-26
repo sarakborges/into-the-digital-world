@@ -4,7 +4,7 @@ import { useScene } from '@/Hooks/Scene.hook'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { useProfile } from '@/Hooks/Profile.hook'
+import { useProfileStore } from '@/Stores/Profile.store'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
@@ -13,7 +13,8 @@ import { Text } from '@/Components/System/Text'
 import { Dialog } from '@/Components/App/Dialog'
 
 export const BattleStart = () => {
-  const { profile, setProfile } = useProfile()
+  const profile = useProfileStore((state) => state.profile)
+  const setProfile = useProfileStore((state) => state.setProfile)
   const { setScene } = useScene()
 
   const dialogOptions: DialogType = {

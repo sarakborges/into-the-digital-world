@@ -1,7 +1,6 @@
 import { createRoot } from 'react-dom/client'
 
 import { GameProvider } from '@/Contexts/Game.context'
-import { ProfileProvider } from '@/Contexts/Profile.context'
 import { SceneProvider } from '@/Contexts/Scene.context'
 import { SettingsProvider } from '@/Contexts/Settings.context'
 import { DigiviceProvider } from '@/Contexts/Digivice.context'
@@ -16,7 +15,6 @@ import '@/Assets/main.css'
 const RenderProviders = ({ children }) => {
   const providers = [
     GameProvider,
-    ProfileProvider,
     SavedProfilesProvider,
     SceneProvider,
     SettingsProvider,

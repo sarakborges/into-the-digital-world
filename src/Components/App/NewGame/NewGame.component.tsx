@@ -1,12 +1,11 @@
 import type { ProfileType } from '@/Types/Profile.type'
 
-import { AllZones } from '@/GameData/Zones'
 import { AllNpcs } from '@/GameData/Npcs'
 
 import { getTexts } from '@/Helpers/getTexts.helper'
 import { saveSession } from '@/Helpers/saveSession.helper'
 
-import { useProfile } from '@/Hooks/Profile.hook'
+import { useProfileStore } from '@/Stores/Profile.store'
 import { useScene } from '@/Hooks/Scene.hook'
 import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
 import { useDigivice } from '@/Hooks/Digivice.hook'
@@ -17,9 +16,10 @@ import './NewGame.style.scss'
 
 export const NewGame = () => {
   const { savedProfiles, setSavedProfiles } = useSavedProfiles()
-  const { profile, setProfile } = useProfile()
+  const setProfile = useProfileStore((state) => state.setProfile)
+
   const { setDigivice } = useDigivice()
-  const { scene, setScene } = useScene()
+  const { setScene } = useScene()
 
   const createNewProfile = () => {
     const sortedProfiles = [...(savedProfiles || [])].sort(

@@ -1,6 +1,6 @@
 import { getTexts } from '@/Helpers/getTexts.helper'
 
-import { useProfile } from '@/Hooks/Profile.hook'
+import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Text } from '@/Components/System/Text'
 
@@ -9,7 +9,7 @@ import { CharacterHeader } from '@/Components/App/CharacterHeader'
 import './PlayerProfile.style.scss'
 
 export const PlayerProfile = () => {
-  const { profile } = useProfile()
+  const profile = useProfileStore((state) => state.profile)
 
   return (
     <div className="player-profile">

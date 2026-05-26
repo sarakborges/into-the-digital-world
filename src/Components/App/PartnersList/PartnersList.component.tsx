@@ -6,7 +6,7 @@ import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { AllDigimons } from '@/GameData/Digimons'
 
-import { useProfile } from '@/Hooks/Profile.hook'
+import { useProfileStore } from '@/Stores/Profile.store'
 import { useScene } from '@/Hooks/Scene.hook'
 import { useDigivice } from '@/Hooks/Digivice.hook'
 
@@ -16,10 +16,12 @@ import { Portrait } from '@/Components/System/Portrait'
 
 import { PartnerDetails } from '@/Components/App/PartnerDetails'
 
-import './Encyclopedia.style.scss'
+import './PartnersList.style.scss'
 
-export const Encyclopedia = () => {
-  const { profile, setProfile } = useProfile()
+export const PartnersList = () => {
+  const profile = useProfileStore((state) => state.profile)
+  const setProfile = useProfileStore((state) => state.setProfile)
+
   const { digivice, setDigivice } = useDigivice()
   const { scene } = useScene()
 
@@ -67,22 +69,22 @@ export const Encyclopedia = () => {
   }
 
   return (
-    <div className="encyclopedia">
+    <div className="partners-list">
       {Object.keys(partners).map((category) => (
         <div
-          className="encyclopedia-category"
-          key={`encyclopedia-partners-${category}`}
+          className="partners-list-category"
+          key={`partners-list-partners-${category}`}
         >
           <Text>
             {getTexts(`ENCYCLOPEDIA_CATEGORY_${category.toLocaleUpperCase()}`)}
           </Text>
 
-          <div className="encyclopedia-list">
+          <div className="partners-list-list">
             {!!partners[category].length ? (
               partners[category].map((partner) => (
                 <div
-                  className="encyclopedia-partner"
-                  key={`encyclopedia-partner-${partner.id}`}
+                  className="partners-list-partner"
+                  key={`partners-list-partner-${partner.id}`}
                 >
                   <aside className="partner-avatar">
                     <Portrait

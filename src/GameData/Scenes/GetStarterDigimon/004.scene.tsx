@@ -5,7 +5,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 import { useScene } from '@/Hooks/Scene.hook'
-import { useProfile } from '@/Hooks/Profile.hook'
+import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Text } from '@/Components/System/Text'
 import { Button } from '@/Components/System/Button'
@@ -13,7 +13,8 @@ import { Button } from '@/Components/System/Button'
 import { Dialog } from '@/Components/App/Dialog'
 
 export const GetStarterDigimon004 = () => {
-  const { profile, setProfile } = useProfile()
+  const profile = useProfileStore((state) => state.profile)
+  const setProfile = useProfileStore((state) => state.setProfile)
   const { setScene } = useScene()
 
   const dialogReactions = [

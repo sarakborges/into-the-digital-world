@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { useProfile } from '@/Hooks/Profile.hook'
+import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Modal } from '@/Components/System/Modal'
 import { Button } from '@/Components/System/Button'
@@ -10,7 +10,7 @@ import { CharacterHeader } from '@/Components/App/CharacterHeader'
 import './Dialog.style.scss'
 
 export const Dialog = ({ speaker, content, options }: DialogType) => {
-  const { profile } = useProfile()
+  const profile = useProfileStore((state) => state.profile)
 
   return (
     <Modal>

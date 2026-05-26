@@ -6,7 +6,7 @@ import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { AllZones } from '@/GameData/Zones'
 
-import { useProfile } from '@/Hooks/Profile.hook'
+import { useProfileStore } from '@/Stores/Profile.store'
 import { useScene } from '@/Hooks/Scene.hook'
 import { useGame } from '@/Hooks/Game.hook'
 
@@ -17,7 +17,9 @@ import { CharacterHeader } from '@/Components/App/CharacterHeader'
 import './InteractableTiles.style.scss'
 
 export const InteractableTiles = () => {
-  const { profile, setProfile } = useProfile()
+  const profile = useProfileStore((state) => state.profile)
+  const setProfile = useProfileStore((state) => state.setProfile)
+
   const { scene, setScene } = useScene()
   const { setGame } = useGame()
 

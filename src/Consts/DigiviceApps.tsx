@@ -1,6 +1,6 @@
 import { Acquintances } from '@/Components/App/Acquintances'
 import { AvatarCustomization } from '@/Components/App/AvatarCustomization'
-import { Encyclopedia } from '@/Components/App/Encyclopedia'
+import { PartnersList } from '@/Components/App/PartnersList'
 import { PlayerProfile } from '@/Components/App/PlayerProfile'
 import { Inventory } from '@/Components/App/Inventory'
 
@@ -37,10 +37,10 @@ export const APP_ACHIEVEMENTS = {
   id: 'achievements'
 }
 
-export const APP_ENCYCLOPEDIA = {
-  id: 'encyclopedia',
-  app: 'encyclopedia',
-  component: <Encyclopedia />
+export const APP_PARTNERSLIST = {
+  id: 'partnersList',
+  app: 'partnersList',
+  component: <PartnersList />
 }
 
 export const APP_ACQUINTANCES = {
@@ -63,9 +63,9 @@ export const AllApps = {
   fashion: APP_FASHION,
   // location: APP_LOCATION,
   // journal: APP_JOURNAL,
-  encyclopedia: APP_ENCYCLOPEDIA,
-  inventory: APP_INVENTORY,
+  encyclopedia: APP_PARTNERSLIST,
   acquintances: APP_ACQUINTANCES,
+  inventory: APP_INVENTORY,
   // achievements: APP_ACHIEVEMENTS,
   save: APP_SAVE,
   logoff: APP_LOGOFF
