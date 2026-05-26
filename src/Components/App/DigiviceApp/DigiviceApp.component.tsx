@@ -3,8 +3,8 @@ import { getTexts } from '@/Helpers/getTexts.helper'
 import { AllScenes } from '@/GameData/Scenes'
 
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useScene } from '@/Hooks/Scene.hook'
-import { useDigivice } from '@/Hooks/Digivice.hook'
+import { useSceneStore } from '@/Stores/Scene.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 
 import { Button } from '@/Components/System/Button'
 import { Text } from '@/Components/System/Text'
@@ -13,8 +13,10 @@ import { Portrait } from '@/Components/System/Portrait'
 export const DigiviceApp = ({ app }) => {
   const profile = useProfileStore((state) => state.profile)
 
-  const { scene, setScene } = useScene()
-  const { digivice, setDigivice } = useDigivice()
+  const scene = useSceneStore((state) => state.scene)
+  const setScene = useSceneStore((state) => state.setScene)
+  const digivice = useDigiviceStore((state) => state.digivice)
+  const setDigivice = useDigiviceStore((state) => state.setDigivice)
 
   if (!profile) {
     return
@@ -38,12 +40,12 @@ export const DigiviceApp = ({ app }) => {
         currentStage: '024'
       })
 
-      setDigivice({ ...digivice, currentApp: app.app })
+      setDigivice({ ...digivice!, currentApp: app.app })
 
       return
     }
 
-    setDigivice({ ...digivice, currentApp: app.app })
+    setDigivice({ ...digivice!, currentApp: app.app })
 
     if (!app.scene) {
       return

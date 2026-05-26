@@ -4,7 +4,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
-import { useScene } from '@/Hooks/Scene.hook'
+import { useSceneStore } from '@/Stores/Scene.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Text } from '@/Components/System/Text'
@@ -15,7 +15,7 @@ import { Dialog } from '@/Components/App/Dialog'
 export const GetStarterDigimon004 = () => {
   const profile = useProfileStore((state) => state.profile)
   const setProfile = useProfileStore((state) => state.setProfile)
-  const { setScene } = useScene()
+  const setScene = useSceneStore((state) => state.setScene)
 
   const dialogReactions = [
     {

@@ -1,16 +1,14 @@
 import { useProfileStore } from '@/Stores/Profile.store'
-import type { GameType } from '@/Types/Game.type'
+import { useGameStore } from '@/Stores/Game.store'
 
 import { saveSession } from '@/Helpers/saveSession.helper'
 
 export const warpTo = ({
-  setGame,
   zoneId,
   mapId,
   x,
   y
 }: {
-  setGame: React.Dispatch<React.SetStateAction<GameType | null>>
   zoneId: string
   mapId: string
   x: number
@@ -18,6 +16,8 @@ export const warpTo = ({
 }) => {
   const profile = useProfileStore((state) => state.profile)
   const setProfile = useProfileStore((state) => state.setProfile)
+
+  const setGame = useGameStore((state) => state.setGame)
 
   if (!setProfile || !setGame) {
     return

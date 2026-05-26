@@ -7,8 +7,8 @@ import { getTexts } from '@/Helpers/getTexts.helper'
 import { AllZones } from '@/GameData/Zones'
 
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useScene } from '@/Hooks/Scene.hook'
-import { useGame } from '@/Hooks/Game.hook'
+import { useGameStore } from '@/Stores/Game.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Button } from '@/Components/System/Button'
 
@@ -20,8 +20,10 @@ export const InteractableTiles = () => {
   const profile = useProfileStore((state) => state.profile)
   const setProfile = useProfileStore((state) => state.setProfile)
 
-  const { scene, setScene } = useScene()
-  const { setGame } = useGame()
+  const setGame = useGameStore((state) => state.setGame)
+
+  const scene = useSceneStore((state) => state.scene)
+  const setScene = useSceneStore((state) => state.setScene)
 
   if (!profile?.currentZone) {
     return

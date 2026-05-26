@@ -1,13 +1,13 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { useScene } from '@/Hooks/Scene.hook'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useDigivice } from '@/Hooks/Digivice.hook'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 
 import { Text } from '@/Components/System/Text'
 import { Input } from '@/Components/System/Input'
@@ -17,10 +17,11 @@ import { AllDigimons } from '@/GameData/Digimons'
 
 export const RenamePartner001 = () => {
   const profile = useProfileStore((state) => state.profile)
-  const { setScene } = useScene()
-  const { digivice } = useDigivice()
+  const setScene = useSceneStore((state) => state.setScene)
 
-  const digimon = profile?.partnerDigimons[digivice.currentDetails!]
+  const digivice = useDigiviceStore((state) => state.digivice)
+
+  const digimon = profile?.partnerDigimons[digivice?.currentDetails!]
   const baseDigimon = AllDigimons[digimon?.baseDigimon!]
 
   const dialogOptions: DialogType = {
@@ -62,7 +63,7 @@ export const RenamePartner001 = () => {
             document.querySelector('[name=partner-name]') as HTMLInputElement
           ).value.trim()
 
-          profile!.partnerDigimons[digivice.currentDetails!].name = name
+          profile!.partnerDigimons[digivice?.currentDetails!].name = name
 
           setScene({
             currentScene: 'renamePartner',

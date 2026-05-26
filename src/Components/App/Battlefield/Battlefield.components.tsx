@@ -1,5 +1,5 @@
 import { useBattle } from '@/Hooks/Battle.hook'
-import { useScene } from '@/Hooks/Scene.hook'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 import { CombatLog } from '@/Components/App/CombatLog'
 import { CombatLoot } from '@/Components/App/CombatLoot'
@@ -9,7 +9,7 @@ import './Battlefield.style.scss'
 
 export const Battlefield = () => {
   const { battle } = useBattle()
-  const { scene } = useScene()
+  const scene = useSceneStore((state) => state.scene)
 
   if (!battle) {
     return

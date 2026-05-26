@@ -2,7 +2,7 @@ import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { useDigivice } from '@/Hooks/Digivice.hook'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 
 import { Portrait } from '@/Components/System/Portrait'
 import { Text } from '@/Components/System/Text'
@@ -12,14 +12,14 @@ import { CharacterHeader } from '@/Components/App/CharacterHeader'
 import './AcquintanceDetails.style.scss'
 
 export const AcquintanceDetails = () => {
-  const { digivice } = useDigivice()
+  const digivice = useDigiviceStore((state) => state.digivice)
 
-  if (!digivice.currentDetails) {
+  if (!digivice?.currentDetails) {
     return
   }
 
   const npc = { ...AllNpcs.appmon, ...AllNpcs.digimon, ...AllNpcs.general }[
-    digivice.currentDetails
+    digivice?.currentDetails
   ]!
 
   return (

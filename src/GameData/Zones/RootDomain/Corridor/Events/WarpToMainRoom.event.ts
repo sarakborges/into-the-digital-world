@@ -1,10 +1,7 @@
 import { warpTo } from '@/Helpers/warpTo.helper'
 
-export const WarpToMainRoom = (props) => {
-  const { setGame } = props
-
+export const WarpToMainRoom = () => {
   warpTo({
-    setGame,
     zoneId: 'rootDomain',
     mapId: 'mainRoom',
     x: 9,

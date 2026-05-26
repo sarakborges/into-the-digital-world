@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { useScene } from '@/Hooks/Scene.hook'
+import { useSceneStore } from '@/Stores/Scene.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
@@ -11,7 +11,7 @@ import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction008 = () => {
   const profile = useProfileStore((state) => state.profile)
-  const { setScene } = useScene()
+  const setScene = useSceneStore((state) => state.setScene)
 
   const dialogOptions: DialogType = {
     speaker: { ...profile!, isPlayer: true },

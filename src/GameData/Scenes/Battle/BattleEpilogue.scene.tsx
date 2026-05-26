@@ -5,19 +5,20 @@ import { saveSession } from '@/Helpers/saveSession.helper'
 
 import { useBattle } from '@/Hooks/Battle.hook'
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useScene } from '@/Hooks/Scene.hook'
+import { useGameStore } from '@/Stores/Game.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Text } from '@/Components/System/Text'
 
 import { Dialog } from '@/Components/App/Dialog'
 import { warpTo } from '@/Helpers/warpTo.helper'
-import { useGame } from '@/Hooks/Game.hook'
 
 export const BattleEpilogue = () => {
-  const { setScene } = useScene()
+  const setScene = useSceneStore((state) => state.setScene)
+
   const { battle, setBattle } = useBattle()
   const profile = useProfileStore((state) => state.profile)
-  const { setGame } = useGame()
+  const setGame = useGameStore((state) => state.setGame)
 
   const dialogOptions: DialogType = {
     content: (
@@ -45,7 +46,6 @@ export const BattleEpilogue = () => {
             }
 
             warpTo({
-              setGame,
               ...battle?.mapPosition!,
               zoneId: updatedProfile!.currentZone.id,
               mapId: updatedProfile!.currentZone.map
@@ -54,7 +54,6 @@ export const BattleEpilogue = () => {
 
           if (battle!.result === 'defeat') {
             warpTo({
-              setGame,
               x: 3,
               y: 5,
               zoneId: 'rootDomain',

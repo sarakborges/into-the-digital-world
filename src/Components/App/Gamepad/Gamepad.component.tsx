@@ -13,9 +13,9 @@ import { startBattle } from '@/Helpers/startBattle.helper'
 import { AllZones } from '@/GameData/Zones'
 
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useScene } from '@/Hooks/Scene.hook'
+import { useSceneStore } from '@/Stores/Scene.store'
 import { useBattle } from '@/Hooks/Battle.hook'
-import { useGame } from '@/Hooks/Game.hook'
+import { useGameStore } from '@/Stores/Game.store'
 
 import { Button } from '@/Components/System/Button'
 
@@ -25,9 +25,13 @@ export const Gamepad = () => {
   const profile = useProfileStore((state) => state.profile)
   const setProfile = useProfileStore((state) => state.setProfile)
 
-  const { scene, setScene } = useScene()
+  const scene = useSceneStore((state) => state.scene)
+  const setScene = useSceneStore((state) => state.setScene)
+
   const { setBattle } = useBattle()
-  const { game, setGame } = useGame()
+
+  const game = useGameStore((state) => state.game)
+  const setGame = useGameStore((state) => state.setGame)
 
   if (!profile) {
     return

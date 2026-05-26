@@ -5,13 +5,14 @@ import { AllNpcs } from '@/GameData/Npcs'
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 import { useBattle } from '@/Hooks/Battle.hook'
-import { useScene } from '@/Hooks/Scene.hook'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Dialog } from '@/Components/App/Dialog'
 import { CombatLogEntry } from '@/Components/App/CombatLogEntry'
 
 export const BattleAttack = () => {
-  const { setScene } = useScene()
+  const setScene = useSceneStore((state) => state.setScene)
+
   const { battle, setBattle } = useBattle()
 
   const logEntry = battle?.combatLog[0]!

@@ -1,20 +1,26 @@
 import { AVATAR_OPTIONS } from '@/Consts/Avatars.const'
 
-import { useAvatarCustomization } from '@/Hooks/AvatarCustomization.hook'
+import { getDialogs } from '@/Helpers/getDialogs.helper'
+import { getTexts } from '@/Helpers/getTexts.helper'
+
+import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
 
 import { Button } from '@/Components/System/Button'
+import { Text } from '@/Components/System/Text'
 
 import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 
 import './AvatarCustomizationOptions.style.scss'
-import { getDialogs } from '@/Helpers/getDialogs.helper'
-import { Text } from '@/Components/System/Text'
-import { getTexts } from '@/Helpers/getTexts.helper'
 
 export const AvatarCustomizationOptions = () => {
-  const { customization, setCustomization } = useAvatarCustomization()
+  const avatarCustomization = useAvatarCustomizationStore(
+    (state) => state.avatarCustomization
+  )
+  const setAvatarCustomization = useAvatarCustomizationStore(
+    (state) => state.setAvatarCustomization
+  )
 
-  if (!customization?.layer) {
+  if (!avatarCustomization?.layer) {
     return
   }
 
@@ -28,37 +34,42 @@ export const AvatarCustomizationOptions = () => {
 
   const updateCustomization = (option) => {
     const avatar = {
-      ...customization.avatar,
-      [customization.layer!]: option
+      ...avatarCustomization.avatar,
+      [avatarCustomization.layer!]: option
     }
 
-    setCustomization({
-      ...customization,
+    setAvatarCustomization({
+      ...avatarCustomization,
       avatar
     })
   }
 
   const closeCustomization = () => {
-    setCustomization({ ...customization, layer: undefined })
+    setAvatarCustomization({ ...avatarCustomization, layer: undefined })
   }
 
   return (
-    <div className="avatar-customization-options">
+    <div className="avatar-avatarCustomization-options">
       <header>
-        <Text>{options[customization.layer]}:</Text>
+        <Text>{options[avatarCustomization.layer]}:</Text>
       </header>
 
-      <main className="customization-options">
-        {AVATAR_OPTIONS[customization.layer].map((option) => (
-          <div key={`customization-layer-${customization.layer}-${option}`}>
+      <main className="avatarCustomization-options">
+        {AVATAR_OPTIONS[avatarCustomization.layer].map((option) => (
+          <div
+            key={`avatarCustomization-layer-${avatarCustomization.layer}-${option}`}
+          >
             <Button
-              disabled={customization.avatar[customization.layer!] === option}
+              disabled={
+                avatarCustomization.avatar[avatarCustomization.layer!] ===
+                option
+              }
               onClick={() => updateCustomization(option)}
             >
               <PlayerAvatar
                 replaceAvatar={{
-                  ...customization.avatar,
-                  [customization.layer!]: option
+                  ...avatarCustomization.avatar,
+                  [avatarCustomization.layer!]: option
                 }}
               />
             </Button>
@@ -66,7 +77,7 @@ export const AvatarCustomizationOptions = () => {
         ))}
       </main>
 
-      <footer className="customization-back">
+      <footer className="avatarCustomization-back">
         <Button onClick={closeCustomization}>
           {getDialogs('SCENES_BACK_BUTTON')}
         </Button>

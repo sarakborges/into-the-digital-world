@@ -6,9 +6,9 @@ import { getTexts } from '@/Helpers/getTexts.helper'
 import { saveSession } from '@/Helpers/saveSession.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useScene } from '@/Hooks/Scene.hook'
+import { useSceneStore } from '@/Stores/Scene.store'
 import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
-import { useDigivice } from '@/Hooks/Digivice.hook'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 
 import { Button } from '@/Components/System/Button'
 
@@ -18,8 +18,8 @@ export const NewGame = () => {
   const { savedProfiles, setSavedProfiles } = useSavedProfiles()
   const setProfile = useProfileStore((state) => state.setProfile)
 
-  const { setDigivice } = useDigivice()
-  const { setScene } = useScene()
+  const setDigivice = useDigiviceStore((state) => state.setDigivice)
+  const setScene = useSceneStore((state) => state.setScene)
 
   const createNewProfile = () => {
     const sortedProfiles = [...(savedProfiles || [])].sort(

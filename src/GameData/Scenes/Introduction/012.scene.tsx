@@ -4,7 +4,7 @@ import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 import { AllItems } from '@/GameData/Items'
 
-import { useScene } from '@/Hooks/Scene.hook'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Text } from '@/Components/System/Text'
 import { Portrait } from '@/Components/System/Portrait'
@@ -12,7 +12,7 @@ import { Portrait } from '@/Components/System/Portrait'
 import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction012 = () => {
-  const { setScene } = useScene()
+  const setScene = useSceneStore((state) => state.setScene)
 
   const dialogOptions: DialogType = {
     content: (
@@ -20,7 +20,7 @@ export const Introduction012 = () => {
         <Text as="p">{getDialogs('INTRODUCTION_012_TEXT')}</Text>,
         <Portrait
           alt={getDialogs('INTRODUCTION_011_IMAGE')}
-          src={`/${AllItems.digivice.portrait}.webp`}
+          src={`/${AllItems.digivice?.portrait}.webp`}
         />
       </>
     ),

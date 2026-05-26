@@ -6,7 +6,7 @@ import { GetStarterDigimonScenes } from './GetStarterDigimon'
 import { BattleScenes } from './Battle'
 import { RenamePartnerScenes } from './RenamePartner'
 
-import { useScene } from '@/Hooks/Scene.hook'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 export const AllScenes = {
   introduction: IntroductionScenes,
@@ -19,7 +19,7 @@ export const AllScenes = {
 }
 
 export const Scene = () => {
-  const { scene } = useScene()
+  const scene = useSceneStore((state) => state.scene)
 
   if (!scene) {
     return

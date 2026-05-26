@@ -4,10 +4,10 @@ import { Scene } from '@/GameData/Scenes'
 
 import { loadSession } from '@/Helpers/loadSession.helper'
 
-import { useScene } from '@/Hooks/Scene.hook'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSettings } from '@/Hooks/Settings.hook'
-import { useDigivice } from '@/Hooks/Digivice.hook'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Text } from '@/Components/System/Text'
 
@@ -26,9 +26,9 @@ export const Game = () => {
   const profile =
     useProfileStore((state) => state.profile) || loadSession({ key: 'profile' })
 
-  const { scene } = useScene()
   const { settings } = useSettings()
-  const { digivice } = useDigivice()
+  const scene = useSceneStore((state) => state.scene)
+  const digivice = useDigiviceStore((state) => state.digivice)
 
   useEffect(() => {}, [settings])
 
@@ -57,7 +57,7 @@ export const Game = () => {
           <>
             {!profile && <StartScreen />}
 
-            {!!profile && !digivice.isOpen && (
+            {!!profile && !digivice?.isOpen && (
               <div className="screen-footer">
                 <InteractableTiles />
                 <Gamepad />

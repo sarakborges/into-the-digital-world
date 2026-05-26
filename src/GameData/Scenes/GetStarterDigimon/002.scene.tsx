@@ -4,7 +4,7 @@ import { AllNpcs } from '@/GameData/Npcs'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
-import { useScene } from '@/Hooks/Scene.hook'
+import { useSceneStore } from '@/Stores/Scene.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Text } from '@/Components/System/Text'
@@ -13,7 +13,8 @@ import { Dialog } from '@/Components/App/Dialog'
 import { Portrait } from '@/Components/System/Portrait'
 
 export const GetStarterDigimon002 = () => {
-  const { setScene } = useScene()
+  const setScene = useSceneStore((state) => state.setScene)
+
   const profile = useProfileStore((state) => state.profile)
   const setProfile = useProfileStore((state) => state.setProfile)
 

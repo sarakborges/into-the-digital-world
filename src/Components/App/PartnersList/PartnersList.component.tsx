@@ -7,8 +7,8 @@ import { getTexts } from '@/Helpers/getTexts.helper'
 import { AllDigimons } from '@/GameData/Digimons'
 
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useScene } from '@/Hooks/Scene.hook'
-import { useDigivice } from '@/Hooks/Digivice.hook'
+import { useSceneStore } from '@/Stores/Scene.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 
 import { Button } from '@/Components/System/Button'
 import { Text } from '@/Components/System/Text'
@@ -22,10 +22,11 @@ export const PartnersList = () => {
   const profile = useProfileStore((state) => state.profile)
   const setProfile = useProfileStore((state) => state.setProfile)
 
-  const { digivice, setDigivice } = useDigivice()
-  const { scene } = useScene()
+  const digivice = useDigiviceStore((state) => state.digivice)
+  const setDigivice = useDigiviceStore((state) => state.setDigivice)
+  const scene = useSceneStore((state) => state.scene)
 
-  if (!!digivice.currentDetails) {
+  if (!!digivice?.currentDetails) {
     return <PartnerDetails />
   }
 
@@ -63,7 +64,7 @@ export const PartnersList = () => {
 
   const seeDetails = (id: number) => {
     setDigivice({
-      ...digivice,
+      ...digivice!,
       currentDetails: id
     })
   }

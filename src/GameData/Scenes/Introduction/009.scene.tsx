@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { useScene } from '@/Hooks/Scene.hook'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
@@ -10,7 +10,7 @@ import { Portrait } from '@/Components/System/Portrait'
 import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction009 = () => {
-  const { setScene } = useScene()
+  const setScene = useSceneStore((state) => state.setScene)
 
   const dialogOptions: DialogType = {
     content: (

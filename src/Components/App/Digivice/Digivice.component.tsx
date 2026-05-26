@@ -7,8 +7,8 @@ import { AllScenes } from '@/GameData/Scenes'
 
 import { getTexts } from '@/Helpers/getTexts.helper'
 
-import { useScene } from '@/Hooks/Scene.hook'
-import { useDigivice } from '@/Hooks/Digivice.hook'
+import { useSceneStore } from '@/Stores/Scene.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Text } from '@/Components/System/Text'
@@ -23,8 +23,10 @@ import './Digivice.style.scss'
 export const Digivice = () => {
   const profile = useProfileStore((state) => state.profile)
 
-  const { digivice, setDigivice } = useDigivice()
-  const { scene, setScene } = useScene()
+  const digivice = useDigiviceStore((state) => state.digivice)
+  const setDigivice = useDigiviceStore((state) => state.setDigivice)
+  const scene = useSceneStore((state) => state.scene)
+  const setScene = useSceneStore((state) => state.setScene)
 
   if (!Object.keys(profile?.items || {}).includes('digivice')) {
     return
@@ -36,7 +38,7 @@ export const Digivice = () => {
 
   const isSceneBlockingButtons = !!scene && !isOpenDigiviceScene
 
-  const isFashionOpen = digivice.currentApp === 'fashion'
+  const isFashionOpen = digivice?.currentApp === 'fashion'
   const playerHasAvatar = !!profile?.avatar
 
   const isFirstCustomization = !!isFashionOpen && !playerHasAvatar
@@ -48,7 +50,7 @@ export const Digivice = () => {
 
   const toggleModal = () => {
     setDigivice({
-      isOpen: !digivice.isOpen
+      isOpen: !digivice?.isOpen
     })
 
     if (
@@ -63,7 +65,7 @@ export const Digivice = () => {
   }
 
   const pressBackButton = () => {
-    if (!!digivice.currentDetails) {
+    if (!!digivice?.currentDetails) {
       setDigivice({
         ...digivice,
         currentDetails: undefined
@@ -79,11 +81,11 @@ export const Digivice = () => {
 
   return (
     <div className="digivice">
-      {!!digivice.isOpen && (
+      {!!digivice?.isOpen && (
         <Modal>
           <main>
             <div className="digivice-body">
-              {!digivice.currentApp && (
+              {!digivice?.currentApp && (
                 <div className="digivice-apps">
                   {Object.values(AllApps).map((app) => (
                     <div key={`digivice-apps-${app.id}`}>
@@ -93,26 +95,26 @@ export const Digivice = () => {
                 </div>
               )}
 
-              {!!digivice.currentApp && !!AllApps[digivice.currentApp] && (
+              {!!digivice?.currentApp && !!AllApps[digivice?.currentApp] && (
                 <div className="current-app">
                   <header className="app-header">
                     <div className="app-identifier">
                       <Portrait
                         alt={getTexts(
-                          `APPS_${AllApps[digivice.currentApp].id.toLocaleUpperCase()}`
+                          `APPS_${AllApps[digivice?.currentApp].id.toLocaleUpperCase()}`
                         )}
-                        src={`/apps/${AllApps[digivice.currentApp].id}.png`}
+                        src={`/apps/${AllApps[digivice?.currentApp].id}.png`}
                       />
 
                       <Text>
                         {getTexts(
-                          `APPS_${AllApps[digivice.currentApp].id.toLocaleUpperCase()}`
+                          `APPS_${AllApps[digivice?.currentApp].id.toLocaleUpperCase()}`
                         )}
                       </Text>
                     </div>
                   </header>
 
-                  <main>{AllApps[digivice.currentApp].component}</main>
+                  <main>{AllApps[digivice?.currentApp].component}</main>
 
                   <footer>
                     <Button
@@ -144,7 +146,7 @@ export const Digivice = () => {
 
       <Button
         onClick={toggleModal}
-        cancel={!!digivice.isOpen}
+        cancel={!!digivice?.isOpen}
         data-warning={
           scene?.currentScene === 'introduction' && scene.currentStage === '022'
         }

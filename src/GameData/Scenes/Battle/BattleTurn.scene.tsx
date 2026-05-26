@@ -4,7 +4,7 @@ import { AllNpcs } from '@/GameData/Npcs'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
-import { useScene } from '@/Hooks/Scene.hook'
+import { useSceneStore } from '@/Stores/Scene.store'
 import { useBattle } from '@/Hooks/Battle.hook'
 
 import { Text } from '@/Components/System/Text'
@@ -14,7 +14,8 @@ import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
 import type { BattleType } from '@/Types/Battle.type'
 
 export const BattleTurn = () => {
-  const { setScene } = useScene()
+  const setScene = useSceneStore((state) => state.setScene)
+
   const { battle, setBattle } = useBattle()
 
   const [currentTurn, ...otherTurns] = battle?.turnOrder!

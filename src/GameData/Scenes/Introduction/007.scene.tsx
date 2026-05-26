@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { useScene } from '@/Hooks/Scene.hook'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
@@ -10,7 +10,7 @@ import { Dialog } from '@/Components/App/Dialog'
 import { Text } from '@/Components/System/Text'
 
 export const Introduction007 = () => {
-  const { setScene } = useScene()
+  const setScene = useSceneStore((state) => state.setScene)
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.general.gennai,

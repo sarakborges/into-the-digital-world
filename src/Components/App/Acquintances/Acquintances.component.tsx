@@ -5,9 +5,9 @@ import type { NpcType } from '@/Types/Npc.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { useDigivice } from '@/Hooks/Digivice.hook'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useScene } from '@/Hooks/Scene.hook'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Button } from '@/Components/System/Button'
 import { Portrait } from '@/Components/System/Portrait'
@@ -19,16 +19,17 @@ import './Acqunitances.style.scss'
 
 export const Acquintances = () => {
   const profile = useProfileStore((state) => state.profile)
-  const { scene } = useScene()
-  const { digivice, setDigivice } = useDigivice()
+  const scene = useSceneStore((state) => state.scene)
+  const digivice = useDigiviceStore((state) => state.digivice)
+  const setDigivice = useDigiviceStore((state) => state.setDigivice)
 
-  if (!!digivice.currentDetails) {
+  if (!!digivice?.currentDetails) {
     return <AcquintanceDetails />
   }
 
   const setAcquintance = (id) => {
     setDigivice({
-      ...digivice,
+      ...digivice!,
       currentDetails: id
     })
   }

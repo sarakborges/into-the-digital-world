@@ -7,8 +7,8 @@ import { getTexts } from '@/Helpers/getTexts.helper'
 import { AllZones } from '@/GameData/Zones'
 
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useScene } from '@/Hooks/Scene.hook'
-import { useGame } from '@/Hooks/Game.hook'
+import { useSceneStore } from '@/Stores/Scene.store'
+import { useGameStore } from '@/Stores/Game.store'
 
 import { Text } from '@/Components/System/Text'
 import { Portrait } from '@/Components/System/Portrait'
@@ -19,9 +19,8 @@ import './Gameboard.style.scss'
 
 export const Gameboard = () => {
   const profile = useProfileStore((state) => state.profile)
-
-  const { game } = useGame()
-  const { scene } = useScene()
+  const game = useGameStore((state) => state.game)
+  const scene = useSceneStore((state) => state.scene)
 
   if (!profile?.currentZone) {
     return

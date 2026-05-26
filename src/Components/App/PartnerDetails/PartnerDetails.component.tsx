@@ -10,8 +10,8 @@ import { DIGIMON_ATTRIBUTES } from '@/Consts/Attributes.const'
 import { AllDigimons } from '@/GameData/Digimons'
 
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useDigivice } from '@/Hooks/Digivice.hook'
-import { useScene } from '@/Hooks/Scene.hook'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Text } from '@/Components/System/Text'
 import { getTexts } from '@/Helpers/getTexts.helper'
@@ -26,15 +26,17 @@ export const PartnerDetails = () => {
   const setProfile = useProfileStore((state) => state.setProfile)
   const profile = useProfileStore((state) => state.profile)
 
-  const { digivice } = useDigivice()
-  const { scene, setScene } = useScene()
+  const digivice = useDigiviceStore((state) => state.digivice)
 
-  if (!digivice.currentDetails) {
+  const scene = useSceneStore((state) => state.scene)
+  const setScene = useSceneStore((state) => state.setScene)
+
+  if (!digivice?.currentDetails) {
     return
   }
 
   const partner = profile!.partnerDigimons[
-    digivice.currentDetails
+    digivice?.currentDetails
   ] as PartnerDigimonType
   const baseDigimon = AllDigimons[partner.baseDigimon] as BaseDigimonType
 
@@ -47,7 +49,7 @@ export const PartnerDetails = () => {
 
   const togglePartnerFavorite = () => {
     const currentDigimon = {
-      ...profile!.partnerDigimons[digivice.currentDetails!]
+      ...profile!.partnerDigimons[digivice?.currentDetails!]
     }
 
     setProfile({
@@ -56,7 +58,7 @@ export const PartnerDetails = () => {
       partnerDigimons: {
         ...profile!.partnerDigimons,
 
-        [digivice.currentDetails!]: {
+        [digivice?.currentDetails!]: {
           ...currentDigimon,
           isFavorite: !currentDigimon.isFavorite
         }

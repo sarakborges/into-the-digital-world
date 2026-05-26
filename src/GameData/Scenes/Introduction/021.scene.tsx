@@ -5,7 +5,7 @@ import { getDialogs } from '@/Helpers/getDialogs.helper'
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllItems } from '@/GameData/Items'
 
-import { useScene } from '@/Hooks/Scene.hook'
+import { useSceneStore } from '@/Stores/Scene.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Text } from '@/Components/System/Text'
@@ -15,7 +15,7 @@ import { Dialog } from '@/Components/App/Dialog'
 export const Introduction021 = () => {
   const profile = useProfileStore((state) => state.profile)
   const setProfile = useProfileStore((state) => state.setProfile)
-  const { setScene } = useScene()
+  const setScene = useSceneStore((state) => state.setScene)
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.general.gennai,
@@ -36,7 +36,7 @@ export const Introduction021 = () => {
             ...profile!,
 
             items: {
-              [AllItems.digivice.id]: 1
+              [AllItems.digivice?.id]: 1
             }
           })
         }
