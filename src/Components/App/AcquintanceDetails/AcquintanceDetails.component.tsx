@@ -30,6 +30,16 @@ export const AcquintanceDetails = () => {
       <main>
         <section>
           <header>
+            <Text>{getTexts('ACQUINTANCES_FULL_PICTURE')}</Text>
+          </header>
+
+          <main>
+            <Portrait alt={npc.name} src={`/${npc.fullImage}.webp`} />
+          </main>
+        </section>
+
+        <section>
+          <header>
             <Text>{getTexts('ACQUINTANCES_DESCRIPTION')}</Text>
           </header>
 
