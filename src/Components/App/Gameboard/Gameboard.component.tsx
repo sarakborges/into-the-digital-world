@@ -8,6 +8,7 @@ import { AllZones } from '@/GameData/Zones'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useGameStore } from '@/Stores/Game.store'
+import { useBattleStore } from '@/Stores/Battle.store'
 
 import { Text } from '@/Components/System/Text'
 import { Portrait } from '@/Components/System/Portrait'
@@ -19,6 +20,7 @@ import './Gameboard.style.scss'
 export const Gameboard = () => {
   const profile = useProfileStore((state) => state.profile)
   const game = useGameStore((state) => state.game)
+  const battle = useBattleStore((state) => state.battle)
 
   if (!profile?.currentZone) {
     return
@@ -40,7 +42,7 @@ export const Gameboard = () => {
       className="gameboard-wrapper"
       style={
         {
-          '--is-visible': !profile.currentlyInBattle ? 1 : 0
+          '--is-visible': !battle ? 1 : 0
         } as React.CSSProperties
       }
     >

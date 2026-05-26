@@ -15,9 +15,11 @@ import { warpTo } from '@/Helpers/warpTo.helper'
 export const BattleEpilogue = () => {
   const setScene = useSceneStore((state) => state.setScene)
 
-  const setBattle = useBattleStore((state) => state.setBattle)
   const battle = useBattleStore((state) => state.battle)
+  const setBattle = useBattleStore((state) => state.setBattle)
+
   const profile = useProfileStore((state) => state.profile)
+  const setProfile = useProfileStore((state) => state.setProfile)
 
   const dialogOptions: DialogType = {
     content: (
@@ -62,6 +64,7 @@ export const BattleEpilogue = () => {
 
           setBattle(null)
           setScene(null)
+          setProfile(updatedProfile)
 
           saveSession({
             key: 'profile',
