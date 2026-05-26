@@ -1,6 +1,6 @@
 import { AllItems } from '@/GameData/Items'
 
-import { useBattle } from '@/Hooks/Battle.hook'
+import { useBattleStore } from '@/Stores/Battle.store'
 
 import { Text } from '@/Components/System/Text'
 
@@ -9,7 +9,7 @@ import { ItemCore } from '@/Components/App/ItemCore'
 import './CombatLoot.style.scss'
 
 export const CombatLoot = () => {
-  const { battle } = useBattle()
+  const battle = useBattleStore((state) => state.battle)
 
   if (!battle || !Object.keys(battle.loot!).length) {
     return

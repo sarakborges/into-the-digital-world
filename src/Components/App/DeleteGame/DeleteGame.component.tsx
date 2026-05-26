@@ -2,12 +2,15 @@ import { getTexts } from '@/Helpers/getTexts.helper'
 import { deleteData } from '@/Helpers/deleteData.helper'
 import { saveData } from '@/Helpers/saveData.helper'
 
-import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
+import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 
 import { Button } from '@/Components/System/Button'
 
 export const DeleteGame = ({ profileId }: { profileId: number }) => {
-  const { savedProfiles, setSavedProfiles } = useSavedProfiles()
+  const savedProfiles = useSavedProfilesStore((state) => state.savedProfiles)
+  const setSavedProfiles = useSavedProfilesStore(
+    (state) => state.setSavedProfiles
+  )
 
   if (!profileId) {
     return

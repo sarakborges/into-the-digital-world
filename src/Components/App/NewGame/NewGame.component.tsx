@@ -7,17 +7,20 @@ import { saveSession } from '@/Helpers/saveSession.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
-import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
+import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 
 import { Button } from '@/Components/System/Button'
 
 import './NewGame.style.scss'
 
 export const NewGame = () => {
-  const { savedProfiles, setSavedProfiles } = useSavedProfiles()
-  const setProfile = useProfileStore((state) => state.setProfile)
+  const savedProfiles = useSavedProfilesStore((state) => state.savedProfiles)
+  const setSavedProfiles = useSavedProfilesStore(
+    (state) => state.setSavedProfiles
+  )
 
+  const setProfile = useProfileStore((state) => state.setProfile)
   const setDigivice = useDigiviceStore((state) => state.setDigivice)
   const setScene = useSceneStore((state) => state.setScene)
 

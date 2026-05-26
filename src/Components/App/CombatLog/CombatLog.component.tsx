@@ -1,6 +1,6 @@
 import { getTexts } from '@/Helpers/getTexts.helper'
 
-import { useBattle } from '@/Hooks/Battle.hook'
+import { useBattleStore } from '@/Stores/Battle.store'
 
 import { Text } from '@/Components/System/Text'
 
@@ -9,7 +9,7 @@ import { CombatLogEntry } from '@/Components/App/CombatLogEntry'
 import './CombatLog.style.scss'
 
 export const CombatLog = () => {
-  const { battle } = useBattle()
+  const battle = useBattleStore((state) => state.battle)
 
   if (!battle) {
     return

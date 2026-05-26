@@ -5,7 +5,7 @@ import { AllNpcs } from '@/GameData/Npcs'
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 import { useSceneStore } from '@/Stores/Scene.store'
-import { useBattle } from '@/Hooks/Battle.hook'
+import { useBattleStore } from '@/Stores/Battle.store'
 
 import { Text } from '@/Components/System/Text'
 
@@ -16,7 +16,8 @@ import type { BattleType } from '@/Types/Battle.type'
 export const BattleTurn = () => {
   const setScene = useSceneStore((state) => state.setScene)
 
-  const { battle, setBattle } = useBattle()
+  const setBattle = useBattleStore((state) => state.setBattle)
+  const battle = useBattleStore((state) => state.battle)
 
   const [currentTurn, ...otherTurns] = battle?.turnOrder!
 

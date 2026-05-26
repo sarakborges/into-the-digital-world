@@ -4,7 +4,7 @@ import { AllNpcs } from '@/GameData/Npcs'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
-import { useBattle } from '@/Hooks/Battle.hook'
+import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Text } from '@/Components/System/Text'
@@ -16,7 +16,8 @@ import { AllItems } from '@/GameData/Items'
 export const BattleEnd = () => {
   const setScene = useSceneStore((state) => state.setScene)
 
-  const { battle, setBattle } = useBattle()
+  const setBattle = useBattleStore((state) => state.setBattle)
+  const battle = useBattleStore((state) => state.battle)
 
   const battleResult = battle?.turnOrder.every(
     (digimon) => digimon.party === 'allies'

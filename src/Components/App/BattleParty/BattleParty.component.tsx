@@ -2,7 +2,7 @@ import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
 import { getPercentage } from '@/Helpers/getPercentage'
 
-import { useBattle } from '@/Hooks/Battle.hook'
+import { useBattleStore } from '@/Stores/Battle.store'
 
 import { Text } from '@/Components/System/Text'
 
@@ -18,7 +18,7 @@ export const BattleParty = ({
     list: Array<PartyDigimonType>
   }
 }) => {
-  const { battle } = useBattle()
+  const battle = useBattleStore((state) => state.battle)
 
   const resources = {
     hp: 'vit',

@@ -3,7 +3,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 import { saveSession } from '@/Helpers/saveSession.helper'
 
-import { useBattle } from '@/Hooks/Battle.hook'
+import { useBattleStore } from '@/Stores/Battle.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useGameStore } from '@/Stores/Game.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -16,7 +16,8 @@ import { warpTo } from '@/Helpers/warpTo.helper'
 export const BattleEpilogue = () => {
   const setScene = useSceneStore((state) => state.setScene)
 
-  const { battle, setBattle } = useBattle()
+  const setBattle = useBattleStore((state) => state.setBattle)
+  const battle = useBattleStore((state) => state.battle)
   const profile = useProfileStore((state) => state.profile)
   const setGame = useGameStore((state) => state.setGame)
 

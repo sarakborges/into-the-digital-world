@@ -1,6 +1,6 @@
 import { getTexts } from '@/Helpers/getTexts.helper'
 
-import { useBattle } from '@/Hooks/Battle.hook'
+import { useBattleStore } from '@/Stores/Battle.store'
 
 import { Text } from '@/Components/System/Text'
 
@@ -9,7 +9,7 @@ import { BattleParty } from '@/Components/App/BattleParty'
 import './CombatParties.style.scss'
 
 export const CombatParties = () => {
-  const { battle } = useBattle()
+  const battle = useBattleStore((state) => state.battle)
 
   if (!battle) {
     return

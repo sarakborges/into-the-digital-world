@@ -5,7 +5,7 @@ import { Scene } from '@/GameData/Scenes'
 import { loadSession } from '@/Helpers/loadSession.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useSettings } from '@/Hooks/Settings.hook'
+import { useSettingsStore } from '@/Stores/Settings.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
@@ -26,7 +26,7 @@ export const Game = () => {
   const profile =
     useProfileStore((state) => state.profile) || loadSession({ key: 'profile' })
 
-  const { settings } = useSettings()
+  const settings = useSettingsStore((state) => state.settings)
   const scene = useSceneStore((state) => state.scene)
   const digivice = useDigiviceStore((state) => state.digivice)
 
@@ -37,7 +37,7 @@ export const Game = () => {
       <div className="main-game">
         <header className="game-header">
           <div className="player">
-            {!settings.isOpen && (
+            {!settings?.isOpen && (
               <>
                 {!!profile && <PlayerAvatar />}
                 <Text>{profile?.name}</Text>

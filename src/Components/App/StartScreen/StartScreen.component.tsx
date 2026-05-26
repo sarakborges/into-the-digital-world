@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { useSavedProfiles } from '@/Hooks/SavedProfiles.hook'
+import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 
 import { getTexts } from '@/Helpers/getTexts.helper'
 import { loadData } from '@/Helpers/loadData.helper'
@@ -15,7 +15,10 @@ import './StartScreen.style.scss'
 export const StartScreen = () => {
   const profiles = loadData({ key: 'profiles' }) || null
 
-  const { savedProfiles, setSavedProfiles } = useSavedProfiles()
+  const savedProfiles = useSavedProfilesStore((state) => state.savedProfiles)
+  const setSavedProfiles = useSavedProfilesStore(
+    (state) => state.setSavedProfiles
+  )
 
   const loadProfiles = () => {
     setSavedProfiles(

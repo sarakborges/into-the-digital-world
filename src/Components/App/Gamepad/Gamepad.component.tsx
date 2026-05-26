@@ -14,7 +14,7 @@ import { AllZones } from '@/GameData/Zones'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
-import { useBattle } from '@/Hooks/Battle.hook'
+import { useBattleStore } from '@/Stores/Battle.store'
 import { useGameStore } from '@/Stores/Game.store'
 
 import { Button } from '@/Components/System/Button'
@@ -28,7 +28,7 @@ export const Gamepad = () => {
   const scene = useSceneStore((state) => state.scene)
   const setScene = useSceneStore((state) => state.setScene)
 
-  const { setBattle } = useBattle()
+  const setBattle = useBattleStore((state) => state.setBattle)
 
   const game = useGameStore((state) => state.game)
   const setGame = useGameStore((state) => state.setGame)
