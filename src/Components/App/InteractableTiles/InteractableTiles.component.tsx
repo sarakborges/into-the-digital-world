@@ -22,19 +22,14 @@ export const InteractableTiles = () => {
 
   const setGame = useGameStore((state) => state.setGame)
 
-  const scene = useSceneStore((state) => state.scene)
   const setScene = useSceneStore((state) => state.setScene)
 
   if (!profile?.currentZone) {
     return
   }
 
-  const currentZone: ZoneType = AllZones[profile.currentZone.id][
-    profile.currentZone.map
-  ]({
-    scene,
-    profile
-  })
+  const currentZone: ZoneType =
+    AllZones[profile.currentZone.id][profile.currentZone.map]
 
   const surroundingTiles = [
     ...currentZone.tiles.filter(

@@ -7,7 +7,6 @@ import { getTexts } from '@/Helpers/getTexts.helper'
 import { AllZones } from '@/GameData/Zones'
 
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useSceneStore } from '@/Stores/Scene.store'
 import { useGameStore } from '@/Stores/Game.store'
 
 import { Text } from '@/Components/System/Text'
@@ -20,18 +19,13 @@ import './Gameboard.style.scss'
 export const Gameboard = () => {
   const profile = useProfileStore((state) => state.profile)
   const game = useGameStore((state) => state.game)
-  const scene = useSceneStore((state) => state.scene)
 
   if (!profile?.currentZone) {
     return
   }
 
-  const currentZone: ZoneType = AllZones[profile.currentZone.id][
-    profile.currentZone.map
-  ]({
-    scene,
-    profile
-  })
+  const currentZone: ZoneType =
+    AllZones[profile.currentZone.id][profile.currentZone.map]
 
   const gameboardBodyVars = {
     '--current-x': profile.currentZone.x,
@@ -82,7 +76,7 @@ export const Gameboard = () => {
                       {
                         '--character-x': tile.x,
                         '--character-y': tile.y,
-                        '--character-opacity': !!tile.condition ? 1 : 0
+                        '--character-opacity': !!tile.condition?.() ? 1 : 0
                       } as React.CSSProperties
                     }
                   >

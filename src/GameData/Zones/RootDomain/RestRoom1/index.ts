@@ -14,8 +14,6 @@ import { grid } from './RestRoom1.grid'
 const gridSize = 13
 const filledGrid = fillGrid({ grid, gridSize })
 
-const scene = useSceneStore.getState().scene
-
 export const RootDomainRestRoom1: ZoneType = {
   id: `rootDomainRestRoom1`,
   background: `RootDomain/RestRoomLeft`,
@@ -40,9 +38,14 @@ export const RootDomainRestRoom1: ZoneType = {
       x: 6,
       y: 7,
 
-      condition:
-        scene?.currentScene === AllScenes.introduction.id &&
-        scene?.currentStage !== '001',
+      condition: () => {
+        const scene = useSceneStore.getState().scene
+
+        return (
+          scene?.currentScene === AllScenes.introduction.id &&
+          scene?.currentStage !== '001'
+        )
+      },
 
       npc: AllNpcs.general.gennai
     }

@@ -14,8 +14,6 @@ import { grid } from './MainRoom.grid'
 const gridSize = 19
 const filledGrid = fillGrid({ grid, gridSize })
 
-const profile = useProfileStore.getState().profile
-
 export const RootDomainMainRoom: ZoneType = {
   id: `rootDomainMainRoom`,
   background: `RootDomain/MainRoom`,
@@ -42,9 +40,14 @@ export const RootDomainMainRoom: ZoneType = {
       y: 3,
       npc: AllNpcs.general.gennai,
 
-      condition:
-        !!profile?.doneScenes.includes(AllScenes.introduction.id) &&
-        !!profile?.doneScenes.includes(AllScenes.getStarterDigimon.id)
+      condition: () => {
+        const profile = useProfileStore.getState().profile
+
+        return (
+          !!profile?.doneScenes.includes(AllScenes.introduction.id) &&
+          !!profile?.doneScenes.includes(AllScenes.getStarterDigimon.id)
+        )
+      }
     },
 
     {
@@ -54,9 +57,14 @@ export const RootDomainMainRoom: ZoneType = {
       event: 'triggerGetStarterDigimon',
       npc: AllNpcs.general.gennai,
 
-      condition:
-        !!profile?.doneScenes.includes(AllScenes.introduction.id) &&
-        !profile?.doneScenes.includes(AllScenes.getStarterDigimon.id)
+      condition: () => {
+        const profile = useProfileStore.getState().profile
+
+        return (
+          !!profile?.doneScenes.includes(AllScenes.introduction.id) &&
+          !profile?.doneScenes.includes(AllScenes.getStarterDigimon.id)
+        )
+      }
     }
   ]
 }

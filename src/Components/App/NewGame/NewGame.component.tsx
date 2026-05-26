@@ -3,7 +3,6 @@ import type { ProfileType } from '@/Types/Profile.type'
 import { AllNpcs } from '@/GameData/Npcs'
 
 import { getTexts } from '@/Helpers/getTexts.helper'
-import { saveSession } from '@/Helpers/saveSession.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -55,17 +54,15 @@ export const NewGame = () => {
       }
     }
 
-    const currentScene = {
-      currentScene: 'introduction',
-      currentStage: '001'
-    }
-
     setSavedProfiles([...sortedProfiles, newProfile])
 
     setProfile(newProfile)
-    setScene(currentScene)
     setDigivice({ isOpen: false })
-    saveSession({ key: 'profile', value: newProfile })
+
+    setScene({
+      currentScene: 'introduction',
+      currentStage: '001'
+    })
   }
 
   return (

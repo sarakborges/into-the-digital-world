@@ -10,7 +10,7 @@ type SettingsStore = {
 }
 
 export const useSettingsStore = create<SettingsStore>((set) => ({
-  settings: loadData({ key: 'settings' }),
+  settings: { ...loadData({ key: 'settings' }), isOpen: false },
 
   setSettings: (settings) => {
     set({ settings })
