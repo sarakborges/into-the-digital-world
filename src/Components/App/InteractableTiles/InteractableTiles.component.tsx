@@ -52,11 +52,11 @@ export const InteractableTiles = () => {
     (tile) =>
       !!tile.event &&
       !!tile.npc &&
-      (tile.condition === undefined || !!tile.condition)
+      (tile.condition === undefined || !!tile.condition())
   )
 
   const triggerEvent = (event) => {
-    currentZone?.events?.[event]?.({ setScene, setProfile, profile, setGame })
+    currentZone?.events?.[event]?.()
   }
 
   return (
