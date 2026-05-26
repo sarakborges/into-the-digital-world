@@ -11,16 +11,16 @@ export const DELETE_GAME_FILE = `Delete`
 
 export const SETTINGS_TITLE = `Settings`
 
-export const APPS_PROFILE = `Profile`
+export const APPS_PROFILE = `My Profile`
 export const APPS_SAVE = `Save data`
-export const APPS_FASHION = `Fashion`
+export const APPS_FASHION = `My Avatar`
 export const APPS_LOGOFF = `Log off`
 export const APPS_ACHIEVEMENTS = `Achievements`
-export const APPS_ACQUINTANCES = `Acquintances`
+export const APPS_ACQUINTANCES = `My Contacts`
 export const APPS_JOURNAL = `Journal`
 export const APPS_LOCATION = `Location`
 export const APPS_PARTNERSLIST = `My Digimon Partners`
-export const APPS_INVENTORY = `Inventory`
+export const APPS_INVENTORY = `My Items`
 
 export const DIGIMON_STATS_VIT_NAME = `Vitality`
 export const DIGIMON_STATS_VIT_DESCRIPTION = `Maximum HP`
