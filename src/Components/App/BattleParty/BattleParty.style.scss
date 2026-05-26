@@ -10,11 +10,10 @@
 
     &[data-currentturn='true'] {
       .portrait {
-        border: 2px solid var(--color-secondary-weak);
         background-color: var(--color-secondary-weak);
 
         img {
-          border-color: var(--color-secondary-weak);
+          border: 2px solid var(--color-secondary-weak);
         }
       }
 
