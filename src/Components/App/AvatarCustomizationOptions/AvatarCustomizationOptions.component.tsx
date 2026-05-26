@@ -49,15 +49,15 @@ export const AvatarCustomizationOptions = () => {
   }
 
   return (
-    <div className="avatar-avatarCustomization-options">
+    <div className="avatar-customization-options">
       <header>
         <Text>{options[avatarCustomization.layer]}:</Text>
       </header>
 
-      <main className="avatarCustomization-options">
+      <main className="customization-options">
         {AVATAR_OPTIONS[avatarCustomization.layer].map((option) => (
           <div
-            key={`avatarCustomization-layer-${avatarCustomization.layer}-${option}`}
+            key={`customization-layer-${avatarCustomization.layer}-${option}`}
           >
             <Button
               disabled={
@@ -77,7 +77,7 @@ export const AvatarCustomizationOptions = () => {
         ))}
       </main>
 
-      <footer className="avatarCustomization-back">
+      <footer className="customization-back">
         <Button onClick={closeCustomization}>
           {getDialogs('SCENES_BACK_BUTTON')}
         </Button>
