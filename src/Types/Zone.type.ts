@@ -10,7 +10,7 @@ export type ZoneType = {
   grid: GridType
 
   events?: {
-    [eventId: string]: ({}: any) => void
+    [eventId: string]: () => void
   }
 
   tiles: Array<{
