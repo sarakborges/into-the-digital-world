@@ -7,7 +7,6 @@ export type ProfileType = {
   lastSave: string
   avatar?: AvatarType
   currency?: number
-  currentlyInBattle?: boolean
   currentTitle: string
   currentParty: Array<number>
   currentScene: string | null

@@ -33,23 +33,18 @@ export const BattleEpilogue = () => {
         id: 'scene-battle-battleepilogue-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          const updatedProfile = {
-            ...profile!,
-            currentlyInBattle: false
-          }
-
           if (battle!.result === 'victory') {
             if (!!battle!.loot) {
               for (let item of Object.keys(battle!.loot)) {
-                updatedProfile.items[item] =
-                  (updatedProfile.items[item] || 0) + battle!.loot[item].amount
+                profile!.items[item] =
+                  (profile!.items[item] || 0) + battle!.loot[item].amount
               }
             }
 
             warpTo({
               ...battle?.mapPosition!,
-              zoneId: updatedProfile!.currentZone.id,
-              mapId: updatedProfile!.currentZone.map
+              zoneId: profile!.currentZone.id,
+              mapId: profile!.currentZone.map
             })
           }
 
@@ -64,11 +59,11 @@ export const BattleEpilogue = () => {
 
           setBattle(null)
           setScene(null)
-          setProfile(updatedProfile)
+          setProfile(profile)
 
           saveSession({
             key: 'profile',
-            value: updatedProfile
+            value: profile
           })
         }
       }

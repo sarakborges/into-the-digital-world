@@ -10,6 +10,7 @@ import { getTexts } from '@/Helpers/getTexts.helper'
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
+import { useBattleStore } from '@/Stores/Battle.store'
 
 import { Text } from '@/Components/System/Text'
 import { Portrait } from '@/Components/System/Portrait'
@@ -22,9 +23,11 @@ import './Digivice.style.scss'
 
 export const Digivice = () => {
   const profile = useProfileStore((state) => state.profile)
+  const battle = useBattleStore((state) => state.battle)
 
   const digivice = useDigiviceStore((state) => state.digivice)
   const setDigivice = useDigiviceStore((state) => state.setDigivice)
+
   const scene = useSceneStore((state) => state.scene)
   const setScene = useSceneStore((state) => state.setScene)
 
@@ -44,9 +47,7 @@ export const Digivice = () => {
   const isFirstCustomization = !!isFashionOpen && !playerHasAvatar
 
   const areButtonsDisabled =
-    isSceneBlockingButtons ||
-    isFirstCustomization ||
-    !!profile?.currentlyInBattle
+    isSceneBlockingButtons || isFirstCustomization || !!battle
 
   const toggleModal = () => {
     setDigivice({

@@ -2,12 +2,11 @@ import { useEffect } from 'react'
 
 import { Scene } from '@/GameData/Scenes'
 
-import { loadSession } from '@/Helpers/loadSession.helper'
-
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSettingsStore } from '@/Stores/Settings.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useSceneStore } from '@/Stores/Scene.store'
+import { useBattleStore } from '@/Stores/Battle.store'
 
 import { Text } from '@/Components/System/Text'
 
@@ -27,6 +26,7 @@ export const Game = () => {
   const settings = useSettingsStore((state) => state.settings)
   const scene = useSceneStore((state) => state.scene)
   const digivice = useDigiviceStore((state) => state.digivice)
+  const battle = useBattleStore((state) => state.battle)
 
   useEffect(() => {}, [settings])
 
@@ -49,7 +49,7 @@ export const Game = () => {
           </div>
         </header>
 
-        {!!profile?.currentlyInBattle && <Battlefield />}
+        {!!battle && <Battlefield />}
 
         {!scene && (
           <>
