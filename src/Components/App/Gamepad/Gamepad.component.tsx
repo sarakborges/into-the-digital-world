@@ -31,7 +31,9 @@ export const Gamepad = () => {
     return
   }
 
-  const currentZone: ZoneType = AllZones[profile.currentZone.id]({
+  const currentZone: ZoneType = AllZones[profile.currentZone.id][
+    profile.currentZone.map
+  ]({
     scene,
     profile
   })
@@ -44,7 +46,7 @@ export const Gamepad = () => {
       ...profile,
 
       currentZone: {
-        id: currentZone.id,
+        ...profile.currentZone,
         x: updatedX,
         y: updatedY
       }

@@ -20,6 +20,7 @@ export type ProfileType = {
 
   currentZone: {
     id: string
+    map: string
     x: number
     y: number
   }

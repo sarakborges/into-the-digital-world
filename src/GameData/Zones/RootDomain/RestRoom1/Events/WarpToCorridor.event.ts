@@ -1,7 +1,5 @@
 import { warpTo } from '@/Helpers/warpTo.helper'
 
-import { AllZones } from '@/GameData/Zones'
-
 export const WarpToCorridor = (props) => {
   const { profile, setProfile, setGame } = props
 
@@ -9,7 +7,8 @@ export const WarpToCorridor = (props) => {
     profile,
     setProfile,
     setGame,
-    zoneId: AllZones.rootDomainCorridor().id,
+    zoneId: 'rootDomain',
+    mapId: 'corridor',
     x: 4,
     y: 5
   })

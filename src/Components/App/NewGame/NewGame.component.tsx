@@ -17,7 +17,7 @@ import './NewGame.style.scss'
 
 export const NewGame = () => {
   const { savedProfiles, setSavedProfiles } = useSavedProfiles()
-  const { setProfile } = useProfile()
+  const { profile, setProfile } = useProfile()
   const { setDigivice } = useDigivice()
   const { scene, setScene } = useScene()
 
@@ -45,7 +45,8 @@ export const NewGame = () => {
       titles: ['chosenChild'],
 
       currentZone: {
-        id: AllZones.rootDomainRestRoom1({ scene: scene! }).id,
+        id: 'rootDomain',
+        map: 'restRoom1',
         x: 3,
         y: 5
       }

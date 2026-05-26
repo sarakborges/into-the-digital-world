@@ -8,6 +8,7 @@ export const warpTo = ({
   profile,
   setProfile,
   zoneId,
+  mapId,
   x,
   y
 }: {
@@ -15,6 +16,7 @@ export const warpTo = ({
   profile: ProfileType
   setProfile: React.Dispatch<React.SetStateAction<ProfileType | null>>
   zoneId: string
+  mapId: string
   x: number
   y: number
 }) => {
@@ -32,6 +34,7 @@ export const warpTo = ({
 
       currentZone: {
         id: zoneId,
+        map: mapId,
         x: x,
         y: y
       }

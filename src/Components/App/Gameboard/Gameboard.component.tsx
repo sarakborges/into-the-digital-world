@@ -26,7 +26,9 @@ export const Gameboard = () => {
     return
   }
 
-  const currentZone: ZoneType = AllZones[profile.currentZone.id]({
+  const currentZone: ZoneType = AllZones[profile.currentZone.id][
+    profile.currentZone.map
+  ]({
     scene,
     profile
   })
