@@ -8,12 +8,22 @@ import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 
 import './AvatarCustomizationOptions.style.scss'
 import { getDialogs } from '@/Helpers/getDialogs.helper'
+import { Text } from '@/Components/System/Text'
+import { getTexts } from '@/Helpers/getTexts.helper'
 
 export const AvatarCustomizationOptions = () => {
   const { customization, setCustomization } = useAvatarCustomization()
 
   if (!customization?.layer) {
     return
+  }
+
+  const options = {
+    skin: getTexts('AVATARCUSTOMIZATION_SKIN'),
+    hair: getTexts('AVATARCUSTOMIZATION_HAIR'),
+    hairColor: getTexts('AVATARCUSTOMIZATION_HAIR_COLOR'),
+    eyes: getTexts('AVATARCUSTOMIZATION_EYES'),
+    clothes: getTexts('AVATARCUSTOMIZATION_CLOTHES')
   }
 
   const updateCustomization = (option) => {
@@ -34,6 +44,10 @@ export const AvatarCustomizationOptions = () => {
 
   return (
     <div className="avatar-customization-options">
+      <header>
+        <Text>{options[customization.layer]}:</Text>
+      </header>
+
       <main className="customization-options">
         {AVATAR_OPTIONS[customization.layer].map((option) => (
           <div key={`customization-layer-${customization.layer}-${option}`}>

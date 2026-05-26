@@ -1,22 +1,19 @@
 export const AVATAR_OPTIONS = {
-  expression: ['1'],
+  expression: ['default'],
   skin: ['1', '2', '3', '4', '5', '6'],
   hair: ['1', '2', '3', '4', '5', '6', '7', '8'],
 
-  hairColor: ['BLACK', 'DARK_BROWN', 'BLONDE', 'ORANGE'],
+  hairColor: ['blonde', 'black'],
 
-  eyes: ['BLUE', 'BROWN', 'GREEN', 'PURPLE', 'DARK_BROWN', 'LIGHT_BROWN'],
+  eyes: ['teal', 'amber', 'green', 'lilac', 'yellow', 'brown'],
 
   clothes: [
-    '1-BLACK',
-    '1-GRAY',
-    '1-WHITE',
-    '1-BLUE',
-    '1-RED',
-    '1-GREEN',
-    '1-YELLOW',
-    '1-PINK',
-    '1-ORANGE',
-    '1-PURPLE'
+    '1-blue',
+    '1-red',
+    '1-green',
+    '1-yellow',
+    '1-orange',
+    '1-pink',
+    '1-magenta'
   ]
 }

@@ -10,9 +10,9 @@ import { useProfile } from '@/Hooks/Profile.hook'
 import { useScene } from '@/Hooks/Scene.hook'
 import { useGame } from '@/Hooks/Game.hook'
 
-import { Portrait } from '@/Components/System/Portrait'
-import { Text } from '@/Components/System/Text'
 import { Button } from '@/Components/System/Button'
+
+import { CharacterHeader } from '@/Components/App/CharacterHeader'
 
 import './InteractableTiles.style.scss'
 
@@ -66,32 +66,19 @@ export const InteractableTiles = () => {
         >
           {!!tile?.event && (
             <div className="events">
-              <header>
-                <Text>
-                  {Object.keys(profile!.npcAcquintances).includes(
-                    tile.npc!.id || ''
-                  )
-                    ? tile.npc!.name
-                    : '???'}
-                </Text>
-
-                <Portrait
-                  alt={tile.npc!.name || ''}
-                  src={`/${tile.npc!.portrait}.webp`}
-                />
-              </header>
-
-              <footer>
-                <div>
-                  <Button
-                    onClick={() => {
-                      triggerEvent(tile.event!)
-                    }}
-                  >
-                    {getTexts('NPC_INTERACT')}
-                  </Button>
-                </div>
-              </footer>
+              <CharacterHeader character={tile.npc!}>
+                <footer>
+                  <div>
+                    <Button
+                      onClick={() => {
+                        triggerEvent(tile.event!)
+                      }}
+                    >
+                      {getTexts('NPC_INTERACT')}
+                    </Button>
+                  </div>
+                </footer>
+              </CharacterHeader>
             </div>
           )}
         </Fragment>
