@@ -23,9 +23,7 @@ import { Battlefield } from '@/Components/App/Battlefield'
 import './Game.style.scss'
 
 export const Game = () => {
-  const profile =
-    useProfileStore((state) => state.profile) || loadSession({ key: 'profile' })
-
+  const profile = useProfileStore((state) => state.profile)
   const settings = useSettingsStore((state) => state.settings)
   const scene = useSceneStore((state) => state.scene)
   const digivice = useDigiviceStore((state) => state.digivice)
@@ -33,7 +31,7 @@ export const Game = () => {
   useEffect(() => {}, [settings])
 
   return (
-    <div className="game-body">
+    <div className={`game-body theme-${settings?.theme}`}>
       <div className="main-game">
         <header className="game-header">
           <div className="player">

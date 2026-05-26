@@ -5,7 +5,6 @@ import { saveSession } from '@/Helpers/saveSession.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useGameStore } from '@/Stores/Game.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Text } from '@/Components/System/Text'
@@ -19,7 +18,6 @@ export const BattleEpilogue = () => {
   const setBattle = useBattleStore((state) => state.setBattle)
   const battle = useBattleStore((state) => state.battle)
   const profile = useProfileStore((state) => state.profile)
-  const setGame = useGameStore((state) => state.setGame)
 
   const dialogOptions: DialogType = {
     content: (

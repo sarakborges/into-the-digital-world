@@ -1,6 +1,8 @@
+import { create } from 'zustand'
+
 import type { ProfileType } from '@/Types/Profile.type'
 
-import { create } from 'zustand'
+import { loadSession } from '@/Helpers/loadSession.helper'
 
 type ProfileStore = {
   profile: ProfileType | null
@@ -8,7 +10,7 @@ type ProfileStore = {
 }
 
 export const useProfileStore = create<ProfileStore>((set) => ({
-  profile: null,
+  profile: loadSession({ key: 'profile' }),
 
   setProfile: (profile) => {
     set({ profile })

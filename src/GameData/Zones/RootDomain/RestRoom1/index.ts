@@ -14,7 +14,7 @@ import { grid } from './RestRoom1.grid'
 const gridSize = 13
 const filledGrid = fillGrid({ grid, gridSize })
 
-const scene = useSceneStore((state) => state.scene)
+const scene = useSceneStore.getState().scene
 
 export const RootDomainRestRoom1: ZoneType = {
   id: `rootDomainRestRoom1`,

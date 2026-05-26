@@ -1,6 +1,6 @@
-import type { ProfileType } from '@/Types/Profile.type'
-
 import { create } from 'zustand'
+
+import type { ProfileType } from '@/Types/Profile.type'
 
 type SavedProfilesStore = {
   savedProfiles: Array<ProfileType> | null

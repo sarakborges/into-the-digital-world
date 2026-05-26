@@ -1,6 +1,8 @@
+import { create } from 'zustand'
+
 import type { SettingsType } from '@/Types/Settings.type'
 
-import { create } from 'zustand'
+import { loadData } from '@/Helpers/loadData.helper'
 
 type SettingsStore = {
   settings: SettingsType | null
@@ -8,7 +10,7 @@ type SettingsStore = {
 }
 
 export const useSettingsStore = create<SettingsStore>((set) => ({
-  settings: null,
+  settings: loadData({ key: 'settings' }),
 
   setSettings: (settings) => {
     set({ settings })
