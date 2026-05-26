@@ -1,3 +1,4 @@
+import { BiSolidStar } from 'react-icons/bi'
 import { BsArrowDown, BsArrowUp } from 'react-icons/bs'
 import { TbListDetails } from 'react-icons/tb'
 
@@ -95,6 +96,14 @@ export const Encyclopedia = () => {
 
                     {partner?.name && <Text>{partner?.baseDigimon?.name}</Text>}
                   </header>
+
+                  <aside>
+                    {!!partner.isFavorite && (
+                      <Text>
+                        <BiSolidStar />
+                      </Text>
+                    )}
+                  </aside>
 
                   <footer>
                     <Button

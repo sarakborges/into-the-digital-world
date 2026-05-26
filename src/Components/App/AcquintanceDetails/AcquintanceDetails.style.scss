@@ -3,25 +3,13 @@
   flex-flow: column;
   gap: 8px;
 
-  .button {
-    padding: 0;
-
-    background-color: transparent;
-
-    text-decoration: underline;
-
-    &:not(:disabled, .cancel):hover {
-      background-color: transparent;
-    }
-  }
-
   .npc-header {
     position: sticky;
     top: 40px;
     left: 0;
     z-index: 103;
 
-    padding: 4px 0 0;
+    padding: 8px 0;
 
     background-color: var(--color-secondary-weak);
 
@@ -66,6 +54,43 @@
 
     .text:nth-child(2) {
       font-size: 12px;
+    }
+  }
+
+  > main {
+    display: flex;
+    flex-flow: column;
+    gap: 12px;
+
+    > section {
+      display: flex;
+      flex-flow: column;
+
+      > header {
+        .text {
+          padding: 2px 8px 4px;
+
+          background-color: var(--color-secondary-strong);
+          border-radius: 12px 12px 0 0;
+        }
+      }
+
+      > main {
+        padding: 4px;
+
+        background-color: var(--color-secondary-strong);
+        border-radius: 0 12px 12px 12px;
+
+        img {
+          border-radius: 8px;
+        }
+
+        &.acquintance-description .text {
+          padding: 4px;
+
+          font-size: 12px;
+        }
+      }
     }
   }
 }

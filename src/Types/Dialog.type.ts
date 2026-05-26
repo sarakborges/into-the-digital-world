@@ -4,7 +4,6 @@ import type { ProfileType } from '@/Types/Profile.type'
 
 export type DialogType = {
   speaker?: (NpcType | BaseDigimonType | ProfileType) & {
-    id: string
     isPlayer?: boolean
   }
   content: React.ReactNode

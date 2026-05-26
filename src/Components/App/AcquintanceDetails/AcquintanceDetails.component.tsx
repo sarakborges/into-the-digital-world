@@ -21,14 +21,22 @@ export const AcquintanceDetails = () => {
 
   return (
     <div className="npc-profile">
-      <div className="npc-header">
+      <header className="npc-header">
         <CharacterHeader character={npc} lg>
           <>{!!npc.title && <Text>{getTexts(npc.title)}</Text>}</>
         </CharacterHeader>
-      </div>
+      </header>
 
       <main>
-        <Text as="p">{npc.description}</Text>
+        <section>
+          <header>
+            <Text>{getTexts('ACQUINTANCES_DESCRIPTION')}</Text>
+          </header>
+
+          <main className="acquintance-description">
+            <Text as="p">{npc.description}</Text>
+          </main>
+        </section>
       </main>
     </div>
   )

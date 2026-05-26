@@ -27,12 +27,19 @@
         background-color: var(--color-secondary);
         border-radius: 4px;
 
-        .portrait {
-          width: 24px;
-          min-width: 24px;
-          overflow: hidden;
+        svg {
+          width: 20px;
+          height: 20px;
+        }
 
-          border-radius: 100%;
+        .partner-avatar {
+          .portrait {
+            width: 24px;
+            min-width: 24px;
+            overflow: hidden;
+
+            border-radius: 100%;
+          }
         }
 
         .partner-name {

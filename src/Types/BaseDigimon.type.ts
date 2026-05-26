@@ -5,7 +5,7 @@ export type BaseDigimonType = {
   fullImage: string
   portrait: string
 
-  attribute: 'vaccine' | 'virus' | 'data' | 'noattribute'
+  attribute: 'va' | 'vi' | 'da' | 'na'
   families: Array<string>
 
   stats: {

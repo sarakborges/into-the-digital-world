@@ -2,31 +2,41 @@
   display: flex;
   place-items: flex-end;
 
+  .avatar-layers {
+    .portrait img {
+      border: 0;
+    }
+  }
+
+  &:not([data-islg='true']) {
+    .avatar-layers {
+      max-width: 58px;
+      min-width: 58px;
+    }
+
+    .portrait {
+      max-width: 58px;
+      min-width: 58px;
+    }
+  }
+
+  &[data-islg='true'] {
+    .avatar-layers {
+      max-width: 80px;
+      min-width: 80px;
+    }
+
+    .portrait {
+      max-width: 80px;
+      min-width: 80px;
+    }
+  }
+
   &:not([data-isplayer='true']) {
     position: relative;
 
     .portrait {
       background-color: var(--color-secondary-strong);
-    }
-
-    &:not([data-islg='true']) .portrait {
-      max-width: 58px;
-      min-width: 58px;
-
-      .avatar-content {
-        max-width: 58px;
-        min-width: 58px;
-      }
-    }
-
-    &[data-islg='true'] .portrait {
-      max-width: 80px;
-      min-width: 80px;
-
-      .avatar-content {
-        max-width: 80px;
-        min-width: 80px;
-      }
     }
   }
 
@@ -40,7 +50,7 @@
     }
 
     .avatar-content {
-      border-radius: 100% 100% 0 100%;
+      border-radius: 100% 100% 0 0;
       background-color: var(--color-secondary-strong);
     }
 

@@ -37,6 +37,7 @@ export const Introduction005 = () => {
           label={getDialogs('INTRODUCTION_005_INPUT')}
           placeholder={getDialogs('INTRODUCTION_005_INPUT_PLACEHOLDER')}
           name="player-name"
+          autoFocus
           onChange={(e) =>
             ((
               document.querySelector(
@@ -55,13 +56,11 @@ export const Introduction005 = () => {
         action: () => {
           const name = (
             document.querySelector('[name=player-name]') as HTMLInputElement
-          ).value
-            .trim()
-            .toLocaleLowerCase()
+          ).value.trim()
 
           const updatedProfile = {
             ...profile!,
-            name: name.charAt(0).toUpperCase() + name.slice(1)
+            name: name
           }
 
           setProfile(updatedProfile)

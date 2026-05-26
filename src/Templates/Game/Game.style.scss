@@ -16,7 +16,7 @@
   flex-flow: column;
   place-items: center;
 
-  width: clamp(360px, 480px, 100%);
+  width: clamp(360px, 360px, 100%);
   min-height: 100dvh;
   max-height: 100dvh;
   overflow: auto;

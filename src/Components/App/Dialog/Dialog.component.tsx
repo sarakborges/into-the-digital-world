@@ -21,8 +21,9 @@ export const Dialog = ({ speaker, content, options }: DialogType) => {
               ...speaker,
               isPlayer: !!speaker.isPlayer,
               name:
-                Object.keys(profile!.npcAcquintances).includes(speaker.id) ||
-                !!speaker.isPlayer
+                Object.keys(profile!.npcAcquintances).includes(
+                  speaker.id.toString()
+                ) || !!speaker.isPlayer
                   ? speaker.name
                   : `???`
             }}

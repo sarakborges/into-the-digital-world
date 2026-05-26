@@ -17,6 +17,12 @@ export const GetStarterDigimon021 = () => {
   const { setScene } = useScene()
   const { profile, setProfile } = useProfile()
 
+  const initialBondValue = {
+    accept: 5,
+    neutral: 0,
+    refuse: -5
+  }
+
   const dialogOptions: DialogType = {
     speaker: AllNpcs.gennai,
 
@@ -42,7 +48,10 @@ export const GetStarterDigimon021 = () => {
               1: {
                 id: 1,
                 baseDigimon: 'dorimon',
-                isStarter: true
+                isStarter: true,
+                bond: initialBondValue[
+                  profile?.meaningfulChoices.dorimonMeeting!
+                ]
               }
             }
           }

@@ -22,6 +22,30 @@ export const APPS_LOCATION = `Location`
 export const APPS_ENCYCLOPEDIA = `Encyclopedia`
 export const APPS_INVENTORY = `Inventory`
 
+export const DIGIMON_STATS_VIT_NAME = `Vitality`
+export const DIGIMON_STATS_VIT_DESCRIPTION = `Maximum HP`
+
+export const DIGIMON_STATS_STA_NAME = `Stamina`
+export const DIGIMON_STATS_STA_DESCRIPTION = `Maximum SP`
+
+export const DIGIMON_STATS_POW_NAME = `Power`
+export const DIGIMON_STATS_POW_DESCRIPTION = `Damage dealt`
+
+export const DIGIMON_STATS_RES_NAME = `Resistance`
+export const DIGIMON_STATS_RES_DESCRIPTION = `Damage reduction`
+
+export const DIGIMON_STATS_INI_NAME = `Initiative`
+export const DIGIMON_STATS_INI_DESCRIPTION = `Turn order`
+
+export const DIGIMON_STATS_TEC_NAME = `Technique`
+export const DIGIMON_STATS_TEC_DESCRIPTION = `Attack accuracy`
+
+export const DIGIMON_STATS_AGI_NAME = `Agility`
+export const DIGIMON_STATS_AGI_DESCRIPTION = `Evasion`
+
+export const DIGIMON_STATS_BON_NAME = `Bond`
+export const DIGIMON_STATS_BON_DESCRIPTION = `Special actions`
+
 export const PROFILE_CURRENCY = `D$ [CURRENCY]`
 
 export const BATTLE_PARTY_ALLIES = `Your party`
@@ -39,6 +63,12 @@ export const ENCYCLOPEDIA_CATEGORY_INPARTY = `Current party:`
 export const ENCYCLOPEDIA_CATEGORY_OTHERS = `Your other Digimons:`
 export const ENCYCLOPEDIA_NO_OTHERS = `Try composing new Digimons!`
 export const ENCYCLOPEDIA_FULL_PICTURE = `Full body picture:`
+export const ENCYCLOPEDIA_DESCRIPTION = `General description`
+export const ENCYCLOPEDIA_FAMILIES = `Families`
+export const ENCYCLOPEDIA_ATTRIBUTE = `Attribute`
+
+export const ACQUINTANCES_FULL_PICTURE = `Full body picture:`
+export const ACQUINTANCES_DESCRIPTION = `General description`
 
 export const INVENTORY_CATEGORY_GENERAL = `General`
 export const INVENTORY_CATEGORY_KEYITEM = `Key items`

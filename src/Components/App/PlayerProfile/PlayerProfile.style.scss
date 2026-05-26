@@ -4,11 +4,10 @@
   gap: 8px;
 
   .player-avatar {
-    width: 80px;
-    min-width: 80px;
-
-    border-radius: 100% 100% 0 100%;
-    background-color: var(--color-secondary-strong);
+    .avatar-content {
+      background-color: var(--color-secondary-strong);
+      border-radius: 100% 100% 0 100%;
+    }
   }
 
   .character-header .character-info {

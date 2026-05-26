@@ -10,6 +10,7 @@ import { AcquintancesDialogs } from '@/GameData/Dialogs/Acquintances'
 import { EncyclopediaDialogs } from '@/GameData/Dialogs/Encyclopedia'
 import { BattleDialogs } from '@/GameData/Dialogs/Battle'
 import { InventoryDialogs } from '@/GameData/Dialogs/Inventory'
+import { RenamePartnerDialogs } from '@/GameData/Dialogs/RenamePartner'
 
 const dialogs = {
   IntroductionDialogs,
@@ -21,7 +22,8 @@ const dialogs = {
   AcquintancesDialogs,
   EncyclopediaDialogs,
   BattleDialogs,
-  InventoryDialogs
+  InventoryDialogs,
+  RenamePartnerDialogs
 }
 
 const EnDialogs = {
@@ -29,6 +31,7 @@ const EnDialogs = {
   SCENES_CONFIRM_BUTTON: `Confirm`,
   SCENES_LEAVE_BUTTON: `Leave`,
   SCENES_BACK_BUTTON: `Go back`,
+  SCENES_CANCEL_BUTTON: `Cancel`,
 
   ...Object.keys(dialogs).reduce(
     (prev, cur) => ({ ...prev, ...dialogs[cur].En }),

@@ -8,6 +8,7 @@ import { AcquintancesScenes } from './Acquintances'
 import { EncyclopediaScenes } from './Encyclopedia'
 import { BattleScenes } from './Battle'
 import { InventoryScenes } from './Inventory'
+import { RenamePartnerScenes } from './RenamePartner'
 
 import { useScene } from '@/Hooks/Scene.hook'
 
@@ -21,7 +22,8 @@ export const AllScenes = {
   profile: ProfileScenes,
   encyclopedia: EncyclopediaScenes,
   battle: BattleScenes,
-  inventory: InventoryScenes
+  inventory: InventoryScenes,
+  renamePartner: RenamePartnerScenes
 }
 
 export const Scene = () => {
