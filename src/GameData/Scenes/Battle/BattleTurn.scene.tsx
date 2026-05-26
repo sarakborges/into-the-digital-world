@@ -31,9 +31,8 @@ export const BattleTurn = () => {
     const target = possibleTargets![rngTarget]
 
     const hit =
-      currentTurn.digimon.stats.tec + generateRandomNumber({ min: 0, max: 5 })
-    const evade =
-      target.stats.agi * 0.7 + generateRandomNumber({ min: 0, max: 5 })
+      currentTurn.digimon.stats.tec + generateRandomNumber({ min: 0, max: 100 })
+    const evade = target.stats.agi + generateRandomNumber({ min: 0, max: 100 })
 
     const rngHit = generateRandomNumber({ min: 1, max: 20 })
 
