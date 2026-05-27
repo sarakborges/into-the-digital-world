@@ -3,6 +3,7 @@ import type { NpcType } from '@/Types/Npc.type'
 import { NpcGennai } from './Gennai.npc'
 
 import { NpcDorimon } from './Dorimon.npc'
+import { NpcNanomon } from './Nanomon.npc'
 
 import { NpcDressmon } from './Dressmon.npc'
 import { NpcSavemon } from './Savemon.npc'
@@ -23,7 +24,8 @@ export const AllNpcs: {
   },
 
   digimon: {
-    dorimon: NpcDorimon
+    dorimon: NpcDorimon,
+    nanomon: NpcNanomon
   },
 
   appmon: {

@@ -78,7 +78,10 @@ export const Gameboard = () => {
                       {
                         '--character-x': tile.x,
                         '--character-y': tile.y,
-                        '--character-opacity': !!tile.condition?.() ? 1 : 0
+                        '--character-opacity':
+                          tile.condition === undefined || !!tile.condition?.()
+                            ? 1
+                            : 0
                       } as React.CSSProperties
                     }
                   >

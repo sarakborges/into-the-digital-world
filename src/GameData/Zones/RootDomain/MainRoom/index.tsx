@@ -35,9 +35,16 @@ export const RootDomainMainRoom: ZoneType = {
     },
 
     {
-      id: 'gennaiTBA',
+      id: 'nanomon-research',
       x: 9,
       y: 3,
+      npc: AllNpcs.digimon.nanomon
+    },
+
+    {
+      id: 'gennaiTBA',
+      x: 9,
+      y: 12,
       npc: AllNpcs.general.gennai,
 
       condition: () => {
@@ -53,7 +60,7 @@ export const RootDomainMainRoom: ZoneType = {
     {
       id: 'gennaiGetStarter',
       x: 9,
-      y: 3,
+      y: 12,
       event: 'triggerGetStarterDigimon',
       npc: AllNpcs.general.gennai,
 
