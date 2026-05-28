@@ -32,9 +32,11 @@ export const RootDomainMainRoom: ZoneType = {
       id: 'warpToCorridor',
       x: 9,
       y: 18,
-      event: {
-        eventId: 'warpToCorridor'
-      }
+      events: [
+        {
+          eventId: 'warpToCorridor'
+        }
+      ]
     },
 
     {
@@ -42,13 +44,20 @@ export const RootDomainMainRoom: ZoneType = {
       x: 9,
       y: 3,
       npc: AllNpcs.digimon.nanomon,
+      defaultText: 'Texto que o NPC vai falar quando tu chega perto dele.',
 
-      event: {
-        eventId: 'a',
-        eventText: 'oi'
-      },
+      events: [
+        {
+          eventId: 'a',
+          eventText: 'Quest bem importante aqui',
+          eventType: 'important'
+        },
 
-      defaultText: 'oi'
+        {
+          eventId: 'a',
+          eventText: 'Qualquer outro diálogo'
+        }
+      ]
     },
 
     {
@@ -72,10 +81,13 @@ export const RootDomainMainRoom: ZoneType = {
       y: 12,
       defaultText: getDialogs('GETSTARTERDIGIMON_DEFAULTTEXT'),
 
-      event: {
-        eventId: 'triggerGetStarterDigimon',
-        eventText: getDialogs('GETSTARTERDIGIMON_TRIGGER')
-      },
+      events: [
+        {
+          eventId: 'triggerGetStarterDigimon',
+          eventText: getDialogs('GETSTARTERDIGIMON_TRIGGER'),
+          eventType: 'important'
+        }
+      ],
 
       npc: AllNpcs.general.gennai,
 

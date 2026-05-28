@@ -1,21 +1,20 @@
 import { Fragment } from 'react/jsx-runtime'
+import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
+import { AiOutlineExclamationCircle } from 'react-icons/ai'
 
 import type { ZoneType } from '@/Types/Zone.type'
-
-import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { AllZones } from '@/GameData/Zones'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
+import { Text } from '@/Components/System/Text'
 import { Button } from '@/Components/System/Button'
 
-import { CharacterHeader } from '@/Components/App/CharacterHeader'
 import { Dialog } from '@/Components/App/Dialog'
 
 import './InteractableTiles.style.scss'
-import { Text } from '@/Components/System/Text'
-import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
+import { getTexts } from '@/Helpers/getTexts.helper'
 
 export const InteractableTiles = () => {
   const profile = useProfileStore((state) => state.profile)
@@ -46,7 +45,7 @@ export const InteractableTiles = () => {
     )
   ].filter(
     (tile) =>
-      !!tile.event &&
+      !!tile.events?.length &&
       !!tile.npc &&
       (tile.condition === undefined || !!tile.condition())
   )
@@ -65,24 +64,37 @@ export const InteractableTiles = () => {
         <Fragment
           key={`interactable-tile-y-${tile!.y}-x${tile!.x}-${tile!.npc!.id}`}
         >
-          {(!!tile?.event || !!tile.defaultText) && (
+          {(!!tile?.events?.length || !!tile.defaultText) && (
             <div className="events">
               <div className="scene">
                 <Dialog
                   content={
-                    <div className="event">
+                    <div className="npc-dialogs">
                       {!!tile.defaultText && (
                         <Text as="p">{tile.defaultText}</Text>
                       )}
 
-                      {!!tile.event && (
-                        <div>
-                          <Button
-                            onClick={() => triggerEvent(tile.event?.eventId)}
-                          >
-                            <HiOutlineChatBubbleLeftEllipsis />
-                            <Text>{tile.event.eventText}</Text>
-                          </Button>
+                      {!!tile.events?.length && (
+                        <div className="events-list">
+                          <Text>{getTexts('NPC_INTERACTIONS')}</Text>
+
+                          {tile.events.map((event) => (
+                            <Button
+                              onClick={() => triggerEvent(event?.eventId)}
+                              data-isimportant={event.eventType === 'important'}
+                            >
+                              {event.eventType === 'important' && (
+                                <AiOutlineExclamationCircle />
+                              )}
+
+                              {(!event.eventType ||
+                                event.eventType === 'default') && (
+                                <HiOutlineChatBubbleLeftEllipsis />
+                              )}
+
+                              <Text>{event.eventText}</Text>
+                            </Button>
+                          ))}
                         </div>
                       )}
                     </div>

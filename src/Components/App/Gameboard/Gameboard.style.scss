@@ -1,8 +1,4 @@
 .gameboard-wrapper {
-  position: absolute;
-  top: 40px;
-  left: 0;
-
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -17,15 +13,20 @@
     max-height 0.3s;
 
   .gameboard-title {
-    position: relative;
-    z-index: 1;
+    display: flex;
+    place-content: flex-end;
 
     width: 100%;
-    padding: 16px 16px 8px;
+    margin-bottom: -56px;
 
     .text {
-      font-size: 24px;
+      padding: 8px;
+
       font-weight: 300;
+
+      background-color: var(--color-primary);
+      border-radius: 0 0 0 8px;
+      box-shadow: 0 0 8px var(--color-neutral-strong);
     }
   }
 

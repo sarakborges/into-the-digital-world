@@ -12,9 +12,9 @@ export const DELETE_GAME_FILE = `Delete`
 export const SETTINGS_TITLE = `Settings`
 
 export const APPS_PROFILE = `My Profile`
-export const APPS_SAVE = `Save data`
+export const APPS_SAVE = `Save Data`
 export const APPS_FASHION = `My Avatar`
-export const APPS_LOGOFF = `Log off`
+export const APPS_LOGOFF = `Log Off`
 export const APPS_ACHIEVEMENTS = `Achievements`
 export const APPS_ACQUINTANCES = `My Contacts`
 export const APPS_JOURNAL = `Journal`
@@ -98,7 +98,7 @@ export const LANGUAGE_PTBR = `Portuguese`
 export const LANGUAGE_RS = `Gaudério`
 export const LANGUAGE_ENUS = `English`
 
-export const NPC_INTERACT = `Talk`
+export const NPC_INTERACTIONS = `Possible interactions:`
 
 export const AVATARCUSTOMIZATION_OPTIONS_TITLE = `Tap to customize:`
 export const AVATARCUSTOMIZATION_SKIN = `Skin tone`
@@ -107,4 +107,4 @@ export const AVATARCUSTOMIZATION_HAIR_COLOR = `Hair color`
 export const AVATARCUSTOMIZATION_EYES = `Eyes color`
 export const AVATARCUSTOMIZATION_CLOTHES = `Clothes`
 
-export const CURRENT_ZONE = `[ZONE]`
+export const CURRENT_ZONE = `Current zone: [ZONE]`

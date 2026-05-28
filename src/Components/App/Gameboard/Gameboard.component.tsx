@@ -46,12 +46,6 @@ export const Gameboard = () => {
         } as React.CSSProperties
       }
     >
-      <header className="gameboard-title">
-        <Text>
-          {getTexts('CURRENT_ZONE').replaceAll('[ZONE]', currentZone.name)}
-        </Text>
-      </header>
-
       <main className="gameboard">
         <div className="gameboard-body" style={gameboardBodyVars}>
           <div
@@ -96,6 +90,12 @@ export const Gameboard = () => {
           })}
         </div>
       </main>
+
+      <footer className="gameboard-title">
+        <Text>
+          {getTexts('CURRENT_ZONE').replaceAll('[ZONE]', currentZone.name)}
+        </Text>
+      </footer>
     </div>
   )
 }

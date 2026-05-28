@@ -4,6 +4,7 @@
   gap: 4px;
 
   width: 100%;
+  padding: 8px;
 
   .events {
     display: flex;
@@ -12,22 +13,36 @@
 
     .dialog {
       > main {
-        max-height: 144px;
+        max-height: 192px;
       }
 
-      .event {
+      .npc-dialogs {
         display: flex;
         flex-flow: column;
-        gap: 16px;
+        gap: 12px;
 
-        .button {
+        .events-list {
+          display: flex;
+          flex-flow: column;
           gap: 4px;
 
-          background-color: transparent;
+          .button {
+            place-content: flex-start;
+            padding: 4px;
+            gap: 4px;
 
-          svg {
-            width: 24px;
-            height: 24px;
+            background-color: var(--color-secondary);
+
+            svg {
+              width: 24px;
+              height: 24px;
+            }
+
+            &[data-isimportant='true'] {
+              svg {
+                color: var(--color-primary);
+              }
+            }
           }
         }
       }

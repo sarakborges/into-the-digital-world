@@ -6,6 +6,26 @@
   width: 100%;
   padding: 96px 8px;
 
+  .settings-container {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 103;
+
+    padding: 8px;
+
+    .settings {
+      > .button {
+        padding: 4px;
+
+        svg {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  }
+
   > header {
     display: flex;
     place-content: center;

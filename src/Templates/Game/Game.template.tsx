@@ -20,6 +20,7 @@ import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 import { Battlefield } from '@/Components/App/Battlefield'
 
 import './Game.style.scss'
+import { CharacterHeader } from '@/Components/App/CharacterHeader'
 
 export const Game = () => {
   const profile = useProfileStore((state) => state.profile)
@@ -33,38 +34,36 @@ export const Game = () => {
   return (
     <div className={`game-body theme-${settings?.theme}`}>
       <div className="main-game">
-        <header className="game-header">
-          <div className="player">
-            {!settings?.isOpen && (
-              <>
-                {!!profile && <PlayerAvatar />}
-                <Text>{profile?.name}</Text>
-              </>
-            )}
-          </div>
-
-          <div className="game-header-actions">
-            <Digivice />
-            <Settings />
-          </div>
-        </header>
-
         {!!battle && <Battlefield />}
+
+        <Gameboard />
 
         {!scene && (
           <>
             {!profile && <StartScreen />}
 
-            {!!profile && !digivice?.isOpen && (
-              <div className="screen-footer">
+            {!!profile && (
+              <>
                 <InteractableTiles />
-                <Gamepad />
-              </div>
+
+                <div className="screen-footer">
+                  <div className="player">
+                    <CharacterHeader
+                      character={{ ...profile, isPlayer: true }}
+                    />
+
+                    <div className="player-actions">
+                      <Digivice />
+                      <Settings />
+                    </div>
+                  </div>
+
+                  <Gamepad />
+                </div>
+              </>
             )}
           </>
         )}
-
-        <Gameboard />
 
         {<Scene />}
       </div>

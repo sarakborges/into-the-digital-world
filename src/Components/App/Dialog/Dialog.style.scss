@@ -46,6 +46,14 @@
       }
     }
 
+    .npc-dialogs > .text,
+    > .text {
+      padding: 8px;
+
+      background-color: var(--color-secondary);
+      border-radius: 8px;
+    }
+
     .dialog-reactions {
       display: flex;
       flex-flow: column;

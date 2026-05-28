@@ -20,10 +20,16 @@ export type ZoneType = {
     defaultText?: string
     condition?: () => boolean
 
-    event?: {
+    onEnter?: {
       eventId: string
       eventText?: string
     }
+
+    events?: Array<{
+      eventId: string
+      eventText?: string
+      eventType?: 'default' | 'important'
+    }>
 
     npc?: NpcType
   }>
