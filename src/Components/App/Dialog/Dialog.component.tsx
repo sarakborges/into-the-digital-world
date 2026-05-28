@@ -13,37 +13,35 @@ export const Dialog = ({ speaker, content, options }: DialogType) => {
   const profile = useProfileStore((state) => state.profile)
 
   return (
-    <Modal>
-      <main className="dialog">
-        {!!speaker && (
-          <CharacterHeader
-            character={{
-              ...speaker,
-              isPlayer: !!speaker.isPlayer,
-              name:
-                Object.keys(profile!.npcAcquintances).includes(
-                  speaker.id.toString()
-                ) || !!speaker.isPlayer
-                  ? speaker.name
-                  : `???`
-            }}
-          />
-        )}
+    <main className="dialog">
+      {!!speaker && (
+        <CharacterHeader
+          character={{
+            ...speaker,
+            isPlayer: !!speaker.isPlayer,
+            name:
+              Object.keys(profile!.npcAcquintances).includes(
+                speaker.id.toString()
+              ) || !!speaker.isPlayer
+                ? speaker.name
+                : `???`
+          }}
+        />
+      )}
 
-        <main>{content}</main>
+      <main>{content}</main>
 
-        {options?.length && (
-          <footer>
-            {options.map((option) => (
-              <div key={`dialog-option-${option.text}`}>
-                <Button id={option.id} onClick={option.action}>
-                  {option.text}
-                </Button>
-              </div>
-            ))}
-          </footer>
-        )}
-      </main>
-    </Modal>
+      {options?.length && (
+        <footer>
+          {options.map((option) => (
+            <div key={`dialog-option-${option.text}`}>
+              <Button id={option.id} onClick={option.action}>
+                {option.text}
+              </Button>
+            </div>
+          ))}
+        </footer>
+      )}
+    </main>
   )
 }

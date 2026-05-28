@@ -24,6 +24,14 @@
   position: relative;
 
   background-color: var(--color-primary-strong);
+
+  > .scene {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    padding: 8px;
+  }
 }
 
 .game-header {
@@ -79,14 +87,6 @@
       }
     }
   }
-
-  .modal {
-    flex-flow: column;
-    place-items: flex-end;
-    place-content: flex-start;
-
-    padding: 0;
-  }
 }
 
 .screen-footer {
@@ -96,9 +96,10 @@
   z-index: 1;
 
   display: flex;
+  flex-flow: column;
   place-items: flex-end;
   place-content: flex-end;
-  gap: 8px;
+  gap: 16px;
 
   width: 100%;
   padding: 8px;

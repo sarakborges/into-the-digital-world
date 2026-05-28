@@ -7,33 +7,33 @@ import { AllItems } from '@/GameData/Items'
 
 const currentFloorTile: TileType = {
   ...floorTile,
-  maxEnemies: 1,
+  maxEnemies: 1
 
-  possibleSpawns: {
-    [AllDigimons.koromon.id]: {
-      spawnChance: 100,
+  // possibleSpawns: {
+  //   [AllDigimons.koromon.id]: {
+  //     spawnChance: 100,
 
-      lootTable: [
-        {
-          itemId: AllItems.koromonCore.id,
-          dropChance: 100,
-          amount: 1
-        },
+  //     lootTable: [
+  //       {
+  //         itemId: AllItems.koromonCore.id,
+  //         dropChance: 100,
+  //         amount: 1
+  //       },
 
-        {
-          itemId: AllItems.koromonCore.id,
-          dropChance: 100,
-          amount: 1
-        },
+  //       {
+  //         itemId: AllItems.koromonCore.id,
+  //         dropChance: 100,
+  //         amount: 1
+  //       },
 
-        {
-          itemId: AllItems.koromonCore.id,
-          dropChance: 100,
-          amount: 1
-        }
-      ]
-    }
-  }
+  //       {
+  //         itemId: AllItems.koromonCore.id,
+  //         dropChance: 100,
+  //         amount: 1
+  //       }
+  //     ]
+  //   }
+  // }
 }
 
 const fullFloorRow = {

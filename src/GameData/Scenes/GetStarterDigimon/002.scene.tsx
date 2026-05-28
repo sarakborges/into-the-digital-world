@@ -26,7 +26,7 @@ export const GetStarterDigimon002 = () => {
         <Text as="p">{getDialogs('GETSTARTERDIGIMON_002_TEXT')}</Text>
         <Portrait
           alt={getDialogs('GETSTARTERDIGIMON_002_IMG')}
-          src="/digimons/DORIMON.webp"
+          src="/digimons/dorimon.webp"
         />
       </>
     ),

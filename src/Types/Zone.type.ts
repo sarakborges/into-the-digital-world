@@ -17,9 +17,14 @@ export type ZoneType = {
     id: string
     x: number
     y: number
+    defaultText?: string
     condition?: () => boolean
 
-    event?: string
+    event?: {
+      eventId: string
+      eventText?: string
+    }
+
     npc?: NpcType
   }>
 }

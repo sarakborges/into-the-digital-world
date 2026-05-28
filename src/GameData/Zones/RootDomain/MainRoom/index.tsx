@@ -10,6 +10,7 @@ import { useProfileStore } from '@/Stores/Profile.store'
 import { WarpToCorridor } from './Events/WarpToCorridor.event'
 import { TriggerGetStarterDigimon } from './Events/TriggerGetStarterDigimon.event'
 import { grid } from './MainRoom.grid'
+import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 const gridSize = 19
 const filledGrid = fillGrid({ grid, gridSize })
@@ -31,14 +32,23 @@ export const RootDomainMainRoom: ZoneType = {
       id: 'warpToCorridor',
       x: 9,
       y: 18,
-      event: 'warpToCorridor'
+      event: {
+        eventId: 'warpToCorridor'
+      }
     },
 
     {
       id: 'nanomon-research',
       x: 9,
       y: 3,
-      npc: AllNpcs.digimon.nanomon
+      npc: AllNpcs.digimon.nanomon,
+
+      event: {
+        eventId: 'a',
+        eventText: 'oi'
+      },
+
+      defaultText: 'oi'
     },
 
     {
@@ -49,7 +59,6 @@ export const RootDomainMainRoom: ZoneType = {
 
       condition: () => {
         const profile = useProfileStore.getState().profile
-
         return (
           !!profile?.doneScenes.includes(AllScenes.introduction.id) &&
           !!profile?.doneScenes.includes(AllScenes.getStarterDigimon.id)
@@ -61,7 +70,13 @@ export const RootDomainMainRoom: ZoneType = {
       id: 'gennaiGetStarter',
       x: 9,
       y: 12,
-      event: 'triggerGetStarterDigimon',
+      defaultText: getDialogs('GETSTARTERDIGIMON_DEFAULTTEXT'),
+
+      event: {
+        eventId: 'triggerGetStarterDigimon',
+        eventText: getDialogs('GETSTARTERDIGIMON_TRIGGER')
+      },
+
       npc: AllNpcs.general.gennai,
 
       condition: () => {

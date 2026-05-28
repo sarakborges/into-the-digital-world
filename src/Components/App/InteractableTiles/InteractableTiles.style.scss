@@ -3,12 +3,35 @@
   flex-flow: column;
   gap: 4px;
 
-  flex: 1;
+  width: 100%;
 
   .events {
     display: flex;
     place-items: flex-end;
     gap: 2px;
+
+    .dialog {
+      > main {
+        max-height: 144px;
+      }
+
+      .event {
+        display: flex;
+        flex-flow: column;
+        gap: 16px;
+
+        .button {
+          gap: 4px;
+
+          background-color: transparent;
+
+          svg {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+    }
 
     footer {
       padding-left: 4px;

@@ -1,82 +1,79 @@
 .scene {
-  .modal {
-    top: auto;
-    bottom: 0;
+  width: 100%;
+}
 
-    .dialog {
-      position: relative;
-      z-index: 101;
+.dialog {
+  position: relative;
+  z-index: 101;
 
+  display: flex;
+  flex-flow: column;
+
+  width: 100%;
+
+  .character-header {
+    .portrait {
+      border-radius: 100% 100% 0 0;
+    }
+
+    .character-name {
+      .text {
+        border-radius: 0 8px 0 0;
+      }
+    }
+  }
+
+  .character-header + main {
+    border-radius: 0 8px 8px 8px;
+  }
+
+  > main {
+    display: flex;
+    flex-flow: column;
+    gap: 16px;
+
+    background-color: var(--color-secondary-strong);
+    border-radius: 8px;
+
+    max-height: calc(100dvh - 240px);
+    overflow: auto;
+
+    padding: 8px;
+
+    > .portrait {
+      img {
+        width: 100%;
+      }
+    }
+
+    .dialog-reactions {
       display: flex;
       flex-flow: column;
+      gap: 4px;
 
-      width: 100%;
+      .button {
+        gap: 4px;
 
-      .character-header {
-        .portrait {
-          border-radius: 100% 100% 0 0;
-        }
+        background-color: transparent;
 
-        .character-name {
-          .text {
-            border-radius: 0 8px 0 0;
-          }
+        svg {
+          width: 24px;
+          height: 24px;
         }
       }
+    }
+  }
 
-      .character-header + main {
-        border-radius: 0 8px 8px 8px;
-      }
+  > footer {
+    display: flex;
+    place-content: flex-end;
+    flex-wrap: wrap;
+    gap: 8px;
 
-      > main {
-        display: flex;
-        flex-flow: column;
-        gap: 16px;
+    padding-top: 8px;
 
-        background-color: var(--color-secondary-strong);
-        border-radius: 8px;
-
-        max-height: calc(100dvh - 240px);
-        overflow: auto;
-
-        padding: 8px;
-
-        > .portrait {
-          img {
-            width: 100%;
-          }
-        }
-
-        .dialog-reactions {
-          display: flex;
-          flex-flow: column;
-          gap: 4px;
-
-          .button {
-            gap: 4px;
-
-            background-color: transparent;
-
-            svg {
-              width: 24px;
-              height: 24px;
-            }
-          }
-        }
-      }
-
-      > footer {
-        display: flex;
-        place-content: flex-end;
-        flex-wrap: wrap;
-        gap: 8px;
-
-        padding-top: 8px;
-
-        .button {
-          padding: 4px 8px;
-        }
-      }
+    .button {
+      padding: 4px 8px;
     }
   }
 }
