@@ -5,6 +5,8 @@ import { RootDomainRestRoom1 } from './RootDomain/RestRoom1'
 
 export const AllZones = {
   rootDomain: {
+    name: 'Root Domain',
+
     mainRoom: RootDomainMainRoom,
     corridor: RootDomainCorridor,
     restRoom1: RootDomainRestRoom1

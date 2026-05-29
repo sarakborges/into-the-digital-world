@@ -1,5 +1,7 @@
 import type { ProfileType } from '@/Types/Profile.type'
 
+import { AllZones } from '@/GameData/Zones'
+
 import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { Text } from '@/Components/System/Text'
@@ -16,11 +18,13 @@ export const GameFile = ({ profile }: { profile: ProfileType }) => {
       <PlayerAvatar replaceAvatar={profile?.avatar} />
 
       <header>
-        <Text>
-          {getTexts('GAME_FILE_TITLE').replaceAll(`[NAME]`, profile.name)}
+        <Text as="p">
+          {getTexts('GAME_FILE_TITLE')
+            .replaceAll(`[NAME]`, profile.name)
+            .replaceAll(`[ZONE]`, AllZones[profile.currentZone.id].name)}
         </Text>
 
-        <Text>
+        <Text as="p">
           {getTexts('GAME_FILE_TIME').replaceAll(
             `[TIME]`,
             new Date(profile.lastSave).toLocaleString()

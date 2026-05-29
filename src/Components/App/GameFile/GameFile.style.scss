@@ -21,6 +21,10 @@
     gap: 4px;
 
     flex: 1;
+
+    .text {
+      line-height: var(--line-height-single);
+    }
   }
 
   .game-options {

@@ -9,7 +9,6 @@ import { Text } from '@/Components/System/Text'
 
 import { NewGame } from '@/Components/App/NewGame'
 import { GameFile } from '@/Components/App/GameFile'
-import { Settings } from '@/Components/App/Settings'
 
 import './StartScreen.style.scss'
 
@@ -35,10 +34,6 @@ export const StartScreen = () => {
 
   return (
     <main className="start-screen">
-      <div className="settings-container">
-        <Settings />
-      </div>
-
       <header>
         <Text>{getTexts('START_SCREEN_TITLE')}</Text>
       </header>
