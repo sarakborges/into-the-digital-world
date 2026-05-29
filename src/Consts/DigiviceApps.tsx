@@ -63,7 +63,7 @@ export const AllApps = {
   fashion: APP_FASHION,
   // location: APP_LOCATION,
   // journal: APP_JOURNAL,
-  encyclopedia: APP_PARTNERSLIST,
+  partnersList: APP_PARTNERSLIST,
   acquintances: APP_ACQUINTANCES,
   inventory: APP_INVENTORY,
   // achievements: APP_ACHIEVEMENTS,

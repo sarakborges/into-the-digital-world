@@ -2,36 +2,30 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 
+import { AllNpcs } from '@/GameData/Npcs'
+
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 import { Text } from '@/Components/System/Text'
-import { Portrait } from '@/Components/System/Portrait'
 
 import { Dialog } from '@/Components/App/Dialog'
 
-export const Introduction009 = () => {
+export const Research001 = () => {
   const setScene = useSceneStore((state) => state.setScene)
 
   const dialogOptions: DialogType = {
-    content: (
-      <>
-        <Portrait
-          alt={getDialogs('INTRODUCTION_009_IMAGE')}
-          src="/avatars/glitch.webp"
-        />
+    speaker: AllNpcs.digimon.nanomon,
 
-        <Text as="p">{getDialogs('INTRODUCTION_009_TEXT')}</Text>
-      </>
-    ),
+    content: <Text as="p">{getDialogs('RESEARCH_001_TEXT')}</Text>,
 
     options: [
       {
-        id: 'scene-introduction-009-continue',
+        id: 'scene-research-001-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({
-            currentScene: 'introduction',
-            currentStage: '010'
+            currentScene: 'research',
+            currentStage: '002'
           })
         }
       }

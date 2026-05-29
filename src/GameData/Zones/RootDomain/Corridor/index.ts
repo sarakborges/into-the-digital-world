@@ -26,7 +26,7 @@ export const RootDomainCorridor: ZoneType = {
       id: 'warpToMainRoom',
       x: 0,
       y: 6,
-      event: {
+      onEnter: {
         eventId: 'warpToMainRoom'
       }
     },
@@ -35,7 +35,7 @@ export const RootDomainCorridor: ZoneType = {
       id: 'warpToRestRoom1',
       x: 4,
       y: 4,
-      event: {
+      onEnter: {
         eventId: 'warpToRestRoom1'
       }
     }

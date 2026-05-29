@@ -159,29 +159,33 @@ export const Gamepad = () => {
   )
 
   const eventExistsInPrevX = !!surroundingTiles.prevX?.some(
-    (tile) => tile.event && (tile.condition === undefined || !!tile.condition())
+    (tile) =>
+      !!tile.onEnter && (tile.condition === undefined || !!tile.condition())
   )
   const eventExistsInNextX = !!surroundingTiles.nextX?.some(
-    (tile) => tile.event && (tile.condition === undefined || !!tile.condition())
+    (tile) =>
+      !!tile.onEnter && (tile.condition === undefined || !!tile.condition())
   )
   const eventExistsInPrevY = !!surroundingTiles.prevY?.some(
-    (tile) => tile.event && (tile.condition === undefined || !!tile.condition())
+    (tile) =>
+      !!tile.onEnter && (tile.condition === undefined || !!tile.condition())
   )
   const eventExistsInNextY = !!surroundingTiles.nextY?.some(
-    (tile) => tile.event && (tile.condition === undefined || !!tile.condition())
+    (tile) =>
+      !!tile.onEnter && (tile.condition === undefined || !!tile.condition())
   )
 
   const canMovePrevX =
-    (existsInGrid.prevX || eventExistsInPrevX) && !npcExistsInPrevX
+    (existsInGrid.prevX || eventExistsInPrevX) && !npcExistsInPrevX && !scene
 
   const canMoveNextX =
-    (existsInGrid.nextX || eventExistsInNextX) && !npcExistsInNextX
+    (existsInGrid.nextX || eventExistsInNextX) && !npcExistsInNextX && !scene
 
   const canMovePrevY =
-    (eventExistsInPrevY || existsInGrid.prevY) && !npcExistsInPrevY
+    (eventExistsInPrevY || existsInGrid.prevY) && !npcExistsInPrevY && !scene
 
   const canMoveNextY =
-    (eventExistsInNextY || existsInGrid.nextY) && !npcExistsInNextY
+    (eventExistsInNextY || existsInGrid.nextY) && !npcExistsInNextY && !scene
 
   return (
     <aside className="gamepad">

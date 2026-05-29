@@ -25,79 +25,35 @@
 
   background-color: var(--color-primary-strong);
 
-  > .scene {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-
-    padding: 8px;
-  }
-}
-
-.game-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  display: flex;
-  place-items: center;
-  place-content: flex-end;
-
-  width: 100%;
-  padding: 8px;
-
-  background-color: var(--color-primary-strong);
-
-  .player {
-    position: relative;
-    z-index: 100;
-
+  > header {
     display: flex;
     place-items: center;
-    gap: 6px;
+    gap: 8px;
 
-    .player-avatar {
-      width: 24px;
+    width: 100%;
 
-      border-radius: 100%;
+    .current-zone {
+      display: flex;
+      place-items: center;
 
-      img {
-        border-radius: 100%;
-      }
-    }
-  }
-}
-
-.screen-footer {
-  display: flex;
-  flex-flow: row-reverse;
-  place-items: flex-end;
-  place-content: flex-end;
-  gap: 16px;
-
-  width: 100%;
-  padding: 8px;
-  flex: 1;
-
-  .player {
-    display: flex;
-    place-items: flex-end;
-    flex-flow: column;
-    gap: 4px;
-
-    flex: 1;
-
-    .player-info {
+      height: 40px;
+      padding: 0 8px;
       flex: 1;
-    }
 
-    .avatar-content {
-      border-radius: 100% 100% 0 100%;
+      background-color: var(--color-primary);
+      box-shadow: 0 0 8px var(--color-neutral-strong);
+
+      .text {
+        font-weight: 300;
+      }
     }
 
     .player-actions {
       display: flex;
-      gap: 4px;
+      place-content: flex-end;
+      gap: 8px;
+
+      padding: 8px;
 
       .digivice {
         position: relative;
@@ -111,10 +67,40 @@
         padding: 4px;
 
         svg {
-          width: 20px;
-          height: 20px;
+          width: 16px;
+          height: 16px;
         }
       }
+    }
+  }
+}
+
+.screen-footer {
+  display: flex;
+  place-items: flex-end;
+  place-content: flex-end;
+  gap: 16px;
+
+  width: 100%;
+  padding: 8px;
+  flex: 1;
+
+  .player {
+    display: flex;
+    place-items: center;
+
+    flex: 1;
+
+    .player-avatar {
+      width: 32px;
+    }
+
+    .text {
+      padding: 2px 6px 4px 8px;
+      margin-left: -4px;
+
+      border-radius: 0 4px 4px 0;
+      background-color: var(--color-secondary-strong);
     }
   }
 }

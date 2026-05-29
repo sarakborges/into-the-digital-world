@@ -42,7 +42,7 @@ export const INTRODUCTION_020_TEXT = `Sure thing. The avatar is your appearance 
 
 export const INTRODUCTION_021_TEXT = `To do that, is very easy. You need to call Dressmon to help. You do that via your Digivice. If it looks like your celphone in the other world, it is beacuse it functions alike.`
 
-export const INTRODUCTION_022_TEXT = `Click on the glowing Digivice icon at the lower right corner of your screen.`
+export const INTRODUCTION_022_TEXT = `Click on the glowing Digivice icon at the top right corner of your screen.`
 
 export const INTRODUCTION_023_TEXT = `See? Just like a regular phone. Now open the Fashion program, the one glowing, and follow Dressmon instructions.`
 

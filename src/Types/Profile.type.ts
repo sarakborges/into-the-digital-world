@@ -12,6 +12,7 @@ export type ProfileType = {
   currentScene: string | null
   doneScenes: Array<string>
   titles: Array<string>
+  researches: Array<string>
 
   items: {
     [itemId: string]: number

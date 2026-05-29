@@ -1,0 +1,125 @@
+import { GiTwoCoins } from 'react-icons/gi'
+
+import { AllResearches } from '@/GameData/Researches'
+import { AllDigimons } from '@/GameData/Digimons'
+import { AllItems } from '@/GameData/Items'
+
+import { useProfileStore } from '@/Stores/Profile.store'
+
+import { Text } from '@/Components/System/Text'
+import { Button } from '@/Components/System/Button'
+
+import { ItemCore } from '@/Components/App/ItemCore'
+
+import './ResearchList.style.scss'
+import { Portrait } from '@/Components/System/Portrait'
+import { saveSession } from '@/Helpers/saveSession.helper'
+
+export const ResearchList = () => {
+  const profile = useProfileStore((state) => state.profile)
+  const setProfile = useProfileStore((state) => state.setProfile)
+
+  const availableResearches = Object.keys(AllResearches)
+    .filter((research) => !profile!.researches?.includes(research))
+    .sort((a, b) => (a > b ? 1 : -1))
+
+  const purchasedResearches = profile!.researches ?? []
+
+  const purchaseResearch = (research) => {
+    const updatedProfile = {
+      ...profile!,
+      researches: [...(profile!.researches ?? []), research]
+    }
+
+    for (let item of Object.keys(AllResearches[research].cost)) {
+      updatedProfile!.items[item] -= AllResearches[research].cost[item]
+    }
+
+    setProfile(updatedProfile)
+    saveSession({ key: 'profile', value: updatedProfile })
+  }
+
+  return (
+    <div className="research-list">
+      {!!availableResearches.length && (
+        <div className="research-list-container">
+          <Text>Avaliable researches:</Text>
+
+          <div className="list">
+            {availableResearches.map((research) => (
+              <div className="research" key={`research-${research}`}>
+                <header>
+                  <div className="digimon-info">
+                    <Portrait
+                      alt={AllDigimons[research].name}
+                      src={`/${AllDigimons[research].portrait}.webp`}
+                    />
+
+                    <Text>{AllDigimons[research].name}</Text>
+                  </div>
+
+                  <Button
+                    onClick={() => purchaseResearch(research)}
+                    disabled={
+                      !Object.keys(AllResearches[research].cost).every(
+                        (item) =>
+                          profile!.items[item] >=
+                          AllResearches[research].cost[item]
+                      )
+                    }
+                  >
+                    <GiTwoCoins />
+                  </Button>
+                </header>
+
+                <main className="research-items">
+                  <div className="items-list">
+                    {Object.keys(AllResearches[research].cost).map((item) => (
+                      <div
+                        key={`research-${research}-item-${item}`}
+                        className="item"
+                      >
+                        <aside>
+                          <ItemCore item={item} />
+
+                          <Text>{AllItems[item].name}</Text>
+                        </aside>
+
+                        <main className="amount">
+                          <Text>x{AllResearches[research].cost[item]}</Text>
+                        </main>
+                      </div>
+                    ))}
+                  </div>
+                </main>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {!!purchasedResearches.length && (
+        <div className="research-list">
+          <Text>Purchased researches:</Text>
+
+          <div className="list">
+            {purchasedResearches.map((research) => (
+              <div className="research" key={`research-${research}`}>
+                <header>
+                  <div className="digimon-info">
+                    <Portrait
+                      alt={AllDigimons[research].name}
+                      src={`/${AllDigimons[research].portrait}.webp`}
+                    />
+
+                    <Text>{AllDigimons[research].name}</Text>
+                  </div>
+                </header>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}

@@ -7,6 +7,7 @@ import { SaveGameDialogs } from '@/GameData/Dialogs/SaveGame'
 import { LogoffDialogs } from '@/GameData/Dialogs/Logoff'
 import { BattleDialogs } from '@/GameData/Dialogs/Battle'
 import { RenamePartnerDialogs } from '@/GameData/Dialogs/RenamePartner'
+import { ResearchDialogs } from '@/GameData/Dialogs/Research'
 
 const dialogs = {
   IntroductionDialogs,
@@ -15,7 +16,8 @@ const dialogs = {
   LogoffDialogs,
   GetStarterDigimonDialogs,
   BattleDialogs,
-  RenamePartnerDialogs
+  RenamePartnerDialogs,
+  ResearchDialogs
 }
 
 const EnDialogs = {
@@ -24,6 +26,7 @@ const EnDialogs = {
   SCENES_LEAVE_BUTTON: `Leave`,
   SCENES_BACK_BUTTON: `Go back`,
   SCENES_CANCEL_BUTTON: `Cancel`,
+  NPC_DEFAULT_TEXT: `Very important text that the NPC will talk when you get close to them.`,
 
   ...Object.keys(dialogs).reduce(
     (prev, cur) => ({ ...prev, ...dialogs[cur].En }),

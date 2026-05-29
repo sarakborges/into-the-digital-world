@@ -1,11 +1,12 @@
 import { useEffect } from 'react'
 
 import { Scene } from '@/GameData/Scenes'
+import { AllZones } from '@/GameData/Zones'
+
+import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSettingsStore } from '@/Stores/Settings.store'
-import { useDigiviceStore } from '@/Stores/Digivice.store'
-import { useSceneStore } from '@/Stores/Scene.store'
 import { useBattleStore } from '@/Stores/Battle.store'
 
 import { Text } from '@/Components/System/Text'
@@ -16,17 +17,14 @@ import { Gameboard } from '@/Components/App/Gameboard'
 import { Settings } from '@/Components/App/Settings'
 import { Digivice } from '@/Components/App/Digivice'
 import { StartScreen } from '@/Components/App/StartScreen'
-import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 import { Battlefield } from '@/Components/App/Battlefield'
+import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 
 import './Game.style.scss'
-import { CharacterHeader } from '@/Components/App/CharacterHeader'
 
 export const Game = () => {
   const profile = useProfileStore((state) => state.profile)
   const settings = useSettingsStore((state) => state.settings)
-  const scene = useSceneStore((state) => state.scene)
-  const digivice = useDigiviceStore((state) => state.digivice)
   const battle = useBattleStore((state) => state.battle)
 
   useEffect(() => {}, [settings])
@@ -34,38 +32,46 @@ export const Game = () => {
   return (
     <div className={`game-body theme-${settings?.theme}`}>
       <div className="main-game">
-        {!!battle && <Battlefield />}
+        <header>
+          {!!profile && (
+            <div className="current-zone">
+              <Text>
+                {getTexts('CURRENT_ZONE').replaceAll(
+                  '[ZONE]',
+                  AllZones[profile.currentZone.id][profile.currentZone.map].name
+                )}
+              </Text>
+            </div>
+          )}
 
+          <div className="player-actions">
+            <Digivice />
+            <Settings />
+          </div>
+        </header>
+
+        {!!battle && <Battlefield />}
         <Gameboard />
 
-        {!scene && (
-          <>
-            {!profile && <StartScreen />}
+        <>
+          {!profile && <StartScreen />}
 
-            {!!profile && (
-              <>
-                <InteractableTiles />
+          {!!profile && (
+            <>
+              {<Scene />}
+              <InteractableTiles />
 
-                <div className="screen-footer">
-                  <div className="player">
-                    <CharacterHeader
-                      character={{ ...profile, isPlayer: true }}
-                    />
-
-                    <div className="player-actions">
-                      <Digivice />
-                      <Settings />
-                    </div>
-                  </div>
-
-                  <Gamepad />
+              <div className="screen-footer">
+                <div className="player">
+                  <PlayerAvatar />
+                  <Text>{profile.name}</Text>
                 </div>
-              </>
-            )}
-          </>
-        )}
 
-        {<Scene />}
+                <Gamepad />
+              </div>
+            </>
+          )}
+        </>
       </div>
     </div>
   )

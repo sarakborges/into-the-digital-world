@@ -1,0 +1,52 @@
+import type { DialogType } from '@/Types/Dialog.type'
+
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
+
+import { AllNpcs } from '@/GameData/Npcs'
+
+import { getDialogs } from '@/Helpers/getDialogs.helper'
+
+import { Text } from '@/Components/System/Text'
+
+import { Dialog } from '@/Components/App/Dialog'
+import { saveSession } from '@/Helpers/saveSession.helper'
+
+export const Research000 = () => {
+  const setScene = useSceneStore((state) => state.setScene)
+
+  const profile = useProfileStore((state) => state.profile)
+  const setProfile = useProfileStore((state) => state.setProfile)
+
+  const dialogOptions: DialogType = {
+    speaker: AllNpcs.digimon.nanomon,
+
+    content: <Text as="p">{getDialogs('RESEARCH_000_TEXT')}</Text>,
+
+    options: [
+      {
+        id: 'scene-research-000-continue',
+        text: getDialogs('SCENES_CONTINUE_BUTTON'),
+        action: () => {
+          const updatedProfile = {
+            ...profile!,
+            npcAcquintances: {
+              ...profile!.npcAcquintances,
+              nanomon: {}
+            }
+          }
+
+          saveSession({ key: 'profile', value: updatedProfile })
+          setProfile(updatedProfile)
+
+          setScene({
+            currentScene: 'research',
+            currentStage: '002'
+          })
+        }
+      }
+    ]
+  }
+
+  return <Dialog {...dialogOptions} />
+}

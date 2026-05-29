@@ -90,7 +90,7 @@ export const PartnersList = () => {
                   <aside className="partner-avatar">
                     <Portrait
                       alt={partner.name || partner.baseDigimon.name}
-                      src={`/digimon_portraits/${partner.baseDigimon.id.toLocaleUpperCase()}.webp`}
+                      src={`/${partner.baseDigimon.portrait}.webp`}
                     />
                   </aside>
 

@@ -5,8 +5,10 @@ import { LogoffScenes } from './Logoff'
 import { GetStarterDigimonScenes } from './GetStarterDigimon'
 import { BattleScenes } from './Battle'
 import { RenamePartnerScenes } from './RenamePartner'
+import { ResearchScenes } from './Research'
 
 import { useSceneStore } from '@/Stores/Scene.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 
 export const AllScenes = {
   introduction: IntroductionScenes,
@@ -15,11 +17,13 @@ export const AllScenes = {
   logoff: LogoffScenes,
   getStarterDigimon: GetStarterDigimonScenes,
   battle: BattleScenes,
-  renamePartner: RenamePartnerScenes
+  renamePartner: RenamePartnerScenes,
+  research: ResearchScenes
 }
 
 export const Scene = () => {
   const scene = useSceneStore((state) => state.scene)
+  const digivice = useDigiviceStore((state) => state.digivice)
 
   if (!scene) {
     return
@@ -33,7 +37,7 @@ export const Scene = () => {
   }
 
   return (
-    <div className="scene">
+    <div className="scene" data-isdigiviceopen={!!digivice?.isOpen}>
       <RenderedScene />
     </div>
   )

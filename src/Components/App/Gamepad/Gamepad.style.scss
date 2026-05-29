@@ -1,4 +1,7 @@
 .gamepad {
+  position: relative;
+  z-index: 102;
+
   display: flex;
   flex-flow: column;
   place-items: center;

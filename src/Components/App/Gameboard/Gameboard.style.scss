@@ -12,24 +12,6 @@
     opacity 0.3s,
     max-height 0.3s;
 
-  .gameboard-title {
-    display: flex;
-    place-content: flex-end;
-
-    width: 100%;
-    margin-bottom: -56px;
-
-    .text {
-      padding: 8px;
-
-      font-weight: 300;
-
-      background-color: var(--color-primary);
-      border-radius: 0 0 0 8px;
-      box-shadow: 0 0 8px var(--color-neutral-strong);
-    }
-  }
-
   .gameboard {
     --tile-size: 32px;
     --view-size: 19;

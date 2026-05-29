@@ -15,6 +15,7 @@ export const DigiviceApp = ({ app }) => {
 
   const scene = useSceneStore((state) => state.scene)
   const setScene = useSceneStore((state) => state.setScene)
+
   const digivice = useDigiviceStore((state) => state.digivice)
   const setDigivice = useDigiviceStore((state) => state.setDigivice)
 
@@ -29,8 +30,10 @@ export const DigiviceApp = ({ app }) => {
 
   const isAppDisabled =
     (!!scene && !!isIntroduction && !isFashion) ||
+    (!!scene && !isIntroduction) ||
     (!profile.doneScenes.includes(AllScenes.getStarterDigimon.id) &&
-      !(isFashion || isSave || isLogoff))
+      !(!!isFashion || !!isSave || !!isLogoff))
+
   const isAppHighlighted = !!isFashion && !!isIntroduction
 
   const openApp = () => {

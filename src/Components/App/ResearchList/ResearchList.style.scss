@@ -1,0 +1,92 @@
+.research-list {
+  display: flex;
+  flex-flow: column;
+  gap: 12px;
+
+  .research-list-container {
+    display: flex;
+    flex-flow: column;
+    gap: 4px;
+
+    .list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4px;
+
+      .research {
+        display: flex;
+        flex-flow: column;
+        gap: 4px;
+
+        padding: 4px;
+
+        background-color: var(--color-secondary);
+        border-radius: 8px;
+
+        > header {
+          display: flex;
+          place-items: center;
+          place-content: space-between;
+
+          .digimon-info {
+            display: flex;
+            place-items: center;
+            gap: 8px;
+
+            .portrait {
+              max-width: 32px;
+
+              img {
+                border-radius: 100%;
+              }
+            }
+          }
+        }
+
+        .research-items {
+          display: flex;
+          flex-flow: column;
+          gap: 4px;
+
+          .items-list {
+            padding: 4px;
+
+            background-color: var(--color-secondary-weak);
+            border-radius: 8px;
+
+            .item {
+              display: flex;
+              place-items: center;
+              place-content: space-between;
+
+              width: 100%;
+
+              > aside {
+                display: flex;
+                place-items: center;
+                gap: 8px;
+
+                flex: 1;
+
+                > .text {
+                  flex: 1;
+                }
+              }
+            }
+          }
+        }
+
+        .button {
+          padding: 4px;
+
+          background-color: var(--color-primary-strong);
+
+          svg {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -30,7 +30,7 @@ export const RootDomainRestRoom1: ZoneType = {
       id: 'warpToCorridor',
       x: 6,
       y: 12,
-      event: {
+      onEnter: {
         eventId: 'warpToCorridor'
       }
     },

@@ -1,6 +1,7 @@
 import type { ZoneType } from '@/Types/Zone.type'
 
 import { fillGrid } from '@/Helpers/fillGrid'
+import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 import { AllScenes } from '@/GameData/Scenes'
 import { AllNpcs } from '@/GameData/Npcs'
@@ -9,8 +10,9 @@ import { useProfileStore } from '@/Stores/Profile.store'
 
 import { WarpToCorridor } from './Events/WarpToCorridor.event'
 import { TriggerGetStarterDigimon } from './Events/TriggerGetStarterDigimon.event'
+import { OpenResearch } from './Events/OpenResearch.event'
+
 import { grid } from './MainRoom.grid'
-import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 const gridSize = 19
 const filledGrid = fillGrid({ grid, gridSize })
@@ -24,7 +26,8 @@ export const RootDomainMainRoom: ZoneType = {
 
   events: {
     warpToCorridor: WarpToCorridor,
-    triggerGetStarterDigimon: TriggerGetStarterDigimon
+    triggerGetStarterDigimon: TriggerGetStarterDigimon,
+    openResearch: OpenResearch
   },
 
   tiles: [
@@ -32,11 +35,9 @@ export const RootDomainMainRoom: ZoneType = {
       id: 'warpToCorridor',
       x: 9,
       y: 18,
-      events: [
-        {
-          eventId: 'warpToCorridor'
-        }
-      ]
+      onEnter: {
+        eventId: 'warpToCorridor'
+      }
     },
 
     {
@@ -44,18 +45,12 @@ export const RootDomainMainRoom: ZoneType = {
       x: 9,
       y: 3,
       npc: AllNpcs.digimon.nanomon,
-      defaultText: 'Texto que o NPC vai falar quando tu chega perto dele.',
+      defaultText: getDialogs('RESEARCH_DEFAULT'),
 
       events: [
         {
-          eventId: 'a',
-          eventText: 'Quest bem importante aqui',
-          eventType: 'important'
-        },
-
-        {
-          eventId: 'a',
-          eventText: 'Qualquer outro diálogo'
+          eventId: 'openResearch',
+          eventText: getDialogs('RESEARCH_SEE_RESEARCHABLE')
         }
       ]
     },
@@ -65,6 +60,7 @@ export const RootDomainMainRoom: ZoneType = {
       x: 9,
       y: 12,
       npc: AllNpcs.general.gennai,
+      defaultText: getDialogs('NPC_DEFAULT_TEXT'),
 
       condition: () => {
         const profile = useProfileStore.getState().profile

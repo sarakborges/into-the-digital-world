@@ -1,5 +1,14 @@
 .scene {
+  position: absolute;
+  bottom: 0;
+  z-index: 104;
+
   width: 100%;
+  padding: 8px;
+
+  &[data-isdigiviceopen='true'] {
+    padding: 20px;
+  }
 }
 
 .dialog {
@@ -29,44 +38,55 @@
 
   > main {
     display: flex;
-    flex-flow: column;
-    gap: 16px;
+    gap: 8px;
 
     background-color: var(--color-secondary-strong);
     border-radius: 8px;
 
-    max-height: calc(100dvh - 240px);
-    overflow: auto;
-
     padding: 8px;
 
     > .portrait {
+      width: 80px;
+
       img {
-        width: 100%;
+        border-radius: 8px;
       }
+    }
+
+    .npc-dialogs {
+      flex: 1;
     }
 
     .npc-dialogs > .text,
     > .text {
-      padding: 8px;
+      flex: 1;
+      padding: 4px 8px;
+      max-height: 228px;
+      overflow: auto;
 
       background-color: var(--color-secondary);
-      border-radius: 8px;
+      border-radius: 4px;
     }
 
-    .dialog-reactions {
+    .dialog-with-reactions {
       display: flex;
       flex-flow: column;
-      gap: 4px;
+      gap: 8px;
 
-      .button {
+      .dialog-reactions {
+        display: flex;
+        flex-flow: column;
         gap: 4px;
 
-        background-color: transparent;
+        .button {
+          gap: 4px;
 
-        svg {
-          width: 24px;
-          height: 24px;
+          background-color: transparent;
+
+          svg {
+            width: 24px;
+            height: 24px;
+          }
         }
       }
     }

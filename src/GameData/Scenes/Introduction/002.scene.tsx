@@ -15,12 +15,12 @@ export const Introduction002 = () => {
   const dialogOptions: DialogType = {
     content: (
       <>
-        <Text as="p">{getDialogs('INTRODUCTION_002_TEXT')}</Text>
-
         <Portrait
           alt={getDialogs('INTRODUCTION_002_IMAGE')}
           src="/npcs/gennai.webp"
         />
+
+        <Text as="p">{getDialogs('INTRODUCTION_002_TEXT')}</Text>
       </>
     ),
 

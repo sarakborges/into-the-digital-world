@@ -17,11 +17,11 @@ export const Introduction012 = () => {
   const dialogOptions: DialogType = {
     content: (
       <>
-        <Text as="p">{getDialogs('INTRODUCTION_012_TEXT')}</Text>,
         <Portrait
           alt={getDialogs('INTRODUCTION_011_IMAGE')}
           src={`/${AllItems.digivice?.portrait}.webp`}
         />
+        <Text as="p">{getDialogs('INTRODUCTION_012_TEXT')}</Text>,
       </>
     ),
 

@@ -7,6 +7,7 @@ import type { ZoneType } from '@/Types/Zone.type'
 import { AllZones } from '@/GameData/Zones'
 
 import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Text } from '@/Components/System/Text'
 import { Button } from '@/Components/System/Button'
@@ -18,8 +19,9 @@ import { getTexts } from '@/Helpers/getTexts.helper'
 
 export const InteractableTiles = () => {
   const profile = useProfileStore((state) => state.profile)
+  const scene = useSceneStore((state) => state.scene)
 
-  if (!profile?.currentZone) {
+  if (!profile?.currentZone || !!scene) {
     return
   }
 
@@ -44,10 +46,7 @@ export const InteractableTiles = () => {
         tile.y === profile.currentZone.y + 1 && tile.x === profile.currentZone.x
     )
   ].filter(
-    (tile) =>
-      !!tile.events?.length &&
-      !!tile.npc &&
-      (tile.condition === undefined || !!tile.condition())
+    (tile) => !!tile.npc && (tile.condition === undefined || !!tile.condition())
   )
 
   const triggerEvent = (event) => {
@@ -82,6 +81,7 @@ export const InteractableTiles = () => {
                             <Button
                               onClick={() => triggerEvent(event?.eventId)}
                               data-isimportant={event.eventType === 'important'}
+                              key={`interactable-tile-y-${tile!.y}-x${tile!.x}-${tile!.npc!.id}-event-${event.eventId}`}
                             >
                               {event.eventType === 'important' && (
                                 <AiOutlineExclamationCircle />

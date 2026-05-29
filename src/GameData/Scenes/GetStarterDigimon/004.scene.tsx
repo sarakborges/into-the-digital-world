@@ -52,17 +52,19 @@ export const GetStarterDigimon004 = () => {
   const dialogOptions: DialogType = {
     content: (
       <>
-        <Text as="p">{getDialogs('GETSTARTERDIGIMON_004_TEXT')}</Text>
+        <div className="dialog-with-reactions">
+          <Text as="p">{getDialogs('GETSTARTERDIGIMON_004_TEXT')}</Text>
 
-        <div className="dialog-reactions">
-          {dialogReactions.map((reaction) => (
-            <div key={`scene-getstarterdigimon-004-option-${reaction.value}`}>
-              <Button onClick={() => reactToScene(reaction.value)}>
-                <HiOutlineChatBubbleLeftEllipsis />
-                <Text>{reaction.label}</Text>
-              </Button>
-            </div>
-          ))}
+          <div className="dialog-reactions">
+            {dialogReactions.map((reaction) => (
+              <div key={`scene-getstarterdigimon-004-option-${reaction.value}`}>
+                <Button onClick={() => reactToScene(reaction.value)}>
+                  <HiOutlineChatBubbleLeftEllipsis />
+                  <Text>{reaction.label}</Text>
+                </Button>
+              </div>
+            ))}
+          </div>
         </div>
       </>
     )

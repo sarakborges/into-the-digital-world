@@ -2,15 +2,12 @@ import { Fragment } from 'react/jsx-runtime'
 
 import type { ZoneType } from '@/Types/Zone.type'
 
-import { getTexts } from '@/Helpers/getTexts.helper'
-
 import { AllZones } from '@/GameData/Zones'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useGameStore } from '@/Stores/Game.store'
 import { useBattleStore } from '@/Stores/Battle.store'
 
-import { Text } from '@/Components/System/Text'
 import { Portrait } from '@/Components/System/Portrait'
 
 import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
@@ -90,12 +87,6 @@ export const Gameboard = () => {
           })}
         </div>
       </main>
-
-      <footer className="gameboard-title">
-        <Text>
-          {getTexts('CURRENT_ZONE').replaceAll('[ZONE]', currentZone.name)}
-        </Text>
-      </footer>
     </div>
   )
 }
