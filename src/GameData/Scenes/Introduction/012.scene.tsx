@@ -21,7 +21,9 @@ export const Introduction012 = () => {
           alt={getDialogs('INTRODUCTION_011_IMAGE')}
           src={`/${AllItems.digivice?.portrait}.webp`}
         />
-        <Text as="p">{getDialogs('INTRODUCTION_012_TEXT')}</Text>,
+        <div className="text-bubble">
+          <Text as="p">{getDialogs('INTRODUCTION_012_TEXT')}</Text>
+        </div>
       </>
     ),
 
@@ -32,7 +34,7 @@ export const Introduction012 = () => {
         action: () => {
           setScene({
             currentScene: 'introduction',
-            currentStage: '013'
+            currentStage: '015'
           })
         }
       }

@@ -11,6 +11,7 @@ import { useProfileStore } from '@/Stores/Profile.store'
 import { WarpToCorridor } from './Events/WarpToCorridor.event'
 import { TriggerGetStarterDigimon } from './Events/TriggerGetStarterDigimon.event'
 import { OpenResearch } from './Events/OpenResearch.event'
+import { OpenNanomonIntroduction } from './Events/OpenNanomonIntroduction.event'
 
 import { grid } from './MainRoom.grid'
 
@@ -27,7 +28,8 @@ export const RootDomainMainRoom: ZoneType = {
   events: {
     warpToCorridor: WarpToCorridor,
     triggerGetStarterDigimon: TriggerGetStarterDigimon,
-    openResearch: OpenResearch
+    openResearch: OpenResearch,
+    openIntroduction: OpenNanomonIntroduction
   },
 
   tiles: [
@@ -37,6 +39,32 @@ export const RootDomainMainRoom: ZoneType = {
       y: 18,
       onEnter: {
         eventId: 'warpToCorridor'
+      }
+    },
+
+    {
+      id: 'nanomon-introduction',
+      x: 9,
+      y: 3,
+      npc: AllNpcs.digimon.nanomon,
+      defaultText: getDialogs('RESEARCH_DEFAULT'),
+
+      events: [
+        {
+          eventId: 'openIntroduction',
+          eventText: getDialogs('RESEARCH_INTRODUCTION')
+        }
+      ],
+
+      condition: () => {
+        const profile = useProfileStore.getState().profile
+        return (
+          !!profile?.doneScenes.includes(AllScenes.introduction.id) &&
+          !!profile?.doneScenes.includes(AllScenes.getStarterDigimon.id) &&
+          !Object.keys(profile.npcAcquintances).includes(
+            AllNpcs.digimon.nanomon.id
+          )
+        )
       }
     },
 
@@ -52,7 +80,18 @@ export const RootDomainMainRoom: ZoneType = {
           eventId: 'openResearch',
           eventText: getDialogs('RESEARCH_SEE_RESEARCHABLE')
         }
-      ]
+      ],
+
+      condition: () => {
+        const profile = useProfileStore.getState().profile
+        return (
+          !!profile?.doneScenes.includes(AllScenes.introduction.id) &&
+          !!profile?.doneScenes.includes(AllScenes.getStarterDigimon.id) &&
+          Object.keys(profile.npcAcquintances).includes(
+            AllNpcs.digimon.nanomon.id
+          )
+        )
+      }
     },
 
     {

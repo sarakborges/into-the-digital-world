@@ -70,7 +70,9 @@ export const InteractableTiles = () => {
                   content={
                     <div className="npc-dialogs">
                       {!!tile.defaultText && (
-                        <Text as="p">{tile.defaultText}</Text>
+                        <div className="text-bubble">
+                          <Text as="p">{tile.defaultText}</Text>
+                        </div>
                       )}
 
                       {!!tile.events?.length && (

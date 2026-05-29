@@ -11,7 +11,6 @@ import { getDialogs } from '@/Helpers/getDialogs.helper'
 import { saveSession } from '@/Helpers/saveSession.helper'
 
 import { useSceneStore } from '@/Stores/Scene.store'
-import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -26,8 +25,6 @@ import './AvatarCustomization.style.scss'
 export const AvatarCustomization = () => {
   const scene = useSceneStore((state) => state.scene)
   const setScene = useSceneStore((state) => state.setScene)
-  const digivice = useDigiviceStore((state) => state.digivice)
-  const setDigivice = useDigiviceStore((state) => state.setDigivice)
 
   const profile = useProfileStore((state) => state.profile)
   const setProfile = useProfileStore((state) => state.setProfile)
@@ -95,8 +92,6 @@ export const AvatarCustomization = () => {
       })
 
       setProfile(updatedProfile)
-      saveSession({ key: 'profile', value: updatedProfile })
-      setDigivice({ ...digivice, isOpen: false, currentApp: undefined })
 
       return
     }
@@ -118,47 +113,43 @@ export const AvatarCustomization = () => {
   return (
     <div className="avatar-customization">
       <header>
-        <>
-          <header className="profile-avatar">
-            <PlayerAvatar replaceAvatar={avatarCustomization?.avatar} />
-          </header>
-
-          {!avatarCustomization?.layer && (
-            <>
-              <main className="avatar-options">
-                <Text>{getTexts('AVATARCUSTOMIZATION_OPTIONS_TITLE')}</Text>
-
-                {(Object.keys(options) as Array<keyof typeof options>).map(
-                  (option) => (
-                    <div key={`avatar-options-${option}`}>
-                      <Button
-                        disabled={!!scene}
-                        onClick={() =>
-                          setAvatarCustomization({
-                            ...avatarCustomization!,
-                            layer: option
-                          })
-                        }
-                      >
-                        <FaPaintBrush />
-                        <Text>{options[option]}</Text>
-                      </Button>
-                    </div>
-                  )
-                )}
-              </main>
-
-              <footer>
-                <Button disabled={!!scene} onClick={saveAvatar}>
-                  <Text>{getDialogs('SCENES_CONFIRM_BUTTON')}</Text>
-                </Button>
-              </footer>
-            </>
-          )}
-
-          {!!avatarCustomization?.layer && <AvatarCustomizationOptions />}
-        </>
+        <PlayerAvatar replaceAvatar={avatarCustomization?.avatar} />
       </header>
+
+      {!avatarCustomization?.layer && (
+        <main className="avatar-options-container">
+          <main className="avatar-options">
+            <Text>{getTexts('AVATARCUSTOMIZATION_OPTIONS_TITLE')}</Text>
+
+            {(Object.keys(options) as Array<keyof typeof options>).map(
+              (option) => (
+                <div key={`avatar-options-${option}`}>
+                  <Button
+                    disabled={!!scene}
+                    onClick={() =>
+                      setAvatarCustomization({
+                        ...avatarCustomization!,
+                        layer: option
+                      })
+                    }
+                  >
+                    <FaPaintBrush />
+                    <Text>{options[option]}</Text>
+                  </Button>
+                </div>
+              )
+            )}
+          </main>
+
+          <footer>
+            <Button disabled={!!scene} onClick={saveAvatar}>
+              <Text>{getDialogs('SCENES_CONFIRM_BUTTON')}</Text>
+            </Button>
+          </footer>
+        </main>
+      )}
+
+      {!!avatarCustomization?.layer && <AvatarCustomizationOptions />}
     </div>
   )
 }

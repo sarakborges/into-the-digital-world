@@ -17,7 +17,11 @@ export const GetStarterDigimon016 = () => {
   const dialogOptions: DialogType = {
     speaker: { ...profile!, isPlayer: true },
 
-    content: <Text as="p">{getDialogs(`GETSTARTERDIGIMON_016_TEXT`)}</Text>,
+    content: (
+      <div className="text-bubble">
+        <Text as="p">{getDialogs(`GETSTARTERDIGIMON_016_TEXT`)}</Text>
+      </div>
+    ),
 
     options: [
       {

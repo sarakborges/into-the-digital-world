@@ -1,10 +1,10 @@
 import { useSceneStore } from '@/Stores/Scene.store'
 
-export const OpenResearch = () => {
+export const OpenNanomonIntroduction = () => {
   const setScene = useSceneStore.getState().setScene
 
   setScene({
     currentScene: 'research',
-    currentStage: '001'
+    currentStage: '000'
   })
 }

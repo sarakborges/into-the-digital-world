@@ -1,21 +1,31 @@
 .start-screen {
   display: flex;
   flex-flow: column;
-  gap: 24px;
+  gap: 48px;
 
   width: 100%;
-  padding: 96px 8px;
+  padding: 24px 8px;
 
   > header {
     display: flex;
+    flex-flow: column;
+    place-items: center;
     place-content: center;
+    gap: 12px;
+
+    .portrait {
+      width: 160px;
+
+      img {
+        aspect-ratio: auto;
+      }
+    }
 
     .text {
       font-size: 32px;
-      font-weight: 700;
+      font-weight: 300;
       text-align: center;
       line-height: var(--line-height-sm);
-      white-space: pre-wrap;
     }
   }
 

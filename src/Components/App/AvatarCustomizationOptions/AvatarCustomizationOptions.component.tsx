@@ -55,26 +55,28 @@ export const AvatarCustomizationOptions = () => {
       </header>
 
       <main className="customization-options">
-        {AVATAR_OPTIONS[avatarCustomization.layer].map((option) => (
-          <div
-            key={`customization-layer-${avatarCustomization.layer}-${option}`}
-          >
-            <Button
-              disabled={
-                avatarCustomization.avatar[avatarCustomization.layer!] ===
-                option
-              }
-              onClick={() => updateCustomization(option)}
+        <div>
+          {AVATAR_OPTIONS[avatarCustomization.layer].map((option) => (
+            <div
+              key={`customization-layer-${avatarCustomization.layer}-${option}`}
             >
-              <PlayerAvatar
-                replaceAvatar={{
-                  ...avatarCustomization.avatar,
-                  [avatarCustomization.layer!]: option
-                }}
-              />
-            </Button>
-          </div>
-        ))}
+              <Button
+                disabled={
+                  avatarCustomization.avatar[avatarCustomization.layer!] ===
+                  option
+                }
+                onClick={() => updateCustomization(option)}
+              >
+                <PlayerAvatar
+                  replaceAvatar={{
+                    ...avatarCustomization.avatar,
+                    [avatarCustomization.layer!]: option
+                  }}
+                />
+              </Button>
+            </div>
+          ))}
+        </div>
       </main>
 
       <footer className="customization-back">

@@ -1,6 +1,7 @@
 .text {
   color: var(--text-color);
   line-height: var(--line-height-single);
+  font-weight: 300;
 
   &:is(h1) {
     font-size: 24px;

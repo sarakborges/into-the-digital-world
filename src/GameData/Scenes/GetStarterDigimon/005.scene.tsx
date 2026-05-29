@@ -15,11 +15,13 @@ export const GetStarterDigimon005 = () => {
 
   const dialogOptions: DialogType = {
     content: (
-      <Text as="p">
-        {getDialogs(
-          `GETSTARTERDIGIMON_005_TEXT_${profile?.meaningfulChoices.dorimonMeeting.toLocaleUpperCase()}`
-        )}
-      </Text>
+      <div className="text-bubble">
+        <Text as="p">
+          {getDialogs(
+            `GETSTARTERDIGIMON_005_TEXT_${profile?.meaningfulChoices.dorimonMeeting.toLocaleUpperCase()}`
+          )}
+        </Text>
+      </div>
     ),
 
     options: [

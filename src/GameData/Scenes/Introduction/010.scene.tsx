@@ -17,7 +17,11 @@ export const Introduction010 = () => {
   const dialogOptions: DialogType = {
     speaker: { ...profile!, isPlayer: true },
 
-    content: <Text as="p">{getDialogs('INTRODUCTION_010_TEXT')}</Text>,
+    content: (
+      <div className="text-bubble">
+        <Text as="p">{getDialogs('INTRODUCTION_010_TEXT')}</Text>
+      </div>
+    ),
 
     options: [
       {

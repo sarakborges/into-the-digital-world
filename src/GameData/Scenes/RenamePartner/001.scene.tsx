@@ -29,12 +29,14 @@ export const RenamePartner001 = () => {
 
     content: (
       <>
-        <Text as="p">
-          {getDialogs('RENAMEPARTNER_001_TEXT').replaceAll(
-            '[DIGIMON]',
-            digimon?.name || baseDigimon.name
-          )}
-        </Text>
+        <div className="text-bubble">
+          <Text as="p">
+            {getDialogs('RENAMEPARTNER_001_TEXT').replaceAll(
+              '[DIGIMON]',
+              digimon?.name || baseDigimon.name
+            )}
+          </Text>
+        </div>
 
         <Input
           label={getDialogs('RENAMEPARTNER_001_INPUT')}

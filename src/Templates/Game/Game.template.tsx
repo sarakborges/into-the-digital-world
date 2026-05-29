@@ -8,6 +8,9 @@ import { getTexts } from '@/Helpers/getTexts.helper'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSettingsStore } from '@/Stores/Settings.store'
 import { useBattleStore } from '@/Stores/Battle.store'
+import { useSceneStore } from '@/Stores/Scene.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
+import { useGameStore } from '@/Stores/Game.store'
 
 import { Text } from '@/Components/System/Text'
 
@@ -26,8 +29,11 @@ export const Game = () => {
   const profile = useProfileStore((state) => state.profile)
   const settings = useSettingsStore((state) => state.settings)
   const battle = useBattleStore((state) => state.battle)
+  const scene = useSceneStore((state) => state.scene)
+  const digivice = useDigiviceStore((state) => state.digivice)
+  const game = useGameStore((state) => state.game)
 
-  useEffect(() => {}, [settings])
+  useEffect(() => {}, [settings, scene, profile, battle, digivice, game])
 
   return (
     <div className={`game-body theme-${settings?.theme}`}>
@@ -64,7 +70,7 @@ export const Game = () => {
               <div className="screen-footer">
                 <div className="player">
                   <PlayerAvatar />
-                  <Text>{profile.name}</Text>
+                  <Text>{profile.name || '???'}</Text>
                 </div>
 
                 <Gamepad />

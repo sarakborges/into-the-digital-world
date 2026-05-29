@@ -19,11 +19,13 @@ export const GetStarterDigimon006 = () => {
     speaker: AllNpcs.general.gennai,
 
     content: (
-      <Text as="p">
-        {getDialogs(
-          `GETSTARTERDIGIMON_006_TEXT_${profile?.meaningfulChoices.dorimonMeeting.toLocaleUpperCase()}`
-        )}
-      </Text>
+      <div className="text-bubble">
+        <Text as="p">
+          {getDialogs(
+            `GETSTARTERDIGIMON_006_TEXT_${profile?.meaningfulChoices.dorimonMeeting.toLocaleUpperCase()}`
+          )}
+        </Text>
+      </div>
     ),
 
     options: [

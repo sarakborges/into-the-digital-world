@@ -28,7 +28,9 @@ export const GetStarterDigimon002 = () => {
           src="/digimons/dorimon.webp"
         />
 
-        <Text as="p">{getDialogs('GETSTARTERDIGIMON_002_TEXT')}</Text>
+        <div className="text-bubble">
+          <Text as="p">{getDialogs('GETSTARTERDIGIMON_002_TEXT')}</Text>
+        </div>
       </>
     ),
 

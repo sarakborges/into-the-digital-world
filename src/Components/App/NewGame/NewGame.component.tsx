@@ -39,12 +39,14 @@ export const NewGame = () => {
       currentParty: [],
       items: {},
       meaningfulChoices: {},
-      npcAcquintances: {
-        ...AllNpcs.appmon
-      },
       partnerDigimons: {},
       doneScenes: [],
       titles: ['chosenChild'],
+      researches: [],
+
+      npcAcquintances: {
+        ...AllNpcs.appmon
+      },
 
       currentZone: {
         id: 'rootDomain',

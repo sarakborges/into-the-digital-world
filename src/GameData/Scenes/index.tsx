@@ -29,8 +29,7 @@ export const Scene = () => {
     return
   }
 
-  const RenderedScene =
-    AllScenes[scene?.currentScene!][scene?.currentStage || '001']
+  const RenderedScene = AllScenes[scene!.currentScene!][scene!.currentStage]
 
   if (!RenderedScene) {
     return

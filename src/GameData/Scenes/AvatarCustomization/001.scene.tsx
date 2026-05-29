@@ -16,7 +16,11 @@ export const AvatarCustomization001 = () => {
   const dialogOptions: DialogType = {
     speaker: AllNpcs.appmon.dressmon,
 
-    content: <Text as="p">{getDialogs('AVATARCUSTOMIZATION_001_TEXT')}</Text>,
+    content: (
+      <div className="text-bubble">
+        <Text as="p">{getDialogs('AVATARCUSTOMIZATION_001_TEXT')}</Text>
+      </div>
+    ),
 
     options: [
       {

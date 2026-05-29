@@ -16,7 +16,11 @@ export const Introduction016 = () => {
   const dialogOptions: DialogType = {
     speaker: AllNpcs.general.gennai,
 
-    content: <Text as="p">{getDialogs('INTRODUCTION_016_TEXT')}</Text>,
+    content: (
+      <div className="text-bubble">
+        <Text as="p">{getDialogs('INTRODUCTION_016_TEXT')}</Text>
+      </div>
+    ),
 
     options: [
       {

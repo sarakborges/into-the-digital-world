@@ -20,7 +20,11 @@ export const SaveGame002 = () => {
   const dialogOptions: DialogType = {
     speaker: AllNpcs.appmon.savemon,
 
-    content: <Text as="p">{getDialogs('SAVEGAME_002_TEXT')}</Text>,
+    content: (
+      <div className="text-bubble">
+        <Text as="p">{getDialogs('SAVEGAME_002_TEXT')}</Text>
+      </div>
+    ),
 
     options: [
       {

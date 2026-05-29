@@ -29,12 +29,14 @@ export const GetStarterDigimon021 = () => {
     speaker: AllNpcs.general.gennai,
 
     content: (
-      <Text as="p">
-        {getDialogs(`GETSTARTERDIGIMON_021_TEXT`).replaceAll(
-          '[NAME]',
-          profile?.name
-        )}
-      </Text>
+      <div className="text-bubble">
+        <Text as="p">
+          {getDialogs(`GETSTARTERDIGIMON_021_TEXT`).replaceAll(
+            '[NAME]',
+            profile?.name
+          )}
+        </Text>
+      </div>
     ),
 
     options: [

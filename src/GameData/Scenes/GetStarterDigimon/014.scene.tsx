@@ -16,7 +16,11 @@ export const GetStarterDigimon014 = () => {
   const dialogOptions: DialogType = {
     speaker: AllNpcs.general.gennai,
 
-    content: <Text as="p">{getDialogs(`GETSTARTERDIGIMON_014_TEXT`)}</Text>,
+    content: (
+      <div className="text-bubble">
+        <Text as="p">{getDialogs(`GETSTARTERDIGIMON_014_TEXT`)}</Text>
+      </div>
+    ),
 
     options: [
       {
@@ -25,7 +29,7 @@ export const GetStarterDigimon014 = () => {
         action: () => {
           setScene({
             currentScene: 'getStarterDigimon',
-            currentStage: '015'
+            currentStage: '016'
           })
         }
       }

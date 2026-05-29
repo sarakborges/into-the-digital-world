@@ -20,7 +20,9 @@ export const Introduction002 = () => {
           src="/npcs/gennai.webp"
         />
 
-        <Text as="p">{getDialogs('INTRODUCTION_002_TEXT')}</Text>
+        <div className="text-bubble">
+          <Text as="p">{getDialogs('INTRODUCTION_002_TEXT')}</Text>
+        </div>
       </>
     ),
 

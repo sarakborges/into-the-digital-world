@@ -29,9 +29,11 @@ export const BattleEnd = () => {
     speaker: AllNpcs.appmon.oujamon,
 
     content: (
-      <Text as="p">
-        {getDialogs(`BATTLE_END_${battleResult.toLocaleUpperCase()}`)}
-      </Text>
+      <div className="text-bubble">
+        <Text as="p">
+          {getDialogs(`BATTLE_END_${battleResult.toLocaleUpperCase()}`)}
+        </Text>
+      </div>
     ),
 
     options: [

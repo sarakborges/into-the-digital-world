@@ -11,6 +11,7 @@ import { NewGame } from '@/Components/App/NewGame'
 import { GameFile } from '@/Components/App/GameFile'
 
 import './StartScreen.style.scss'
+import { Portrait } from '@/Components/System/Portrait'
 
 export const StartScreen = () => {
   const profiles = loadData({ key: 'profiles' }) || null
@@ -35,7 +36,12 @@ export const StartScreen = () => {
   return (
     <main className="start-screen">
       <header>
-        <Text>{getTexts('START_SCREEN_TITLE')}</Text>
+        <Portrait
+          alt={getTexts('START_SCREEN_TITLE')}
+          src="/digivice_backgrounds/default.webp"
+        />
+
+        <Text as="p">{getTexts('START_SCREEN_TITLE')}</Text>
       </header>
 
       <main>

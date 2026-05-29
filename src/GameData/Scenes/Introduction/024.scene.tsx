@@ -16,7 +16,11 @@ export const Introduction024 = () => {
   const dialogOptions: DialogType = {
     speaker: AllNpcs.appmon.dressmon,
 
-    content: <Text as="p">{getDialogs('INTRODUCTION_024_TEXT')}</Text>,
+    content: (
+      <div className="text-bubble">
+        <Text as="p">{getDialogs('INTRODUCTION_024_TEXT')}</Text>
+      </div>
+    ),
 
     options: [
       {

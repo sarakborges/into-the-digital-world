@@ -116,11 +116,13 @@ export const BattleTurn = () => {
     speaker: AllNpcs.appmon.oujamon,
 
     content: (
-      <Text as="p">
-        {getDialogs(
-          `BATTLE_${currentTurn.party.toLocaleUpperCase()}_TURN_TEXT`
-        ).replaceAll('[NAME]', currentTurn.digimon.name)}
-      </Text>
+      <div className="text-bubble">
+        <Text as="p">
+          {getDialogs(
+            `BATTLE_${currentTurn.party.toLocaleUpperCase()}_TURN_TEXT`
+          ).replaceAll('[NAME]', currentTurn.digimon.name)}
+        </Text>
+      </div>
     ),
 
     options: [

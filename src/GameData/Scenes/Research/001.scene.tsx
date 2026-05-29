@@ -16,7 +16,11 @@ export const Research001 = () => {
   const dialogOptions: DialogType = {
     speaker: AllNpcs.digimon.nanomon,
 
-    content: <Text as="p">{getDialogs('RESEARCH_001_TEXT')}</Text>,
+    content: (
+      <div className="text-bubble">
+        <Text as="p">{getDialogs('RESEARCH_001_TEXT')}</Text>
+      </div>
+    ),
 
     options: [
       {

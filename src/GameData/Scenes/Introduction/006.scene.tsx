@@ -18,12 +18,14 @@ export const Introduction006 = () => {
     speaker: { ...profile!, isPlayer: true },
 
     content: (
-      <Text as="p">
-        {getDialogs('INTRODUCTION_006_TEXT').replaceAll(
-          '[NAME]',
-          profile?.name
-        )}
-      </Text>
+      <div className="text-bubble">
+        <Text as="p">
+          {getDialogs('INTRODUCTION_006_TEXT').replaceAll(
+            '[NAME]',
+            profile?.name
+          )}
+        </Text>
+      </div>
     ),
 
     options: [

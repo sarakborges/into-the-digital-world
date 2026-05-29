@@ -16,7 +16,11 @@ export const GetStarterDigimon007 = () => {
   const dialogOptions: DialogType = {
     speaker: AllNpcs.general.gennai,
 
-    content: <Text as="p">{getDialogs(`GETSTARTERDIGIMON_007_TEXT`)}</Text>,
+    content: (
+      <div className="text-bubble">
+        <Text as="p">{getDialogs(`GETSTARTERDIGIMON_007_TEXT`)}</Text>
+      </div>
+    ),
 
     options: [
       {

@@ -27,14 +27,14 @@ export const RenamePartner002 = () => {
     speaker: AllNpcs.appmon.bookmon,
 
     content: (
-      <>
+      <div className="text-bubble">
         <Text as="p">
           {getDialogs('RENAMEPARTNER_002_TEXT').replaceAll(
             '[DIGIMON]',
             digimon?.name || baseDigimon.name
           )}
         </Text>
-      </>
+      </div>
     ),
 
     options: [

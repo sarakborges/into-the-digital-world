@@ -3,6 +3,8 @@
   flex-flow: column;
   gap: 8px;
 
+  flex: 1;
+
   > header {
     .text {
       font-size: 20px;
@@ -10,11 +12,16 @@
   }
 
   .customization-options {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 8px;
-
     flex: 1;
+    min-height: calc(100vh - 264px);
+    max-height: calc(100vh - 264px);
+    overflow: auto;
+
+    > div {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
 
     .button {
       width: 100%;

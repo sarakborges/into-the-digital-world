@@ -23,9 +23,11 @@ export const BattleEpilogue = () => {
 
   const dialogOptions: DialogType = {
     content: (
-      <Text as="p">
-        {getDialogs(`BATTLE_EPILOGUE_${battle!.result!.toLocaleUpperCase()}`)}
-      </Text>
+      <div className="text-bubble">
+        <Text as="p">
+          {getDialogs(`BATTLE_EPILOGUE_${battle!.result!.toLocaleUpperCase()}`)}
+        </Text>
+      </div>
     ),
 
     options: [

@@ -12,7 +12,6 @@ import { GetStarterDigimon011 } from './011.scene'
 import { GetStarterDigimon012 } from './012.scene'
 import { GetStarterDigimon013 } from './013.scene'
 import { GetStarterDigimon014 } from './014.scene'
-import { GetStarterDigimon015 } from './015.scene'
 import { GetStarterDigimon016 } from './016.scene'
 import { GetStarterDigimon017 } from './017.scene'
 import { GetStarterDigimon018 } from './018.scene'
@@ -36,7 +35,6 @@ export const GetStarterDigimonScenes = {
   '012': GetStarterDigimon012,
   '013': GetStarterDigimon013,
   '014': GetStarterDigimon014,
-  '015': GetStarterDigimon015,
   '016': GetStarterDigimon016,
   '017': GetStarterDigimon017,
   '018': GetStarterDigimon018,

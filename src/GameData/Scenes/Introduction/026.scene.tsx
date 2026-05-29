@@ -7,12 +7,21 @@ import { useSceneStore } from '@/Stores/Scene.store'
 import { Text } from '@/Components/System/Text'
 
 import { Dialog } from '@/Components/App/Dialog'
+import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 
 export const Introduction026 = () => {
   const setScene = useSceneStore((state) => state.setScene)
 
   const dialogOptions: DialogType = {
-    content: <Text as="p">{getDialogs('INTRODUCTION_026_TEXT')}</Text>,
+    content: (
+      <>
+        <PlayerAvatar />
+
+        <div className="text-bubble">
+          <Text as="p">{getDialogs('INTRODUCTION_026_TEXT')}</Text>
+        </div>
+      </>
+    ),
 
     options: [
       {

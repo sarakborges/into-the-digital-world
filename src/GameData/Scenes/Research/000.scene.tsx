@@ -21,7 +21,11 @@ export const Research000 = () => {
   const dialogOptions: DialogType = {
     speaker: AllNpcs.digimon.nanomon,
 
-    content: <Text as="p">{getDialogs('RESEARCH_000_TEXT')}</Text>,
+    content: (
+      <div className="text-bubble">
+        <Text as="p">{getDialogs('RESEARCH_000_TEXT')}</Text>
+      </div>
+    ),
 
     options: [
       {
@@ -41,7 +45,7 @@ export const Research000 = () => {
 
           setScene({
             currentScene: 'research',
-            currentStage: '002'
+            currentStage: '001'
           })
         }
       }

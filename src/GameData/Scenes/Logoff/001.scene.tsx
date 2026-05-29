@@ -20,7 +20,11 @@ export const Logoff001 = () => {
   const dialogOptions: DialogType = {
     speaker: AllNpcs.appmon.logamon,
 
-    content: <Text as="p">{getDialogs('LOGOFF_001_TEXT')}</Text>,
+    content: (
+      <div className="text-bubble">
+        <Text as="p">{getDialogs('LOGOFF_001_TEXT')}</Text>
+      </div>
+    ),
 
     options: [
       {

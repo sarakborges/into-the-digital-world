@@ -22,9 +22,11 @@ export const BattleAttack = () => {
     speaker: AllNpcs.appmon.oujamon,
 
     content: (
-      <CombatLogEntry
-        logEntry={{ ...logEntry, index: battle?.combatLog.length }}
-      />
+      <div className="text-bubble">
+        <CombatLogEntry
+          logEntry={{ ...logEntry, index: battle?.combatLog.length }}
+        />
+      </div>
     ),
 
     options: [

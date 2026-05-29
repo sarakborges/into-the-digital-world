@@ -20,12 +20,14 @@ export const GetStarterDigimon019 = () => {
     speaker: AllNpcs.digimon.dorimon,
 
     content: (
-      <Text as="p">
-        {getDialogs(`GETSTARTERDIGIMON_019_TEXT`).replaceAll(
-          '[NAME]',
-          profile?.name
-        )}
-      </Text>
+      <div className="text-bubble">
+        <Text as="p">
+          {getDialogs(`GETSTARTERDIGIMON_019_TEXT`).replaceAll(
+            '[NAME]',
+            profile?.name
+          )}
+        </Text>
+      </div>
     ),
 
     options: [

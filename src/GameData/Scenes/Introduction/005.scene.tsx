@@ -32,8 +32,10 @@ export const Introduction005 = () => {
     speaker: AllNpcs.general.gennai,
 
     content: (
-      <>
-        <Text as="p">{getDialogs('INTRODUCTION_005_TEXT')}</Text>
+      <div className="dialog-with-reactions">
+        <div className="text-bubble">
+          <Text as="p">{getDialogs('INTRODUCTION_005_TEXT')}</Text>
+        </div>
 
         <Input
           label={getDialogs('INTRODUCTION_005_INPUT')}
@@ -48,7 +50,7 @@ export const Introduction005 = () => {
             ).disabled = !e.target.value)
           }
         />
-      </>
+      </div>
     ),
 
     options: [

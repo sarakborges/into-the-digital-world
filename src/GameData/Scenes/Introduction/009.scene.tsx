@@ -20,7 +20,9 @@ export const Introduction009 = () => {
           src="/avatars/glitch.webp"
         />
 
-        <Text as="p">{getDialogs('INTRODUCTION_009_TEXT')}</Text>
+        <div className="text-bubble">
+          <Text as="p">{getDialogs('INTRODUCTION_009_TEXT')}</Text>
+        </div>
       </>
     ),
 

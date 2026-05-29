@@ -12,7 +12,11 @@ export const Introduction001 = () => {
   const setScene = useSceneStore((state) => state.setScene)
 
   const dialogOptions: DialogType = {
-    content: <Text as="p">{getDialogs('INTRODUCTION_001_TEXT')}</Text>,
+    content: (
+      <div className="text-bubble">
+        <Text as="p">{getDialogs('INTRODUCTION_001_TEXT')}</Text>
+      </div>
+    ),
 
     options: [
       {
