@@ -16,18 +16,13 @@ export const RootDomainCorridor: ZoneType = {
   gridSize,
   grid: filledGrid,
 
-  events: {
-    warpToMainRoom: WarpToMainRoom,
-    warpToRestRoom1: WarpToRestRoom1
-  },
-
   tiles: [
     {
       id: 'warpToMainRoom',
       x: 0,
       y: 6,
       onEnter: {
-        eventId: 'warpToMainRoom'
+        function: WarpToMainRoom
       }
     },
 
@@ -36,7 +31,7 @@ export const RootDomainCorridor: ZoneType = {
       x: 4,
       y: 4,
       onEnter: {
-        eventId: 'warpToRestRoom1'
+        function: WarpToRestRoom1
       }
     }
   ]

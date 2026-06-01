@@ -21,17 +21,13 @@ export const RootDomainRestRoom1: ZoneType = {
   gridSize,
   grid: filledGrid,
 
-  events: {
-    warpToCorridor: WarpToCorridor
-  },
-
   tiles: [
     {
       id: 'warpToCorridor',
       x: 6,
       y: 12,
       onEnter: {
-        eventId: 'warpToCorridor'
+        function: WarpToCorridor
       }
     },
 
