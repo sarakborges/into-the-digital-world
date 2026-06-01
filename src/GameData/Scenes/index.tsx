@@ -6,6 +6,7 @@ import { GetStarterDigimonScenes } from './GetStarterDigimon'
 import { BattleScenes } from './Battle'
 import { RenamePartnerScenes } from './RenamePartner'
 import { ResearchScenes } from './Research'
+import { ComposeScenes } from './Compose'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -18,7 +19,8 @@ export const AllScenes = {
   getStarterDigimon: GetStarterDigimonScenes,
   battle: BattleScenes,
   renamePartner: RenamePartnerScenes,
-  research: ResearchScenes
+  research: ResearchScenes,
+  compose: ComposeScenes
 }
 
 export const Scene = () => {

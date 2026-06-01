@@ -8,6 +8,7 @@ import { LogoffDialogs } from '@/GameData/Dialogs/Logoff'
 import { BattleDialogs } from '@/GameData/Dialogs/Battle'
 import { RenamePartnerDialogs } from '@/GameData/Dialogs/RenamePartner'
 import { ResearchDialogs } from '@/GameData/Dialogs/Research'
+import { ComposeDialogs } from '@/GameData/Dialogs/Compose'
 
 const dialogs = {
   IntroductionDialogs,
@@ -17,7 +18,8 @@ const dialogs = {
   GetStarterDigimonDialogs,
   BattleDialogs,
   RenamePartnerDialogs,
-  ResearchDialogs
+  ResearchDialogs,
+  ComposeDialogs
 }
 
 const EnDialogs = {

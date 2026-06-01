@@ -91,7 +91,7 @@ export const Gamepad = () => {
       !!currentTile?.onEnter &&
       (currentTile.condition === undefined || !!currentTile?.condition())
     ) {
-      currentZone.events?.[currentTile.onEnter.eventId]()
+      currentTile.onEnter.function()
 
       return
     }

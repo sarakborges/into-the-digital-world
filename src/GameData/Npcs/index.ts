@@ -4,6 +4,7 @@ import { NpcGennai } from './Gennai.npc'
 
 import { NpcDorimon } from './Dorimon.npc'
 import { NpcNanomon } from './Nanomon.npc'
+import { NpcJijimon } from './Jijimon.npc'
 
 import { NpcDressmon } from './Dressmon.npc'
 import { NpcSavemon } from './Savemon.npc'
@@ -25,7 +26,8 @@ export const AllNpcs: {
 
   digimon: {
     dorimon: NpcDorimon,
-    nanomon: NpcNanomon
+    nanomon: NpcNanomon,
+    jijimon: NpcJijimon
   },
 
   appmon: {

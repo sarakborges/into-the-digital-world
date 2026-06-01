@@ -1,0 +1,132 @@
+.compose {
+  display: flex;
+  flex-flow: column;
+  gap: 8px;
+
+  width: 100%;
+  padding: 8px;
+
+  background-color: var(--color-secondary);
+  border-radius: 8px;
+
+  > header {
+    display: flex;
+    place-items: center;
+    place-content: space-between;
+
+    padding: 8px;
+
+    background-color: var(--color-secondary-weak);
+    border-radius: 8px;
+
+    .digimon-info {
+      display: flex;
+      place-items: center;
+      gap: 4px;
+    }
+
+    .portrait {
+      max-width: 32px;
+
+      img {
+        border-radius: 100%;
+      }
+    }
+  }
+
+  .compose-items {
+    display: flex;
+    flex-flow: column;
+    gap: 8px;
+
+    > div {
+      display: flex;
+      flex-flow: column;
+      gap: 8px;
+
+      padding: 8px;
+
+      background-color: var(--color-secondary-weak);
+      border-radius: 8px;
+    }
+
+    .fill-bar {
+      display: flex;
+      place-items: center;
+      gap: 8px;
+
+      .bar {
+        flex: 1;
+        height: 8px;
+        overflow: hidden;
+
+        border-radius: 4px;
+        background-color: var(--color-secondary-strong);
+
+        > div {
+          height: 8px;
+
+          background-color: var(--color-primary-strong);
+        }
+      }
+    }
+
+    .items-list {
+      display: flex;
+      flex-flow: column;
+      gap: 4px;
+
+      .item {
+        display: flex;
+        place-items: center;
+        place-content: space-between;
+        gap: 8px;
+
+        width: 100%;
+        padding: 4px;
+
+        background-color: var(--color-secondary);
+        border-radius: 8px;
+
+        > aside {
+          display: flex;
+          place-items: center;
+          gap: 8px;
+
+          flex: 1;
+
+          .item-description {
+            display: flex;
+            flex-flow: column;
+            gap: 2px;
+
+            flex: 1;
+
+            .text:nth-child(2) {
+              font-size: 12px;
+            }
+          }
+        }
+
+        .amount {
+          display: flex;
+          place-items: center;
+          gap: 8px;
+
+          padding-right: 4px;
+        }
+      }
+    }
+  }
+
+  .button {
+    padding: 4px;
+
+    background-color: var(--color-primary-strong);
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

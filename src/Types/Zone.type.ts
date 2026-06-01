@@ -9,10 +9,6 @@ export type ZoneType = {
 
   grid: GridType
 
-  events?: {
-    [eventId: string]: () => void
-  }
-
   tiles: Array<{
     id: string
     x: number
@@ -21,12 +17,12 @@ export type ZoneType = {
     condition?: () => boolean
 
     onEnter?: {
-      eventId: string
+      function: () => void
       eventText?: string
     }
 
     events?: Array<{
-      eventId: string
+      function: () => void
       eventText?: string
       eventType?: 'default' | 'important'
     }>

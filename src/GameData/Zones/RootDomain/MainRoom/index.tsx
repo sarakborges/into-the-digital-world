@@ -14,6 +14,8 @@ import { OpenResearch } from './Events/OpenResearch.event'
 import { OpenNanomonIntroduction } from './Events/OpenNanomonIntroduction.event'
 
 import { grid } from './MainRoom.grid'
+import { OpenJijimonIntroduction } from './Events/OpenJijimonIntroduction.event'
+import { OpenCompose } from './Events/OpenCompose.event'
 
 const gridSize = 19
 const filledGrid = fillGrid({ grid, gridSize })
@@ -25,20 +27,13 @@ export const RootDomainMainRoom: ZoneType = {
   gridSize,
   grid: filledGrid,
 
-  events: {
-    warpToCorridor: WarpToCorridor,
-    triggerGetStarterDigimon: TriggerGetStarterDigimon,
-    openResearch: OpenResearch,
-    openIntroduction: OpenNanomonIntroduction
-  },
-
   tiles: [
     {
       id: 'warpToCorridor',
       x: 9,
       y: 18,
       onEnter: {
-        eventId: 'warpToCorridor'
+        function: WarpToCorridor
       }
     },
 
@@ -51,7 +46,7 @@ export const RootDomainMainRoom: ZoneType = {
 
       events: [
         {
-          eventId: 'openIntroduction',
+          function: OpenNanomonIntroduction,
           eventText: getDialogs('RESEARCH_INTRODUCTION')
         }
       ],
@@ -77,7 +72,7 @@ export const RootDomainMainRoom: ZoneType = {
 
       events: [
         {
-          eventId: 'openResearch',
+          function: OpenResearch,
           eventText: getDialogs('RESEARCH_SEE_RESEARCHABLE')
         }
       ],
@@ -89,6 +84,58 @@ export const RootDomainMainRoom: ZoneType = {
           !!profile?.doneScenes.includes(AllScenes.getStarterDigimon.id) &&
           Object.keys(profile.npcAcquintances).includes(
             AllNpcs.digimon.nanomon.id
+          )
+        )
+      }
+    },
+
+    {
+      id: 'jijimon-compose',
+      x: 2,
+      y: 8,
+      npc: AllNpcs.digimon.jijimon,
+      defaultText: getDialogs('COMPOSE_DEFAULT'),
+
+      events: [
+        {
+          function: OpenJijimonIntroduction,
+          eventText: getDialogs('COMPOSE_INTRODUCTION')
+        }
+      ],
+
+      condition: () => {
+        const profile = useProfileStore.getState().profile
+        return (
+          !!profile?.doneScenes.includes(AllScenes.introduction.id) &&
+          !!profile?.doneScenes.includes(AllScenes.getStarterDigimon.id) &&
+          !Object.keys(profile.npcAcquintances).includes(
+            AllNpcs.digimon.jijimon.id
+          )
+        )
+      }
+    },
+
+    {
+      id: 'jijimon-research',
+      x: 2,
+      y: 8,
+      npc: AllNpcs.digimon.jijimon,
+      defaultText: getDialogs('COMPOSE_DEFAULT'),
+
+      events: [
+        {
+          function: OpenCompose,
+          eventText: getDialogs('COMPOSE_SEE_COMPOSEABLE')
+        }
+      ],
+
+      condition: () => {
+        const profile = useProfileStore.getState().profile
+        return (
+          !!profile?.doneScenes.includes(AllScenes.introduction.id) &&
+          !!profile?.doneScenes.includes(AllScenes.getStarterDigimon.id) &&
+          Object.keys(profile.npcAcquintances).includes(
+            AllNpcs.digimon.jijimon.id
           )
         )
       }
@@ -118,7 +165,7 @@ export const RootDomainMainRoom: ZoneType = {
 
       events: [
         {
-          eventId: 'triggerGetStarterDigimon',
+          function: TriggerGetStarterDigimon,
           eventText: getDialogs('GETSTARTERDIGIMON_TRIGGER'),
           eventType: 'important'
         }

@@ -49,10 +49,6 @@ export const InteractableTiles = () => {
     (tile) => !!tile.npc && (tile.condition === undefined || !!tile.condition())
   )
 
-  const triggerEvent = (event) => {
-    currentZone?.events?.[event]?.()
-  }
-
   if (!surroundingTiles.length) {
     return
   }
@@ -81,9 +77,9 @@ export const InteractableTiles = () => {
 
                           {tile.events.map((event) => (
                             <Button
-                              onClick={() => triggerEvent(event?.eventId)}
+                              onClick={() => event?.function()}
                               data-isimportant={event.eventType === 'important'}
-                              key={`interactable-tile-y-${tile!.y}-x${tile!.x}-${tile!.npc!.id}-event-${event.eventId}`}
+                              key={`interactable-tile-y-${tile!.y}-x${tile!.x}-${tile!.npc!.id}-event-${event.function}`}
                             >
                               {event.eventType === 'important' && (
                                 <AiOutlineExclamationCircle />

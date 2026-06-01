@@ -10,6 +10,7 @@ export type DialogType = {
   options?: Array<{
     id: string
     text: string
+    disabled?: boolean
     action: () => void
   }>
 }
