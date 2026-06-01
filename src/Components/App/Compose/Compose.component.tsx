@@ -13,6 +13,7 @@ import { Portrait } from '@/Components/System/Portrait'
 import { ItemCore } from '@/Components/App/ItemCore'
 
 import './Compose.style.scss'
+import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 export const Compose = () => {
   const profile = useProfileStore((state) => state.profile)
@@ -82,10 +83,12 @@ export const Compose = () => {
   return (
     <div className="compose" key={`composition-${baseDigimon.name}`}>
       <header>
-        <div className="digimon-info">
-          <Text>Composing:</Text>
-          <Text>{baseDigimon.name}</Text>
-        </div>
+        <Text>
+          {getDialogs('COMPOSE_002_DIGIMON_TITLE').replaceAll(
+            '[DIGIMON]',
+            baseDigimon.name
+          )}
+        </Text>
 
         <Portrait
           alt={baseDigimon.name}
@@ -96,9 +99,7 @@ export const Compose = () => {
       <main className="compose-items">
         {!!Object.keys(requiredItems || {}).length && (
           <div>
-            <Text>
-              You are required to have all these items (they will be consumed):
-            </Text>
+            <Text>{getDialogs('COMPOSE_002_REQUIRED_ITEMS')}</Text>
 
             <div className="items-list">
               {Object.keys(requiredItems || {}).map((item) => (
@@ -113,11 +114,13 @@ export const Compose = () => {
                       <Text>{AllItems[item].name}</Text>
 
                       <Text>
-                        {profile?.items[item] || 0} out of{' '}
-                        {
-                          AllResearches[composition.baseDigimon.id]
-                            .requiredItems?.[item]
-                        }
+                        {getDialogs('COMPOSE_002_REQUIRED_ITEMS_AMOUNT')
+                          .replaceAll('[AMOUNT]', profile?.items[item] || 0)
+                          .replaceAll(
+                            '[TOTAL]',
+                            AllResearches[composition.baseDigimon.id]
+                              .requiredItems?.[item]
+                          )}
                       </Text>
                     </div>
                   </aside>
@@ -133,10 +136,7 @@ export const Compose = () => {
 
         {!!Object.keys(optionalItems ?? {}).length && (
           <div>
-            <Text>
-              Fill the composition bar with these optional materials (they will
-              be consumed):
-            </Text>
+            <Text>{getDialogs('COMPOSE_002_OPTIONAL_ITEMS')}</Text>
 
             <div className="fill-bar">
               <Text>{composition?.completed || 0}%</Text>
@@ -159,8 +159,9 @@ export const Compose = () => {
                       <Text>{AllItems[item].name}</Text>
 
                       <Text>
-                        {profile?.items[item] || 0} available (+
-                        {optionalItems?.[item]}% each)
+                        {getDialogs('COMPOSE_002_OPTIONAL_ITEMS_AMOUNT')
+                          .replaceAll('[AMOUNT]', profile?.items[item] || 0)
+                          .replaceAll('[WEIGHT]', optionalItems?.[item])}
                       </Text>
                     </div>
                   </aside>

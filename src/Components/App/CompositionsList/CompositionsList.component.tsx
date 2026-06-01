@@ -1,24 +1,25 @@
-import { BiCheck } from 'react-icons/bi'
+import { AiOutlineSelect } from 'react-icons/ai'
+
+import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 import { AllResearches } from '@/GameData/Researches'
 import { AllDigimons } from '@/GameData/Digimons'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useCompositionStore } from '@/Stores/Composition.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Text } from '@/Components/System/Text'
 import { Button } from '@/Components/System/Button'
 import { Portrait } from '@/Components/System/Portrait'
-
-import { Compose } from '@/Components/App/Compose'
 
 import './CompositionsList.style.scss'
 
 export const CompositionsList = () => {
   const profile = useProfileStore((state) => state.profile)
 
-  const composition = useCompositionStore((state) => state.composition)
   const setComposition = useCompositionStore((state) => state.setComposition)
+  const setScene = useSceneStore((state) => state.setScene)
 
   const availableCompositions = Object.keys(AllResearches)
     .filter((research) => profile!.researches?.includes(research))
@@ -29,23 +30,14 @@ export const CompositionsList = () => {
     .sort((a, b) => (a > b ? 1 : -1))
 
   if (!availableCompositions.length) {
-    return (
-      <Text as="p">
-        You haven't learned any researches yet. I suggest collecting some cores,
-        and talking to Nanomon.
-      </Text>
-    )
-  }
-
-  if (!!composition?.baseDigimon) {
-    return <Compose />
+    return <Text as="p">{getDialogs('COMPOSE_002_NO_RESEARCHES')}</Text>
   }
 
   return (
     <div className="composition-list">
       {!!availableCompositions.length && (
         <div className="composition-list-container">
-          <Text>Select a Digimon to compose:</Text>
+          <Text>{getDialogs('COMPOSE_002_TITLE')}</Text>
 
           <div className="list">
             {availableCompositions.map((composition) => (
@@ -91,9 +83,14 @@ export const CompositionsList = () => {
                             ? totalItems
                             : {}
                       })
+
+                      setScene({
+                        currentScene: 'compose',
+                        currentStage: '003'
+                      })
                     }}
                   >
-                    <BiCheck />
+                    <AiOutlineSelect />
                   </Button>
                 </header>
               </div>

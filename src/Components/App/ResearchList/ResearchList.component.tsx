@@ -15,6 +15,7 @@ import { Portrait } from '@/Components/System/Portrait'
 import { ItemCore } from '@/Components/App/ItemCore'
 
 import './ResearchList.style.scss'
+import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 export const ResearchList = () => {
   const profile = useProfileStore((state) => state.profile)
@@ -42,7 +43,7 @@ export const ResearchList = () => {
     <div className="research-list">
       {!!availableResearches.length && (
         <div className="research-list-container">
-          <Text>Avaliable researches:</Text>
+          <Text>{getDialogs('RESEARCH_002_TITLE')}</Text>
 
           <div className="list">
             {availableResearches.map((research) => (
