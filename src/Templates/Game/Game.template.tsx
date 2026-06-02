@@ -42,10 +42,13 @@ export const Game = () => {
           {!!profile && (
             <div className="current-zone">
               <Text>
-                {getTexts('CURRENT_ZONE').replaceAll(
-                  '[ZONE]',
-                  AllZones[profile.currentZone.id][profile.currentZone.map].name
-                )}
+                {!battle || scene?.currentStage === 'start'
+                  ? getTexts('CURRENT_ZONE').replaceAll(
+                      '[ZONE]',
+                      AllZones[profile.currentZone.id][profile.currentZone.map]
+                        .name
+                    )
+                  : getTexts('IN_COMBAT')}
               </Text>
             </div>
           )}
@@ -56,7 +59,7 @@ export const Game = () => {
           </div>
         </header>
 
-        {!!battle && <Battlefield />}
+        {!!battle && scene?.currentStage !== 'start' && <Battlefield />}
         <Gameboard />
 
         <>

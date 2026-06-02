@@ -15,16 +15,12 @@ export const Battlefield = () => {
     return
   }
 
-  const battleStageComponents = {
-    end: <CombatLog />,
-    epilogue: <CombatLoot />,
-    default: <CombatParties />
-  }
-
   return (
     <div className="battlefield">
-      {battleStageComponents[scene?.currentStage!] ||
-        battleStageComponents.default}
+      <CombatParties />
+
+      {scene?.currentStage !== 'end' && <CombatLog />}
+      {scene?.currentStage === 'end' && <CombatLoot />}
     </div>
   )
 }

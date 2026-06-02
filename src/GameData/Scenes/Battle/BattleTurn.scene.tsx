@@ -19,11 +19,12 @@ export const BattleTurn = () => {
   const battle = useBattleStore((state) => state.battle)
   const setBattle = useBattleStore((state) => state.setBattle)
 
-  const [currentTurn, ...otherTurns] = battle?.turnOrder!
+  const [currentTurn] = battle?.turnOrder!
 
   const doAttack = () => {
-    const possibleTargets =
+    const possibleTargets = (
       currentTurn.party === 'allies' ? battle?.enemies : battle?.allies
+    )?.filter((target) => target.hp > 0)
 
     const rngTarget = generateRandomNumber({
       min: 0,

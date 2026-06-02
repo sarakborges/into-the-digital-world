@@ -19,9 +19,17 @@ export const CombatLog = () => {
     <div className="combat-log">
       <Text>{getTexts('BATTLE_LOG_TITLE')}</Text>
 
-      {[...battle.combatLog.reverse()].map((logEntry, logIndex) => (
-        <div className="log-entry" key={`combat-log-entry-${logIndex + 1}`}>
-          <CombatLogEntry logEntry={{ ...logEntry, index: logIndex + 1 }} />
+      {[...battle.combatLog].map((logEntry, logIndex) => (
+        <div
+          className="log-entry"
+          key={`combat-log-entry-${battle.combatLog.length - logIndex}`}
+        >
+          <CombatLogEntry
+            logEntry={{
+              ...logEntry,
+              index: battle.combatLog.length - logIndex
+            }}
+          />
         </div>
       ))}
     </div>

@@ -1,5 +1,6 @@
 .battlefield {
   width: 100%;
-  padding-top: 40px;
-  flex: 1;
+
+  background-color: var(--color-primary-strong);
+  box-shadow: 0 0 8px var(--color-neutral-strong);
 }

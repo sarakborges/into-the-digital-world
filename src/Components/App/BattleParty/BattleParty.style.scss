@@ -1,7 +1,7 @@
 .battle-party {
-  display: flex;
-  flex-flow: column;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
 
   .party-member {
     &[data-defeated='true'] {
@@ -10,26 +10,47 @@
 
     &[data-currentturn='true'] {
       .portrait {
-        background-color: var(--color-secondary-weak);
+        background-color: var(--color-primary-strong);
 
         img {
-          border: 2px solid var(--color-secondary-weak);
+          border: 2px solid var(--color-primary-strong);
         }
       }
 
       > header > div .character-name .text {
-        background-color: var(--color-secondary-weak);
+        background-color: var(--color-primary-strong);
+      }
+    }
+
+    &:not([data-currentturn='true']) {
+      .portrait {
+        background-color: var(--color-primary-weak);
+
+        img {
+          border: 2px solid var(--color-primary-weak);
+        }
+      }
+
+      > header > div .character-name .text {
+        background-color: var(--color-primary-weak);
       }
     }
   }
 
   .character-header {
+    .portrait {
+      max-width: 24px;
+      min-width: 24px;
+
+      border-radius: 100% 0 0 100%;
+    }
+
     .resources {
       display: flex;
       flex-flow: column;
-      gap: 4px;
+      gap: 6px;
 
-      padding-left: 4px;
+      margin-left: -22px;
 
       .resource-bar {
         position: relative;
@@ -45,8 +66,7 @@
           padding: 0 4px;
 
           font-size: 12px;
-          text-align: right;
-          text-shadow: 0 0 8px var(--color-neutral-strong);
+          text-shadow: 0 0 4px var(--color-neutral-strong);
         }
 
         &:after {

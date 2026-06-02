@@ -28,7 +28,7 @@ export const RenamePartner001 = () => {
     speaker: AllNpcs.appmon.bookmon,
 
     content: (
-      <>
+      <div className="dialog-with-reactions">
         <div className="text-bubble">
           <Text as="p">
             {getDialogs('RENAMEPARTNER_001_TEXT').replaceAll(
@@ -45,7 +45,7 @@ export const RenamePartner001 = () => {
           defaultValue={digimon?.name}
           autoFocus
         />
-      </>
+      </div>
     ),
 
     options: [

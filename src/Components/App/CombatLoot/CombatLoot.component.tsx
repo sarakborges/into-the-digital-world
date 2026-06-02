@@ -11,7 +11,7 @@ import './CombatLoot.style.scss'
 export const CombatLoot = () => {
   const battle = useBattleStore((state) => state.battle)
 
-  if (!battle || !Object.keys(battle.loot!).length) {
+  if (!battle || !Object.keys(battle.loot ?? {}).length) {
     return
   }
 
@@ -23,10 +23,8 @@ export const CombatLoot = () => {
         {Object.keys(battle.loot!).map((item) => (
           <div className="loot-item" key={`combat-loot-item-${item}`}>
             {AllItems[item].category === 'core' && <ItemCore item={item} />}
-
-            <Text as="p">
-              {`${AllItems[item].name} x${battle.loot![item].amount}`}
-            </Text>
+            <Text>{AllItems[item].name}</Text>
+            <Text>{battle.loot![item].amount}</Text>
           </div>
         ))}
       </div>

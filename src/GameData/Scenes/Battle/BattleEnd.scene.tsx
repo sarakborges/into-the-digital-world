@@ -1,29 +1,31 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
+import { AllItems } from '@/GameData/Items'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
+import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
+import { warpTo } from '@/Helpers/warpTo.helper'
+import { saveSession } from '@/Helpers/saveSession.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Text } from '@/Components/System/Text'
 
 import { Dialog } from '@/Components/App/Dialog'
-import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
-import { AllItems } from '@/GameData/Items'
 
 export const BattleEnd = () => {
   const setScene = useSceneStore((state) => state.setScene)
 
+  const profile = useProfileStore((state) => state.profile)
+  const setProfile = useProfileStore((state) => state.setProfile)
+
   const setBattle = useBattleStore((state) => state.setBattle)
   const battle = useBattleStore((state) => state.battle)
 
-  const battleResult = battle?.turnOrder.every(
-    (digimon) => digimon.party === 'allies'
-  )
-    ? 'victory'
-    : 'defeat'
+  const battleResult = battle?.result!
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.appmon.oujamon,
@@ -41,40 +43,37 @@ export const BattleEnd = () => {
         id: 'scene-battle-battleend-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          const battleResult = battle!.turnOrder.every(
-            (digimon) => digimon.party === 'allies'
-          )
-            ? 'victory'
-            : 'defeat'
-
-          const loot = {}
-
-          if (battleResult === 'victory') {
-            for (let digimon of battle!.enemies) {
-              if (!!digimon.lootTable?.length) {
-                for (let item of digimon.lootTable) {
-                  const rng = generateRandomNumber({ min: 0, max: 100 })
-
-                  if (rng < item.dropChance) {
-                    loot[item.itemId] = {
-                      ...AllItems[item.itemId],
-                      amount: (loot[item.itemId]?.amount || 0) + item.amount
-                    }
-                  }
-                }
+          if (battle!.result === 'victory') {
+            if (!!battle?.loot) {
+              for (let item of Object.keys(battle?.loot)) {
+                profile!.items[item] =
+                  (profile!.items[item] || 0) + battle?.loot[item].amount
               }
             }
+
+            warpTo({
+              ...battle?.mapPosition!,
+              zoneId: profile!.currentZone.id,
+              mapId: profile!.currentZone.map
+            })
           }
 
-          setBattle({
-            ...battle!,
-            result: battleResult,
-            loot
-          })
+          if (battle!.result === 'defeat') {
+            warpTo({
+              x: 3,
+              y: 5,
+              zoneId: 'rootDomain',
+              mapId: 'restRoom1'
+            })
+          }
 
-          setScene({
-            currentScene: 'battle',
-            currentStage: 'epilogue'
+          setBattle(null)
+          setScene(null)
+          setProfile(profile)
+
+          saveSession({
+            key: 'profile',
+            value: profile
           })
         }
       }

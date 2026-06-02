@@ -24,7 +24,7 @@ export const BattleStart = () => {
 
     options: [
       {
-        id: 'scene-battle-001-confirm',
+        id: 'scene-battle-battlestart-confirm',
         text: getDialogs('SCENES_CONFIRM_BUTTON'),
         action: () => {
           setScene({

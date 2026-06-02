@@ -1,11 +1,13 @@
 .combat-loot {
   display: flex;
   flex-flow: column;
-  gap: 12px;
+  gap: 8px;
 
-  max-height: calc(100vh - 200px);
-  padding: 12px;
+  max-height: calc(100cqh - 508px);
+  padding: 8px;
   overflow: auto;
+
+  background-color: var(--color-secondary-strong);
 
   > .text {
     font-size: 20px;
@@ -14,17 +16,32 @@
   .loot-list {
     display: flex;
     flex-flow: column;
-    gap: 12px;
-
-    padding: 12px;
-
-    background-color: var(--color-secondary-strong);
-    border-radius: 12px;
+    gap: 4px;
 
     .loot-item {
       display: flex;
       place-items: center;
-      gap: 8px;
+      gap: 4px;
+
+      .text:nth-of-type(1) {
+        padding: 8px;
+        flex: 1;
+
+        background-color: var(--color-secondary);
+        border-radius: 4px;
+      }
+
+      .text:nth-of-type(2) {
+        display: flex;
+        place-items: center;
+        place-content: center;
+
+        height: 32px;
+        aspect-ratio: 1;
+
+        background-color: var(--color-primary-strong);
+        border-radius: 4px;
+      }
     }
   }
 }

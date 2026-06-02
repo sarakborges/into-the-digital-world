@@ -52,18 +52,19 @@ export const startBattle = ({
     }
   }
 
-  const allies = Object.keys(profile.partnerDigimons).map(
-    (digimon, digimonIndex) => ({
-      ...AllDigimons[profile.partnerDigimons[digimon].baseDigimon],
-      name:
-        profile.partnerDigimons[digimon].name ||
-        AllDigimons[profile.partnerDigimons[digimon].baseDigimon].name,
-      hp: AllDigimons[profile.partnerDigimons[digimon].baseDigimon].stats.vit,
-      sp: AllDigimons[profile.partnerDigimons[digimon].baseDigimon].stats.sta,
-      party: 'allies',
-      index: digimonIndex
-    })
-  )
+  const allies = profile.currentParty.map((digimon, digimonIndex) => ({
+    ...AllDigimons[profile.partnerDigimons[digimon].baseDigimon],
+
+    name:
+      profile.partnerDigimons[digimon].name ||
+      AllDigimons[profile.partnerDigimons[digimon].baseDigimon].name,
+
+    hp: AllDigimons[profile.partnerDigimons[digimon].baseDigimon].stats.vit,
+    sp: AllDigimons[profile.partnerDigimons[digimon].baseDigimon].stats.sta,
+
+    party: 'allies',
+    index: digimonIndex
+  }))
 
   const enemies = enemiesSpawned.map((digimon, digimonIndex) => ({
     ...AllDigimons[digimon],

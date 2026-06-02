@@ -1,11 +1,13 @@
 .combat-log {
   display: flex;
   flex-flow: column;
-  gap: 12px;
+  gap: 8px;
 
-  max-height: calc(100vh - 256px);
-  padding: 12px;
+  max-height: calc(100cqh - 508px);
+  padding: 8px;
   overflow: auto;
+
+  background-color: var(--color-secondary-strong);
 
   > .text {
     font-size: 20px;
@@ -16,9 +18,9 @@
     flex-flow: column;
     gap: 12px;
 
-    padding: 12px;
+    padding: 4px 8px;
 
-    background-color: var(--color-secondary-strong);
-    border-radius: 12px;
+    background-color: var(--color-secondary);
+    border-radius: 4px;
   }
 }

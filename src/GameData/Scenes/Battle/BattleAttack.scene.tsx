@@ -9,6 +9,8 @@ import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Dialog } from '@/Components/App/Dialog'
 import { CombatLogEntry } from '@/Components/App/CombatLogEntry'
+import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
+import { AllItems } from '@/GameData/Items'
 
 export const BattleAttack = () => {
   const setScene = useSceneStore((state) => state.setScene)
@@ -53,6 +55,40 @@ export const BattleAttack = () => {
             setScene({
               currentScene: 'battle',
               currentStage: 'end'
+            })
+
+            if (
+              filteredTurnOrder.every((digimon) => digimon.party === 'enemies')
+            ) {
+              setBattle({
+                ...battle!,
+                result: 'defeat'
+              })
+
+              return
+            }
+
+            const loot = {}
+
+            for (let digimon of battle!.enemies) {
+              if (!!digimon.lootTable?.length) {
+                for (let item of digimon.lootTable) {
+                  const rng = generateRandomNumber({ min: 0, max: 100 })
+
+                  if (rng < item.dropChance) {
+                    loot[item.itemId] = {
+                      ...AllItems[item.itemId],
+                      amount: (loot[item.itemId]?.amount || 0) + item.amount
+                    }
+                  }
+                }
+              }
+            }
+
+            setBattle({
+              ...battle!,
+              result: 'victory',
+              loot
             })
 
             return

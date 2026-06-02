@@ -51,9 +51,10 @@ export const PROFILE_CURRENCY = `D$ [CURRENCY]`
 export const BATTLE_PARTY_ALLIES = `Your party`
 export const BATTLE_PARTY_ENEMIES = `Enemy party`
 
-export const BATTLE_LOG_TURN = `Turn [TURN]:\n[PARTY][NAME] attacked [TARGETPARTY][TARGET] and dealt [DAMAGE] damage.[CRITICAL]`
+export const BATTLE_LOG_TURN_TITLE = `Turn [TURN]:`
+export const BATTLE_LOG_TURN = `[PARTY][NAME] attacked [TARGETPARTY][TARGET] and dealt [DAMAGE] damage.[CRITICAL]`
 export const BATTLE_LOG_CRITICAL = ` It was a critical hit!`
-export const BATTLE_LOG_MISS = `Turn [TURN]:\n[PARTY][NAME] attacked [TARGETPARTY][TARGET], but missed.`
+export const BATTLE_LOG_MISS = `[PARTY][NAME] attacked [TARGETPARTY][TARGET], but missed.`
 export const BATTLE_LOG_TITLE = `Combat log:`
 export const BATTLE_TARGET_ENEMIES = `enemy `
 export const BATTLE_ATTACK_ENEMIES = `Enemy `
@@ -71,7 +72,7 @@ export const ACQUINTANCES_FULL_PICTURE = `Full body picture:`
 export const ACQUINTANCES_DESCRIPTION = `General description`
 
 export const INVENTORY_CATEGORY_GENERAL = `General`
-export const INVENTORY_CATEGORY_KEYITEM = `Key items`
+export const INVENTORY_CATEGORY_KEYITEM = `Key Items`
 export const INVENTORY_CATEGORY_EQUIPMENT = `Equipments`
 export const INVENTORY_CATEGORY_CORE = `Cores`
 
@@ -108,3 +109,4 @@ export const AVATARCUSTOMIZATION_EYES = `Eyes color`
 export const AVATARCUSTOMIZATION_CLOTHES = `Clothes`
 
 export const CURRENT_ZONE = `Current zone: [ZONE]`
+export const IN_COMBAT = `In combat`

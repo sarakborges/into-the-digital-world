@@ -60,7 +60,7 @@ export const Inventory = () => {
 
                     <Text>
                       <div>{AllItems[item].name}</div>
-                      <div>x{profile.items[item] || 0}</div>
+                      <div>{profile.items[item] || 0}</div>
                     </Text>
                   </div>
                 ))}

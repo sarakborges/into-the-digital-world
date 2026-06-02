@@ -79,14 +79,15 @@ export const ResearchList = () => {
                         key={`research-${research}-item-${item}`}
                         className="item"
                       >
-                        <aside>
-                          <ItemCore item={item} />
+                        <ItemCore item={item} />
 
-                          <Text>{AllItems[item].name}</Text>
-                        </aside>
+                        <Text>{AllItems[item].name}</Text>
 
                         <main className="amount">
-                          <Text>x{AllResearches[research].cost[item]}</Text>
+                          <Text>
+                            {profile!.items[item] || 0} /{' '}
+                            {AllResearches[research].cost[item]}
+                          </Text>
                         </main>
                       </div>
                     ))}

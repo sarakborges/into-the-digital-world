@@ -5,6 +5,7 @@ import { DorimonCoreItem } from './DorimonCore.item'
 
 import { VirusBustersCoreItem } from './VirusBustersCore.item'
 import { DragonsRoarCoreItem } from './DragonsRoarCore.item'
+import { NatureSpiritsCoreItem } from './NatureSpiritsCore.item'
 
 export const AllItems = {
   digivice: DigiviceItem,
@@ -13,5 +14,6 @@ export const AllItems = {
   dorimonCore: DorimonCoreItem,
 
   virusBustersCore: VirusBustersCoreItem,
-  dragonsRoarCore: DragonsRoarCoreItem
+  dragonsRoarCore: DragonsRoarCoreItem,
+  natureSpiritsCore: NatureSpiritsCoreItem
 }
