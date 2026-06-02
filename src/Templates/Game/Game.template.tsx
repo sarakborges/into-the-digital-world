@@ -4,6 +4,7 @@ import { Scene } from '@/GameData/Scenes'
 import { AllZones } from '@/GameData/Zones'
 
 import { getTexts } from '@/Helpers/getTexts.helper'
+import { loadData } from '@/Helpers/loadData.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSettingsStore } from '@/Stores/Settings.store'
@@ -11,6 +12,7 @@ import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useGameStore } from '@/Stores/Game.store'
+import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 
 import { Text } from '@/Components/System/Text'
 
@@ -27,13 +29,29 @@ import './Game.style.scss'
 
 export const Game = () => {
   const profile = useProfileStore((state) => state.profile)
+
+  const profiles = useSavedProfilesStore((state) => state.savedProfiles)
+  const setSavedProfiles = useSavedProfilesStore(
+    (state) => state.setSavedProfiles
+  )
+
   const settings = useSettingsStore((state) => state.settings)
   const battle = useBattleStore((state) => state.battle)
   const scene = useSceneStore((state) => state.scene)
   const digivice = useDigiviceStore((state) => state.digivice)
   const game = useGameStore((state) => state.game)
 
-  useEffect(() => {}, [settings, scene, profile, battle, digivice, game])
+  const loadProfiles = () => {
+    setSavedProfiles(
+      profiles!
+        ?.map((profile) => loadData({ key: `profile${profile}` }))
+        .filter((profile) => !!profile)
+    )
+  }
+
+  useEffect(() => {
+    loadProfiles()
+  }, [settings, scene, profile, battle, digivice, game])
 
   return (
     <div className={`game-body theme-${settings?.theme}`}>
