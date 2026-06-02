@@ -164,7 +164,7 @@
         .digivice-apps {
           display: grid;
           place-content: flex-start;
-          grid-template-columns: repeat(4, minmax(0, 1fr));
+          grid-template-columns: repeat(5, minmax(0, 1fr));
           gap: 8px;
 
           padding: 8px;
