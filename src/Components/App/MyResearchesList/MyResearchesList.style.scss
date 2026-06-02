@@ -1,0 +1,62 @@
+.researches-list {
+  display: flex;
+  flex-flow: column;
+  gap: 12px;
+
+  .researches {
+    display: flex;
+    flex-flow: column;
+    gap: 4px;
+
+    > .text {
+      font-size: 20px;
+    }
+
+    .research-content {
+      display: flex;
+      flex-flow: column;
+      gap: 8px;
+
+      .research {
+        display: flex;
+        place-items: center;
+        gap: 8px;
+
+        padding: 4px 4px 4px 8px;
+
+        background-color: var(--color-secondary);
+        border-radius: 4px;
+
+        .research-avatar {
+          .portrait {
+            width: 24px;
+            min-width: 24px;
+            overflow: hidden;
+
+            border-radius: 100%;
+          }
+        }
+
+        .research-name {
+          display: flex;
+          flex-flow: column;
+          place-items: flex-start;
+          gap: 2px;
+
+          flex: 1;
+        }
+
+        .research-details {
+          .button {
+            padding: 4px;
+
+            svg {
+              width: 16px;
+              height: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

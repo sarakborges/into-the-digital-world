@@ -7,9 +7,8 @@ import { AllItems } from '@/GameData/Items'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Text } from '@/Components/System/Text'
-import { Portrait } from '@/Components/System/Portrait'
 
-import { ItemCore } from '@/Components/App/ItemCore'
+import { ItemDisplay } from '@/Components/App/ItemDisplay'
 
 import './Inventory.style.scss'
 
@@ -43,26 +42,11 @@ export const Inventory = () => {
 
               <div className="items-list">
                 {Object.keys(categories[category]).map((item) => (
-                  <div
-                    className="item"
+                  <ItemDisplay
                     key={`inventory-category-${category}-item-${item}`}
-                  >
-                    {AllItems[item].category === 'core' && (
-                      <ItemCore item={item} />
-                    )}
-
-                    {AllItems[item].category !== 'core' && (
-                      <Portrait
-                        alt={AllItems[item].name}
-                        src={`/${AllItems[item].portrait}.webp`}
-                      />
-                    )}
-
-                    <Text>
-                      <div>{AllItems[item].name}</div>
-                      <div>{profile.items[item] || 0}</div>
-                    </Text>
-                  </div>
+                    item={item}
+                    amount={profile.items[item]}
+                  />
                 ))}
               </div>
             </div>

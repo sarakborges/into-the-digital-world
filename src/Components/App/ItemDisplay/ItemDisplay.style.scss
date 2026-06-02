@@ -1,0 +1,43 @@
+.item-display {
+  display: flex;
+  place-items: center;
+  gap: 8px;
+
+  > .portrait {
+    max-width: 40px;
+    overflow: hidden;
+
+    border: 2px solid var(--color-secondary-weak);
+    border-radius: 8px;
+  }
+
+  > .text {
+    display: flex;
+    place-items: center;
+    gap: 8px;
+
+    flex: 1;
+
+    > div {
+      &:first-child {
+        flex: 1;
+        padding: 8px;
+
+        background-color: var(--color-secondary);
+        border-radius: 4px;
+      }
+
+      &:last-child {
+        display: flex;
+        place-items: center;
+        place-content: center;
+
+        height: 32px;
+        aspect-ratio: 1;
+
+        background-color: var(--color-primary-strong);
+        border-radius: 4px;
+      }
+    }
+  }
+}

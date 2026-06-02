@@ -139,11 +139,11 @@ export const Compose = () => {
             <Text>{getDialogs('COMPOSE_002_OPTIONAL_ITEMS')}</Text>
 
             <div className="fill-bar">
-              <Text>{composition?.completed || 0}%</Text>
-
               <div className="bar">
                 <div style={{ width: `${composition?.completed || 0}%` }} />
               </div>
+
+              <Text>{composition?.completed || 0}%</Text>
             </div>
 
             <div className="items-list">

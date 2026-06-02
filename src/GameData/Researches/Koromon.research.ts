@@ -4,7 +4,7 @@ import { AllItems } from '@/GameData/Items'
 
 export const KoromonResearch: ResearchType = {
   cost: {
-    [AllItems.koromonCore.id]: 25
+    [AllItems.koromonCore.id]: 10
   },
 
   requiredItems: {

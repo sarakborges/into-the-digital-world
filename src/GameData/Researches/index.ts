@@ -11,3 +11,10 @@ export const AllResearches: {
   [AllDigimons.koromon.id]: KoromonResearch,
   [AllDigimons.dorimon.id]: DorimonResearch
 }
+
+export const AvailableResearchesAtJijimon = {
+  [AllDigimons.koromon.id]: KoromonResearch,
+  [AllDigimons.dorimon.id]: DorimonResearch
+}
+
+export const AvailableResearchesAtCulumon = {}

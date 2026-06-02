@@ -3,6 +3,7 @@ import { AvatarCustomization } from '@/Components/App/AvatarCustomization'
 import { PartnersList } from '@/Components/App/PartnersList'
 import { PlayerProfile } from '@/Components/App/PlayerProfile'
 import { Inventory } from '@/Components/App/Inventory'
+import { MyResearchesList } from '@/Components/App/MyResearchesList'
 
 export const APP_PROFILE = {
   id: 'profile',
@@ -43,6 +44,12 @@ export const APP_PARTNERSLIST = {
   component: <PartnersList />
 }
 
+export const APP_RESEARCHESLIST = {
+  id: 'researchesList',
+  app: 'researchesList',
+  component: <MyResearchesList />
+}
+
 export const APP_ACQUINTANCES = {
   id: 'acquintances',
   app: 'acquintances',
@@ -61,12 +68,23 @@ export const APP_JOURNAL = {
 export const AllApps = {
   profile: APP_PROFILE,
   fashion: APP_FASHION,
-  // location: APP_LOCATION,
-  // journal: APP_JOURNAL,
-  partnersList: APP_PARTNERSLIST,
-  acquintances: APP_ACQUINTANCES,
   inventory: APP_INVENTORY,
-  // achievements: APP_ACHIEVEMENTS,
+  location: APP_LOCATION,
+  journal: APP_JOURNAL,
+  acquintances: APP_ACQUINTANCES,
+  partnersList: APP_PARTNERSLIST,
+  researchesList: APP_RESEARCHESLIST,
+  achievements: APP_ACHIEVEMENTS,
+  save: APP_SAVE,
+  logoff: APP_LOGOFF
+}
+
+export const DigiviceApps = {
+  profile: APP_PROFILE,
+  fashion: APP_FASHION,
+  inventory: APP_INVENTORY,
+  acquintances: APP_ACQUINTANCES,
+  partnersList: APP_PARTNERSLIST,
   save: APP_SAVE,
   logoff: APP_LOGOFF
 }

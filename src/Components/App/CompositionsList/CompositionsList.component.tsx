@@ -2,7 +2,7 @@ import { AiOutlineSelect } from 'react-icons/ai'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
-import { AllResearches } from '@/GameData/Researches'
+import { AvailableResearchesAtJijimon } from '@/GameData/Researches'
 import { AllDigimons } from '@/GameData/Digimons'
 
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -21,10 +21,10 @@ export const CompositionsList = () => {
   const setComposition = useCompositionStore((state) => state.setComposition)
   const setScene = useSceneStore((state) => state.setScene)
 
-  const availableCompositions = Object.keys(AllResearches)
+  const availableCompositions = Object.keys(AvailableResearchesAtJijimon)
     .filter((research) => profile!.researches?.includes(research))
     .map((research) => ({
-      ...AllResearches[research],
+      ...AvailableResearchesAtJijimon[research],
       baseDigimon: AllDigimons[research]
     }))
     .sort((a, b) => (a > b ? 1 : -1))
@@ -61,9 +61,11 @@ export const CompositionsList = () => {
                       const totalItems = {}
 
                       const requiredItems =
-                        AllResearches[baseDigimon.id].requiredItems
+                        AvailableResearchesAtJijimon[baseDigimon.id]
+                          .requiredItems
                       const optionalItems =
-                        AllResearches[baseDigimon.id].optionalItems
+                        AvailableResearchesAtJijimon[baseDigimon.id]
+                          .optionalItems
 
                       for (let item in requiredItems) {
                         totalItems[item] =

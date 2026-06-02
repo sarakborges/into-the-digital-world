@@ -1,0 +1,16 @@
+.items-list {
+  display: flex;
+  flex-flow: column;
+  gap: 4px;
+
+  .items {
+    display: flex;
+    flex-flow: column;
+    gap: 4px;
+
+    padding: 4px;
+
+    border-radius: 4px;
+    background-color: var(--color-secondary-strong);
+  }
+}

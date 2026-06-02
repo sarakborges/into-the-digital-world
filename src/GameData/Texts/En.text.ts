@@ -16,10 +16,11 @@ export const APPS_SAVE = `Save Data`
 export const APPS_FASHION = `My Avatar`
 export const APPS_LOGOFF = `Log Off`
 export const APPS_ACHIEVEMENTS = `Achievements`
-export const APPS_ACQUINTANCES = `My Contacts`
+export const APPS_ACQUINTANCES = `Contacts`
 export const APPS_JOURNAL = `Journal`
 export const APPS_LOCATION = `Location`
-export const APPS_PARTNERSLIST = `My Digimon Partners`
+export const APPS_PARTNERSLIST = `Encyclopedia`
+export const APPS_RESEARCHESLIST = `Encyclopedia`
 export const APPS_INVENTORY = `My Items`
 
 export const DIGIMON_STATS_VIT_NAME = `Vitality`
@@ -67,6 +68,14 @@ export const ENCYCLOPEDIA_FULL_PICTURE = `Full body picture:`
 export const ENCYCLOPEDIA_DESCRIPTION = `General description`
 export const ENCYCLOPEDIA_FAMILIES = `Families`
 export const ENCYCLOPEDIA_ATTRIBUTE = `Attribute`
+export const ENCYCLOPEDIA_HEADER_PARTNERSLIST = `My Digimons`
+export const ENCYCLOPEDIA_HEADER_RESEARCHESLIST = `My Researches`
+export const ENCYCLOPEDIA_HEADER_ENCYCLOPEDIA = `Digimon Encyclopedia`
+
+export const MY_RESEARCHES_TITLE = `Researches done:`
+export const MY_RESEARCHES_EMPTY = `Currently, you haven't researched no Digimon data. Talk to Nanomon in Root Core to do so.`
+export const MY_RESEARCHES_DETAILS_REQUIRED = `Required materials:`
+export const MY_RESEARCHES_DETAILS_OPTIONAL = `Optional materials:`
 
 export const ACQUINTANCES_FULL_PICTURE = `Full body picture:`
 export const ACQUINTANCES_DESCRIPTION = `General description`

@@ -44,6 +44,12 @@
       border-radius: 8px;
     }
 
+    > div {
+      > .text {
+        font-size: 12px;
+      }
+    }
+
     .fill-bar {
       display: flex;
       place-items: center;
@@ -65,6 +71,14 @@
       }
     }
 
+    .fill-bar + .items-list {
+      .item {
+        .amount {
+          width: 72px;
+        }
+      }
+    }
+
     .items-list {
       display: flex;
       flex-flow: column;
@@ -77,15 +91,11 @@
         gap: 8px;
 
         width: 100%;
-        padding: 4px;
-
-        background-color: var(--color-secondary);
-        border-radius: 8px;
 
         > aside {
           display: flex;
           place-items: center;
-          gap: 8px;
+          gap: 4px;
 
           flex: 1;
 
@@ -96,7 +106,12 @@
 
             flex: 1;
 
-            .text:nth-child(2) {
+            padding: 4px;
+
+            background-color: var(--color-secondary);
+            border-radius: 8px;
+
+            .text {
               font-size: 12px;
             }
           }
@@ -105,9 +120,7 @@
         .amount {
           display: flex;
           place-items: center;
-          gap: 8px;
-
-          padding-right: 4px;
+          place-content: space-between;
         }
       }
     }

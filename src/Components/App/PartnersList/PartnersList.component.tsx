@@ -15,6 +15,7 @@ import { Text } from '@/Components/System/Text'
 import { Portrait } from '@/Components/System/Portrait'
 
 import { PartnerDetails } from '@/Components/App/PartnerDetails'
+import { EncyclopediaHeader } from '@/Components/App/EncyclopediaHeader'
 
 import './PartnersList.style.scss'
 
@@ -71,6 +72,8 @@ export const PartnersList = () => {
 
   return (
     <div className="partners-list">
+      <EncyclopediaHeader />
+
       {Object.keys(partners).map((category) => (
         <div
           className="partners-list-category"

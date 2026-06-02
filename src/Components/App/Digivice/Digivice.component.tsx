@@ -2,7 +2,7 @@ import { HiOutlineDevicePhoneMobile } from 'react-icons/hi2'
 import { IoCaretBack } from 'react-icons/io5'
 import { BiSolidSquareRounded } from 'react-icons/bi'
 
-import { AllApps } from '@/Consts/DigiviceApps'
+import { AllApps, DigiviceApps } from '@/Consts/DigiviceApps.const'
 import { AllScenes } from '@/GameData/Scenes'
 
 import { getTexts } from '@/Helpers/getTexts.helper'
@@ -88,7 +88,7 @@ export const Digivice = () => {
             <div className="digivice-body">
               {!digivice?.currentApp && (
                 <div className="digivice-apps">
-                  {Object.values(AllApps).map((app) => (
+                  {Object.values(DigiviceApps).map((app) => (
                     <div key={`digivice-apps-${app.id}`}>
                       <DigiviceApp app={app} />
                     </div>
