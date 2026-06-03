@@ -1,16 +1,12 @@
 import { loadData } from '@/Helpers/loadData.helper'
 
-import * as EnTexts from '@/GameData/Texts/En.text'
-// import * as PtTexts from '@/GameData/Texts/Pt.text'
-// import * as RsTexts from '@/GameData/Texts/Rs.text'
+import * as EnTexts from '@/GameData/Texts/En'
 
-const defaultLanguage = 'en-us'
+const defaultLanguage = 'en'
 
 export const getTexts = (textKey) => {
   const texts = {
-    'en-us': EnTexts
-    // 'pt-br': PtTexts,
-    // rs: RsTexts
+    en: EnTexts
   }
 
   const settings = loadData({ key: 'settings' })

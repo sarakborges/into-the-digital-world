@@ -40,26 +40,25 @@ export const PartnersList = () => {
 
   const partners = {
     inParty: allPartners.filter(
-      (partner) => !!profile?.currentParty.includes(partner.id)
+      (partner) => !!profile?.party.includes(partner.id)
     ),
 
     others: allPartners.filter(
-      (partner) => !profile?.currentParty.includes(partner.id)
+      (partner) => !profile?.party.includes(partner.id)
     )
   }
 
   const removeFromParty = (id: number) => {
     setProfile({
       ...profile!,
-      currentParty:
-        profile!.currentParty.filter((partner) => partner !== id) ?? []
+      party: profile!.party.filter((partner) => partner !== id) ?? []
     })
   }
 
   const addToParty = (id: number) => {
     setProfile({
       ...profile!,
-      currentParty: [...profile!.currentParty, id]
+      party: [...profile!.party, id]
     })
   }
 
@@ -121,7 +120,7 @@ export const PartnersList = () => {
 
                     {category === 'inParty' && (
                       <Button
-                        disabled={!!scene || profile!.currentParty.length < 2}
+                        disabled={!!scene || profile!.party.length < 2}
                         onClick={() => removeFromParty(partner.id)}
                       >
                         <BsArrowDown />
@@ -130,7 +129,7 @@ export const PartnersList = () => {
 
                     {category === 'others' && (
                       <Button
-                        disabled={!!scene || profile!.currentParty.length > 2}
+                        disabled={!!scene || profile!.party.length > 2}
                         onClick={() => addToParty(partner.id)}
                       >
                         <BsArrowUp />

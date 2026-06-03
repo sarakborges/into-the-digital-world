@@ -1,0 +1,11 @@
+export const APPS_PROFILE = `My Profile`
+export const APPS_SAVE = `Save Data`
+export const APPS_FASHION = `My Avatar`
+export const APPS_LOGOFF = `Log Off`
+export const APPS_ACHIEVEMENTS = `Achievements`
+export const APPS_ACQUINTANCES = `Contacts`
+export const APPS_JOURNAL = `Journal`
+export const APPS_LOCATION = `Location`
+export const APPS_PARTNERSLIST = `Encyclopedia`
+export const APPS_RESEARCHESLIST = `Encyclopedia`
+export const APPS_INVENTORY = `My Items`

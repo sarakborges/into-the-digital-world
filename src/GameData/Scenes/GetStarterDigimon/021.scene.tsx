@@ -47,7 +47,7 @@ export const GetStarterDigimon021 = () => {
           const updatedProfile: ProfileType = {
             ...profile!,
             doneScenes: [...profile!.doneScenes, 'getStarterDigimon'],
-            currentParty: [1],
+            party: [1],
             partnerDigimons: {
               1: {
                 id: 1,

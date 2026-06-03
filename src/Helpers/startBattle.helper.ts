@@ -12,7 +12,7 @@ export const startBattle = ({
   profile: ProfileType
   tile: TileType
 }) => {
-  if (!tile || !profile.currentParty.length) {
+  if (!tile || !profile.party.length) {
     return
   }
 
@@ -52,7 +52,7 @@ export const startBattle = ({
     }
   }
 
-  const allies = profile.currentParty.map((digimon, digimonIndex) => ({
+  const allies = profile.party.map((digimon, digimonIndex) => ({
     ...AllDigimons[profile.partnerDigimons[digimon].baseDigimon],
 
     name:

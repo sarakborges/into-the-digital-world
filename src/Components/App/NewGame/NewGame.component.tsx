@@ -36,7 +36,7 @@ export const NewGame = () => {
       lastSave: '',
       currentTitle: 'chosenChild',
       currentScene: 'introduction',
-      currentParty: [],
+      party: [],
       items: {},
       meaningfulChoices: {},
       partnerDigimons: {},
