@@ -1,6 +1,5 @@
 import type { AvatarType } from '@/Types/Avatar.type'
 import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
-import type { QuestType } from '@/Types/Quest.type'
 
 export type ProfileType = {
   id: number
@@ -16,7 +15,10 @@ export type ProfileType = {
   doneScenes: Array<string>
 
   quests: {
-    current: QuestType
+    current: {
+      [questId: string]: {}
+    }
+
     done: {
       [questId: string]: {}
     }

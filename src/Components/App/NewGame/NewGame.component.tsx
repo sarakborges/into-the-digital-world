@@ -36,13 +36,19 @@ export const NewGame = () => {
       lastSave: '',
       currentTitle: 'chosenChild',
       currentScene: 'introduction',
+
       party: [],
-      items: {},
-      meaningfulChoices: {},
-      partnerDigimons: {},
       doneScenes: [],
       titles: ['chosenChild'],
       researches: [],
+
+      quests: {
+        current: {},
+        done: {}
+      },
+      items: {},
+      meaningfulChoices: {},
+      partnerDigimons: {},
 
       npcAcquintances: {
         ...AllNpcs.appmon
