@@ -12,6 +12,8 @@ import { useSceneStore } from '@/Stores/Scene.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Dialog } from '@/Components/App/Dialog'
+import { updateQuestObjective } from '@/Helpers/updateQuestObjective.helper'
+import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
 
 export const GetStarterDigimon021 = () => {
   const { setScene } = useSceneStore((state) => state)
@@ -42,9 +44,16 @@ export const GetStarterDigimon021 = () => {
         id: 'scene-getstarterdigimon-021-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
+          updateQuestObjective({
+            questId: StarterDigimonQuest.id,
+            objectiveId: 'talkToGennai',
+            objectiveValue: true
+          })
+
+          const currentProfile = useProfileStore.getState().profile
+
           const updatedProfile: ProfileType = {
-            ...profile!,
-            doneScenes: [...profile!.doneScenes, 'getStarterDigimon'],
+            ...currentProfile!,
             party: [1],
             partnerDigimons: {
               1: {
@@ -52,7 +61,7 @@ export const GetStarterDigimon021 = () => {
                 baseDigimon: 'dorimon',
                 isStarter: true,
                 bond: initialBondValue[
-                  profile?.meaningfulChoices.dorimonMeeting!
+                  currentProfile?.meaningfulChoices.dorimonMeeting!
                 ]
               }
             }

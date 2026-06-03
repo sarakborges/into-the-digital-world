@@ -1,6 +1,7 @@
 import { getTexts } from '@/Helpers/getTexts.helper'
+import { isQuestDone } from '@/Helpers/isQuestDone.helper'
 
-import { AllScenes } from '@/GameData/Scenes'
+import { AllQuests } from '@/GameData/Quests'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -24,10 +25,14 @@ export const DigiviceApp = ({ app }) => {
   const isLogoff = app.id === 'logoff'
   const isIntroduction = scene?.currentScene === 'introduction'
 
+  const doneQuests = Object.keys(profile.quests).filter((quest) =>
+    isQuestDone(quest)
+  )
+
   const isAppDisabled =
     (!!scene && !!isIntroduction && !isFashion) ||
     (!!scene && !isIntroduction) ||
-    (!profile.doneScenes.includes(AllScenes.getStarterDigimon.id) &&
+    (!doneQuests.includes(AllQuests.starterDigimon.id) &&
       !(!!isFashion || !!isSave || !!isLogoff))
 
   const isAppHighlighted = !!isFashion && !!isIntroduction

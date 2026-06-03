@@ -2,17 +2,23 @@ import { AllQuests } from '@/GameData/Quests'
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllZones } from '@/GameData/Zones'
 
+import { getTexts } from '@/Helpers/getTexts.helper'
+import { isQuestDone } from '@/Helpers/isQuestDone.helper'
+
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Text } from '@/Components/System/Text'
 
 import './QuestLogMinimal.style.scss'
-import { getTexts } from '@/Helpers/getTexts.helper'
 
 export const QuestLogMinimal = () => {
   const { profile } = useProfileStore((state) => state)
 
-  if (!Object.keys(profile!.quests.current ?? {})?.length) {
+  const notDoneQuests = Object.keys(profile!.quests ?? {}).filter(
+    (quest) => !isQuestDone(quest)
+  )
+
+  if (!notDoneQuests.length) {
     return
   }
 
@@ -20,7 +26,7 @@ export const QuestLogMinimal = () => {
     <div className="quest-log-minimal">
       <Text>{getTexts('QUESTS_LOG_TITLE')}</Text>
 
-      {Object.keys(profile!.quests.current ?? {})?.map((quest, questIndex) => (
+      {notDoneQuests.map((quest, questIndex) => (
         <div className="quest">
           <header>
             <Text>{questIndex + 1}: </Text>

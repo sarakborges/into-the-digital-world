@@ -1,10 +1,13 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
-import { AllQuests } from '@/GameData/Quests'
+import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
+import { IntroductionQuest } from '@/GameData/Quests/Introduction.quest'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 import { saveSession } from '@/Helpers/saveSession.helper'
+import { addNewQuest } from '@/Helpers/addNewQuest.helper'
+import { updateQuestObjective } from '@/Helpers/updateQuestObjective.helper'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -15,7 +18,7 @@ import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction028 = () => {
   const { setScene } = useSceneStore((state) => state)
-  const { profile, setProfile } = useProfileStore((state) => state)
+  const { setProfile } = useProfileStore((state) => state)
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.general.gennai,
@@ -31,18 +34,20 @@ export const Introduction028 = () => {
         id: 'scene-introduction-028-confirm',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          const updatedProfile = {
-            ...profile!,
-            currentScene: null,
-            doneScenes: [...profile!.doneScenes, 'introduction'],
-            quests: {
-              ...profile!.quests,
+          addNewQuest(IntroductionQuest.id)
+          updateQuestObjective({
+            questId: IntroductionQuest.id,
+            objectiveId: 'completeTutorial',
+            objectiveValue: true
+          })
 
-              current: {
-                ...profile!.quests.current,
-                [AllQuests.starterDigimon.id]: {}
-              }
-            }
+          addNewQuest(StarterDigimonQuest.id)
+
+          const currentProfile = useProfileStore.getState().profile
+
+          const updatedProfile = {
+            ...currentProfile!,
+            currentScene: null
           }
 
           setScene(null)

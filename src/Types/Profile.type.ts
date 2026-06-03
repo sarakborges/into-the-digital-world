@@ -12,19 +12,12 @@ export type ProfileType = {
   party: Array<number>
   titles: Array<string>
   researches: Array<string>
-  doneScenes: Array<string>
 
   quests: {
-    current: {
-      [questId: string]: {
-        objectives: {
-          [objectiveId: string]: number | boolean
-        }
+    [questId: string]: {
+      objectives: {
+        [objectiveId: string]: number | boolean
       }
-    }
-
-    done: {
-      [questId: string]: {}
     }
   }
 

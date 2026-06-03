@@ -36,14 +36,10 @@ export const NewGame = () => {
       currentScene: 'introduction',
 
       party: [],
-      doneScenes: [],
       titles: ['chosenChild'],
       researches: [],
 
-      quests: {
-        current: {},
-        done: {}
-      },
+      quests: {},
       items: {},
       meaningfulChoices: {},
       partnerDigimons: {},

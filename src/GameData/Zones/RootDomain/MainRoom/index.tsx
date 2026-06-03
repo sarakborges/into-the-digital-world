@@ -17,6 +17,7 @@ import { OpenJijimonIntroduction } from './Events/OpenJijimonIntroduction.event'
 import { OpenCompose } from './Events/OpenCompose.event'
 
 import { grid } from './MainRoom.grid'
+import { isQuestDone } from '@/Helpers/isQuestDone.helper'
 
 const gridSize = 19
 const filledGrid = fillGrid({ grid, gridSize })
@@ -55,10 +56,12 @@ export const RootDomainMainRoom: ZoneType = {
       condition: () => {
         const { profile } = useProfileStore.getState()
 
+        const doneQuests = Object.keys(profile!.quests).filter((quest) =>
+          isQuestDone(quest)
+        )
+
         return (
-          !!Object.keys(profile!.quests.done).includes(
-            AllQuests.starterDigimon.id
-          ) &&
+          !!doneQuests.includes(AllQuests.starterDigimon.id) &&
           !Object.keys(profile!.npcAcquintances).includes(
             AllNpcs.digimon.nanomon.id
           )
@@ -83,8 +86,12 @@ export const RootDomainMainRoom: ZoneType = {
       condition: () => {
         const { profile } = useProfileStore.getState()
 
+        const doneQuests = Object.keys(profile!.quests).filter((quest) =>
+          isQuestDone(quest)
+        )
+
         return (
-          !!profile?.doneScenes.includes(AllQuests.starterDigimon.id) &&
+          !!doneQuests.includes(AllQuests.starterDigimon.id) &&
           !!Object.keys(profile!.npcAcquintances).includes(
             AllNpcs.digimon.nanomon.id
           )
@@ -109,10 +116,12 @@ export const RootDomainMainRoom: ZoneType = {
       condition: () => {
         const { profile } = useProfileStore.getState()
 
+        const doneQuests = Object.keys(profile!.quests).filter((quest) =>
+          isQuestDone(quest)
+        )
+
         return (
-          !!Object.keys(profile!.quests.done).includes(
-            AllQuests.starterDigimon.id
-          ) &&
+          !!doneQuests.includes(AllQuests.starterDigimon.id) &&
           !Object.keys(profile!.npcAcquintances).includes(
             AllNpcs.digimon.jijimon.id
           )
@@ -137,10 +146,12 @@ export const RootDomainMainRoom: ZoneType = {
       condition: () => {
         const { profile } = useProfileStore.getState()
 
+        const doneQuests = Object.keys(profile!.quests).filter((quest) =>
+          isQuestDone(quest)
+        )
+
         return (
-          !!Object.keys(profile!.quests.done).includes(
-            AllQuests.starterDigimon.id
-          ) &&
+          !!doneQuests.includes(AllQuests.starterDigimon.id) &&
           !!Object.keys(profile!.npcAcquintances).includes(
             AllNpcs.digimon.jijimon.id
           )
@@ -157,9 +168,14 @@ export const RootDomainMainRoom: ZoneType = {
 
       condition: () => {
         const profile = useProfileStore.getState().profile
+
+        const doneQuests = Object.keys(profile!.quests).filter((quest) =>
+          isQuestDone(quest)
+        )
+
         return (
-          !!profile?.doneScenes.includes(AllScenes.introduction.id) &&
-          !!profile?.doneScenes.includes(AllScenes.getStarterDigimon.id)
+          !!doneQuests.includes(AllQuests.introduction.id) &&
+          !!doneQuests.includes(AllQuests.starterDigimon.id)
         )
       }
     },
@@ -183,9 +199,13 @@ export const RootDomainMainRoom: ZoneType = {
       condition: () => {
         const profile = useProfileStore.getState().profile
 
+        const doneQuests = Object.keys(profile!.quests).filter((quest) =>
+          isQuestDone(quest)
+        )
+
         return (
-          !!profile?.doneScenes.includes(AllScenes.introduction.id) &&
-          !profile?.doneScenes.includes(AllScenes.getStarterDigimon.id)
+          !!doneQuests.includes(AllQuests.introduction.id) &&
+          !doneQuests.includes(AllQuests.starterDigimon.id)
         )
       }
     }

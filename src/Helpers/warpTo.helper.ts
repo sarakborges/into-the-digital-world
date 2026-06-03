@@ -14,10 +14,8 @@ export const warpTo = ({
   x: number
   y: number
 }) => {
-  const profile = useProfileStore.getState().profile
-  const setProfile = useProfileStore.getState().setProfile
-
-  const setGame = useGameStore.getState().setGame
+  const { profile, setProfile } = useProfileStore.getState()
+  const { setGame } = useGameStore.getState()
 
   if (!setProfile || !setGame) {
     return
