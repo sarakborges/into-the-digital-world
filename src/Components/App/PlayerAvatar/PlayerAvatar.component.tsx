@@ -11,7 +11,7 @@ export const PlayerAvatar = ({
 }: {
   replaceAvatar?: AvatarType
 }) => {
-  const profile = useProfileStore((state) => state.profile)
+  const { profile } = useProfileStore((state) => state)
 
   const avatar = replaceAvatar ?? profile?.avatar
 

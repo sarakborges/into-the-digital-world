@@ -10,8 +10,8 @@ import { Text } from '@/Components/System/Text'
 import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction008 = () => {
-  const profile = useProfileStore((state) => state.profile)
-  const setScene = useSceneStore((state) => state.setScene)
+  const { profile } = useProfileStore((state) => state)
+  const { setScene } = useSceneStore((state) => state)
 
   const dialogOptions: DialogType = {
     speaker: { ...profile!, isPlayer: true },

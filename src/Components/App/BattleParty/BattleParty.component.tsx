@@ -18,7 +18,7 @@ export const BattleParty = ({
     list: Array<PartyDigimonType>
   }
 }) => {
-  const battle = useBattleStore((state) => state.battle)
+  const { battle } = useBattleStore((state) => state)
 
   const resources = {
     hp: 'vit',

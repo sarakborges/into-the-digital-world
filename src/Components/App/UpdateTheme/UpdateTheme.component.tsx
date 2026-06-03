@@ -12,8 +12,7 @@ import { Text } from '@/Components/System/Text'
 import './UpdateTheme.style.scss'
 
 export const UpdateTheme = ({ theme }: { theme: string }) => {
-  const settings = useSettingsStore((state) => state.settings)
-  const setSettings = useSettingsStore((state) => state.setSettings)
+  const { settings, setSettings } = useSettingsStore((state) => state)
 
   const updateTheme = () => {
     setSettings({ ...settings!, theme })

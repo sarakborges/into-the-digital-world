@@ -14,14 +14,12 @@ import { Button } from '@/Components/System/Button'
 import './NewGame.style.scss'
 
 export const NewGame = () => {
-  const savedProfiles = useSavedProfilesStore((state) => state.savedProfiles)
-  const setSavedProfiles = useSavedProfilesStore(
-    (state) => state.setSavedProfiles
+  const { savedProfiles, setSavedProfiles } = useSavedProfilesStore(
+    (state) => state
   )
-
-  const setProfile = useProfileStore((state) => state.setProfile)
-  const setDigivice = useDigiviceStore((state) => state.setDigivice)
-  const setScene = useSceneStore((state) => state.setScene)
+  const { setProfile } = useProfileStore((state) => state)
+  const { setDigivice } = useDigiviceStore((state) => state)
+  const { setScene } = useSceneStore((state) => state)
 
   const createNewProfile = () => {
     const sortedProfiles = [...(savedProfiles || [])].sort(

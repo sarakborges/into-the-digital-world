@@ -11,13 +11,9 @@ import { Text } from '@/Components/System/Text'
 import { Portrait } from '@/Components/System/Portrait'
 
 export const DigiviceApp = ({ app }) => {
-  const profile = useProfileStore((state) => state.profile)
-
-  const scene = useSceneStore((state) => state.scene)
-  const setScene = useSceneStore((state) => state.setScene)
-
-  const digivice = useDigiviceStore((state) => state.digivice)
-  const setDigivice = useDigiviceStore((state) => state.setDigivice)
+  const { profile } = useProfileStore((state) => state)
+  const { scene, setScene } = useSceneStore((state) => state)
+  const { digivice, setDigivice } = useDigiviceStore((state) => state)
 
   if (!profile) {
     return

@@ -10,7 +10,7 @@ import { Dialog } from '@/Components/App/Dialog'
 import { CompositionsList } from '@/Components/App/CompositionsList'
 
 export const Compose002 = () => {
-  const setScene = useSceneStore((state) => state.setScene)
+  const { setScene } = useSceneStore((state) => state)
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.digimon.jijimon,

@@ -11,7 +11,7 @@ import { useSceneStore } from '@/Stores/Scene.store'
 import { Dialog } from '@/Components/App/Dialog'
 
 export const GetStarterDigimon014 = () => {
-  const setScene = useSceneStore((state) => state.setScene)
+  const { setScene } = useSceneStore((state) => state)
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.general.gennai,

@@ -14,10 +14,9 @@ import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
 import type { BattleType } from '@/Types/Battle.type'
 
 export const BattleTurn = () => {
-  const setScene = useSceneStore((state) => state.setScene)
+  const { setScene } = useSceneStore((state) => state)
 
-  const battle = useBattleStore((state) => state.battle)
-  const setBattle = useBattleStore((state) => state.setBattle)
+  const { battle, setBattle } = useBattleStore((state) => state)
 
   const [currentTurn] = battle?.turnOrder!
 

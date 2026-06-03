@@ -10,7 +10,7 @@ import { Dialog } from '@/Components/App/Dialog'
 import { Text } from '@/Components/System/Text'
 
 export const Introduction007 = () => {
-  const setScene = useSceneStore((state) => state.setScene)
+  const { setScene } = useSceneStore((state) => state)
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.general.gennai,

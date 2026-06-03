@@ -20,12 +20,9 @@ import { EncyclopediaHeader } from '@/Components/App/EncyclopediaHeader'
 import './PartnersList.style.scss'
 
 export const PartnersList = () => {
-  const profile = useProfileStore((state) => state.profile)
-  const setProfile = useProfileStore((state) => state.setProfile)
-
-  const digivice = useDigiviceStore((state) => state.digivice)
-  const setDigivice = useDigiviceStore((state) => state.setDigivice)
-  const scene = useSceneStore((state) => state.scene)
+  const { profile, setProfile } = useProfileStore((state) => state)
+  const { digivice, setDigivice } = useDigiviceStore((state) => state)
+  const { scene } = useSceneStore((state) => state)
 
   if (!!digivice?.currentDetails) {
     return <PartnerDetails />

@@ -14,13 +14,9 @@ import { Dialog } from '@/Components/App/Dialog'
 import { Compose } from '@/Components/App/Compose'
 
 export const Compose003 = () => {
-  const setScene = useSceneStore((state) => state.setScene)
-
-  const profile = useProfileStore((state) => state.profile)
-  const setProfile = useProfileStore((state) => state.setProfile)
-
-  const composition = useCompositionStore((state) => state.composition)
-  const setComposition = useCompositionStore((state) => state.setComposition)
+  const { setScene } = useSceneStore((state) => state)
+  const { profile, setProfile } = useProfileStore((state) => state)
+  const { composition, setComposition } = useCompositionStore((state) => state)
 
   const requiredItems = !!composition
     ? AllResearches[composition.baseDigimon.id].requiredItems || {}

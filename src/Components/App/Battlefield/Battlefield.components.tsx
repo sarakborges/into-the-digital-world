@@ -8,8 +8,8 @@ import { CombatParties } from '@/Components/App/CombatParties'
 import './Battlefield.style.scss'
 
 export const Battlefield = () => {
-  const battle = useBattleStore((state) => state.battle)
-  const scene = useSceneStore((state) => state.scene)
+  const { battle } = useBattleStore((state) => state)
+  const { scene } = useSceneStore((state) => state)
 
   if (!battle) {
     return

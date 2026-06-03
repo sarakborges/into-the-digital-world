@@ -9,7 +9,7 @@ import { ItemCore } from '@/Components/App/ItemCore'
 import './CombatLoot.style.scss'
 
 export const CombatLoot = () => {
-  const battle = useBattleStore((state) => state.battle)
+  const { battle } = useBattleStore((state) => state)
 
   if (!battle || !Object.keys(battle.loot ?? {}).length) {
     return

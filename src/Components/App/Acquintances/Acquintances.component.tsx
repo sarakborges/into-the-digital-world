@@ -18,10 +18,9 @@ import { AcquintanceDetails } from '@/Components/App/AcquintanceDetails'
 import './Acqunitances.style.scss'
 
 export const Acquintances = () => {
-  const profile = useProfileStore((state) => state.profile)
-  const scene = useSceneStore((state) => state.scene)
-  const digivice = useDigiviceStore((state) => state.digivice)
-  const setDigivice = useDigiviceStore((state) => state.setDigivice)
+  const { profile } = useProfileStore((state) => state)
+  const { scene } = useSceneStore((state) => state)
+  const { digivice, setDigivice } = useDigiviceStore((state) => state)
 
   if (!!digivice?.currentDetails) {
     return <AcquintanceDetails />

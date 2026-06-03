@@ -13,12 +13,8 @@ import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 import './AvatarCustomizationOptions.style.scss'
 
 export const AvatarCustomizationOptions = () => {
-  const avatarCustomization = useAvatarCustomizationStore(
-    (state) => state.avatarCustomization
-  )
-  const setAvatarCustomization = useAvatarCustomizationStore(
-    (state) => state.setAvatarCustomization
-  )
+  const { avatarCustomization, setAvatarCustomization } =
+    useAvatarCustomizationStore((state) => state)
 
   if (!avatarCustomization?.layer) {
     return

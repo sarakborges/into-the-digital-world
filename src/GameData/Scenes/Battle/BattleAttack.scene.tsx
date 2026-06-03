@@ -13,10 +13,8 @@ import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
 import { AllItems } from '@/GameData/Items'
 
 export const BattleAttack = () => {
-  const setScene = useSceneStore((state) => state.setScene)
-
-  const setBattle = useBattleStore((state) => state.setBattle)
-  const battle = useBattleStore((state) => state.battle)
+  const { setScene } = useSceneStore((state) => state)
+  const { battle, setBattle } = useBattleStore((state) => state)
 
   const logEntry = battle?.combatLog[0]!
 

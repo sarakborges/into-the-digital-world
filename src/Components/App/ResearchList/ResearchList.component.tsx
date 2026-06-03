@@ -18,8 +18,7 @@ import './ResearchList.style.scss'
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 export const ResearchList = () => {
-  const profile = useProfileStore((state) => state.profile)
-  const setProfile = useProfileStore((state) => state.setProfile)
+  const { profile, setProfile } = useProfileStore((state) => state)
 
   const availableResearches = Object.keys(AllResearches)
     .filter((research) => !profile!.researches?.includes(research))

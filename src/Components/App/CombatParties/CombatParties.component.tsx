@@ -9,7 +9,7 @@ import { BattleParty } from '@/Components/App/BattleParty'
 import './CombatParties.style.scss'
 
 export const CombatParties = () => {
-  const battle = useBattleStore((state) => state.battle)
+  const { battle } = useBattleStore((state) => state)
 
   if (!battle) {
     return

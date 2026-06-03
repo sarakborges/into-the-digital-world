@@ -15,10 +15,8 @@ import { Input } from '@/Components/System/Input'
 import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction005 = () => {
-  const setScene = useSceneStore((state) => state.setScene)
-
-  const profile = useProfileStore((state) => state.profile)
-  const setProfile = useProfileStore((state) => state.setProfile)
+  const { setScene } = useSceneStore((state) => state)
+  const { profile, setProfile } = useProfileStore((state) => state)
 
   useEffect(() => {
     const sceneContinue = document.querySelector(

@@ -12,7 +12,7 @@ import { CharacterHeader } from '@/Components/App/CharacterHeader'
 import './AcquintanceDetails.style.scss'
 
 export const AcquintanceDetails = () => {
-  const digivice = useDigiviceStore((state) => state.digivice)
+  const { digivice } = useDigiviceStore((state) => state)
 
   if (!digivice?.currentDetails) {
     return

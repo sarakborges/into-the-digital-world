@@ -24,8 +24,8 @@ export const AllScenes = {
 }
 
 export const Scene = () => {
-  const scene = useSceneStore((state) => state.scene)
-  const digivice = useDigiviceStore((state) => state.digivice)
+  const { scene } = useSceneStore((state) => state)
+  const { digivice } = useDigiviceStore((state) => state)
 
   if (!scene) {
     return

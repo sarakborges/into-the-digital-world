@@ -9,7 +9,7 @@ import { CombatLogEntry } from '@/Components/App/CombatLogEntry'
 import './CombatLog.style.scss'
 
 export const CombatLog = () => {
-  const battle = useBattleStore((state) => state.battle)
+  const { battle } = useBattleStore((state) => state)
 
   if (!battle) {
     return

@@ -7,9 +7,8 @@ import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 import { Button } from '@/Components/System/Button'
 
 export const DeleteGame = ({ profileId }: { profileId: number }) => {
-  const savedProfiles = useSavedProfilesStore((state) => state.savedProfiles)
-  const setSavedProfiles = useSavedProfilesStore(
-    (state) => state.setSavedProfiles
+  const { savedProfiles, setSavedProfiles } = useSavedProfilesStore(
+    (state) => state
   )
 
   if (!profileId) {

@@ -14,10 +14,8 @@ import { useProfileStore } from '@/Stores/Profile.store'
 import { Dialog } from '@/Components/App/Dialog'
 
 export const GetStarterDigimon021 = () => {
-  const setScene = useSceneStore((state) => state.setScene)
-
-  const profile = useProfileStore((state) => state.profile)
-  const setProfile = useProfileStore((state) => state.setProfile)
+  const { setScene } = useSceneStore((state) => state)
+  const { profile, setProfile } = useProfileStore((state) => state)
 
   const initialBondValue = {
     accept: 5,

@@ -10,7 +10,7 @@ import { Dialog } from '@/Components/App/Dialog'
 import { ResearchList } from '@/Components/App/ResearchList'
 
 export const Research002 = () => {
-  const setScene = useSceneStore((state) => state.setScene)
+  const { setScene } = useSceneStore((state) => state)
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.digimon.nanomon,

@@ -16,10 +16,10 @@ import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 import './Gameboard.style.scss'
 
 export const Gameboard = () => {
-  const profile = useProfileStore((state) => state.profile)
-  const game = useGameStore((state) => state.game)
-  const battle = useBattleStore((state) => state.battle)
-  const scene = useSceneStore((state) => state.scene)
+  const { profile } = useProfileStore((state) => state)
+  const { game } = useGameStore((state) => state)
+  const { battle } = useBattleStore((state) => state)
+  const { scene } = useSceneStore((state) => state)
 
   if (!profile?.currentZone) {
     return

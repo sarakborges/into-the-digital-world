@@ -16,10 +16,9 @@ import { Dialog } from '@/Components/App/Dialog'
 import { AllDigimons } from '@/GameData/Digimons'
 
 export const RenamePartner001 = () => {
-  const profile = useProfileStore((state) => state.profile)
-  const setScene = useSceneStore((state) => state.setScene)
-
-  const digivice = useDigiviceStore((state) => state.digivice)
+  const { profile } = useProfileStore((state) => state)
+  const { digivice } = useDigiviceStore((state) => state)
+  const { setScene } = useSceneStore((state) => state)
 
   const digimon = profile?.partnerDigimons[digivice?.currentDetails!]
   const baseDigimon = AllDigimons[digimon?.baseDigimon!]

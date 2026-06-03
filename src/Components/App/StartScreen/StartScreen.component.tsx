@@ -3,15 +3,15 @@ import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { Text } from '@/Components/System/Text'
+import { Portrait } from '@/Components/System/Portrait'
 
 import { NewGame } from '@/Components/App/NewGame'
 import { GameFile } from '@/Components/App/GameFile'
 
 import './StartScreen.style.scss'
-import { Portrait } from '@/Components/System/Portrait'
 
 export const StartScreen = () => {
-  const savedProfiles = useSavedProfilesStore((state) => state.savedProfiles)
+  const { savedProfiles } = useSavedProfilesStore((state) => state)
 
   return (
     <main className="start-screen">

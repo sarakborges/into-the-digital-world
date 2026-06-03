@@ -14,8 +14,8 @@ import { Text } from '@/Components/System/Text'
 import { Dialog } from '@/Components/App/Dialog'
 
 export const Logoff001 = () => {
-  const setProfile = useProfileStore((state) => state.setProfile)
-  const setScene = useSceneStore((state) => state.setScene)
+  const { setProfile } = useProfileStore((state) => state)
+  const { setScene } = useSceneStore((state) => state)
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.appmon.logamon,

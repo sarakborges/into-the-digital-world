@@ -1,5 +1,7 @@
 import { create } from 'zustand'
 
+import { loadData } from '@/Helpers/loadData.helper'
+
 import type { ProfileType } from '@/Types/Profile.type'
 
 type SavedProfilesStore = {
@@ -9,7 +11,6 @@ type SavedProfilesStore = {
 
 export const useSavedProfilesStore = create<SavedProfilesStore>((set) => ({
   savedProfiles: null,
-
   setSavedProfiles: (savedProfiles) => {
     set({ savedProfiles })
   }

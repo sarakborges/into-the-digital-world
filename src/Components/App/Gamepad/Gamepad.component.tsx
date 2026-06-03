@@ -22,16 +22,10 @@ import { Button } from '@/Components/System/Button'
 import './Gamepad.style.scss'
 
 export const Gamepad = () => {
-  const profile = useProfileStore((state) => state.profile)
-  const setProfile = useProfileStore((state) => state.setProfile)
-
-  const scene = useSceneStore((state) => state.scene)
-  const setScene = useSceneStore((state) => state.setScene)
-
-  const battle = useBattleStore((state) => state.battle)
-  const setBattle = useBattleStore((state) => state.setBattle)
-
-  const game = useGameStore((state) => state.game)
+  const { profile, setProfile } = useProfileStore((state) => state)
+  const { scene, setScene } = useSceneStore((state) => state)
+  const { battle, setBattle } = useBattleStore((state) => state)
+  const { game } = useGameStore((state) => state)
 
   if (!profile || !!battle) {
     return

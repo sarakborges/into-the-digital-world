@@ -11,7 +11,7 @@ import { Text } from '@/Components/System/Text'
 import { Dialog } from '@/Components/App/Dialog'
 
 export const AvatarCustomization001 = () => {
-  const setScene = useSceneStore((state) => state.setScene)
+  const { setScene } = useSceneStore((state) => state)
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.appmon.dressmon,

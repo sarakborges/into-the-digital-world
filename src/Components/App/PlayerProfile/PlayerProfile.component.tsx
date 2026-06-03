@@ -9,7 +9,7 @@ import { CharacterHeader } from '@/Components/App/CharacterHeader'
 import './PlayerProfile.style.scss'
 
 export const PlayerProfile = () => {
-  const profile = useProfileStore((state) => state.profile)
+  const { profile } = useProfileStore((state) => state)
 
   return (
     <div className="player-profile">

@@ -14,8 +14,7 @@ import { SettingsLanguage } from '@/Components/App/SettingsLanguage'
 import './Settings.style.scss'
 
 export const Settings = () => {
-  const settings = useSettingsStore((state) => state.settings)
-  const setSettings = useSettingsStore((state) => state.setSettings)
+  const { settings, setSettings } = useSettingsStore((state) => state)
 
   const toggleModal = () => {
     setSettings({ ...settings!, isOpen: !settings!.isOpen })

@@ -13,7 +13,7 @@ import { ItemDisplay } from '@/Components/App/ItemDisplay'
 import './Inventory.style.scss'
 
 export const Inventory = () => {
-  const profile = useProfileStore((state) => state.profile)
+  const { profile } = useProfileStore((state) => state)
 
   if (!profile || !Object.keys(profile.items).length) {
     return

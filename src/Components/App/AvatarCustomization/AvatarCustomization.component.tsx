@@ -23,18 +23,10 @@ import { AvatarCustomizationOptions } from '@/Components/App/AvatarCustomization
 import './AvatarCustomization.style.scss'
 
 export const AvatarCustomization = () => {
-  const scene = useSceneStore((state) => state.scene)
-  const setScene = useSceneStore((state) => state.setScene)
-
-  const profile = useProfileStore((state) => state.profile)
-  const setProfile = useProfileStore((state) => state.setProfile)
-
-  const avatarCustomization = useAvatarCustomizationStore(
-    (state) => state.avatarCustomization
-  )
-  const setAvatarCustomization = useAvatarCustomizationStore(
-    (state) => state.setAvatarCustomization
-  )
+  const { scene, setScene } = useSceneStore((state) => state)
+  const { profile, setProfile } = useProfileStore((state) => state)
+  const { avatarCustomization, setAvatarCustomization } =
+    useAvatarCustomizationStore((state) => state)
 
   const options = {
     skin: getTexts('AVATARCUSTOMIZATION_SKIN'),

@@ -12,10 +12,8 @@ import { Text } from '@/Components/System/Text'
 import { Dialog } from '@/Components/App/Dialog'
 
 export const SaveGame002 = () => {
-  const setScene = useSceneStore((state) => state.setScene)
-
-  const digivice = useDigiviceStore((state) => state.digivice)
-  const setDigivice = useDigiviceStore((state) => state.setDigivice)
+  const { setScene } = useSceneStore((state) => state)
+  const { digivice, setDigivice } = useDigiviceStore((state) => state)
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.appmon.savemon,

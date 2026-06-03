@@ -9,8 +9,8 @@ import { Button } from '@/Components/System/Button'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 export const LoadGame = ({ profileId }: { profileId: number }) => {
-  const setDigivice = useDigiviceStore((state) => state.setDigivice)
-  const setProfile = useProfileStore((state) => state.setProfile)
+  const { setDigivice } = useDigiviceStore((state) => state)
+  const { setProfile } = useProfileStore((state) => state)
 
   const loadProfile = () => {
     const loadedProfile = loadData({ key: `profile${profileId}` })

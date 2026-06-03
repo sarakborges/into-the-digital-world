@@ -16,10 +16,9 @@ import { Portrait } from '@/Components/System/Portrait'
 import './CompositionsList.style.scss'
 
 export const CompositionsList = () => {
-  const profile = useProfileStore((state) => state.profile)
-
-  const setComposition = useCompositionStore((state) => state.setComposition)
-  const setScene = useSceneStore((state) => state.setScene)
+  const { profile } = useProfileStore((state) => state)
+  const { setComposition } = useCompositionStore((state) => state)
+  const { setScene } = useSceneStore((state) => state)
 
   const availableCompositions = Object.keys(AvailableResearchesAtJijimon)
     .filter((research) => profile!.researches?.includes(research))

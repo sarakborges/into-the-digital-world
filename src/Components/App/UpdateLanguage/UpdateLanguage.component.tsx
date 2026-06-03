@@ -13,8 +13,7 @@ import './UpdateLanguage.style.scss'
 import { Portrait } from '@/Components/System/Portrait'
 
 export const UpdateLanguage = ({ language }: { language: string }) => {
-  const settings = useSettingsStore((state) => state.settings)
-  const setSettings = useSettingsStore((state) => state.setSettings)
+  const { settings, setSettings } = useSettingsStore((state) => state)
 
   const updateLanguage = () => {
     setSettings({ ...settings!, language })

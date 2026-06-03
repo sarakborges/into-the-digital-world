@@ -13,6 +13,12 @@ import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 import './GameFile.style.scss'
 
 export const GameFile = ({ profile }: { profile: ProfileType }) => {
+  if (!profile.currentZone) {
+    return
+  }
+
+  const zone = AllZones[profile.currentZone.id]
+
   return (
     <div className="game-file">
       <PlayerAvatar replaceAvatar={profile?.avatar} />
@@ -21,7 +27,7 @@ export const GameFile = ({ profile }: { profile: ProfileType }) => {
         <Text as="p">
           {getTexts('GAME_FILE_TITLE')
             .replaceAll(`[NAME]`, profile.name)
-            .replaceAll(`[ZONE]`, AllZones[profile.currentZone.id].name)}
+            .replaceAll(`[ZONE]`, zone.name)}
         </Text>
 
         <Text as="p">

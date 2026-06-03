@@ -23,13 +23,9 @@ import { CharacterHeader } from '@/Components/App/CharacterHeader'
 import './PartnerDetails.style.scss'
 
 export const PartnerDetails = () => {
-  const setProfile = useProfileStore((state) => state.setProfile)
-  const profile = useProfileStore((state) => state.profile)
-
-  const digivice = useDigiviceStore((state) => state.digivice)
-
-  const scene = useSceneStore((state) => state.scene)
-  const setScene = useSceneStore((state) => state.setScene)
+  const { profile, setProfile } = useProfileStore((state) => state)
+  const { scene, setScene } = useSceneStore((state) => state)
+  const { digivice } = useDigiviceStore((state) => state)
 
   if (!digivice?.currentDetails) {
     return

@@ -13,9 +13,8 @@ import { Text } from '@/Components/System/Text'
 import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction021 = () => {
-  const profile = useProfileStore((state) => state.profile)
-  const setProfile = useProfileStore((state) => state.setProfile)
-  const setScene = useSceneStore((state) => state.setScene)
+  const { profile, setProfile } = useProfileStore((state) => state)
+  const { setScene } = useSceneStore((state) => state)
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.general.gennai,

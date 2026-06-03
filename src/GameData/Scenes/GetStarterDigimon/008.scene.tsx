@@ -10,9 +10,9 @@ import { useSceneStore } from '@/Stores/Scene.store'
 import { Dialog } from '@/Components/App/Dialog'
 
 export const GetStarterDigimon008 = () => {
-  const setScene = useSceneStore((state) => state.setScene)
+  const { setScene } = useSceneStore((state) => state)
 
-  const profile = useProfileStore((state) => state.profile)
+  const { profile } = useProfileStore((state) => state)
 
   const dialogOptions: DialogType = {
     speaker: { ...profile!, isPlayer: true },

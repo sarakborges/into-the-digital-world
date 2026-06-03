@@ -18,8 +18,8 @@ import './InteractableTiles.style.scss'
 import { getTexts } from '@/Helpers/getTexts.helper'
 
 export const InteractableTiles = () => {
-  const profile = useProfileStore((state) => state.profile)
-  const scene = useSceneStore((state) => state.scene)
+  const { profile } = useProfileStore((state) => state)
+  const { scene } = useSceneStore((state) => state)
 
   if (!profile?.currentZone || !!scene) {
     return

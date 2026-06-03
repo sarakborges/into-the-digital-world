@@ -1,10 +1,8 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
-import { AllItems } from '@/GameData/Items'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
-import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
 import { warpTo } from '@/Helpers/warpTo.helper'
 import { saveSession } from '@/Helpers/saveSession.helper'
 
@@ -17,13 +15,9 @@ import { Text } from '@/Components/System/Text'
 import { Dialog } from '@/Components/App/Dialog'
 
 export const BattleEnd = () => {
-  const setScene = useSceneStore((state) => state.setScene)
-
-  const profile = useProfileStore((state) => state.profile)
-  const setProfile = useProfileStore((state) => state.setProfile)
-
-  const setBattle = useBattleStore((state) => state.setBattle)
-  const battle = useBattleStore((state) => state.battle)
+  const { setScene } = useSceneStore((state) => state)
+  const { profile, setProfile } = useProfileStore((state) => state)
+  const { battle, setBattle } = useBattleStore((state) => state)
 
   const battleResult = battle?.result!
 

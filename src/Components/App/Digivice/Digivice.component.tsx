@@ -22,14 +22,10 @@ import { DigiviceApp } from '@/Components/App/DigiviceApp'
 import './Digivice.style.scss'
 
 export const Digivice = () => {
-  const profile = useProfileStore((state) => state.profile)
-  const battle = useBattleStore((state) => state.battle)
-
-  const digivice = useDigiviceStore((state) => state.digivice)
-  const setDigivice = useDigiviceStore((state) => state.setDigivice)
-
-  const scene = useSceneStore((state) => state.scene)
-  const setScene = useSceneStore((state) => state.setScene)
+  const { profile } = useProfileStore((state) => state)
+  const { battle } = useBattleStore((state) => state)
+  const { digivice, setDigivice } = useDigiviceStore((state) => state)
+  const { scene, setScene } = useSceneStore((state) => state)
 
   if (!Object.keys(profile?.items || {}).includes('digivice')) {
     return

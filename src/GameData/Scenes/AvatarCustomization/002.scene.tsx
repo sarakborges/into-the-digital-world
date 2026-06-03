@@ -12,10 +12,8 @@ import { Dialog } from '@/Components/App/Dialog'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 
 export const AvatarCustomization002 = () => {
-  const setScene = useSceneStore((state) => state.setScene)
-
-  const digivice = useDigiviceStore((state) => state.digivice)
-  const setDigivice = useDigiviceStore((state) => state.setDigivice)
+  const { setScene } = useSceneStore((state) => state)
+  const { digivice, setDigivice } = useDigiviceStore((state) => state)
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.appmon.dressmon,

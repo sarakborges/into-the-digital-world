@@ -16,10 +16,8 @@ import './Compose.style.scss'
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 export const Compose = () => {
-  const profile = useProfileStore((state) => state.profile)
-
-  const composition = useCompositionStore((state) => state.composition)
-  const setComposition = useCompositionStore((state) => state.setComposition)
+  const { profile } = useProfileStore((state) => state)
+  const { composition, setComposition } = useCompositionStore((state) => state)
 
   if (!composition?.baseDigimon) {
     return

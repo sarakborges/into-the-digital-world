@@ -12,8 +12,8 @@ import { Text } from '@/Components/System/Text'
 import { Dialog } from '@/Components/App/Dialog'
 
 export const GetStarterDigimon003 = () => {
-  const profile = useProfileStore((state) => state.profile)
-  const setScene = useSceneStore((state) => state.setScene)
+  const { profile } = useProfileStore((state) => state)
+  const { setScene } = useSceneStore((state) => state)
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.digimon.dorimon,

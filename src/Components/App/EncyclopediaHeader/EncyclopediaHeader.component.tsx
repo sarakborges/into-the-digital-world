@@ -9,8 +9,7 @@ import { Button } from '@/Components/System/Button'
 import './EncyclopediaHeader.style.scss'
 
 export const EncyclopediaHeader = () => {
-  const digivice = useDigiviceStore((state) => state.digivice)
-  const setDigivice = useDigiviceStore((state) => state.setDigivice)
+  const { digivice, setDigivice } = useDigiviceStore((state) => state)
 
   const updateApp = (app: string) => {
     setDigivice({ ...digivice!, currentApp: app, currentDetails: undefined })

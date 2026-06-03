@@ -13,10 +13,8 @@ import { Dialog } from '@/Components/App/Dialog'
 import { Portrait } from '@/Components/System/Portrait'
 
 export const GetStarterDigimon002 = () => {
-  const setScene = useSceneStore((state) => state.setScene)
-
-  const profile = useProfileStore((state) => state.profile)
-  const setProfile = useProfileStore((state) => state.setProfile)
+  const { setScene } = useSceneStore((state) => state)
+  const { profile, setProfile } = useProfileStore((state) => state)
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.general.gennai,

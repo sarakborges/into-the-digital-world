@@ -12,7 +12,7 @@ import { Portrait } from '@/Components/System/Portrait'
 import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction012 = () => {
-  const setScene = useSceneStore((state) => state.setScene)
+  const { setScene } = useSceneStore((state) => state)
 
   const dialogOptions: DialogType = {
     content: (

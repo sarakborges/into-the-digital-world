@@ -28,25 +28,20 @@ import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 import './Game.style.scss'
 
 export const Game = () => {
-  const profile = useProfileStore((state) => state.profile)
-
-  const profiles = useSavedProfilesStore((state) => state.savedProfiles)
-  const setSavedProfiles = useSavedProfilesStore(
-    (state) => state.setSavedProfiles
-  )
-
-  const settings = useSettingsStore((state) => state.settings)
-  const battle = useBattleStore((state) => state.battle)
-  const scene = useSceneStore((state) => state.scene)
-  const digivice = useDigiviceStore((state) => state.digivice)
-  const game = useGameStore((state) => state.game)
+  const { profile } = useProfileStore((state) => state)
+  const { settings } = useSettingsStore((state) => state)
+  const { battle } = useBattleStore((state) => state)
+  const { scene } = useSceneStore((state) => state)
+  const { digivice } = useDigiviceStore((state) => state)
+  const { game } = useGameStore((state) => state)
+  const { setSavedProfiles } = useSavedProfilesStore((state) => state)
 
   const loadProfiles = () => {
-    setSavedProfiles(
-      profiles!
-        ?.map((profile) => loadData({ key: `profile${profile}` }))
-        .filter((profile) => !!profile)
-    )
+    const savedProfiles = loadData({ key: `profiles` })
+      .filter((profile) => !!profile)
+      .map((profile) => loadData({ key: `profile${profile}` }))
+
+    setSavedProfiles(savedProfiles)
   }
 
   useEffect(() => {

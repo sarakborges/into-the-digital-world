@@ -10,7 +10,7 @@ import { Dialog } from '@/Components/App/Dialog'
 import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 
 export const Introduction026 = () => {
-  const setScene = useSceneStore((state) => state.setScene)
+  const { setScene } = useSceneStore((state) => state)
 
   const dialogOptions: DialogType = {
     content: (

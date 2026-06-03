@@ -10,7 +10,7 @@ import { CharacterHeader } from '@/Components/App/CharacterHeader'
 import './Dialog.style.scss'
 
 export const Dialog = ({ speaker, content, options }: DialogType) => {
-  const profile = useProfileStore((state) => state.profile)
+  const { profile } = useProfileStore((state) => state)
 
   return (
     <main className="dialog">
