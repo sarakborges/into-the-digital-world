@@ -16,7 +16,11 @@ export type ProfileType = {
 
   quests: {
     current: {
-      [questId: string]: {}
+      [questId: string]: {
+        objectives: {
+          [objectiveId: string]: number | boolean
+        }
+      }
     }
 
     done: {

@@ -12,6 +12,7 @@ import { useSceneStore } from '@/Stores/Scene.store'
 import { Portrait } from '@/Components/System/Portrait'
 
 import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
+import { QuestLogMinimal } from '@/Components/App/QuestLogMinimal'
 
 import './Gameboard.style.scss'
 
@@ -37,58 +38,62 @@ export const Gameboard = () => {
   } as React.CSSProperties
 
   return (
-    <div
-      className="gameboard-wrapper"
-      style={
-        {
-          '--is-visible': !battle || scene?.currentStage === 'start' ? 1 : 0
-        } as React.CSSProperties
-      }
-    >
-      <main className="gameboard">
-        <div className="gameboard-body" style={gameboardBodyVars}>
-          <div
-            className="character"
-            style={
-              {
-                '--character-x': profile.currentZone.x,
-                '--character-y': profile.currentZone.y
-              } as React.CSSProperties
-            }
-          >
-            <PlayerAvatar />
-          </div>
+    <>
+      <div
+        className="gameboard-wrapper"
+        style={
+          {
+            '--is-visible': !battle || scene?.currentStage === 'start' ? 1 : 0
+          } as React.CSSProperties
+        }
+      >
+        <main className="gameboard">
+          <div className="gameboard-body" style={gameboardBodyVars}>
+            <div
+              className="character"
+              style={
+                {
+                  '--character-x': profile.currentZone.x,
+                  '--character-y': profile.currentZone.y
+                } as React.CSSProperties
+              }
+            >
+              <PlayerAvatar />
+            </div>
 
-          {currentZone.tiles.map((tile) => {
-            return (
-              <Fragment
-                key={`zone-${currentZone.id}-x${tile.x}-y${tile.y}-${tile.id}`}
-              >
-                {!!tile.npc?.id && (
-                  <div
-                    className="character"
-                    style={
-                      {
-                        '--character-x': tile.x,
-                        '--character-y': tile.y,
-                        '--character-opacity':
-                          tile.condition === undefined || !!tile.condition?.()
-                            ? 1
-                            : 0
-                      } as React.CSSProperties
-                    }
-                  >
-                    <Portrait
-                      src={`/${tile!.npc.portrait}.webp`}
-                      alt={tile!.npc.name}
-                    />
-                  </div>
-                )}
-              </Fragment>
-            )
-          })}
-        </div>
-      </main>
-    </div>
+            {currentZone.tiles.map((tile) => {
+              return (
+                <Fragment
+                  key={`zone-${currentZone.id}-x${tile.x}-y${tile.y}-${tile.id}`}
+                >
+                  {!!tile.npc?.id && (
+                    <div
+                      className="character"
+                      style={
+                        {
+                          '--character-x': tile.x,
+                          '--character-y': tile.y,
+                          '--character-opacity':
+                            tile.condition === undefined || !!tile.condition?.()
+                              ? 1
+                              : 0
+                        } as React.CSSProperties
+                      }
+                    >
+                      <Portrait
+                        src={`/${tile!.npc.portrait}.webp`}
+                        alt={tile!.npc.name}
+                      />
+                    </div>
+                  )}
+                </Fragment>
+              )
+            })}
+          </div>
+        </main>
+      </div>
+
+      <QuestLogMinimal />
+    </>
   )
 }

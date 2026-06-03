@@ -1,6 +1,7 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
+import { AllQuests } from '@/GameData/Quests'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 import { saveSession } from '@/Helpers/saveSession.helper'
@@ -33,7 +34,15 @@ export const Introduction028 = () => {
           const updatedProfile = {
             ...profile!,
             currentScene: null,
-            doneScenes: [...profile!.doneScenes, 'introduction']
+            doneScenes: [...profile!.doneScenes, 'introduction'],
+            quests: {
+              ...profile!.quests,
+
+              current: {
+                ...profile!.quests.current,
+                [AllQuests.starterDigimon.id]: {}
+              }
+            }
           }
 
           setScene(null)

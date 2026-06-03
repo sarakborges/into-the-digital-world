@@ -25,3 +25,7 @@ export const NPC_INTERACTIONS = `Possible interactions:`
 
 export const CURRENT_ZONE = `Current zone: [ZONE]`
 export const IN_COMBAT = `In combat`
+
+export const QUESTS_LOG_TITLE = `Current objectives:`
+export const QUEST_OBJECTIVE = `- [TYPE] [TARGET] at [WHERE].`
+export const QUEST_OBJECTIVE_TYPE_INTERACT = `Talk to`

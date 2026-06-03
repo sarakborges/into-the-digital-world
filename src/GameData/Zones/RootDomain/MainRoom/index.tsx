@@ -5,6 +5,7 @@ import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 import { AllScenes } from '@/GameData/Scenes'
 import { AllNpcs } from '@/GameData/Npcs'
+import { AllQuests } from '@/GameData/Quests'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -12,10 +13,10 @@ import { WarpToCorridor } from './Events/WarpToCorridor.event'
 import { TriggerGetStarterDigimon } from './Events/TriggerGetStarterDigimon.event'
 import { OpenResearch } from './Events/OpenResearch.event'
 import { OpenNanomonIntroduction } from './Events/OpenNanomonIntroduction.event'
-
-import { grid } from './MainRoom.grid'
 import { OpenJijimonIntroduction } from './Events/OpenJijimonIntroduction.event'
 import { OpenCompose } from './Events/OpenCompose.event'
+
+import { grid } from './MainRoom.grid'
 
 const gridSize = 19
 const filledGrid = fillGrid({ grid, gridSize })
@@ -52,11 +53,13 @@ export const RootDomainMainRoom: ZoneType = {
       ],
 
       condition: () => {
-        const profile = useProfileStore.getState().profile
+        const { profile } = useProfileStore.getState()
+
         return (
-          !!profile?.doneScenes.includes(AllScenes.introduction.id) &&
-          !!profile?.doneScenes.includes(AllScenes.getStarterDigimon.id) &&
-          !Object.keys(profile.npcAcquintances).includes(
+          !!Object.keys(profile!.quests.done).includes(
+            AllQuests.starterDigimon.id
+          ) &&
+          !Object.keys(profile!.npcAcquintances).includes(
             AllNpcs.digimon.nanomon.id
           )
         )
@@ -78,11 +81,11 @@ export const RootDomainMainRoom: ZoneType = {
       ],
 
       condition: () => {
-        const profile = useProfileStore.getState().profile
+        const { profile } = useProfileStore.getState()
+
         return (
-          !!profile?.doneScenes.includes(AllScenes.introduction.id) &&
-          !!profile?.doneScenes.includes(AllScenes.getStarterDigimon.id) &&
-          Object.keys(profile.npcAcquintances).includes(
+          !!profile?.doneScenes.includes(AllQuests.starterDigimon.id) &&
+          !!Object.keys(profile!.npcAcquintances).includes(
             AllNpcs.digimon.nanomon.id
           )
         )
@@ -104,11 +107,13 @@ export const RootDomainMainRoom: ZoneType = {
       ],
 
       condition: () => {
-        const profile = useProfileStore.getState().profile
+        const { profile } = useProfileStore.getState()
+
         return (
-          !!profile?.doneScenes.includes(AllScenes.introduction.id) &&
-          !!profile?.doneScenes.includes(AllScenes.getStarterDigimon.id) &&
-          !Object.keys(profile.npcAcquintances).includes(
+          !!Object.keys(profile!.quests.done).includes(
+            AllQuests.starterDigimon.id
+          ) &&
+          !Object.keys(profile!.npcAcquintances).includes(
             AllNpcs.digimon.jijimon.id
           )
         )
@@ -130,11 +135,13 @@ export const RootDomainMainRoom: ZoneType = {
       ],
 
       condition: () => {
-        const profile = useProfileStore.getState().profile
+        const { profile } = useProfileStore.getState()
+
         return (
-          !!profile?.doneScenes.includes(AllScenes.introduction.id) &&
-          !!profile?.doneScenes.includes(AllScenes.getStarterDigimon.id) &&
-          Object.keys(profile.npcAcquintances).includes(
+          !!Object.keys(profile!.quests.done).includes(
+            AllQuests.starterDigimon.id
+          ) &&
+          !!Object.keys(profile!.npcAcquintances).includes(
             AllNpcs.digimon.jijimon.id
           )
         )

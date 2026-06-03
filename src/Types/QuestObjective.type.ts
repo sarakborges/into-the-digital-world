@@ -1,5 +1,11 @@
 export type QuestObjectiveType = {
   type: 'interact' | 'defeatInZone' | 'defeatSpecific'
-  target: string
+
+  target: {
+    id: string
+    type: 'general' | 'digimons'
+  }
+
+  where: string
   amount?: number
 }
