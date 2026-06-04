@@ -52,6 +52,11 @@ export const Game = () => {
     <div className={`game-body theme-${settings?.theme}`}>
       <div className="main-game">
         <header>
+          <div className="player-actions">
+            <Digivice />
+            <Settings />
+          </div>
+
           {!!profile && (
             <div className="current-zone">
               <Text>
@@ -65,11 +70,6 @@ export const Game = () => {
               </Text>
             </div>
           )}
-
-          <div className="player-actions">
-            <Digivice />
-            <Settings />
-          </div>
         </header>
 
         {!!battle && scene?.currentStage !== 'start' && <Battlefield />}

@@ -27,9 +27,9 @@
 
   > header {
     display: flex;
+    flex-flow: row-reverse;
     place-items: center;
     place-content: flex-end;
-    gap: 4px;
 
     width: 100%;
 
@@ -52,9 +52,11 @@
     .player-actions {
       display: flex;
       place-content: flex-end;
-      gap: 8px;
+      gap: 4px;
 
-      padding: 8px;
+      padding: 8px 8px 8px 12px;
+
+      background-color: var(--color-secondary-strong);
 
       .digivice {
         position: relative;

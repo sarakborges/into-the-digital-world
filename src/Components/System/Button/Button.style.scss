@@ -6,8 +6,8 @@
     }
 
     50% {
-      background-color: var(--color-secondary-strong);
-      box-shadow: 0 0 8px 4px var(--color-secondary-strong);
+      background-color: var(--color-primary-strong);
+      box-shadow: 0 0 8px 4px var(--color-primary-strong);
     }
 
     100% {
@@ -38,11 +38,11 @@
     opacity 0.3s;
 
   &:not(.cancel) {
-    background-color: var(--color-secondary-strong);
+    background-color: var(--color-primary-strong);
 
     &:not(:disabled) {
       &:hover {
-        background-color: var(--color-secondary);
+        background-color: var(--color-primary);
       }
     }
   }
