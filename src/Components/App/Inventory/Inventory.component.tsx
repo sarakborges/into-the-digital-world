@@ -6,9 +6,7 @@ import { AllItems } from '@/GameData/Items'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Text } from '@/Components/System/Text'
-
-import { ItemDisplay } from '@/Components/App/ItemDisplay'
+import { ItemsList } from '@/Components/App/ItemsList'
 
 import './Inventory.style.scss'
 
@@ -35,21 +33,12 @@ export const Inventory = () => {
       {Object.keys(categories).map((category) => (
         <Fragment key={`inventory-category-${category}`}>
           {Object.keys(categories[category]).length > 0 && (
-            <div className="item-category">
-              <Text>
-                {getTexts(`INVENTORY_CATEGORY_${category.toLocaleUpperCase()}`)}
-              </Text>
-
-              <div className="items-list">
-                {Object.keys(categories[category]).map((item) => (
-                  <ItemDisplay
-                    key={`inventory-category-${category}-item-${item}`}
-                    item={item}
-                    amount={profile.items[item]}
-                  />
-                ))}
-              </div>
-            </div>
+            <ItemsList
+              list={categories[category]}
+              title={getTexts(
+                `INVENTORY_CATEGORY_${category.toLocaleUpperCase()}`
+              )}
+            />
           )}
         </Fragment>
       ))}

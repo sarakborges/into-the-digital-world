@@ -29,7 +29,7 @@ export const ItemDisplay = ({
 
       <Text>
         <div>{itemDetails.name}</div>
-        <div>{amount || 0}</div>
+        <div>x{amount || 0}</div>
       </Text>
     </div>
   )

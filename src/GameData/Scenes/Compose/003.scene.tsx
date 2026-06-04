@@ -44,8 +44,7 @@ export const Compose003 = () => {
         [newDigimonId]: {
           id: newDigimonId,
           baseDigimon: composition?.baseDigimon.id!,
-          isStarter: true,
-          bond: 0
+          isStarter: true
         }
       }
     }

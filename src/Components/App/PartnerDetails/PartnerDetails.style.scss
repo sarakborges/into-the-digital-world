@@ -8,7 +8,7 @@
 
     font-size: 12px;
 
-    background-color: var(--color-secondary-strong);
+    background-color: var(--color-primary-strong);
     border-radius: 8px;
   }
 
@@ -22,6 +22,24 @@
 
     background-color: var(--color-secondary-weak);
 
+    .character-header {
+      .portrait {
+        background-color: var(--color-primary-strong);
+
+        img {
+          border-color: var(--color-primary-strong);
+        }
+      }
+
+      .character-info {
+        .character-name {
+          .text {
+            background-color: var(--color-primary-strong);
+          }
+        }
+      }
+    }
+
     > .partner-actions {
       position: absolute;
       right: 0;
@@ -32,6 +50,8 @@
 
       > .button {
         padding: 4px;
+
+        background-color: var(--color-primary-strong);
 
         svg {
           width: 20px;
@@ -50,7 +70,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
 
-        background-color: var(--color-secondary-strong);
+        background-color: var(--color-primary-strong);
         border-radius: 0 8px 8px 0;
 
         .character-name .text {
@@ -79,7 +99,7 @@
         .text {
           padding: 2px 8px 4px;
 
-          background-color: var(--color-secondary-strong);
+          background-color: var(--color-primary-strong);
           border-radius: 12px 12px 0 0;
         }
       }
@@ -87,7 +107,7 @@
       > main {
         padding: 4px;
 
-        background-color: var(--color-secondary-strong);
+        background-color: var(--color-primary-strong);
         border-radius: 0 12px 12px 12px;
 
         img {
@@ -111,17 +131,21 @@
     > div {
       display: flex;
       place-items: center;
-      gap: 8px;
+      gap: 4px;
 
       padding: 4px;
-      background-color: var(--color-secondary);
+      background-color: var(--color-primary);
       border-radius: 8px;
 
       .portrait {
         width: 32px;
 
-        border: 2px solid var(--color-secondary-strong);
+        border: 2px solid var(--color-primary-strong);
         border-radius: 8px;
+      }
+
+      .text {
+        font-size: 12px;
       }
     }
   }
@@ -138,30 +162,8 @@
 
       padding: 12px;
 
-      background-color: var(--color-secondary-strong);
+      background-color: var(--color-primary-strong);
       border-radius: 8px;
-
-      &.stat-bond {
-        background-color: var(--color-primary-strong);
-
-        .stat-value {
-          .stat-bar {
-            background-color: var(--color-primary-weak);
-
-            &:first-child {
-              border-radius: 4px 0 0 4px;
-            }
-
-            &:last-child {
-              border-radius: 0 4px 4px 0;
-            }
-
-            .bar-fill {
-              background-color: var(--color-secondary-weak);
-            }
-          }
-        }
-      }
 
       > header {
         display: flex;
@@ -190,13 +192,13 @@
           height: 8px;
           overflow: hidden;
 
-          background-color: var(--color-secondary-weak);
+          background-color: var(--color-primary-weak);
           border-radius: 4px;
 
           .bar-fill {
             height: 8px;
 
-            background-color: var(--color-primary-strong);
+            background-color: var(--color-secondary-strong);
           }
         }
       }

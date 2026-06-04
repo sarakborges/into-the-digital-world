@@ -4,5 +4,4 @@ export type PartnerDigimonType = {
   baseDigimon: string
   isFavorite?: boolean
   isStarter?: boolean
-  bond: number
 }

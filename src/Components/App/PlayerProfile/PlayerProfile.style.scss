@@ -3,10 +3,21 @@
   flex-flow: column;
   gap: 8px;
 
-  .player-avatar {
-    .avatar-content {
-      background-color: var(--color-secondary-strong);
-      border-radius: 100% 100% 0 100%;
+  .character-header {
+    .player-avatar {
+      .avatar-content {
+        background-color: var(--color-primary-strong);
+        border-color: var(--color-primary-strong);
+        border-radius: 100% 100% 0 100%;
+      }
+    }
+
+    .character-info {
+      .character-name {
+        .text {
+          background-color: var(--color-primary-strong);
+        }
+      }
     }
   }
 
@@ -19,7 +30,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
 
-    background-color: var(--color-secondary-strong);
+    background-color: var(--color-primary-strong);
     border-radius: 0 8px 8px 0;
 
     .character-name .text {

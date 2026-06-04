@@ -28,8 +28,8 @@ export const Logoff001 = () => {
 
     options: [
       {
-        id: 'scene-logoff-001-refuse',
-        text: getDialogs('SCENES_BACK_BUTTON'),
+        id: 'scene-logoff-001-cancel',
+        text: getDialogs('SCENES_CANCEL_BUTTON'),
         action: () => {
           setScene(null)
         }

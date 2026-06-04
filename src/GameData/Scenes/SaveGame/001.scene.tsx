@@ -28,8 +28,8 @@ export const SaveGame001 = () => {
 
     options: [
       {
-        id: 'scene-savegame-001-refuse',
-        text: getDialogs('SCENES_BACK_BUTTON'),
+        id: 'scene-savegame-001-cancel',
+        text: getDialogs('SCENES_CANCEL_BUTTON'),
         action: () => {
           setScene(null)
         }

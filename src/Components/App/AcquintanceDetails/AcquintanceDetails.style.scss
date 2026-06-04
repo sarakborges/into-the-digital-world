@@ -14,6 +14,14 @@
     background-color: var(--color-secondary-weak);
 
     .character-header {
+      .portrait {
+        background-color: var(--color-primary-strong);
+
+        img {
+          border-color: var(--color-primary-strong);
+        }
+      }
+
       .character-info {
         position: relative;
 
@@ -23,13 +31,14 @@
         overflow: hidden;
         text-overflow: ellipsis;
 
-        background-color: var(--color-secondary-strong);
+        background-color: var(--color-primary-strong);
         border-radius: 0 8px 8px 0;
 
         .character-name .text {
           padding: 0;
 
           border-radius: 0;
+          background-color: var(--color-primary-strong);
         }
 
         > .text {
@@ -70,7 +79,7 @@
         .text {
           padding: 2px 8px 4px;
 
-          background-color: var(--color-secondary-strong);
+          background-color: var(--color-primary-strong);
           border-radius: 12px 12px 0 0;
         }
       }
@@ -78,7 +87,7 @@
       > main {
         padding: 4px;
 
-        background-color: var(--color-secondary-strong);
+        background-color: var(--color-primary-strong);
         border-radius: 0 12px 12px 12px;
 
         img {

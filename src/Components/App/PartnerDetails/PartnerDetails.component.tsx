@@ -177,34 +177,6 @@ export const PartnerDetails = () => {
               </Text>
             </div>
           ))}
-
-          <div className="stat stat-bond">
-            <header>
-              <Text>{getTexts(`DIGIMON_STATS_BON_NAME`)}:</Text>
-
-              <Text>{partner.bond} / 100</Text>
-            </header>
-
-            <div className="stat-value">
-              <div className="stat-bar">
-                <div
-                  className="bar-fill"
-                  style={{
-                    width: `${partner.bond - 100 > 0 ? partner.bond - 100 : 0}%`
-                  }}
-                ></div>
-              </div>
-
-              <div className="stat-bar">
-                <div
-                  className="bar-fill"
-                  style={{ width: `${partner.bond}%` }}
-                ></div>
-              </div>
-            </div>
-
-            <Text>{getTexts(`DIGIMON_STATS_BON_DESCRIPTION`)}</Text>
-          </div>
         </section>
       </main>
     </div>

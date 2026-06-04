@@ -25,7 +25,6 @@ export const APP_INVENTORY = {
 export const APP_FASHION = {
   id: 'fashion',
   app: 'fashion',
-  scene: 'avatarCustomization',
   component: <AvatarCustomization />
 }
 

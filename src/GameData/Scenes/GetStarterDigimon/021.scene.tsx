@@ -59,10 +59,7 @@ export const GetStarterDigimon021 = () => {
               1: {
                 id: 1,
                 baseDigimon: 'dorimon',
-                isStarter: true,
-                bond: initialBondValue[
-                  currentProfile?.meaningfulChoices.dorimonMeeting!
-                ]
+                isStarter: true
               }
             }
           }
