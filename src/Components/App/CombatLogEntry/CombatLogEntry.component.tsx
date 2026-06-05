@@ -35,7 +35,7 @@ export const CombatLogEntry = ({ logEntry }) => {
             .replaceAll(
               '[CONDITION]',
               !logEntry.isTargetDefeated
-                ? logEntry.effect?.toLocaleLowerCase()
+                ? logEntry.effect
                 : getTexts('BATTLE_LOG_DIGIMON_DEFEATED')
             )
             .replaceAll(

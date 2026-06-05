@@ -10,6 +10,8 @@ import { useBattleStore } from '@/Stores/Battle.store'
 import { Text } from '@/Components/System/Text'
 
 import { Dialog } from '@/Components/App/Dialog'
+import { SelectAttack } from '@/Components/App/SelectAttack'
+import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
 
 export const BattleTurn = () => {
   const { battle } = useBattleStore((state) => state)
@@ -20,24 +22,38 @@ export const BattleTurn = () => {
     speaker: AllNpcs.appmon.oujamon,
 
     content: (
-      <div className="text-bubble">
-        <Text as="p">
-          {getDialogs(
-            `BATTLE_${currentTurn.party.toLocaleUpperCase()}_TURN_TEXT`
-          ).replaceAll('[NAME]', currentTurn.name)}
-        </Text>
+      <div className="dialog-with-reactions">
+        <div className="text-bubble">
+          <Text as="p">
+            {getDialogs(
+              `BATTLE_${currentTurn.party.toLocaleUpperCase()}_TURN_TEXT`
+            ).replaceAll('[NAME]', currentTurn.name)}
+          </Text>
+        </div>
+
+        <SelectAttack />
       </div>
     ),
 
-    options: [
-      {
-        id: 'scene-battle-battleturn-continue',
-        text: getDialogs('SCENES_CONTINUE_BUTTON'),
-        action: () => {
-          doAttack()
-        }
-      }
-    ]
+    options:
+      currentTurn.party === 'enemies'
+        ? [
+            {
+              id: 'scene-battle-battleturn-continue',
+              text: getDialogs('SCENES_CONTINUE_BUTTON'),
+              action: () => {
+                doAttack(
+                  Object.keys(currentTurn.attacks)[
+                    generateRandomNumber({
+                      min: 0,
+                      max: Object.keys(currentTurn.attacks).length
+                    })
+                  ]
+                )
+              }
+            }
+          ]
+        : undefined
   }
 
   return <Dialog {...dialogOptions} />

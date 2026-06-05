@@ -9,13 +9,13 @@ import { getTexts } from '@/Helpers/getTexts.helper'
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-export const doAttack = () => {
+export const doAttack = (move: string) => {
   const { battle, setBattle } = useBattleStore.getState()
   const { setScene } = useSceneStore.getState()
 
   const [currentDigimon] = battle?.turnOrder!
 
-  const usedMove: AttackType = AllAttacks.tackle
+  const usedMove: AttackType = AllAttacks[move]
 
   const possibleTargets = battle?.turnOrder?.filter(
     (target) => target.party !== currentDigimon.party
@@ -86,7 +86,7 @@ export const doAttack = () => {
         {
           ...baseEntry,
           effect: getTexts(
-            `ATTACK_CONDITION_${usedMove.condition.toLocaleUpperCase()}${(currentDigimon.conditions?.[usedMove.condition] || 0) + severity}`
+            `ATTACK_CONDITION_${usedMove.condition.toLocaleUpperCase()}${(target.conditions?.[usedMove.condition] || 0) + severity}`
           ),
           hasHitLanded: true,
           isTargetDefeated

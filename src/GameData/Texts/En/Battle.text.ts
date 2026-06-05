@@ -13,3 +13,7 @@ export const BATTLE_LOG_DIGIMON_DEFEATED = `defeated`
 export const ATTACK_CONDITION_OFFBALANCE1 = `Off balance`
 export const ATTACK_CONDITION_OFFBALANCE2 = `Shaken`
 export const ATTACK_CONDITION_OFFBALANCE3 = `Hurt`
+
+export const ATTACK_CONDITION_DISTRACTED1 = `Distracted`
+export const ATTACK_CONDITION_DISTRACTED2 = `Confused`
+export const ATTACK_CONDITION_DISTRACTED3 = `Zoned out`
