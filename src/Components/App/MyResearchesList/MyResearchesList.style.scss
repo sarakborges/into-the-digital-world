@@ -3,6 +3,8 @@
   flex-flow: column;
   gap: 12px;
 
+  padding: 8px;
+
   .researches {
     display: flex;
     flex-flow: column;
@@ -15,7 +17,7 @@
     .research-content {
       display: flex;
       flex-flow: column;
-      gap: 8px;
+      gap: 4px;
 
       .research {
         display: flex;
@@ -24,7 +26,7 @@
 
         padding: 4px 4px 4px 8px;
 
-        background-color: var(--color-secondary);
+        background-color: var(--color-primary);
         border-radius: 4px;
 
         .research-avatar {
@@ -49,6 +51,8 @@
         .research-details {
           .button {
             padding: 4px;
+
+            background-color: var(--color-secondary-strong);
 
             svg {
               width: 16px;

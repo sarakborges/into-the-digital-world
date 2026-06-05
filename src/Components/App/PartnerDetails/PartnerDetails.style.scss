@@ -3,6 +3,8 @@
   flex-flow: column;
   gap: 12px;
 
+  padding: 0 8px 8px;
+
   > .text {
     padding: 8px;
 
@@ -20,7 +22,7 @@
 
     padding: 8px 0;
 
-    background-color: var(--color-secondary-weak);
+    background-color: var(--color-primary-weak);
 
     .character-header {
       .portrait {
@@ -50,6 +52,8 @@
 
       > .button {
         padding: 4px;
+
+        background-color: var(--color-secondary-strong);
 
         svg {
           width: 20px;

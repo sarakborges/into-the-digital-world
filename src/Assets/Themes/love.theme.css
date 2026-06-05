@@ -1,11 +1,11 @@
 .theme-love {
-  --color-primary: #c94a47;
-  --color-primary-strong: #b93532;
-  --color-primary-weak: #de7875;
+  --color-primary: #dd466c;
+  --color-primary-strong: #d6214e;
+  --color-primary-weak: #d35978;
 
-  --color-secondary: #e85aad;
-  --color-secondary-strong: #d93d96;
-  --color-secondary-weak: #e79ac8;
+  --color-secondary: #6f3596;
+  --color-secondary-strong: #6916a0;
+  --color-secondary-weak: #8a56ac;
 
-  --modal-color: #c94a4780;
+  --modal-color: #dd466c80;
 }

@@ -1,11 +1,11 @@
 .theme-hope {
-  --color-primary: #e3bf3c;
-  --color-primary-strong: #d4ab16;
+  --color-primary: #d8c06b;
+  --color-primary-strong: #c5a634;
   --color-primary-weak: #d7c27a;
 
-  --color-secondary: #63b8f2;
-  --color-secondary-strong: #3d9fe0;
-  --color-secondary-weak: #8fc8ee;
+  --color-secondary: #63f2da;
+  --color-secondary-strong: #33c5ad;
+  --color-secondary-weak: #7bc5b9;
 
   --modal-color: #e3bf3c80;
 }

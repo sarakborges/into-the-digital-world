@@ -10,6 +10,7 @@ import { CharacterHeader } from '@/Components/App/CharacterHeader'
 
 import './BattleParty.style.scss'
 import { isDigimonDefeated } from '@/Helpers/isDigimonDefeated.helper'
+import { getTexts } from '@/Helpers/getTexts.helper'
 
 export const BattleParty = ({
   party
@@ -41,7 +42,7 @@ export const BattleParty = ({
           }
           data-defeated={
             Object.values(digimon.conditions ?? {}).reduce(
-              (acc, cur) => acc + cur.severity,
+              (acc, cur) => acc + cur,
               0
             ) >= digimon.stats.vit
           }
@@ -50,15 +51,23 @@ export const BattleParty = ({
             <div className="conditions">
               <Text>Conditions:</Text>
 
-              {!!digimon.conditions && (
+              {!isDigimonDefeated(digimon) && !!digimon.conditions && (
                 <Text>
-                  {Object.values(digimon.conditions)
-                    .map((condition) => condition.severity)
+                  {Object.keys(digimon.conditions)
+                    .map((condition) =>
+                      getTexts(
+                        `ATTACK_CONDITION_${condition.toLocaleUpperCase()}${digimon.conditions![condition]}`
+                      )
+                    )
                     .join(', ')}
                 </Text>
               )}
 
-              {!digimon.conditions && <Text>Healthy</Text>}
+              {!isDigimonDefeated(digimon) && !digimon.conditions && (
+                <Text>Healthy</Text>
+              )}
+
+              {!!isDigimonDefeated(digimon) && <Text>Defeated</Text>}
             </div>
           </CharacterHeader>
         </div>

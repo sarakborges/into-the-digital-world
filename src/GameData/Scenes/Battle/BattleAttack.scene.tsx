@@ -65,10 +65,7 @@ export const BattleAttack = () => {
                 const rng = generateRandomNumber({ min: 0, max: 100 })
 
                 if (rng < item.dropChance) {
-                  loot[item.itemId] = {
-                    ...AllItems[item.itemId],
-                    amount: (loot[item.itemId]?.amount || 0) + item.amount
-                  }
+                  loot[item.itemId] = (loot[item.itemId] || 0) + item.amount
                 }
               }
             }

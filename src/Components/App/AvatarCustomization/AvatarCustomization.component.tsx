@@ -13,6 +13,7 @@ import { saveSession } from '@/Helpers/saveSession.helper'
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
 import { useProfileStore } from '@/Stores/Profile.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 
 import { Button } from '@/Components/System/Button'
 import { Text } from '@/Components/System/Text'
@@ -25,6 +26,7 @@ import './AvatarCustomization.style.scss'
 export const AvatarCustomization = () => {
   const { scene, setScene } = useSceneStore((state) => state)
   const { profile, setProfile } = useProfileStore((state) => state)
+  const { digivice, setDigivice } = useDigiviceStore((state) => state)
   const { avatarCustomization, setAvatarCustomization } =
     useAvatarCustomizationStore((state) => state)
 
@@ -88,10 +90,8 @@ export const AvatarCustomization = () => {
       return
     }
 
-    setScene({
-      currentScene: 'avatarCustomization',
-      currentStage: '002'
-    })
+    setScene(null)
+    setDigivice({ ...digivice!, currentApp: undefined })
 
     setAvatarCustomization({ avatar: avatarCustomization.avatar })
     setProfile(updatedProfile)

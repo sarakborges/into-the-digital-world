@@ -1,14 +1,12 @@
 import { useBattleStore } from '@/Stores/Battle.store'
-import { useSceneStore } from '@/Stores/Scene.store'
 
-import { CombatLog } from '@/Components/App/CombatLog'
 import { CombatParties } from '@/Components/App/CombatParties'
+import { TurnOrder } from '@/Components/App/TurnOrder'
 
 import './Battlefield.style.scss'
 
 export const Battlefield = () => {
   const { battle } = useBattleStore((state) => state)
-  const { scene } = useSceneStore((state) => state)
 
   if (!battle) {
     return
@@ -16,9 +14,8 @@ export const Battlefield = () => {
 
   return (
     <div className="battlefield">
+      <TurnOrder />
       <CombatParties />
-
-      {scene?.currentStage !== 'end' && <CombatLog />}
     </div>
   )
 }

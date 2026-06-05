@@ -21,7 +21,7 @@ export const CombatLogEntry = ({ logEntry }) => {
       </div>
 
       <Text as="p">
-        {!!logEntry.isHit &&
+        {!!logEntry.hasHitLanded &&
           getTexts('BATTLE_LOG_TURN')
             .replaceAll(
               '[PARTY]',
@@ -31,6 +31,13 @@ export const CombatLogEntry = ({ logEntry }) => {
             )
             .replaceAll('[NAME]', logEntry.attacker)
             .replaceAll('[TARGET]', logEntry.target)
+            .replaceAll('[MOVENAME]', logEntry.attackName)
+            .replaceAll(
+              '[CONDITION]',
+              !logEntry.isTargetDefeated
+                ? logEntry.effect?.toLocaleLowerCase()
+                : getTexts('BATTLE_LOG_DIGIMON_DEFEATED')
+            )
             .replaceAll(
               '[TARGETPARTY]',
               logEntry.attackerParty === 'allies'
@@ -38,7 +45,7 @@ export const CombatLogEntry = ({ logEntry }) => {
                 : ''
             )}
 
-        {!logEntry.isHit &&
+        {!logEntry.hasHitLanded &&
           getTexts('BATTLE_LOG_MISS')
             .replaceAll('[TURN]', logEntry.index)
             .replaceAll(
@@ -49,6 +56,7 @@ export const CombatLogEntry = ({ logEntry }) => {
             )
             .replaceAll('[NAME]', logEntry.attacker)
             .replaceAll('[TARGET]', logEntry.target)
+            .replaceAll('[MOVENAME]', logEntry.attackName)
             .replaceAll(
               '[TARGETPARTY]',
               logEntry.attackerParty === 'allies'

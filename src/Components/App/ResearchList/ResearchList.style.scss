@@ -22,7 +22,7 @@
 
         padding: 4px;
 
-        background-color: var(--color-secondary);
+        background-color: var(--color-secondary-weak);
         border-radius: 8px;
 
         > header {
@@ -40,38 +40,6 @@
 
               img {
                 border-radius: 100%;
-              }
-            }
-          }
-        }
-
-        .research-items {
-          display: flex;
-          flex-flow: column;
-          gap: 4px;
-
-          .items-list {
-            .item {
-              display: flex;
-              place-items: center;
-              gap: 4px;
-
-              width: 100%;
-
-              > .text {
-                flex: 1;
-
-                padding: 8px;
-
-                background-color: var(--color-secondary-weak);
-                border-radius: 4px;
-              }
-
-              .amount {
-                padding: 8px;
-
-                background-color: var(--color-primary-strong);
-                border-radius: 4px;
               }
             }
           }

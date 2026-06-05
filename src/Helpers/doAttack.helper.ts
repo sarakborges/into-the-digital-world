@@ -1,5 +1,10 @@
+import type { AttackType } from '@/Types/Attack.type'
+
+import { AllAttacks } from '@/GameData/Attacks'
+
 import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
 import { getSuccesses } from '@/Helpers/getSuccesses.helper'
+import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -9,6 +14,8 @@ export const doAttack = () => {
   const { setScene } = useSceneStore.getState()
 
   const [currentDigimon] = battle?.turnOrder!
+
+  const usedMove: AttackType = AllAttacks.tackle
 
   const possibleTargets = battle?.turnOrder?.filter(
     (target) => target.party !== currentDigimon.party
@@ -21,6 +28,13 @@ export const doAttack = () => {
 
   const target = possibleTargets![rngTarget]
 
+  const baseEntry = {
+    attacker: currentDigimon.name,
+    attackerParty: currentDigimon.party,
+    target: target.name,
+    attackName: usedMove.name
+  }
+
   const attack = getSuccesses(currentDigimon.stats.tec)
   const evasion = getSuccesses(target.stats.agi)
 
@@ -30,9 +44,7 @@ export const doAttack = () => {
 
       combatLog: [
         {
-          attacker: currentDigimon.name,
-          attackerParty: currentDigimon.party,
-          target: target.name,
+          ...baseEntry,
           hasHitLanded: false
         },
         ...battle!.combatLog
@@ -46,7 +58,7 @@ export const doAttack = () => {
     const severity = Math.max(power - resistance, 1)
 
     const targetInjuries = Object.values(target.conditions ?? {}).reduce(
-      (acc, cur) => acc + cur.severity,
+      (acc, cur) => acc + cur,
       0
     )
 
@@ -61,9 +73,8 @@ export const doAttack = () => {
             ...digimon,
             conditions: {
               ...(digimon.conditions ?? {}),
-              [Object.keys(digimon.conditions ?? {}).length]: {
-                severity
-              }
+              [usedMove.condition]:
+                (digimon.conditions?.[usedMove.condition] || 0) + severity
             }
           }
         }
@@ -73,11 +84,12 @@ export const doAttack = () => {
 
       combatLog: [
         {
-          attacker: currentDigimon.name,
-          attackerParty: currentDigimon.party,
-          target: target.name,
-          isTargetDefeated,
-          hasHitLanded: true
+          ...baseEntry,
+          effect: getTexts(
+            `ATTACK_CONDITION_${usedMove.condition.toLocaleUpperCase()}${(currentDigimon.conditions?.[usedMove.condition] || 0) + severity}`
+          ),
+          hasHitLanded: true,
+          isTargetDefeated
         },
         ...battle!.combatLog
       ]

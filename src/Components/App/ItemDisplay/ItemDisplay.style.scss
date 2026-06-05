@@ -43,3 +43,25 @@
     }
   }
 }
+
+.digivice {
+  .item-display {
+    > .portrait {
+      border: 2px solid var(--color-primary-strong);
+    }
+
+    .text {
+      > div {
+        &:first-child {
+          background-color: var(--color-primary);
+        }
+      }
+
+      > div {
+        &:last-child {
+          background-color: var(--color-primary-strong);
+        }
+      }
+    }
+  }
+}

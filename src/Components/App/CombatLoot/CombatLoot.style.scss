@@ -2,30 +2,4 @@
   display: flex;
   flex-flow: column;
   gap: 4px;
-
-  .loot-item {
-    display: flex;
-    place-items: center;
-    gap: 4px;
-
-    .text:nth-of-type(1) {
-      padding: 8px;
-      flex: 1;
-
-      background-color: var(--color-secondary);
-      border-radius: 4px;
-    }
-
-    .text:nth-of-type(2) {
-      display: flex;
-      place-items: center;
-      place-content: center;
-
-      height: 32px;
-      aspect-ratio: 1;
-
-      background-color: var(--color-primary-strong);
-      border-radius: 4px;
-    }
-  }
 }

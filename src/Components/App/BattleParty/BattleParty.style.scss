@@ -1,6 +1,6 @@
 .battle-party {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-flow: column;
   gap: 8px;
 
   .party-member {

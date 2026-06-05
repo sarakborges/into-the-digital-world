@@ -1,0 +1,94 @@
+.turn-order {
+  display: flex;
+  place-items: center;
+  gap: 8px;
+
+  overflow: hidden;
+
+  background-color: var(--color-secondary-strong);
+
+  > .text {
+    padding: 0 8px;
+
+    font-size: 12px;
+  }
+
+  .timeline {
+    position: relative;
+
+    display: flex;
+    place-items: center;
+    place-content: space-between;
+    gap: 16px;
+
+    height: 36px;
+    padding: 0 8px;
+    flex: 1;
+
+    background-color: var(--color-primary-strong);
+    box-shadow: 0 0 8px var(--color-neutral-strong);
+
+    .portrait {
+      position: relative;
+      z-index: 2;
+    }
+
+    .other-digimons {
+      display: flex;
+      place-content: center;
+      gap: 8px;
+    }
+
+    .current-digimon {
+      display: flex;
+      place-content: center;
+
+      flex: 1;
+
+      [data-party='enemies'] {
+        .portrait {
+          box-shadow: 0 0 8px 2px var(--color-enemies);
+        }
+      }
+
+      [data-party='allies'] {
+        .portrait {
+          box-shadow: 0 0 8px 2px var(--color-allies);
+        }
+      }
+
+      &:before {
+        content: '';
+
+        position: absolute;
+        top: calc(50% - 1px);
+        left: 0;
+        z-index: 1;
+
+        width: 100%;
+        height: 2px;
+
+        background-color: var(--color-primary-weak);
+      }
+    }
+
+    [data-party='enemies'] {
+      .portrait {
+        border: 2px solid var(--color-enemies);
+      }
+    }
+
+    [data-party='allies'] {
+      .portrait {
+        border: 2px solid var(--color-allies);
+      }
+    }
+
+    .portrait {
+      width: 24px;
+      overflow: hidden;
+
+      border-radius: 8px;
+    }
+  }
+}

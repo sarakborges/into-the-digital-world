@@ -34,9 +34,9 @@ export const CombatParties = () => {
             <BattleParty
               party={{
                 title: parties[party],
-                list: battle.turnOrder.filter(
-                  (digimon) => digimon.party === party
-                )
+                list: battle.turnOrder
+                  .filter((digimon) => digimon.party === party)
+                  .sort((a, b) => (a.index > b.index ? 1 : -1))
               }}
             />
           </main>

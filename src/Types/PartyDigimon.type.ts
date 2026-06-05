@@ -5,8 +5,6 @@ export type PartyDigimonType = BaseDigimonType & {
   index: number
 
   conditions?: {
-    [conditionId: string]: {
-      severity: number
-    }
+    [conditionId: string]: number
   }
 }

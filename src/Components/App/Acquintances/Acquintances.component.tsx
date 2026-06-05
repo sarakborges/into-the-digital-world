@@ -1,8 +1,6 @@
 import { Fragment } from 'react/jsx-runtime'
 import { TbListDetails } from 'react-icons/tb'
 
-import type { NpcType } from '@/Types/Npc.type'
-
 import { AllNpcs } from '@/GameData/Npcs'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'

@@ -1,11 +1,11 @@
 .theme-reliability {
-  --color-primary: #434753;
-  --color-primary-strong: #2a2e38;
-  --color-primary-weak: #5d6477;
+  --color-primary: #435345;
+  --color-primary-strong: #2a382d;
+  --color-primary-weak: #5d775e;
 
-  --color-secondary: #4a7f63;
-  --color-secondary-strong: #2f8c60;
-  --color-secondary-weak: #6d9d84;
+  --color-secondary: #9c4821;
+  --color-secondary-strong: #c9440f;
+  --color-secondary-weak: #c2683e;
 
   --modal-color: #43475380;
 }

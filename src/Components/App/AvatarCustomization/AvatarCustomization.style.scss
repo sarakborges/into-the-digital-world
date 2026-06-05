@@ -2,6 +2,8 @@
   display: flex;
   gap: 8px;
 
+  padding: 8px;
+
   header {
     .player-avatar {
       width: 120px;
@@ -32,6 +34,8 @@
 
     .button {
       padding: 4px 8px;
+
+      background-color: var(--color-secondary-strong);
     }
   }
 

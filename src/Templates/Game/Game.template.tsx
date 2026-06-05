@@ -89,7 +89,7 @@ export const Game = () => {
                   <Text>{profile.name || '???'}</Text>
                 </div>
 
-                <Gamepad />
+                {!scene && <Gamepad />}
               </div>
             </>
           )}

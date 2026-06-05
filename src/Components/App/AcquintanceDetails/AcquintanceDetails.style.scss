@@ -3,6 +3,8 @@
   flex-flow: column;
   gap: 8px;
 
+  padding: 0 8px 8px;
+
   .npc-header {
     position: sticky;
     top: 40px;
@@ -11,7 +13,7 @@
 
     padding: 8px 0;
 
-    background-color: var(--color-secondary-weak);
+    background-color: var(--color-primary-weak);
 
     .character-header {
       .portrait {

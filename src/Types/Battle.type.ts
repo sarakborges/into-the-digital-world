@@ -19,6 +19,7 @@ export type BattleType = {
     attacker: string
     attackerParty: 'allies' | 'enemies'
     target: string
+    attackName: string
     effect?: string
     isTargetDefeated?: boolean
     hasHitLanded: boolean

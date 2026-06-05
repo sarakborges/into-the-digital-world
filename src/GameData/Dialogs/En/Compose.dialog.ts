@@ -11,5 +11,5 @@ export const COMPOSE_002_TITLE = `Select a Digimon to compose:`
 export const COMPOSE_002_DIGIMON_TITLE = `Composing: [DIGIMON]`
 export const COMPOSE_002_REQUIRED_ITEMS = `You are required to have all these items (they will be consumed):`
 export const COMPOSE_002_REQUIRED_ITEMS_AMOUNT = `[AMOUNT] out of [TOTAL]`
-export const COMPOSE_002_OPTIONAL_ITEMS = `Fill the composition bar with these optional materials (they will be consumed):`
+export const COMPOSE_002_OPTIONAL_ITEMS = `Fill the composition bar with these materials (they will be consumed):`
 export const COMPOSE_002_OPTIONAL_ITEMS_AMOUNT = `[AMOUNT] available (+[WEIGHT]% each)`

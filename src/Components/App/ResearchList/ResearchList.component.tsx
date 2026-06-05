@@ -1,6 +1,7 @@
 import { GiTwoCoins } from 'react-icons/gi'
 
 import { saveSession } from '@/Helpers/saveSession.helper'
+import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 import { AllResearches } from '@/GameData/Researches'
 import { AllDigimons } from '@/GameData/Digimons'
@@ -15,7 +16,7 @@ import { Portrait } from '@/Components/System/Portrait'
 import { ItemCore } from '@/Components/App/ItemCore'
 
 import './ResearchList.style.scss'
-import { getDialogs } from '@/Helpers/getDialogs.helper'
+import { ItemsList } from '../ItemsList'
 
 export const ResearchList = () => {
   const { profile, setProfile } = useProfileStore((state) => state)
@@ -71,27 +72,7 @@ export const ResearchList = () => {
                   </Button>
                 </header>
 
-                <main className="research-items">
-                  <div className="items-list">
-                    {Object.keys(AllResearches[research].cost).map((item) => (
-                      <div
-                        key={`research-${research}-item-${item}`}
-                        className="item"
-                      >
-                        <ItemCore item={item} />
-
-                        <Text>{AllItems[item].name}</Text>
-
-                        <main className="amount">
-                          <Text>
-                            {profile!.items[item] || 0} /{' '}
-                            {AllResearches[research].cost[item]}
-                          </Text>
-                        </main>
-                      </div>
-                    ))}
-                  </div>
-                </main>
+                <ItemsList list={AllResearches[research].cost} />
               </div>
             ))}
           </div>

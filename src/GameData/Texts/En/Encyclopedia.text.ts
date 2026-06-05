@@ -14,4 +14,4 @@ export const ENCYCLOPEDIA_HEADER_ENCYCLOPEDIA = `Digimon Encyclopedia`
 export const MY_RESEARCHES_TITLE = `Researches done:`
 export const MY_RESEARCHES_EMPTY = `Currently, you haven't researched no Digimon data. Talk to Nanomon in Root Domain to do so.`
 export const MY_RESEARCHES_DETAILS_REQUIRED = `Required materials:`
-export const MY_RESEARCHES_DETAILS_OPTIONAL = `Optional materials:`
+export const MY_RESEARCHES_DETAILS_OPTIONAL = `Other materials:`

@@ -3,6 +3,8 @@
   flex-flow: column;
   gap: 12px;
 
+  padding: 8px;
+
   .acquintances-category {
     display: flex;
     flex-flow: column;
@@ -23,9 +25,9 @@
         place-items: center;
         gap: 8px;
 
-        padding: 4px 8px;
+        padding: 4px 4px 4px 8px;
 
-        background-color: var(--color-secondary);
+        background-color: var(--color-primary);
         border-radius: 4px;
 
         .portrait {
@@ -43,6 +45,8 @@
           place-content: flex-start;
 
           padding: 4px;
+
+          background-color: var(--color-secondary-strong);
 
           svg {
             width: 20px;
