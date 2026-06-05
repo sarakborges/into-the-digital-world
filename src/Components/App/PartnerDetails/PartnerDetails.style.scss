@@ -149,55 +149,51 @@
   }
 
   .partner-stats {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4px;
+    > main {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 4px;
 
-    .stat {
+      .stat {
+        display: flex;
+        flex-flow: column;
+        place-items: center;
+        place-content: center;
+
+        background-color: var(--color-primary);
+        border-radius: 8px;
+
+        padding: 8px 0;
+
+        .text {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  .partner-attacks {
+    > main {
       display: flex;
       flex-flow: column;
       gap: 4px;
 
-      padding: 12px;
-
-      background-color: var(--color-primary-strong);
-      border-radius: 8px;
-
-      > header {
+      .attack {
         display: flex;
+        flex-flow: column;
         gap: 4px;
-      }
 
-      .text {
-        font-size: 12px;
-      }
+        background-color: var(--color-primary);
+        border-radius: 8px;
 
-      > .text {
-        padding-top: 4px;
-      }
+        padding: 8px;
 
-      .stat-value {
-        display: flex;
-        place-items: center;
-        gap: 8px;
+        .text {
+          font-size: 12px;
+        }
 
-        gap: 0;
-
-        .stat-bar {
-          position: relative;
-
-          flex: 1;
-          height: 8px;
-          overflow: hidden;
-
-          background-color: var(--color-primary-weak);
-          border-radius: 4px;
-
-          .bar-fill {
-            height: 8px;
-
-            background-color: var(--color-secondary-strong);
-          }
+        .text:first-child {
+          font-weight: 500;
         }
       }
     }

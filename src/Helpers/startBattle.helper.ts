@@ -1,23 +1,23 @@
-import type { ProfileType } from '@/Types/Profile.type'
-import type { TileType } from '@/Types/Tile.type'
-
-import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
+import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
 import { AllDigimons } from '@/GameData/Digimons'
+import { AllZones } from '@/GameData/Zones'
 
-export const startBattle = ({
-  profile,
-  tile
-}: {
-  profile: ProfileType
-  tile: TileType
-}) => {
-  if (!tile || !profile.party.length) {
-    return
-  }
+import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
+import { getSuccesses } from '@/Helpers/getSuccesses.helper'
+
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
+import { useBattleStore } from '@/Stores/Battle.store'
+
+const spawnEnemies = () => {
+  const { profile } = useProfileStore.getState()
+
+  const { id, map, x, y } = profile!.currentZone
+  const tile = AllZones[id][map].grid[y][x]
 
   const { possibleSpawns, maxEnemies } = tile
-  const enemiesSpawned: Array<string> = []
+  const enemiesSpawned: Array<PartyDigimonType> = []
 
   if (!possibleSpawns || !Object.keys(possibleSpawns!).length) {
     return
@@ -47,9 +47,30 @@ export const startBattle = ({
       const rng = generateRandomNumber({ min: 0, max: 100 })
 
       if (rng < possibleSpawns[spawn].spawnChance) {
-        enemiesSpawned.push(spawn)
+        enemiesSpawned.push(AllDigimons[spawn])
       }
     }
+  }
+
+  return enemiesSpawned
+}
+
+export const startBattle = () => {
+  const { profile } = useProfileStore.getState()
+  const { setScene } = useSceneStore.getState()
+  const { setBattle } = useBattleStore.getState()
+
+  const { id, map, x, y } = profile!.currentZone
+  const tile = AllZones[id][map].grid[y][x]
+
+  if (!tile || !profile?.party.length) {
+    return
+  }
+
+  const spawnedEnemies = spawnEnemies()
+
+  if (!spawnedEnemies) {
+    return
   }
 
   const allies = profile.party.map((digimon, digimonIndex) => ({
@@ -59,46 +80,41 @@ export const startBattle = ({
       profile.partnerDigimons[digimon].name ||
       AllDigimons[profile.partnerDigimons[digimon].baseDigimon].name,
 
-    hp: AllDigimons[profile.partnerDigimons[digimon].baseDigimon].stats.vit,
-    sp: AllDigimons[profile.partnerDigimons[digimon].baseDigimon].stats.sta,
-
-    party: 'allies',
+    party: 'allies' as 'allies' | 'enemies',
     index: digimonIndex
   }))
 
-  const enemies = enemiesSpawned.map((digimon, digimonIndex) => ({
-    ...AllDigimons[digimon],
-    hp: AllDigimons[digimon].stats.vit,
-    sp: AllDigimons[digimon].stats.sta,
-    party: 'enemies',
+  const enemies = spawnedEnemies.map((digimon, digimonIndex) => ({
+    ...digimon,
+
+    party: 'enemies' as 'allies' | 'enemies',
     index: digimonIndex,
-    lootTable: [...(tile.possibleSpawns![digimon].lootTable ?? [])]
+    lootTable: [...(tile.possibleSpawns![digimon.id].lootTable ?? [])]
   }))
 
-  const battle = {
-    allies,
-    enemies,
+  setScene({
+    currentScene: 'battle',
+    currentStage: 'start'
+  })
+
+  setBattle({
     combatLog: [],
-    turnOrder: [
-      ...allies.map((digimon, digimonIndex) => ({
-        party: 'allies' as 'allies' | 'enemies',
-        index: digimonIndex,
-        digimon
-      })),
-
-      ...enemies.map((digimon, digimonIndex) => ({
-        party: 'enemies' as 'allies' | 'enemies',
-        index: digimonIndex,
-        digimon
+    turnOrder: [...allies, ...enemies]
+      .map((digimon) => ({
+        ...digimon,
+        initiative: getSuccesses(digimon.stats.agi)
       }))
-    ].sort((a, b) =>
-      a.digimon.stats.spe !== b.digimon.stats.spe
-        ? a.digimon.stats.spe > b.digimon.stats.spe
-          ? 1
-          : -1
-        : Math.random()
-    )
-  }
+      .sort((a, b) =>
+        a.initiative !== b.initiative
+          ? a.initiative > b.initiative
+            ? 1
+            : -1
+          : generateRandomNumber({ min: -1, max: 1 })
+      ),
 
-  return battle
+    mapPosition: {
+      x,
+      y
+    }
+  })
 }

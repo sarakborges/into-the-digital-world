@@ -3,7 +3,6 @@ import type { ZoneType } from '@/Types/Zone.type'
 import { fillGrid } from '@/Helpers/fillGrid'
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 
-import { AllScenes } from '@/GameData/Scenes'
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllQuests } from '@/GameData/Quests'
 

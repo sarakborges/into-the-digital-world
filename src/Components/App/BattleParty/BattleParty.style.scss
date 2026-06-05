@@ -38,57 +38,15 @@
   }
 
   .character-header {
-    .portrait {
-      max-width: 24px;
-      min-width: 24px;
-
-      border-radius: 100% 0 0 100%;
-    }
-
-    .resources {
+    .conditions {
       display: flex;
       flex-flow: column;
-      gap: 6px;
+      gap: 2px;
 
-      margin-left: -22px;
+      padding-left: 4px;
 
-      .resource-bar {
-        position: relative;
-
-        display: flex;
-        place-items: center;
-
-        > .text {
-          position: absolute;
-          top: -6px;
-
-          width: 100%;
-          padding: 0 4px;
-
-          font-size: 12px;
-          text-shadow: 0 0 4px var(--color-neutral-strong);
-        }
-
-        &:after {
-          content: '';
-
-          width: var(--fill);
-          height: 8px;
-
-          border-radius: 4px;
-        }
-
-        &:nth-child(1) {
-          &:after {
-            background-color: var(--color-hp);
-          }
-        }
-
-        &:nth-child(2) {
-          &:after {
-            background-color: var(--color-sp);
-          }
-        }
+      .text {
+        font-size: 12px;
       }
     }
   }

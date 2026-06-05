@@ -8,6 +8,7 @@ import { DIGIMON_FAMILIES } from '@/Consts/Families.const'
 import { DIGIMON_ATTRIBUTES } from '@/Consts/Attributes.const'
 
 import { AllDigimons } from '@/GameData/Digimons'
+import { AllAttacks } from '@/GameData/Attacks'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -135,7 +136,7 @@ export const PartnerDetails = () => {
           </header>
 
           <main className="partner-families">
-            {baseDigimon.families.map((family) => (
+            {Object.keys(baseDigimon.families).map((family) => (
               <div key={`digimon-${partner.id}-families-${family}`}>
                 <Portrait
                   alt={DIGIMON_FAMILIES[family].name}
@@ -149,34 +150,42 @@ export const PartnerDetails = () => {
         </section>
 
         <section className="partner-stats">
-          {DIGIMON_STATS.map((stat) => (
-            <div className="stat" key={`digimon-${partner.id}-stats-${stat}`}>
-              <header>
+          <header>
+            <Text>{getTexts('ENCYCLOPEDIA_STATS')}</Text>
+          </header>
+
+          <main>
+            {DIGIMON_STATS.map((stat) => (
+              <div className="stat" key={`digimon-${partner.id}-stats-${stat}`}>
+                <Text>{stat.toLocaleUpperCase()}</Text>
+                <Text>{baseDigimon.stats[stat]}</Text>
+              </div>
+            ))}
+          </main>
+        </section>
+
+        <section className="partner-attacks">
+          <header>
+            <Text>{getTexts('ENCYCLOPEDIA_ATTACKS')}</Text>
+          </header>
+
+          <main>
+            {Object.keys(baseDigimon.attacks).map((attack) => (
+              <div
+                className="attack"
+                key={`digimon-${partner.id}-attacks-${attack}`}
+              >
                 <Text>
-                  {getTexts(`DIGIMON_STATS_${stat.toLocaleUpperCase()}_NAME`)}:
+                  <>{AllAttacks[attack].name}</>
+                  <> - Cooldown: </>
+                  <>{AllAttacks[attack].cooldown || 0}</>
+                  <> turns</>
                 </Text>
 
-                <Text>{baseDigimon.stats[stat]} / 200</Text>
-              </header>
-
-              <div className="stat-value">
-                <div className="stat-bar">
-                  <div
-                    className="bar-fill"
-                    style={{
-                      width: `${(baseDigimon.stats[stat] / 200) * 100}%`
-                    }}
-                  ></div>
-                </div>
+                <Text as="p">{AllAttacks[attack].description}</Text>
               </div>
-
-              <Text>
-                {getTexts(
-                  `DIGIMON_STATS_${stat.toLocaleUpperCase()}_DESCRIPTION`
-                )}
-              </Text>
-            </div>
-          ))}
+            ))}
+          </main>
         </section>
       </main>
     </div>

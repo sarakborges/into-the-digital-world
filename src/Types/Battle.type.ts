@@ -2,9 +2,11 @@ import type { ItemType } from '@/Types/Item.type'
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
 export type BattleType = {
-  allies: Array<PartyDigimonType>
-  enemies: Array<
+  turnOrder: Array<
     PartyDigimonType & {
+      party: 'allies' | 'enemies'
+      index: number
+
       lootTable?: Array<{
         itemId: string
         dropChance: number
@@ -12,22 +14,14 @@ export type BattleType = {
       }>
     }
   >
-  result?: 'victory' | 'defeat'
-
-  turnOrder: Array<{
-    party: 'allies' | 'enemies'
-    index: number
-    digimon: PartyDigimonType
-  }>
 
   combatLog: Array<{
     attacker: string
+    attackerParty: 'allies' | 'enemies'
     target: string
-    damage: number
-    party: 'allies' | 'enemies'
-    isDefeated: boolean
-    isCrit: boolean
-    isHit: boolean
+    effect?: string
+    isTargetDefeated?: boolean
+    hasHitLanded: boolean
   }>
 
   mapPosition: {

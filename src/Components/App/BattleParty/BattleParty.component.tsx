@@ -9,6 +9,7 @@ import { Text } from '@/Components/System/Text'
 import { CharacterHeader } from '@/Components/App/CharacterHeader'
 
 import './BattleParty.style.scss'
+import { isDigimonDefeated } from '@/Helpers/isDigimonDefeated.helper'
 
 export const BattleParty = ({
   party
@@ -20,10 +21,12 @@ export const BattleParty = ({
 }) => {
   const { battle } = useBattleStore((state) => state)
 
-  const resources = {
-    hp: 'vit',
-    sp: 'sta'
-  }
+  const notDefeatedDigimons = battle?.turnOrder.filter(
+    (digimon) => !isDigimonDefeated(digimon)
+  )
+  const battleOver =
+    notDefeatedDigimons?.every((digimon) => digimon.party === 'allies') ||
+    notDefeatedDigimons?.every((digimon) => digimon.party === 'enemies')
 
   return (
     <div className="battle-party">
@@ -32,39 +35,30 @@ export const BattleParty = ({
           key={`battle-party-${party.title}-digimon-${digimonIndex}`}
           className="party-member"
           data-currentturn={
+            !battleOver &&
             battle?.turnOrder[0].party === digimon.party &&
             battle?.turnOrder[0].index === digimonIndex
           }
-          data-defeated={digimon.hp === 0}
+          data-defeated={
+            Object.values(digimon.conditions ?? {}).reduce(
+              (acc, cur) => acc + cur.severity,
+              0
+            ) >= digimon.stats.vit
+          }
         >
           <CharacterHeader character={digimon}>
-            <div className="resources">
-              {Object.keys(resources).map((resource) => (
-                <div
-                  className="resource-bar"
-                  key={`battle-party-${party.title}-digimon-${digimonIndex}-resources-${resource}`}
-                  style={
-                    {
-                      '--fill': `${getPercentage({
-                        current: digimon[resource],
-                        max: digimon.stats[resources[resource]]
-                      })}%`
-                    } as React.CSSProperties
-                  }
-                >
-                  <Text>
-                    <>{resource.toLocaleUpperCase()}: </>
+            <div className="conditions">
+              <Text>Conditions:</Text>
 
-                    <>
-                      {getPercentage({
-                        current: digimon[resource],
-                        max: digimon.stats[resources[resource]]
-                      })}
-                      %
-                    </>
-                  </Text>
-                </div>
-              ))}
+              {!!digimon.conditions && (
+                <Text>
+                  {Object.values(digimon.conditions)
+                    .map((condition) => condition.severity)
+                    .join(', ')}
+                </Text>
+              )}
+
+              {!digimon.conditions && <Text>Healthy</Text>}
             </div>
           </CharacterHeader>
         </div>

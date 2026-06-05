@@ -4,15 +4,13 @@ import type { GridType } from '@/Types/Grid.type'
 import { floorTile } from '@/GameData/Zones/floor.tile'
 
 import { RootDomainKoromon } from './Enemies/Koromon.enemy'
-import { RootDomainDorimon } from './Enemies/Dorimon.enemy'
 
 const currentFloorTile: TileType = {
   ...floorTile,
   maxEnemies: 1,
 
   possibleSpawns: {
-    ...RootDomainKoromon,
-    ...RootDomainDorimon
+    ...RootDomainKoromon
   }
 }
 

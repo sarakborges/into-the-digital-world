@@ -23,8 +23,8 @@ import './Gamepad.style.scss'
 
 export const Gamepad = () => {
   const { profile, setProfile } = useProfileStore((state) => state)
-  const { scene, setScene } = useSceneStore((state) => state)
-  const { battle, setBattle } = useBattleStore((state) => state)
+  const { scene } = useSceneStore((state) => state)
+  const { battle } = useBattleStore((state) => state)
   const { game } = useGameStore((state) => state)
 
   if (!profile || !!battle) {
@@ -50,25 +50,10 @@ export const Gamepad = () => {
 
     setProfile(updatedProfile)
 
-    const battleStarted = startBattle({
-      tile: currentZone.grid[updatedY][updatedX]!,
-      profile
-    })
+    startBattle()
+    const { battle } = useBattleStore.getState()
 
-    if (!!battleStarted) {
-      setScene({
-        currentScene: 'battle',
-        currentStage: 'start'
-      })
-
-      setBattle({
-        ...battleStarted,
-        mapPosition: {
-          x: updatedX,
-          y: updatedY
-        }
-      })
-
+    if (!!battle) {
       return
     }
 

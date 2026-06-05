@@ -2,7 +2,6 @@ import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { CombatLog } from '@/Components/App/CombatLog'
-import { CombatLoot } from '@/Components/App/CombatLoot'
 import { CombatParties } from '@/Components/App/CombatParties'
 
 import './Battlefield.style.scss'
@@ -20,7 +19,6 @@ export const Battlefield = () => {
       <CombatParties />
 
       {scene?.currentStage !== 'end' && <CombatLog />}
-      {scene?.currentStage === 'end' && <CombatLoot />}
     </div>
   )
 }

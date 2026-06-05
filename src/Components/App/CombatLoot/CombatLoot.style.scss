@@ -1,47 +1,31 @@
 .combat-loot {
   display: flex;
   flex-flow: column;
-  gap: 8px;
+  gap: 4px;
 
-  max-height: calc(100cqh - 508px);
-  padding: 8px;
-  overflow: auto;
-
-  background-color: var(--color-secondary-strong);
-
-  > .text {
-    font-size: 20px;
-  }
-
-  .loot-list {
+  .loot-item {
     display: flex;
-    flex-flow: column;
+    place-items: center;
     gap: 4px;
 
-    .loot-item {
+    .text:nth-of-type(1) {
+      padding: 8px;
+      flex: 1;
+
+      background-color: var(--color-secondary);
+      border-radius: 4px;
+    }
+
+    .text:nth-of-type(2) {
       display: flex;
       place-items: center;
-      gap: 4px;
+      place-content: center;
 
-      .text:nth-of-type(1) {
-        padding: 8px;
-        flex: 1;
+      height: 32px;
+      aspect-ratio: 1;
 
-        background-color: var(--color-secondary);
-        border-radius: 4px;
-      }
-
-      .text:nth-of-type(2) {
-        display: flex;
-        place-items: center;
-        place-content: center;
-
-        height: 32px;
-        aspect-ratio: 1;
-
-        background-color: var(--color-primary-strong);
-        border-radius: 4px;
-      }
+      background-color: var(--color-primary-strong);
+      border-radius: 4px;
     }
   }
 }

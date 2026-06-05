@@ -6,15 +6,20 @@ export type BaseDigimonType = {
   portrait: string
 
   attribute: 'va' | 'vi' | 'da' | 'na'
-  families: Array<string>
+
+  families: {
+    [familyId: string]: null
+  }
+
+  attacks: {
+    [attackId: string]: null
+  }
 
   stats: {
     vit: number
-    sta: number
     pow: number
     res: number
     tec: number
     agi: number
-    ini: number
   }
 }

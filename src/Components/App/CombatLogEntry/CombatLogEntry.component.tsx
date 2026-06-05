@@ -25,7 +25,7 @@ export const CombatLogEntry = ({ logEntry }) => {
           getTexts('BATTLE_LOG_TURN')
             .replaceAll(
               '[PARTY]',
-              logEntry.party === 'enemies'
+              logEntry.attackerParty === 'enemies'
                 ? getTexts('BATTLE_ATTACK_ENEMIES')
                 : ''
             )
@@ -33,14 +33,9 @@ export const CombatLogEntry = ({ logEntry }) => {
             .replaceAll('[TARGET]', logEntry.target)
             .replaceAll(
               '[TARGETPARTY]',
-              logEntry.party === 'allies'
+              logEntry.attackerParty === 'allies'
                 ? getTexts('BATTLE_TARGET_ENEMIES')
                 : ''
-            )
-            .replaceAll('[DAMAGE]', logEntry.damage)
-            .replaceAll(
-              '[CRITICAL]',
-              logEntry.isCrit ? getTexts('BATTLE_LOG_CRITICAL') : ''
             )}
 
         {!logEntry.isHit &&
@@ -48,7 +43,7 @@ export const CombatLogEntry = ({ logEntry }) => {
             .replaceAll('[TURN]', logEntry.index)
             .replaceAll(
               '[PARTY]',
-              logEntry.party === 'enemies'
+              logEntry.attackerParty === 'enemies'
                 ? getTexts('BATTLE_ATTACK_ENEMIES')
                 : ''
             )
@@ -56,13 +51,13 @@ export const CombatLogEntry = ({ logEntry }) => {
             .replaceAll('[TARGET]', logEntry.target)
             .replaceAll(
               '[TARGETPARTY]',
-              logEntry.party === 'allies'
+              logEntry.attackerParty === 'allies'
                 ? getTexts('BATTLE_TARGET_ENEMIES')
                 : ''
             )}
       </Text>
 
-      {!!logEntry.isDefeated && (
+      {!!logEntry.isTargetDefeated && (
         <div className="target-defeated">
           <Text as="p">
             {getTexts('BATTLE_LOG_DEFEATED').replaceAll(

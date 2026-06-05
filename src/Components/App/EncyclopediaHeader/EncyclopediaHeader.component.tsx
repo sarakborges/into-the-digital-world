@@ -21,6 +21,7 @@ export const EncyclopediaHeader = () => {
         <Button
           disabled={headerApp === digivice?.currentApp}
           onClick={() => updateApp(headerApp)}
+          key={`encyclopedia-header-${headerApp}`}
         >
           {getTexts(`ENCYCLOPEDIA_HEADER_${headerApp.toLocaleUpperCase()}`)}
         </Button>

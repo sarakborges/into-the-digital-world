@@ -17,17 +17,13 @@ export const CombatLoot = () => {
 
   return (
     <div className="combat-loot">
-      <Text>Loot:</Text>
-
-      <div className="loot-list">
-        {Object.keys(battle.loot!).map((item) => (
-          <div className="loot-item" key={`combat-loot-item-${item}`}>
-            {AllItems[item].category === 'core' && <ItemCore item={item} />}
-            <Text>{AllItems[item].name}</Text>
-            <Text>{battle.loot![item].amount}</Text>
-          </div>
-        ))}
-      </div>
+      {Object.keys(battle.loot!).map((item) => (
+        <div className="loot-item" key={`combat-loot-item-${item}`}>
+          {AllItems[item].category === 'core' && <ItemCore item={item} />}
+          <Text>{AllItems[item].name}</Text>
+          <Text>{battle.loot![item].amount}</Text>
+        </div>
+      ))}
     </div>
   )
 }
