@@ -51,7 +51,7 @@ export const BattleEnd = () => {
             if (!!battle?.loot) {
               for (let item of Object.keys(battle?.loot)) {
                 profile!.items[item] =
-                  (profile!.items[item] || 0) + battle?.loot[item].amount
+                  (profile!.items[item] || 0) + battle?.loot[item]
               }
             }
 

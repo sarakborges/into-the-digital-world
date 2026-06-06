@@ -31,6 +31,6 @@ export type BattleType = {
   }
 
   loot?: {
-    [itemId: string]: ItemType & { amount: number }
+    [itemId: string]: number
   }
 }
