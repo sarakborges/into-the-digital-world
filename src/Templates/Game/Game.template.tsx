@@ -5,6 +5,7 @@ import { AllZones } from '@/GameData/Zones'
 
 import { getTexts } from '@/Helpers/getTexts.helper'
 import { loadData } from '@/Helpers/loadData.helper'
+import { loadSession } from '@/Helpers/loadSession.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSettingsStore } from '@/Stores/Settings.store'
@@ -28,7 +29,7 @@ import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 import './Game.style.scss'
 
 export const Game = () => {
-  const { profile } = useProfileStore((state) => state)
+  const { profile, setProfile } = useProfileStore((state) => state)
   const { settings } = useSettingsStore((state) => state)
   const { battle } = useBattleStore((state) => state)
   const { scene } = useSceneStore((state) => state)
@@ -51,6 +52,10 @@ export const Game = () => {
   useEffect(() => {
     loadProfiles()
   }, [settings, scene, profile, battle, digivice, game])
+
+  useEffect(() => {
+    setProfile(loadSession({ key: 'profile' }))
+  }, [])
 
   return (
     <div className={`game-body theme-${settings?.theme}`}>
