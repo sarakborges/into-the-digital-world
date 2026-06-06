@@ -30,7 +30,7 @@ import './Game.style.scss'
 
 export const Game = () => {
   const { profile, setProfile } = useProfileStore((state) => state)
-  const { settings } = useSettingsStore((state) => state)
+  const { settings, setSettings } = useSettingsStore((state) => state)
   const { battle } = useBattleStore((state) => state)
   const { scene } = useSceneStore((state) => state)
   const { digivice } = useDigiviceStore((state) => state)
@@ -55,10 +55,11 @@ export const Game = () => {
 
   useEffect(() => {
     setProfile(loadSession({ key: 'profile' }))
+    setSettings({ ...loadData({ key: 'settings' }), isOpen: false })
   }, [])
 
   return (
-    <div className={`game-body theme-${settings?.theme}`}>
+    <div className={`game-body theme-${settings?.theme || 'default'}`}>
       <div className="main-game">
         <header>
           <div className="player-actions">

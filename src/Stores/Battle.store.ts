@@ -9,7 +9,6 @@ type BattleStore = {
 
 export const useBattleStore = create<BattleStore>((set) => ({
   battle: null,
-
   setBattle: (battle) => {
     set({ battle })
   }

@@ -9,7 +9,6 @@ type CompositionStore = {
 
 export const useCompositionStore = create<CompositionStore>((set) => ({
   composition: null,
-
   setComposition: (composition) => {
     set({ composition })
   }

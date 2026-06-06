@@ -17,12 +17,12 @@ export const Settings = () => {
   const { settings, setSettings } = useSettingsStore((state) => state)
 
   const toggleModal = () => {
-    setSettings({ ...settings!, isOpen: !settings!.isOpen })
+    setSettings({ ...settings!, isOpen: !settings?.isOpen })
   }
 
   return (
     <div className="settings">
-      {!!settings!.isOpen && (
+      {!!settings?.isOpen && (
         <Modal>
           <header className="settings-header">
             <Text>{getTexts('SETTINGS_TITLE')}</Text>

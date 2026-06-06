@@ -9,7 +9,6 @@ type GameStore = {
 
 export const useGameStore = create<GameStore>((set) => ({
   game: null,
-
   setGame: (game) => {
     set({ game })
   }

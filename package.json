@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build --outDir build",
     "lint": "eslint .",
-    "preview": "vite preview",
+    "preview": "vite preview --outDir build",
     "prettier": "npx prettier --write ."
   },
   "dependencies": {

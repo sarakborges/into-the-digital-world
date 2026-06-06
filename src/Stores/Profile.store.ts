@@ -9,7 +9,6 @@ type ProfileStore = {
 
 export const useProfileStore = create<ProfileStore>((set) => ({
   profile: null,
-
   setProfile: (profile) => {
     set({ profile })
   }
