@@ -44,9 +44,7 @@ export const Game = () => {
     }
 
     setSavedProfiles(
-      savedProfiles
-        ?.filter((profile) => !!profile)
-        ?.map((profile) => loadData({ key: `profile${profile}` }))
+      savedProfiles?.map((profile) => loadData({ key: `profile${profile}` }))
     )
   }
 

@@ -1,7 +1,5 @@
 import { create } from 'zustand'
 
-import { loadData } from '@/Helpers/loadData.helper'
-
 import type { ProfileType } from '@/Types/Profile.type'
 
 type SavedProfilesStore = {
