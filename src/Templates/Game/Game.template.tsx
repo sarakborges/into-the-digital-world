@@ -36,21 +36,21 @@ export const Game = () => {
   const { game } = useGameStore((state) => state)
   const { setSavedProfiles } = useSavedProfilesStore((state) => state)
 
-  const loadProfiles = () => {
-    const savedProfiles = loadData({ key: `profiles` })
+  // const loadProfiles = () => {
+  //   const savedProfiles = loadData({ key: `profiles` })
 
-    if (!savedProfiles) {
-      return
-    }
+  //   if (!savedProfiles) {
+  //     return
+  //   }
 
-    setSavedProfiles(
-      savedProfiles?.map((profile) => loadData({ key: `profile${profile}` }))
-    )
-  }
+  //   setSavedProfiles(
+  //     savedProfiles?.map((profile) => loadData({ key: `profile${profile}` }))
+  //   )
+  // }
 
-  useEffect(() => {
-    loadProfiles()
-  }, [settings, scene, profile, battle, digivice, game])
+  // useEffect(() => {
+  //   loadProfiles()
+  // }, [settings, scene, profile, battle, digivice, game])
 
   return (
     <div className={`game-body theme-${settings?.theme}`}>
