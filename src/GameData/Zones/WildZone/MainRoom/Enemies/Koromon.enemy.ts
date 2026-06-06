@@ -1,7 +1,7 @@
 import { AllDigimons } from '@/GameData/Digimons'
 import { AllItems } from '@/GameData/Items'
 
-export const RootDomainKoromon = {
+export const WildZoneKoromon = {
   [AllDigimons.koromon.id]: {
     spawnChance: 10,
 

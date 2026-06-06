@@ -55,7 +55,7 @@ export const doAttack = (move: string) => {
   if (attack >= evasion) {
     const power = getSuccesses(currentDigimon.stats.pow)
     const resistance = getSuccesses(target.stats.res)
-    const severity = Math.max(power - resistance, 1)
+    const severity = Math.min(Math.max(power - resistance, 1), 3)
 
     const targetInjuries = Object.values(target.conditions ?? {}).reduce(
       (acc, cur) => acc + cur,

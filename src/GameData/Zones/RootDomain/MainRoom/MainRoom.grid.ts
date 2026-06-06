@@ -3,15 +3,8 @@ import type { GridType } from '@/Types/Grid.type'
 
 import { floorTile } from '@/GameData/Zones/floor.tile'
 
-import { RootDomainKoromon } from './Enemies/Koromon.enemy'
-
 const currentFloorTile: TileType = {
-  ...floorTile,
-  maxEnemies: 1,
-
-  possibleSpawns: {
-    ...RootDomainKoromon
-  }
+  ...floorTile
 }
 
 const fullFloorRow = {

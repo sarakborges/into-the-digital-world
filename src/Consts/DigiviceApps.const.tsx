@@ -4,6 +4,7 @@ import { PartnersList } from '@/Components/App/PartnersList'
 import { PlayerProfile } from '@/Components/App/PlayerProfile'
 import { Inventory } from '@/Components/App/Inventory'
 import { MyResearchesList } from '@/Components/App/MyResearchesList'
+import { Location } from '@/Components/App/Location'
 
 export const APP_PROFILE = {
   id: 'profile',
@@ -57,7 +58,8 @@ export const APP_ACQUINTANCES = {
 
 export const APP_LOCATION = {
   id: 'location',
-  scene: 'changeZone'
+  app: 'location',
+  component: <Location />
 }
 
 export const APP_JOURNAL = {
@@ -84,6 +86,7 @@ export const DigiviceApps = {
   inventory: APP_INVENTORY,
   acquintances: APP_ACQUINTANCES,
   partnersList: APP_PARTNERSLIST,
+  location: APP_LOCATION,
   save: APP_SAVE,
   logoff: APP_LOGOFF
 }
