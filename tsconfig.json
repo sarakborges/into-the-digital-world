@@ -15,10 +15,10 @@
     "skipLibCheck": true,
     "strict": true,
 
-    "baseUrl": "./src",
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["./src/*"]
     },
+
     "noImplicitAny": false
   },
   "include": ["src"]
