@@ -54,10 +54,9 @@ export const BattleParty = ({
               {!isDigimonDefeated(digimon) && !!digimon.conditions && (
                 <Text>
                   {Object.keys(digimon.conditions)
-                    .map((condition) =>
-                      getTexts(
-                        `ATTACK_CONDITION_${condition.toLocaleUpperCase()}${digimon.conditions![condition]}`
-                      )
+                    .map(
+                      (condition) =>
+                        `${getTexts(`ATTACK_CONDITION_SEVERITY${digimon.conditions![condition]}`)} ${getTexts(`ATTACK_CONDITION_${condition.toLocaleUpperCase()}`)}`
                     )
                     .join(', ')}
                 </Text>

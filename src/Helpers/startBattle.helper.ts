@@ -110,11 +110,6 @@ export const startBattle = () => {
             ? 1
             : -1
           : generateRandomNumber({ min: -1, max: 1 })
-      ),
-
-    mapPosition: {
-      x,
-      y
-    }
+      )
   })
 }

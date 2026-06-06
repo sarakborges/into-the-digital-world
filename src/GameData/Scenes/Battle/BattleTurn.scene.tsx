@@ -4,6 +4,7 @@ import { AllNpcs } from '@/GameData/Npcs'
 
 import { getDialogs } from '@/Helpers/getDialogs.helper'
 import { doAttack } from '@/Helpers/doAttack.helper'
+import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 
@@ -11,7 +12,6 @@ import { Text } from '@/Components/System/Text'
 
 import { Dialog } from '@/Components/App/Dialog'
 import { SelectAttack } from '@/Components/App/SelectAttack'
-import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
 
 export const BattleTurn = () => {
   const { battle } = useBattleStore((state) => state)

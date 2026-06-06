@@ -21,14 +21,10 @@ export type BattleType = {
     target: string
     attackName: string
     effect?: string
+    severity?: number
     isTargetDefeated?: boolean
     hasHitLanded: boolean
   }>
-
-  mapPosition: {
-    x: number
-    y: number
-  }
 
   loot?: {
     [itemId: string]: number

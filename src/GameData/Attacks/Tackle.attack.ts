@@ -5,5 +5,5 @@ export const TackleAttack: AttackType = {
   name: 'Tackle',
   description: `Leaps towards it's target, with the intend of pushing them away.`,
   type: 'strike',
-  condition: 'offBalance'
+  condition: 'shaken'
 }

@@ -1,0 +1,9 @@
+.theme-nso {
+  --color-primary: #36323f;
+  --color-primary-strong: #14101a;
+  --color-primary-weak: #3e3a41;
+
+  --color-secondary: #4b22bb;
+  --color-secondary-strong: #4510d6;
+  --color-secondary-weak: #4e33c5;
+}

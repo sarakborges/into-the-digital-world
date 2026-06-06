@@ -1,6 +1,5 @@
 export const THEMES = [
   'default',
-  'alternative',
   'courage',
   'friendship',
   'love',
@@ -8,5 +7,9 @@ export const THEMES = [
   'sincerity',
   'reliability',
   'hope',
-  'light'
+  'light',
+  'me',
+  'da',
+  'nso',
+  'warning'
 ]

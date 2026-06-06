@@ -87,9 +87,8 @@ export const doAttack = (move: string) => {
       combatLog: [
         {
           ...baseEntry,
-          effect: getTexts(
-            `ATTACK_CONDITION_${usedMove.condition.toLocaleUpperCase()}${(target.conditions?.[usedMove.condition] || 0) + severity}`
-          ),
+          effect: usedMove.condition,
+          severity: (target.conditions?.[usedMove.condition] || 0) + severity,
           hasHitLanded: true,
           isTargetDefeated
         },

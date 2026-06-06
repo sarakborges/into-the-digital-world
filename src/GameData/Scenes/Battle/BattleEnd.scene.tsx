@@ -54,12 +54,6 @@ export const BattleEnd = () => {
                   (profile!.items[item] || 0) + battle?.loot[item]
               }
             }
-
-            warpTo({
-              ...battle?.mapPosition!,
-              zoneId: profile!.currentZone.id,
-              mapId: profile!.currentZone.map
-            })
           }
 
           if (battleResult === 'defeat') {
