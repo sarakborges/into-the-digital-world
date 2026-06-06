@@ -42,14 +42,12 @@ export const BattleTurn = () => {
               id: 'scene-battle-battleturn-continue',
               text: getDialogs('SCENES_CONTINUE_BUTTON'),
               action: () => {
-                doAttack(
-                  Object.keys(currentTurn.attacks)[
-                    generateRandomNumber({
-                      min: 0,
-                      max: Object.keys(currentTurn.attacks).length
-                    })
-                  ]
-                )
+                const rng = generateRandomNumber({
+                  min: 0,
+                  max: Object.keys(currentTurn.attacks).length - 1
+                })
+
+                doAttack(Object.keys(currentTurn.attacks)[rng])
               }
             }
           ]

@@ -35,7 +35,7 @@ export const BattleAttack = () => {
         id: 'scene-battle-battleattack-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          const [currentTurn, ...otherTurns] = battle?.turnOrder!
+          const [currentDigimon, ...otherDigimons] = battle?.turnOrder!
 
           const nonDefeatedDigimons = battle!.turnOrder.filter(
             (digimon) => !isDigimonDefeated(digimon)
@@ -71,7 +71,7 @@ export const BattleAttack = () => {
             }
           }
 
-          const updatedTurnOrder = [...otherTurns, currentTurn]
+          const updatedTurnOrder = [...otherDigimons, currentDigimon]
 
           setBattle({
             ...battle!,

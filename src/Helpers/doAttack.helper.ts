@@ -5,6 +5,7 @@ import { AllAttacks } from '@/GameData/Attacks'
 import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
 import { getSuccesses } from '@/Helpers/getSuccesses.helper'
 import { getTexts } from '@/Helpers/getTexts.helper'
+import { isDigimonDefeated } from '@/Helpers/isDigimonDefeated.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -18,7 +19,8 @@ export const doAttack = (move: string) => {
   const usedMove: AttackType = AllAttacks[move]
 
   const possibleTargets = battle?.turnOrder?.filter(
-    (target) => target.party !== currentDigimon.party
+    (target) =>
+      target.party !== currentDigimon.party && !isDigimonDefeated(target)
   )
 
   const rngTarget = generateRandomNumber({
