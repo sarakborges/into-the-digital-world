@@ -1,4 +1,4 @@
-import { FaCircleCheck } from 'react-icons/fa6'
+import { FaCheck } from 'react-icons/fa'
 
 import { getTexts } from '@/Helpers/getTexts.helper'
 
@@ -21,14 +21,14 @@ export const UpdateTheme = ({ theme }: { theme: string }) => {
 
   return (
     <div className="update-theme">
-      <Button onClick={updateTheme} disabled={theme === settings?.theme}>
+      <Button onClick={updateTheme}>
         <div className={`theme-colors theme-${theme}`}>
           <div className="icon" />
         </div>
 
         <Text>{getTexts(`THEME_${theme.toLocaleUpperCase()}`)}</Text>
 
-        {theme === settings?.theme && <FaCircleCheck />}
+        {theme === settings?.theme && <FaCheck />}
       </Button>
     </div>
   )

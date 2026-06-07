@@ -3,12 +3,13 @@
     display: flex;
     place-items: center;
     place-items: center;
-    gap: 8px;
+    gap: 4px;
 
     width: 100%;
-    padding: 4px;
+    padding: 4px 8px 4px 4px;
 
-    background-color: transparent;
+    background-color: var(--color-primary);
+    border-radius: 8px;
 
     .theme-colors {
       position: relative;
@@ -18,7 +19,7 @@
       border: 2px solid var(--color-neutral-weak);
 
       .icon {
-        width: 24px;
+        width: 16px;
         aspect-ratio: 1;
         overflow: hidden;
 
@@ -55,12 +56,13 @@
 
       flex: 1;
 
+      font-size: 12px;
       text-transform: capitalize;
     }
 
     svg {
-      width: 24px;
-      height: 24px;
+      width: 12px;
+      height: 12px;
     }
   }
 }

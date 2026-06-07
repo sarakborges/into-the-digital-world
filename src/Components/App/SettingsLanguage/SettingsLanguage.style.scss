@@ -9,10 +9,10 @@
   border-radius: 8px;
 
   .languages-list {
-    display: flex;
-    flex-flow: column;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 
-    max-height: 240px;
+    max-height: 280px;
     overflow: auto;
   }
 }

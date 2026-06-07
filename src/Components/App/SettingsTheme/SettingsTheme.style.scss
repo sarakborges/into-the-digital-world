@@ -11,9 +11,9 @@
   .themes-list {
     display: flex;
     flex-flow: column;
-    gap: 8px;
+    gap: 12px;
 
-    max-height: 240px;
+    max-height: 280px;
     overflow: auto;
 
     > div {
@@ -27,13 +27,9 @@
       }
 
       > main {
-        display: flex;
-        flex-flow: column;
-
-        padding: 4px;
-
-        background-color: var(--color-primary);
-        border-radius: 8px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4px;
       }
     }
   }

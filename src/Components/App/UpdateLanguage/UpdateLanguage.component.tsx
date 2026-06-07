@@ -1,4 +1,4 @@
-import { FaCircleCheck } from 'react-icons/fa6'
+import { FaCheck } from 'react-icons/fa'
 
 import { getTexts } from '@/Helpers/getTexts.helper'
 
@@ -22,10 +22,7 @@ export const UpdateLanguage = ({ language }: { language: string }) => {
 
   return (
     <div className="update-language">
-      <Button
-        onClick={updateLanguage}
-        disabled={language === settings?.language}
-      >
+      <Button onClick={updateLanguage}>
         <div className={`language-flag`}>
           <Portrait alt={language} src={`/languages/${language}.webp`} />
         </div>
@@ -34,7 +31,7 @@ export const UpdateLanguage = ({ language }: { language: string }) => {
           {getTexts(`LANGUAGE_${language.replace('-', '').toUpperCase()}`)}
         </Text>
 
-        {language === settings?.language && <FaCircleCheck />}
+        {language === settings?.language && <FaCheck />}
       </Button>
     </div>
   )
