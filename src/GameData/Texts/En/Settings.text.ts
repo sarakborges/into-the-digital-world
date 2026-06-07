@@ -4,6 +4,7 @@ export const THEMES_TITLE = `themes`
 
 export const THEME_CATEGORIES_DEFAULT = `Default`
 export const THEME_DEFAULT = `Default`
+export const THEME_ALTERNATIVE = `Alternative`
 
 export const THEME_CATEGORIES_CRESTS = `Crests`
 export const THEME_COURAGE = `Courage`
@@ -26,7 +27,7 @@ export const THEME_DR = `Dragon's Roar`
 export const THEME_VB = `Virus Busters`
 export const THEME_DA = `Dark Area`
 
-export const THEME_CATEGORIES_ALTERNATIVES = `Alternatives`
+export const THEME_CATEGORIES_OTHER = `Other`
 export const THEME_WARNING = `Warning`
 export const THEME_HAZARD = `Hazard`
 

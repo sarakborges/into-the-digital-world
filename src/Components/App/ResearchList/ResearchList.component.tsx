@@ -72,7 +72,10 @@ export const ResearchList = () => {
                   </Button>
                 </header>
 
-                <ItemsList list={AllResearches[research].cost} />
+                <ItemsList
+                  list={AllResearches[research].cost}
+                  displayPlayerResouce
+                />
               </div>
             ))}
           </div>

@@ -4,7 +4,15 @@ import { ItemDisplay } from '@/Components/App/ItemDisplay'
 
 import './ItemsList.style.scss'
 
-export const ItemsList = ({ list, title }: { list; title? }) => {
+export const ItemsList = ({
+  list,
+  title,
+  displayPlayerResouce
+}: {
+  list
+  title?
+  displayPlayerResouce?
+}) => {
   if (!Object.keys(list).length) {
     return
   }
@@ -19,6 +27,7 @@ export const ItemsList = ({ list, title }: { list; title? }) => {
             key={`items-list-${item}-item-${item}`}
             item={item}
             amount={list![item]}
+            displayPlayerResouce={displayPlayerResouce}
           />
         ))}
       </div>

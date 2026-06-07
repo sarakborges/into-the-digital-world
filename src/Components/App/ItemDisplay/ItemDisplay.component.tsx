@@ -6,14 +6,19 @@ import { Text } from '@/Components/System/Text'
 import { ItemCore } from '@/Components/App/ItemCore'
 
 import './ItemDisplay.style.scss'
+import { useProfileStore } from '@/Stores/Profile.store'
 
 export const ItemDisplay = ({
   item,
-  amount
+  amount,
+  displayPlayerResouce
 }: {
   item: string
   amount: number
+  displayPlayerResouce?: boolean
 }) => {
+  const { profile } = useProfileStore((state) => state)
+
   const itemDetails = AllItems[item]
 
   return (
@@ -29,7 +34,14 @@ export const ItemDisplay = ({
 
       <Text>
         <div>{itemDetails.name}</div>
-        <div>x{amount || 0}</div>
+
+        {!displayPlayerResouce && <div>x{amount || 0}</div>}
+
+        {!!displayPlayerResouce && (
+          <div>
+            {profile?.items[item] || 0} / {amount || 0}
+          </div>
+        )}
       </Text>
     </div>
   )

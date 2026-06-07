@@ -68,7 +68,7 @@ export const Game = () => {
           ...THEMES.default,
           ...THEMES.crests,
           ...THEMES.families,
-          ...THEMES.alternatives
+          ...THEMES.other
         }).includes(settings?.theme)
           ? settings?.theme
           : 'default'

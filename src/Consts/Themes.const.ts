@@ -1,6 +1,7 @@
 export const THEMES = {
   default: {
-    default: true
+    default: true,
+    alternative: true
   },
 
   crests: {
@@ -26,7 +27,7 @@ export const THEMES = {
     da: true
   },
 
-  alternatives: {
+  other: {
     hazard: true,
     warning: true
   }
