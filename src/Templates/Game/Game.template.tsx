@@ -3,6 +3,8 @@ import { useEffect } from 'react'
 import { Scene } from '@/GameData/Scenes'
 import { AllZones } from '@/GameData/Zones'
 
+import { THEMES } from '@/Consts/Themes.const'
+
 import { getTexts } from '@/Helpers/getTexts.helper'
 import { loadData } from '@/Helpers/loadData.helper'
 import { loadSession } from '@/Helpers/loadSession.helper'
@@ -59,7 +61,19 @@ export const Game = () => {
   }, [])
 
   return (
-    <div className={`game-body theme-${settings?.theme || 'default'}`}>
+    <div
+      className={`game-body theme-${
+        settings?.theme &&
+        Object.keys({
+          ...THEMES.default,
+          ...THEMES.crests,
+          ...THEMES.families,
+          ...THEMES.alternatives
+        }).includes(settings?.theme)
+          ? settings?.theme
+          : 'default'
+      }`}
+    >
       <div className="main-game">
         <header>
           <div className="player-actions">

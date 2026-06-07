@@ -11,11 +11,26 @@ import './SettingsTheme.style.scss'
 export const SettingsTheme = () => {
   return (
     <div className="settings-theme">
-      <Text>{getTexts('THEMES_TITLE')}</Text>
-
       <div className="themes-list">
-        {THEMES.map((theme) => (
-          <UpdateTheme key={`themes-list-theme-${theme}`} theme={theme} />
+        {Object.keys(THEMES).map((category) => (
+          <div key={`themes-list-${category}`}>
+            <header>
+              <Text>
+                {getTexts(`THEME_CATEGORIES_${category.toLocaleUpperCase()}`)}
+              </Text>
+
+              <Text>{getTexts('THEMES_TITLE')}</Text>
+            </header>
+
+            <main>
+              {Object.keys(THEMES[category]).map((theme) => (
+                <UpdateTheme
+                  key={`themes-list-${category}-theme-${theme}`}
+                  theme={theme}
+                />
+              ))}
+            </main>
+          </div>
         ))}
       </div>
     </div>

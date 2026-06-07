@@ -11,8 +11,30 @@
   .themes-list {
     display: flex;
     flex-flow: column;
+    gap: 8px;
 
     max-height: 240px;
     overflow: auto;
+
+    > div {
+      display: flex;
+      flex-flow: column;
+      gap: 4px;
+
+      > header {
+        display: flex;
+        gap: 4px;
+      }
+
+      > main {
+        display: flex;
+        flex-flow: column;
+
+        padding: 4px;
+
+        background-color: var(--color-primary);
+        border-radius: 8px;
+      }
+    }
   }
 }

@@ -1,0 +1,9 @@
+.theme-nsp {
+  --color-primary: #1a9443;
+  --color-primary-strong: #0f8b39;
+  --color-primary-weak: #4ab16c;
+
+  --color-secondary: #229e9e;
+  --color-secondary-strong: #148b8b;
+  --color-secondary-weak: #52b1b1;
+}

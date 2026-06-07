@@ -1,4 +1,9 @@
 .update-language {
+  padding: 4px;
+
+  background-color: var(--color-primary);
+  border-radius: 8px;
+
   .button {
     display: flex;
     place-items: center;

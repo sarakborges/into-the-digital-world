@@ -1,0 +1,9 @@
+.theme-vb {
+  --color-primary: #939b66;
+  --color-primary-strong: #727753;
+  --color-primary-weak: #aeb392;
+
+  --color-secondary: #d8c06b;
+  --color-secondary-strong: #c5a634;
+  --color-secondary-weak: #d7c27a;
+}

@@ -1,0 +1,9 @@
+.theme-jt {
+  --color-primary: #48a536;
+  --color-primary-strong: #2f8f1b;
+  --color-primary-weak: #62b950;
+
+  --color-secondary: #7c7135;
+  --color-secondary-strong: #4d451a;
+  --color-secondary-weak: #a7994e;
+}

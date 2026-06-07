@@ -30,8 +30,11 @@
     flex-flow: row-reverse;
     place-items: center;
     place-content: flex-start;
+    gap: 4px;
 
     width: 100%;
+
+    background-color: var(--color-secondary-strong);
 
     .current-zone {
       display: flex;
@@ -54,9 +57,7 @@
       place-content: flex-end;
       gap: 4px;
 
-      padding: 8px 8px 8px 12px;
-
-      background-color: var(--color-secondary-strong);
+      padding: 8px;
 
       .digivice {
         position: relative;

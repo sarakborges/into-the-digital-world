@@ -1,0 +1,9 @@
+.theme-da {
+  --color-primary: #36303d;
+  --color-primary-strong: #17121d;
+  --color-primary-weak: #5e5364;
+
+  --color-secondary: #35281d;
+  --color-secondary-strong: #27221e;
+  --color-secondary-weak: #3f3630;
+}

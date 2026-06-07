@@ -1,0 +1,9 @@
+.theme-love {
+  --color-primary: #dd5239;
+  --color-primary-strong: #d82d17;
+  --color-primary-weak: #d36759;
+
+  --color-secondary: #b99f65;
+  --color-secondary-strong: #a08446;
+  --color-secondary-weak: #bea878;
+}

@@ -1,0 +1,9 @@
+.theme-me {
+  --color-primary: #797f8a;
+  --color-primary-strong: #5c5f64;
+  --color-primary-weak: #ccd2dd;
+
+  --color-secondary: #3c3e44;
+  --color-secondary-strong: #202124;
+  --color-secondary-weak: #5e6168;
+}

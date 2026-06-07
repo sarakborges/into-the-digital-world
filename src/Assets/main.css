@@ -3,19 +3,29 @@
 @import url('./vars.css');
 @import url('./reset.css');
 
-@import url('./Themes/default.theme.css');
-@import url('./Themes/warning.theme.css');
-@import url('./Themes/me.theme.css');
-@import url('./Themes/da.theme.css');
-@import url('./Themes/nso.theme.css');
-@import url('./Themes/courage.theme.css');
-@import url('./Themes/friendship.theme.css');
-@import url('./Themes/knowledge.theme.css');
-@import url('./Themes/sincerity.theme.css');
-@import url('./Themes/love.theme.css');
-@import url('./Themes/reliability.theme.css');
-@import url('./Themes/hope.theme.css');
-@import url('./Themes/light.theme.css');
+@import url('./Themes/Default/default.theme.css');
+
+@import url('./Themes/Crests/courage.theme.css');
+@import url('./Themes/Crests/friendship.theme.css');
+@import url('./Themes/Crests/knowledge.theme.css');
+@import url('./Themes/Crests/sincerity.theme.css');
+@import url('./Themes/Crests/love.theme.css');
+@import url('./Themes/Crests/reliability.theme.css');
+@import url('./Themes/Crests/hope.theme.css');
+@import url('./Themes/Crests/light.theme.css');
+
+@import url('./Themes/Alternatives/hazard.theme.css');
+@import url('./Themes/Alternatives/warning.theme.css');
+
+@import url('./Themes/Families/me.theme.css');
+@import url('./Themes/Families/nso.theme.css');
+@import url('./Themes/Families/nsp.theme.css');
+@import url('./Themes/Families/ds.theme.css');
+@import url('./Themes/Families/dr.theme.css');
+@import url('./Themes/Families/wg.theme.css');
+@import url('./Themes/Families/jt.theme.css');
+@import url('./Themes/Families/vb.theme.css');
+@import url('./Themes/Families/da.theme.css');
 
 body {
   display: flex;

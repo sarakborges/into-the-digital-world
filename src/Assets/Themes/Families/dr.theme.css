@@ -1,0 +1,9 @@
+.theme-dr {
+  --color-primary: #9b3414;
+  --color-primary-strong: #c4370d;
+  --color-primary-weak: #ce502a;
+
+  --color-secondary: #5f4027;
+  --color-secondary-strong: #423120;
+  --color-secondary-weak: #725640;
+}
