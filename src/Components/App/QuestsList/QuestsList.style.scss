@@ -1,0 +1,74 @@
+.quests-list {
+  display: flex;
+  flex-flow: column;
+  gap: 4px;
+
+  width: 100%;
+
+  > header {
+    > .text {
+      font-weight: 500;
+    }
+  }
+
+  > .text {
+    font-size: 12px;
+  }
+
+  .quest {
+    display: flex;
+    flex-flow: column;
+    gap: 4px;
+
+    padding: 8px;
+
+    border-radius: 4px;
+    background-color: var(--color-primary);
+
+    &[data-isdone='true'] {
+      > .text {
+        color: var(--color-primary-strong);
+      }
+    }
+
+    > header {
+      display: flex;
+      place-items: center;
+      place-content: space-between;
+
+      .button {
+        padding: 4px;
+
+        svg {
+          height: 16px;
+          width: 16px;
+        }
+      }
+    }
+
+    > main {
+      display: flex;
+      place-items: center;
+      gap: 4px;
+
+      padding: 0 4px;
+
+      .text {
+        font-size: 12px;
+      }
+
+      svg {
+        height: 16px;
+        width: 16px;
+
+        color: var(--color-primary-strong);
+      }
+
+      &[data-isdone='true'] {
+        .text {
+          color: var(--color-primary-strong);
+        }
+      }
+    }
+  }
+}

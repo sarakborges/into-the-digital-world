@@ -42,7 +42,7 @@ export const INTRODUCTION_021_TEXT = `To do that, you can call Dressmon to help.
 
 export const INTRODUCTION_022_TEXT = `Click on the glowing Digivice icon at the top right corner of your screen.`
 
-export const INTRODUCTION_023_TEXT = `See? Just like a regular phone. Now, open the Fashion app - the one glowing -, and follow Dressmon instructions.`
+export const INTRODUCTION_023_TEXT = `See? Just like a regular phone. Now, open the Avatar app - the one glowing -, and follow Dressmon instructions.`
 
 export const INTRODUCTION_024_TEXT = `Hello, master! I am Dressmon. My function is to assist you on creating the most exquisite avatar!\n\nI created a sample for you. But feel free to change whatever you like!`
 

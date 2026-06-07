@@ -5,6 +5,7 @@ import { PlayerProfile } from '@/Components/App/PlayerProfile'
 import { Inventory } from '@/Components/App/Inventory'
 import { MyResearchesList } from '@/Components/App/MyResearchesList'
 import { Location } from '@/Components/App/Location'
+import { QuestsLog } from '@/Components/App/QuestsLog'
 
 export const APP_PROFILE = {
   id: 'profile',
@@ -63,7 +64,9 @@ export const APP_LOCATION = {
 }
 
 export const APP_JOURNAL = {
-  id: 'journal'
+  id: 'journal',
+  app: 'journal',
+  component: <QuestsLog />
 }
 
 export const AllApps = {
@@ -84,8 +87,9 @@ export const DigiviceApps = {
   profile: APP_PROFILE,
   fashion: APP_FASHION,
   inventory: APP_INVENTORY,
-  acquintances: APP_ACQUINTANCES,
+  journal: APP_JOURNAL,
   partnersList: APP_PARTNERSLIST,
+  acquintances: APP_ACQUINTANCES,
   location: APP_LOCATION,
   save: APP_SAVE,
   logoff: APP_LOGOFF

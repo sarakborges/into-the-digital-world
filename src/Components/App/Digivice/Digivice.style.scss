@@ -50,6 +50,12 @@
   }
 }
 
+.theme-hazard {
+  .digivice-body {
+    background-image: url('/digivice_backgrounds/hazard.webp');
+  }
+}
+
 .digivice {
   > button {
     transition:

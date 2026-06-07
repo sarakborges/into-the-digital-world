@@ -27,5 +27,8 @@ export const CURRENT_ZONE = `Current zone: [ZONE]`
 export const IN_COMBAT = `In combat`
 
 export const QUESTS_LOG_TITLE = `Current objectives:`
-export const QUEST_OBJECTIVE = `- [TYPE] [TARGET] at [WHERE].`
+export const QUESTS_LOG_TITLE_DONE = `Concluded objectives:`
+export const QUESTS_LOG_NOQUESTS = `All clear! No objects to be concluded.`
+export const QUESTS_LOG_NOQUESTS_DONE = `No objects concluded yet.`
+export const QUEST_OBJECTIVE = `[TYPE] [TARGET] at [WHERE].`
 export const QUEST_OBJECTIVE_TYPE_INTERACT = `Talk to`

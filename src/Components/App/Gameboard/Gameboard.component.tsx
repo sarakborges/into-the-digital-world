@@ -12,7 +12,7 @@ import { useSceneStore } from '@/Stores/Scene.store'
 import { Portrait } from '@/Components/System/Portrait'
 
 import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
-import { QuestLogMinimal } from '@/Components/App/QuestLogMinimal'
+import { QuestsLogMinimal } from '@/Components/App/QuestsLogMinimal'
 
 import './Gameboard.style.scss'
 
@@ -93,7 +93,7 @@ export const Gameboard = () => {
         </main>
       </div>
 
-      <QuestLogMinimal />
+      <QuestsLogMinimal />
     </>
   )
 }
