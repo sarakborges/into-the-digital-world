@@ -1,7 +1,7 @@
 .settings-language {
   display: flex;
   flex-flow: column;
-  gap: 8px;
+  gap: 4px;
 
   padding: 8px;
 
@@ -10,7 +10,8 @@
 
   .languages-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
 
     max-height: 280px;
     overflow: auto;
