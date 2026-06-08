@@ -4,7 +4,7 @@
   z-index: 104;
 
   width: 100%;
-  padding: 8px;
+  padding: 8px 8px 12px;
 
   &[data-isdigiviceopen='true'] {
     padding: 20px;
@@ -21,8 +21,15 @@
   width: 100%;
 
   .character-header {
-    .portrait {
+    > .portrait {
       padding: 4px;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .avatar-content {
+      padding: 4px;
+
+      background-color: var(--color-secondary-strong);
       border-radius: 4px 4px 0 0;
     }
 
@@ -42,14 +49,22 @@
     background-color: var(--color-secondary-strong);
     border-radius: 0 4px 4px 4px;
 
-    padding: 8px;
+    padding: 4px;
 
     > .player-avatar {
       width: 80px;
+
+      img {
+        border-radius: 4px;
+      }
     }
 
     > .portrait {
       width: 80px;
+
+      img {
+        border-radius: 4px;
+      }
     }
 
     .npc-dialogs {
@@ -57,8 +72,12 @@
     }
 
     .text-bubble {
+      display: flex;
+      flex-flow: column;
+      gap: 8px;
+
       flex: 1;
-      padding: 4px 8px;
+      padding: 2px 4px;
       max-height: 228px;
       overflow: auto;
 
@@ -80,7 +99,7 @@
 
         .button {
           place-content: flex-start;
-          padding: 4px 8px;
+          padding: 4px 6px;
           gap: 8px;
 
           background-color: var(--color-secondary);
@@ -105,7 +124,7 @@
     padding-top: 8px;
 
     .button {
-      padding: 4px 8px;
+      padding: 4px 6px;
 
       background-color: var(--color-secondary-strong);
     }

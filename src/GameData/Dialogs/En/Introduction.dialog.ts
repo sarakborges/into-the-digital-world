@@ -36,7 +36,7 @@ export const INTRODUCTION_018_TEXT = `It's short for Application Monster. The sa
 
 export const INTRODUCTION_019_TEXT = `Alright... I guess. Now, care to explain this "avatar" thing and how to fix me?`
 
-export const INTRODUCTION_020_TEXT = `Oh, sorry. I got carried by our conversation. Where was I? [...] What is a avatar?\n\nAvatar is how your appearance in the Digital World is called. Probably because you are not a digital creature, like us, your avatar is unset. And thats why you need to fix it.`
+export const INTRODUCTION_020_TEXT = `Oh, sorry. I got carried by our conversation.\nWhere was I? [...] What is a avatar?\n\nAvatar is how your appearance in the Digital World is called. Probably because you are not a digital creature, like us, your avatar is unset. And thats why you need to fix it.`
 
 export const INTRODUCTION_021_TEXT = `To do that, you can call Dressmon to help. You do that using your Digivice.`
 

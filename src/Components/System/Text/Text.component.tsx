@@ -9,5 +9,21 @@ export const Text = ({
 }) => {
   const Component = as || 'span'
 
+  if (as === 'p') {
+    return (
+      <>
+        {children.split('\n\n').reduce(
+          (acc, cur) => (
+            <>
+              {acc}
+              <p className="text">{cur}</p>
+            </>
+          ),
+          []
+        )}
+      </>
+    )
+  }
+
   return <Component className="text">{children}</Component>
 }

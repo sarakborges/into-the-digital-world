@@ -2,7 +2,6 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Modal } from '@/Components/System/Modal'
 import { Button } from '@/Components/System/Button'
 
 import { CharacterHeader } from '@/Components/App/CharacterHeader'

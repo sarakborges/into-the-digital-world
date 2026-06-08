@@ -10,11 +10,16 @@
 
   &:not([data-islg='true']) {
     .avatar-layers {
-      max-width: 58px;
-      min-width: 58px;
+      max-width: 50px;
+      min-width: 50px;
     }
 
     .portrait {
+      max-width: 50px;
+      min-width: 50px;
+    }
+
+    > .portrait {
       max-width: 58px;
       min-width: 58px;
     }
@@ -22,11 +27,16 @@
 
   &[data-islg='true'] {
     .avatar-layers {
-      max-width: 80px;
-      min-width: 80px;
+      max-width: 72px;
+      min-width: 72px;
     }
 
     .portrait {
+      max-width: 72px;
+      min-width: 72px;
+    }
+
+    > .portrait {
       max-width: 80px;
       min-width: 80px;
     }

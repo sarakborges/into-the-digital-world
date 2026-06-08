@@ -14,11 +14,11 @@
   }
 
   &:is(span) {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   &:is(p) {
-    font-size: 16px;
+    font-size: 14px;
     line-height: var(--line-height-md);
 
     white-space: pre-wrap;

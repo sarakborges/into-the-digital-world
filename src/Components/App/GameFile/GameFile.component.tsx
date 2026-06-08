@@ -25,9 +25,11 @@ export const GameFile = ({ profile }: { profile: ProfileType }) => {
 
       <header>
         <Text as="p">
-          {getTexts('GAME_FILE_TITLE')
-            .replaceAll(`[NAME]`, profile.name)
-            .replaceAll(`[ZONE]`, zone.name)}
+          {getTexts('GAME_FILE_TITLE').replaceAll(`[NAME]`, profile.name)}
+        </Text>
+
+        <Text as="p">
+          {getTexts('GAME_FILE_ZONE').replaceAll(`[ZONE]`, zone.name)}
         </Text>
 
         <Text as="p">

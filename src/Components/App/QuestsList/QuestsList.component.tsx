@@ -28,7 +28,7 @@ export const QuestsList = ({
   const seeDetails = (id) => {
     setDigivice({
       ...digivice!,
-      currentDetails: id
+      currentDetails: digivice?.currentDetails !== id ? id : undefined
     })
   }
 

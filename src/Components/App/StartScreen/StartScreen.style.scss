@@ -6,6 +6,8 @@
   width: 100%;
   padding: 24px 8px;
 
+  background-color: var(--color-primary-weak);
+
   > header {
     display: flex;
     flex-flow: column;
@@ -37,12 +39,18 @@
     .saved-games {
       display: flex;
       flex-flow: column;
-      gap: 8px;
+      gap: 4px;
+
+      > header {
+        display: flex;
+        place-items: flex-end;
+        place-content: space-between;
+      }
 
       .games-list {
         display: flex;
         flex-flow: column;
-        gap: 8px;
+        gap: 4px;
       }
     }
   }
