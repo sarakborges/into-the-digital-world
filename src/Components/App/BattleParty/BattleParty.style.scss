@@ -11,10 +11,6 @@
     &[data-currentturn='true'] {
       .portrait {
         background-color: var(--color-primary-strong);
-
-        img {
-          border: 2px solid var(--color-primary-strong);
-        }
       }
 
       > header > div .character-name .text {
@@ -25,10 +21,6 @@
     &:not([data-currentturn='true']) {
       .portrait {
         background-color: var(--color-primary-weak);
-
-        img {
-          border: 2px solid var(--color-primary-weak);
-        }
       }
 
       > header > div .character-name .text {
@@ -38,6 +30,16 @@
   }
 
   .character-header {
+    .portrait {
+      padding: 4px;
+
+      border-radius: 4px 4px 0 4px;
+
+      img {
+        border-radius: 4px;
+      }
+    }
+
     .conditions {
       display: flex;
       flex-flow: column;

@@ -17,7 +17,12 @@
 
     .character-header {
       .portrait {
+        padding: 4px;
+
+        border-radius: 4px;
+
         background-color: var(--color-primary-strong);
+        border-radius: 4px 4px 0 4px;
 
         img {
           border-color: var(--color-primary-strong);
@@ -34,12 +39,11 @@
         text-overflow: ellipsis;
 
         background-color: var(--color-primary-strong);
-        border-radius: 0 8px 8px 0;
+        border-radius: 0 4px 4px 0;
 
         .character-name .text {
           padding: 0;
 
-          border-radius: 0;
           background-color: var(--color-primary-strong);
         }
 
@@ -78,11 +82,13 @@
       flex-flow: column;
 
       > header {
+        display: flex;
+
         .text {
-          padding: 2px 8px 4px;
+          padding: 2px 4px;
 
           background-color: var(--color-primary-strong);
-          border-radius: 12px 12px 0 0;
+          border-radius: 4px 4px 0 0;
         }
       }
 
@@ -90,11 +96,7 @@
         padding: 4px;
 
         background-color: var(--color-primary-strong);
-        border-radius: 0 12px 12px 12px;
-
-        img {
-          border-radius: 8px;
-        }
+        border-radius: 0 4px 4px 4px;
 
         &.acquintance-description .text {
           padding: 4px;

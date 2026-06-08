@@ -1,9 +1,13 @@
 import {
-  FaArrowDown,
-  FaArrowLeft,
-  FaArrowRight,
-  FaArrowUp
-} from 'react-icons/fa'
+  BsArrowDown,
+  BsArrowDownLeft,
+  BsArrowDownRight,
+  BsArrowLeft,
+  BsArrowRight,
+  BsArrowUp,
+  BsArrowUpLeft,
+  BsArrowUpRight
+} from 'react-icons/bs'
 
 import type { ZoneType } from '@/Types/Zone.type'
 
@@ -29,6 +33,58 @@ export const Gamepad = () => {
 
   if (!profile || !!battle) {
     return
+  }
+
+  const coordinates = {
+    topLeft: {
+      x: -1,
+      y: -1,
+      icon: <BsArrowUpLeft />
+    },
+
+    topMiddle: {
+      x: 0,
+      y: -1,
+      icon: <BsArrowUp />
+    },
+
+    topRight: {
+      x: +1,
+      y: -1,
+      icon: <BsArrowUpRight />
+    },
+
+    middleLeft: {
+      x: -1,
+      y: 0,
+      icon: <BsArrowLeft />
+    },
+
+    center: null,
+
+    middleRight: {
+      x: +1,
+      y: 0,
+      icon: <BsArrowRight />
+    },
+
+    bottomLeft: {
+      x: -1,
+      y: +1,
+      icon: <BsArrowDownLeft />
+    },
+
+    bottomMiddle: {
+      x: 0,
+      y: +1,
+      icon: <BsArrowDown />
+    },
+
+    bottomRight: {
+      x: +1,
+      y: +1,
+      icon: <BsArrowDownRight />
+    }
   }
 
   const currentZone: ZoneType =
@@ -76,141 +132,48 @@ export const Gamepad = () => {
     }
   }
 
-  const surroundingTilesPositions = {
-    prevX: profile.currentZone.x - 1,
-    nextX: profile.currentZone.x + 1,
-    prevY: profile.currentZone.y - 1,
-    nextY: profile.currentZone.y + 1
-  }
-
-  const existsInGrid = {
-    prevX:
-      !!currentZone?.grid[profile.currentZone.y]?.[
-        surroundingTilesPositions.prevX
-      ],
-    nextX:
-      !!currentZone?.grid[profile.currentZone.y]?.[
-        surroundingTilesPositions.nextX
-      ],
-    prevY:
-      !!currentZone?.grid[surroundingTilesPositions.prevY]?.[
-        profile.currentZone.x
-      ],
-    nextY:
-      !!currentZone?.grid[surroundingTilesPositions.nextY]?.[
-        profile.currentZone.x
-      ]
-  }
-
-  const surroundingTiles = {
-    prevX: currentZone.tiles.filter(
+  const canMoveToCoordinate = ({ x, y }: { x: number; y: number }) => {
+    const tile = currentZone.tiles.filter(
       (tile) =>
-        tile.x === profile.currentZone.x - 1 && tile.y === profile.currentZone.y
-    ),
-
-    nextX: currentZone.tiles.filter(
-      (tile) =>
-        tile.x === profile.currentZone.x + 1 && tile.y === profile.currentZone.y
-    ),
-
-    prevY: currentZone.tiles.filter(
-      (tile) =>
-        tile.x === profile.currentZone.x && tile.y === profile.currentZone.y - 1
-    ),
-
-    nextY: currentZone.tiles.filter(
-      (tile) =>
-        tile.x === profile.currentZone.x && tile.y === profile.currentZone.y + 1
+        tile.x === profile.currentZone.x + x &&
+        tile.y === profile.currentZone.y + y
     )
+
+    const npcExists = !!tile?.some(
+      (tile) =>
+        !!tile.npc && (tile.condition === undefined || !!tile.condition())
+    )
+
+    const eventExists = !!tile?.some(
+      (tile) =>
+        !!tile.onEnter && (tile.condition === undefined || !!tile.condition())
+    )
+
+    const existsInGrid =
+      !!currentZone?.grid[profile.currentZone.y + y]?.[
+        profile.currentZone.x + x
+      ]
+
+    return (eventExists || existsInGrid) && !npcExists && !scene
   }
-
-  const npcExistsInPrevX = !!surroundingTiles.prevX?.some(
-    (tile) => !!tile.npc && (tile.condition === undefined || !!tile.condition())
-  )
-  const npcExistsInNextX = !!surroundingTiles.nextX?.some(
-    (tile) => !!tile.npc && (tile.condition === undefined || !!tile.condition())
-  )
-  const npcExistsInPrevY = !!surroundingTiles.prevY?.some(
-    (tile) => !!tile.npc && (tile.condition === undefined || !!tile.condition())
-  )
-  const npcExistsInNextY = !!surroundingTiles.nextY?.some(
-    (tile) => !!tile.npc && (tile.condition === undefined || !!tile.condition())
-  )
-
-  const eventExistsInPrevX = !!surroundingTiles.prevX?.some(
-    (tile) =>
-      !!tile.onEnter && (tile.condition === undefined || !!tile.condition())
-  )
-  const eventExistsInNextX = !!surroundingTiles.nextX?.some(
-    (tile) =>
-      !!tile.onEnter && (tile.condition === undefined || !!tile.condition())
-  )
-  const eventExistsInPrevY = !!surroundingTiles.prevY?.some(
-    (tile) =>
-      !!tile.onEnter && (tile.condition === undefined || !!tile.condition())
-  )
-  const eventExistsInNextY = !!surroundingTiles.nextY?.some(
-    (tile) =>
-      !!tile.onEnter && (tile.condition === undefined || !!tile.condition())
-  )
-
-  const canMovePrevX =
-    (existsInGrid.prevX || eventExistsInPrevX) && !npcExistsInPrevX && !scene
-
-  const canMoveNextX =
-    (existsInGrid.nextX || eventExistsInNextX) && !npcExistsInNextX && !scene
-
-  const canMovePrevY =
-    (eventExistsInPrevY || existsInGrid.prevY) && !npcExistsInPrevY && !scene
-
-  const canMoveNextY =
-    (eventExistsInNextY || existsInGrid.nextY) && !npcExistsInNextY && !scene
 
   return (
     <aside className="gamepad">
-      <div className="gamepad-row">
-        <div className="gamepad-col">
+      {Object.keys(coordinates).map((coordinate) =>
+        !!coordinates[coordinate] ? (
           <Button
-            disabled={!canMovePrevY || !!game?.isWarping}
-            onClick={() => setLocation({ y: -1 })}
+            disabled={
+              !canMoveToCoordinate({ ...coordinates[coordinate] }) ||
+              !!game?.isWarping
+            }
+            onClick={() => setLocation({ ...coordinates[coordinate] })}
           >
-            <FaArrowUp />
+            {coordinates[coordinate].icon}
           </Button>
-        </div>
-      </div>
-
-      <div className="gamepad-row">
-        <div className="gamepad-col">
-          <Button
-            disabled={!canMovePrevX || !!game?.isWarping}
-            onClick={() => setLocation({ x: -1 })}
-          >
-            <FaArrowLeft />
-          </Button>
-        </div>
-
-        <div className="gamepad-col" />
-
-        <div className="gamepad-col">
-          <Button
-            disabled={!canMoveNextX || !!game?.isWarping}
-            onClick={() => setLocation({ x: +1 })}
-          >
-            <FaArrowRight />
-          </Button>
-        </div>
-      </div>
-
-      <div className="gamepad-row">
-        <div className="gamepad-col">
-          <Button
-            disabled={!canMoveNextY || !!game?.isWarping}
-            onClick={() => setLocation({ y: +1 })}
-          >
-            <FaArrowDown />
-          </Button>
-        </div>
-      </div>
+        ) : (
+          <div />
+        )
+      )}
     </aside>
   )
 }

@@ -11,7 +11,6 @@
     font-size: 12px;
 
     background-color: var(--color-primary-strong);
-    border-radius: 8px;
   }
 
   .partner-header {
@@ -26,14 +25,19 @@
 
     .character-header {
       .portrait {
+        padding: 4px;
+
         background-color: var(--color-primary-strong);
+        border-radius: 4px 4px 0 4px;
 
         img {
-          border-color: var(--color-primary-strong);
+          border-radius: 4px;
         }
       }
 
       .character-info {
+        border-radius: 0 4px 4px 0;
+
         .character-name {
           .text {
             background-color: var(--color-primary-strong);
@@ -73,12 +77,9 @@
         text-overflow: ellipsis;
 
         background-color: var(--color-primary-strong);
-        border-radius: 0 8px 8px 0;
 
         .character-name .text {
           padding: 0;
-
-          border-radius: 0;
         }
 
         > .text {
@@ -98,11 +99,13 @@
       flex-flow: column;
 
       > header {
+        display: flex;
+
         .text {
-          padding: 2px 8px 4px;
+          padding: 2px 4px;
 
           background-color: var(--color-primary-strong);
-          border-radius: 12px 12px 0 0;
+          border-radius: 4px 4px 0 0;
         }
       }
 
@@ -110,11 +113,7 @@
         padding: 4px;
 
         background-color: var(--color-primary-strong);
-        border-radius: 0 12px 12px 12px;
-
-        img {
-          border-radius: 8px;
-        }
+        border-radius: 0 4px 4px 4px;
 
         &.partner-description .text {
           padding: 4px;
@@ -137,13 +136,13 @@
 
       padding: 4px;
       background-color: var(--color-primary);
-      border-radius: 8px;
+      border-radius: 4px;
 
       .portrait {
-        width: 32px;
+        width: 24px;
 
         border: 2px solid var(--color-primary-strong);
-        border-radius: 8px;
+        border-radius: 4px;
       }
 
       .text {
@@ -165,7 +164,7 @@
         place-content: center;
 
         background-color: var(--color-primary);
-        border-radius: 8px;
+        border-radius: 4px;
 
         padding: 8px 0;
 
@@ -188,7 +187,7 @@
         gap: 4px;
 
         background-color: var(--color-primary);
-        border-radius: 8px;
+        border-radius: 4px;
 
         padding: 8px;
 

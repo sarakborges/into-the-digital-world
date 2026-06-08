@@ -5,10 +5,6 @@
 
   padding: 8px;
 
-  > .text {
-    font-size: 20px;
-  }
-
   .locations-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -16,12 +12,29 @@
 
     .button {
       flex-flow: column;
-      gap: 8px;
+      gap: 4px;
 
-      padding: 4px;
+      background-color: transparent;
+
+      &:hover {
+        background-color: transparent;
+      }
+
+      .portrait {
+        width: 100%;
+        padding: 4px;
+
+        background-color: var(--color-primary-strong);
+        border-radius: 4px;
+      }
 
       .text {
+        padding: 2px 4px;
+
         font-size: 12px;
+
+        background-color: var(--color-primary-strong);
+        border-radius: 4px;
       }
     }
   }

@@ -3,6 +3,8 @@ import { BiMinus, BiPlus } from 'react-icons/bi'
 import { AllResearches } from '@/GameData/Researches'
 import { AllItems } from '@/GameData/Items'
 
+import { getDialogs } from '@/Helpers/getDialogs.helper'
+
 import { useCompositionStore } from '@/Stores/Composition.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -11,9 +13,9 @@ import { Button } from '@/Components/System/Button'
 import { Portrait } from '@/Components/System/Portrait'
 
 import { ItemCore } from '@/Components/App/ItemCore'
+import { ItemsList } from '@/Components/App/ItemsList'
 
 import './Compose.style.scss'
-import { getDialogs } from '@/Helpers/getDialogs.helper'
 
 export const Compose = () => {
   const { profile } = useProfileStore((state) => state)
@@ -97,38 +99,11 @@ export const Compose = () => {
       <main className="compose-items">
         {!!Object.keys(requiredItems || {}).length && (
           <div>
-            <Text>{getDialogs('COMPOSE_002_REQUIRED_ITEMS')}</Text>
-
-            <div className="items-list">
-              {Object.keys(requiredItems || {}).map((item) => (
-                <div
-                  key={`composition-${composition}-item-${item}`}
-                  className="item"
-                >
-                  <aside>
-                    <ItemCore item={item} />
-
-                    <div className="item-description">
-                      <Text>{AllItems[item].name}</Text>
-
-                      <Text>
-                        {getDialogs('COMPOSE_002_REQUIRED_ITEMS_AMOUNT')
-                          .replaceAll('[AMOUNT]', profile?.items[item] || 0)
-                          .replaceAll(
-                            '[TOTAL]',
-                            AllResearches[composition.baseDigimon.id]
-                              .requiredItems?.[item]
-                          )}
-                      </Text>
-                    </div>
-                  </aside>
-
-                  <main className="amount">
-                    <Text>x{requiredItems?.[item]}</Text>
-                  </main>
-                </div>
-              ))}
-            </div>
+            <ItemsList
+              list={requiredItems}
+              title={getDialogs('COMPOSE_002_REQUIRED_ITEMS')}
+              displayPlayerResouce
+            />
           </div>
         )}
 

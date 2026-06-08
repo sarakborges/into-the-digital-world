@@ -10,21 +10,21 @@
     flex-flow: column;
     gap: 4px;
 
-    > .text {
-      font-size: 20px;
-    }
-
     .partners-list-list {
       display: flex;
       flex-flow: column;
       gap: 2px;
 
+      > .text {
+        font-size: 12px;
+      }
+
       .partners-list-partner {
         display: flex;
         place-items: center;
-        gap: 8px;
+        gap: 6px;
 
-        padding: 4px 4px 4px 8px;
+        padding: 4px 6px 4px;
 
         background-color: var(--color-primary);
         border-radius: 4px;
@@ -36,11 +36,17 @@
 
         .partner-avatar {
           .portrait {
-            width: 24px;
-            min-width: 24px;
+            width: 28px;
+            min-width: 28px;
+            padding: 2px;
             overflow: hidden;
 
-            border-radius: 100%;
+            background-color: var(--color-primary-strong);
+            border-radius: 4px;
+
+            img {
+              border-radius: 4px;
+            }
           }
         }
 
@@ -52,7 +58,7 @@
 
           flex: 1;
 
-          .text:nth-child(2) {
+          .text {
             font-size: 12px;
           }
         }
@@ -67,8 +73,8 @@
             background-color: var(--color-secondary-strong);
 
             svg {
-              width: 20px;
-              height: 20px;
+              width: 16px;
+              height: 16px;
             }
           }
         }

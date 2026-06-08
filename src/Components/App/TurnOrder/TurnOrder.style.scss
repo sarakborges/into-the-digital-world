@@ -5,7 +5,7 @@
 
   overflow: hidden;
 
-  background-color: var(--color-secondary-strong);
+  background-color: var(--color-primary-strong);
 
   > .text {
     padding: 0 8px;
@@ -25,7 +25,7 @@
     padding: 0 8px;
     flex: 1;
 
-    background-color: var(--color-primary-strong);
+    background-color: var(--color-secondary-strong);
     box-shadow: 0 0 8px var(--color-neutral-strong);
 
     .portrait {
@@ -85,10 +85,10 @@
     }
 
     .portrait {
-      width: 24px;
+      width: 28px;
       overflow: hidden;
 
-      border-radius: 8px;
+      border-radius: 4px;
     }
   }
 }

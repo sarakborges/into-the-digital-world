@@ -22,8 +22,8 @@
 
     padding: 8px;
 
-    border-radius: 4px;
     background-color: var(--color-primary);
+    border-radius: 4px;
 
     &[data-isdone='true'] {
       > .text {
@@ -50,8 +50,6 @@
       display: flex;
       place-items: center;
       gap: 4px;
-
-      padding: 0 4px;
 
       .text {
         font-size: 12px;

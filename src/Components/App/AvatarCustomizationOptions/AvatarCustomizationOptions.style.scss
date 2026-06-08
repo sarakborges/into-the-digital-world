@@ -23,18 +23,13 @@
       gap: 8px;
     }
 
-    .button {
+    .button:is(:disabled, :not(:disabled)) {
       width: 100%;
 
-      border-radius: 4px;
       background-color: var(--color-neutral-weak);
 
       .player-avatar {
         width: 100%;
-
-        .avatar-layers {
-          border-radius: 0;
-        }
       }
     }
   }

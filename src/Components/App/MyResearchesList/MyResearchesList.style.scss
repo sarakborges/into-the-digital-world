@@ -5,14 +5,14 @@
 
   padding: 8px;
 
+  > .text {
+    font-size: 12px;
+  }
+
   .researches {
     display: flex;
     flex-flow: column;
     gap: 4px;
-
-    > .text {
-      font-size: 20px;
-    }
 
     .research-content {
       display: flex;
@@ -22,20 +22,26 @@
       .research {
         display: flex;
         place-items: center;
-        gap: 8px;
+        gap: 6px;
 
-        padding: 4px 4px 4px 8px;
+        padding: 4px 6px 4px;
 
         background-color: var(--color-primary);
         border-radius: 4px;
 
         .research-avatar {
           .portrait {
-            width: 24px;
-            min-width: 24px;
+            width: 28px;
+            min-width: 28px;
+            padding: 2px;
             overflow: hidden;
 
-            border-radius: 100%;
+            background-color: var(--color-primary-strong);
+            border-radius: 4px;
+
+            img {
+              border-radius: 4px;
+            }
           }
         }
 
@@ -46,6 +52,10 @@
           gap: 2px;
 
           flex: 1;
+
+          .text {
+            font-size: 12px;
+          }
         }
 
         .research-details {

@@ -2,42 +2,23 @@
   position: relative;
   z-index: 102;
 
-  display: flex;
-  flex-flow: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   place-items: center;
   place-content: center;
   gap: 4px;
 
-  padding: 8px;
-  overflow: hidden;
+  .button {
+    height: 24px;
+    aspect-ratio: 1/1;
+    padding: 4px;
 
-  border-radius: 100%;
-  background-color: var(--color-secondary-strong);
-  box-shadow: 0 0 8px var(--color-neutral-strong);
+    background-color: var(--color-secondary-strong);
 
-  .gamepad-row {
-    display: flex;
-    place-items: center;
-    place-content: center;
-    gap: 4px;
-
-    .gamepad-col {
-      display: flex;
-      place-items: center;
-      place-content: center;
-
-      height: 24px;
+    svg {
+      width: 16px;
+      height: 16px;
       aspect-ratio: 1/1;
-
-      .button {
-        padding: 4px;
-
-        svg {
-          width: 16px;
-          height: 16px;
-          aspect-ratio: 1/1;
-        }
-      }
     }
   }
 }

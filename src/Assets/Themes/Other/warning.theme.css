@@ -3,7 +3,9 @@
   --color-primary-strong: #22221d;
   --color-primary-weak: #5a584e;
 
-  --color-secondary: #c4b72c;
-  --color-secondary-strong: #a09d0b;
-  --color-secondary-weak: #cfcd51;
+  --color-secondary: #e4d637;
+  --color-secondary-strong: #d6c919;
+  --color-secondary-weak: #eeec4f;
+
+  --text-color: #000;
 }

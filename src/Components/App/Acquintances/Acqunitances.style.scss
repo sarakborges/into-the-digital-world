@@ -11,7 +11,6 @@
     gap: 4px;
 
     > .text {
-      font-size: 20px;
       text-transform: capitalize;
     }
 
@@ -23,22 +22,34 @@
       .npc-item {
         display: flex;
         place-items: center;
-        gap: 8px;
+        gap: 4px;
 
-        padding: 4px 4px 4px 8px;
+        padding: 4px 6px 4px;
 
         background-color: var(--color-primary);
         border-radius: 4px;
 
         .portrait {
-          max-height: 24px;
+          max-height: 28px;
           overflow: hidden;
 
-          border-radius: 100%;
+          padding: 2px;
+
+          background-color: var(--color-primary-strong);
+
+          border-radius: 4px;
+
+          img {
+            border-radius: 4px;
+          }
         }
 
         > header {
           flex: 1;
+
+          .text {
+            font-size: 12px;
+          }
         }
 
         .button {
@@ -49,8 +60,8 @@
           background-color: var(--color-secondary-strong);
 
           svg {
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
           }
         }
       }

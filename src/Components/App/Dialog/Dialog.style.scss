@@ -22,18 +22,17 @@
 
   .character-header {
     .portrait {
-      border-radius: 100% 100% 0 0;
+      padding: 4px;
+      border-radius: 4px 4px 0 0;
     }
 
-    .character-name {
-      .text {
-        border-radius: 0 8px 0 0;
+    .character-info {
+      .character-name {
+        .text {
+          border-radius: 0 4px 0 0;
+        }
       }
     }
-  }
-
-  .character-header + main {
-    border-radius: 0 8px 8px 8px;
   }
 
   > main {
@@ -41,24 +40,16 @@
     gap: 8px;
 
     background-color: var(--color-secondary-strong);
-    border-radius: 8px;
+    border-radius: 0 4px 4px 4px;
 
     padding: 8px;
 
     > .player-avatar {
       width: 80px;
-
-      .avatar-layers {
-        border-radius: 4px;
-      }
     }
 
     > .portrait {
       width: 80px;
-
-      img {
-        border-radius: 4px;
-      }
     }
 
     .npc-dialogs {

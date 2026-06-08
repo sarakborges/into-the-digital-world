@@ -49,8 +49,6 @@ export const BattleParty = ({
         >
           <CharacterHeader character={digimon}>
             <div className="conditions">
-              <Text>Conditions:</Text>
-
               {!isDigimonDefeated(digimon) && !!digimon.conditions && (
                 <Text>
                   {Object.keys(digimon.conditions)

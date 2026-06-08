@@ -11,8 +11,8 @@ export const BATTLE_LOG_DEFEATED = `[TARGET] has been defeated.`
 export const BATTLE_LOG_DIGIMON_DEFEATED = `defeated`
 
 export const ATTACK_CONDITION_SEVERITY1 = `Minorly`
-export const ATTACK_CONDITION_SEVERITY2 = `Moderatedly`
-export const ATTACK_CONDITION_SEVERITY3 = `Severely`
+export const ATTACK_CONDITION_SEVERITY2 = `Mildly`
+export const ATTACK_CONDITION_SEVERITY3 = `Heavily`
 
 export const ATTACK_CONDITION_SHAKEN = `Shaken`
 export const ATTACK_CONDITION_DISTRACTED = `Distracted`

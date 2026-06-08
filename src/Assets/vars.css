@@ -1,6 +1,6 @@
 :root {
   --color-cancel: #e04848;
-  --color-cancel-strong: #bb3434;
+  --color-cancel-strong: #bd2121;
   --color-cancel-weak: #f08b8b;
 
   --color-neutral-weak: #f8fbff;
@@ -9,7 +9,7 @@
 
   --text-color: #fff;
 
-  --color-enemies: #bb3434;
+  --color-enemies: #bd2121;
   --color-allies: #1b5dd8;
 
   --font-family: 'Winky Rough', sans-serif;

@@ -9,10 +9,8 @@
     padding: 4px 8px 4px 4px;
 
     background-color: var(--color-primary);
-    border-radius: 8px;
 
     .language-flag {
-      border-radius: 4px;
       border: 2px solid var(--color-neutral-weak);
 
       .portrait {
@@ -21,10 +19,7 @@
         aspect-ratio: 1;
         overflow: hidden;
 
-        border-radius: 0;
-
         img {
-          border-radius: 0;
           border: 0;
         }
       }

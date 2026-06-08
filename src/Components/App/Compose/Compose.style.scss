@@ -7,7 +7,7 @@
   padding: 8px;
 
   background-color: var(--color-secondary);
-  border-radius: 8px;
+  border-radius: 4px;
 
   > header {
     display: flex;
@@ -17,14 +17,10 @@
     padding: 8px;
 
     background-color: var(--color-secondary-weak);
-    border-radius: 8px;
+    border-radius: 4px;
 
     .portrait {
       max-width: 32px;
-
-      img {
-        border-radius: 100%;
-      }
     }
   }
 
@@ -41,7 +37,7 @@
       padding: 8px;
 
       background-color: var(--color-secondary-weak);
-      border-radius: 8px;
+      border-radius: 4px;
     }
 
     > div {
@@ -60,8 +56,8 @@
         height: 8px;
         overflow: hidden;
 
-        border-radius: 4px;
         background-color: var(--color-secondary-strong);
+        border-radius: 4px;
 
         > div {
           height: 8px;
@@ -109,7 +105,7 @@
             padding: 4px;
 
             background-color: var(--color-secondary);
-            border-radius: 8px;
+            border-radius: 4px;
 
             .text {
               font-size: 12px;
