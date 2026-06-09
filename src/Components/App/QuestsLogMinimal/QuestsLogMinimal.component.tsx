@@ -20,7 +20,11 @@ export const QuestsLogMinimal = () => {
 
   return (
     <div className="quests-log-minimal">
-      <QuestsList list={notDoneQuests} title={getTexts('QUESTS_LOG_TITLE')} />
+      <QuestsList
+        list={notDoneQuests}
+        title={getTexts('QUESTS_LOG_TITLE')}
+        noListText={getTexts('QUESTS_LOG_NOQUESTS')}
+      />
     </div>
   )
 }
