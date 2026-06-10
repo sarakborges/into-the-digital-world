@@ -98,6 +98,10 @@ export const AvatarCustomization = () => {
     saveSession({ key: 'profile', value: updatedProfile })
   }
 
+  const closeCustomization = () => {
+    setAvatarCustomization({ ...avatarCustomization!, layer: undefined })
+  }
+
   useEffect(() => {
     setAvatarCustomization({ avatar })
   }, [])
@@ -105,39 +109,46 @@ export const AvatarCustomization = () => {
   return (
     <div className="avatar-customization">
       <header>
-        <PlayerAvatar replaceAvatar={avatarCustomization?.avatar} />
-      </header>
-
-      {!avatarCustomization?.layer && (
-        <main className="avatar-options-container">
-          <main className="avatar-options">
-            <Text>{getTexts('AVATARCUSTOMIZATION_OPTIONS_TITLE')}</Text>
-
-            {(Object.keys(options) as Array<keyof typeof options>).map(
-              (option) => (
-                <div key={`avatar-options-${option}`}>
-                  <Button
-                    disabled={!!scene}
-                    onClick={() =>
-                      setAvatarCustomization({
-                        ...avatarCustomization!,
-                        layer: option
-                      })
-                    }
-                  >
-                    <FaPaintBrush />
-                    <Text>{options[option]}</Text>
-                  </Button>
-                </div>
-              )
-            )}
-          </main>
+        <main>
+          <PlayerAvatar replaceAvatar={avatarCustomization?.avatar} />
 
           <footer>
+            <Button
+              disabled={!!scene || !avatarCustomization?.layer}
+              onClick={closeCustomization}
+            >
+              <Text>{getDialogs('SCENES_BACK_BUTTON')}</Text>
+            </Button>
+
             <Button disabled={!!scene} onClick={saveAvatar}>
               <Text>{getDialogs('SCENES_CONFIRM_BUTTON')}</Text>
             </Button>
           </footer>
+        </main>
+      </header>
+
+      {!avatarCustomization?.layer && (
+        <main className="avatar-options">
+          <Text>{getTexts('AVATARCUSTOMIZATION_OPTIONS_TITLE')}</Text>
+
+          {(Object.keys(options) as Array<keyof typeof options>).map(
+            (option) => (
+              <div key={`avatar-options-${option}`}>
+                <Button
+                  disabled={!!scene}
+                  onClick={() =>
+                    setAvatarCustomization({
+                      ...avatarCustomization!,
+                      layer: option
+                    })
+                  }
+                >
+                  <FaPaintBrush />
+                  <Text>{options[option]}</Text>
+                </Button>
+              </div>
+            )
+          )}
         </main>
       )}
 

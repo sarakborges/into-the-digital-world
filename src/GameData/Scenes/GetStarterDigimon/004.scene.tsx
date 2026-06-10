@@ -11,7 +11,6 @@ import { Text } from '@/Components/System/Text'
 import { Button } from '@/Components/System/Button'
 
 import { Dialog } from '@/Components/App/Dialog'
-import { getTexts } from '@/Helpers/getTexts.helper'
 
 export const GetStarterDigimon004 = () => {
   const { profile, setProfile } = useProfileStore((state) => state)
@@ -57,16 +56,13 @@ export const GetStarterDigimon004 = () => {
         </div>
 
         <div className="dialog-reactions">
-          <Text>{getTexts('NPC_INTERACTIONS')}</Text>
-
           {dialogReactions.map((reaction) => (
-            <Button
-              onClick={() => reactToScene(reaction.value)}
-              key={`scene-getstarterdigimon-004-option-${reaction.value}`}
-            >
-              <HiOutlineChatBubbleLeftEllipsis />
-              <Text>{reaction.label}</Text>
-            </Button>
+            <div key={`scene-getstarterdigimon-004-option-${reaction.value}`}>
+              <Button onClick={() => reactToScene(reaction.value)}>
+                <HiOutlineChatBubbleLeftEllipsis />
+                <Text>{reaction.label}</Text>
+              </Button>
+            </div>
           ))}
         </div>
       </div>

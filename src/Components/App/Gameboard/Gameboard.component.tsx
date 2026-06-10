@@ -93,7 +93,7 @@ export const Gameboard = () => {
         </main>
       </div>
 
-      <QuestsLogMinimal />
+      {!scene && <QuestsLogMinimal />}
     </>
   )
 }

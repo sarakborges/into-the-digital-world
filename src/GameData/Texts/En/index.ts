@@ -21,8 +21,6 @@ export const INVENTORY_CATEGORY_CORE = `Cores`
 
 export const GAME_SAVED = `Data saved`
 
-export const NPC_INTERACTIONS = `Possible interactions:`
-
 export const CURRENT_ZONE = `Current zone: [ZONE]`
 export const IN_COMBAT = `In combat`
 

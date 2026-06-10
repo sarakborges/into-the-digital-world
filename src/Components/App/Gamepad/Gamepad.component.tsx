@@ -1,3 +1,4 @@
+import { Fragment } from 'react/jsx-runtime'
 import {
   BsArrowDown,
   BsArrowDownLeft,
@@ -159,21 +160,23 @@ export const Gamepad = () => {
 
   return (
     <aside className="gamepad">
-      {Object.keys(coordinates).map((coordinate) =>
-        !!coordinates[coordinate] ? (
-          <Button
-            disabled={
-              !canMoveToCoordinate({ ...coordinates[coordinate] }) ||
-              !!game?.isWarping
-            }
-            onClick={() => setLocation({ ...coordinates[coordinate] })}
-          >
-            {coordinates[coordinate].icon}
-          </Button>
-        ) : (
-          <div />
-        )
-      )}
+      {Object.keys(coordinates).map((coordinate) => (
+        <Fragment key={`gamepad-${coordinate}`}>
+          {!!coordinates[coordinate] ? (
+            <Button
+              disabled={
+                !canMoveToCoordinate({ ...coordinates[coordinate] }) ||
+                !!game?.isWarping
+              }
+              onClick={() => setLocation({ ...coordinates[coordinate] })}
+            >
+              {coordinates[coordinate].icon}
+            </Button>
+          ) : (
+            <div />
+          )}
+        </Fragment>
+      ))}
     </aside>
   )
 }

@@ -1,6 +1,9 @@
-import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
-
 import { getTexts } from '@/Helpers/getTexts.helper'
+
+import { THEMES } from '@/Consts/Themes.const'
+
+import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
+import { useSettingsStore } from '@/Stores/Settings.store'
 
 import { Text } from '@/Components/System/Text'
 import { Portrait } from '@/Components/System/Portrait'
@@ -12,13 +15,22 @@ import './StartScreen.style.scss'
 
 export const StartScreen = () => {
   const { savedProfiles } = useSavedProfilesStore((state) => state)
+  const { settings } = useSettingsStore((state) => state)
 
   return (
     <main className="start-screen">
       <header>
         <Portrait
           alt={getTexts('START_SCREEN_TITLE')}
-          src="/digivice_backgrounds/default.webp"
+          src={`/digivice_backgrounds/${
+            settings?.theme &&
+            Object.keys({
+              ...THEMES.default,
+              ...THEMES.crests
+            }).includes(settings?.theme)
+              ? settings?.theme
+              : 'default'
+          }.webp`}
         />
 
         <Text as="p">{getTexts('START_SCREEN_TITLE')}</Text>

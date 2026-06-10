@@ -1,6 +1,5 @@
 import { AVATAR_OPTIONS } from '@/Consts/Avatars.const'
 
-import { getDialogs } from '@/Helpers/getDialogs.helper'
 import { getTexts } from '@/Helpers/getTexts.helper'
 
 import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
@@ -40,10 +39,6 @@ export const AvatarCustomizationOptions = () => {
     })
   }
 
-  const closeCustomization = () => {
-    setAvatarCustomization({ ...avatarCustomization, layer: undefined })
-  }
-
   return (
     <div className="avatar-customization-options">
       <header>
@@ -74,12 +69,6 @@ export const AvatarCustomizationOptions = () => {
           ))}
         </div>
       </main>
-
-      <footer className="customization-back">
-        <Button onClick={closeCustomization}>
-          {getDialogs('SCENES_BACK_BUTTON')}
-        </Button>
-      </footer>
     </div>
   )
 }

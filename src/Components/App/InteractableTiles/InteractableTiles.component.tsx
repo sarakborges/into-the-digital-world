@@ -15,7 +15,6 @@ import { Button } from '@/Components/System/Button'
 import { Dialog } from '@/Components/App/Dialog'
 
 import './InteractableTiles.style.scss'
-import { getTexts } from '@/Helpers/getTexts.helper'
 
 export const InteractableTiles = () => {
   const { profile } = useProfileStore((state) => state)
@@ -73,25 +72,28 @@ export const InteractableTiles = () => {
 
                       {!!tile.events?.length && (
                         <div className="events-list">
-                          <Text>{getTexts('NPC_INTERACTIONS')}</Text>
-
                           {tile.events.map((event) => (
-                            <Button
-                              onClick={() => event?.function()}
-                              data-isimportant={event.eventType === 'important'}
+                            <div
                               key={`interactable-tile-y-${tile!.y}-x${tile!.x}-${tile!.npc!.id}-event-${event.function}`}
                             >
-                              {event.eventType === 'important' && (
-                                <AiOutlineExclamationCircle />
-                              )}
+                              <Button
+                                onClick={() => event?.function()}
+                                data-isimportant={
+                                  event.eventType === 'important'
+                                }
+                              >
+                                {event.eventType === 'important' && (
+                                  <AiOutlineExclamationCircle />
+                                )}
 
-                              {(!event.eventType ||
-                                event.eventType === 'default') && (
-                                <HiOutlineChatBubbleLeftEllipsis />
-                              )}
+                                {(!event.eventType ||
+                                  event.eventType === 'default') && (
+                                  <HiOutlineChatBubbleLeftEllipsis />
+                                )}
 
-                              <Text>{event.eventText}</Text>
-                            </Button>
+                                <Text>{event.eventText}</Text>
+                              </Button>
+                            </div>
                           ))}
                         </div>
                       )}

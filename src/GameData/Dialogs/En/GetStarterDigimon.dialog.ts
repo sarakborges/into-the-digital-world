@@ -1,5 +1,5 @@
 export const GETSTARTERDIGIMON_DEFAULTTEXT = `Hello, chosen child. Done with exploring our headquarters?`
-export const GETSTARTERDIGIMON_TRIGGER = `Hey, Gennai. What's next?`
+export const GETSTARTERDIGIMON_TRIGGER = `Hey, Gennai. What's up?`
 
 export const GETSTARTERDIGIMON_001_TEXT = `I hope you're more comfortable now. Before I tell you more, there is someone I want you to meet.`
 

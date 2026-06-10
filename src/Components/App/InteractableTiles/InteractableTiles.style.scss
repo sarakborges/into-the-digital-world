@@ -18,7 +18,7 @@
         .npc-dialogs {
           display: flex;
           flex-flow: column;
-          gap: 12px;
+          gap: 4px;
 
           .events-list {
             display: flex;
@@ -30,7 +30,7 @@
               padding: 4px;
               gap: 4px;
 
-              background-color: var(--color-secondary);
+              background-color: transparent;
 
               text-align: left;
 

@@ -16,10 +16,15 @@
     gap: 12px;
 
     .portrait {
-      width: 160px;
+      display: flex;
+      place-items: center;
+      place-content: center;
+
+      height: 160px;
 
       img {
         aspect-ratio: auto;
+        max-height: 160px;
       }
     }
 
