@@ -15,6 +15,7 @@
   display: flex;
   flex-flow: column;
   place-items: center;
+  place-content: space-between;
 
   width: clamp(360px, 360px, 100%);
   min-height: 100dvh;
@@ -25,53 +26,61 @@
 
   background-color: var(--color-primary-weak);
 
-  > header {
+  .game-container {
     display: flex;
-    flex-flow: row-reverse;
+    flex-flow: column;
     place-items: center;
-    place-content: flex-start;
 
     width: 100%;
 
-    .current-zone {
+    > header {
       display: flex;
+      flex-flow: row-reverse;
       place-items: center;
+      place-content: flex-start;
 
-      height: 40px;
-      padding: 0 8px;
-      flex: 1;
+      width: 100%;
 
-      background-color: var(--color-secondary-strong);
-      box-shadow: 0 0 8px var(--color-neutral-strong);
+      .current-zone {
+        display: flex;
+        place-items: center;
 
-      .text {
-        font-weight: 300;
-      }
-    }
-
-    .player-actions {
-      display: flex;
-      place-content: flex-end;
-      gap: 4px;
-
-      padding: 8px;
-
-      .digivice {
-        position: relative;
-        z-index: 103;
-      }
-
-      > div > .button {
-        position: relative;
-        z-index: 103;
-
-        padding: 4px;
+        height: 40px;
+        padding: 0 8px;
+        flex: 1;
 
         background-color: var(--color-secondary-strong);
+        box-shadow: 0 0 8px var(--color-neutral-strong);
 
-        svg {
-          width: 16px;
-          height: 16px;
+        .text {
+          font-weight: 300;
+        }
+      }
+
+      .player-actions {
+        display: flex;
+        place-content: flex-end;
+        gap: 4px;
+
+        padding: 8px;
+
+        .digivice {
+          position: relative;
+          z-index: 103;
+        }
+
+        > div > .button {
+          position: relative;
+          z-index: 103;
+
+          padding: 4px;
+
+          background-color: var(--color-secondary-strong);
+
+          svg {
+            width: 16px;
+            height: 16px;
+          }
         }
       }
     }
@@ -86,36 +95,50 @@
 
   width: 100%;
   padding: 8px;
-  flex: 1;
 
-  .player {
+  .party {
     display: flex;
-    place-items: center;
+    flex-flow: column;
+    gap: 8px;
 
     flex: 1;
 
-    .player-avatar {
-      position: relative;
-      z-index: 2;
-
-      width: 32px;
-
-      border-radius: 4px;
-
-      > .avatar-content .portrait img {
-        border-radius: 4px;
-      }
+    > .text {
+      font-weight: 500;
+      font-size: 16px;
     }
 
-    .text {
-      position: relative;
-      z-index: 1;
+    .party-digimons {
+      display: flex;
+      place-items: flex-end;
+      gap: 4px;
 
-      padding: 2px 6px 4px 8px;
-      margin-left: -4px;
+      > div {
+        display: flex;
+        flex-flow: column;
 
-      background-color: var(--color-secondary-strong);
-      border-radius: 0 4px 4px 0;
+        .portrait {
+          aspect-ratio: auto;
+
+          img {
+            width: 48px;
+
+            border: 3px solid var(--color-secondary-strong);
+            border-radius: 4px;
+          }
+        }
+
+        .text {
+          position: relative;
+          z-index: 2;
+
+          padding: 2px 4px;
+          margin-bottom: -8px;
+
+          background-color: var(--color-secondary-strong);
+          border-radius: 4px;
+        }
+      }
     }
   }
 }

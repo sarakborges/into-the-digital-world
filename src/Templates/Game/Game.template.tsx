@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 
 import { Scene } from '@/GameData/Scenes'
 import { AllZones } from '@/GameData/Zones'
+import { AllDigimons } from '@/GameData/Digimons'
 
 import { THEMES } from '@/Consts/Themes.const'
 
@@ -18,6 +19,7 @@ import { useGameStore } from '@/Stores/Game.store'
 import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 
 import { Text } from '@/Components/System/Text'
+import { Portrait } from '@/Components/System/Portrait'
 
 import { InteractableTiles } from '@/Components/App/InteractableTiles'
 import { Gamepad } from '@/Components/App/Gamepad'
@@ -26,7 +28,6 @@ import { Settings } from '@/Components/App/Settings'
 import { Digivice } from '@/Components/App/Digivice'
 import { StartScreen } from '@/Components/App/StartScreen'
 import { Battlefield } from '@/Components/App/Battlefield'
-import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 
 import './Game.style.scss'
 
@@ -75,49 +76,77 @@ export const Game = () => {
       }`}
     >
       <div className="main-game">
-        <header>
-          <div className="player-actions">
-            <Digivice />
-            <Settings />
-          </div>
-
-          {!!profile && (
-            <div className="current-zone">
-              <Text>
-                {!battle || scene?.currentStage === 'start'
-                  ? getTexts('CURRENT_ZONE').replaceAll(
-                      '[ZONE]',
-                      AllZones[profile.currentZone.id][profile.currentZone.map]
-                        .name
-                    )
-                  : getTexts('IN_COMBAT')}
-              </Text>
+        <div className="game-container">
+          <header>
+            <div className="player-actions">
+              <Digivice />
+              <Settings />
             </div>
-          )}
-        </header>
 
-        {!!battle && scene?.currentStage !== 'start' && <Battlefield />}
-        <Gameboard />
-
-        <>
-          {!profile && <StartScreen />}
-
-          {!!profile && (
-            <>
-              {<Scene />}
-              <InteractableTiles />
-
-              <div className="screen-footer">
-                <div className="player">
-                  <PlayerAvatar />
-                  <Text>{profile.name || '???'}</Text>
-                </div>
-
-                {!scene && <Gamepad />}
+            {!!profile && (
+              <div className="current-zone">
+                <Text>
+                  {!battle || scene?.currentStage === 'start'
+                    ? getTexts('CURRENT_ZONE').replaceAll(
+                        '[ZONE]',
+                        AllZones[profile.currentZone.id][
+                          profile.currentZone.map
+                        ].name
+                      )
+                    : getTexts('IN_COMBAT')}
+                </Text>
               </div>
-            </>
-          )}
-        </>
+            )}
+          </header>
+
+          {!!battle && scene?.currentStage !== 'start' && <Battlefield />}
+          <Gameboard />
+        </div>
+
+        {!!profile && (
+          <>
+            <div className="screen-footer">
+              {!battle && (
+                <div className="party">
+                  <Text>Party members</Text>
+
+                  <div className="party-digimons">
+                    {profile.party.map((digimon) => (
+                      <div key={`profile-party-${digimon}`}>
+                        <Text>
+                          {profile.partnerDigimons[digimon].name ||
+                            AllDigimons[
+                              profile.partnerDigimons[digimon].baseDigimon
+                            ].name}
+                        </Text>
+
+                        <Portrait
+                          alt={
+                            AllDigimons[
+                              profile.partnerDigimons[digimon].baseDigimon
+                            ].name
+                          }
+                          src={`/${
+                            AllDigimons[
+                              profile.partnerDigimons[digimon].baseDigimon
+                            ].portrait
+                          }.webp`}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {!scene && <Gamepad />}
+            </div>
+
+            <Scene />
+            <InteractableTiles />
+          </>
+        )}
+
+        {!profile && <StartScreen />}
       </div>
     </div>
   )

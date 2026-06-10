@@ -10,11 +10,13 @@ import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Portrait } from '@/Components/System/Portrait'
+import { Text } from '@/Components/System/Text'
 
 import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 import { QuestsLogMinimal } from '@/Components/App/QuestsLogMinimal'
 
 import './Gameboard.style.scss'
+import { getTexts } from '@/Helpers/getTexts.helper'
 
 export const Gameboard = () => {
   const { profile } = useProfileStore((state) => state)
@@ -59,6 +61,8 @@ export const Gameboard = () => {
               }
             >
               <PlayerAvatar />
+
+              <Text>{profile.name}</Text>
             </div>
 
             {currentZone.tiles.map((tile) => {
@@ -84,6 +88,14 @@ export const Gameboard = () => {
                         src={`/${tile!.npc.portrait}.webp`}
                         alt={tile!.npc.name}
                       />
+
+                      <Text>
+                        {Object.keys(profile!.npcAcquintances).includes(
+                          tile.npc.id
+                        )
+                          ? tile.npc.name
+                          : `???`}
+                      </Text>
                     </div>
                   )}
                 </Fragment>

@@ -21,54 +21,52 @@ export const CombatLogEntry = ({ logEntry }) => {
       </div>
 
       <Text as="p">
-        {!!logEntry.hasHitLanded &&
-          getTexts('BATTLE_LOG_TURN')
-            .replaceAll(
-              '[PARTY]',
-              logEntry.attackerParty === 'enemies'
-                ? getTexts('BATTLE_ATTACK_ENEMIES')
-                : ''
-            )
-            .replaceAll('[NAME]', logEntry.attacker)
-            .replaceAll('[TARGET]', logEntry.target)
-            .replaceAll('[MOVENAME]', logEntry.attackName)
-            .replaceAll(
-              '[CONDITION]',
-              !logEntry.isTargetDefeated
-                ? getTexts(
-                    `ATTACK_CONDITION_${logEntry.effect.toLocaleUpperCase()}`
-                  )
-                : getTexts('BATTLE_LOG_DIGIMON_DEFEATED')
-            )
-            .replaceAll(
-              '[SEVERITY]',
-              getTexts(`ATTACK_CONDITION_SEVERITY${logEntry.severity}`)
-            )
-            .replaceAll(
-              '[TARGETPARTY]',
-              logEntry.attackerParty === 'allies'
-                ? getTexts('BATTLE_TARGET_ENEMIES')
-                : ''
-            )}
-
-        {!logEntry.hasHitLanded &&
-          getTexts('BATTLE_LOG_MISS')
-            .replaceAll('[TURN]', logEntry.index)
-            .replaceAll(
-              '[PARTY]',
-              logEntry.attackerParty === 'enemies'
-                ? getTexts('BATTLE_ATTACK_ENEMIES')
-                : ''
-            )
-            .replaceAll('[NAME]', logEntry.attacker)
-            .replaceAll('[TARGET]', logEntry.target)
-            .replaceAll('[MOVENAME]', logEntry.attackName)
-            .replaceAll(
-              '[TARGETPARTY]',
-              logEntry.attackerParty === 'allies'
-                ? getTexts('BATTLE_TARGET_ENEMIES')
-                : ''
-            )}
+        {!!logEntry.hasHitLanded
+          ? getTexts('BATTLE_LOG_TURN')
+              .replaceAll(
+                '[PARTY]',
+                logEntry.attackerParty === 'enemies'
+                  ? getTexts('BATTLE_ATTACK_ENEMIES')
+                  : ''
+              )
+              .replaceAll('[NAME]', logEntry.attacker)
+              .replaceAll('[TARGET]', logEntry.target)
+              .replaceAll('[MOVENAME]', logEntry.attackName)
+              .replaceAll(
+                '[CONDITION]',
+                !logEntry.isTargetDefeated
+                  ? getTexts(
+                      `ATTACK_CONDITION_${logEntry.effect.toLocaleUpperCase()}`
+                    )
+                  : getTexts('BATTLE_LOG_DIGIMON_DEFEATED')
+              )
+              .replaceAll(
+                '[SEVERITY]',
+                getTexts(`ATTACK_CONDITION_SEVERITY${logEntry.severity}`)
+              )
+              .replaceAll(
+                '[TARGETPARTY]',
+                logEntry.attackerParty === 'allies'
+                  ? getTexts('BATTLE_TARGET_ENEMIES')
+                  : ''
+              )
+          : getTexts('BATTLE_LOG_MISS')
+              .replaceAll('[TURN]', logEntry.index)
+              .replaceAll(
+                '[PARTY]',
+                logEntry.attackerParty === 'enemies'
+                  ? getTexts('BATTLE_ATTACK_ENEMIES')
+                  : ''
+              )
+              .replaceAll('[NAME]', logEntry.attacker)
+              .replaceAll('[TARGET]', logEntry.target)
+              .replaceAll('[MOVENAME]', logEntry.attackName)
+              .replaceAll(
+                '[TARGETPARTY]',
+                logEntry.attackerParty === 'allies'
+                  ? getTexts('BATTLE_TARGET_ENEMIES')
+                  : ''
+              )}
       </Text>
 
       {!!logEntry.isTargetDefeated && (

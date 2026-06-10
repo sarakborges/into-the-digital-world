@@ -13,7 +13,7 @@
     max-height 0.3s;
 
   .gameboard {
-    --tile-size: calc(100cqw/6);
+    --tile-size: 64px;
     --view-size: 19;
 
     position: relative;
@@ -53,8 +53,11 @@
         top: calc((var(--tile-size) * var(--character-y)));
         left: calc((var(--tile-size) * var(--character-x)));
 
-        width: var(--tile-size);
-        height: var(--tile-size);
+        display: flex;
+        flex-flow: column;
+        place-items: center;
+        place-content: center;
+
         padding: 2px;
 
         opacity: var(--character-opacity);
@@ -67,6 +70,27 @@
         > div {
           overflow: hidden;
 
+          width: calc(var(--tile-size) - 8px);
+          height: calc(var(--tile-size) - 8px);
+
+          border: 3px solid var(--color-secondary-strong);
+          border-radius: 4px;
+
+          img,
+          .avatar-layers {
+            border-radius: 0;
+          }
+        }
+
+        > .text {
+          position: relative;
+          z-index: 1;
+
+          max-width: calc(var(--tile-size) + 32px);
+          margin-top: calc(var(--tile-size) / 1.05 * -1);
+          padding: 2px 4px;
+
+          background-color: var(--color-secondary-strong);
           border-radius: 4px;
         }
       }

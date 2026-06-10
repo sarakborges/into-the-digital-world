@@ -12,14 +12,14 @@ export const Text = ({
   if (as === 'p') {
     return (
       <>
-        {children.split('\n\n').reduce(
+        {`${children}`.split('\n\n').reduce(
           (acc, cur) => (
             <>
               {acc}
               <p className="text">{cur}</p>
             </>
           ),
-          []
+          <></>
         )}
       </>
     )
