@@ -7,7 +7,7 @@ import { WildZoneKoromon } from './Enemies/Koromon.enemy'
 
 const currentFloorTile: TileType = {
   ...floorTile,
-  maxEnemies: 3,
+  maxEnemies: 1,
 
   possibleSpawns: {
     ...WildZoneKoromon

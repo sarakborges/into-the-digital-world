@@ -11,6 +11,7 @@ export const DigimonKoromon: BaseDigimonType = {
   portrait: 'digimon_portraits/koromon',
   fullImage: 'digimons/koromon',
   attribute: DIGIMON_ATTRIBUTES.na.id,
+  equipmentsSlots: 1,
 
   attacks: {
     [AllAttacks.tackle.id]: null,

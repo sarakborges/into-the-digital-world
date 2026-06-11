@@ -4,6 +4,7 @@ export type BaseDigimonType = {
   description: string
   fullImage: string
   portrait: string
+  equipmentsSlots?: number
 
   attribute: 'va' | 'vi' | 'da' | 'na'
 

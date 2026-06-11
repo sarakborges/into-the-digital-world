@@ -105,6 +105,9 @@ export const Game = () => {
 
         {!!profile && (
           <>
+            <Scene />
+            <InteractableTiles />
+
             <div className="screen-footer">
               {!battle && (
                 <div className="party">
@@ -140,9 +143,6 @@ export const Game = () => {
 
               {!scene && <Gamepad />}
             </div>
-
-            <Scene />
-            <InteractableTiles />
           </>
         )}
 

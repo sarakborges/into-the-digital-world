@@ -21,5 +21,7 @@ export const RENAMEPARTNER_001_INPUT = `New name`
 
 export const RENAMEPARTNER_002_TEXT = `Alright. [DIGIMON] it is!`
 
+export const EQUIPMENT_001_TEXT = `Here are your available equipments! Choose wisely.`
+
 export const SAVEGAME_001_TEXT = `Do you wish to save current data, master?`
 export const SAVEGAME_002_TEXT = `Done!`

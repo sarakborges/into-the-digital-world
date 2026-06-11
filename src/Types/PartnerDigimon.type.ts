@@ -4,4 +4,12 @@ export type PartnerDigimonType = {
   baseDigimon: string
   isFavorite?: boolean
   isStarter?: boolean
+
+  equipments: {
+    [equipmentId: number]:
+      | {
+          equipmentId?: string
+        }
+      | undefined
+  }
 }

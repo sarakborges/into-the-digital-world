@@ -1,4 +1,8 @@
+import type { ItemType } from '@/Types/Item.type'
+
 import { DigiviceItem } from './Digivice.item'
+
+import { EquipmentDrAllItem } from './EquipmentDrAll.item'
 
 import { KoromonCoreItem } from './KoromonCore.item'
 import { DorimonCoreItem } from './DorimonCore.item'
@@ -7,13 +11,17 @@ import { VirusBustersCoreItem } from './VirusBustersCore.item'
 import { DragonsRoarCoreItem } from './DragonsRoarCore.item'
 import { NatureSpiritsCoreItem } from './NatureSpiritsCore.item'
 
-export const AllItems = {
-  digivice: DigiviceItem,
+export const AllItems: {
+  [itemId: string]: ItemType
+} = {
+  [DigiviceItem.id]: DigiviceItem,
 
-  koromonCore: KoromonCoreItem,
-  dorimonCore: DorimonCoreItem,
+  [EquipmentDrAllItem.id]: EquipmentDrAllItem,
 
-  virusBustersCore: VirusBustersCoreItem,
-  dragonsRoarCore: DragonsRoarCoreItem,
-  natureSpiritsCore: NatureSpiritsCoreItem
+  [KoromonCoreItem.id]: KoromonCoreItem,
+  [DorimonCoreItem.id]: DorimonCoreItem,
+
+  [VirusBustersCoreItem.id]: VirusBustersCoreItem,
+  [DragonsRoarCoreItem.id]: DragonsRoarCoreItem,
+  [NatureSpiritsCoreItem.id]: NatureSpiritsCoreItem
 }

@@ -7,6 +7,12 @@ export const WildZoneKoromon = {
 
     lootTable: [
       {
+        itemId: AllItems.equipmentDrAll.id,
+        dropChance: 10,
+        amount: 1
+      },
+
+      {
         itemId: AllItems.koromonCore.id,
         dropChance: 100,
         amount: 1

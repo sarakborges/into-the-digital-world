@@ -1,3 +1,4 @@
+import { FaPlus, FaTimes } from 'react-icons/fa'
 import { BiPencil, BiSolidStar, BiStar } from 'react-icons/bi'
 
 import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
@@ -7,8 +8,11 @@ import { DIGIMON_STATS } from '@/Consts/Stats.const'
 import { DIGIMON_FAMILIES } from '@/Consts/Families.const'
 import { DIGIMON_ATTRIBUTES } from '@/Consts/Attributes.const'
 
+import { saveSession } from '@/Helpers/saveSession.helper'
+
 import { AllDigimons } from '@/GameData/Digimons'
 import { AllAttacks } from '@/GameData/Attacks'
+import { AllItems } from '@/GameData/Items'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -26,7 +30,7 @@ import './PartnerDetails.style.scss'
 export const PartnerDetails = () => {
   const { profile, setProfile } = useProfileStore((state) => state)
   const { scene, setScene } = useSceneStore((state) => state)
-  const { digivice } = useDigiviceStore((state) => state)
+  const { digivice, setDigivice } = useDigiviceStore((state) => state)
 
   if (!digivice?.currentDetails) {
     return
@@ -61,6 +65,56 @@ export const PartnerDetails = () => {
         }
       }
     })
+  }
+
+  const openEquipDialog = (equipmentSlot) => {
+    setScene({
+      currentScene: 'equipment',
+      currentStage: '001'
+    })
+
+    setDigivice({
+      ...digivice,
+      equipmentSlot
+    })
+  }
+
+  const removeEquipement = ({
+    digimonId,
+    equipmentSlot
+  }: {
+    digimonId: number
+    equipmentSlot: number
+  }) => {
+    profile!.partnerDigimons[digimonId].equipments![equipmentSlot] = {
+      equipmentId: undefined
+    }
+
+    setProfile(profile)
+    saveSession({ key: 'profile', value: profile })
+  }
+
+  const getExtraStats = (stat: string) => {
+    const { profile } = useProfileStore.getState()
+    const partner = profile!.partnerDigimons[digivice!.currentDetails!]
+
+    const equipments = partner.equipments
+
+    const equipmentsBoostingStat = Object.values(equipments ?? {})
+      .filter((item) =>
+        Object.keys(
+          AllItems[item!.equipmentId!]?.equipmentBonuses?.stats ?? {}
+        ).includes(stat)
+      )
+      .map((item) => AllItems[item!.equipmentId!].equipmentBonuses?.stats)
+
+    return equipmentsBoostingStat.reduce((acc, cur) => {
+      if (cur![stat].type === 'fixed') {
+        return acc + cur![stat].amount
+      }
+
+      return 0
+    }, 0)
   }
 
   return (
@@ -149,6 +203,77 @@ export const PartnerDetails = () => {
           </main>
         </section>
 
+        <section>
+          <header>
+            <Text>Equipments</Text>
+          </header>
+
+          <main className="partner-equipments">
+            {!!baseDigimon.equipmentsSlots && (
+              <>
+                {new Array(baseDigimon.equipmentsSlots)
+                  .fill(null)
+                  .map((_, item) => (
+                    <div key={`digimon-${partner.id}-equipments-${item}`}>
+                      <header>
+                        <Text>Slot {item + 1}:</Text>
+
+                        {!!partner.equipments?.[item]?.equipmentId && (
+                          <Button
+                            onClick={() =>
+                              removeEquipement({
+                                digimonId: partner.id,
+                                equipmentSlot: item
+                              })
+                            }
+                            disabled={!!scene}
+                          >
+                            <FaTimes />
+                          </Button>
+                        )}
+
+                        {!partner.equipments?.[item]?.equipmentId && (
+                          <Button
+                            onClick={() => openEquipDialog(item)}
+                            disabled={!!scene}
+                          >
+                            <FaPlus />
+                          </Button>
+                        )}
+                      </header>
+
+                      {!!partner.equipments?.[item]?.equipmentId && (
+                        <>
+                          <Portrait
+                            alt={
+                              AllItems[partner.equipments?.[item].equipmentId]
+                                .name
+                            }
+                            src={`/${
+                              AllItems[partner.equipments?.[item].equipmentId]
+                                .portrait
+                            }.webp`}
+                          />
+
+                          <Text>
+                            {
+                              AllItems[partner.equipments?.[item].equipmentId]
+                                .name
+                            }
+                          </Text>
+                        </>
+                      )}
+
+                      {!partner.equipments?.[item]?.equipmentId && (
+                        <Text>No item in this slot.</Text>
+                      )}
+                    </div>
+                  ))}
+              </>
+            )}
+          </main>
+        </section>
+
         <section className="partner-stats">
           <header>
             <Text>{getTexts('ENCYCLOPEDIA_STATS')}</Text>
@@ -158,7 +283,12 @@ export const PartnerDetails = () => {
             {DIGIMON_STATS.map((stat) => (
               <div className="stat" key={`digimon-${partner.id}-stats-${stat}`}>
                 <Text>{stat.toLocaleUpperCase()}</Text>
-                <Text>{baseDigimon.stats[stat]}</Text>
+
+                <Text>
+                  <>{baseDigimon.stats[stat]}</>
+                  <> + </>
+                  <>{getExtraStats(stat)}</>
+                </Text>
               </div>
             ))}
           </main>

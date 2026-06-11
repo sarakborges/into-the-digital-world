@@ -154,7 +154,7 @@ export const Compose = () => {
                       disabled={
                         (composition?.completed || 0) >= 100 ||
                         (profile?.items[item] || 0) <
-                          (composition?.totalItems?.[item] || 0) + 1
+                          (composition?.optionalItems?.[item] || 0) + 1
                       }
                     >
                       <BiPlus />
