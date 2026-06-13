@@ -19,12 +19,6 @@ export const GetStarterDigimon021 = () => {
   const { setScene } = useSceneStore((state) => state)
   const { profile, setProfile } = useProfileStore((state) => state)
 
-  const initialBondValue = {
-    accept: 5,
-    neutral: 0,
-    refuse: -5
-  }
-
   const dialogOptions: DialogType = {
     speaker: AllNpcs.general.gennai,
 
@@ -59,7 +53,8 @@ export const GetStarterDigimon021 = () => {
               1: {
                 id: 1,
                 baseDigimon: 'dorimon',
-                isStarter: true
+                isStarter: true,
+                equipments: {}
               }
             }
           }
