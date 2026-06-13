@@ -10,7 +10,7 @@ const filledGrid = fillGrid({ grid, gridSize })
 export const WildZoneMainRoom: ZoneType = {
   id: `wildZoneMainRoom`,
   background: `WildZone/MainRoom`,
-  name: `Root Domain`,
+  name: `Wild Zone`,
   gridSize,
   grid: filledGrid,
   tiles: []

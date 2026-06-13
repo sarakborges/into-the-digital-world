@@ -106,8 +106,6 @@ export const Game = () => {
             <div className="screen-footer">
               {!battle && (
                 <div className="party">
-                  <Text>Party members</Text>
-
                   <div className="party-digimons">
                     {profile.party.map((digimon) => (
                       <div key={`profile-party-${digimon}`}>
