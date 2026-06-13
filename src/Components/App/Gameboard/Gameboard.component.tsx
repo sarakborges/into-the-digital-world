@@ -1,5 +1,3 @@
-import { Fragment } from 'react/jsx-runtime'
-
 import type { ZoneType } from '@/Types/Zone.type'
 
 import { AllZones } from '@/GameData/Zones'
@@ -9,14 +7,11 @@ import { useGameStore } from '@/Stores/Game.store'
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Portrait } from '@/Components/System/Portrait'
-import { Text } from '@/Components/System/Text'
-
-import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
 import { QuestsLogMinimal } from '@/Components/App/QuestsLogMinimal'
+import { GameboardCharacter } from '@/Components/App/GameboardCharacter'
+import { Battlefield } from '@/Components/App/Battlefield'
 
 import './Gameboard.style.scss'
-import { getTexts } from '@/Helpers/getTexts.helper'
 
 export const Gameboard = () => {
   const { profile } = useProfileStore((state) => state)
@@ -45,63 +40,30 @@ export const Gameboard = () => {
         className="gameboard-wrapper"
         style={
           {
-            '--is-visible': !battle || scene?.currentStage === 'start' ? 1 : 0
+            '--tile-size':
+              !battle || scene?.currentStage === 'start' ? '64px' : '40px'
           } as React.CSSProperties
         }
       >
         <main className="gameboard">
           <div className="gameboard-body" style={gameboardBodyVars}>
-            <div
-              className="character"
-              style={
-                {
-                  '--character-x': profile.currentZone.x,
-                  '--character-y': profile.currentZone.y
-                } as React.CSSProperties
-              }
-            >
-              <PlayerAvatar />
+            {!!(!battle || scene?.currentStage === 'start') && (
+              <>
+                <GameboardCharacter isPlayer />
 
-              <Text>{profile.name}</Text>
-            </div>
-
-            {currentZone.tiles.map((tile) => {
-              return (
-                <Fragment
-                  key={`zone-${currentZone.id}-x${tile.x}-y${tile.y}-${tile.id}`}
-                >
-                  {!!tile.npc?.id && (
-                    <div
-                      className="character"
-                      style={
-                        {
-                          '--character-x': tile.x,
-                          '--character-y': tile.y,
-                          '--character-opacity':
-                            tile.condition === undefined || !!tile.condition?.()
-                              ? 1
-                              : 0
-                        } as React.CSSProperties
-                      }
-                    >
-                      <Portrait
-                        src={`/${tile!.npc.portrait}.webp`}
-                        alt={tile!.npc.name}
-                      />
-
-                      <Text>
-                        {Object.keys(profile!.npcAcquintances).includes(
-                          tile.npc.id
-                        )
-                          ? tile.npc.name
-                          : `???`}
-                      </Text>
-                    </div>
-                  )}
-                </Fragment>
-              )
-            })}
+                {currentZone.tiles.map((tile) => {
+                  return (
+                    <GameboardCharacter
+                      tile={tile}
+                      key={`zone-${currentZone.id}-x${tile.x}-y${tile.y}-${tile.id}`}
+                    />
+                  )
+                })}
+              </>
+            )}
           </div>
+
+          {!(!battle || scene?.currentStage === 'start') && <Battlefield />}
         </main>
       </div>
 

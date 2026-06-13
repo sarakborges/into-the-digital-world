@@ -1,6 +1,11 @@
 .battlefield {
-  width: 100%;
+  position: relative;
+  z-index: 1;
 
-  background-color: var(--color-primary-strong);
-  box-shadow: 0 0 8px var(--color-neutral-strong);
+  display: flex;
+  place-items: center;
+  place-content: center;
+
+  width: 100%;
+  height: calc(100cqw - 36px);
 }

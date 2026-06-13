@@ -1,8 +1,13 @@
 .turn-order {
+  position: absolute;
+  top: 100%;
+  left: 0;
+
   display: flex;
   place-items: center;
   gap: 8px;
 
+  width: 100%;
   overflow: hidden;
 
   background-color: var(--color-primary-strong);
@@ -45,16 +50,8 @@
 
       flex: 1;
 
-      [data-party='enemies'] {
-        .portrait {
-          box-shadow: 0 0 8px 2px var(--color-enemies);
-        }
-      }
-
-      [data-party='allies'] {
-        .portrait {
-          box-shadow: 0 0 8px 2px var(--color-allies);
-        }
+      .portrait {
+        box-shadow: 0 0 8px 2px var(--color-primary-strong);
       }
 
       &:before {

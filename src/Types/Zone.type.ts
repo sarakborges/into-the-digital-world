@@ -1,5 +1,5 @@
 import type { GridType } from '@/Types/Grid.type'
-import type { NpcType } from '@/Types/Npc.type'
+import type { ZoneTileType } from '@/Types/ZoneTile.type'
 
 export type ZoneType = {
   id: string
@@ -9,24 +9,5 @@ export type ZoneType = {
 
   grid: GridType
 
-  tiles: Array<{
-    id: string
-    x: number
-    y: number
-    defaultText?: string
-    condition?: () => boolean
-
-    onEnter?: {
-      function: () => void
-      eventText?: string
-    }
-
-    events?: Array<{
-      function: () => void
-      eventText?: string
-      eventType?: 'default' | 'important'
-    }>
-
-    npc?: NpcType
-  }>
+  tiles: Array<ZoneTileType>
 }

@@ -1,7 +1,44 @@
 .battle-party {
   display: flex;
   flex-flow: column;
-  gap: 8px;
+  gap: 12px;
+
+  &:first-child {
+    place-items: flex-end;
+
+    .party-member {
+      .party-digimon {
+        flex-flow: row-reverse;
+
+        > .text {
+          left: auto;
+          right: -4px;
+        }
+      }
+    }
+
+    .party-member:not([data-currentturn='true']) {
+      .party-digimon {
+        .portrait,
+        > .text,
+        .conditions {
+          background-color: var(--color-allies);
+        }
+      }
+    }
+  }
+
+  &:last-child {
+    .party-member:not([data-currentturn='true']) {
+      .party-digimon {
+        .portrait,
+        > .text,
+        .conditions {
+          background-color: var(--color-enemies);
+        }
+      }
+    }
+  }
 
   .party-member {
     &[data-defeated='true'] {
@@ -9,45 +46,48 @@
     }
 
     &[data-currentturn='true'] {
-      .portrait {
-        background-color: var(--color-primary-strong);
-      }
-
-      > header > div .character-name .text {
-        background-color: var(--color-primary-strong);
-      }
-    }
-
-    &:not([data-currentturn='true']) {
-      .portrait {
-        background-color: var(--color-primary-weak);
-      }
-
-      > header > div .character-name .text {
-        background-color: var(--color-primary-weak);
+      .party-digimon {
+        .portrait,
+        > .text,
+        .conditions {
+          background-color: var(--color-primary-strong);
+        }
       }
     }
-  }
 
-  .character-header {
-    .portrait {
-      padding: 4px;
+    .party-digimon {
+      position: relative;
 
-      border-radius: 4px 4px 0 4px;
+      display: flex;
+      place-items: center;
 
-      img {
+      .portrait {
+        width: var(--tile-size);
+        padding: 2px;
+
         border-radius: 4px;
       }
-    }
 
-    .conditions {
-      display: flex;
-      flex-flow: column;
-      gap: 2px;
+      .conditions {
+        padding: 2px 4px;
 
-      padding-left: 4px;
+        border-radius: 4px;
 
-      .text {
+        > .text {
+          font-size: 12px;
+        }
+      }
+
+      > .text {
+        position: absolute;
+        z-index: 1;
+        top: -6px;
+        left: -4px;
+
+        padding: 2px 4px;
+
+        border-radius: 4px;
+
         font-size: 12px;
       }
     }

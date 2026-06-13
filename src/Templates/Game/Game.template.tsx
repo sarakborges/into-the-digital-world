@@ -27,7 +27,6 @@ import { Gameboard } from '@/Components/App/Gameboard'
 import { Settings } from '@/Components/App/Settings'
 import { Digivice } from '@/Components/App/Digivice'
 import { StartScreen } from '@/Components/App/StartScreen'
-import { Battlefield } from '@/Components/App/Battlefield'
 
 import './Game.style.scss'
 
@@ -86,20 +85,16 @@ export const Game = () => {
             {!!profile && (
               <div className="current-zone">
                 <Text>
-                  {!battle || scene?.currentStage === 'start'
-                    ? getTexts('CURRENT_ZONE').replaceAll(
-                        '[ZONE]',
-                        AllZones[profile.currentZone.id][
-                          profile.currentZone.map
-                        ].name
-                      )
-                    : getTexts('IN_COMBAT')}
+                  {getTexts('CURRENT_ZONE').replaceAll(
+                    '[ZONE]',
+                    AllZones[profile.currentZone.id][profile.currentZone.map]
+                      .name
+                  )}
                 </Text>
               </div>
             )}
           </header>
 
-          {!!battle && scene?.currentStage !== 'start' && <Battlefield />}
           <Gameboard />
         </div>
 

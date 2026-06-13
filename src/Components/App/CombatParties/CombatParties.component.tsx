@@ -25,22 +25,15 @@ export const CombatParties = () => {
   return (
     <div className="combat-parties">
       {Object.keys(parties).map((party) => (
-        <div key={`party-${party}`}>
-          <header>
-            <Text>{parties[party]}</Text>
-          </header>
-
-          <main>
-            <BattleParty
-              party={{
-                title: parties[party],
-                list: battle.turnOrder
-                  .filter((digimon) => digimon.party === party)
-                  .sort((a, b) => (a.index > b.index ? 1 : -1))
-              }}
-            />
-          </main>
-        </div>
+        <BattleParty
+          party={{
+            title: parties[party],
+            list: battle.turnOrder
+              .filter((digimon) => digimon.party === party)
+              .sort((a, b) => (a.index > b.index ? 1 : -1))
+          }}
+          key={`party-${party}`}
+        />
       ))}
     </div>
   )
