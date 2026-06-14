@@ -200,6 +200,11 @@
             .text {
               font-size: 12px;
               word-break: break-word;
+
+              padding: 2px 4px;
+
+              background-color: var(--color-primary-weak);
+              border-radius: 4px;
             }
 
             .portrait {
