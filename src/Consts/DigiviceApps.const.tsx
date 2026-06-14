@@ -72,7 +72,6 @@ export const DigiviceApps = {
   journal: APP_JOURNAL,
   acquintances: APP_ACQUINTANCES,
   partnersList: APP_PARTNERSLIST,
-  location: APP_LOCATION,
   save: APP_SAVE,
   logoff: APP_LOGOFF
 }

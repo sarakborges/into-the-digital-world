@@ -8,6 +8,7 @@ import { RenamePartnerScenes } from './RenamePartner'
 import { ResearchScenes } from './Research'
 import { ComposeScenes } from './Compose'
 import { EquipmentScenes } from './Equipment'
+import { LocationScenes } from './Location'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -22,7 +23,8 @@ export const AllScenes = {
   renamePartner: RenamePartnerScenes,
   research: ResearchScenes,
   compose: ComposeScenes,
-  equipment: EquipmentScenes
+  equipment: EquipmentScenes,
+  location: LocationScenes
 }
 
 export const Scene = () => {

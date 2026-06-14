@@ -18,6 +18,9 @@ export const AVATARCUSTOMIZATION_TRIGGER = `Hey, Dressmon. I would like to updat
 
 export const LOGOFF_001_TEXT = `Ready for taking off?`
 
+export const LOCATION_001_TEXT = `You ready to take on your challenges? Which destination you want to go to?`
+export const LOCATION_TRIGGER = `Which places can I go?`
+
 export const RENAMEPARTNER_001_TEXT = `You want to rename [DIGIMON]? Alright. How should we name them?`
 export const RENAMEPARTNER_001_INPUT = `New name`
 

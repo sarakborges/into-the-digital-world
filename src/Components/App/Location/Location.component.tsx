@@ -32,20 +32,18 @@ export const Location = () => {
       <Text>Select destination:</Text>
 
       <div className="locations-list">
-        {Object.keys(WARP_LOCATIONS).map((location) => (
-          <Button
-            onClick={() => warp(location)}
-            key={`warp-to-${location}`}
-            disabled={profile?.currentZone.id === location}
-          >
-            <Portrait
-              src={`/zones/${WARP_LOCATIONS[location].background}.webp`}
-              alt={AllZones[location].name}
-            />
+        {Object.keys(WARP_LOCATIONS)
+          .filter((location) => location !== profile?.currentZone.id)
+          .map((location) => (
+            <Button onClick={() => warp(location)} key={`warp-to-${location}`}>
+              <Portrait
+                src={`/zones/${WARP_LOCATIONS[location].background}.webp`}
+                alt={AllZones[location].name}
+              />
 
-            <Text>{AllZones[location].name}</Text>
-          </Button>
-        ))}
+              <Text>{AllZones[location].name}</Text>
+            </Button>
+          ))}
       </div>
     </div>
   )

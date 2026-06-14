@@ -31,7 +31,7 @@ export const Digivice = () => {
     return
   }
 
-  const areButtonsDisabled = !!battle
+  const areButtonsDisabled = !!battle || !!scene
 
   const toggleModal = () => {
     setDigivice({
@@ -128,9 +128,6 @@ export const Digivice = () => {
       <Button
         onClick={toggleModal}
         cancel={!!digivice?.isOpen}
-        data-warning={
-          scene?.currentScene === 'introduction' && scene.currentStage === '022'
-        }
         disabled={areButtonsDisabled}
       >
         {<HiOutlineDevicePhoneMobile />}

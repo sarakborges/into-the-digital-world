@@ -17,6 +17,7 @@ import { OpenCompose } from './Events/OpenCompose.event'
 
 import { grid } from './MainRoom.grid'
 import { isQuestDone } from '@/Helpers/isQuestDone.helper'
+import { OpenLocation } from './Events/OpenLocation.event'
 
 const gridSize = 19
 const filledGrid = fillGrid({ grid, gridSize })
@@ -175,31 +176,6 @@ export const RootDomainMainRoom: ZoneType = {
     },
 
     {
-      id: 'gennaiTBA',
-      x: 9,
-      y: 12,
-      defaultText: getDialogs('NPC_DEFAULT_TEXT'),
-
-      npc: {
-        ...AllNpcs.general.gennai,
-        isVisible: true
-      },
-
-      condition: () => {
-        const profile = useProfileStore.getState().profile
-
-        const doneQuests = Object.keys(profile!.quests).filter((quest) =>
-          isQuestDone(quest)
-        )
-
-        return (
-          !!doneQuests.includes(AllQuests.introduction.id) &&
-          !!doneQuests.includes(AllQuests.starterDigimon.id)
-        )
-      }
-    },
-
-    {
       id: 'gennaiGetStarter',
       x: 9,
       y: 12,
@@ -228,6 +204,39 @@ export const RootDomainMainRoom: ZoneType = {
         return (
           !!doneQuests.includes(AllQuests.introduction.id) &&
           !doneQuests.includes(AllQuests.starterDigimon.id)
+        )
+      }
+    },
+
+    {
+      id: 'gennaiFastTravel',
+      x: 9,
+      y: 12,
+      defaultText: getDialogs('LOCATION_001_TEXT'),
+
+      npc: {
+        ...AllNpcs.general.gennai,
+        isVisible: true
+      },
+
+      events: [
+        {
+          function: OpenLocation,
+          eventText: getDialogs('LOCATION_TRIGGER'),
+          eventType: 'default'
+        }
+      ],
+
+      condition: () => {
+        const profile = useProfileStore.getState().profile
+
+        const doneQuests = Object.keys(profile!.quests).filter((quest) =>
+          isQuestDone(quest)
+        )
+
+        return (
+          !!doneQuests.includes(AllQuests.introduction.id) &&
+          !!doneQuests.includes(AllQuests.starterDigimon.id)
         )
       }
     }
