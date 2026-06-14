@@ -22,7 +22,7 @@ export const INVENTORY_CATEGORY_CORE = `Cores`
 export const GAME_SAVED = `Data saved`
 
 export const CURRENT_ZONE = `[ZONE] - [MAP]`
-export const IN_COMBAT = `In combat`
+export const LOCATION_SELECT = `Select destination:`
 
 export const QUESTS_LOG_TITLE = `Current objectives:`
 export const QUESTS_LOG_TITLE_DONE = `Concluded objectives:`

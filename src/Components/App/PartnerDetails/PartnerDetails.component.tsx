@@ -205,7 +205,7 @@ export const PartnerDetails = () => {
 
         <section>
           <header>
-            <Text>Equipments</Text>
+            <Text>{getTexts('ENCYCLOPEDIA_EQUIPMENTS')}</Text>
           </header>
 
           <main className="partner-equipments">
@@ -265,7 +265,9 @@ export const PartnerDetails = () => {
                       )}
 
                       {!partner.equipments?.[item]?.equipmentId && (
-                        <Text>No item in this slot.</Text>
+                        <Text>
+                          {getTexts('ENCYCLOPEDIA_EQUIPMENTS_NOITEMS')}
+                        </Text>
                       )}
                     </div>
                   ))}
@@ -306,10 +308,9 @@ export const PartnerDetails = () => {
                 key={`digimon-${partner.id}-attacks-${attack}`}
               >
                 <Text>
-                  <>{AllAttacks[attack].name}</>
-                  <> - Cooldown: </>
-                  <>{AllAttacks[attack].cooldown || 0}</>
-                  <> turns</>
+                  {getTexts('ENCYCLOPEDIA_ATTACKS_DETAILS')
+                    .replaceAll('[NAME]', AllAttacks[attack].name)
+                    .replaceAll('[COOLDOWN]', AllAttacks[attack].cooldown || 0)}
                 </Text>
 
                 <Text as="p">{AllAttacks[attack].description}</Text>

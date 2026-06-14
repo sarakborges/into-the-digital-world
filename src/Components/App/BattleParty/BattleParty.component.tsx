@@ -62,10 +62,14 @@ export const BattleParty = ({
               )}
 
               {!isDigimonDefeated(digimon) && !digimon.conditions && (
-                <Text>Healthy</Text>
+                <Text>{getTexts('BATTLE_LOG_DIGIMON_HEALTHY')}</Text>
               )}
 
-              {!!isDigimonDefeated(digimon) && <Text>Defeated</Text>}
+              {!!isDigimonDefeated(digimon) && (
+                <Text>
+                  {getTexts('BATTLE_LOG_DIGIMON_DEFEATED').toLocaleLowerCase()}
+                </Text>
+              )}
             </div>
           </div>
         </div>

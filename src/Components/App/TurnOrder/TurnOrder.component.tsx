@@ -6,6 +6,7 @@ import { Portrait } from '@/Components/System/Portrait'
 import { Text } from '@/Components/System/Text'
 
 import './TurnOrder.style.scss'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 export const TurnOrder = () => {
   const { battle } = useBattleStore((state) => state)
@@ -20,7 +21,7 @@ export const TurnOrder = () => {
 
   return (
     <div className="turn-order">
-      <Text>Turn order</Text>
+      <Text>{getTexts('TURN_ORDER_TITLE')}</Text>
 
       <div className="timeline">
         <div className="current-digimon">

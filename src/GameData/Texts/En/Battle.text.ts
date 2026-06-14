@@ -8,7 +8,10 @@ export const BATTLE_LOG_TITLE = `Combat log:`
 export const BATTLE_TARGET_ENEMIES = `enemy `
 export const BATTLE_ATTACK_ENEMIES = `Enemy `
 export const BATTLE_LOG_DEFEATED = `[TARGET] has been defeated.`
+export const BATTLE_LOG_DIGIMON_HEALTHY = `defeated`
 export const BATTLE_LOG_DIGIMON_DEFEATED = `defeated`
+
+export const TURN_ORDER_TITLE = `Turn order`
 
 export const ATTACK_CONDITION_SEVERITY1 = `Minorly`
 export const ATTACK_CONDITION_SEVERITY2 = `Mildly`

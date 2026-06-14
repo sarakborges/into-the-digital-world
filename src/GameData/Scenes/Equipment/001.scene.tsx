@@ -3,6 +3,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { AllItems } from '@/GameData/Items'
 import { AllNpcs } from '@/GameData/Npcs'
 
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
 import { saveSession } from '@/Systems/Profile/saveSession.helper'
 
@@ -55,7 +56,9 @@ export const Equipment001 = () => {
           <Text as="p">{getDialogs('EQUIPMENT_001_TEXT')}</Text>
         </div>
 
-        {!availableItems.length && <Text>No equipments available.</Text>}
+        {!availableItems.length && (
+          <Text>{getTexts('ENCYCLOPEDIA_EQUIPMENTS_NOAVAILABLE')}</Text>
+        )}
 
         {!!availableItems.length &&
           availableItems.map((item) => (

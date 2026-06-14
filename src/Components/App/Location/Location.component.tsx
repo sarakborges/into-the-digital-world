@@ -1,5 +1,6 @@
 import { AllZones } from '@/GameData/Zones'
 
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { warpTo } from '@/Systems/Zones/warpTo.helper'
 
 import { WARP_LOCATIONS } from '@/Consts/Locations.const'
@@ -29,7 +30,7 @@ export const Location = () => {
 
   return (
     <div className="locations">
-      <Text>Select destination:</Text>
+      <Text>{getTexts('LOCATION_SELECT')}</Text>
 
       <div className="locations-list">
         {Object.keys(WARP_LOCATIONS)
