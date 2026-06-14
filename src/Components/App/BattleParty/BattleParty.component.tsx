@@ -55,7 +55,7 @@ export const BattleParty = ({
                   {Object.keys(digimon.conditions)
                     .map(
                       (condition) =>
-                        `${getTexts(`ATTACK_CONDITION_SEVERITY${digimon.conditions![condition]}`)} ${getTexts(`ATTACK_CONDITION_${condition.toLocaleUpperCase()}`)}`
+                        `${getTexts(`ATTACK_CONDITION_${condition.toLocaleUpperCase()}`)} ${digimon.conditions![condition]}`
                     )
                     .join('\n')}
                 </Text>
@@ -66,9 +66,7 @@ export const BattleParty = ({
               )}
 
               {!!isDigimonDefeated(digimon) && (
-                <Text>
-                  {getTexts('BATTLE_LOG_DIGIMON_DEFEATED').toLocaleLowerCase()}
-                </Text>
+                <Text>{getTexts('BATTLE_LOG_DIGIMON_DEFEATED')}</Text>
               )}
             </div>
           </div>

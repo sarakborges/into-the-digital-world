@@ -38,11 +38,11 @@ export const CombatLogEntry = ({ logEntry }) => {
                   ? getTexts(
                       `ATTACK_CONDITION_${logEntry.effect.toLocaleUpperCase()}`
                     )
-                  : getTexts('BATTLE_LOG_DIGIMON_DEFEATED')
+                  : getTexts('BATTLE_LOG_DIGIMON_DEFEATED').toLocaleLowerCase()
               )
               .replaceAll(
                 '[SEVERITY]',
-                getTexts(`ATTACK_CONDITION_SEVERITY${logEntry.severity}`)
+                !logEntry.isTargetDefeated ? ` ${logEntry.severity}` : ''
               )
               .replaceAll(
                 '[TARGETPARTY]',

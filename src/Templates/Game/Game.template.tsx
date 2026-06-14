@@ -78,8 +78,7 @@ export const Game = () => {
 
           <Gameboard />
           <InteractableTiles />
-
-          {!scene && <QuestsLogMinimal />}
+          <QuestsLogMinimal />
         </div>
 
         {!!profile && (

@@ -3,10 +3,12 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
 import { addNewQuest } from '@/Systems/Quests/addNewQuest.helper'
 import { saveSession } from '@/Systems/Profile/saveSession.helper'
+import { updateQuestObjective } from '@/Systems/Quests/updateQuestObjective.helper'
 
 import { AllItems } from '@/GameData/Items'
 import { AllNpcs } from '@/GameData/Npcs'
 import { AvatarFixingQuest } from '@/GameData/Quests/AvatarFixing.quest'
+import { IntroductionQuest } from '@/GameData/Quests/Introduction.quest'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -36,6 +38,12 @@ export const Introduction021 = () => {
           setScene(null)
 
           addNewQuest(AvatarFixingQuest.id)
+
+          updateQuestObjective({
+            questId: IntroductionQuest.id,
+            objectiveId: 'completeTutorial',
+            objectiveValue: true
+          })
 
           const currentProfile = useProfileStore.getState().profile
 

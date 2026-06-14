@@ -3,7 +3,7 @@ export const INTRODUCTION_001_TEXT = `You wake up.\nAs you do, you realize this 
 export const INTRODUCTION_002_TEXT = `The door opens, and this old man shows up. He seems friendly, and begins a conversation with you.`
 export const INTRODUCTION_002_IMAGE = `Gennai`
 
-export const INTRODUCTION_003_TEXT = `Hello, young one. So the rumours are indeed true. The world is once more in need of balance. Good thing we found you first.`
+export const INTRODUCTION_003_TEXT = `Hello, young one. So the rumours are indeed true. The world is once more in need of balance. And we found you before others could. Good.`
 
 export const INTRODUCTION_004_TEXT = `Forgive me. I forgot to introduce myself. You can call me Gennai. I'm the last survivor from the agents of Homeostasis. I was looking for the chosen children for a long time. You have a very importante role to play in the future of our Digital World.`
 
@@ -17,7 +17,7 @@ export const INTRODUCTION_007_TEXT = `Spirited one, aren't we? Don't worry. I wi
 
 export const INTRODUCTION_008_TEXT = `What do you mean fix my avatar?`
 
-export const INTRODUCTION_009_TEXT = `You take a look at your hands, and all you can see is a bunch of floating random pixels instead of hands. The same applies to your whole body.`
+export const INTRODUCTION_009_TEXT = `You realize some particles are getting in front of you. They look like a virtual glitch.\n\nEventually, you notice they are getting off you. You take a look at yourself, and you realize you don't have a body. You are now a bunch of glitched data, in the shape of a person.`
 export const INTRODUCTION_009_IMAGE = `You look totally glitched.`
 
 export const INTRODUCTION_010_TEXT = `What the hell?! What did you do to me?!`
@@ -28,7 +28,7 @@ export const INTRODUCTION_012_TEXT = `Gennai reaches his hand, and you see what 
 
 export const INTRODUCTION_015_TEXT = `I'm getting more confused by the second. How having a new phone will fix me?`
 
-export const INTRODUCTION_016_TEXT = `I gave you this device for a reason.\nAppmons inhabit it. And they are there to help you. Why don't you check them?`
+export const INTRODUCTION_016_TEXT = `I gave you this device for a reason.\nAppmons inhabit it. And they are there to help you.`
 
 export const INTRODUCTION_017_TEXT = `I still don't get it. What is a Appmon?`
 
@@ -36,7 +36,7 @@ export const INTRODUCTION_018_TEXT = `It's short for Application Monster. The sa
 
 export const INTRODUCTION_019_TEXT = `Alright... I guess. Now, care to explain this "avatar" thing and how to fix me?`
 
-export const INTRODUCTION_020_TEXT = `Oh, sorry. I got carried by our conversation.\nWhere was I? [...] What is a avatar?\n\nAvatar is how your appearance in the Digital World is called. Probably because you are not a digital creature, like us, your avatar is unset. And thats why you need to fix it.`
+export const INTRODUCTION_020_TEXT = `Oh, sorry. I got carried by our conversation. Where was I?\n\nYou want to know what is a avatar?\n\nAvatar is how your appearance in the Digital World is called. Probably because you are not a digital creature, like us, your avatar is unset. And thats why you need to fix it.`
 
 export const INTRODUCTION_021_TEXT = `To do that, you can call Dressmon to help. Walk into the wardrobe, and put your Digivice in the scanner.`
 

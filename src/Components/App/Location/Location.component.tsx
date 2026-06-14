@@ -7,6 +7,7 @@ import { WARP_LOCATIONS } from '@/Consts/Locations.const'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Button } from '@/Components/System/Button'
 import { Portrait } from '@/Components/System/Portrait'
@@ -17,6 +18,7 @@ import './Location.style.scss'
 export const Location = () => {
   const { profile } = useProfileStore((state) => state)
   const { setDigivice } = useDigiviceStore((state) => state)
+  const { setScene } = useSceneStore((state) => state)
 
   const warp = (location) => {
     warpTo(WARP_LOCATIONS[location])
@@ -26,6 +28,8 @@ export const Location = () => {
       currentApp: undefined,
       currentDetails: undefined
     })
+
+    setScene(null)
   }
 
   return (

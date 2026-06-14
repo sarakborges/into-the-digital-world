@@ -44,7 +44,7 @@
 
   > main {
     display: flex;
-    gap: 8px;
+    gap: 4px;
 
     background-color: var(--color-secondary-strong);
     border-radius: 0 4px 4px 4px;
@@ -60,7 +60,7 @@
     }
 
     > .portrait {
-      width: 80px;
+      width: 120px;
 
       img {
         border-radius: 4px;

@@ -2,7 +2,10 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 
+import { IntroductionQuest } from '@/GameData/Quests/Introduction.quest'
+
 import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+import { addNewQuest } from '@/Systems/Quests/addNewQuest.helper'
 
 import { Text } from '@/Components/System/Text'
 
@@ -23,6 +26,8 @@ export const Introduction001 = () => {
         id: 'scene-introduction-001-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
+          addNewQuest(IntroductionQuest.id)
+
           setScene({
             currentScene: 'introduction',
             currentStage: '002'
