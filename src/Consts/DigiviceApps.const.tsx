@@ -60,8 +60,8 @@ export const AllApps = {
   location: APP_LOCATION,
   journal: APP_JOURNAL,
   acquintances: APP_ACQUINTANCES,
-  partnersList: APP_PARTNERSLIST,
   researchesList: APP_RESEARCHESLIST,
+  partnersList: APP_PARTNERSLIST,
   achievements: APP_ACHIEVEMENTS,
   save: APP_SAVE,
   logoff: APP_LOGOFF
@@ -70,8 +70,8 @@ export const AllApps = {
 export const DigiviceApps = {
   inventory: APP_INVENTORY,
   journal: APP_JOURNAL,
-  partnersList: APP_PARTNERSLIST,
   acquintances: APP_ACQUINTANCES,
+  partnersList: APP_PARTNERSLIST,
   location: APP_LOCATION,
   save: APP_SAVE,
   logoff: APP_LOGOFF

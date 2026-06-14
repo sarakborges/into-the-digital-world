@@ -7,4 +7,4 @@ export const APPS_JOURNAL = `Journal`
 export const APPS_LOCATION = `Fast Travel`
 export const APPS_PARTNERSLIST = `Encyclopedia`
 export const APPS_RESEARCHESLIST = `Encyclopedia`
-export const APPS_INVENTORY = `My Items`
+export const APPS_INVENTORY = `Inventory`

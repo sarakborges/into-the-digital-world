@@ -178,7 +178,7 @@
         .digivice-apps {
           display: grid;
           place-content: flex-start;
-          grid-template-columns: repeat(5, minmax(0, 1fr));
+          grid-template-columns: repeat(4, minmax(0, 1fr));
           gap: 4px;
 
           padding: 8px;
@@ -203,12 +203,12 @@
 
               padding: 2px 4px;
 
-              background-color: var(--color-primary-weak);
+              background-color: var(--color-primary);
               border-radius: 4px;
             }
 
             .portrait {
-              padding: 0 4px;
+              width: 32px;
               aspect-ratio: unset;
             }
 
