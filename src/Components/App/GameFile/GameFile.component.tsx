@@ -29,7 +29,9 @@ export const GameFile = ({ profile }: { profile: ProfileType }) => {
         </Text>
 
         <Text as="p">
-          {getTexts('GAME_FILE_ZONE').replaceAll(`[ZONE]`, zone.name)}
+          {getTexts('GAME_FILE_ZONE')
+            .replaceAll(`[ZONE]`, zone.name)
+            .replaceAll(`[MAP]`, zone[profile.currentZone.map].name)}
         </Text>
 
         <Text as="p">
