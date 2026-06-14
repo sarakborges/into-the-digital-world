@@ -23,7 +23,7 @@
     width: calc(var(--tile-size) - 8px);
     height: calc(var(--tile-size) - 8px);
 
-    border: 3px solid var(--color-secondary-strong);
+    border: 3px solid var(--color-primary-strong);
     border-radius: 4px;
 
     img,
@@ -40,7 +40,7 @@
 
     padding: 2px 4px;
 
-    background-color: var(--color-secondary-strong);
+    background-color: var(--color-primary-strong);
     border-radius: 4px;
   }
 }

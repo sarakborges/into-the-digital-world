@@ -3,7 +3,6 @@ import { IoCaretBack } from 'react-icons/io5'
 import { BiSolidSquareRounded } from 'react-icons/bi'
 
 import { AllApps, DigiviceApps } from '@/Consts/DigiviceApps.const'
-import { AllScenes } from '@/GameData/Scenes'
 
 import { getTexts } from '@/Helpers/getTexts.helper'
 
@@ -18,6 +17,7 @@ import { Button } from '@/Components/System/Button'
 import { Modal } from '@/Components/System/Modal'
 
 import { DigiviceApp } from '@/Components/App/DigiviceApp'
+import { PlayerProfile } from '@/Components/App/PlayerProfile'
 
 import './Digivice.style.scss'
 
@@ -25,40 +25,18 @@ export const Digivice = () => {
   const { profile } = useProfileStore((state) => state)
   const { battle } = useBattleStore((state) => state)
   const { digivice, setDigivice } = useDigiviceStore((state) => state)
-  const { scene, setScene } = useSceneStore((state) => state)
+  const { scene } = useSceneStore((state) => state)
 
   if (!Object.keys(profile?.items || {}).includes('digivice')) {
     return
   }
 
-  const isOpenDigiviceScene =
-    scene?.currentScene === AllScenes.introduction.id &&
-    scene?.currentStage === '022'
-
-  const isSceneBlockingButtons = !!scene && !isOpenDigiviceScene
-
-  const isFashionOpen = digivice?.currentApp === 'fashion'
-  const playerHasAvatar = !!profile?.avatar
-
-  const isFirstCustomization = !!isFashionOpen && !playerHasAvatar
-
-  const areButtonsDisabled =
-    isSceneBlockingButtons || isFirstCustomization || !!battle
+  const areButtonsDisabled = !!battle
 
   const toggleModal = () => {
     setDigivice({
       isOpen: !digivice?.isOpen
     })
-
-    if (
-      scene?.currentScene === 'introduction' &&
-      scene.currentStage === '022'
-    ) {
-      setScene({
-        currentScene: 'introduction',
-        currentStage: '023'
-      })
-    }
   }
 
   const pressBackButton = () => {
@@ -83,13 +61,19 @@ export const Digivice = () => {
           <main>
             <div className="digivice-body">
               {!digivice?.currentApp && (
-                <div className="digivice-apps">
-                  {Object.values(DigiviceApps).map((app) => (
-                    <div key={`digivice-apps-${app.id}`}>
-                      <DigiviceApp app={app} />
-                    </div>
-                  ))}
-                </div>
+                <>
+                  <PlayerProfile />
+
+                  <Text>{getTexts('APPS_TITLE')}</Text>
+
+                  <div className="digivice-apps">
+                    {Object.values(DigiviceApps).map((app) => (
+                      <div key={`digivice-apps-${app.id}`}>
+                        <DigiviceApp app={app} />
+                      </div>
+                    ))}
+                  </div>
+                </>
               )}
 
               {!!digivice?.currentApp && !!AllApps[digivice?.currentApp] && (

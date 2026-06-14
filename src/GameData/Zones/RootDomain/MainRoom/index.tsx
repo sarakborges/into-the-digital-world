@@ -24,7 +24,7 @@ const filledGrid = fillGrid({ grid, gridSize })
 export const RootDomainMainRoom: ZoneType = {
   id: `rootDomainMainRoom`,
   background: `RootDomain/MainRoom`,
-  name: `Root Domain`,
+  name: `Main Room`,
   gridSize,
   grid: filledGrid,
 
@@ -42,8 +42,12 @@ export const RootDomainMainRoom: ZoneType = {
       id: 'nanomon-introduction',
       x: 9,
       y: 3,
-      npc: AllNpcs.digimon.nanomon,
       defaultText: getDialogs('RESEARCH_DEFAULT'),
+
+      npc: {
+        ...AllNpcs.digimon.nanomon,
+        isVisible: true
+      },
 
       events: [
         {
@@ -72,8 +76,12 @@ export const RootDomainMainRoom: ZoneType = {
       id: 'nanomon-research',
       x: 9,
       y: 3,
-      npc: AllNpcs.digimon.nanomon,
       defaultText: getDialogs('RESEARCH_DEFAULT'),
+
+      npc: {
+        ...AllNpcs.digimon.nanomon,
+        isVisible: true
+      },
 
       events: [
         {
@@ -102,8 +110,12 @@ export const RootDomainMainRoom: ZoneType = {
       id: 'jijimon-compose',
       x: 2,
       y: 8,
-      npc: AllNpcs.digimon.jijimon,
       defaultText: getDialogs('COMPOSE_DEFAULT'),
+
+      npc: {
+        ...AllNpcs.digimon.jijimon,
+        isVisible: true
+      },
 
       events: [
         {
@@ -132,8 +144,12 @@ export const RootDomainMainRoom: ZoneType = {
       id: 'jijimon-research',
       x: 2,
       y: 8,
-      npc: AllNpcs.digimon.jijimon,
       defaultText: getDialogs('COMPOSE_DEFAULT'),
+
+      npc: {
+        ...AllNpcs.digimon.jijimon,
+        isVisible: true
+      },
 
       events: [
         {
@@ -162,8 +178,12 @@ export const RootDomainMainRoom: ZoneType = {
       id: 'gennaiTBA',
       x: 9,
       y: 12,
-      npc: AllNpcs.general.gennai,
       defaultText: getDialogs('NPC_DEFAULT_TEXT'),
+
+      npc: {
+        ...AllNpcs.general.gennai,
+        isVisible: true
+      },
 
       condition: () => {
         const profile = useProfileStore.getState().profile
@@ -193,7 +213,10 @@ export const RootDomainMainRoom: ZoneType = {
         }
       ],
 
-      npc: AllNpcs.general.gennai,
+      npc: {
+        ...AllNpcs.general.gennai,
+        isVisible: true
+      },
 
       condition: () => {
         const profile = useProfileStore.getState().profile

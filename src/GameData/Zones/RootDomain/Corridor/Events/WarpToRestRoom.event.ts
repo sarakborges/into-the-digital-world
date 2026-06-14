@@ -1,9 +1,9 @@
 import { warpTo } from '@/Helpers/warpTo.helper'
 
-export const WarpToRestRoom1 = () => {
+export const WarpToRestRoom = () => {
   warpTo({
     zoneId: 'rootDomain',
-    mapId: 'restRoom1',
+    mapId: 'restRoom',
     x: 6,
     y: 11
   })

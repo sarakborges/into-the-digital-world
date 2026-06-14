@@ -44,9 +44,7 @@ export const InteractableTiles = () => {
       (tile) =>
         tile.y === profile.currentZone.y + 1 && tile.x === profile.currentZone.x
     )
-  ].filter(
-    (tile) => !!tile.npc && (tile.condition === undefined || !!tile.condition())
-  )
+  ].filter((tile) => tile.condition === undefined || !!tile.condition())
 
   if (!surroundingTiles.length) {
     return
@@ -56,7 +54,7 @@ export const InteractableTiles = () => {
     <aside className="interactable-tiles">
       {surroundingTiles.map((tile) => (
         <Fragment
-          key={`interactable-tile-y-${tile!.y}-x${tile!.x}-${tile!.npc!.id}`}
+          key={`interactable-tile-y-${tile!.y}-x${tile!.x}-${tile!.id}`}
         >
           {(!!tile?.events?.length || !!tile.defaultText) && (
             <div className="events">
@@ -74,7 +72,7 @@ export const InteractableTiles = () => {
                         <div className="events-list">
                           {tile.events.map((event) => (
                             <div
-                              key={`interactable-tile-y-${tile!.y}-x${tile!.x}-${tile!.npc!.id}-event-${event.function}`}
+                              key={`interactable-tile-y-${tile!.y}-x${tile!.x}-${tile!.id}-event-${event.function}`}
                             >
                               <Button
                                 onClick={() => event?.function()}

@@ -15,6 +15,7 @@ import { useProfileStore } from '@/Stores/Profile.store'
 import { Text } from '@/Components/System/Text'
 
 import { Dialog } from '@/Components/App/Dialog'
+import { AvatarFixingQuest } from '@/GameData/Quests/AvatarFixing.quest'
 
 export const Introduction028 = () => {
   const { setScene } = useSceneStore((state) => state)
@@ -35,9 +36,16 @@ export const Introduction028 = () => {
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
           addNewQuest(IntroductionQuest.id)
+
           updateQuestObjective({
             questId: IntroductionQuest.id,
             objectiveId: 'completeTutorial',
+            objectiveValue: true
+          })
+
+          updateQuestObjective({
+            questId: AvatarFixingQuest.id,
+            objectiveId: 'fixAvatar',
             objectiveValue: true
           })
 

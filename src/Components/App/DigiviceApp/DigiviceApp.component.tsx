@@ -20,35 +20,19 @@ export const DigiviceApp = ({ app }) => {
     return
   }
 
-  const isFashion = app.id === 'fashion'
   const isSave = app.id === 'save'
   const isLogoff = app.id === 'logoff'
-  const isIntroduction = scene?.currentScene === 'introduction'
 
   const doneQuests = Object.keys(profile.quests).filter((quest) =>
     isQuestDone(quest)
   )
 
   const isAppDisabled =
-    (!!scene && !!isIntroduction && !isFashion) ||
-    (!!scene && !isIntroduction) ||
+    !!scene ||
     (!doneQuests.includes(AllQuests.starterDigimon.id) &&
-      !(!!isFashion || !!isSave || !!isLogoff))
-
-  const isAppHighlighted = !!isFashion && !!isIntroduction
+      !(!!isSave || !!isLogoff))
 
   const openApp = () => {
-    if (!!isFashion && !!isIntroduction) {
-      setScene({
-        currentScene: 'introduction',
-        currentStage: '024'
-      })
-
-      setDigivice({ ...digivice!, currentApp: app.app })
-
-      return
-    }
-
     setDigivice({ ...digivice!, currentApp: app.app })
 
     if (!app.scene) {
@@ -62,11 +46,7 @@ export const DigiviceApp = ({ app }) => {
   }
 
   return (
-    <Button
-      onClick={openApp}
-      disabled={!!isAppDisabled}
-      data-warning={isAppHighlighted}
-    >
+    <Button onClick={openApp} disabled={!!isAppDisabled}>
       <Portrait
         alt={getTexts(`APPS_${app.id.toLocaleUpperCase()}`)}
         src={`/apps/${app.id}.png`}

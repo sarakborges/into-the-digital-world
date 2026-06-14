@@ -69,63 +69,15 @@ export const AvatarCustomization = () => {
 
   const avatar: AvatarType = profile?.avatar ?? randomAvatar
 
-  const saveAvatar = () => {
-    if (!avatarCustomization) {
-      return
-    }
-
-    const updatedProfile: ProfileType = {
-      ...profile!,
-      avatar: avatarCustomization.avatar
-    }
-
-    if (!profile?.avatar) {
-      setScene({
-        currentScene: 'introduction',
-        currentStage: '025'
-      })
-
-      setProfile(updatedProfile)
-
-      return
-    }
-
-    setScene(null)
-    setDigivice({ ...digivice!, currentApp: undefined })
-
-    setAvatarCustomization({ avatar: avatarCustomization.avatar })
-    setProfile(updatedProfile)
-    saveSession({ key: 'profile', value: updatedProfile })
-  }
-
-  const closeCustomization = () => {
-    setAvatarCustomization({ ...avatarCustomization!, layer: undefined })
-  }
-
   useEffect(() => {
     setAvatarCustomization({ avatar })
   }, [])
 
   return (
     <div className="avatar-customization">
-      <header>
-        <main>
-          <PlayerAvatar replaceAvatar={avatarCustomization?.avatar} />
-
-          <footer>
-            <Button
-              disabled={!!scene || !avatarCustomization?.layer}
-              onClick={closeCustomization}
-            >
-              <Text>{getDialogs('SCENES_BACK_BUTTON')}</Text>
-            </Button>
-
-            <Button disabled={!!scene} onClick={saveAvatar}>
-              <Text>{getDialogs('SCENES_CONFIRM_BUTTON')}</Text>
-            </Button>
-          </footer>
-        </main>
-      </header>
+      <aside>
+        <PlayerAvatar replaceAvatar={avatarCustomization?.avatar} />
+      </aside>
 
       {!avatarCustomization?.layer && (
         <main className="avatar-options">
@@ -135,7 +87,6 @@ export const AvatarCustomization = () => {
             (option) => (
               <div key={`avatar-options-${option}`}>
                 <Button
-                  disabled={!!scene}
                   onClick={() =>
                     setAvatarCustomization({
                       ...avatarCustomization!,

@@ -1,7 +1,7 @@
 // Root Domain
 import { RootDomainMainRoom } from './RootDomain/MainRoom'
 import { RootDomainCorridor } from './RootDomain/Corridor'
-import { RootDomainRestRoom1 } from './RootDomain/RestRoom1'
+import { RootDomainRestRoom } from './RootDomain/RestRoom'
 
 // Wild Zone
 import { WildZoneMainRoom } from './WildZone/MainRoom'
@@ -12,7 +12,7 @@ export const AllZones = {
 
     mainRoom: RootDomainMainRoom,
     corridor: RootDomainCorridor,
-    restRoom1: RootDomainRestRoom1
+    restRoom: RootDomainRestRoom
   },
 
   wildZone: {

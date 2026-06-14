@@ -59,13 +59,7 @@
         height: 16px;
         width: 16px;
 
-        color: var(--color-primary-strong);
-      }
-
-      &[data-isdone='true'] {
-        .text {
-          color: var(--color-primary-strong);
-        }
+        color: var(--text-color);
       }
     }
   }

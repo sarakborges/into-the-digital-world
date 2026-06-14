@@ -17,8 +17,6 @@ import { Introduction018 } from './018.scene'
 import { Introduction019 } from './019.scene'
 import { Introduction020 } from './020.scene'
 import { Introduction021 } from './021.scene'
-import { Introduction022 } from './022.scene'
-import { Introduction023 } from './023.scene'
 import { Introduction024 } from './024.scene'
 import { Introduction025 } from './025.scene'
 import { Introduction026 } from './026.scene'
@@ -46,8 +44,6 @@ export const IntroductionScenes = {
   '019': Introduction019,
   '020': Introduction020,
   '021': Introduction021,
-  '022': Introduction022,
-  '023': Introduction023,
   '024': Introduction024,
   '025': Introduction025,
   '026': Introduction026,

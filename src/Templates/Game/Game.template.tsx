@@ -27,6 +27,7 @@ import { Gameboard } from '@/Components/App/Gameboard'
 import { Settings } from '@/Components/App/Settings'
 import { Digivice } from '@/Components/App/Digivice'
 import { StartScreen } from '@/Components/App/StartScreen'
+import { QuestsLogMinimal } from '@/Components/App/QuestsLogMinimal'
 
 import './Game.style.scss'
 
@@ -85,23 +86,27 @@ export const Game = () => {
             {!!profile && (
               <div className="current-zone">
                 <Text>
-                  {getTexts('CURRENT_ZONE').replaceAll(
-                    '[ZONE]',
-                    AllZones[profile.currentZone.id][profile.currentZone.map]
-                      .name
-                  )}
+                  {getTexts('CURRENT_ZONE')
+                    .replaceAll('[ZONE]', AllZones[profile.currentZone.id].name)
+                    .replaceAll(
+                      '[MAP]',
+                      AllZones[profile.currentZone.id][profile.currentZone.map]
+                        .name
+                    )}
                 </Text>
               </div>
             )}
           </header>
 
           <Gameboard />
+          <InteractableTiles />
+
+          {!scene && <QuestsLogMinimal />}
         </div>
 
         {!!profile && (
           <>
             <Scene />
-            <InteractableTiles />
 
             <div className="screen-footer">
               {!battle && (

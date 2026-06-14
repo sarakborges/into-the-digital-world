@@ -10,7 +10,11 @@ import './QuestsLogMinimal.style.scss'
 export const QuestsLogMinimal = () => {
   const { profile } = useProfileStore((state) => state)
 
-  const notDoneQuests = Object.keys(profile!.quests ?? {}).filter(
+  if (!profile) {
+    return
+  }
+
+  const notDoneQuests = Object.keys(profile.quests ?? {}).filter(
     (quest) => !isQuestDone(quest)
   )
 

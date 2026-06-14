@@ -1,6 +1,5 @@
-export const APPS_PROFILE = `My Profile`
+export const APPS_TITLE = `Installed apps`
 export const APPS_SAVE = `Save Data`
-export const APPS_FASHION = `My Avatar`
 export const APPS_LOGOFF = `Log Off`
 export const APPS_ACHIEVEMENTS = `Achievements`
 export const APPS_ACQUINTANCES = `Contacts`

@@ -6,4 +6,5 @@ export type NpcType = {
   fullImage: string
   portrait: string
   category?: 'appmon' | 'digimon' | 'general'
+  isVisible?: boolean
 }

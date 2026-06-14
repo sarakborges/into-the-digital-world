@@ -82,13 +82,17 @@ export const QuestsList = ({
                             )
                             .replaceAll(
                               '[TARGET]',
-                              AllNpcs[objective.target.type][
+                              AllNpcs?.[objective.target.type]?.[
                                 objective.target.id
                               ].name
                             )
                             .replaceAll(
                               '[WHERE]',
                               AllZones[objective.where].name
+                            )
+                            .replaceAll(
+                              '[MAP]',
+                              AllZones[objective.where][objective.map].name
                             )}
                         </Text>
                       </main>

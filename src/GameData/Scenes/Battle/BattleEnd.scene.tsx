@@ -61,7 +61,7 @@ export const BattleEnd = () => {
               x: 3,
               y: 5,
               zoneId: 'rootDomain',
-              mapId: 'restRoom1'
+              mapId: 'restRoom'
             })
           }
 

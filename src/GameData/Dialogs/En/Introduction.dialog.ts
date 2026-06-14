@@ -38,18 +38,15 @@ export const INTRODUCTION_019_TEXT = `Alright... I guess. Now, care to explain t
 
 export const INTRODUCTION_020_TEXT = `Oh, sorry. I got carried by our conversation.\nWhere was I? [...] What is a avatar?\n\nAvatar is how your appearance in the Digital World is called. Probably because you are not a digital creature, like us, your avatar is unset. And thats why you need to fix it.`
 
-export const INTRODUCTION_021_TEXT = `To do that, you can call Dressmon to help. You do that using your Digivice.`
+export const INTRODUCTION_021_TEXT = `To do that, you can call Dressmon to help. Walk into the wardrobe, and put your Digivice in the scanner.`
 
-export const INTRODUCTION_022_TEXT = `Click on the glowing Digivice icon at the top right corner of your screen.`
+export const INTRODUCTION_024_TEXT = `Hello, master! I am Dressmon. My function is to assist you on creating the most exquisite avatar!`
+export const INTRODUCTION_024_TRIGGER = `Uh, hi. Gennai told me you could help me... fix my avatar?`
 
-export const INTRODUCTION_023_TEXT = `See? Just like a regular phone. Now, open the Avatar app - the one glowing -, and follow Dressmon instructions.`
-
-export const INTRODUCTION_024_TEXT = `Hello, master! I am Dressmon. My function is to assist you on creating the most exquisite avatar!\n\nI created a sample for you. But feel free to change whatever you like!`
-
-export const INTRODUCTION_025_TEXT = `Now, this is a proper look for you, master!`
+export const INTRODUCTION_025_TEXT = `Here you go! Everything fixed!\n\nIf you ever need to update your avatar, feel comfortable to call me again! I'll be waiting by this wardrobe.`
 
 export const INTRODUCTION_026_TEXT = `You take a look at yourself, and everything seems right. Now your avatar is rendered correctly.`
 
-export const INTRODUCTION_027_TEXT = `Woah! Thanks, old man. Feels great to look like myself again!`
+export const INTRODUCTION_027_TEXT = `Woah! Thanks! Feels great to look like myself again!`
 
-export const INTRODUCTION_028_TEXT = `I'm glad I was helpful. Now, follow me, won't you? I want to show you around. I think you will find our headquarters quite interesting. Feel free to explore too.`
+export const INTRODUCTION_028_TEXT = `I told you Dressmon would help.\n\nNow, follow me, won't you? I want to show you around. I think you will find our headquarters quite interesting. Feel free to explore too.`

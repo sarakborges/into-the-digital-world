@@ -50,7 +50,7 @@ export const NewGame = () => {
 
       currentZone: {
         id: 'rootDomain',
-        map: 'restRoom1',
+        map: 'restRoom',
         x: 3,
         y: 5
       }

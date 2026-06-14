@@ -18,15 +18,6 @@ export const PlayerProfile = () => {
           {getTexts(`TITLES_${profile?.currentTitle.toLocaleUpperCase()}`)}
         </Text>
       </CharacterHeader>
-
-      {/* <main className="profile-info">
-        <Text>
-          {getTexts('PROFILE_CURRENCY').replaceAll(
-            '[CURRENCY]',
-            profile?.currency || 0
-          )}
-        </Text>
-      </main> */}
     </div>
   )
 }

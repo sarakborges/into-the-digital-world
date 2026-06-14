@@ -100,6 +100,13 @@
         border-radius: 20px;
         box-shadow: 0 0 16px var(--color-neutral-strong);
 
+        > .text {
+          padding: 0 8px;
+
+          font-size: 16px;
+          font-weight: 500;
+        }
+
         .current-app {
           display: flex;
           flex-flow: column;
@@ -172,7 +179,7 @@
           display: grid;
           place-content: flex-start;
           grid-template-columns: repeat(5, minmax(0, 1fr));
-          gap: 8px;
+          gap: 4px;
 
           padding: 8px;
 

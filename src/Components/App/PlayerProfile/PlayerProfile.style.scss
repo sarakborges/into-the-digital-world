@@ -1,7 +1,7 @@
 .player-profile {
   display: flex;
   flex-flow: column;
-  gap: 8px;
+  gap: 24px;
 
   padding: 8px;
 
@@ -34,6 +34,7 @@
     text-overflow: ellipsis;
 
     background-color: var(--color-primary-strong);
+    border-radius: 0 4px 4px 0;
 
     .character-name .text {
       padding: 0;

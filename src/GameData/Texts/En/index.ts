@@ -21,12 +21,12 @@ export const INVENTORY_CATEGORY_CORE = `Cores`
 
 export const GAME_SAVED = `Data saved`
 
-export const CURRENT_ZONE = `Current zone: [ZONE]`
+export const CURRENT_ZONE = `[ZONE] - [MAP]`
 export const IN_COMBAT = `In combat`
 
 export const QUESTS_LOG_TITLE = `Current objectives:`
 export const QUESTS_LOG_TITLE_DONE = `Concluded objectives:`
 export const QUESTS_LOG_NOQUESTS = `All clear! No objects to be concluded.`
 export const QUESTS_LOG_NOQUESTS_DONE = `No objects concluded yet.`
-export const QUEST_OBJECTIVE = `[TYPE] [TARGET] at [WHERE].`
+export const QUEST_OBJECTIVE = `[TYPE] [TARGET] at [MAP], in [WHERE].`
 export const QUEST_OBJECTIVE_TYPE_INTERACT = `Talk to`

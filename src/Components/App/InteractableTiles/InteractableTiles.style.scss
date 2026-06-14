@@ -2,6 +2,8 @@
   width: 100%;
   flex: 1;
 
+  position: relative;
+
   .events {
     display: flex;
     place-items: flex-end;
@@ -9,7 +11,8 @@
 
     .scene {
       z-index: 99;
-      top: calc(100cqw - 16px);
+      top: 0;
+      bottom: auto;
 
       .dialog {
         > main {

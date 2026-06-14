@@ -1,17 +1,9 @@
 import { Acquintances } from '@/Components/App/Acquintances'
-import { AvatarCustomization } from '@/Components/App/AvatarCustomization'
 import { PartnersList } from '@/Components/App/PartnersList'
-import { PlayerProfile } from '@/Components/App/PlayerProfile'
 import { Inventory } from '@/Components/App/Inventory'
 import { MyResearchesList } from '@/Components/App/MyResearchesList'
 import { Location } from '@/Components/App/Location'
 import { QuestsLog } from '@/Components/App/QuestsLog'
-
-export const APP_PROFILE = {
-  id: 'profile',
-  app: 'profile',
-  component: <PlayerProfile />
-}
 
 export const APP_SAVE = {
   id: 'save',
@@ -22,12 +14,6 @@ export const APP_INVENTORY = {
   id: 'inventory',
   app: 'inventory',
   component: <Inventory />
-}
-
-export const APP_FASHION = {
-  id: 'fashion',
-  app: 'fashion',
-  component: <AvatarCustomization />
 }
 
 export const APP_LOGOFF = {
@@ -70,8 +56,6 @@ export const APP_JOURNAL = {
 }
 
 export const AllApps = {
-  profile: APP_PROFILE,
-  fashion: APP_FASHION,
   inventory: APP_INVENTORY,
   location: APP_LOCATION,
   journal: APP_JOURNAL,
@@ -84,8 +68,6 @@ export const AllApps = {
 }
 
 export const DigiviceApps = {
-  profile: APP_PROFILE,
-  fashion: APP_FASHION,
   inventory: APP_INVENTORY,
   journal: APP_JOURNAL,
   partnersList: APP_PARTNERSLIST,

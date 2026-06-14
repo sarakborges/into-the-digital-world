@@ -7,7 +7,6 @@ import { useGameStore } from '@/Stores/Game.store'
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { QuestsLogMinimal } from '@/Components/App/QuestsLogMinimal'
 import { GameboardCharacter } from '@/Components/App/GameboardCharacter'
 import { Battlefield } from '@/Components/App/Battlefield'
 
@@ -66,8 +65,6 @@ export const Gameboard = () => {
           {!(!battle || scene?.currentStage === 'start') && <Battlefield />}
         </main>
       </div>
-
-      {!scene && <QuestsLogMinimal />}
     </>
   )
 }

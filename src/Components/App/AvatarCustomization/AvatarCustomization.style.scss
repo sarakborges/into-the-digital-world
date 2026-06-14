@@ -1,36 +1,25 @@
 .avatar-customization {
+  position: relative;
+
   display: flex;
   gap: 8px;
 
-  padding: 8px;
+  width: 100%;
+  max-height: 228px;
+  overflow: auto;
 
-  header {
-    > main {
-      display: flex;
-      flex-flow: column;
-      gap: 8px;
+  aside {
+    position: sticky;
+    top: 0;
+    left: 0;
 
-      .player-avatar {
-        width: 120px;
-        overflow: hidden;
+    .player-avatar {
+      width: 120px;
+      overflow: hidden;
 
-        .avatar-content {
-          padding: 4px;
-
-          background-color: var(--color-primary-strong);
+      .avatar-content {
+        img {
           border-radius: 4px;
-        }
-      }
-
-      footer {
-        display: flex;
-        place-content: flex-end;
-        gap: 4px;
-
-        .button {
-          padding: 4px 6px;
-
-          background-color: var(--color-secondary-strong);
         }
       }
     }

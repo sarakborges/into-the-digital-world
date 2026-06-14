@@ -17,7 +17,10 @@ export const GameboardCharacter = ({
 }) => {
   const { profile } = useProfileStore((state) => state)
 
-  if (!tile?.npc?.id && !isPlayer && !profile) {
+  if (
+    (!tile?.npc?.id && !isPlayer && !profile) ||
+    (!isPlayer && !tile?.npc?.isVisible)
+  ) {
     return
   }
 

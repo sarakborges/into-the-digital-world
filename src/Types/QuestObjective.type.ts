@@ -3,9 +3,11 @@ export type QuestObjectiveType = {
 
   target: {
     id: string
-    type: 'general' | 'digimons'
+    type: 'general' | 'digimon' | 'appmon' | 'event'
   }
 
   where: string
+  map: string
+
   amount?: number
 }
