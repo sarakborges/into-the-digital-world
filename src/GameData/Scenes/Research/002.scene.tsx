@@ -4,7 +4,7 @@ import { useSceneStore } from '@/Stores/Scene.store'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/getDialogs.helper'
+import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
 
 import { Dialog } from '@/Components/App/Dialog'
 import { ResearchList } from '@/Components/App/ResearchList'

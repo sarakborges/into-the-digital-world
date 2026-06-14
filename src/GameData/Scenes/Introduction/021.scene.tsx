@@ -1,8 +1,8 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getDialogs } from '@/Helpers/getDialogs.helper'
-import { addNewQuest } from '@/Helpers/addNewQuest.helper'
-import { saveSession } from '@/Helpers/saveSession.helper'
+import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+import { addNewQuest } from '@/Systems/Quests/addNewQuest.helper'
+import { saveSession } from '@/Systems/Profile/saveSession.helper'
 
 import { AllItems } from '@/GameData/Items'
 import { AllNpcs } from '@/GameData/Npcs'

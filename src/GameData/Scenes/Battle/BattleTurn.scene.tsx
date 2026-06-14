@@ -2,9 +2,9 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/getDialogs.helper'
-import { doAttack } from '@/Helpers/doAttack.helper'
-import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
+import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+import { doAttack } from '@/Systems/Battle/doAttack.helper'
+import { generateRandomNumber } from '@/Helpers/Math/generateRandomNumber.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 

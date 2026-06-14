@@ -8,7 +8,7 @@ import { DIGIMON_STATS } from '@/Consts/Stats.const'
 import { DIGIMON_FAMILIES } from '@/Consts/Families.const'
 import { DIGIMON_ATTRIBUTES } from '@/Consts/Attributes.const'
 
-import { saveSession } from '@/Helpers/saveSession.helper'
+import { saveSession } from '@/Systems/Profile/saveSession.helper'
 
 import { AllDigimons } from '@/GameData/Digimons'
 import { AllAttacks } from '@/GameData/Attacks'
@@ -19,7 +19,7 @@ import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Text } from '@/Components/System/Text'
-import { getTexts } from '@/Helpers/getTexts.helper'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { Portrait } from '@/Components/System/Portrait'
 import { Button } from '@/Components/System/Button'
 

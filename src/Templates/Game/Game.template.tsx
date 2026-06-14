@@ -6,17 +6,14 @@ import { AllDigimons } from '@/GameData/Digimons'
 
 import { THEMES } from '@/Consts/Themes.const'
 
-import { getTexts } from '@/Helpers/getTexts.helper'
-import { loadData } from '@/Helpers/loadData.helper'
-import { loadSession } from '@/Helpers/loadSession.helper'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { loadData } from '@/Systems/Profile/loadData.helper'
+import { loadSession } from '@/Systems/Profile/loadSession.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSettingsStore } from '@/Stores/Settings.store'
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
-import { useDigiviceStore } from '@/Stores/Digivice.store'
-import { useGameStore } from '@/Stores/Game.store'
-import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 
 import { Text } from '@/Components/System/Text'
 import { Portrait } from '@/Components/System/Portrait'
@@ -36,25 +33,6 @@ export const Game = () => {
   const { settings, setSettings } = useSettingsStore((state) => state)
   const { battle } = useBattleStore((state) => state)
   const { scene } = useSceneStore((state) => state)
-  const { digivice } = useDigiviceStore((state) => state)
-  const { game } = useGameStore((state) => state)
-  const { setSavedProfiles } = useSavedProfilesStore((state) => state)
-
-  const loadProfiles = () => {
-    const savedProfiles = loadData({ key: `profiles` })
-
-    if (!savedProfiles) {
-      return
-    }
-
-    setSavedProfiles(
-      savedProfiles?.map((profile) => loadData({ key: `profile${profile}` }))
-    )
-  }
-
-  useEffect(() => {
-    loadProfiles()
-  }, [settings, scene, profile, battle, digivice, game])
 
   useEffect(() => {
     setProfile(loadSession({ key: 'profile' }))

@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getDialogs } from '@/Helpers/getDialogs.helper'
+import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useProfileStore } from '@/Stores/Profile.store'

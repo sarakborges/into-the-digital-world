@@ -1,8 +1,8 @@
 import type { ProfileType } from '@/Types/Profile.type'
 
-import { saveData } from '@/Helpers/saveData.helper'
-import { saveSession } from '@/Helpers/saveSession.helper'
-import { loadData } from '@/Helpers/loadData.helper'
+import { saveData } from '@/Systems/Profile/saveData.helper'
+import { saveSession } from '@/Systems/Profile/saveSession.helper'
+import { loadData } from '@/Systems/Profile/loadData.helper'
 
 export const saveProfile = ({ profile }: { profile: ProfileType }) => {
   try {

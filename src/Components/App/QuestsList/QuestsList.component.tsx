@@ -5,8 +5,8 @@ import { AllQuests } from '@/GameData/Quests'
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllZones } from '@/GameData/Zones'
 
-import { getTexts } from '@/Helpers/getTexts.helper'
-import { isObjectiveDone } from '@/Helpers/isObjectiveDone.helper'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { isObjectiveDone } from '@/Systems/Quests/isObjectiveDone.helper'
 
 import { Text } from '@/Components/System/Text'
 import { Button } from '@/Components/System/Button'

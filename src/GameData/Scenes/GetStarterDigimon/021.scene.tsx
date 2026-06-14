@@ -3,8 +3,8 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/getDialogs.helper'
-import { saveSession } from '@/Helpers/saveSession.helper'
+import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+import { saveSession } from '@/Systems/Profile/saveSession.helper'
 
 import { Text } from '@/Components/System/Text'
 
@@ -12,7 +12,7 @@ import { useSceneStore } from '@/Stores/Scene.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Dialog } from '@/Components/App/Dialog'
-import { updateQuestObjective } from '@/Helpers/updateQuestObjective.helper'
+import { updateQuestObjective } from '@/Systems/Quests/updateQuestObjective.helper'
 import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
 
 export const GetStarterDigimon021 = () => {

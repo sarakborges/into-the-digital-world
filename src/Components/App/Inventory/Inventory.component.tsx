@@ -1,6 +1,6 @@
 import { Fragment } from 'react/jsx-runtime'
 
-import { getTexts } from '@/Helpers/getTexts.helper'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 import { AllItems } from '@/GameData/Items'
 

@@ -1,4 +1,7 @@
-import { getTexts } from '@/Helpers/getTexts.helper'
+import { useEffect } from 'react'
+
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { loadData } from '@/Systems/Profile/loadData.helper'
 
 import { THEMES } from '@/Consts/Themes.const'
 
@@ -14,8 +17,26 @@ import { GameFile } from '@/Components/App/GameFile'
 import './StartScreen.style.scss'
 
 export const StartScreen = () => {
-  const { savedProfiles } = useSavedProfilesStore((state) => state)
+  const { savedProfiles, setSavedProfiles } = useSavedProfilesStore(
+    (state) => state
+  )
   const { settings } = useSettingsStore((state) => state)
+
+  const loadProfiles = () => {
+    const savedProfiles = loadData({ key: `profiles` })
+
+    if (!savedProfiles) {
+      return
+    }
+
+    setSavedProfiles(
+      savedProfiles?.map((profile) => loadData({ key: `profile${profile}` }))
+    )
+  }
+
+  useEffect(() => {
+    loadProfiles()
+  }, [])
 
   return (
     <main className="start-screen">

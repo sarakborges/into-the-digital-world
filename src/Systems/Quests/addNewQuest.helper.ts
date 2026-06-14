@@ -1,4 +1,4 @@
-import { saveSession } from '@/Helpers/saveSession.helper'
+import { saveSession } from '@/Systems/Profile/saveSession.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 

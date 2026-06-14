@@ -1,6 +1,6 @@
 import { AVATAR_OPTIONS } from '@/Consts/Avatars.const'
 
-import { getTexts } from '@/Helpers/getTexts.helper'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
 

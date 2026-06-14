@@ -1,4 +1,4 @@
-import { getTexts } from '@/Helpers/getTexts.helper'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 import { Text } from '@/Components/System/Text'
 

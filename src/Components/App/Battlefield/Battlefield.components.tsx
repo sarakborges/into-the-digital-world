@@ -6,7 +6,7 @@ import { CombatParties } from '@/Components/App/CombatParties'
 import { TurnOrder } from '@/Components/App/TurnOrder'
 
 import './Battlefield.style.scss'
-import { isDigimonDefeated } from '@/Helpers/isDigimonDefeated.helper'
+import { isDigimonDefeated } from '@/Systems/Battle/isDigimonDefeated.helper'
 
 export const Battlefield = () => {
   const { battle } = useBattleStore((state) => state)

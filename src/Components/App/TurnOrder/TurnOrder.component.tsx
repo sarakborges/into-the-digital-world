@@ -1,4 +1,4 @@
-import { isDigimonDefeated } from '@/Helpers/isDigimonDefeated.helper'
+import { isDigimonDefeated } from '@/Systems/Battle/isDigimonDefeated.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 

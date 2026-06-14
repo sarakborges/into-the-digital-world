@@ -1,4 +1,4 @@
-import { loadData } from '@/Helpers/loadData.helper'
+import { loadData } from '@/Systems/Profile/loadData.helper'
 
 import * as EnTexts from '@/GameData/Texts/En'
 

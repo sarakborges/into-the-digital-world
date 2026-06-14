@@ -1,7 +1,7 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getDialogs } from '@/Helpers/getDialogs.helper'
-import { saveSession } from '@/Helpers/saveSession.helper'
+import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+import { saveSession } from '@/Systems/Profile/saveSession.helper'
 
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllResearches } from '@/GameData/Researches'

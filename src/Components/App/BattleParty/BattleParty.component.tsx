@@ -1,7 +1,7 @@
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
-import { isDigimonDefeated } from '@/Helpers/isDigimonDefeated.helper'
-import { getTexts } from '@/Helpers/getTexts.helper'
+import { isDigimonDefeated } from '@/Systems/Battle/isDigimonDefeated.helper'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 

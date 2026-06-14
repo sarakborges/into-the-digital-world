@@ -12,8 +12,8 @@ import {
 
 import type { ZoneType } from '@/Types/Zone.type'
 
-import { saveSession } from '@/Helpers/saveSession.helper'
-import { startBattle } from '@/Helpers/startBattle.helper'
+import { saveSession } from '@/Systems/Profile/saveSession.helper'
+import { startBattle } from '@/Systems/Battle/startBattle.helper'
 
 import { AllZones } from '@/GameData/Zones'
 

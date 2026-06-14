@@ -1,6 +1,6 @@
 import { AllZones } from '@/GameData/Zones'
 
-import { warpTo } from '@/Helpers/warpTo.helper'
+import { warpTo } from '@/Systems/Zones/warpTo.helper'
 
 import { WARP_LOCATIONS } from '@/Consts/Locations.const'
 

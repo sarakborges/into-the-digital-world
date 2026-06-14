@@ -2,7 +2,7 @@ import type { ProfileType } from '@/Types/Profile.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getTexts } from '@/Helpers/getTexts.helper'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'

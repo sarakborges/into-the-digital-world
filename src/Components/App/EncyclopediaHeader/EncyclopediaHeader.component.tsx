@@ -1,6 +1,6 @@
 import { ENCYCLOPEDIA_HEADER } from '@/Consts/EncyclopediaHeader.const'
 
-import { getTexts } from '@/Helpers/getTexts.helper'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 

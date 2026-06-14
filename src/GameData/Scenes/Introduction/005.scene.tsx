@@ -7,7 +7,7 @@ import { useProfileStore } from '@/Stores/Profile.store'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/getDialogs.helper'
+import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
 
 import { Text } from '@/Components/System/Text'
 import { Input } from '@/Components/System/Input'

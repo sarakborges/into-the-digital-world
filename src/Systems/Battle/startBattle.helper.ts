@@ -3,8 +3,8 @@ import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 import { AllDigimons } from '@/GameData/Digimons'
 import { AllZones } from '@/GameData/Zones'
 
-import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
-import { getSuccesses } from '@/Helpers/getSuccesses.helper'
+import { generateRandomNumber } from '@/Helpers/Math/generateRandomNumber.helper'
+import { getSuccesses } from '@/Helpers/Math/getSuccesses.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'

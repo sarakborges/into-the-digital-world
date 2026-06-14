@@ -1,6 +1,6 @@
-import { getTexts } from '@/Helpers/getTexts.helper'
-import { deleteData } from '@/Helpers/deleteData.helper'
-import { saveData } from '@/Helpers/saveData.helper'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { deleteData } from '@/Systems/Profile/deleteData.helper'
+import { saveData } from '@/Systems/Profile/saveData.helper'
 
 import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 

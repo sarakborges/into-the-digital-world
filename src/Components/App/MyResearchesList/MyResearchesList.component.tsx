@@ -1,6 +1,6 @@
 import { BiDetail } from 'react-icons/bi'
 
-import { getTexts } from '@/Helpers/getTexts.helper'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 import { AllResearches } from '@/GameData/Researches'
 import { AllDigimons } from '@/GameData/Digimons'

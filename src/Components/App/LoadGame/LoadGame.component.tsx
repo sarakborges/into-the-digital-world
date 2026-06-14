@@ -1,7 +1,7 @@
-import { getTexts } from '@/Helpers/getTexts.helper'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
-import { loadData } from '@/Helpers/loadData.helper'
-import { saveSession } from '@/Helpers/saveSession.helper'
+import { loadData } from '@/Systems/Profile/loadData.helper'
+import { saveSession } from '@/Systems/Profile/saveSession.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 

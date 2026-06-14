@@ -1,7 +1,7 @@
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useGameStore } from '@/Stores/Game.store'
 
-import { saveSession } from '@/Helpers/saveSession.helper'
+import { saveSession } from '@/Systems/Profile/saveSession.helper'
 
 export const warpTo = ({
   zoneId,

@@ -5,9 +5,9 @@ import { useSceneStore } from '@/Stores/Scene.store'
 import { AllNpcs } from '@/GameData/Npcs'
 
 import { useProfileStore } from '@/Stores/Profile.store'
-import { deleteSession } from '@/Helpers/deleteSession.helper'
+import { deleteSession } from '@/Systems/Profile/deleteSession.helper'
 
-import { getDialogs } from '@/Helpers/getDialogs.helper'
+import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
 
 import { Text } from '@/Components/System/Text'
 

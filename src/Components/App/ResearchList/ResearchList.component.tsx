@@ -1,11 +1,10 @@
 import { GiTwoCoins } from 'react-icons/gi'
 
-import { saveSession } from '@/Helpers/saveSession.helper'
-import { getDialogs } from '@/Helpers/getDialogs.helper'
+import { saveSession } from '@/Systems/Profile/saveSession.helper'
+import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
 
 import { AllResearches } from '@/GameData/Researches'
 import { AllDigimons } from '@/GameData/Digimons'
-import { AllItems } from '@/GameData/Items'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -13,10 +12,9 @@ import { Text } from '@/Components/System/Text'
 import { Button } from '@/Components/System/Button'
 import { Portrait } from '@/Components/System/Portrait'
 
-import { ItemCore } from '@/Components/App/ItemCore'
+import { ItemsList } from '@/Components/App/ItemsList'
 
 import './ResearchList.style.scss'
-import { ItemsList } from '../ItemsList'
 
 export const ResearchList = () => {
   const { profile, setProfile } = useProfileStore((state) => state)

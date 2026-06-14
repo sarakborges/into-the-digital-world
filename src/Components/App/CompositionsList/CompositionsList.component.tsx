@@ -1,6 +1,6 @@
 import { AiOutlineSelect } from 'react-icons/ai'
 
-import { getDialogs } from '@/Helpers/getDialogs.helper'
+import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
 
 import { AvailableResearchesAtJijimon } from '@/GameData/Researches'
 import { AllDigimons } from '@/GameData/Digimons'

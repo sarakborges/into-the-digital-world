@@ -5,12 +5,12 @@ import { useSceneStore } from '@/Stores/Scene.store'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/getDialogs.helper'
+import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
 
 import { Text } from '@/Components/System/Text'
 
 import { Dialog } from '@/Components/App/Dialog'
-import { saveSession } from '@/Helpers/saveSession.helper'
+import { saveSession } from '@/Systems/Profile/saveSession.helper'
 
 export const Research000 = () => {
   const { setScene } = useSceneStore((state) => state)

@@ -2,7 +2,7 @@ import { BiSolidStar } from 'react-icons/bi'
 import { BsArrowDown, BsArrowUp } from 'react-icons/bs'
 import { TbListDetails } from 'react-icons/tb'
 
-import { getTexts } from '@/Helpers/getTexts.helper'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 import { AllDigimons } from '@/GameData/Digimons'
 

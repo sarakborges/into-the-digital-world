@@ -1,6 +1,6 @@
 import { AllAttacks } from '@/GameData/Attacks'
 
-import { doAttack } from '@/Helpers/doAttack.helper'
+import { doAttack } from '@/Systems/Battle/doAttack.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 

@@ -1,7 +1,7 @@
 import type { ZoneType } from '@/Types/Zone.type'
 
-import { fillGrid } from '@/Helpers/fillGrid'
-import { getDialogs } from '@/Helpers/getDialogs.helper'
+import { fillGrid } from '@/Systems/Zones/fillGrid'
+import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
 
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllQuests } from '@/GameData/Quests'
@@ -16,7 +16,7 @@ import { OpenJijimonIntroduction } from './Events/OpenJijimonIntroduction.event'
 import { OpenCompose } from './Events/OpenCompose.event'
 
 import { grid } from './MainRoom.grid'
-import { isQuestDone } from '@/Helpers/isQuestDone.helper'
+import { isQuestDone } from '@/Systems/Quests/isQuestDone.helper'
 import { OpenLocation } from './Events/OpenLocation.event'
 
 const gridSize = 19

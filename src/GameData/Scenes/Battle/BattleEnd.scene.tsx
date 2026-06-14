@@ -2,10 +2,10 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/getDialogs.helper'
-import { warpTo } from '@/Helpers/warpTo.helper'
-import { saveSession } from '@/Helpers/saveSession.helper'
-import { isDigimonDefeated } from '@/Helpers/isDigimonDefeated.helper'
+import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+import { warpTo } from '@/Systems/Zones/warpTo.helper'
+import { saveSession } from '@/Systems/Profile/saveSession.helper'
+import { isDigimonDefeated } from '@/Systems/Battle/isDigimonDefeated.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'

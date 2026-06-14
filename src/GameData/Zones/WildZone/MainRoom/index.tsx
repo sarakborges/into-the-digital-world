@@ -1,6 +1,6 @@
 import type { ZoneType } from '@/Types/Zone.type'
 
-import { fillGrid } from '@/Helpers/fillGrid'
+import { fillGrid } from '@/Systems/Zones/fillGrid'
 
 import { grid } from './MainRoom.grid'
 

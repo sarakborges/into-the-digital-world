@@ -2,18 +2,13 @@ import { useEffect } from 'react'
 import { FaPaintBrush } from 'react-icons/fa'
 
 import type { AvatarType } from '@/Types/Avatar.type'
-import type { ProfileType } from '@/Types/Profile.type'
 
 import { AVATAR_OPTIONS } from '@/Consts/Avatars.const'
 
-import { getTexts } from '@/Helpers/getTexts.helper'
-import { getDialogs } from '@/Helpers/getDialogs.helper'
-import { saveSession } from '@/Helpers/saveSession.helper'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
-import { useSceneStore } from '@/Stores/Scene.store'
 import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useDigiviceStore } from '@/Stores/Digivice.store'
 
 import { Button } from '@/Components/System/Button'
 import { Text } from '@/Components/System/Text'
@@ -24,9 +19,7 @@ import { AvatarCustomizationOptions } from '@/Components/App/AvatarCustomization
 import './AvatarCustomization.style.scss'
 
 export const AvatarCustomization = () => {
-  const { scene, setScene } = useSceneStore((state) => state)
-  const { profile, setProfile } = useProfileStore((state) => state)
-  const { digivice, setDigivice } = useDigiviceStore((state) => state)
+  const { profile } = useProfileStore((state) => state)
   const { avatarCustomization, setAvatarCustomization } =
     useAvatarCustomizationStore((state) => state)
 

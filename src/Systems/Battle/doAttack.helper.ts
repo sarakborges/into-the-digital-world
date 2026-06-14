@@ -2,10 +2,10 @@ import type { AttackType } from '@/Types/Attack.type'
 
 import { AllAttacks } from '@/GameData/Attacks'
 
-import { generateRandomNumber } from '@/Helpers/generateRandomNumber.helper'
-import { getSuccesses } from '@/Helpers/getSuccesses.helper'
-import { getTexts } from '@/Helpers/getTexts.helper'
-import { isDigimonDefeated } from '@/Helpers/isDigimonDefeated.helper'
+import { generateRandomNumber } from '@/Helpers/Math/generateRandomNumber.helper'
+import { getSuccesses } from '@/Helpers/Math/getSuccesses.helper'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { isDigimonDefeated } from '@/Systems/Battle/isDigimonDefeated.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'

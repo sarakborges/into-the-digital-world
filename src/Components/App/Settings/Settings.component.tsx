@@ -1,6 +1,6 @@
 import { FaCog, FaTimes } from 'react-icons/fa'
 
-import { getTexts } from '@/Helpers/getTexts.helper'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
 
