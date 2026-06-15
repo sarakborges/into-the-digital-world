@@ -45,6 +45,7 @@ export const grid: GridType = {
   8: { ...fullFloorRow },
   9: { ...fullFloorRow },
   10: { ...fullFloorRow },
+  11: { ...fullFloorRow },
   12: { ...fullFloorRow },
   13: { ...fullFloorRow },
   14: { ...fullFloorRow },

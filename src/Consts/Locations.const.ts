@@ -14,6 +14,6 @@ export const WARP_LOCATIONS = {
     zoneId: 'wildZone',
     mapId: 'mainRoom',
     x: 9,
-    y: 15
+    y: 9
   }
 }
