@@ -1,0 +1,22 @@
+.character-full-picture {
+  display: flex;
+  flex-flow: column;
+
+  > header {
+    display: flex;
+
+    .text {
+      padding: 2px 4px;
+
+      background-color: var(--color-primary-strong);
+      border-radius: 4px 4px 0 0;
+    }
+  }
+
+  > main {
+    padding: 4px;
+
+    background-color: var(--color-primary-strong);
+    border-radius: 0 4px 4px 4px;
+  }
+}

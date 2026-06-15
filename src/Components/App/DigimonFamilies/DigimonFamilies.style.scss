@@ -1,0 +1,29 @@
+.digimon-families {
+  .families {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+
+    > div {
+      display: flex;
+      place-items: center;
+      gap: 4px;
+
+      padding: 4px;
+
+      background-color: var(--color-primary);
+      border-radius: 4px;
+
+      .portrait {
+        width: 24px;
+
+        border: 2px solid var(--color-primary-strong);
+        border-radius: 4px;
+      }
+
+      .text {
+        font-size: 12px;
+      }
+    }
+  }
+}

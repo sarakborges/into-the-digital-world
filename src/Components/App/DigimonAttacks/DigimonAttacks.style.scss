@@ -1,0 +1,26 @@
+.digimon-attacks {
+  > main {
+    display: flex;
+    flex-flow: column;
+    gap: 4px;
+
+    .attack {
+      display: flex;
+      flex-flow: column;
+      gap: 4px;
+
+      background-color: var(--color-primary);
+      border-radius: 4px;
+
+      padding: 4px;
+
+      .text {
+        font-size: 12px;
+      }
+
+      .text:first-child {
+        font-weight: 500;
+      }
+    }
+  }
+}
