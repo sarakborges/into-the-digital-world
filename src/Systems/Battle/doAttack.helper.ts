@@ -39,10 +39,13 @@ export const doAttack = (move: string) => {
 
   const attack = getSuccesses(
     calcExtraStats({ digimon: currentDigimon, stat: 'tec' }) +
-      currentDigimon.stats.tec
+      currentDigimon.stats.tec -
+      (currentDigimon.conditions?.distracted || 0)
   )
   const evasion = getSuccesses(
-    calcExtraStats({ digimon: target, stat: 'agi' }) + target.stats.agi
+    calcExtraStats({ digimon: target, stat: 'agi' }) +
+      target.stats.agi -
+      (target.conditions?.shaken || 0)
   )
 
   if (evasion > attack) {
