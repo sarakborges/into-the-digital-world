@@ -2,7 +2,7 @@ import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { calcStats } from '@/Systems/Battle/calcStats.helper'
+import { calcExtraStats } from '@/Systems/Battle/calcExtraStats.helper'
 
 import { AllDigimons } from '@/GameData/Digimons'
 
@@ -37,7 +37,7 @@ export const DigimonStats = () => {
 
     const partner = profile.partnerDigimons[digivice.currentDetails!]
 
-    return calcStats({ digimon: partner, stat })
+    return calcExtraStats({ digimon: partner, stat })
   }
 
   return (

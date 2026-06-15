@@ -3,7 +3,7 @@ import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
 import { AllItems } from '@/GameData/Items'
 
-export const calcStats = ({
+export const calcExtraStats = ({
   digimon,
   stat
 }: {

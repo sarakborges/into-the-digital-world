@@ -5,7 +5,7 @@ import { AllAttacks } from '@/GameData/Attacks'
 import { generateRandomNumber } from '@/Helpers/Math/generateRandomNumber.helper'
 import { getSuccesses } from '@/Helpers/Math/getSuccesses.helper'
 import { isDigimonDefeated } from '@/Systems/Battle/isDigimonDefeated.helper'
-import { calcStats } from '@/Systems/Battle/calcStats.helper'
+import { calcExtraStats } from '@/Systems/Battle/calcExtraStats.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -38,9 +38,12 @@ export const doAttack = (move: string) => {
   }
 
   const attack = getSuccesses(
-    calcStats({ digimon: currentDigimon, stat: 'tec' })
+    calcExtraStats({ digimon: currentDigimon, stat: 'tec' }) +
+      currentDigimon.stats.tec
   )
-  const evasion = getSuccesses(calcStats({ digimon: target, stat: 'agi' }))
+  const evasion = getSuccesses(
+    calcExtraStats({ digimon: target, stat: 'agi' }) + target.stats.agi
+  )
 
   if (evasion > attack) {
     setBattle({
@@ -58,9 +61,12 @@ export const doAttack = (move: string) => {
 
   if (attack >= evasion) {
     const power = getSuccesses(
-      calcStats({ digimon: currentDigimon, stat: 'pow' })
+      calcExtraStats({ digimon: currentDigimon, stat: 'pow' }) +
+        currentDigimon.stats.pow
     )
-    const resistance = getSuccesses(calcStats({ digimon: target, stat: 'res' }))
+    const resistance = getSuccesses(
+      calcExtraStats({ digimon: target, stat: 'res' }) + target.stats.res
+    )
     const severity = Math.min(Math.max(power - resistance, 1), 3)
 
     const targetInjuries = Object.values(target.conditions ?? {}).reduce(
@@ -68,7 +74,9 @@ export const doAttack = (move: string) => {
       0
     )
 
-    const isTargetDefeated = target.stats.vit <= targetInjuries + severity
+    const isTargetDefeated =
+      calcExtraStats({ digimon: target, stat: 'vit' }) + target.stats.vit <=
+      targetInjuries + severity
 
     setBattle({
       ...battle!,
