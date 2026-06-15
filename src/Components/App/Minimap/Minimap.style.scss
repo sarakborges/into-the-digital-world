@@ -1,0 +1,34 @@
+.minimap {
+  position: relative;
+
+  width: 80px;
+  height: 80px;
+
+  background-color: var(--color-secondary-weak);
+  border: 2px solid var(--color-secondary-strong);
+  border-radius: 4px;
+
+  --tile-size: calc(76px / var(--grid-size));
+
+  > div {
+    position: absolute;
+    top: calc(var(--tile-y) * var(--tile-size));
+    left: calc(var(--tile-x) * var(--tile-size));
+
+    width: var(--tile-size);
+    height: var(--tile-size);
+
+    &.player {
+      background-color: var(--color-primary-strong);
+    }
+
+    &.npcs,
+    &.events {
+      background-color: var(--color-neutral-weak);
+    }
+
+    &.blocked {
+      background-color: var(--color-neutral-strong);
+    }
+  }
+}
