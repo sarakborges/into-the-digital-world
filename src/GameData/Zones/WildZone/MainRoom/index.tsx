@@ -1,6 +1,15 @@
 import type { ZoneType } from '@/Types/Zone.type'
 
+import { AllNpcs } from '@/GameData/Npcs'
+import { AllQuests } from '@/GameData/Quests'
+
 import { fillGrid } from '@/Systems/Zones/fillGrid'
+import { isQuestDone } from '@/Systems/Quests/isQuestDone.helper'
+import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+
+import { useProfileStore } from '@/Stores/Profile.store'
+
+import { OpenLocation } from './Events/OpenLocation.event'
 
 import { grid } from './MainRoom.grid'
 
@@ -13,5 +22,39 @@ export const WildZoneMainRoom: ZoneType = {
   name: `Wild Zone`,
   gridSize,
   grid: filledGrid,
-  tiles: []
+
+  tiles: [
+    {
+      id: 'gennaiFastTravel',
+      x: 9,
+      y: 7,
+      defaultText: getDialogs('LOCATION_001_TEXT'),
+
+      npc: {
+        ...AllNpcs.general.gennai,
+        isVisible: true
+      },
+
+      events: [
+        {
+          function: OpenLocation,
+          eventText: getDialogs('LOCATION_TRIGGER'),
+          eventType: 'default'
+        }
+      ],
+
+      condition: () => {
+        const profile = useProfileStore.getState().profile
+
+        const doneQuests = Object.keys(profile!.quests).filter((quest) =>
+          isQuestDone(quest)
+        )
+
+        return (
+          !!doneQuests.includes(AllQuests.introduction.id) &&
+          !!doneQuests.includes(AllQuests.starterDigimon.id)
+        )
+      }
+    }
+  ]
 }
