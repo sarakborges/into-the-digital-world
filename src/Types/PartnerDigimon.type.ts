@@ -1,3 +1,5 @@
+import type { EquipmentType } from '@/Types/Equipment.type'
+
 export type PartnerDigimonType = {
   id: number
   name?: string
@@ -5,11 +7,5 @@ export type PartnerDigimonType = {
   isFavorite?: boolean
   isStarter?: boolean
 
-  equipments: {
-    [equipmentId: number]:
-      | {
-          equipmentId?: string
-        }
-      | undefined
-  }
+  equipments: EquipmentType
 }

@@ -47,7 +47,10 @@ const spawnEnemies = () => {
       const rng = generateRandomNumber({ min: 0, max: 100 })
 
       if (rng < possibleSpawns[spawn].spawnChance) {
-        enemiesSpawned.push(AllDigimons[spawn])
+        enemiesSpawned.push({
+          ...AllDigimons[possibleSpawns[spawn].digimonId],
+          equipments: possibleSpawns[spawn].equipments
+        })
       }
     }
   }
@@ -80,6 +83,8 @@ export const startBattle = () => {
       profile.partnerDigimons[digimon].name ||
       AllDigimons[profile.partnerDigimons[digimon].baseDigimon].name,
 
+    equipments: profile.partnerDigimons[digimon].equipments,
+
     party: 'allies' as 'allies' | 'enemies',
     index: digimonIndex
   }))
@@ -89,6 +94,7 @@ export const startBattle = () => {
 
     party: 'enemies' as 'allies' | 'enemies',
     index: digimonIndex,
+    equipments: tile.possibleSpawns![digimon.id].equipments,
     lootTable: [...(tile.possibleSpawns![digimon.id].lootTable ?? [])]
   }))
 

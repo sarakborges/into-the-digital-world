@@ -1,4 +1,5 @@
 import type { NpcType } from '@/Types/Npc.type'
+import type { SpawnableDigimonType } from '@/Types/SpawnableDigimon.type'
 
 export type TileType = {
   npc?: NpcType
@@ -6,14 +7,6 @@ export type TileType = {
   maxEnemies?: number
 
   possibleSpawns?: {
-    [digimonId: string]: {
-      spawnChance: number
-
-      lootTable?: Array<{
-        itemId: string
-        dropChance: number
-        amount: number
-      }>
-    }
+    [digimonId: string]: SpawnableDigimonType
   }
 }

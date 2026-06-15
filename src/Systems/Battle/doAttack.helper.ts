@@ -4,8 +4,8 @@ import { AllAttacks } from '@/GameData/Attacks'
 
 import { generateRandomNumber } from '@/Helpers/Math/generateRandomNumber.helper'
 import { getSuccesses } from '@/Helpers/Math/getSuccesses.helper'
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { isDigimonDefeated } from '@/Systems/Battle/isDigimonDefeated.helper'
+import { calcStats } from '@/Systems/Battle/calcStats.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -37,8 +37,10 @@ export const doAttack = (move: string) => {
     attackName: usedMove.name
   }
 
-  const attack = getSuccesses(currentDigimon.stats.tec)
-  const evasion = getSuccesses(target.stats.agi)
+  const attack = getSuccesses(
+    calcStats({ digimon: currentDigimon, stat: 'tec' })
+  )
+  const evasion = getSuccesses(calcStats({ digimon: target, stat: 'agi' }))
 
   if (evasion > attack) {
     setBattle({
@@ -55,8 +57,10 @@ export const doAttack = (move: string) => {
   }
 
   if (attack >= evasion) {
-    const power = getSuccesses(currentDigimon.stats.pow)
-    const resistance = getSuccesses(target.stats.res)
+    const power = getSuccesses(
+      calcStats({ digimon: currentDigimon, stat: 'pow' })
+    )
+    const resistance = getSuccesses(calcStats({ digimon: target, stat: 'res' }))
     const severity = Math.min(Math.max(power - resistance, 1), 3)
 
     const targetInjuries = Object.values(target.conditions ?? {}).reduce(

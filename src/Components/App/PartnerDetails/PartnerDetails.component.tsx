@@ -26,6 +26,7 @@ import { Button } from '@/Components/System/Button'
 import { CharacterHeader } from '@/Components/App/CharacterHeader'
 
 import './PartnerDetails.style.scss'
+import { calcStats } from '@/Systems/Battle/calcStats.helper'
 
 export const PartnerDetails = () => {
   const { profile, setProfile } = useProfileStore((state) => state)
@@ -98,23 +99,7 @@ export const PartnerDetails = () => {
     const { profile } = useProfileStore.getState()
     const partner = profile!.partnerDigimons[digivice!.currentDetails!]
 
-    const equipments = partner.equipments
-
-    const equipmentsBoostingStat = Object.values(equipments ?? {})
-      .filter((item) =>
-        Object.keys(
-          AllItems[item!.equipmentId!]?.equipmentBonuses?.stats ?? {}
-        ).includes(stat)
-      )
-      .map((item) => AllItems[item!.equipmentId!].equipmentBonuses?.stats)
-
-    return equipmentsBoostingStat.reduce((acc, cur) => {
-      if (cur![stat].type === 'fixed') {
-        return acc + cur![stat].amount
-      }
-
-      return 0
-    }, 0)
+    return calcStats({ digimon: partner, stat })
   }
 
   return (

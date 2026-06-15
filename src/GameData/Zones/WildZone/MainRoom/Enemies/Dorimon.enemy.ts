@@ -1,9 +1,16 @@
+import type { SpawnableDigimonType } from '@/Types/SpawnableDigimon.type'
+
 import { AllDigimons } from '@/GameData/Digimons'
 import { AllItems } from '@/GameData/Items'
 
-export const RootDomainDorimon = {
+export const RootDomainDorimon: {
+  [digimonId: string]: SpawnableDigimonType
+} = {
   [AllDigimons.dorimon.id]: {
+    digimonId: AllDigimons.dorimon.id,
     spawnChance: 10,
+
+    equipments: {},
 
     lootTable: [
       {
