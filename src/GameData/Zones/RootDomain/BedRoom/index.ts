@@ -1,8 +1,8 @@
 import type { ZoneType } from '@/Types/Zone.type'
 
-import { fillGrid } from '@/Systems/Zones/fillGrid'
-import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
-import { isQuestDone } from '@/Systems/Quests/isQuestDone.helper'
+import { fillGrid } from '@/Helpers/Systems/Zones'
+import { getDialogs } from '@/Helpers/Language'
+import { isQuestDone } from '@/Helpers/Systems/Quests'
 
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllQuests } from '@/GameData/Quests'
@@ -43,7 +43,11 @@ export const RootDomainBedRoom: ZoneType = {
       condition: () => {
         const profile = useProfileStore.getState().profile
 
-        const doneQuests = Object.keys(profile!.quests).filter((quest) =>
+        if (!profile) {
+          return false
+        }
+
+        const doneQuests = Object.keys(profile.quests).filter((quest) =>
           isQuestDone(quest)
         )
 
@@ -77,7 +81,11 @@ export const RootDomainBedRoom: ZoneType = {
       condition: () => {
         const profile = useProfileStore.getState().profile
 
-        const doneQuests = Object.keys(profile!.quests).filter((quest) =>
+        if (!profile) {
+          return false
+        }
+
+        const doneQuests = Object.keys(profile.quests).filter((quest) =>
           isQuestDone(quest)
         )
 
@@ -106,7 +114,11 @@ export const RootDomainBedRoom: ZoneType = {
       condition: () => {
         const profile = useProfileStore.getState().profile
 
-        const doneQuests = Object.keys(profile!.quests).filter((quest) =>
+        if (!profile) {
+          return false
+        }
+
+        const doneQuests = Object.keys(profile.quests).filter((quest) =>
           isQuestDone(quest)
         )
 

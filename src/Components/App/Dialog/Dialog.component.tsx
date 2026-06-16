@@ -11,6 +11,10 @@ import './Dialog.style.scss'
 export const Dialog = ({ speaker, content, options }: DialogType) => {
   const { profile } = useProfileStore((state) => state)
 
+  if (!profile) {
+    return
+  }
+
   return (
     <main className="dialog">
       {!!speaker && (
@@ -19,7 +23,7 @@ export const Dialog = ({ speaker, content, options }: DialogType) => {
             ...speaker,
             isPlayer: !!speaker.isPlayer,
             name:
-              Object.keys(profile!.npcAcquintances).includes(
+              Object.keys(profile.npcAcquintances).includes(
                 speaker.id.toString()
               ) || !!speaker.isPlayer
                 ? speaker.name

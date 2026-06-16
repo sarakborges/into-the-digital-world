@@ -5,8 +5,8 @@ import { AllQuests } from '@/GameData/Quests'
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllZones } from '@/GameData/Zones'
 
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { isObjectiveDone } from '@/Systems/Quests/isObjectiveDone.helper'
+import { getTexts } from '@/Helpers/Language'
+import { isObjectiveDone } from '@/Helpers/Systems/Quests'
 
 import { Text } from '@/Components/System/Text'
 import { Button } from '@/Components/System/Button'
@@ -25,9 +25,13 @@ export const QuestsList = ({
 }) => {
   const { digivice, setDigivice } = useDigiviceStore((state) => state)
 
+  if (!digivice) {
+    return
+  }
+
   const seeDetails = (id) => {
     setDigivice({
-      ...digivice!,
+      ...digivice,
       currentDetails: digivice?.currentDetails !== id ? id : undefined
     })
   }

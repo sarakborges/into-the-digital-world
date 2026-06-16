@@ -5,9 +5,8 @@ import { AllZones } from '@/GameData/Zones'
 
 import { THEMES } from '@/Consts/Themes.const'
 
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { loadData } from '@/Systems/Profile/loadData.helper'
-import { loadSession } from '@/Systems/Profile/loadSession.helper'
+import { getTexts } from '@/Helpers/Language'
+import { loadData, loadSession } from '@/Helpers/Systems/Profile'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSettingsStore } from '@/Stores/Settings.store'
@@ -34,6 +33,10 @@ export const Game = () => {
   const { battle } = useBattleStore((state) => state)
   const { scene } = useSceneStore((state) => state)
 
+  if (!settings) {
+    return
+  }
+
   useEffect(() => {
     setProfile(loadSession({ key: 'profile' }))
     setSettings({ ...loadData({ key: 'settings' }), isOpen: false })
@@ -42,14 +45,14 @@ export const Game = () => {
   return (
     <div
       className={`game-body theme-${
-        settings?.theme &&
+        settings.theme &&
         Object.keys({
           ...THEMES.default,
           ...THEMES.crests,
           ...THEMES.families,
           ...THEMES.other
-        }).includes(settings?.theme)
-          ? settings?.theme
+        }).includes(settings.theme)
+          ? settings.theme
           : 'default'
       }`}
     >

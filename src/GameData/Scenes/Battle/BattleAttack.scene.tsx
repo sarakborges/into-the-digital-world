@@ -2,22 +2,25 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+import { getDialogs } from '@/Helpers/Language'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Dialog } from '@/Components/App/Dialog'
 import { CombatLogEntry } from '@/Components/App/CombatLogEntry'
-import { generateRandomNumber } from '@/Helpers/Math/generateRandomNumber.helper'
-import { AllItems } from '@/GameData/Items'
-import { isDigimonDefeated } from '@/Systems/Battle/isDigimonDefeated.helper'
+import { generateRandomNumber } from '@/Helpers/Math'
+import { isDigimonDefeated } from '@/Helpers/Systems/Battle'
 
 export const BattleAttack = () => {
   const { setScene } = useSceneStore((state) => state)
   const { battle, setBattle } = useBattleStore((state) => state)
 
-  const logEntry = battle?.combatLog[0]!
+  if (!battle) {
+    return
+  }
+
+  const logEntry = battle.combatLog[0]!
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.appmon.oujamon,
@@ -25,7 +28,7 @@ export const BattleAttack = () => {
     content: (
       <div className="text-bubble">
         <CombatLogEntry
-          logEntry={{ ...logEntry, index: battle?.combatLog.length }}
+          logEntry={{ ...logEntry, index: battle.combatLog.length }}
         />
       </div>
     ),
@@ -35,9 +38,9 @@ export const BattleAttack = () => {
         id: 'scene-battle-battleattack-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          const [currentDigimon, ...otherDigimons] = battle?.turnOrder!
+          const [currentDigimon, ...otherDigimons] = battle.turnOrder!
 
-          const nonDefeatedDigimons = battle!.turnOrder.filter(
+          const nonDefeatedDigimons = battle.turnOrder.filter(
             (digimon) => !isDigimonDefeated(digimon)
           )
 
@@ -54,7 +57,7 @@ export const BattleAttack = () => {
           const loot = {}
 
           if (!!alliesWon) {
-            for (let digimon of battle!.turnOrder.filter(
+            for (let digimon of battle.turnOrder.filter(
               (digimon) => digimon.party === 'enemies'
             )) {
               if (!digimon.lootTable?.length) {
@@ -74,7 +77,7 @@ export const BattleAttack = () => {
           const updatedTurnOrder = [...otherDigimons, currentDigimon]
 
           setBattle({
-            ...battle!,
+            ...battle,
             loot,
             turnOrder: updatedTurnOrder
           })

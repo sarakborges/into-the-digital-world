@@ -2,7 +2,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+import { getDialogs } from '@/Helpers/Language'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -15,6 +15,10 @@ import { Portrait } from '@/Components/System/Portrait'
 export const GetStarterDigimon002 = () => {
   const { setScene } = useSceneStore((state) => state)
   const { profile, setProfile } = useProfileStore((state) => state)
+
+  if (!profile) {
+    return
+  }
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.general.gennai,
@@ -43,8 +47,8 @@ export const GetStarterDigimon002 = () => {
           })
 
           setProfile({
-            ...profile!,
-            npcAcquintances: { ...profile!.npcAcquintances, dorimon: {} }
+            ...profile,
+            npcAcquintances: { ...profile.npcAcquintances, dorimon: {} }
           })
         }
       }

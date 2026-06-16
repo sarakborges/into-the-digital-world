@@ -31,18 +31,18 @@ export const Scene = () => {
   const { scene } = useSceneStore((state) => state)
   const { digivice } = useDigiviceStore((state) => state)
 
-  if (!scene) {
+  if (!scene || !digivice) {
     return
   }
 
-  const RenderedScene = AllScenes[scene!.currentScene!][scene!.currentStage]
+  const RenderedScene = AllScenes[scene.currentScene!][scene.currentStage]
 
   if (!RenderedScene) {
     return
   }
 
   return (
-    <div className="scene" data-isdigiviceopen={!!digivice?.isOpen}>
+    <div className="scene" data-isdigiviceopen={!!digivice.isOpen}>
       <RenderedScene />
     </div>
   )

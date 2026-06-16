@@ -3,9 +3,9 @@ import type { ZoneType } from '@/Types/Zone.type'
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllQuests } from '@/GameData/Quests'
 
-import { fillGrid } from '@/Systems/Zones/fillGrid'
-import { isQuestDone } from '@/Systems/Quests/isQuestDone.helper'
-import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+import { fillGrid } from '@/Helpers/Systems/Zones'
+import { isQuestDone } from '@/Helpers/Systems/Quests'
+import { getDialogs } from '@/Helpers/Language'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -46,7 +46,11 @@ export const WildZoneMainRoom: ZoneType = {
       condition: () => {
         const profile = useProfileStore.getState().profile
 
-        const doneQuests = Object.keys(profile!.quests).filter((quest) =>
+        if (!profile) {
+          return false
+        }
+
+        const doneQuests = Object.keys(profile.quests).filter((quest) =>
           isQuestDone(quest)
         )
 

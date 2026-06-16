@@ -4,8 +4,8 @@ import { useSceneStore } from '@/Stores/Scene.store'
 
 import { IntroductionQuest } from '@/GameData/Quests/Introduction.quest'
 
-import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
-import { addNewQuest } from '@/Systems/Quests/addNewQuest.helper'
+import { getDialogs } from '@/Helpers/Language'
+import { addNewQuest } from '@/Helpers/Systems/Quests'
 
 import { Text } from '@/Components/System/Text'
 

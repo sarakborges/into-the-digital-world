@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+import { getDialogs } from '@/Helpers/Language'
 
 import { Text } from '@/Components/System/Text'
 
@@ -14,8 +14,12 @@ export const GetStarterDigimon016 = () => {
 
   const { profile } = useProfileStore((state) => state)
 
+  if (!profile) {
+    return
+  }
+
   const dialogOptions: DialogType = {
-    speaker: { ...profile!, isPlayer: true },
+    speaker: { ...profile, isPlayer: true },
 
     content: (
       <div className="text-bubble">

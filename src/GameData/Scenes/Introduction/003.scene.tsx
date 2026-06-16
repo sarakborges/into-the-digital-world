@@ -2,7 +2,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+import { getDialogs } from '@/Helpers/Language'
 
 import { AllNpcs } from '@/GameData/Npcs'
 

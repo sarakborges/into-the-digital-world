@@ -15,11 +15,12 @@ export const EquipmentDrAllItem: ItemType = {
     const { profile } = useProfileStore.getState()
     const { digivice } = useDigiviceStore.getState()
 
-    const baseDigimon =
-      AllDigimons[
-        profile!.partnerDigimons[digivice!.currentDetails!].baseDigimon
-      ]
+    if (!profile || !digivice || !digivice.currentDetails) {
+      return false
+    }
 
+    const partnerDigimon = profile.partnerDigimons[digivice.currentDetails]
+    const baseDigimon = AllDigimons[partnerDigimon.baseDigimon]
     return Object.keys(baseDigimon.families).includes('dr')
   },
 

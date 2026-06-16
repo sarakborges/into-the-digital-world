@@ -15,3 +15,6 @@ export const TURN_ORDER_TITLE = `Turn order`
 
 export const ATTACK_CONDITION_SHAKEN = `Shaken`
 export const ATTACK_CONDITION_DISTRACTED = `Distracted`
+
+export const SELECT_ATTACK_TITLE = `What move should [NAME] use?`
+export const SELECT_ATTACK_OPTION = `[NAME] ([COOLDOWN] turns cooldown)`

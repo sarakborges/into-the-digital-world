@@ -1,4 +1,4 @@
-import { generateRandomNumber } from './generateRandomNumber.helper'
+import { generateRandomNumber } from '.'
 
 export const rollDies = (amountOfDies) => {
   const results: Array<number> = []

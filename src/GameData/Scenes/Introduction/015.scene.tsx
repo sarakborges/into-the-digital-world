@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+import { getDialogs } from '@/Helpers/Language'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -11,11 +11,14 @@ import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction015 = () => {
   const { setScene } = useSceneStore((state) => state)
-
   const { profile } = useProfileStore((state) => state)
 
+  if (!profile) {
+    return
+  }
+
   const dialogOptions: DialogType = {
-    speaker: { ...profile!, isPlayer: true },
+    speaker: { ...profile, isPlayer: true },
 
     content: (
       <div className="text-bubble">

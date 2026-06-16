@@ -1,6 +1,6 @@
 import { THEMES } from '@/Consts/Themes.const'
 
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getTexts } from '@/Helpers/Language'
 
 import { Text } from '@/Components/System/Text'
 

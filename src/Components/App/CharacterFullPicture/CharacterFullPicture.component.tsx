@@ -3,7 +3,7 @@ import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 
 import { AllDigimons } from '@/GameData/Digimons'
 
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getTexts } from '@/Helpers/Language'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'

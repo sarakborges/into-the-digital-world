@@ -1,6 +1,6 @@
 import { BiDetail } from 'react-icons/bi'
 
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getTexts } from '@/Helpers/Language'
 
 import { AllResearches } from '@/GameData/Researches'
 import { AllDigimons } from '@/GameData/Digimons'
@@ -21,13 +21,17 @@ export const MyResearchesList = () => {
   const { profile } = useProfileStore((state) => state)
   const { digivice, setDigivice } = useDigiviceStore((state) => state)
 
+  if (!digivice) {
+    return
+  }
+
   const allResearches = Object.values(profile?.researches!).map((research) => ({
     ...AllDigimons[research]
   }))
 
   const toggleDetails = (researchId: string) => {
     setDigivice({
-      ...digivice!,
+      ...digivice,
       currentDetails: digivice?.currentDetails ? undefined : researchId
     })
   }

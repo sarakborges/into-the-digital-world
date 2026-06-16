@@ -1,7 +1,7 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
-import { saveSession } from '@/Systems/Profile/saveSession.helper'
+import { getDialogs } from '@/Helpers/Language'
+import { saveSession } from '@/Helpers/Systems/Profile'
 
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllResearches } from '@/GameData/Researches'
@@ -18,32 +18,34 @@ export const Compose003 = () => {
   const { profile, setProfile } = useProfileStore((state) => state)
   const { composition, setComposition } = useCompositionStore((state) => state)
 
+  if (!profile || !composition) {
+    return
+  }
+
   const requiredItems = !!composition
     ? AllResearches[composition.baseDigimon.id].requiredItems || {}
     : {}
-  const optionalItems = !!composition ? composition?.optionalItems || {} : {}
+  const optionalItems = !!composition ? composition.optionalItems || {} : {}
 
-  const playerHasEnoughItems = Object.keys(composition?.totalItems ?? {}).some(
+  const playerHasEnoughItems = Object.keys(composition.totalItems ?? {}).some(
     (item) =>
-      (profile?.items[item] || 0) >= (composition?.totalItems?.[item] || 0)
+      (profile.items[item] || 0) >= (composition.totalItems?.[item] || 0)
   )
 
   const composeDigimon = () => {
     const newDigimonId =
       Number(
-        Object.keys(profile!.partnerDigimons!).sort((a, b) =>
-          a > b ? -1 : 1
-        )[0]
+        Object.keys(profile.partnerDigimons).sort((a, b) => (a > b ? -1 : 1))[0]
       ) + 1
 
     const updatedProfile = {
-      ...profile!,
+      ...profile,
       partnerDigimons: {
-        ...profile!.partnerDigimons!,
+        ...profile.partnerDigimons,
 
         [newDigimonId]: {
           id: newDigimonId,
-          baseDigimon: composition?.baseDigimon.id!,
+          baseDigimon: composition.baseDigimon.id,
           isStarter: true,
           equipments: {}
         }
@@ -51,11 +53,11 @@ export const Compose003 = () => {
     }
 
     for (let item of Object.keys(requiredItems)) {
-      updatedProfile!.items[item] -= requiredItems[item] || 0
+      updatedProfile.items[item] -= requiredItems[item] || 0
     }
 
     for (let item of Object.keys(optionalItems)) {
-      updatedProfile!.items[item] -= optionalItems[item] || 0
+      updatedProfile.items[item] -= optionalItems[item] || 0
     }
 
     setComposition(null)
@@ -90,11 +92,11 @@ export const Compose003 = () => {
         },
 
         disabled:
-          !composition?.baseDigimon ||
-          (!!Object.keys(composition?.totalItems ?? {}).length &&
+          !composition.baseDigimon ||
+          (!!Object.keys(composition.totalItems ?? {}).length &&
             !playerHasEnoughItems) ||
-          (!!Object.keys(composition?.optionalItems ?? {}).length &&
-            (composition?.completed || 0) < 100)
+          (!!Object.keys(composition.optionalItems ?? {}).length &&
+            (composition.completed || 0) < 100)
       }
     ]
   }

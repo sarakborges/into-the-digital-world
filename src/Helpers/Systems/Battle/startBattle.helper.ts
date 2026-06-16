@@ -3,8 +3,7 @@ import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 import { AllDigimons } from '@/GameData/Digimons'
 import { AllZones } from '@/GameData/Zones'
 
-import { generateRandomNumber } from '@/Helpers/Math/generateRandomNumber.helper'
-import { getSuccesses } from '@/Helpers/Math/getSuccesses.helper'
+import { generateRandomNumber, getSuccesses } from '@/Helpers/Math'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -13,7 +12,11 @@ import { useBattleStore } from '@/Stores/Battle.store'
 const spawnEnemies = () => {
   const { profile } = useProfileStore.getState()
 
-  const { id, map, x, y } = profile!.currentZone
+  if (!profile) {
+    return
+  }
+
+  const { id, map, x, y } = profile.currentZone
   const tile = AllZones[id][map].grid[y][x]
 
   const { possibleSpawns, maxEnemies } = tile
@@ -63,10 +66,14 @@ export const startBattle = () => {
   const { setScene } = useSceneStore.getState()
   const { setBattle } = useBattleStore.getState()
 
-  const { id, map, x, y } = profile!.currentZone
+  if (!profile) {
+    return
+  }
+
+  const { id, map, x, y } = profile.currentZone
   const tile = AllZones[id][map].grid[y][x]
 
-  if (!tile || !profile?.party.length) {
+  if (!tile || !profile.party.length) {
     return
   }
 

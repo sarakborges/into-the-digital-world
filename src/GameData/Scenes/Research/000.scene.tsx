@@ -5,16 +5,20 @@ import { useSceneStore } from '@/Stores/Scene.store'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+import { getDialogs } from '@/Helpers/Language'
 
 import { Text } from '@/Components/System/Text'
 
 import { Dialog } from '@/Components/App/Dialog'
-import { saveSession } from '@/Systems/Profile/saveSession.helper'
+import { saveSession } from '@/Helpers/Systems/Profile'
 
 export const Research000 = () => {
   const { setScene } = useSceneStore((state) => state)
   const { profile, setProfile } = useProfileStore((state) => state)
+
+  if (!profile) {
+    return
+  }
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.digimon.nanomon,
@@ -31,9 +35,9 @@ export const Research000 = () => {
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
           const updatedProfile = {
-            ...profile!,
+            ...profile,
             npcAcquintances: {
-              ...profile!.npcAcquintances,
+              ...profile.npcAcquintances,
               nanomon: {}
             }
           }

@@ -7,7 +7,7 @@ import { useProfileStore } from '@/Stores/Profile.store'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+import { getDialogs } from '@/Helpers/Language'
 
 import { Text } from '@/Components/System/Text'
 import { Input } from '@/Components/System/Input'
@@ -17,6 +17,10 @@ import { Dialog } from '@/Components/App/Dialog'
 export const Introduction005 = () => {
   const { setScene } = useSceneStore((state) => state)
   const { profile, setProfile } = useProfileStore((state) => state)
+
+  if (!profile) {
+    return
+  }
 
   useEffect(() => {
     const sceneContinue = document.querySelector(
@@ -61,7 +65,7 @@ export const Introduction005 = () => {
           ).value.trim()
 
           const updatedProfile = {
-            ...profile!,
+            ...profile,
             name: name
           }
 

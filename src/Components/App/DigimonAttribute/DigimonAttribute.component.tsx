@@ -1,7 +1,7 @@
 import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
 
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getTexts } from '@/Helpers/Language'
 
 import { DIGIMON_ATTRIBUTES } from '@/Consts/Attributes.const'
 

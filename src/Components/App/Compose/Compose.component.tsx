@@ -3,7 +3,7 @@ import { BiMinus, BiPlus } from 'react-icons/bi'
 import { AllResearches } from '@/GameData/Researches'
 import { AllItems } from '@/GameData/Items'
 
-import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+import { getDialogs } from '@/Helpers/Language'
 
 import { useCompositionStore } from '@/Stores/Composition.store'
 import { useProfileStore } from '@/Stores/Profile.store'

@@ -1,6 +1,6 @@
 import type { ZoneType } from '@/Types/Zone.type'
 
-import { fillGrid } from '@/Systems/Zones/fillGrid'
+import { fillGrid } from '@/Helpers/Systems/Zones'
 
 import { WarpToMainRoom } from './Events/WarpToMainRoom.event'
 import { WarpToBedRoom } from './Events/WarpToBedRoom.event'

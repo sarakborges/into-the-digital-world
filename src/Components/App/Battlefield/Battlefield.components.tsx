@@ -1,12 +1,13 @@
 import { useEffect } from 'react'
 
+import { isDigimonDefeated } from '@/Helpers/Systems/Battle'
+
 import { useBattleStore } from '@/Stores/Battle.store'
 
 import { CombatParties } from '@/Components/App/CombatParties'
 import { TurnOrder } from '@/Components/App/TurnOrder'
 
 import './Battlefield.style.scss'
-import { isDigimonDefeated } from '@/Systems/Battle/isDigimonDefeated.helper'
 
 export const Battlefield = () => {
   const { battle } = useBattleStore((state) => state)
@@ -18,11 +19,15 @@ export const Battlefield = () => {
   useEffect(() => {
     const { battle, setBattle } = useBattleStore.getState()
 
-    const [currentDigimon, ...otherDigimons] = battle!.turnOrder
+    if (!battle) {
+      return
+    }
+
+    const [currentDigimon, ...otherDigimons] = battle.turnOrder
 
     if (isDigimonDefeated(currentDigimon)) {
       setBattle({
-        ...battle!,
+        ...battle,
         turnOrder: [...otherDigimons, currentDigimon]
       })
     }

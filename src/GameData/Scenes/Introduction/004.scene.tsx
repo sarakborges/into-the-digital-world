@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+import { getDialogs } from '@/Helpers/Language'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
@@ -14,6 +14,10 @@ import { Dialog } from '@/Components/App/Dialog'
 export const Introduction004 = () => {
   const { setScene } = useSceneStore((state) => state)
   const { profile, setProfile } = useProfileStore((state) => state)
+
+  if (!profile) {
+    return
+  }
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.general.gennai,
@@ -30,9 +34,9 @@ export const Introduction004 = () => {
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setProfile({
-            ...profile!,
+            ...profile,
             npcAcquintances: {
-              ...profile!.npcAcquintances,
+              ...profile.npcAcquintances,
               [AllNpcs.general.gennai.id]: {}
             }
           })

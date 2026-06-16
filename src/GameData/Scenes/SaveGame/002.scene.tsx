@@ -2,7 +2,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+import { getDialogs } from '@/Helpers/Language'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -14,6 +14,10 @@ import { Dialog } from '@/Components/App/Dialog'
 export const SaveGame002 = () => {
   const { setScene } = useSceneStore((state) => state)
   const { digivice, setDigivice } = useDigiviceStore((state) => state)
+
+  if (!digivice) {
+    return
+  }
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.appmon.savemon,
@@ -29,7 +33,7 @@ export const SaveGame002 = () => {
         id: 'scene-savegame-002-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setDigivice({ ...digivice!, currentApp: undefined })
+          setDigivice({ ...digivice, currentApp: undefined })
           setScene(null)
         }
       }

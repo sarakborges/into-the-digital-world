@@ -1,8 +1,8 @@
 import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
 
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { calcExtraStats } from '@/Systems/Battle/calcExtraStats.helper'
+import { getTexts } from '@/Helpers/Language'
+import { calcExtraStats } from '@/Helpers/Systems/Battle'
 
 import { AllDigimons } from '@/GameData/Digimons'
 

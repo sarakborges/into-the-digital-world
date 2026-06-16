@@ -17,6 +17,10 @@ export const GameboardCharacter = ({
 }) => {
   const { profile } = useProfileStore((state) => state)
 
+  if (!profile) {
+    return
+  }
+
   if (
     (!tile?.npc?.id && !isPlayer && !profile) ||
     (!isPlayer && !tile?.npc?.isVisible)
@@ -47,12 +51,12 @@ export const GameboardCharacter = ({
       {tile?.npc?.id && (
         <>
           <Portrait
-            src={`/${tile.npc?.portrait}.webp`}
+            src={`/${tile.npc.portrait}.webp`}
             alt={tile.npc?.name || ''}
           />
 
           <Text>
-            {Object.keys(profile!.npcAcquintances).includes(tile.npc?.id || '')
+            {Object.keys(profile.npcAcquintances).includes(tile.npc?.id || '')
               ? tile.npc?.name
               : `???`}
           </Text>

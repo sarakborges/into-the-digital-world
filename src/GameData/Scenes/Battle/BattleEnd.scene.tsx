@@ -2,10 +2,10 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
-import { warpTo } from '@/Systems/Zones/warpTo.helper'
-import { saveSession } from '@/Systems/Profile/saveSession.helper'
-import { isDigimonDefeated } from '@/Systems/Battle/isDigimonDefeated.helper'
+import { getDialogs } from '@/Helpers/Language'
+import { warpTo } from '@/Helpers/Systems/Zones'
+import { saveSession } from '@/Helpers/Systems/Profile'
+import { isDigimonDefeated } from '@/Helpers/Systems/Battle'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -21,7 +21,11 @@ export const BattleEnd = () => {
   const { profile, setProfile } = useProfileStore((state) => state)
   const { battle, setBattle } = useBattleStore((state) => state)
 
-  const battleResult = battle?.turnOrder
+  if (!battle || !profile) {
+    return
+  }
+
+  const battleResult = battle.turnOrder
     .filter((digimon) => !isDigimonDefeated(digimon))
     .every((digimon) => digimon.party === 'allies')
     ? 'victory'
@@ -48,10 +52,10 @@ export const BattleEnd = () => {
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
           if (battleResult === 'victory') {
-            if (!!battle?.loot) {
-              for (let item of Object.keys(battle?.loot)) {
-                profile!.items[item] =
-                  (profile!.items[item] || 0) + battle?.loot[item]
+            if (!!battle.loot) {
+              for (let item of Object.keys(battle.loot)) {
+                profile.items[item] =
+                  (profile.items[item] || 0) + battle.loot[item]
               }
             }
           }

@@ -1,4 +1,4 @@
-import { loadData } from '@/Systems/Profile/loadData.helper'
+import { loadData } from '@/Helpers/Systems/Profile'
 
 import * as EnTexts from '@/GameData/Texts/En'
 
@@ -10,7 +10,7 @@ export const getTexts = (textKey) => {
   }
 
   const settings = loadData({ key: 'settings' })
-  const lang = settings?.language || defaultLanguage
+  const lang = settings.language || defaultLanguage
 
   if (!texts[lang]) {
     return `Text "${textKey}" not found in default language.`

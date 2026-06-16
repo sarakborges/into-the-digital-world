@@ -8,7 +8,11 @@ type SettingsStore = {
 }
 
 export const useSettingsStore = create<SettingsStore>((set) => ({
-  settings: null,
+  settings: {
+    isOpen: false,
+    language: 'en',
+    theme: 'default'
+  },
 
   setSettings: (settings) => {
     set({ settings })

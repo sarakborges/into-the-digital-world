@@ -53,9 +53,7 @@ export const InteractableTiles = () => {
   return (
     <aside className="interactable-tiles">
       {surroundingTiles.map((tile) => (
-        <Fragment
-          key={`interactable-tile-y-${tile!.y}-x${tile!.x}-${tile!.id}`}
-        >
+        <Fragment key={`interactable-tile-y-${tile.y}-x${tile.x}-${tile.id}`}>
           {(!!tile?.events?.length || !!tile.defaultText) && (
             <div className="events">
               <div className="scene">
@@ -72,7 +70,7 @@ export const InteractableTiles = () => {
                         <div className="events-list">
                           {tile.events.map((event) => (
                             <div
-                              key={`interactable-tile-y-${tile!.y}-x${tile!.x}-${tile!.id}-event-${event.function}`}
+                              key={`interactable-tile-y-${tile.y}-x${tile.x}-${tile.id}-event-${event.function}`}
                             >
                               <Button
                                 onClick={() => event?.function()}

@@ -4,7 +4,7 @@ import { BiSolidSquareRounded } from 'react-icons/bi'
 
 import { AllApps, DigiviceApps } from '@/Consts/DigiviceApps.const'
 
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getTexts } from '@/Helpers/Language'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'

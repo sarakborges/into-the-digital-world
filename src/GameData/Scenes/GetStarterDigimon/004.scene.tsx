@@ -2,9 +2,9 @@ import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
 
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+import { getDialogs } from '@/Helpers/Language'
+import { reactToMeaningfulChoice } from '@/Helpers/Systems/Scenes'
 
-import { useSceneStore } from '@/Stores/Scene.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Text } from '@/Components/System/Text'
@@ -13,8 +13,11 @@ import { Button } from '@/Components/System/Button'
 import { Dialog } from '@/Components/App/Dialog'
 
 export const GetStarterDigimon004 = () => {
-  const { profile, setProfile } = useProfileStore((state) => state)
-  const { setScene } = useSceneStore((state) => state)
+  const { profile } = useProfileStore((state) => state)
+
+  if (!profile) {
+    return
+  }
 
   const dialogReactions = [
     {
@@ -33,21 +36,6 @@ export const GetStarterDigimon004 = () => {
     }
   ]
 
-  const reactToScene = (reaction: string) => {
-    setProfile({
-      ...profile!,
-      meaningfulChoices: {
-        ...profile!.meaningfulChoices,
-        dorimonMeeting: reaction
-      }
-    })
-
-    setScene({
-      currentScene: 'getStarterDigimon',
-      currentStage: '005'
-    })
-  }
-
   const dialogOptions: DialogType = {
     content: (
       <div className="dialog-with-reactions">
@@ -58,7 +46,21 @@ export const GetStarterDigimon004 = () => {
         <div className="dialog-reactions">
           {dialogReactions.map((reaction) => (
             <div key={`scene-getstarterdigimon-004-option-${reaction.value}`}>
-              <Button onClick={() => reactToScene(reaction.value)}>
+              <Button
+                onClick={() =>
+                  reactToMeaningfulChoice({
+                    reaction: {
+                      name: 'dorimonMeeting',
+                      value: reaction.value
+                    },
+
+                    nextScene: {
+                      currentScene: 'getStarterDigimon',
+                      currentStage: '005'
+                    }
+                  })
+                }
+              >
                 <HiOutlineChatBubbleLeftEllipsis />
                 <Text>{reaction.label}</Text>
               </Button>

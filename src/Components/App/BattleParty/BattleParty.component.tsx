@@ -1,7 +1,7 @@
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
-import { isDigimonDefeated } from '@/Systems/Battle/isDigimonDefeated.helper'
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { isDigimonDefeated } from '@/Helpers/Systems/Battle'
+import { getTexts } from '@/Helpers/Language'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 
@@ -20,23 +20,27 @@ export const BattleParty = ({
 }) => {
   const { battle } = useBattleStore((state) => state)
 
-  const notDefeatedDigimons = battle?.turnOrder.filter(
+  if (!battle) {
+    return
+  }
+
+  const notDefeatedDigimons = battle.turnOrder.filter(
     (digimon) => !isDigimonDefeated(digimon)
   )
   const battleOver =
-    notDefeatedDigimons?.every((digimon) => digimon.party === 'allies') ||
-    notDefeatedDigimons?.every((digimon) => digimon.party === 'enemies')
+    notDefeatedDigimons.every((digimon) => digimon.party === 'allies') ||
+    notDefeatedDigimons.every((digimon) => digimon.party === 'enemies')
 
   return (
     <div className="battle-party">
-      {party!.list.map((digimon) => (
+      {party.list.map((digimon) => (
         <div
           key={`battle-party-${party.title}-digimon-${digimon.index}`}
           className="party-member"
           data-currentturn={
             !battleOver &&
-            battle?.turnOrder[0].party === digimon.party &&
-            battle?.turnOrder[0].index === digimon.index
+            battle.turnOrder[0].party === digimon.party &&
+            battle.turnOrder[0].index === digimon.index
           }
           data-defeated={
             Object.values(digimon.conditions ?? {}).reduce(

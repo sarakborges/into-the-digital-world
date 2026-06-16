@@ -1,6 +1,6 @@
 import { ENCYCLOPEDIA_HEADER } from '@/Consts/EncyclopediaHeader.const'
 
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getTexts } from '@/Helpers/Language'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 
@@ -11,8 +11,12 @@ import './EncyclopediaHeader.style.scss'
 export const EncyclopediaHeader = () => {
   const { digivice, setDigivice } = useDigiviceStore((state) => state)
 
+  if (!digivice) {
+    return
+  }
+
   const updateApp = (app: string) => {
-    setDigivice({ ...digivice!, currentApp: app, currentDetails: undefined })
+    setDigivice({ ...digivice, currentApp: app, currentDetails: undefined })
   }
 
   return (

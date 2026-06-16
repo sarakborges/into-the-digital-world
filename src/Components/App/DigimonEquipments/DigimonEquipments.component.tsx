@@ -3,8 +3,8 @@ import { FaPlus, FaTimes } from 'react-icons/fa'
 import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
 
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { saveSession } from '@/Systems/Profile/saveSession.helper'
+import { getTexts } from '@/Helpers/Language'
+import { saveSession } from '@/Helpers/Systems/Profile'
 
 import { AllDigimons } from '@/GameData/Digimons'
 import { AllItems } from '@/GameData/Items'

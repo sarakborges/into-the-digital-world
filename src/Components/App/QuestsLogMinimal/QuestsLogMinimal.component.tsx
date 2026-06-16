@@ -1,5 +1,5 @@
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { isQuestDone } from '@/Systems/Quests/isQuestDone.helper'
+import { getTexts } from '@/Helpers/Language'
+import { isQuestDone } from '@/Helpers/Systems/Quests'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 

@@ -1,7 +1,7 @@
 import { AllZones } from '@/GameData/Zones'
 
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { warpTo } from '@/Systems/Zones/warpTo.helper'
+import { getTexts } from '@/Helpers/Language'
+import { warpTo } from '@/Helpers/Systems/Zones'
 
 import { WARP_LOCATIONS } from '@/Consts/Locations.const'
 

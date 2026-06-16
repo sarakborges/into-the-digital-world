@@ -1,16 +1,22 @@
-import type { ProfileType } from '@/Types/Profile.type'
+import { useProfileStore } from '@/Stores/Profile.store'
 
-import { saveData } from '@/Systems/Profile/saveData.helper'
-import { saveSession } from '@/Systems/Profile/saveSession.helper'
-import { loadData } from '@/Systems/Profile/loadData.helper'
+import { saveData } from '@/Helpers/Systems/Profile'
+import { saveSession } from '@/Helpers/Systems/Profile'
+import { loadData } from '@/Helpers/Systems/Profile'
 
-export const saveProfile = ({ profile }: { profile: ProfileType }) => {
+export const saveProfile = () => {
   try {
+    const { profile } = useProfileStore.getState()
+
+    if (!profile) {
+      return
+    }
+
     const updatedProfile = { ...profile, lastSave: new Date() }
     const savedProfiles = loadData({ key: 'profiles' })
 
     saveData({
-      key: `profile${profile?.id}`,
+      key: `profile${profile.id}`,
       value: updatedProfile
     })
 

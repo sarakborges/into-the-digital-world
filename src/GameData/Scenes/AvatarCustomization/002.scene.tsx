@@ -1,7 +1,7 @@
 import type { ProfileType } from '@/Types/Profile.type'
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+import { getDialogs } from '@/Helpers/Language'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
@@ -19,12 +19,12 @@ export const AvatarCustomization002 = () => {
   const { setScene } = useSceneStore((state) => state)
 
   const saveAvatar = () => {
-    if (!avatarCustomization) {
+    if (!avatarCustomization || !profile) {
       return
     }
 
     const updatedProfile: ProfileType = {
-      ...profile!,
+      ...profile,
       avatar: avatarCustomization.avatar
     }
 
@@ -48,7 +48,13 @@ export const AvatarCustomization002 = () => {
         id: 'scene-avatarCustomization-002-back',
         text: getDialogs('SCENES_BACK_BUTTON'),
         action: () => {
-          setAvatarCustomization({ ...avatarCustomization!, layer: undefined })
+          const { avatarCustomization } = useAvatarCustomizationStore.getState()
+
+          if (!avatarCustomization) {
+            return
+          }
+
+          setAvatarCustomization({ ...avatarCustomization, layer: undefined })
         },
         disabled: !avatarCustomization?.layer
       },

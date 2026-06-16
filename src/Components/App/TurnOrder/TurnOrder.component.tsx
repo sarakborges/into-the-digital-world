@@ -1,4 +1,4 @@
-import { isDigimonDefeated } from '@/Systems/Battle/isDigimonDefeated.helper'
+import { isDigimonDefeated } from '@/Helpers/Systems/Battle'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 
@@ -6,7 +6,7 @@ import { Portrait } from '@/Components/System/Portrait'
 import { Text } from '@/Components/System/Text'
 
 import './TurnOrder.style.scss'
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getTexts } from '@/Helpers/Language'
 
 export const TurnOrder = () => {
   const { battle } = useBattleStore((state) => state)

@@ -1,6 +1,6 @@
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { deleteData } from '@/Systems/Profile/deleteData.helper'
-import { saveData } from '@/Systems/Profile/saveData.helper'
+import { getTexts } from '@/Helpers/Language'
+import { deleteData } from '@/Helpers/Systems/Profile'
+import { saveData } from '@/Helpers/Systems/Profile'
 
 import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 
@@ -16,7 +16,7 @@ export const DeleteGame = ({ profileId }: { profileId: number }) => {
   }
 
   const resetGame = () => {
-    if (!confirm('This is irreversible. Are you sure you want to proceed?')) {
+    if (!confirm(getTexts('DELETE_GAME'))) {
       return
     }
 

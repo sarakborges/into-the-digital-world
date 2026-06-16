@@ -1,5 +1,5 @@
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { isQuestDone } from '@/Systems/Quests/isQuestDone.helper'
+import { getTexts } from '@/Helpers/Language'
+import { isQuestDone } from '@/Helpers/Systems/Quests'
 
 import { AllQuests } from '@/GameData/Quests'
 
@@ -16,7 +16,7 @@ export const DigiviceApp = ({ app }) => {
   const { scene, setScene } = useSceneStore((state) => state)
   const { digivice, setDigivice } = useDigiviceStore((state) => state)
 
-  if (!profile) {
+  if (!profile || !digivice) {
     return
   }
 
@@ -33,7 +33,7 @@ export const DigiviceApp = ({ app }) => {
       !(!!isSave || !!isLogoff))
 
   const openApp = () => {
-    setDigivice({ ...digivice!, currentApp: app.app })
+    setDigivice({ ...digivice, currentApp: app.app })
 
     if (!app.scene) {
       return

@@ -1,7 +1,7 @@
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useGameStore } from '@/Stores/Game.store'
 
-import { saveSession } from '@/Systems/Profile/saveSession.helper'
+import { saveSession } from '@/Helpers/Systems/Profile'
 
 export const warpTo = ({
   zoneId,
@@ -17,7 +17,7 @@ export const warpTo = ({
   const { profile, setProfile } = useProfileStore.getState()
   const { setGame } = useGameStore.getState()
 
-  if (!setProfile || !setGame) {
+  if (!profile) {
     return
   }
 
@@ -27,7 +27,7 @@ export const warpTo = ({
 
   setTimeout(() => {
     const updatedProfile = {
-      ...profile!,
+      ...profile,
 
       currentZone: {
         id: zoneId,

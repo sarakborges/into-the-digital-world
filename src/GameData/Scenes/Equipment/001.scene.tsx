@@ -3,9 +3,9 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { AllItems } from '@/GameData/Items'
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
-import { saveSession } from '@/Systems/Profile/saveSession.helper'
+import { getTexts } from '@/Helpers/Language'
+import { getDialogs } from '@/Helpers/Language'
+import { saveSession } from '@/Helpers/Systems/Profile'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -17,29 +17,35 @@ import { Button } from '@/Components/System/Button'
 import { Dialog } from '@/Components/App/Dialog'
 
 export const Equipment001 = () => {
-  const { profile, setProfile } = useProfileStore((state) => state)
-  const { setScene } = useSceneStore((state) => state)
+  const { profile } = useProfileStore((state) => state)
   const { digivice } = useDigiviceStore((state) => state)
+  const { setScene } = useSceneStore((state) => state)
+
+  if (!profile || !digivice) {
+    return
+  }
 
   const equipItem = (itemId: string) => {
-    const digimonId = digivice!.currentDetails!
-    const itemSlot = digivice!.equipmentSlot!
+    const digimonId = digivice.currentDetails
+    const itemSlot = digivice.equipmentSlot
 
-    if (!profile!.partnerDigimons[digimonId].equipments) {
-      profile!.partnerDigimons[digimonId].equipments = {}
+    if (!digimonId || !itemSlot) {
+      return
     }
 
-    profile!.partnerDigimons[digimonId].equipments[itemSlot] = {
+    if (!profile.partnerDigimons[digimonId].equipments) {
+      profile.partnerDigimons[digimonId].equipments = {}
+    }
+
+    profile.partnerDigimons[digimonId].equipments[itemSlot] = {
       equipmentId: itemId
     }
 
-    setProfile(profile)
     saveSession({ key: 'profile', value: profile })
-
     setScene(null)
   }
 
-  const availableItems = Object.keys(profile!.items).filter(
+  const availableItems = Object.keys(profile.items).filter(
     (item) =>
       AllItems[item].category === 'equipment' &&
       (AllItems[item].equipConditions === undefined ||

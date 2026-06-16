@@ -2,10 +2,9 @@ import type { AttackType } from '@/Types/Attack.type'
 
 import { AllAttacks } from '@/GameData/Attacks'
 
-import { generateRandomNumber } from '@/Helpers/Math/generateRandomNumber.helper'
-import { getSuccesses } from '@/Helpers/Math/getSuccesses.helper'
-import { isDigimonDefeated } from '@/Systems/Battle/isDigimonDefeated.helper'
-import { calcExtraStats } from '@/Systems/Battle/calcExtraStats.helper'
+import { generateRandomNumber } from '@/Helpers/Math'
+import { getSuccesses } from '@/Helpers/Math'
+import { isDigimonDefeated, calcExtraStats } from '@/Helpers/Systems/Battle'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -14,11 +13,15 @@ export const doAttack = (move: string) => {
   const { battle, setBattle } = useBattleStore.getState()
   const { setScene } = useSceneStore.getState()
 
-  const [currentDigimon] = battle?.turnOrder!
+  if (!battle) {
+    return
+  }
+
+  const [currentDigimon] = battle.turnOrder
 
   const usedMove: AttackType = AllAttacks[move]
 
-  const possibleTargets = battle?.turnOrder?.filter(
+  const possibleTargets = battle.turnOrder.filter(
     (target) =>
       target.party !== currentDigimon.party && !isDigimonDefeated(target)
   )
@@ -50,14 +53,14 @@ export const doAttack = (move: string) => {
 
   if (evasion > attack) {
     setBattle({
-      ...battle!,
+      ...battle,
 
       combatLog: [
         {
           ...baseEntry,
           hasHitLanded: false
         },
-        ...battle!.combatLog
+        ...battle.combatLog
       ]
     })
   }
@@ -82,9 +85,9 @@ export const doAttack = (move: string) => {
       targetInjuries + severity
 
     setBattle({
-      ...battle!,
+      ...battle,
 
-      turnOrder: battle!.turnOrder.map((digimon) => {
+      turnOrder: battle.turnOrder.map((digimon) => {
         if (digimon.index === target.index && digimon.party === target.party) {
           return {
             ...digimon,
@@ -107,7 +110,7 @@ export const doAttack = (move: string) => {
           hasHitLanded: true,
           isTargetDefeated
         },
-        ...battle!.combatLog
+        ...battle.combatLog
       ]
     })
   }

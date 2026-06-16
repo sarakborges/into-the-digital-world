@@ -1,12 +1,11 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
-import { saveProfile } from '@/Systems/Profile/saveProfile.helper'
+import { getDialogs } from '@/Helpers/Language'
+import { saveProfile } from '@/Helpers/Systems/Profile'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
 import { useSceneStore } from '@/Stores/Scene.store'
-import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Text } from '@/Components/System/Text'
 
@@ -14,8 +13,6 @@ import { Dialog } from '@/Components/App/Dialog'
 
 export const SaveGame001 = () => {
   const { setScene } = useSceneStore((state) => state)
-
-  const { profile } = useProfileStore((state) => state)
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.appmon.savemon,
@@ -39,7 +36,7 @@ export const SaveGame001 = () => {
         id: 'scene-savegame-001-confirm',
         text: getDialogs('SCENES_CONFIRM_BUTTON'),
         action: () => {
-          saveProfile({ profile: profile! })
+          saveProfile()
 
           setScene({
             currentScene: 'saveGame',

@@ -1,6 +1,6 @@
 import { AiOutlineSelect } from 'react-icons/ai'
 
-import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+import { getDialogs } from '@/Helpers/Language'
 
 import { AvailableResearchesAtJijimon } from '@/GameData/Researches'
 import { AllDigimons } from '@/GameData/Digimons'
@@ -20,8 +20,12 @@ export const CompositionsList = () => {
   const { setComposition } = useCompositionStore((state) => state)
   const { setScene } = useSceneStore((state) => state)
 
+  if (!profile) {
+    return
+  }
+
   const availableCompositions = Object.keys(AvailableResearchesAtJijimon)
-    .filter((research) => profile!.researches?.includes(research))
+    .filter((research) => profile.researches?.includes(research))
     .map((research) => ({
       ...AvailableResearchesAtJijimon[research],
       baseDigimon: AllDigimons[research]

@@ -1,7 +1,7 @@
 import { GiTwoCoins } from 'react-icons/gi'
 
-import { saveSession } from '@/Systems/Profile/saveSession.helper'
-import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+import { saveSession } from '@/Helpers/Systems/Profile'
+import { getDialogs } from '@/Helpers/Language'
 
 import { AllResearches } from '@/GameData/Researches'
 import { AllDigimons } from '@/GameData/Digimons'
@@ -19,18 +19,22 @@ import './ResearchList.style.scss'
 export const ResearchList = () => {
   const { profile, setProfile } = useProfileStore((state) => state)
 
+  if (!profile) {
+    return
+  }
+
   const availableResearches = Object.keys(AllResearches)
-    .filter((research) => !profile!.researches?.includes(research))
+    .filter((research) => !profile.researches.includes(research))
     .sort((a, b) => (a > b ? 1 : -1))
 
   const purchaseResearch = (research) => {
     const updatedProfile = {
-      ...profile!,
-      researches: [...(profile!.researches ?? []), research]
+      ...profile,
+      researches: [...(profile.researches ?? []), research]
     }
 
     for (let item of Object.keys(AllResearches[research].cost)) {
-      updatedProfile!.items[item] -= AllResearches[research].cost[item]
+      updatedProfile.items[item] -= AllResearches[research].cost[item]
     }
 
     setProfile(updatedProfile)
@@ -61,7 +65,7 @@ export const ResearchList = () => {
                     disabled={
                       !Object.keys(AllResearches[research].cost).every(
                         (item) =>
-                          profile!.items[item] >=
+                          profile.items[item] >=
                           AllResearches[research].cost[item]
                       )
                     }

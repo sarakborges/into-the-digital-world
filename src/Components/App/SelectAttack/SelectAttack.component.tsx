@@ -1,18 +1,23 @@
 import { AllAttacks } from '@/GameData/Attacks'
 
-import { doAttack } from '@/Systems/Battle/doAttack.helper'
+import { doAttack } from '@/Helpers/Systems/Battle'
+import { getTexts } from '@/Helpers/Language'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 
 import { Button } from '@/Components/System/Button'
+import { Text } from '@/Components/System/Text'
 
 import './SelectAttack.style.scss'
-import { Text } from '@/Components/System/Text'
 
 export const SelectAttack = () => {
   const { battle } = useBattleStore((state) => state)
 
-  const [currentTurn] = battle?.turnOrder!
+  if (!battle) {
+    return
+  }
+
+  const [currentTurn] = battle.turnOrder
 
   if (currentTurn.party === 'enemies') {
     return
@@ -20,7 +25,10 @@ export const SelectAttack = () => {
 
   return (
     <div className="select-attack">
-      <Text>What move should {currentTurn.name} use?</Text>
+      <Text>
+        {getTexts('SELECT_ATTACK_TITLE').replaceAll('[NAME]', currentTurn.name)}
+        ?
+      </Text>
 
       <main className="attacks-list">
         {Object.keys(currentTurn.attacks).map((attack) => (
@@ -28,8 +36,9 @@ export const SelectAttack = () => {
             key={`battle-${currentTurn.party}-${currentTurn.index}-attacks-${attack}`}
           >
             <Button onClick={() => doAttack(attack)}>
-              {AllAttacks[attack].name} ({AllAttacks[attack].cooldown || 0}{' '}
-              turns cooldown)
+              {getTexts('SELECT_ATTACK_OPTION')
+                .replaceAll('[NAME]', AllAttacks[attack].name)
+                .replaceAll('[COOLDOWN]', AllAttacks[attack].cooldown || 0)}
             </Button>
           </div>
         ))}

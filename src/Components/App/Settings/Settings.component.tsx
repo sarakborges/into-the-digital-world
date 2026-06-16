@@ -1,6 +1,6 @@
 import { FaCog, FaTimes } from 'react-icons/fa'
 
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getTexts } from '@/Helpers/Language'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
 
@@ -16,13 +16,17 @@ import './Settings.style.scss'
 export const Settings = () => {
   const { settings, setSettings } = useSettingsStore((state) => state)
 
+  if (!settings) {
+    return
+  }
+
   const toggleModal = () => {
-    setSettings({ ...settings!, isOpen: !settings?.isOpen })
+    setSettings({ ...settings, isOpen: !settings.isOpen })
   }
 
   return (
     <div className="settings">
-      {!!settings?.isOpen && (
+      {!!settings.isOpen && (
         <Modal>
           <header className="settings-header">
             <Text>{getTexts('SETTINGS_TITLE')}</Text>

@@ -1,5 +1,5 @@
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { isQuestDone } from '@/Systems/Quests/isQuestDone.helper'
+import { getTexts } from '@/Helpers/Language'
+import { isQuestDone } from '@/Helpers/Systems/Quests'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -10,11 +10,15 @@ import './QuestsLog.style.scss'
 export const QuestsLog = () => {
   const { profile } = useProfileStore((state) => state)
 
-  const notDoneQuests = Object.keys(profile!.quests ?? {}).filter(
+  if (!profile) {
+    return
+  }
+
+  const notDoneQuests = Object.keys(profile.quests ?? {}).filter(
     (quest) => !isQuestDone(quest)
   )
 
-  const doneQuests = Object.keys(profile!.quests ?? {}).filter(
+  const doneQuests = Object.keys(profile.quests ?? {}).filter(
     (quest) => !!isQuestDone(quest)
   )
 

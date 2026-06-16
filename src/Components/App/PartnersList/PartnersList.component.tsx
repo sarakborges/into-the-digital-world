@@ -2,7 +2,7 @@ import { BiSolidStar } from 'react-icons/bi'
 import { BsArrowDown, BsArrowUp } from 'react-icons/bs'
 import { TbListDetails } from 'react-icons/tb'
 
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getTexts } from '@/Helpers/Language'
 
 import { AllDigimons } from '@/GameData/Digimons'
 
@@ -23,6 +23,10 @@ export const PartnersList = () => {
   const { profile, setProfile } = useProfileStore((state) => state)
   const { digivice, setDigivice } = useDigiviceStore((state) => state)
   const { scene } = useSceneStore((state) => state)
+
+  if (!digivice) {
+    return
+  }
 
   if (!!digivice?.currentDetails || !profile) {
     return <PartnerDetails />
@@ -58,7 +62,7 @@ export const PartnersList = () => {
 
   const seeDetails = (id: number) => {
     setDigivice({
-      ...digivice!,
+      ...digivice,
       currentDetails: id
     })
   }

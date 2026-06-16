@@ -20,13 +20,17 @@ export const Acquintances = () => {
   const { scene } = useSceneStore((state) => state)
   const { digivice, setDigivice } = useDigiviceStore((state) => state)
 
+  if (!profile || !digivice) {
+    return
+  }
+
   if (!!digivice?.currentDetails) {
     return <AcquintanceDetails />
   }
 
   const setAcquintance = (id) => {
     setDigivice({
-      ...digivice!,
+      ...digivice,
       currentDetails: id
     })
   }
@@ -38,7 +42,7 @@ export const Acquintances = () => {
           !!Object.keys(AllNpcs[category]).filter(
             (npc) =>
               AllNpcs.digimon.dorimon.id !== npc &&
-              Object.keys(profile!.npcAcquintances!).includes(npc)
+              Object.keys(profile.npcAcquintances).includes(npc)
           ).length && (
             <Fragment key={`acquintances-${category}`}>
               <div className="acquintances-category">
@@ -49,7 +53,7 @@ export const Acquintances = () => {
                     .filter(
                       (npc) =>
                         AllNpcs.digimon.dorimon.id !== npc &&
-                        Object.keys(profile!.npcAcquintances!).includes(npc)
+                        Object.keys(profile.npcAcquintances).includes(npc)
                     )
                     .sort((a, b) => (a > b ? 1 : -1))
                     .map((npc) => (

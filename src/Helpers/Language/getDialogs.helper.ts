@@ -1,4 +1,4 @@
-import { loadData } from '@/Systems/Profile/loadData.helper'
+import { loadData } from '@/Helpers/Systems/Profile'
 
 import * as EnDialogs from '@/GameData/Dialogs/En'
 
@@ -10,7 +10,7 @@ export const getDialogs = (dialogKey) => {
   }
 
   const settings = loadData({ key: 'settings' })
-  const lang = settings?.language || defaultLanguage
+  const lang = settings.language || defaultLanguage
 
   if (!dialogs[lang]) {
     return `Dialog "${dialogKey}" not found in default language.`

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { loadData } from '@/Systems/Profile/loadData.helper'
+import { getTexts } from '@/Helpers/Language'
+import { loadData } from '@/Helpers/Systems/Profile'
 
 import { THEMES } from '@/Consts/Themes.const'
 
@@ -21,6 +21,10 @@ export const StartScreen = () => {
     (state) => state
   )
   const { settings } = useSettingsStore((state) => state)
+
+  if (!settings) {
+    return
+  }
 
   const loadProfiles = () => {
     const savedProfiles = loadData({ key: `profiles` })
@@ -44,12 +48,12 @@ export const StartScreen = () => {
         <Portrait
           alt={getTexts('START_SCREEN_TITLE')}
           src={`/digivice_backgrounds/${
-            settings?.theme &&
+            settings.theme &&
             Object.keys({
               ...THEMES.default,
               ...THEMES.crests
-            }).includes(settings?.theme)
-              ? settings?.theme
+            }).includes(settings.theme)
+              ? settings.theme
               : 'default'
           }.webp`}
         />

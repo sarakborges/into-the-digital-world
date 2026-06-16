@@ -1,8 +1,7 @@
 import { FaCheck } from 'react-icons/fa'
 
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
-
-import { saveData } from '@/Systems/Profile/saveData.helper'
+import { getTexts } from '@/Helpers/Language'
+import { updateSettings } from '@/Helpers/Systems/Settings'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
 
@@ -12,11 +11,16 @@ import { Text } from '@/Components/System/Text'
 import './UpdateTheme.style.scss'
 
 export const UpdateTheme = ({ theme }: { theme: string }) => {
-  const { settings, setSettings } = useSettingsStore((state) => state)
+  const { settings } = useSettingsStore((state) => state)
+
+  if (!settings) {
+    return
+  }
 
   const updateTheme = () => {
-    setSettings({ ...settings!, theme })
-    saveData({ key: 'settings', value: { ...settings, theme } })
+    updateSettings({
+      theme
+    })
   }
 
   return (
@@ -30,7 +34,7 @@ export const UpdateTheme = ({ theme }: { theme: string }) => {
           {getTexts(`THEME_${theme.toLocaleUpperCase()}`).split(' ').join('\n')}
         </Text>
 
-        {theme === settings?.theme && <FaCheck />}
+        {theme === settings.theme && <FaCheck />}
       </Button>
     </div>
   )

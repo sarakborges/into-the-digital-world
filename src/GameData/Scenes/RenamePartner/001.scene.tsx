@@ -4,7 +4,7 @@ import { useSceneStore } from '@/Stores/Scene.store'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/Language/getDialogs.helper'
+import { getDialogs } from '@/Helpers/Language'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -20,8 +20,12 @@ export const RenamePartner001 = () => {
   const { digivice } = useDigiviceStore((state) => state)
   const { setScene } = useSceneStore((state) => state)
 
-  const digimon = profile?.partnerDigimons[digivice?.currentDetails!]
-  const baseDigimon = AllDigimons[digimon?.baseDigimon!]
+  if (!profile || !digivice?.currentDetails) {
+    return
+  }
+
+  const digimon = profile?.partnerDigimons[digivice.currentDetails]
+  const baseDigimon = AllDigimons[digimon.baseDigimon]
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.appmon.bookmon,
@@ -32,7 +36,7 @@ export const RenamePartner001 = () => {
           <Text as="p">
             {getDialogs('RENAMEPARTNER_001_TEXT').replaceAll(
               '[DIGIMON]',
-              digimon?.name || baseDigimon.name
+              digimon.name || baseDigimon.name
             )}
           </Text>
         </div>
@@ -64,7 +68,7 @@ export const RenamePartner001 = () => {
             document.querySelector('[name=partner-name]') as HTMLInputElement
           ).value.trim()
 
-          profile!.partnerDigimons[digivice?.currentDetails!].name = name
+          profile.partnerDigimons[digivice?.currentDetails!].name = name
 
           setScene({
             currentScene: 'renamePartner',

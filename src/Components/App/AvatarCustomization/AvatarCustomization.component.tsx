@@ -5,7 +5,7 @@ import type { AvatarType } from '@/Types/Avatar.type'
 
 import { AVATAR_OPTIONS } from '@/Consts/Avatars.const'
 
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getTexts } from '@/Helpers/Language'
 
 import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
 import { useProfileStore } from '@/Stores/Profile.store'

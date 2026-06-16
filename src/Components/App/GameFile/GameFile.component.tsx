@@ -2,7 +2,7 @@ import type { ProfileType } from '@/Types/Profile.type'
 
 import { AllZones } from '@/GameData/Zones'
 
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getTexts } from '@/Helpers/Language'
 
 import { Text } from '@/Components/System/Text'
 

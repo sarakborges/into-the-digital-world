@@ -1,7 +1,7 @@
 import { AllDigimons } from '@/GameData/Digimons'
 
-import { calcExtraStats } from '@/Systems/Battle/calcExtraStats.helper'
-import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { calcExtraStats } from '@/Helpers/Systems/Battle'
+import { getTexts } from '@/Helpers/Language'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
