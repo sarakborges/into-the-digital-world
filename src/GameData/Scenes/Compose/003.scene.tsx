@@ -15,7 +15,7 @@ import { Compose } from '@/Components/App/Compose'
 
 export const Compose003 = () => {
   const { setScene } = useSceneStore((state) => state)
-  const { profile, setProfile } = useProfileStore((state) => state)
+  const { profile } = useProfileStore((state) => state)
   const { composition, setComposition } = useCompositionStore((state) => state)
 
   if (!profile || !composition) {
@@ -61,8 +61,7 @@ export const Compose003 = () => {
     }
 
     setComposition(null)
-    setProfile(updatedProfile)
-    saveSession({ key: 'profile', value: updatedProfile })
+    saveSession(updatedProfile)
   }
 
   const dialogOptions: DialogType = {

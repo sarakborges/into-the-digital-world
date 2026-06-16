@@ -14,7 +14,7 @@ import { saveSession } from '@/Helpers/Systems/Profile'
 
 export const Compose000 = () => {
   const { setScene } = useSceneStore((state) => state)
-  const { profile, setProfile } = useProfileStore((state) => state)
+  const { profile } = useProfileStore((state) => state)
 
   if (!profile) {
     return
@@ -42,8 +42,7 @@ export const Compose000 = () => {
             }
           }
 
-          saveSession({ key: 'profile', value: updatedProfile })
-          setProfile(updatedProfile)
+          saveSession(updatedProfile)
 
           setScene({
             currentScene: 'compose',

@@ -17,7 +17,6 @@ import { Dialog } from '@/Components/App/Dialog'
 
 export const Introduction028 = () => {
   const { setScene } = useSceneStore((state) => state)
-  const { setProfile } = useProfileStore((state) => state)
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.general.gennai,
@@ -49,12 +48,7 @@ export const Introduction028 = () => {
           }
 
           setScene(null)
-
-          setProfile(updatedProfile)
-          saveSession({
-            key: 'profile',
-            value: updatedProfile
-          })
+          saveSession(updatedProfile)
         }
       }
     ].filter((option) => !!option)

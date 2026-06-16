@@ -13,11 +13,15 @@ export const calcExtraStats = ({
   const equipments = digimon.equipments
 
   const equipmentsBoostingStat = Object.values(equipments ?? {})
-    .filter((item) =>
-      Object.keys(
-        AllItems[item!.equipmentId!]?.equipmentBonuses?.stats ?? {}
+    .filter((item) => {
+      if (!item?.equipmentId) {
+        return false
+      }
+
+      return Object.keys(
+        AllItems[item.equipmentId].equipmentBonuses?.stats ?? {}
       ).includes(stat)
-    )
+    })
     .map((item) => AllItems[item!.equipmentId!].equipmentBonuses?.stats)
 
   return equipmentsBoostingStat.reduce((acc, cur) => {

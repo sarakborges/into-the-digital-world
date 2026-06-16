@@ -57,7 +57,7 @@ export const DigimonEquipments = () => {
     }
 
     setProfile(profile)
-    saveSession({ key: 'profile', value: profile })
+    saveSession(profile)
   }
 
   return (

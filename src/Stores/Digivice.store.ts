@@ -8,7 +8,10 @@ type DigiviceStore = {
 }
 
 export const useDigiviceStore = create<DigiviceStore>((set) => ({
-  digivice: null,
+  digivice: {
+    isOpen: false
+  },
+
   setDigivice: (digivice) => {
     set({ digivice })
   }

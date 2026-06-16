@@ -14,7 +14,7 @@ export const warpTo = ({
   x: number
   y: number
 }) => {
-  const { profile, setProfile } = useProfileStore.getState()
+  const { profile } = useProfileStore.getState()
   const { setGame } = useGameStore.getState()
 
   if (!profile) {
@@ -37,8 +37,7 @@ export const warpTo = ({
       }
     }
 
-    setProfile(updatedProfile)
-    saveSession({ key: 'profile', value: updatedProfile })
+    saveSession(updatedProfile)
   }, 300)
 
   setTimeout(() => {

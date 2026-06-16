@@ -17,7 +17,7 @@ import { Dialog } from '@/Components/App/Dialog'
 
 export const GetStarterDigimon021 = () => {
   const { setScene } = useSceneStore((state) => state)
-  const { profile, setProfile } = useProfileStore((state) => state)
+  const { profile } = useProfileStore((state) => state)
 
   if (!profile) {
     return
@@ -64,12 +64,7 @@ export const GetStarterDigimon021 = () => {
           }
 
           setScene(null)
-
-          setProfile(updatedProfile)
-          saveSession({
-            key: 'profile',
-            value: updatedProfile
-          })
+          saveSession(updatedProfile)
         }
       }
     ]

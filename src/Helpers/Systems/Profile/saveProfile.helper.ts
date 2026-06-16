@@ -20,10 +20,7 @@ export const saveProfile = () => {
       value: updatedProfile
     })
 
-    saveSession({
-      key: 'profile',
-      value: updatedProfile
-    })
+    saveSession(updatedProfile)
 
     const updatedProfiles = Array.from(
       new Set([

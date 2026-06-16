@@ -114,7 +114,7 @@ export const Gamepad = () => {
       return
     }
 
-    saveSession({ key: 'profile', value: updatedProfile })
+    saveSession(updatedProfile)
 
     const currentTile = currentZone.tiles.find(
       (tile) =>

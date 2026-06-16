@@ -3,7 +3,7 @@ import { saveSession } from '@/Helpers/Systems/Profile'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 export const addNewQuest = (questId: string) => {
-  const { profile, setProfile } = useProfileStore.getState()
+  const { profile } = useProfileStore.getState()
 
   if (!profile) {
     return
@@ -20,10 +20,5 @@ export const addNewQuest = (questId: string) => {
     }
   }
 
-  setProfile(updatedProfile)
-
-  saveSession({
-    key: 'profile',
-    value: updatedProfile
-  })
+  saveSession(updatedProfile)
 }

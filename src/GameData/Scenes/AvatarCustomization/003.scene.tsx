@@ -14,7 +14,7 @@ import { Dialog } from '@/Components/App/Dialog'
 import { AvatarCustomization } from '@/Components/App/AvatarCustomization'
 
 export const AvatarCustomization003 = () => {
-  const { profile, setProfile } = useProfileStore((state) => state)
+  const { profile } = useProfileStore((state) => state)
   const { avatarCustomization, setAvatarCustomization } =
     useAvatarCustomizationStore((state) => state)
   const { setScene } = useSceneStore((state) => state)
@@ -32,8 +32,7 @@ export const AvatarCustomization003 = () => {
     setScene(null)
 
     setAvatarCustomization({ avatar: avatarCustomization.avatar })
-    setProfile(updatedProfile)
-    saveSession({ key: 'profile', value: updatedProfile })
+    saveSession(updatedProfile)
   }
 
   const dialogOptions: DialogType = {

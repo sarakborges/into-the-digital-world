@@ -33,15 +33,25 @@ export const Equipment001 = () => {
       return
     }
 
-    if (!profile.partnerDigimons[digimonId].equipments) {
-      profile.partnerDigimons[digimonId].equipments = {}
+    const updatedProfile = {
+      ...profile,
+
+      partnerDigimons: {
+        [digimonId]: {
+          ...profile.partnerDigimons[digimonId],
+
+          equipments: {
+            ...(profile.partnerDigimons[digimonId].equipments ?? {}),
+
+            [itemSlot]: {
+              equipmentId: itemId
+            }
+          }
+        }
+      }
     }
 
-    profile.partnerDigimons[digimonId].equipments[itemSlot] = {
-      equipmentId: itemId
-    }
-
-    saveSession({ key: 'profile', value: profile })
+    saveSession(updatedProfile)
     setScene(null)
   }
 
@@ -83,8 +93,6 @@ export const Equipment001 = () => {
         text: getDialogs('SCENES_LEAVE_BUTTON'),
         action: () => {
           setScene(null)
-
-          saveSession({ key: 'profile', value: profile })
         }
       }
     ]

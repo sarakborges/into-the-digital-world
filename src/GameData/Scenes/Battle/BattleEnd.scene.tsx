@@ -18,7 +18,7 @@ import { CombatLoot } from '@/Components/App/CombatLoot'
 
 export const BattleEnd = () => {
   const { setScene } = useSceneStore((state) => state)
-  const { profile, setProfile } = useProfileStore((state) => state)
+  const { profile } = useProfileStore((state) => state)
   const { battle, setBattle } = useBattleStore((state) => state)
 
   if (!battle || !profile) {
@@ -71,12 +71,7 @@ export const BattleEnd = () => {
 
           setBattle(null)
           setScene(null)
-          setProfile(profile)
-
-          saveSession({
-            key: 'profile',
-            value: profile
-          })
+          saveSession(profile)
         }
       }
     ]

@@ -11,7 +11,7 @@ export const updateQuestObjective = ({
   objectiveId: string
   objectiveValue: number | boolean
 }) => {
-  const { profile, setProfile } = useProfileStore.getState()
+  const { profile } = useProfileStore.getState()
 
   if (!profile) {
     return
@@ -32,10 +32,5 @@ export const updateQuestObjective = ({
     }
   }
 
-  setProfile(updatedProfile)
-
-  saveSession({
-    key: 'profile',
-    value: updatedProfile
-  })
+  saveSession(updatedProfile)
 }

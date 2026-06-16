@@ -17,7 +17,7 @@ import { ItemsList } from '@/Components/App/ItemsList'
 import './ResearchList.style.scss'
 
 export const ResearchList = () => {
-  const { profile, setProfile } = useProfileStore((state) => state)
+  const { profile } = useProfileStore((state) => state)
 
   if (!profile) {
     return
@@ -37,8 +37,7 @@ export const ResearchList = () => {
       updatedProfile.items[item] -= AllResearches[research].cost[item]
     }
 
-    setProfile(updatedProfile)
-    saveSession({ key: 'profile', value: updatedProfile })
+    saveSession(updatedProfile)
   }
 
   return (

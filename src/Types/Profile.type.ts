@@ -4,7 +4,7 @@ import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 export type ProfileType = {
   id: number
   name: string
-  lastSave: string
+  lastSave: Date
   avatar?: AvatarType
   currency?: number
   currentTitle: string

@@ -14,6 +14,7 @@ import { Input } from '@/Components/System/Input'
 
 import { Dialog } from '@/Components/App/Dialog'
 import { AllDigimons } from '@/GameData/Digimons'
+import { saveSession } from '@/Helpers/Systems/Profile'
 
 export const RenamePartner001 = () => {
   const { profile } = useProfileStore((state) => state)
@@ -64,11 +65,28 @@ export const RenamePartner001 = () => {
         id: 'scene-renamepartner-001-confirm',
         text: getDialogs('SCENES_CONFIRM_BUTTON'),
         action: () => {
+          if (!digivice?.currentDetails) {
+            return
+          }
+
           const name = (
             document.querySelector('[name=partner-name]') as HTMLInputElement
           ).value.trim()
 
-          profile.partnerDigimons[digivice?.currentDetails!].name = name
+          const updatedProfile = {
+            ...profile,
+
+            partnerDigimons: {
+              ...profile.partnerDigimons,
+
+              [digivice.currentDetails]: {
+                ...profile.partnerDigimons[digivice.currentDetails],
+                name
+              }
+            }
+          }
+
+          saveSession(updatedProfile)
 
           setScene({
             currentScene: 'renamePartner',
