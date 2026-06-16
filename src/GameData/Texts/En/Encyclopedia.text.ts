@@ -14,6 +14,8 @@ export const ENCYCLOPEDIA_EQUIPMENTS_NOAVAILABLE = `No equipments available.`
 export const ENCYCLOPEDIA_HEADER_PARTNERSLIST = `My Digimons`
 export const ENCYCLOPEDIA_HEADER_RESEARCHESLIST = `My Researches`
 export const ENCYCLOPEDIA_HEADER_ENCYCLOPEDIA = `Digimon Encyclopedia`
+export const ENCYCLOPEDIA_STATS_VALUE = `[NAME]: [VALUE]`
+export const ENCYCLOPEDIA_BOND = `Partner bond: [VALUE]`
 
 export const MY_RESEARCHES_TITLE = `Researches done:`
 export const MY_RESEARCHES_EMPTY = `Currently, you haven't researched no Digimon data. Talk to Nanomon in Root Domain to do so.`

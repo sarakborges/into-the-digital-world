@@ -5,6 +5,9 @@ import { useProfileStore } from '@/Stores/Profile.store'
 import { Text } from '@/Components/System/Text'
 import { Portrait } from '@/Components/System/Portrait'
 
+import { PartyDigimonStats } from '@/Components/App/PartyDigimonStats'
+import { PartnerBond } from '@/Components/App/PartnerBond'
+
 import './CurrentParty.style.scss'
 
 export const CurrentParty = () => {
@@ -17,24 +20,37 @@ export const CurrentParty = () => {
   return (
     <div className="current-party">
       <div className="party-digimons">
-        {profile.party.map((digimon) => (
-          <div key={`profile-party-${digimon}`}>
-            <Text>
-              {profile.partnerDigimons[digimon].name ||
-                AllDigimons[profile.partnerDigimons[digimon].baseDigimon].name}
-            </Text>
+        {profile.party.map((digimon) => {
+          const baseDigimon =
+            AllDigimons[profile.partnerDigimons[digimon].baseDigimon]
 
-            <Portrait
-              alt={
-                AllDigimons[profile.partnerDigimons[digimon].baseDigimon].name
-              }
-              src={`/${
-                AllDigimons[profile.partnerDigimons[digimon].baseDigimon]
-                  .portrait
-              }.webp`}
-            />
-          </div>
-        ))}
+          return (
+            <div key={`profile-party-${digimon}`}>
+              <main>
+                <aside>
+                  <Portrait
+                    alt={baseDigimon.name}
+                    src={`/${baseDigimon.portrait}.webp`}
+                  />
+                </aside>
+
+                <main>
+                  <PartyDigimonStats digimonId={digimon} />
+
+                  <footer>
+                    <PartnerBond />
+                  </footer>
+                </main>
+              </main>
+
+              <footer>
+                <Text>
+                  {profile.partnerDigimons[digimon].name || baseDigimon.name}
+                </Text>
+              </footer>
+            </div>
+          )
+        })}
       </div>
     </div>
   )

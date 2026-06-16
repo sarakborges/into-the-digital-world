@@ -1,6 +1,6 @@
 import { warpTo } from '@/Systems/Zones/warpTo.helper'
 
-export const WarpToRestRoom = () => {
+export const WarpToBedRoom = () => {
   warpTo({
     zoneId: 'rootDomain',
     mapId: 'restRoom',

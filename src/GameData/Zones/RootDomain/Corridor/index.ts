@@ -3,7 +3,7 @@ import type { ZoneType } from '@/Types/Zone.type'
 import { fillGrid } from '@/Systems/Zones/fillGrid'
 
 import { WarpToMainRoom } from './Events/WarpToMainRoom.event'
-import { WarpToRestRoom } from './Events/WarpToRestRoom.event'
+import { WarpToBedRoom } from './Events/WarpToBedRoom.event'
 import { grid } from './Corridor.grid'
 
 const gridSize = 13
@@ -27,11 +27,11 @@ export const RootDomainCorridor: ZoneType = {
     },
 
     {
-      id: 'warpToRestRoom',
+      id: 'warpToBedRoom',
       x: 4,
       y: 4,
       onEnter: {
-        function: WarpToRestRoom
+        function: WarpToBedRoom
       }
     }
   ]

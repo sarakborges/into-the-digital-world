@@ -24,38 +24,35 @@ export const PartnersList = () => {
   const { digivice, setDigivice } = useDigiviceStore((state) => state)
   const { scene } = useSceneStore((state) => state)
 
-  if (!!digivice?.currentDetails) {
+  if (!!digivice?.currentDetails || !profile) {
     return <PartnerDetails />
   }
 
-  const allPartners = Object.values(profile?.partnerDigimons!).map(
-    (partner) => ({
-      ...partner,
-      baseDigimon: AllDigimons[partner.baseDigimon]
-    })
-  )
-
   const partners = {
-    inParty: allPartners.filter(
-      (partner) => !!profile?.party.includes(partner.id)
-    ),
+    inParty: profile.party.map((digimon) => ({
+      ...profile.partnerDigimons[digimon],
+      baseDigimon: AllDigimons[profile.partnerDigimons[digimon].baseDigimon]
+    })),
 
-    others: allPartners.filter(
-      (partner) => !profile?.party.includes(partner.id)
-    )
+    others: Object.values(profile.partnerDigimons)
+      .filter((partner) => !profile.party.includes(partner.id))
+      .map((partner) => ({
+        ...partner,
+        baseDigimon: AllDigimons[partner.baseDigimon]
+      }))
   }
 
   const removeFromParty = (id: number) => {
     setProfile({
-      ...profile!,
-      party: profile!.party.filter((partner) => partner !== id) ?? []
+      ...profile,
+      party: profile.party.filter((partner) => partner !== id) ?? []
     })
   }
 
   const addToParty = (id: number) => {
     setProfile({
-      ...profile!,
-      party: [...profile!.party, id]
+      ...profile,
+      party: [...profile.party, id]
     })
   }
 
@@ -94,9 +91,9 @@ export const PartnersList = () => {
                   </aside>
 
                   <header className="partner-name">
-                    <Text>{partner?.name || partner?.baseDigimon?.name}</Text>
+                    <Text>{partner.name || partner.baseDigimon.name}</Text>
 
-                    {partner?.name && <Text>{partner?.baseDigimon?.name}</Text>}
+                    {partner.name && <Text>{partner.baseDigimon.name}</Text>}
                   </header>
 
                   <aside>
@@ -117,7 +114,7 @@ export const PartnersList = () => {
 
                     {category === 'inParty' && (
                       <Button
-                        disabled={!!scene || profile!.party.length < 2}
+                        disabled={!!scene || profile.party.length < 2}
                         onClick={() => removeFromParty(partner.id)}
                       >
                         <BsArrowDown />
@@ -126,7 +123,7 @@ export const PartnersList = () => {
 
                     {category === 'others' && (
                       <Button
-                        disabled={!!scene || profile!.party.length > 2}
+                        disabled={!!scene || profile.party.length > 2}
                         onClick={() => addToParty(partner.id)}
                       >
                         <BsArrowUp />

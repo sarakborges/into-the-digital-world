@@ -1,0 +1,24 @@
+.partner-bond {
+  display: flex;
+  flex-flow: column;
+  gap: 4px;
+
+  .text {
+    font-size: 12px;
+  }
+
+  > div {
+    display: flex;
+    place-items: center;
+    gap: 4px;
+    flex: 1;
+
+    .bond-bar {
+      height: 4px;
+      flex: 1;
+
+      background-color: var(--color-secondary-weak);
+      border-radius: 4px;
+    }
+  }
+}

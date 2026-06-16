@@ -13,15 +13,15 @@ import { WarpToCorridor } from './Events/WarpToCorridor.event'
 import { TriggerAvatarFixing } from './Events/TriggerAvatarFixing.event'
 import { TriggerAvatarCustomization } from './Events/TriggerAvatarCustomization.event'
 
-import { grid } from './RestRoom.grid'
+import { grid } from './BedRoom.grid'
 
 const gridSize = 13
 const filledGrid = fillGrid({ grid, gridSize })
 
-export const RootDomainRestRoom: ZoneType = {
-  id: `rootDomainRestRoom`,
-  background: `RootDomain/RestRoom`,
-  name: `Rest Room`,
+export const RootDomainBedRoom: ZoneType = {
+  id: `rootDomainBedRoom`,
+  background: `RootDomain/BedRoom`,
+  name: `Bed Room`,
   gridSize,
   grid: filledGrid,
 

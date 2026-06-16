@@ -1,0 +1,9 @@
+.party-digimon-stats {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 4px;
+
+  .text {
+    font-size: 12px;
+  }
+}
