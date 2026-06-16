@@ -15,7 +15,7 @@ import { AcquintanceDetails } from '@/Components/App/AcquintanceDetails'
 
 import './Acqunitances.style.scss'
 
-export const Acquintances = () => {
+export const Acquaintances = () => {
   const { profile } = useProfileStore((state) => state)
   const { scene } = useSceneStore((state) => state)
   const { digivice, setDigivice } = useDigiviceStore((state) => state)

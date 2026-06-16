@@ -1,4 +1,4 @@
-import { Acquintances } from '@/Components/App/Acquintances'
+import { Acquaintances } from '@/Components/App/Acquaintances'
 import { PartnersList } from '@/Components/App/PartnersList'
 import { Inventory } from '@/Components/App/Inventory'
 import { MyResearchesList } from '@/Components/App/MyResearchesList'
@@ -40,7 +40,7 @@ export const APP_RESEARCHESLIST = {
 export const APP_ACQUINTANCES = {
   id: 'acquintances',
   app: 'acquintances',
-  component: <Acquintances />
+  component: <Acquaintances />
 }
 
 export const APP_LOCATION = {
