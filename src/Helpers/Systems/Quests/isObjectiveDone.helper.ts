@@ -10,8 +10,12 @@ export const isObjectiveDone = ({
 }) => {
   const { profile } = useProfileStore.getState()
 
+  if (!profile) {
+    return
+  }
+
   if (AllQuests[questId].objectives[objectiveId].type === 'interact') {
-    return !!profile?.quests[questId].objectives[objectiveId]
+    return !!profile.quests[questId].objectives[objectiveId]
   }
 
   if (
@@ -20,7 +24,7 @@ export const isObjectiveDone = ({
     )
   ) {
     return (
-      Number(profile?.quests[questId].objectives[objectiveId] || 0) >=
+      Number(profile.quests[questId].objectives[objectiveId] || 0) >=
       Number(AllQuests[questId].objectives[objectiveId].amount || 0)
     )
   }

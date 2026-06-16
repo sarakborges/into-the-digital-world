@@ -19,6 +19,10 @@ export const GetStarterDigimon021 = () => {
   const { setScene } = useSceneStore((state) => state)
   const { profile, setProfile } = useProfileStore((state) => state)
 
+  if (!profile) {
+    return
+  }
+
   const dialogOptions: DialogType = {
     speaker: AllNpcs.general.gennai,
 
@@ -27,7 +31,7 @@ export const GetStarterDigimon021 = () => {
         <Text as="p">
           {getDialogs(`GETSTARTERDIGIMON_021_TEXT`).replaceAll(
             '[NAME]',
-            profile?.name
+            profile.name
           )}
         </Text>
       </div>

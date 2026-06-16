@@ -19,6 +19,10 @@ export const ItemDisplay = ({
 }) => {
   const { profile } = useProfileStore((state) => state)
 
+  if (!profile) {
+    return
+  }
+
   const itemDetails = AllItems[item]
 
   return (
@@ -39,7 +43,7 @@ export const ItemDisplay = ({
 
         {!!displayPlayerResouce && (
           <div>
-            {profile?.items[item] || 0} / {amount || 0}
+            {profile.items[item] || 0} / {amount || 0}
           </div>
         )}
       </Text>

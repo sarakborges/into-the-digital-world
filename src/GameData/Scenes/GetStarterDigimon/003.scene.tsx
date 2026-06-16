@@ -15,6 +15,10 @@ export const GetStarterDigimon003 = () => {
   const { profile } = useProfileStore((state) => state)
   const { setScene } = useSceneStore((state) => state)
 
+  if (!profile) {
+    return
+  }
+
   const dialogOptions: DialogType = {
     speaker: AllNpcs.digimon.dorimon,
 
@@ -23,7 +27,7 @@ export const GetStarterDigimon003 = () => {
         <Text as="p">
           {getDialogs('GETSTARTERDIGIMON_003_TEXT').replaceAll(
             '[NAME]',
-            profile?.name
+            profile.name
           )}
         </Text>
       </div>

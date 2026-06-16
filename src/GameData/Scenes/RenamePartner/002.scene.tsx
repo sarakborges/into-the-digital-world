@@ -19,8 +19,12 @@ export const RenamePartner002 = () => {
   const { digivice } = useDigiviceStore((state) => state)
   const { setScene } = useSceneStore((state) => state)
 
-  const digimon = profile?.partnerDigimons[digivice?.currentDetails!]
-  const baseDigimon = AllDigimons[digimon?.baseDigimon!]
+  if (!profile || !digivice) {
+    return
+  }
+
+  const digimon = profile.partnerDigimons[digivice.currentDetails!]
+  const baseDigimon = AllDigimons[digimon.baseDigimon!]
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.appmon.bookmon,
@@ -30,7 +34,7 @@ export const RenamePartner002 = () => {
         <Text as="p">
           {getDialogs('RENAMEPARTNER_002_TEXT').replaceAll(
             '[DIGIMON]',
-            digimon?.name || baseDigimon.name
+            digimon.name || baseDigimon.name
           )}
         </Text>
       </div>

@@ -24,7 +24,7 @@ export const RenamePartner001 = () => {
     return
   }
 
-  const digimon = profile?.partnerDigimons[digivice.currentDetails]
+  const digimon = profile.partnerDigimons[digivice.currentDetails]
   const baseDigimon = AllDigimons[digimon.baseDigimon]
 
   const dialogOptions: DialogType = {

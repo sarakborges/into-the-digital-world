@@ -26,7 +26,7 @@ export const Introduction006 = () => {
         <Text as="p">
           {getDialogs('INTRODUCTION_006_TEXT').replaceAll(
             '[NAME]',
-            profile?.name
+            profile.name
           )}
         </Text>
       </div>

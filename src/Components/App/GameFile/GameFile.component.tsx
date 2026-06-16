@@ -21,7 +21,7 @@ export const GameFile = ({ profile }: { profile: ProfileType }) => {
 
   return (
     <div className="game-file">
-      <PlayerAvatar replaceAvatar={profile?.avatar} />
+      <PlayerAvatar replaceAvatar={profile.avatar} />
 
       <header>
         <Text as="p">

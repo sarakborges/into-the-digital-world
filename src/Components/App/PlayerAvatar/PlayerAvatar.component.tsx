@@ -13,43 +13,44 @@ export const PlayerAvatar = ({
 }) => {
   const { profile } = useProfileStore((state) => state)
 
-  const avatar = replaceAvatar ?? profile?.avatar
+  if (!profile) {
+    return
+  }
+
+  const avatar = replaceAvatar ?? profile.avatar
 
   return (
     <div className="player-avatar">
       <div className="avatar-content">
         {!avatar && (
-          <Portrait
-            src="/avatars/glitch.webp"
-            alt={`${profile?.name} avatar`}
-          />
+          <Portrait src="/avatars/glitch.webp" alt={`${profile.name} avatar`} />
         )}
 
         {!!avatar && (
           <div className="avatar-layers">
             <Portrait
               src={`/avatars/clothes/${avatar?.clothes}.webp`}
-              alt={`${profile?.name} avatar clothes`}
+              alt={`${profile.name} avatar clothes`}
             />
 
             <Portrait
               src={`/avatars/skins/${avatar?.skin}.webp`}
-              alt={`${profile?.name} avatar skin`}
+              alt={`${profile.name} avatar skin`}
             />
 
             <Portrait
               src={`/avatars/expressions/${avatar?.expression}.webp`}
-              alt={`${profile?.name} avatar expression`}
+              alt={`${profile.name} avatar expression`}
             />
 
             <Portrait
               src={`/avatars/eyes/${avatar?.expression}-${avatar?.eyes}.webp`}
-              alt={`${profile?.name} avatar eyes`}
+              alt={`${profile.name} avatar eyes`}
             />
 
             <Portrait
               src={`/avatars/hairs/${avatar?.hair}-${avatar?.hairColor}.webp`}
-              alt={`${profile?.name} avatar hair`}
+              alt={`${profile.name} avatar hair`}
             />
           </div>
         )}

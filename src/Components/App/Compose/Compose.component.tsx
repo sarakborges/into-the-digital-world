@@ -21,7 +21,7 @@ export const Compose = () => {
   const { profile } = useProfileStore((state) => state)
   const { composition, setComposition } = useCompositionStore((state) => state)
 
-  if (!composition?.baseDigimon) {
+  if (!composition?.baseDigimon || !profile) {
     return
   }
 
@@ -113,10 +113,10 @@ export const Compose = () => {
 
             <div className="fill-bar">
               <div className="bar">
-                <div style={{ width: `${composition?.completed || 0}%` }} />
+                <div style={{ width: `${composition.completed || 0}%` }} />
               </div>
 
-              <Text>{composition?.completed || 0}%</Text>
+              <Text>{composition.completed || 0}%</Text>
             </div>
 
             <div className="items-list">
@@ -133,7 +133,7 @@ export const Compose = () => {
 
                       <Text>
                         {getDialogs('COMPOSE_002_OPTIONAL_ITEMS_AMOUNT')
-                          .replaceAll('[AMOUNT]', profile?.items[item] || 0)
+                          .replaceAll('[AMOUNT]', profile.items[item] || 0)
                           .replaceAll('[WEIGHT]', optionalItems?.[item])}
                       </Text>
                     </div>
@@ -142,7 +142,7 @@ export const Compose = () => {
                   <main className="amount">
                     <Button
                       onClick={() => updateOptionalItem({ item, amount: -1 })}
-                      disabled={(composition?.completed || 0) <= 0}
+                      disabled={(composition.completed || 0) <= 0}
                     >
                       <BiMinus />
                     </Button>
@@ -152,9 +152,9 @@ export const Compose = () => {
                     <Button
                       onClick={() => updateOptionalItem({ item, amount: 1 })}
                       disabled={
-                        (composition?.completed || 0) >= 100 ||
-                        (profile?.items[item] || 0) <
-                          (composition?.optionalItems?.[item] || 0) + 1
+                        (composition.completed || 0) >= 100 ||
+                        (profile.items[item] || 0) <
+                          (composition.optionalItems?.[item] || 0) + 1
                       }
                     >
                       <BiPlus />

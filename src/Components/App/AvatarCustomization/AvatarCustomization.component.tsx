@@ -23,6 +23,10 @@ export const AvatarCustomization = () => {
   const { avatarCustomization, setAvatarCustomization } =
     useAvatarCustomizationStore((state) => state)
 
+  if (!profile || !avatarCustomization) {
+    return
+  }
+
   const options = {
     skin: getTexts('AVATARCUSTOMIZATION_SKIN'),
     hair: getTexts('AVATARCUSTOMIZATION_HAIR'),
@@ -60,7 +64,7 @@ export const AvatarCustomization = () => {
     ]
   }
 
-  const avatar: AvatarType = profile?.avatar ?? randomAvatar
+  const avatar: AvatarType = profile.avatar ?? randomAvatar
 
   useEffect(() => {
     setAvatarCustomization({ avatar })
@@ -69,10 +73,10 @@ export const AvatarCustomization = () => {
   return (
     <div className="avatar-customization">
       <aside>
-        <PlayerAvatar replaceAvatar={avatarCustomization?.avatar} />
+        <PlayerAvatar replaceAvatar={avatarCustomization.avatar} />
       </aside>
 
-      {!avatarCustomization?.layer && (
+      {!avatarCustomization.layer && (
         <main className="avatar-options">
           <Text>{getTexts('AVATARCUSTOMIZATION_OPTIONS_TITLE')}</Text>
 
@@ -82,7 +86,7 @@ export const AvatarCustomization = () => {
                 <Button
                   onClick={() =>
                     setAvatarCustomization({
-                      ...avatarCustomization!,
+                      ...avatarCustomization,
                       layer: option
                     })
                   }
@@ -96,7 +100,7 @@ export const AvatarCustomization = () => {
         </main>
       )}
 
-      {!!avatarCustomization?.layer && <AvatarCustomizationOptions />}
+      {!!avatarCustomization.layer && <AvatarCustomizationOptions />}
     </div>
   )
 }

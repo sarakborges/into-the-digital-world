@@ -37,8 +37,6 @@ export const GETSTARTERDIGIMON_013_TEXT = `Dorimon is one of those Digimons. The
 
 export const GETSTARTERDIGIMON_014_TEXT = `Now, about you being a chosen child... There are prophecies in this world. Prophecies that tell of humans arriving when the scales are unbalanced, and becoming champions that will restore balance.`
 
-export const GETSTARTERDIGIMON_015_TEXT = `However. You still have free will to do as you wish. If the scales are favorable to evil, and your heart is also evil, then we can assume Homeostasis has chosen yet another child, with a good heart, and you would probably clash against each other.`
-
 export const GETSTARTERDIGIMON_016_TEXT = `This is... a lot of responsability. I'm just a child. How am I supposed to "be a champion"?`
 
 export const GETSTARTERDIGIMON_017_TEXT = `Well... Only you can find the answer to this question.`

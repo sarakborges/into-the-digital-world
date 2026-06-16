@@ -33,8 +33,8 @@ export const GameboardCharacter = ({
       className="gameboard-character"
       style={
         {
-          '--character-x': tile?.x || profile?.currentZone.x,
-          '--character-y': tile?.y || profile?.currentZone.y,
+          '--character-x': tile?.x || profile.currentZone.x,
+          '--character-y': tile?.y || profile.currentZone.y,
           '--character-opacity':
             tile?.condition === undefined || !!tile.condition?.() ? 1 : 0
         } as React.CSSProperties

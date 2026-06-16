@@ -16,7 +16,11 @@ import { SelectAttack } from '@/Components/App/SelectAttack'
 export const BattleTurn = () => {
   const { battle } = useBattleStore((state) => state)
 
-  const [currentTurn] = battle?.turnOrder!
+  if (!battle) {
+    return
+  }
+
+  const [currentTurn] = battle.turnOrder
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.appmon.oujamon,

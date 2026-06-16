@@ -27,7 +27,11 @@ export const Digivice = () => {
   const { digivice, setDigivice } = useDigiviceStore((state) => state)
   const { scene } = useSceneStore((state) => state)
 
-  if (!Object.keys(profile?.items || {}).includes('digivice')) {
+  if (!profile || !digivice) {
+    return
+  }
+
+  if (!Object.keys(profile.items || {}).includes('digivice')) {
     return
   }
 
@@ -35,7 +39,7 @@ export const Digivice = () => {
 
   const toggleModal = () => {
     setDigivice({
-      isOpen: !digivice?.isOpen
+      isOpen: !digivice.isOpen
     })
   }
 
@@ -56,11 +60,11 @@ export const Digivice = () => {
 
   return (
     <div className="digivice">
-      {!!digivice?.isOpen && (
+      {!!digivice.isOpen && (
         <Modal>
           <main>
             <div className="digivice-body">
-              {!digivice?.currentApp && (
+              {!digivice.currentApp && (
                 <>
                   <PlayerProfile />
 
@@ -76,26 +80,26 @@ export const Digivice = () => {
                 </>
               )}
 
-              {!!digivice?.currentApp && !!AllApps[digivice?.currentApp] && (
+              {!!digivice.currentApp && !!AllApps[digivice.currentApp] && (
                 <div className="current-app">
                   <header className="app-header">
                     <div className="app-identifier">
                       <Portrait
                         alt={getTexts(
-                          `APPS_${AllApps[digivice?.currentApp].id.toLocaleUpperCase()}`
+                          `APPS_${AllApps[digivice.currentApp].id.toLocaleUpperCase()}`
                         )}
-                        src={`/apps/${AllApps[digivice?.currentApp].id}.png`}
+                        src={`/apps/${AllApps[digivice.currentApp].id}.png`}
                       />
 
                       <Text>
                         {getTexts(
-                          `APPS_${AllApps[digivice?.currentApp].id.toLocaleUpperCase()}`
+                          `APPS_${AllApps[digivice.currentApp].id.toLocaleUpperCase()}`
                         )}
                       </Text>
                     </div>
                   </header>
 
-                  <main>{AllApps[digivice?.currentApp].component}</main>
+                  <main>{AllApps[digivice.currentApp].component}</main>
 
                   <footer>
                     <Button
@@ -127,7 +131,7 @@ export const Digivice = () => {
 
       <Button
         onClick={toggleModal}
-        cancel={!!digivice?.isOpen}
+        cancel={!!digivice.isOpen}
         disabled={areButtonsDisabled}
       >
         {<HiOutlineDevicePhoneMobile />}

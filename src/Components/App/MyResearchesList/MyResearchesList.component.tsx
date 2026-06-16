@@ -21,18 +21,18 @@ export const MyResearchesList = () => {
   const { profile } = useProfileStore((state) => state)
   const { digivice, setDigivice } = useDigiviceStore((state) => state)
 
-  if (!digivice) {
+  if (!digivice || !profile) {
     return
   }
 
-  const allResearches = Object.values(profile?.researches!).map((research) => ({
+  const allResearches = Object.values(profile.researches!).map((research) => ({
     ...AllDigimons[research]
   }))
 
   const toggleDetails = (researchId: string) => {
     setDigivice({
       ...digivice,
-      currentDetails: digivice?.currentDetails ? undefined : researchId
+      currentDetails: digivice.currentDetails ? undefined : researchId
     })
   }
 
@@ -59,7 +59,7 @@ export const MyResearchesList = () => {
                 </aside>
 
                 <header className="research-name">
-                  <Text>{research?.name}</Text>
+                  <Text>{research.name}</Text>
                 </header>
 
                 <footer className="research-details">

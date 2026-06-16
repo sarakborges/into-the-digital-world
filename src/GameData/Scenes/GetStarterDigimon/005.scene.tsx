@@ -13,12 +13,16 @@ export const GetStarterDigimon005 = () => {
   const { profile } = useProfileStore((state) => state)
   const { setScene } = useSceneStore((state) => state)
 
+  if (!profile) {
+    return
+  }
+
   const dialogOptions: DialogType = {
     content: (
       <div className="text-bubble">
         <Text as="p">
           {getDialogs(
-            `GETSTARTERDIGIMON_005_TEXT_${profile?.meaningfulChoices.dorimonMeeting.toLocaleUpperCase()}`
+            `GETSTARTERDIGIMON_005_TEXT_${profile.meaningfulChoices.dorimonMeeting.toLocaleUpperCase()}`
           )}
         </Text>
       </div>
