@@ -7,10 +7,10 @@ import { getDialogs } from '@/Helpers/Language'
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Text } from '@/Components/System/Text'
+import { Text } from '@/DesignSystem/Text'
 
-import { Dialog } from '@/Components/App/Dialog'
-import { Portrait } from '@/Components/System/Portrait'
+import { Dialog } from '@/Components/Dialog'
+import { Portrait } from '@/DesignSystem/Portrait'
 
 export const GetStarterDigimon002 = () => {
   const { setScene } = useSceneStore((state) => state)

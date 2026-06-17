@@ -9,12 +9,12 @@ import { getDialogs } from '@/Helpers/Language'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 
-import { Text } from '@/Components/System/Text'
-import { Input } from '@/Components/System/Input'
+import { Text } from '@/DesignSystem/Text'
+import { Input } from '@/DesignSystem/Input'
 
-import { Dialog } from '@/Components/App/Dialog'
+import { Dialog } from '@/Components/Dialog'
 import { AllDigimons } from '@/GameData/Digimons'
-import { saveSession } from '@/Helpers/Systems/Profile'
+import { saveSession } from '@/Helpers/Systems/Data'
 
 export const RenamePartner001 = () => {
   const { profile } = useProfileStore((state) => state)

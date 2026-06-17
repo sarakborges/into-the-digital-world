@@ -7,10 +7,10 @@ import { reactToMeaningfulChoice } from '@/Helpers/Systems/Scenes'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Text } from '@/Components/System/Text'
-import { Button } from '@/Components/System/Button'
+import { Text } from '@/DesignSystem/Text'
+import { Button } from '@/DesignSystem/Button'
 
-import { Dialog } from '@/Components/App/Dialog'
+import { Dialog } from '@/Components/Dialog'
 
 export const GetStarterDigimon004 = () => {
   const { profile } = useProfileStore((state) => state)

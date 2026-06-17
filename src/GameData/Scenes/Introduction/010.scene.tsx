@@ -4,11 +4,11 @@ import { useSceneStore } from '@/Stores/Scene.store'
 
 import { getDialogs } from '@/Helpers/Language'
 
-import { Text } from '@/Components/System/Text'
+import { Text } from '@/DesignSystem/Text'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Dialog } from '@/Components/App/Dialog'
+import { Dialog } from '@/Components/Dialog'
 
 export const Introduction010 = () => {
   const { profile } = useProfileStore((state) => state)

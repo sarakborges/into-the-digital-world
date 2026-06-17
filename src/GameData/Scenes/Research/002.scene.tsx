@@ -6,8 +6,8 @@ import { AllNpcs } from '@/GameData/Npcs'
 
 import { getDialogs } from '@/Helpers/Language'
 
-import { Dialog } from '@/Components/App/Dialog'
-import { ResearchList } from '@/Components/App/ResearchList'
+import { Dialog } from '@/Components/Dialog'
+import { ResearchList } from '@/Components/ResearchList'
 
 export const Research002 = () => {
   const { setScene } = useSceneStore((state) => state)

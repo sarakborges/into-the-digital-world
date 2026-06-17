@@ -6,8 +6,8 @@ import { AllNpcs } from '@/GameData/Npcs'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Dialog } from '@/Components/App/Dialog'
-import { CompositionsList } from '@/Components/App/CompositionsList'
+import { Dialog } from '@/Components/Dialog'
+import { CompositionsList } from '@/Components/CompositionsList'
 
 export const Compose002 = () => {
   const { setScene } = useSceneStore((state) => state)

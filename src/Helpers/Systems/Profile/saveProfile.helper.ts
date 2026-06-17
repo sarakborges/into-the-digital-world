@@ -1,8 +1,6 @@
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { saveData } from '@/Helpers/Systems/Profile'
-import { saveSession } from '@/Helpers/Systems/Profile'
-import { loadData } from '@/Helpers/Systems/Profile'
+import { loadData, saveSession, saveData } from '@/Helpers/Systems/Data'
 
 export const saveProfile = () => {
   try {

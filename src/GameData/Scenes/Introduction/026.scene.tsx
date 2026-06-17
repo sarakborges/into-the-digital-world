@@ -4,10 +4,10 @@ import { getDialogs } from '@/Helpers/Language'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Text } from '@/Components/System/Text'
+import { Text } from '@/DesignSystem/Text'
 
-import { Dialog } from '@/Components/App/Dialog'
-import { PlayerAvatar } from '@/Components/App/PlayerAvatar'
+import { Dialog } from '@/Components/Dialog'
+import { PlayerAvatar } from '@/Components/PlayerAvatar'
 
 export const Introduction026 = () => {
   const { setScene } = useSceneStore((state) => state)

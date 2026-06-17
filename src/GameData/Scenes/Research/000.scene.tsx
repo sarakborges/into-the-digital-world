@@ -7,10 +7,10 @@ import { AllNpcs } from '@/GameData/Npcs'
 
 import { getDialogs } from '@/Helpers/Language'
 
-import { Text } from '@/Components/System/Text'
+import { Text } from '@/DesignSystem/Text'
 
-import { Dialog } from '@/Components/App/Dialog'
-import { saveSession } from '@/Helpers/Systems/Profile'
+import { Dialog } from '@/Components/Dialog'
+import { saveSession } from '@/Helpers/Systems/Data'
 
 export const Research000 = () => {
   const { setScene } = useSceneStore((state) => state)

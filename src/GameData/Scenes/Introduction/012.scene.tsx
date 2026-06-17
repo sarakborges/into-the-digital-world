@@ -6,10 +6,10 @@ import { AllItems } from '@/GameData/Items'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Text } from '@/Components/System/Text'
-import { Portrait } from '@/Components/System/Portrait'
+import { Text } from '@/DesignSystem/Text'
+import { Portrait } from '@/DesignSystem/Portrait'
 
-import { Dialog } from '@/Components/App/Dialog'
+import { Dialog } from '@/Components/Dialog'
 
 export const Introduction012 = () => {
   const { setScene } = useSceneStore((state) => state)

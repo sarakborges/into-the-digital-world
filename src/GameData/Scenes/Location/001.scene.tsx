@@ -6,8 +6,8 @@ import { AllNpcs } from '@/GameData/Npcs'
 
 import { getDialogs } from '@/Helpers/Language'
 
-import { Dialog } from '@/Components/App/Dialog'
-import { Location } from '@/Components/App/Location'
+import { Dialog } from '@/Components/Dialog'
+import { Location } from '@/Components/Location'
 
 export const Location001 = () => {
   const { setScene } = useSceneStore((state) => state)

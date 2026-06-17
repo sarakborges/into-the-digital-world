@@ -7,9 +7,9 @@ import { IntroductionQuest } from '@/GameData/Quests/Introduction.quest'
 import { getDialogs } from '@/Helpers/Language'
 import { addNewQuest } from '@/Helpers/Systems/Quests'
 
-import { Text } from '@/Components/System/Text'
+import { Text } from '@/DesignSystem/Text'
 
-import { Dialog } from '@/Components/App/Dialog'
+import { Dialog } from '@/Components/Dialog'
 
 export const Introduction001 = () => {
   const { setScene } = useSceneStore((state) => state)

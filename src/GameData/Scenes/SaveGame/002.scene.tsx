@@ -7,9 +7,9 @@ import { getDialogs } from '@/Helpers/Language'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Text } from '@/Components/System/Text'
+import { Text } from '@/DesignSystem/Text'
 
-import { Dialog } from '@/Components/App/Dialog'
+import { Dialog } from '@/Components/Dialog'
 
 export const SaveGame002 = () => {
   const { setScene } = useSceneStore((state) => state)

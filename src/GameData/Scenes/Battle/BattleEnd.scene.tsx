@@ -4,17 +4,17 @@ import { AllNpcs } from '@/GameData/Npcs'
 
 import { getDialogs } from '@/Helpers/Language'
 import { warpTo } from '@/Helpers/Systems/Zones'
-import { saveSession } from '@/Helpers/Systems/Profile'
+import { saveSession } from '@/Helpers/Systems/Data'
 import { isDigimonDefeated } from '@/Helpers/Systems/Battle'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Text } from '@/Components/System/Text'
+import { Text } from '@/DesignSystem/Text'
 
-import { Dialog } from '@/Components/App/Dialog'
-import { CombatLoot } from '@/Components/App/CombatLoot'
+import { Dialog } from '@/Components/Dialog'
+import { CombatLoot } from '@/Components/CombatLoot'
 
 export const BattleEnd = () => {
   const { setScene } = useSceneStore((state) => state)

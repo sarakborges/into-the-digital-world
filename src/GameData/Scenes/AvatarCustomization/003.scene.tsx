@@ -2,7 +2,7 @@ import type { ProfileType } from '@/Types/Profile.type'
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { getDialogs } from '@/Helpers/Language'
-import { saveSession } from '@/Helpers/Systems/Profile'
+import { saveSession } from '@/Helpers/Systems/Data'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
@@ -10,8 +10,8 @@ import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
 
-import { Dialog } from '@/Components/App/Dialog'
-import { AvatarCustomization } from '@/Components/App/AvatarCustomization'
+import { Dialog } from '@/Components/Dialog'
+import { AvatarCustomization } from '@/Components/AvatarCustomization'
 
 export const AvatarCustomization003 = () => {
   const { profile } = useProfileStore((state) => state)

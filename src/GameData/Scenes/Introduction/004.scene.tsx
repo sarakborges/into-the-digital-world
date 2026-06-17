@@ -7,9 +7,9 @@ import { AllNpcs } from '@/GameData/Npcs'
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Text } from '@/Components/System/Text'
+import { Text } from '@/DesignSystem/Text'
 
-import { Dialog } from '@/Components/App/Dialog'
+import { Dialog } from '@/Components/Dialog'
 
 export const Introduction004 = () => {
   const { setScene } = useSceneStore((state) => state)

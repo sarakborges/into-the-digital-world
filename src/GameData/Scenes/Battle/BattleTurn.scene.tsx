@@ -8,10 +8,10 @@ import { generateRandomNumber } from '@/Helpers/Math'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 
-import { Text } from '@/Components/System/Text'
+import { Text } from '@/DesignSystem/Text'
 
-import { Dialog } from '@/Components/App/Dialog'
-import { SelectAttack } from '@/Components/App/SelectAttack'
+import { Dialog } from '@/Components/Dialog'
+import { SelectAttack } from '@/Components/SelectAttack'
 
 export const BattleTurn = () => {
   const { battle } = useBattleStore((state) => state)

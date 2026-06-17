@@ -5,13 +5,13 @@ import { useSceneStore } from '@/Stores/Scene.store'
 import { AllNpcs } from '@/GameData/Npcs'
 
 import { useProfileStore } from '@/Stores/Profile.store'
-import { deleteSession } from '@/Helpers/Systems/Profile'
+import { deleteSession } from '@/Helpers/Systems/Data'
 
 import { getDialogs } from '@/Helpers/Language'
 
-import { Text } from '@/Components/System/Text'
+import { Text } from '@/DesignSystem/Text'
 
-import { Dialog } from '@/Components/App/Dialog'
+import { Dialog } from '@/Components/Dialog'
 
 export const Logoff001 = () => {
   const { setProfile } = useProfileStore((state) => state)

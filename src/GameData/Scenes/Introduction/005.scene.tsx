@@ -9,10 +9,10 @@ import { AllNpcs } from '@/GameData/Npcs'
 
 import { getDialogs } from '@/Helpers/Language'
 
-import { Text } from '@/Components/System/Text'
-import { Input } from '@/Components/System/Input'
+import { Text } from '@/DesignSystem/Text'
+import { Input } from '@/DesignSystem/Input'
 
-import { Dialog } from '@/Components/App/Dialog'
+import { Dialog } from '@/Components/Dialog'
 
 export const Introduction005 = () => {
   const { setScene } = useSceneStore((state) => state)

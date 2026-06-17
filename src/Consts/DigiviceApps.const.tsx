@@ -1,9 +1,9 @@
-import { Acquaintances } from '@/Components/App/Acquaintances'
-import { PartnersList } from '@/Components/App/PartnersList'
-import { Inventory } from '@/Components/App/Inventory'
-import { MyResearchesList } from '@/Components/App/MyResearchesList'
-import { Location } from '@/Components/App/Location'
-import { QuestsLog } from '@/Components/App/QuestsLog'
+import { Acquaintances } from '@/Components/Acquaintances'
+import { PartnersList } from '@/Components/PartnersList'
+import { Inventory } from '@/Components/Inventory'
+import { MyResearchesList } from '@/Components/MyResearchesList'
+import { Location } from '@/Components/Location'
+import { QuestsLog } from '@/Components/QuestsLog'
 
 export const APP_SAVE = {
   id: 'save',

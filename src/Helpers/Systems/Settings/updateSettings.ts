@@ -1,4 +1,4 @@
-import { saveData } from '@/Helpers/Systems/Profile'
+import { saveData } from '@/Helpers/Systems/Data'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
 

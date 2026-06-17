@@ -7,8 +7,8 @@ import { getDialogs } from '@/Helpers/Language'
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Dialog } from '@/Components/App/Dialog'
-import { CombatLogEntry } from '@/Components/App/CombatLogEntry'
+import { Dialog } from '@/Components/Dialog'
+import { CombatLogEntry } from '@/Components/CombatLogEntry'
 import { generateRandomNumber } from '@/Helpers/Math'
 import { isDigimonDefeated } from '@/Helpers/Systems/Battle'
 

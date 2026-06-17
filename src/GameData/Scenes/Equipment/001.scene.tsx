@@ -5,16 +5,16 @@ import { AllNpcs } from '@/GameData/Npcs'
 
 import { getTexts } from '@/Helpers/Language'
 import { getDialogs } from '@/Helpers/Language'
-import { saveSession } from '@/Helpers/Systems/Profile'
+import { saveSession } from '@/Helpers/Systems/Data'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Text } from '@/Components/System/Text'
-import { Button } from '@/Components/System/Button'
+import { Text } from '@/DesignSystem/Text'
+import { Button } from '@/DesignSystem/Button'
 
-import { Dialog } from '@/Components/App/Dialog'
+import { Dialog } from '@/Components/Dialog'
 
 export const Equipment001 = () => {
   const { profile } = useProfileStore((state) => state)

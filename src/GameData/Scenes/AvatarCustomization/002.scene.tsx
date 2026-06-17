@@ -9,8 +9,8 @@ import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
 
-import { Dialog } from '@/Components/App/Dialog'
-import { AvatarCustomization } from '@/Components/App/AvatarCustomization'
+import { Dialog } from '@/Components/Dialog'
+import { AvatarCustomization } from '@/Components/AvatarCustomization'
 
 export const AvatarCustomization002 = () => {
   const { profile, setProfile } = useProfileStore((state) => state)

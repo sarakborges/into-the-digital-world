@@ -2,7 +2,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { getDialogs } from '@/Helpers/Language'
 import { addNewQuest, updateQuestObjective } from '@/Helpers/Systems/Quests'
-import { saveSession } from '@/Helpers/Systems/Profile'
+import { saveSession } from '@/Helpers/Systems/Data'
 
 import { AllItems } from '@/GameData/Items'
 import { AllNpcs } from '@/GameData/Npcs'
@@ -12,9 +12,9 @@ import { IntroductionQuest } from '@/GameData/Quests/Introduction.quest'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Text } from '@/Components/System/Text'
+import { Text } from '@/DesignSystem/Text'
 
-import { Dialog } from '@/Components/App/Dialog'
+import { Dialog } from '@/Components/Dialog'
 
 export const Introduction021 = () => {
   const { setScene } = useSceneStore((state) => state)

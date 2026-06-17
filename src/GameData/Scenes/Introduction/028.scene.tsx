@@ -5,15 +5,15 @@ import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
 import { AvatarFixingQuest } from '@/GameData/Quests/AvatarFixing.quest'
 
 import { getDialogs } from '@/Helpers/Language'
-import { saveSession } from '@/Helpers/Systems/Profile'
+import { saveSession } from '@/Helpers/Systems/Data'
 import { addNewQuest, updateQuestObjective } from '@/Helpers/Systems/Quests'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Text } from '@/Components/System/Text'
+import { Text } from '@/DesignSystem/Text'
 
-import { Dialog } from '@/Components/App/Dialog'
+import { Dialog } from '@/Components/Dialog'
 
 export const Introduction028 = () => {
   const { setScene } = useSceneStore((state) => state)
