@@ -4,6 +4,7 @@ import { TbListDetails } from 'react-icons/tb'
 
 import { getTexts } from '@/Helpers/Language'
 import { setCurrentDetails } from '@/Helpers/Systems/Digivice'
+import { addToParty, removeFromParty } from '@/Helpers/Systems/Profile'
 
 import { AllDigimons } from '@/GameData/Digimons'
 
@@ -21,15 +22,15 @@ import { EncyclopediaHeader } from '@/Components/EncyclopediaHeader'
 import './PartnersList.style.scss'
 
 export const PartnersList = () => {
-  const { profile, setProfile } = useProfileStore((state) => state)
+  const { profile } = useProfileStore((state) => state)
   const { digivice } = useDigiviceStore((state) => state)
   const { scene } = useSceneStore((state) => state)
 
-  if (!digivice) {
+  if (!digivice || !profile) {
     return
   }
 
-  if (!!digivice?.currentDetails || !profile) {
+  if (!!digivice?.currentDetails) {
     return <PartnerDetails />
   }
 
@@ -45,20 +46,6 @@ export const PartnersList = () => {
         ...partner,
         baseDigimon: AllDigimons[partner.baseDigimon]
       }))
-  }
-
-  const removeFromParty = (id: number) => {
-    setProfile({
-      ...profile,
-      party: profile.party.filter((partner) => partner !== id) ?? []
-    })
-  }
-
-  const addToParty = (id: number) => {
-    setProfile({
-      ...profile,
-      party: [...profile.party, id]
-    })
   }
 
   return (

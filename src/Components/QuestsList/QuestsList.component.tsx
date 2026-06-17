@@ -13,6 +13,7 @@ import { Button } from '@/DesignSystem/Button'
 
 import './QuestsList.style.scss'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
+import { setCurrentDetails } from '@/Helpers/Systems/Digivice'
 
 export const QuestsList = ({
   list,
@@ -23,17 +24,10 @@ export const QuestsList = ({
   title?: string
   noListText: string
 }) => {
-  const { digivice, setDigivice } = useDigiviceStore((state) => state)
+  const { digivice } = useDigiviceStore((state) => state)
 
   if (!digivice) {
     return
-  }
-
-  const seeDetails = (id) => {
-    setDigivice({
-      ...digivice,
-      currentDetails: digivice?.currentDetails !== id ? id : undefined
-    })
   }
 
   return (
@@ -51,7 +45,13 @@ export const QuestsList = ({
               <header>
                 <Text>{AllQuests[quest].name}</Text>
 
-                <Button onClick={() => seeDetails(quest)}>
+                <Button
+                  onClick={() =>
+                    setCurrentDetails(
+                      digivice?.currentDetails !== quest ? quest : undefined
+                    )
+                  }
+                >
                   <TbListDetails />
                 </Button>
               </header>

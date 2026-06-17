@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 import { getTexts } from '@/Helpers/Language'
-import { loadData } from '@/Helpers/Systems/Data'
+import { loadProfiles } from '@/Helpers/Systems/Profile'
 
 import { THEMES } from '@/Consts/Themes.const'
 
@@ -24,18 +24,6 @@ export const StartScreen = () => {
 
   if (!settings) {
     return
-  }
-
-  const loadProfiles = () => {
-    const savedProfiles = loadData({ key: `profiles` })
-
-    if (!savedProfiles) {
-      return
-    }
-
-    setSavedProfiles(
-      savedProfiles?.map((profile) => loadData({ key: `profile${profile}` }))
-    )
   }
 
   useEffect(() => {

@@ -7,15 +7,16 @@ import { Button } from '@/DesignSystem/Button'
 export const RenamePartner = () => {
   const { scene, setScene } = useSceneStore((state) => state)
 
-  const openRenamePartner = () => {
-    setScene({
-      currentScene: 'renamePartner',
-      currentStage: '001'
-    })
-  }
-
   return (
-    <Button disabled={!!scene} onClick={openRenamePartner}>
+    <Button
+      disabled={!!scene}
+      onClick={() => {
+        setScene({
+          currentScene: 'renamePartner',
+          currentStage: '001'
+        })
+      }}
+    >
       <BiPencil />
     </Button>
   )

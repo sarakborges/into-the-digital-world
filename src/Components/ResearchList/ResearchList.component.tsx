@@ -1,7 +1,7 @@
 import { GiTwoCoins } from 'react-icons/gi'
 
-import { saveSession } from '@/Helpers/Systems/Data'
 import { getDialogs } from '@/Helpers/Language'
+import { purchaseResearch } from '@/Helpers/Systems/Profile'
 
 import { AllResearches } from '@/GameData/Researches'
 import { AllDigimons } from '@/GameData/Digimons'
@@ -26,19 +26,6 @@ export const ResearchList = () => {
   const availableResearches = Object.keys(AllResearches)
     .filter((research) => !profile.researches.includes(research))
     .sort((a, b) => (a > b ? 1 : -1))
-
-  const purchaseResearch = (research) => {
-    const updatedProfile = {
-      ...profile,
-      researches: [...(profile.researches ?? []), research]
-    }
-
-    for (let item of Object.keys(AllResearches[research].cost)) {
-      updatedProfile.items[item] -= AllResearches[research].cost[item]
-    }
-
-    saveSession(updatedProfile)
-  }
 
   return (
     <div className="research-list">
