@@ -38,52 +38,52 @@ export const Gamepad = () => {
 
   const coordinates = {
     topLeft: {
-      x: -1,
+      x: 0,
       y: -1,
       icon: <BsArrowUpLeft />
     },
 
     topMiddle: {
-      x: 0,
+      x: 1,
       y: -1,
       icon: <BsArrowUp />
     },
 
     topRight: {
-      x: +1,
-      y: -1,
+      x: 1,
+      y: 0,
       icon: <BsArrowUpRight />
     },
 
     middleLeft: {
       x: -1,
-      y: 0,
+      y: -1,
       icon: <BsArrowLeft />
     },
 
     center: null,
 
     middleRight: {
-      x: +1,
-      y: 0,
+      x: 1,
+      y: 1,
       icon: <BsArrowRight />
     },
 
     bottomLeft: {
       x: -1,
-      y: +1,
+      y: 0,
       icon: <BsArrowDownLeft />
     },
 
     bottomMiddle: {
-      x: 0,
-      y: +1,
+      x: -1,
+      y: 1,
       icon: <BsArrowDown />
     },
 
     bottomRight: {
-      x: +1,
-      y: +1,
+      x: 0,
+      y: 1,
       icon: <BsArrowDownRight />
     }
   }

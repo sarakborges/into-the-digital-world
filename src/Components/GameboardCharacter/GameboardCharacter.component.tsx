@@ -50,10 +50,12 @@ export const GameboardCharacter = ({
 
       {tile?.npc?.id && (
         <>
-          <Portrait
-            src={`/${tile.npc.portrait}.webp`}
-            alt={tile.npc?.name || ''}
-          />
+          <div>
+            <Portrait
+              src={`/${tile.npc.portrait}.webp`}
+              alt={tile.npc?.name || ''}
+            />
+          </div>
 
           <Text>
             {Object.keys(profile.npcAcquaintances ?? {}).includes(

@@ -4,6 +4,7 @@
   align-items: center;
 
   width: 100%;
+  overflow: hidden;
 
   transition:
     opacity 0.3s,
@@ -17,10 +18,9 @@
     width: 100%;
     aspect-ratio: 1;
 
-    overflow: hidden;
-
     background-color: var(--color-neutral-strong);
     box-shadow: 0 0 8px var(--color-neutral-strong);
+    transform: rotate(-45deg);
 
     .gameboard-body {
       position: absolute;

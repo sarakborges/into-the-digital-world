@@ -1,4 +1,7 @@
 .current-party {
+  max-height: calc(100cqw - 16px - 40px - 20px);
+  padding-right: 8px;
+  overflow: auto;
   flex: 1;
 
   .party-digimons {

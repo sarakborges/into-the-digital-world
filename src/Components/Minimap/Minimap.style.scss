@@ -7,6 +7,7 @@
   background-color: var(--color-secondary-weak);
   border: 2px solid var(--color-secondary-strong);
   border-radius: 4px;
+  transform: rotate(-45deg);
 
   --tile-size: calc(76px / var(--grid-size));
 
