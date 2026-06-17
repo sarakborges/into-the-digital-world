@@ -11,9 +11,9 @@ import { Button } from '@/Components/System/Button'
 import { Portrait } from '@/Components/System/Portrait'
 import { Text } from '@/Components/System/Text'
 
-import { AcquintanceDetails } from '@/Components/App/AcquintanceDetails'
+import { AcquintanceDetails } from '@/Components/App/AcquaintancesDetails'
 
-import './Acqunitances.style.scss'
+import './Acquaintances.style.scss'
 
 export const Acquaintances = () => {
   const { profile } = useProfileStore((state) => state)

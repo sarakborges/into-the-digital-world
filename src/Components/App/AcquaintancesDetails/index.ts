@@ -1,1 +1,1 @@
-export { AcquintanceDetails } from './AcquintanceDetails.component'
+export { AcquaintancesDetails } from './AcquaintancesDetails.component'

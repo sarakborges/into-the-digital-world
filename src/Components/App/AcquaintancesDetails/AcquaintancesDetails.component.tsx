@@ -9,9 +9,9 @@ import { Text } from '@/Components/System/Text'
 
 import { CharacterHeader } from '@/Components/App/CharacterHeader'
 
-import './AcquintanceDetails.style.scss'
+import './AcquaintancesDetails.style.scss'
 
-export const AcquintanceDetails = () => {
+export const AcquaintancesDetails = () => {
   const { digivice } = useDigiviceStore((state) => state)
 
   if (!digivice?.currentDetails) {
