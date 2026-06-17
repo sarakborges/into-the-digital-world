@@ -37,7 +37,7 @@ export const Compose000 = () => {
           const updatedProfile = {
             ...profile,
             npcAcquaintances: {
-              ...profile.npcAcquaintances,
+              ...(profile.npcAcquaintances ?? {}),
               jijimon: {}
             }
           }

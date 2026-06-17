@@ -42,7 +42,7 @@ export const Acquaintances = () => {
           !!Object.keys(AllNpcs[category]).filter(
             (npc) =>
               AllNpcs.digimon.dorimon.id !== npc &&
-              Object.keys(profile.npcAcquaintances).includes(npc)
+              Object.keys(profile.npcAcquaintances ?? {}).includes(npc)
           ).length && (
             <Fragment key={`acquaintances-${category}`}>
               <div className="acquaintances-category">
@@ -53,7 +53,9 @@ export const Acquaintances = () => {
                     .filter(
                       (npc) =>
                         AllNpcs.digimon.dorimon.id !== npc &&
-                        Object.keys(profile.npcAcquaintances).includes(npc)
+                        Object.keys(profile.npcAcquaintances ?? {}).includes(
+                          npc
+                        )
                     )
                     .sort((a, b) => (a > b ? 1 : -1))
                     .map((npc) => (

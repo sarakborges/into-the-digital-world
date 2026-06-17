@@ -36,7 +36,7 @@ export const Introduction004 = () => {
           setProfile({
             ...profile,
             npcAcquaintances: {
-              ...profile.npcAcquaintances,
+              ...(profile.npcAcquaintances ?? {}),
               [AllNpcs.general.gennai.id]: {}
             }
           })
