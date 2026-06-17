@@ -31,7 +31,7 @@ export const NewGame = () => {
     const newProfile: ProfileType = {
       id: newId,
       name: '',
-      lastSave: '',
+      lastSave: new Date(),
       currentTitle: 'chosenChild',
       currentScene: 'introduction',
 

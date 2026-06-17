@@ -47,23 +47,21 @@ export const AvatarCustomization = () => {
         <main className="avatar-options">
           <Text>{getTexts('AVATARCUSTOMIZATION_OPTIONS_TITLE')}</Text>
 
-          {(Object.keys(options) as Array<keyof typeof options>).map(
-            (option) => (
-              <div key={`avatar-options-${option}`}>
-                <Button
-                  onClick={() =>
-                    setAvatarCustomization({
-                      ...avatarCustomization,
-                      layer: option
-                    })
-                  }
-                >
-                  <FaPaintBrush />
-                  <Text>{options[option]}</Text>
-                </Button>
-              </div>
-            )
-          )}
+          {(Object.keys(options) as Array<keyof AvatarType>).map((option) => (
+            <div key={`avatar-options-${option}`}>
+              <Button
+                onClick={() =>
+                  setAvatarCustomization({
+                    ...avatarCustomization,
+                    layer: option
+                  })
+                }
+              >
+                <FaPaintBrush />
+                <Text>{options[option]}</Text>
+              </Button>
+            </div>
+          ))}
         </main>
       )}
 
