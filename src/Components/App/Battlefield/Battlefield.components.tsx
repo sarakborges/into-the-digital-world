@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { isDigimonDefeated } from '@/Helpers/Systems/Battle'
+import { skipTurn } from '@/Helpers/Systems/Battle'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 
@@ -17,20 +17,7 @@ export const Battlefield = () => {
   }
 
   useEffect(() => {
-    const { battle, setBattle } = useBattleStore.getState()
-
-    if (!battle) {
-      return
-    }
-
-    const [currentDigimon, ...otherDigimons] = battle.turnOrder
-
-    if (isDigimonDefeated(currentDigimon)) {
-      setBattle({
-        ...battle,
-        turnOrder: [...otherDigimons, currentDigimon]
-      })
-    }
+    skipTurn()
   }, [battle])
 
   return (

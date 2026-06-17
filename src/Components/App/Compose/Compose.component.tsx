@@ -4,6 +4,7 @@ import { AllResearches } from '@/GameData/Researches'
 import { AllItems } from '@/GameData/Items'
 
 import { getDialogs } from '@/Helpers/Language'
+import { updateOptionalItem } from '@/Helpers/Systems/Compose'
 
 import { useCompositionStore } from '@/Stores/Composition.store'
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -19,7 +20,7 @@ import './Compose.style.scss'
 
 export const Compose = () => {
   const { profile } = useProfileStore((state) => state)
-  const { composition, setComposition } = useCompositionStore((state) => state)
+  const { composition } = useCompositionStore((state) => state)
 
   if (!composition?.baseDigimon || !profile) {
     return
@@ -29,56 +30,6 @@ export const Compose = () => {
 
   const requiredItems = AllResearches[baseDigimon.id].requiredItems
   const optionalItems = AllResearches[baseDigimon.id].optionalItems
-
-  const getCompositionFill = () => {
-    return Object.keys(optionalItems ?? {}).reduce((acc, item) => {
-      const weight = optionalItems![item]
-      return acc + weight * (composition.optionalItems?.[item] || 0)
-    }, 0)
-  }
-
-  const updateOptionalItem = ({
-    item,
-    amount
-  }: {
-    item: string
-    amount: -1 | 1
-  }) => {
-    const compositionFill = composition.completed || 0
-
-    if (
-      (amount === -1 && compositionFill <= 0) ||
-      (amount === 1 && compositionFill >= 100)
-    ) {
-      return
-    }
-
-    const updatedAmount = (composition.optionalItems?.[item] || 0) + amount
-
-    const totalItems = {}
-
-    for (let item in requiredItems) {
-      totalItems[item] = (totalItems[item] || 0) + requiredItems[item]
-    }
-
-    for (let item in optionalItems) {
-      totalItems[item] = (totalItems[item] || 0) + optionalItems[item]
-    }
-
-    totalItems[item] += amount
-
-    setComposition({
-      ...composition,
-      totalItems,
-
-      completed: getCompositionFill() + (optionalItems?.[item] || 0) * amount,
-
-      optionalItems: {
-        ...composition.optionalItems,
-        [item]: updatedAmount
-      }
-    })
-  }
 
   return (
     <div className="compose" key={`composition-${baseDigimon.name}`}>

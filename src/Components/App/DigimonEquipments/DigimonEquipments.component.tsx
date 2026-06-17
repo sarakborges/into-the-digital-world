@@ -4,7 +4,8 @@ import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
 
 import { getTexts } from '@/Helpers/Language'
-import { saveSession } from '@/Helpers/Systems/Profile'
+import { saveSession, updateEquipement } from '@/Helpers/Systems/Profile'
+import { openEquipDialog } from '@/Helpers/Systems/Scenes'
 
 import { AllDigimons } from '@/GameData/Digimons'
 import { AllItems } from '@/GameData/Items'
@@ -20,9 +21,9 @@ import { Button } from '@/Components/System/Button'
 import './DigimonEquipments.style.scss'
 
 export const DigimonEquipments = () => {
-  const { profile, setProfile } = useProfileStore((state) => state)
-  const { scene, setScene } = useSceneStore((state) => state)
-  const { digivice, setDigivice } = useDigiviceStore((state) => state)
+  const { profile } = useProfileStore((state) => state)
+  const { scene } = useSceneStore((state) => state)
+  const { digivice } = useDigiviceStore((state) => state)
 
   if (!digivice?.currentDetails || !profile) {
     return
@@ -32,33 +33,6 @@ export const DigimonEquipments = () => {
     digivice.currentDetails
   ] as PartnerDigimonType
   const baseDigimon = AllDigimons[partner.baseDigimon] as BaseDigimonType
-
-  const openEquipDialog = (equipmentSlot) => {
-    setScene({
-      currentScene: 'equipment',
-      currentStage: '001'
-    })
-
-    setDigivice({
-      ...digivice,
-      equipmentSlot
-    })
-  }
-
-  const removeEquipement = ({
-    digimonId,
-    equipmentSlot
-  }: {
-    digimonId: number
-    equipmentSlot: number
-  }) => {
-    profile.partnerDigimons[digimonId].equipments![equipmentSlot] = {
-      equipmentId: undefined
-    }
-
-    setProfile(profile)
-    saveSession(profile)
-  }
 
   return (
     <section className="digimon-equipments">
@@ -79,9 +53,10 @@ export const DigimonEquipments = () => {
                     {!!partner.equipments?.[item]?.equipmentId && (
                       <Button
                         onClick={() =>
-                          removeEquipement({
+                          updateEquipement({
                             digimonId: partner.id,
-                            equipmentSlot: item
+                            equipmentSlot: item,
+                            equipmentId: undefined
                           })
                         }
                         disabled={!!scene}

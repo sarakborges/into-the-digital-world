@@ -10,6 +10,7 @@ import { useSceneStore } from '@/Stores/Scene.store'
 import { Button } from '@/Components/System/Button'
 import { Portrait } from '@/Components/System/Portrait'
 import { Text } from '@/Components/System/Text'
+import { setCurrentDetails } from '@/Helpers/Systems/Digivice'
 
 import { AcquaintancesDetails } from '@/Components/App/AcquaintancesDetails'
 
@@ -18,7 +19,7 @@ import './Acquaintances.style.scss'
 export const Acquaintances = () => {
   const { profile } = useProfileStore((state) => state)
   const { scene } = useSceneStore((state) => state)
-  const { digivice, setDigivice } = useDigiviceStore((state) => state)
+  const { digivice } = useDigiviceStore((state) => state)
 
   if (!profile || !digivice) {
     return
@@ -26,13 +27,6 @@ export const Acquaintances = () => {
 
   if (!!digivice?.currentDetails) {
     return <AcquaintancesDetails />
-  }
-
-  const setAcquaintance = (id) => {
-    setDigivice({
-      ...digivice,
-      currentDetails: id
-    })
   }
 
   return (
@@ -77,7 +71,7 @@ export const Acquaintances = () => {
                         <footer>
                           <Button
                             onClick={() =>
-                              setAcquaintance(AllNpcs[category][npc].id)
+                              setCurrentDetails(AllNpcs[category][npc].id)
                             }
                             disabled={!!scene}
                           >

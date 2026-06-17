@@ -3,9 +3,11 @@ import { FaPaintBrush } from 'react-icons/fa'
 
 import type { AvatarType } from '@/Types/Avatar.type'
 
-import { AVATAR_OPTIONS } from '@/Consts/Avatars.const'
-
 import { getTexts } from '@/Helpers/Language'
+import {
+  generateRandomAvatar,
+  getAvatarOptionsText
+} from '@/Helpers/Systems/Profile'
 
 import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -27,44 +29,9 @@ export const AvatarCustomization = () => {
     return
   }
 
-  const options = {
-    skin: getTexts('AVATARCUSTOMIZATION_SKIN'),
-    hair: getTexts('AVATARCUSTOMIZATION_HAIR'),
-    hairColor: getTexts('AVATARCUSTOMIZATION_HAIR_COLOR'),
-    eyes: getTexts('AVATARCUSTOMIZATION_EYES'),
-    clothes: getTexts('AVATARCUSTOMIZATION_CLOTHES')
-  }
+  const options = getAvatarOptionsText()
 
-  const randomAvatar = {
-    clothes:
-      AVATAR_OPTIONS.clothes[
-        Math.floor(Math.random() * AVATAR_OPTIONS.clothes.length)
-      ],
-
-    eyes: AVATAR_OPTIONS.eyes[
-      Math.floor(Math.random() * AVATAR_OPTIONS.eyes.length)
-    ],
-
-    expression:
-      AVATAR_OPTIONS.expression[
-        Math.floor(Math.random() * AVATAR_OPTIONS.expression.length)
-      ],
-
-    hairColor:
-      AVATAR_OPTIONS.hairColor[
-        Math.floor(Math.random() * AVATAR_OPTIONS.hairColor.length)
-      ],
-
-    hair: AVATAR_OPTIONS.hair[
-      Math.floor(Math.random() * AVATAR_OPTIONS.hair.length)
-    ],
-
-    skin: AVATAR_OPTIONS.skin[
-      Math.floor(Math.random() * AVATAR_OPTIONS.skin.length)
-    ]
-  }
-
-  const avatar: AvatarType = profile.avatar ?? randomAvatar
+  const avatar: AvatarType = profile.avatar ?? generateRandomAvatar()
 
   useEffect(() => {
     setAvatarCustomization({ avatar })

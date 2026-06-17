@@ -1,6 +1,6 @@
 import { AVATAR_OPTIONS } from '@/Consts/Avatars.const'
 
-import { getTexts } from '@/Helpers/Language'
+import { getAvatarOptionsText } from '@/Helpers/Systems/Profile'
 
 import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
 
@@ -19,13 +19,7 @@ export const AvatarCustomizationOptions = () => {
     return
   }
 
-  const options = {
-    skin: getTexts('AVATARCUSTOMIZATION_SKIN'),
-    hair: getTexts('AVATARCUSTOMIZATION_HAIR'),
-    hairColor: getTexts('AVATARCUSTOMIZATION_HAIR_COLOR'),
-    eyes: getTexts('AVATARCUSTOMIZATION_EYES'),
-    clothes: getTexts('AVATARCUSTOMIZATION_CLOTHES')
-  }
+  const options = getAvatarOptionsText()
 
   const updateCustomization = (option) => {
     const avatar = {
