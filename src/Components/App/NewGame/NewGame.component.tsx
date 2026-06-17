@@ -44,7 +44,7 @@ export const NewGame = () => {
       meaningfulChoices: {},
       partnerDigimons: {},
 
-      npcAcquintances: {
+      npcAcquaintances: {
         ...AllNpcs.appmon
       },
 

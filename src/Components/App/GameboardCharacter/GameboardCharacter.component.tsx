@@ -56,7 +56,7 @@ export const GameboardCharacter = ({
           />
 
           <Text>
-            {Object.keys(profile.npcAcquintances).includes(tile.npc?.id || '')
+            {Object.keys(profile.npcAcquaintances).includes(tile.npc?.id || '')
               ? tile.npc?.name
               : `???`}
           </Text>

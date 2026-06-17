@@ -36,8 +36,8 @@ export const Research000 = () => {
         action: () => {
           const updatedProfile = {
             ...profile,
-            npcAcquintances: {
-              ...profile.npcAcquintances,
+            npcAcquaintances: {
+              ...profile.npcAcquaintances,
               nanomon: {}
             }
           }

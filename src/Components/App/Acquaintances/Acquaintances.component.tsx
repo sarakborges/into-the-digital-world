@@ -11,7 +11,7 @@ import { Button } from '@/Components/System/Button'
 import { Portrait } from '@/Components/System/Portrait'
 import { Text } from '@/Components/System/Text'
 
-import { AcquintanceDetails } from '@/Components/App/AcquaintancesDetails'
+import { AcquaintancesDetails } from '@/Components/App/AcquaintancesDetails'
 
 import './Acquaintances.style.scss'
 
@@ -25,10 +25,10 @@ export const Acquaintances = () => {
   }
 
   if (!!digivice?.currentDetails) {
-    return <AcquintanceDetails />
+    return <AcquaintancesDetails />
   }
 
-  const setAcquintance = (id) => {
+  const setAcquaintance = (id) => {
     setDigivice({
       ...digivice,
       currentDetails: id
@@ -36,30 +36,30 @@ export const Acquaintances = () => {
   }
 
   return (
-    <div className="acquintances">
+    <div className="acquaintances">
       {Object.keys(AllNpcs).map(
         (category) =>
           !!Object.keys(AllNpcs[category]).filter(
             (npc) =>
               AllNpcs.digimon.dorimon.id !== npc &&
-              Object.keys(profile.npcAcquintances).includes(npc)
+              Object.keys(profile.npcAcquaintances).includes(npc)
           ).length && (
-            <Fragment key={`acquintances-${category}`}>
-              <div className="acquintances-category">
+            <Fragment key={`acquaintances-${category}`}>
+              <div className="acquaintances-category">
                 <Text>{category}</Text>
 
-                <div className="acquintances-list">
+                <div className="acquaintances-list">
                   {Object.keys(AllNpcs[category])
                     .filter(
                       (npc) =>
                         AllNpcs.digimon.dorimon.id !== npc &&
-                        Object.keys(profile.npcAcquintances).includes(npc)
+                        Object.keys(profile.npcAcquaintances).includes(npc)
                     )
                     .sort((a, b) => (a > b ? 1 : -1))
                     .map((npc) => (
                       <div
                         className="npc-item"
-                        key={`acquintances-${category}-${AllNpcs[category][npc].id}`}
+                        key={`acquaintances-${category}-${AllNpcs[category][npc].id}`}
                       >
                         <aside>
                           <Portrait
@@ -75,7 +75,7 @@ export const Acquaintances = () => {
                         <footer>
                           <Button
                             onClick={() =>
-                              setAcquintance(AllNpcs[category][npc].id)
+                              setAcquaintance(AllNpcs[category][npc].id)
                             }
                             disabled={!!scene}
                           >

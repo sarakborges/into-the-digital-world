@@ -48,7 +48,7 @@ export const GetStarterDigimon002 = () => {
 
           setProfile({
             ...profile,
-            npcAcquintances: { ...profile.npcAcquintances, dorimon: {} }
+            npcAcquaintances: { ...profile.npcAcquaintances, dorimon: {} }
           })
         }
       }

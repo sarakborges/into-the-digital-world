@@ -46,7 +46,7 @@ export const AcquaintancesDetails = () => {
             <Text>{getTexts('ACQUINTANCES_DESCRIPTION')}</Text>
           </header>
 
-          <main className="acquintance-description">
+          <main className="acquaintance-description">
             <Text as="p">{npc.description}</Text>
           </main>
         </section>

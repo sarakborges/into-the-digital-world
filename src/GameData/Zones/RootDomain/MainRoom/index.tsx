@@ -71,7 +71,7 @@ export const RootDomainMainRoom: ZoneType = {
 
         return (
           !!doneQuests.includes(AllQuests.starterDigimon.id) &&
-          !Object.keys(profile.npcAcquintances).includes(
+          !Object.keys(profile.npcAcquaintances).includes(
             AllNpcs.digimon.nanomon.id
           )
         )
@@ -109,7 +109,7 @@ export const RootDomainMainRoom: ZoneType = {
 
         return (
           !!doneQuests.includes(AllQuests.starterDigimon.id) &&
-          !!Object.keys(profile.npcAcquintances).includes(
+          !!Object.keys(profile.npcAcquaintances).includes(
             AllNpcs.digimon.nanomon.id
           )
         )
@@ -147,7 +147,7 @@ export const RootDomainMainRoom: ZoneType = {
 
         return (
           !!doneQuests.includes(AllQuests.starterDigimon.id) &&
-          !Object.keys(profile.npcAcquintances).includes(
+          !Object.keys(profile.npcAcquaintances).includes(
             AllNpcs.digimon.jijimon.id
           )
         )
@@ -185,7 +185,7 @@ export const RootDomainMainRoom: ZoneType = {
 
         return (
           !!doneQuests.includes(AllQuests.starterDigimon.id) &&
-          !!Object.keys(profile.npcAcquintances).includes(
+          !!Object.keys(profile.npcAcquaintances).includes(
             AllNpcs.digimon.jijimon.id
           )
         )

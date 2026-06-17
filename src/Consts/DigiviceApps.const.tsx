@@ -38,8 +38,8 @@ export const APP_RESEARCHESLIST = {
 }
 
 export const APP_ACQUINTANCES = {
-  id: 'acquintances',
-  app: 'acquintances',
+  id: 'acquaintances',
+  app: 'acquaintances',
   component: <Acquaintances />
 }
 
@@ -59,7 +59,7 @@ export const AllApps = {
   inventory: APP_INVENTORY,
   location: APP_LOCATION,
   journal: APP_JOURNAL,
-  acquintances: APP_ACQUINTANCES,
+  acquaintances: APP_ACQUINTANCES,
   researchesList: APP_RESEARCHESLIST,
   partnersList: APP_PARTNERSLIST,
   achievements: APP_ACHIEVEMENTS,
@@ -70,7 +70,7 @@ export const AllApps = {
 export const DigiviceApps = {
   inventory: APP_INVENTORY,
   journal: APP_JOURNAL,
-  acquintances: APP_ACQUINTANCES,
+  acquaintances: APP_ACQUINTANCES,
   partnersList: APP_PARTNERSLIST,
   save: APP_SAVE,
   logoff: APP_LOGOFF

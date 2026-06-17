@@ -36,7 +36,7 @@ export type ProfileType = {
     [key: string]: PartnerDigimonType
   }
 
-  npcAcquintances: {
+  npcAcquaintances: {
     [key: string]: {}
   }
 
