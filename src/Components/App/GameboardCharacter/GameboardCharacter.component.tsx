@@ -36,7 +36,7 @@ export const GameboardCharacter = ({
           '--character-x': tile?.x || profile.currentZone.x,
           '--character-y': tile?.y || profile.currentZone.y,
           '--character-opacity':
-            tile?.condition === undefined || !!tile.condition?.() ? 1 : 0
+            tile?.condition === undefined || !!tile?.condition?.() ? 1 : 0
         } as React.CSSProperties
       }
     >
@@ -56,7 +56,9 @@ export const GameboardCharacter = ({
           />
 
           <Text>
-            {Object.keys(profile.npcAcquaintances).includes(tile.npc?.id || '')
+            {Object.keys(profile.npcAcquaintances ?? {}).includes(
+              tile.npc?.id || ''
+            )
               ? tile.npc?.name
               : `???`}
           </Text>
