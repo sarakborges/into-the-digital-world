@@ -1,4 +1,8 @@
 .minimap {
+  display: flex;
+  place-items: center;
+  place-content: center;
+
   width: 80px;
   height: 80px;
   overflow: hidden;
@@ -7,13 +11,14 @@
   border: 2px solid var(--color-secondary-strong);
   border-radius: 4px;
 
-  --tile-size: calc(76px / var(--grid-size));
-
   .minimap-container {
+    --container-size: 54px;
+    --tile-size: calc(var(--container-size) / var(--grid-size));
+
     position: relative;
 
-    width: 76px;
-    height: 76px;
+    width: var(--container-size);
+    height: var(--container-size);
 
     transform: rotate(-45deg);
 

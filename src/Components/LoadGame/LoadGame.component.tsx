@@ -2,9 +2,13 @@ import { getTexts } from '@/Helpers/Language'
 
 import { loadData, saveSession } from '@/Helpers/Systems/Data'
 
+import { useDigiviceStore } from '@/Stores/Digivice.store'
+
 import { Button } from '@/DesignSystem/Button'
 
 export const LoadGame = ({ profileId }: { profileId: number }) => {
+  const { setDigivice } = useDigiviceStore((state) => state)
+
   const loadProfile = () => {
     const loadedProfile = loadData({ key: `profile${profileId}` })
 
@@ -13,6 +17,9 @@ export const LoadGame = ({ profileId }: { profileId: number }) => {
     }
 
     saveSession(loadedProfile)
+    setDigivice({
+      isOpen: false
+    })
   }
 
   return <Button onClick={loadProfile}>{getTexts('LOAD_GAME')}</Button>

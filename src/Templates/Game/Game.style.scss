@@ -101,6 +101,8 @@
   .footer-widgets {
     display: flex;
     flex-flow: column;
-    gap: 16px;
+    place-content: space-between;
+
+    height: calc(100cqw - 16px - 40px);
   }
 }
