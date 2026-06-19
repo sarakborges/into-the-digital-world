@@ -108,7 +108,7 @@ export const PartnersList = () => {
 
                     {category === 'others' && (
                       <Button
-                        disabled={!!scene || profile.party.length > 2}
+                        disabled={!!scene || profile.party.length > 3}
                         onClick={() => addToParty(partner.id)}
                       >
                         <BsArrowUp />

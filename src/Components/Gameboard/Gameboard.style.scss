@@ -1,4 +1,6 @@
-.gameboard-wrapper {
+.gameboard-container {
+  position: relative;
+
   display: flex;
   flex-flow: column;
   align-items: center;

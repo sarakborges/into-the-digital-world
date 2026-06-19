@@ -97,12 +97,4 @@
   width: 100%;
   padding: 8px;
   overflow: hidden;
-
-  .footer-widgets {
-    display: flex;
-    flex-flow: column;
-    place-content: space-between;
-
-    height: calc(100cqw - 16px - 40px);
-  }
 }

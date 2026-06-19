@@ -29,7 +29,7 @@ const spawnEnemies = () => {
   const enemyQuantity = Math.floor(
     generateRandomNumber({
       min: 0,
-      max: (maxEnemies || 3) * 5
+      max: (maxEnemies || 4) * 5
     }) / 5
   )
 

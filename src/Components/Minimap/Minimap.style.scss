@@ -1,49 +1,69 @@
 .minimap {
-  display: flex;
-  place-items: center;
-  place-content: center;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
 
-  width: 80px;
-  height: 80px;
-  overflow: hidden;
-
-  background-color: var(--color-neutral-strong);
-  border: 2px solid var(--color-secondary-strong);
-  border-radius: 4px;
+  box-shadow: 0 0 4px var(--color-neutral-strong);
 
   .minimap-container {
-    --container-size: 54px;
-    --tile-size: calc(var(--container-size) / var(--grid-size));
+    display: flex;
+    place-items: center;
+    place-content: center;
 
-    position: relative;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
 
-    width: var(--container-size);
-    height: var(--container-size);
+    background-color: var(--color-neutral-strong);
+    border: 2px solid var(--color-secondary-strong);
+    border-radius: 4px 4px 0 0;
 
-    transform: rotate(-45deg);
+    .map {
+      --container-size: 54px;
+      --tile-size: calc(var(--container-size) / var(--grid-size));
 
-    background-color: var(--color-secondary-weak);
+      position: relative;
 
-    > div {
-      position: absolute;
-      top: calc(var(--tile-y) * var(--tile-size));
-      left: calc(var(--tile-x) * var(--tile-size));
+      width: var(--container-size);
+      height: var(--container-size);
 
-      width: var(--tile-size);
-      height: var(--tile-size);
+      transform: rotate(-45deg);
 
-      &.player {
-        background-color: var(--color-primary-strong);
-      }
+      background-color: var(--color-secondary-weak);
 
-      &.npcs,
-      &.events {
-        background-color: var(--color-neutral-weak);
-      }
+      > div {
+        position: absolute;
+        top: calc(var(--tile-y) * var(--tile-size));
+        left: calc(var(--tile-x) * var(--tile-size));
 
-      &.blocked {
-        background-color: var(--color-neutral-strong);
+        width: var(--tile-size);
+        height: var(--tile-size);
+
+        &.player {
+          background-color: var(--color-primary-strong);
+        }
+
+        &.npcs,
+        &.events {
+          background-color: var(--color-neutral-weak);
+        }
+
+        &.blocked {
+          background-color: var(--color-neutral-strong);
+        }
       }
     }
+  }
+
+  > .text {
+    padding: 2px 4px 4px;
+
+    font-size: 12px;
+    line-height: var(--line-height-single);
+    text-align: center;
+
+    background-color: var(--color-secondary-strong);
+    border-radius: 0 0 4px 4px;
   }
 }

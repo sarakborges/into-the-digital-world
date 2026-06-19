@@ -13,17 +13,13 @@ import { useSettingsStore } from '@/Stores/Settings.store'
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Text } from '@/DesignSystem/Text'
-
 import { InteractableTiles } from '@/Components/InteractableTiles'
-import { Gamepad } from '@/Components/Gamepad'
 import { Gameboard } from '@/Components/Gameboard'
 import { Settings } from '@/Components/Settings'
 import { Digivice } from '@/Components/Digivice'
 import { StartScreen } from '@/Components/StartScreen'
 import { QuestsLogMinimal } from '@/Components/QuestsLogMinimal'
 import { CurrentParty } from '@/Components/CurrentParty'
-import { Minimap } from '@/Components/Minimap'
 
 import './Game.style.scss'
 
@@ -63,20 +59,6 @@ export const Game = () => {
               <Digivice />
               <Settings />
             </div>
-
-            {!!profile && (
-              <div className="current-zone">
-                <Text>
-                  {getTexts('CURRENT_ZONE')
-                    .replaceAll('[ZONE]', AllZones[profile.currentZone.id].name)
-                    .replaceAll(
-                      '[MAP]',
-                      AllZones[profile.currentZone.id][profile.currentZone.map]
-                        .name
-                    )}
-                </Text>
-              </div>
-            )}
           </header>
 
           <Gameboard />
@@ -89,16 +71,7 @@ export const Game = () => {
           <>
             <Scene />
 
-            <div className="screen-footer">
-              {!battle && <CurrentParty />}
-
-              {!scene && (
-                <div className="footer-widgets">
-                  <Minimap />
-                  <Gamepad />
-                </div>
-              )}
-            </div>
+            <div className="screen-footer">{!battle && <CurrentParty />}</div>
           </>
         )}
 

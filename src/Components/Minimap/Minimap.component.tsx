@@ -8,6 +8,8 @@ import { useSceneStore } from '@/Stores/Scene.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import './Minimap.style.scss'
+import { Text } from '@/DesignSystem/Text'
+import { getTexts } from '@/Helpers/Language'
 
 export const Minimap = () => {
   const { profile } = useProfileStore((state) => state)
@@ -56,40 +58,57 @@ export const Minimap = () => {
       style={{ '--grid-size': currentZone.gridSize } as CSSProperties}
     >
       <div className="minimap-container">
-        <div
-          style={
-            {
-              '--tile-x': profile.currentZone.x,
-              '--tile-y': profile.currentZone.y
-            } as CSSProperties
-          }
-          className="player"
-        />
-
-        {npcs.map((tile) => (
+        <div className="map">
           <div
-            style={{ '--tile-x': tile.x, '--tile-y': tile.y } as CSSProperties}
-            className="npcs"
-            key={`minimap-${currentZone.name}-tile-${tile.id}`}
+            style={
+              {
+                '--tile-x': profile.currentZone.x,
+                '--tile-y': profile.currentZone.y
+              } as CSSProperties
+            }
+            className="player"
           />
-        ))}
 
-        {events.map((tile) => (
-          <div
-            style={{ '--tile-x': tile.x, '--tile-y': tile.y } as CSSProperties}
-            className="events"
-            key={`minimap-${currentZone.name}-tile-${tile.id}`}
-          />
-        ))}
+          {npcs.map((tile) => (
+            <div
+              style={
+                { '--tile-x': tile.x, '--tile-y': tile.y } as CSSProperties
+              }
+              className="npcs"
+              key={`minimap-${currentZone.name}-tile-${tile.id}`}
+            />
+          ))}
 
-        {nonExistantTiles.map((tile) => (
-          <div
-            style={{ '--tile-x': tile.x, '--tile-y': tile.y } as CSSProperties}
-            className="blocked"
-            key={`minimap-${currentZone.name}-tile-${tile.id}`}
-          />
-        ))}
+          {events.map((tile) => (
+            <div
+              style={
+                { '--tile-x': tile.x, '--tile-y': tile.y } as CSSProperties
+              }
+              className="events"
+              key={`minimap-${currentZone.name}-tile-${tile.id}`}
+            />
+          ))}
+
+          {nonExistantTiles.map((tile) => (
+            <div
+              style={
+                { '--tile-x': tile.x, '--tile-y': tile.y } as CSSProperties
+              }
+              className="blocked"
+              key={`minimap-${currentZone.name}-tile-${tile.id}`}
+            />
+          ))}
+        </div>
       </div>
+
+      <Text as="p">
+        {getTexts('CURRENT_ZONE')
+          .replaceAll('[ZONE]', AllZones[profile.currentZone.id].name)
+          .replaceAll(
+            '[MAP]',
+            AllZones[profile.currentZone.id][profile.currentZone.map].name
+          )}
+      </Text>
     </div>
   )
 }

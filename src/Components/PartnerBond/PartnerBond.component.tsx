@@ -10,9 +10,7 @@ export const PartnerBond = () => {
       <Text>{getTexts('ENCYCLOPEDIA_BOND').replaceAll('[VALUE]', 0)}</Text>
 
       <div>
-        <Text>-100</Text>
         <div className="bond-bar"></div>
-        <Text>+100</Text>
       </div>
     </div>
   )

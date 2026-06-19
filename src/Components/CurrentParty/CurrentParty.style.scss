@@ -5,9 +5,9 @@
   flex: 1;
 
   .party-digimons {
-    display: flex;
-    flex-flow: column;
-    gap: 4px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
 
     > div {
       position: relative;

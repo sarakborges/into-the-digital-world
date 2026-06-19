@@ -1,6 +1,8 @@
 .gamepad {
-  position: relative;
-  z-index: 102;
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  z-index: 1;
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -14,6 +16,7 @@
     padding: 4px;
 
     background-color: var(--color-secondary-strong);
+    box-shadow: 0 0 4px var(--color-neutral-strong);
 
     svg {
       width: 16px;

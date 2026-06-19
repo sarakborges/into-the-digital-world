@@ -9,6 +9,8 @@ import { useSceneStore } from '@/Stores/Scene.store'
 
 import { GameboardCharacter } from '@/Components/GameboardCharacter'
 import { Battlefield } from '@/Components/Battlefield'
+import { Minimap } from '@/Components/Minimap'
+import { Gamepad } from '@/Components/Gamepad'
 
 import './Gameboard.style.scss'
 
@@ -36,7 +38,7 @@ export const Gameboard = () => {
   return (
     <>
       <div
-        className="gameboard-wrapper"
+        className="gameboard-container"
         style={
           {
             '--tile-size':
@@ -44,6 +46,9 @@ export const Gameboard = () => {
           } as React.CSSProperties
         }
       >
+        <Minimap />
+        {!scene && <Gamepad />}
+
         <main className="gameboard">
           <div className="gameboard-body" style={gameboardBodyVars}>
             {!!(!battle || scene?.currentStage === 'start') && (
