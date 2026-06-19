@@ -44,7 +44,7 @@ export const GameboardCharacter = ({
         <>
           <PlayerAvatar />
 
-          <Text>{profile.name}</Text>
+          {profile.name && <Text>{profile.name}</Text>}
         </>
       )}
 

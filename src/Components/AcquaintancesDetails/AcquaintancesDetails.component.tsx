@@ -33,7 +33,7 @@ export const AcquaintancesDetails = () => {
       <main>
         <section>
           <header>
-            <Text>{getTexts('ACQUINTANCES_FULL_PICTURE')}</Text>
+            <Text>{getTexts('ACQUAINTANCES_FULL_PICTURE')}</Text>
           </header>
 
           <main>
@@ -43,7 +43,7 @@ export const AcquaintancesDetails = () => {
 
         <section>
           <header>
-            <Text>{getTexts('ACQUINTANCES_DESCRIPTION')}</Text>
+            <Text>{getTexts('ACQUAINTANCES_DESCRIPTION')}</Text>
           </header>
 
           <main className="acquaintance-description">

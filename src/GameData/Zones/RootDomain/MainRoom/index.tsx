@@ -223,7 +223,7 @@ export const RootDomainMainRoom: ZoneType = {
         )
 
         return (
-          !!doneQuests.includes(AllQuests.introduction.id) &&
+          !!doneQuests.includes(AllQuests.avatarFixing.id) &&
           !doneQuests.includes(AllQuests.starterDigimon.id)
         )
       }

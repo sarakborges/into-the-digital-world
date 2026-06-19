@@ -29,7 +29,7 @@ export const AvatarCustomization000 = () => {
         action: () => {
           setScene({
             currentScene: 'avatarCustomization',
-            currentStage: '002'
+            currentStage: '003'
           })
         }
       }

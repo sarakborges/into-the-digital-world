@@ -1,36 +1,44 @@
 .minimap {
-  position: relative;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
 
-  width: 60px;
-  height: 60px;
-  margin-left: 11px;
-
-  background-color: var(--color-secondary-weak);
+  background-color: var(--color-neutral-strong);
   border: 2px solid var(--color-secondary-strong);
   border-radius: 4px;
-  transform: rotate(-45deg);
 
-  --tile-size: calc(56px / var(--grid-size));
+  --tile-size: calc(76px / var(--grid-size));
 
-  > div {
-    position: absolute;
-    top: calc(var(--tile-y) * var(--tile-size));
-    left: calc(var(--tile-x) * var(--tile-size));
+  .minimap-container {
+    position: relative;
 
-    width: var(--tile-size);
-    height: var(--tile-size);
+    width: 76px;
+    height: 76px;
 
-    &.player {
-      background-color: var(--color-primary-strong);
-    }
+    transform: rotate(-45deg);
 
-    &.npcs,
-    &.events {
-      background-color: var(--color-neutral-weak);
-    }
+    background-color: var(--color-secondary-weak);
 
-    &.blocked {
-      background-color: var(--color-neutral-strong);
+    > div {
+      position: absolute;
+      top: calc(var(--tile-y) * var(--tile-size));
+      left: calc(var(--tile-x) * var(--tile-size));
+
+      width: var(--tile-size);
+      height: var(--tile-size);
+
+      &.player {
+        background-color: var(--color-primary-strong);
+      }
+
+      &.npcs,
+      &.events {
+        background-color: var(--color-neutral-weak);
+      }
+
+      &.blocked {
+        background-color: var(--color-neutral-strong);
+      }
     }
   }
 }

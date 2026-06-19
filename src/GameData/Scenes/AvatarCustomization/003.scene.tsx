@@ -3,8 +3,10 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { getDialogs } from '@/Helpers/Language'
 import { saveSession } from '@/Helpers/Systems/Data'
+import { isQuestDone } from '@/Helpers/Systems/Quests'
 
 import { AllNpcs } from '@/GameData/Npcs'
+import { AllQuests } from '@/GameData/Quests'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -29,9 +31,22 @@ export const AvatarCustomization003 = () => {
       avatar: avatarCustomization.avatar
     }
 
-    setScene(null)
+    const doneQuests = Object.keys(updatedProfile.quests).filter((quest) =>
+      isQuestDone(quest)
+    )
 
-    setAvatarCustomization({ avatar: avatarCustomization.avatar })
+    if (!doneQuests.includes(AllQuests.avatarFixing.id)) {
+      setScene({
+        currentScene: 'introduction',
+        currentStage: '025'
+      })
+    } else {
+      setScene({
+        currentScene: 'avatarCustomization',
+        currentStage: '002'
+      })
+    }
+
     saveSession(updatedProfile)
   }
 

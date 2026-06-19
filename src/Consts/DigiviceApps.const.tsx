@@ -37,7 +37,7 @@ export const APP_RESEARCHESLIST = {
   component: <MyResearchesList />
 }
 
-export const APP_ACQUINTANCES = {
+export const APP_ACQUAINTANCES = {
   id: 'acquaintances',
   app: 'acquaintances',
   component: <Acquaintances />
@@ -59,7 +59,7 @@ export const AllApps = {
   inventory: APP_INVENTORY,
   location: APP_LOCATION,
   journal: APP_JOURNAL,
-  acquaintances: APP_ACQUINTANCES,
+  acquaintances: APP_ACQUAINTANCES,
   researchesList: APP_RESEARCHESLIST,
   partnersList: APP_PARTNERSLIST,
   achievements: APP_ACHIEVEMENTS,
@@ -70,7 +70,7 @@ export const AllApps = {
 export const DigiviceApps = {
   inventory: APP_INVENTORY,
   journal: APP_JOURNAL,
-  acquaintances: APP_ACQUINTANCES,
+  acquaintances: APP_ACQUAINTANCES,
   partnersList: APP_PARTNERSLIST,
   save: APP_SAVE,
   logoff: APP_LOGOFF

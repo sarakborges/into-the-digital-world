@@ -11,8 +11,8 @@ export const START_SCREEN_TITLE = `Welcome Into the\nDigital World!`
 
 export const PROFILE_CURRENCY = `D$ [CURRENCY]`
 
-export const ACQUINTANCES_FULL_PICTURE = `Full body picture:`
-export const ACQUINTANCES_DESCRIPTION = `General description`
+export const ACQUAINTANCES_FULL_PICTURE = `Full body picture:`
+export const ACQUAINTANCES_DESCRIPTION = `General description`
 
 export const INVENTORY_CATEGORY_GENERAL = `General`
 export const INVENTORY_CATEGORY_KEYITEM = `Key Items`

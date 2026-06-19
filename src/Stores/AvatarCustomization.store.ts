@@ -17,7 +17,16 @@ type AvatarCustomizationStore = {
 
 export const useAvatarCustomizationStore = create<AvatarCustomizationStore>(
   (set) => ({
-    avatarCustomization: null,
+    avatarCustomization: {
+      avatar: {
+        expression: '',
+        skin: '',
+        eyes: '',
+        hair: '',
+        hairColor: '',
+        clothes: ''
+      }
+    },
     setAvatarCustomization: (avatarCustomization) => {
       set({ avatarCustomization })
     }

@@ -1,68 +1,34 @@
-import type { ProfileType } from '@/Types/Profile.type'
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { getDialogs } from '@/Helpers/Language'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
-import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
+
+import { Text } from '@/DesignSystem/Text'
 
 import { Dialog } from '@/Components/Dialog'
-import { AvatarCustomization } from '@/Components/AvatarCustomization'
 
 export const AvatarCustomization002 = () => {
-  const { profile, setProfile } = useProfileStore((state) => state)
-  const { avatarCustomization, setAvatarCustomization } =
-    useAvatarCustomizationStore((state) => state)
   const { setScene } = useSceneStore((state) => state)
-
-  const saveAvatar = () => {
-    if (!avatarCustomization || !profile) {
-      return
-    }
-
-    const updatedProfile: ProfileType = {
-      ...profile,
-      avatar: avatarCustomization.avatar
-    }
-
-    setScene({
-      currentScene: 'introduction',
-      currentStage: '025'
-    })
-
-    setProfile(updatedProfile)
-
-    return
-  }
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.appmon.dressmon,
 
-    content: <AvatarCustomization />,
+    content: (
+      <div className="text-bubble">
+        <Text as="p">{getDialogs('AVATARCUSTOMIZATION_002_TEXT')}</Text>
+      </div>
+    ),
 
     options: [
       {
-        id: 'scene-avatarCustomization-002-back',
-        text: getDialogs('SCENES_BACK_BUTTON'),
-        action: () => {
-          const { avatarCustomization } = useAvatarCustomizationStore.getState()
-
-          if (!avatarCustomization) {
-            return
-          }
-
-          setAvatarCustomization({ ...avatarCustomization, layer: undefined })
-        },
-        disabled: !avatarCustomization?.layer
-      },
-
-      {
         id: 'scene-avatarCustomization-002-confirm',
         text: getDialogs('SCENES_CONFIRM_BUTTON'),
-        action: saveAvatar
+        action: () => {
+          setScene(null)
+        }
       }
     ]
   }
