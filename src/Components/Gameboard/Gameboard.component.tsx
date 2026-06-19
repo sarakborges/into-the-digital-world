@@ -47,7 +47,7 @@ export const Gameboard = () => {
         }
       >
         <Minimap />
-        {!scene && <Gamepad />}
+        <Gamepad />
 
         <main className="gameboard">
           <div className="gameboard-body" style={gameboardBodyVars}>

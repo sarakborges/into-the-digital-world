@@ -4,7 +4,6 @@ import type { ZoneType } from '@/Types/Zone.type'
 
 import { AllZones } from '@/GameData/Zones'
 
-import { useSceneStore } from '@/Stores/Scene.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import './Minimap.style.scss'
@@ -13,9 +12,8 @@ import { getTexts } from '@/Helpers/Language'
 
 export const Minimap = () => {
   const { profile } = useProfileStore((state) => state)
-  const { scene } = useSceneStore((state) => state)
 
-  if (!profile?.currentZone || !!scene) {
+  if (!profile?.currentZone) {
     return
   }
 
