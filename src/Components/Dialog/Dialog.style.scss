@@ -24,6 +24,7 @@
     > .portrait {
       padding: 4px;
       border-radius: 4px 4px 0 0;
+      box-shadow: 0 0 8px var(--color-neutral-strong);
     }
 
     .avatar-content {
@@ -31,22 +32,30 @@
 
       background-color: var(--color-secondary-strong);
       border-radius: 4px 4px 0 0;
+      box-shadow: 0 0 8px var(--color-neutral-strong);
     }
 
     .character-info {
       .character-name {
         .text {
+          padding: 2px 4px 2px 6px;
+
           border-radius: 0 4px 0 0;
+          box-shadow: 0 0 8px var(--color-neutral-strong);
         }
       }
     }
   }
 
   > main {
+    position: relative;
+    z-index: 2;
+
     display: flex;
     gap: 4px;
 
     background-color: var(--color-secondary-strong);
+    box-shadow: 0 0 8px var(--color-neutral-strong);
     border-radius: 0 4px 4px 4px;
 
     padding: 4px;
