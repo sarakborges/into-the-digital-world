@@ -1,12 +1,15 @@
 .scene {
   position: absolute;
-  bottom: 0;
+  top: 100cqw;
   z-index: 104;
 
   width: 100%;
   padding: 8px 8px 12px;
 
   &[data-isdigiviceopen='true'] {
+    top: auto;
+    bottom: 0;
+
     padding: 20px;
   }
 }

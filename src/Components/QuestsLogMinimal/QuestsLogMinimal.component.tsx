@@ -18,10 +18,6 @@ export const QuestsLogMinimal = () => {
     (quest) => !isQuestDone(quest)
   )
 
-  if (!notDoneQuests.length) {
-    return
-  }
-
   return (
     <div className="quests-log-minimal">
       <QuestsList

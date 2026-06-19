@@ -37,8 +37,8 @@ export const RootDomainBedRoom: ZoneType = {
 
     {
       id: 'introductionGennai',
-      x: 6,
-      y: 7,
+      x: 4,
+      y: 6,
 
       condition: () => {
         const profile = useProfileStore.getState().profile
