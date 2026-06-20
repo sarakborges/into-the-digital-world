@@ -99,13 +99,11 @@ export const Minimap = () => {
         </div>
       </div>
 
-      <Text as="p">
-        {getTexts('CURRENT_ZONE')
-          .replaceAll('[ZONE]', AllZones[profile.currentZone.id].name)
-          .replaceAll(
-            '[MAP]',
-            AllZones[profile.currentZone.id][profile.currentZone.map].name
-          )}
+      <Text>
+        {getTexts('CURRENT_ZONE').replaceAll(
+          '[ZONE]',
+          AllZones[profile.currentZone.id].name
+        )}
       </Text>
     </div>
   )

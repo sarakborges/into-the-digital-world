@@ -21,7 +21,7 @@ export const INVENTORY_CATEGORY_CORE = `Cores`
 
 export const GAME_SAVED = `Data saved`
 
-export const CURRENT_ZONE = `[ZONE]\n[MAP]`
+export const CURRENT_ZONE = `[ZONE]`
 export const LOCATION_SELECT = `Select destination:`
 
 export const QUESTS_LOG_TITLE = `Current objectives:`
