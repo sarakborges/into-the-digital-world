@@ -16,6 +16,8 @@ export const AVATARCUSTOMIZATION_001_TEXT = `Hello, master! Are you feeling in n
 export const AVATARCUSTOMIZATION_002_TEXT = `You look incredible, master! If you feel like changing again, I will be here to support you!`
 export const AVATARCUSTOMIZATION_TRIGGER = `Hey, Dressmon. I would like to update my avatar.`
 
+export const DELETEGAME_001 = `This is irreversible. Are you sure you want to proceed?`
+
 export const LOGOFF_001_TEXT = `Ready for taking off?`
 
 export const LOCATION_001_TEXT = `You ready to take on your challenges? Which destination you want to go to?`

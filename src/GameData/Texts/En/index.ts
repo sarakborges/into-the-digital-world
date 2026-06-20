@@ -20,7 +20,6 @@ export const INVENTORY_CATEGORY_EQUIPMENT = `Equipments`
 export const INVENTORY_CATEGORY_CORE = `Cores`
 
 export const GAME_SAVED = `Data saved`
-export const DELETE_GAME = `This is irreversible. Are you sure you want to proceed?`
 
 export const CURRENT_ZONE = `[ZONE]\n[MAP]`
 export const LOCATION_SELECT = `Select destination:`

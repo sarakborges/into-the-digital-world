@@ -1,20 +1,23 @@
-import { getTexts } from '@/Helpers/Language'
 import { saveData, deleteData } from '@/Helpers/Systems/Data'
 
 import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 
-export const deleteGame = (profileId: number) => {
+export const deleteGame = () => {
   const { savedProfiles, setSavedProfiles } = useSavedProfilesStore.getState()
+  const { digivice, setDigivice } = useDigiviceStore.getState()
 
-  if (!confirm(getTexts('DELETE_GAME'))) {
+  if (!digivice?.currentDetails) {
     return
   }
 
   try {
-    deleteData({ key: `profile${profileId}` })
+    deleteData({ key: `profile${digivice.currentDetails}` })
 
     const updatedProfiles =
-      savedProfiles?.filter((profile) => profile.id !== profileId) || null
+      savedProfiles?.filter(
+        (profile) => profile.id !== digivice.currentDetails
+      ) || null
 
     setSavedProfiles(updatedProfiles)
 
@@ -22,7 +25,11 @@ export const deleteGame = (profileId: number) => {
       key: 'profiles',
       value: updatedProfiles
         ?.map((profile) => profile.id)
-        .filter((profile) => profile !== profileId)
+        .filter((profile) => profile !== digivice.currentDetails)
+    })
+
+    setDigivice({
+      isOpen: false
     })
   } catch (e) {
     console.warn(e)

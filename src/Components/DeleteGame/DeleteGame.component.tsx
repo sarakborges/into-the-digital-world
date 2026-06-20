@@ -1,5 +1,5 @@
 import { getTexts } from '@/Helpers/Language'
-import { deleteGame } from '@/Helpers/Systems/Data'
+import { openDeleteGameDialog } from '@/Helpers/Systems/Scenes'
 
 import { Button } from '@/DesignSystem/Button'
 
@@ -8,12 +8,8 @@ export const DeleteGame = ({ profileId }: { profileId: number }) => {
     return
   }
 
-  const resetGame = () => {
-    deleteGame(profileId)
-  }
-
   return (
-    <Button onClick={resetGame} cancel>
+    <Button onClick={() => openDeleteGameDialog(profileId)} cancel>
       {getTexts('DELETE_GAME_FILE')}
     </Button>
   )

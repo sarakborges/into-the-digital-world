@@ -68,14 +68,12 @@ export const Game = () => {
         </div>
 
         {!!profile && (
-          <>
-            <Scene />
-
-            <div className="screen-footer">{!battle && <CurrentParty />}</div>
-          </>
+          <div className="screen-footer">{!battle && <CurrentParty />}</div>
         )}
 
         {!profile && <StartScreen />}
+
+        <Scene />
       </div>
     </div>
   )

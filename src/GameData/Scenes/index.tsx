@@ -9,22 +9,24 @@ import { ResearchScenes } from './Research'
 import { ComposeScenes } from './Compose'
 import { EquipmentScenes } from './Equipment'
 import { LocationScenes } from './Location'
+import { DeleteGameScenes } from './DeleteGame'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 
 export const AllScenes = {
-  introduction: IntroductionScenes,
-  avatarCustomization: AvatarCustomizationScenes,
-  saveGame: SaveGameScenes,
-  logoff: LogoffScenes,
-  getStarterDigimon: GetStarterDigimonScenes,
-  battle: BattleScenes,
-  renamePartner: RenamePartnerScenes,
-  research: ResearchScenes,
-  compose: ComposeScenes,
-  equipment: EquipmentScenes,
-  location: LocationScenes
+  [IntroductionScenes.id]: IntroductionScenes,
+  [AvatarCustomizationScenes.id]: AvatarCustomizationScenes,
+  [SaveGameScenes.id]: SaveGameScenes,
+  [LogoffScenes.id]: LogoffScenes,
+  [GetStarterDigimonScenes.id]: GetStarterDigimonScenes,
+  [BattleScenes.id]: BattleScenes,
+  [RenamePartnerScenes.id]: RenamePartnerScenes,
+  [ResearchScenes.id]: ResearchScenes,
+  [ComposeScenes.id]: ComposeScenes,
+  [EquipmentScenes.id]: EquipmentScenes,
+  [LocationScenes.id]: LocationScenes,
+  [DeleteGameScenes.id]: DeleteGameScenes
 }
 
 export const Scene = () => {
