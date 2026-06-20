@@ -48,6 +48,7 @@ export const ResearchList = () => {
 
                   <Button
                     onClick={() => purchaseResearch(research)}
+                    style="secondary"
                     disabled={
                       !Object.keys(AllResearches[research].cost).every(
                         (item) =>

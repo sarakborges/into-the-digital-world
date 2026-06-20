@@ -57,7 +57,9 @@ export const NewGame = () => {
 
   return (
     <div className="new-game">
-      <Button onClick={createNewProfile}>{getTexts('START_NEW_GAME')}</Button>
+      <Button style="secondary" onClick={createNewProfile}>
+        {getTexts('START_NEW_GAME')}
+      </Button>
     </div>
   )
 }

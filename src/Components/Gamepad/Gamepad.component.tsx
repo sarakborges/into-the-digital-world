@@ -162,6 +162,7 @@ export const Gamepad = () => {
         <Fragment key={`gamepad-${coordinate}`}>
           {!!coordinates[coordinate] ? (
             <Button
+              style="secondary"
               disabled={
                 !canMoveToCoordinate({ ...coordinates[coordinate] }) ||
                 !!game?.isWarping

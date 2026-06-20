@@ -92,6 +92,7 @@ export const PartnersList = () => {
                   <footer>
                     <Button
                       disabled={!!scene}
+                      style="secondary"
                       onClick={() => setCurrentDetails(partner.id)}
                     >
                       <TbListDetails />
@@ -100,6 +101,7 @@ export const PartnersList = () => {
                     {category === 'inParty' && (
                       <Button
                         disabled={!!scene || profile.party.length < 2}
+                        style="secondary"
                         onClick={() => removeFromParty(partner.id)}
                       >
                         <BsArrowDown />
@@ -109,6 +111,7 @@ export const PartnersList = () => {
                     {category === 'others' && (
                       <Button
                         disabled={!!scene || profile.party.length > 3}
+                        style="secondary"
                         onClick={() => addToParty(partner.id)}
                       >
                         <BsArrowUp />

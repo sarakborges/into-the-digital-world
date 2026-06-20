@@ -10,6 +10,7 @@ export const RenamePartner = () => {
   return (
     <Button
       disabled={!!scene}
+      style="secondary"
       onClick={() => {
         setScene({
           currentScene: 'renamePartner',

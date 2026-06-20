@@ -27,7 +27,7 @@ export const AddPartnerToFavorites = () => {
     <Button
       disabled={!!scene}
       onClick={togglePartnerFavorite}
-      cancel={!!partner.isFavorite}
+      style={!!partner.isFavorite ? 'cancel' : 'secondary'}
     >
       {!partner.isFavorite && <BiSolidStar />}
       {!!partner.isFavorite && <BiStar />}

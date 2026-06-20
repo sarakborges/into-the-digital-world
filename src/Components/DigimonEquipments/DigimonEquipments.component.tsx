@@ -59,6 +59,7 @@ export const DigimonEquipments = () => {
                             equipmentId: undefined
                           })
                         }
+                        style="secondary"
                         disabled={!!scene}
                       >
                         <FaTimes />
@@ -68,6 +69,7 @@ export const DigimonEquipments = () => {
                     {!partner.equipments?.[item]?.equipmentId && (
                       <Button
                         onClick={() => openEquipDialog(item)}
+                        style="secondary"
                         disabled={!!scene}
                       >
                         <FaPlus />

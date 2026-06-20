@@ -31,7 +31,9 @@ export const Settings = () => {
           <header className="settings-header">
             <Text>{getTexts('SETTINGS_TITLE')}</Text>
 
-            <Button onClick={toggleModal}>{<FaTimes />}</Button>
+            <Button style="secondary" onClick={toggleModal}>
+              {<FaTimes />}
+            </Button>
           </header>
 
           <main>
@@ -41,7 +43,9 @@ export const Settings = () => {
         </Modal>
       )}
 
-      <Button onClick={toggleModal}>{<FaCog />}</Button>
+      <Button style="secondary" onClick={toggleModal}>
+        {<FaCog />}
+      </Button>
     </div>
   )
 }

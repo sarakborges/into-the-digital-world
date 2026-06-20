@@ -73,6 +73,7 @@ export const Acquaintances = () => {
                             onClick={() =>
                               setCurrentDetails(AllNpcs[category][npc].id)
                             }
+                            style="secondary"
                             disabled={!!scene}
                           >
                             <TbListDetails />

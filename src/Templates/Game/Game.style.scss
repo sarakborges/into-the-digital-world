@@ -38,7 +38,7 @@
       .digivice {
         position: absolute;
         top: 8px;
-        right: 40px;
+        right: 36px;
         z-index: 103;
       }
 
@@ -54,8 +54,6 @@
         z-index: 103;
 
         padding: 4px;
-
-        background-color: var(--color-secondary-strong);
 
         svg {
           width: 16px;

@@ -45,7 +45,7 @@ export const GameFileSave = ({ profile }: { profile: ProfileType }) => {
       </header>
 
       <div className="game-options">
-        <Button onClick={() => saveProfile(profile.id)}>
+        <Button onClick={() => saveProfile(profile.id)} style="secondary">
           {getDialogs('SAVEGAME_001_REWRITE')}
         </Button>
       </div>

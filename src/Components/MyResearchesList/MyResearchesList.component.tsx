@@ -63,7 +63,10 @@ export const MyResearchesList = () => {
                 </header>
 
                 <footer className="research-details">
-                  <Button onClick={() => toggleDetails(research.id)}>
+                  <Button
+                    style="secondary"
+                    onClick={() => toggleDetails(research.id)}
+                  >
                     <BiDetail />
                   </Button>
                 </footer>

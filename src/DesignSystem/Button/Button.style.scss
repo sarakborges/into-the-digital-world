@@ -1,25 +1,4 @@
 .button {
-  @keyframes warning {
-    0% {
-      background-color: transparent;
-      box-shadow: 0 0 0 transparent;
-    }
-
-    50% {
-      background-color: var(--color-secondary-strong);
-      box-shadow: 0 0 8px 4px var(--color-secondary-strong);
-    }
-
-    100% {
-      background-color: transparent;
-      box-shadow: 0 0 0 transparent;
-    }
-  }
-
-  &[data-warning='true'] {
-    animation: warning 2s linear infinite;
-  }
-
   display: flex;
   place-content: center;
   place-items: center;
@@ -33,16 +12,24 @@
   font-size: 14px;
   font-weight: 300;
 
-  transition:
-    background-color 0.3s,
-    opacity 0.3s;
+  transition: background-color 0.3s;
 
-  &:not(.cancel) {
+  &.primary {
     background-color: var(--color-primary-strong);
 
     &:not(:disabled) {
       &:hover {
         background-color: var(--color-primary);
+      }
+    }
+  }
+
+  &.secondary {
+    background-color: var(--color-secondary-strong);
+
+    &:not(:disabled) {
+      &:hover {
+        background-color: var(--color-secondary);
       }
     }
   }
@@ -62,6 +49,16 @@
   }
 
   &:disabled {
-    opacity: 0.4;
+    &.primary {
+      background-color: var(--color-primary-weak);
+    }
+
+    &.secondary {
+      background-color: var(--color-secondary-weak);
+    }
+
+    &.cancel {
+      background-color: var(--color-cancel-weak);
+    }
   }
 }
