@@ -26,7 +26,10 @@ export const Introduction001 = () => {
         id: 'scene-introduction-001-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          addNewQuest(IntroductionQuest.id)
+          addNewQuest({
+            questId: IntroductionQuest.id,
+            ignoreSession: true
+          })
 
           setScene({
             currentScene: 'introduction',

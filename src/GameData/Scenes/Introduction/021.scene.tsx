@@ -35,7 +35,7 @@ export const Introduction021 = () => {
         action: () => {
           setScene(null)
 
-          addNewQuest(AvatarFixingQuest.id)
+          addNewQuest({ questId: AvatarFixingQuest.id })
 
           updateQuestObjective({
             questId: IntroductionQuest.id,

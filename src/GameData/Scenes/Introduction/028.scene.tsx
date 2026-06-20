@@ -38,7 +38,7 @@ export const Introduction028 = () => {
             objectiveValue: true
           })
 
-          addNewQuest(StarterDigimonQuest.id)
+          addNewQuest({ questId: StarterDigimonQuest.id })
 
           const currentProfile = useProfileStore.getState().profile
 

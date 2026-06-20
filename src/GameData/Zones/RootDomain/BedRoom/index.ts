@@ -8,6 +8,7 @@ import { AllNpcs } from '@/GameData/Npcs'
 import { AllQuests } from '@/GameData/Quests'
 
 import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 import { WarpToCorridor } from './Events/WarpToCorridor.event'
 import { TriggerAvatarFixing } from './Events/TriggerAvatarFixing.event'
@@ -37,11 +38,12 @@ export const RootDomainBedRoom: ZoneType = {
 
     {
       id: 'introductionGennai',
-      x: 4,
-      y: 6,
+      x: 2,
+      y: 5,
 
       condition: () => {
         const profile = useProfileStore.getState().profile
+        const scene = useSceneStore.getState().scene
 
         if (!profile) {
           return false
@@ -51,7 +53,11 @@ export const RootDomainBedRoom: ZoneType = {
           isQuestDone(quest)
         )
 
-        return !doneQuests.includes(AllQuests.introduction.id)
+        return (
+          !doneQuests.includes(AllQuests.avatarFixing.id) &&
+          scene?.currentStage !== '001' &&
+          scene?.currentStage !== '002'
+        )
       },
 
       npc: {

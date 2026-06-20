@@ -2,8 +2,14 @@ import { saveSession } from '@/Helpers/Systems/Data'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-export const addNewQuest = (questId: string) => {
-  const { profile } = useProfileStore.getState()
+export const addNewQuest = ({
+  questId,
+  ignoreSession
+}: {
+  questId: string
+  ignoreSession?: boolean
+}) => {
+  const { profile, setProfile } = useProfileStore.getState()
 
   if (!profile) {
     return
@@ -18,6 +24,11 @@ export const addNewQuest = (questId: string) => {
         objectives: {}
       }
     }
+  }
+
+  if (!!ignoreSession) {
+    setProfile(updatedProfile)
+    return
   }
 
   saveSession(updatedProfile)
