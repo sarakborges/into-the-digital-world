@@ -8,13 +8,16 @@ export const BATTLE_LOG_TITLE = `Combat log:`
 export const BATTLE_TARGET_ENEMIES = `enemy `
 export const BATTLE_ATTACK_ENEMIES = `Enemy `
 export const BATTLE_LOG_DEFEATED = `[TARGET] has been defeated.`
-export const BATTLE_LOG_DIGIMON_HEALTHY = `Healthy`
-export const BATTLE_LOG_DIGIMON_DEFEATED = `Defeated`
 
 export const TURN_ORDER_TITLE = `Turn order`
 
+export const BATTLE_LOG_DIGIMON_HEALTHY = `Healthy`
+export const BATTLE_LOG_DIGIMON_DEFEATED = `Defeated`
 export const ATTACK_CONDITION_SHAKEN = `Shaken`
 export const ATTACK_CONDITION_DISTRACTED = `Distracted`
+export const ATTACK_CONDITION_STUNNED = `Stunned`
+export const ATTACK_CONDITION_IRRITATED = `Irritated`
+export const ATTACK_CONDITION_POISONED = `Poisoned`
 
 export const SELECT_ATTACK_TITLE = `What move should [NAME] use?`
 export const SELECT_ATTACK_OPTION = `[NAME] ([COOLDOWN] turns cooldown)`

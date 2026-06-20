@@ -14,8 +14,9 @@ export const DigimonKoromon: BaseDigimonType = {
   equipmentsSlots: 1,
 
   attacks: {
-    [AllAttacks.tackle.id]: null,
-    [AllAttacks.bubbles.id]: null
+    [AllAttacks.bubbles.id]: null,
+    [AllAttacks.acidBubbles.id]: null,
+    [AllAttacks.poisonBubbles.id]: null
   },
 
   families: {

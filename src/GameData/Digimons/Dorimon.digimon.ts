@@ -1,6 +1,6 @@
 import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
 
-import { TackleAttack } from '@/GameData/Attacks/Tackle.attack'
+import { AllAttacks } from '@/GameData/Attacks'
 
 import { DIGIMON_FAMILIES } from '@/Consts/Families.const'
 import { DIGIMON_ATTRIBUTES } from '@/Consts/Attributes.const'
@@ -14,7 +14,9 @@ export const DigimonDorimon: BaseDigimonType = {
   equipmentsSlots: 1,
 
   attacks: {
-    [TackleAttack.id]: null
+    [AllAttacks.tackle.id]: null,
+    [AllAttacks.bubbles.id]: null,
+    [AllAttacks.metalDrop.id]: null
   },
 
   families: {

@@ -4,64 +4,75 @@
   left: 8px;
   z-index: 1;
 
-  box-shadow: 0 0 4px var(--color-neutral-strong);
+  display: flex;
+  gap: 4px;
 
-  .minimap-container {
+  > main {
     display: flex;
-    place-items: center;
-    place-content: center;
+    flex-flow: column;
 
-    width: 80px;
-    height: 80px;
-    overflow: hidden;
+    .minimap-container {
+      display: flex;
+      place-items: center;
+      place-content: center;
 
-    background-color: var(--color-neutral-strong);
-    border: 2px solid var(--color-secondary-strong);
-    border-radius: 4px 4px 0 0;
+      width: 80px;
+      height: 80px;
+      overflow: hidden;
 
-    .map {
-      --container-size: 54px;
-      --tile-size: calc(var(--container-size) / var(--grid-size));
+      background-color: var(--color-neutral-strong);
+      border: 2px solid var(--color-secondary-strong);
+      border-radius: 4px 4px 0 0;
+      box-shadow: 0 0 4px var(--color-neutral-strong);
 
-      position: relative;
+      .map {
+        --container-size: 52px;
+        --tile-size: calc((var(--container-size) / var(--grid-size)));
 
-      width: var(--container-size);
-      height: var(--container-size);
+        position: relative;
 
-      transform: rotate(-45deg);
+        width: var(--container-size);
+        height: var(--container-size);
 
-      background-color: var(--color-secondary-weak);
+        transform: rotate(-45deg);
 
-      > div {
-        position: absolute;
-        top: calc(var(--tile-y) * var(--tile-size));
-        left: calc(var(--tile-x) * var(--tile-size));
+        background-color: var(--color-secondary-weak);
 
-        width: var(--tile-size);
-        height: var(--tile-size);
+        > div {
+          position: absolute;
+          top: calc(var(--tile-y) * var(--tile-size));
+          left: calc(var(--tile-x) * var(--tile-size));
 
-        &.player {
-          background-color: var(--color-primary-strong);
-        }
+          width: var(--tile-size);
+          height: var(--tile-size);
 
-        &.npcs,
-        &.events {
-          background-color: var(--color-neutral-weak);
-        }
+          &.player {
+            background-color: var(--color-primary-strong);
+          }
 
-        &.blocked {
-          background-color: var(--color-neutral-strong);
+          &.npcs,
+          &.events {
+            background-color: var(--color-neutral-weak);
+          }
+
+          &.blocked {
+            background-color: var(--color-neutral-strong);
+          }
         }
       }
     }
-  }
 
-  > .text {
-    padding: 2px 4px 4px;
+    .zone-name {
+      display: flex;
 
-    font-size: 12px;
+      .text {
+        padding: 2px 4px 4px;
 
-    background-color: var(--color-secondary-strong);
-    border-radius: 0 0 4px 4px;
+        font-size: 12px;
+
+        background-color: var(--color-secondary-strong);
+        border-radius: 0 0 4px 4px;
+      }
+    }
   }
 }

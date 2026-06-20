@@ -75,14 +75,14 @@ export const doAttack = (move: string) => {
     )
     const severity = Math.min(Math.max(power - resistance, 1), 3)
 
-    const targetInjuries = Object.values(target.conditions ?? {}).reduce(
-      (acc, cur) => acc + cur,
-      0
-    )
-
-    const isTargetDefeated =
-      calcExtraStats({ digimon: target, stat: 'vit' }) + target.stats.vit <=
-      targetInjuries + severity
+    const isTargetDefeated = isDigimonDefeated({
+      ...target,
+      conditions: {
+        ...target.conditions,
+        [usedMove.condition]:
+          (target.conditions?.[usedMove.condition] || 0) + severity
+      }
+    })
 
     setBattle({
       ...battle,

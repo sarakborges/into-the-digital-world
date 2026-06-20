@@ -1,14 +1,18 @@
+import type { CSSProperties } from 'react'
+
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
 import { isDigimonDefeated } from '@/Helpers/Systems/Battle'
 import { getTexts } from '@/Helpers/Language'
 
+import { CONDITIONS } from '@/Consts/Conditions.const'
+
 import { useBattleStore } from '@/Stores/Battle.store'
 
 import { Text } from '@/DesignSystem/Text'
+import { Portrait } from '@/DesignSystem/Portrait'
 
 import './BattleParty.style.scss'
-import { Portrait } from '@/DesignSystem/Portrait'
 
 export const BattleParty = ({
   party
@@ -42,36 +46,29 @@ export const BattleParty = ({
             battle.turnOrder[0].party === digimon.party &&
             battle.turnOrder[0].index === digimon.index
           }
-          data-defeated={
-            Object.values(digimon.conditions ?? {}).reduce(
-              (acc, cur) => acc + cur,
-              0
-            ) >= digimon.stats.vit
-          }
+          data-defeated={isDigimonDefeated(digimon)}
         >
           <div className="party-digimon">
             <Portrait alt={digimon.name} src={`${digimon.portrait}.webp`} />
             <Text>{digimon.name}</Text>
 
             <div className="conditions">
-              {!isDigimonDefeated(digimon) && !!digimon.conditions && (
-                <Text as="p">
-                  {Object.keys(digimon.conditions)
-                    .map(
-                      (condition) =>
-                        `${getTexts(`ATTACK_CONDITION_${condition.toLocaleUpperCase()}`)} ${digimon.conditions![condition]}`
-                    )
-                    .join('\n')}
-                </Text>
-              )}
+              {!isDigimonDefeated(digimon) &&
+                !!digimon.conditions &&
+                Object.keys(digimon.conditions).map((condition) => (
+                  <div
+                    style={
+                      {
+                        '--icon-color': CONDITIONS[condition].color
+                      } as CSSProperties
+                    }
+                    key={`party-${digimon.party}-digimon-${digimon.index}-condition-${condition}`}
+                  >
+                    <div>{CONDITIONS[condition].icon}</div>
 
-              {!isDigimonDefeated(digimon) && !digimon.conditions && (
-                <Text>{getTexts('BATTLE_LOG_DIGIMON_HEALTHY')}</Text>
-              )}
-
-              {!!isDigimonDefeated(digimon) && (
-                <Text>{getTexts('BATTLE_LOG_DIGIMON_DEFEATED')}</Text>
-              )}
+                    <Text as="p">{digimon.conditions![condition]}</Text>
+                  </div>
+                ))}
             </div>
           </div>
         </div>

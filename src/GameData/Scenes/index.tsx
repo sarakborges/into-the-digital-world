@@ -13,6 +13,7 @@ import { DeleteGameScenes } from './DeleteGame'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
+import { useBattleStore } from '@/Stores/Battle.store'
 
 export const AllScenes = {
   [IntroductionScenes.id]: IntroductionScenes,
@@ -32,6 +33,7 @@ export const AllScenes = {
 export const Scene = () => {
   const { scene } = useSceneStore((state) => state)
   const { digivice } = useDigiviceStore((state) => state)
+  const { battle } = useBattleStore((state) => state)
 
   if (!scene || !digivice) {
     return
@@ -44,7 +46,11 @@ export const Scene = () => {
   }
 
   return (
-    <div className="scene" data-isdigiviceopen={!!digivice.isOpen}>
+    <div
+      className="scene"
+      data-isdigiviceopen={!!digivice.isOpen}
+      data-isinbattle={!!battle}
+    >
       <RenderedScene />
     </div>
   )

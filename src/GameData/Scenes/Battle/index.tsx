@@ -4,7 +4,7 @@ import { BattleTurn } from './BattleTurn.scene'
 import { BattleEnd } from './BattleEnd.scene'
 
 export const BattleScenes = {
-  id: 'Battle',
+  id: 'battle',
   start: BattleStart,
   turn: BattleTurn,
   attack: BattleAttack,

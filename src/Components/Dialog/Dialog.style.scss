@@ -12,6 +12,11 @@
 
     padding: 20px;
   }
+
+  &[data-isinbattle='true'] {
+    top: auto;
+    bottom: 0;
+  }
 }
 
 .dialog {
