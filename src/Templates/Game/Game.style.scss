@@ -35,53 +35,31 @@
     width: 100%;
 
     > header {
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: 101;
-
-      display: flex;
-
-      .current-zone {
-        display: flex;
-        place-items: center;
-
-        height: 40px;
-        padding: 0 8px;
-        flex: 1;
-
-        background-color: var(--color-secondary-strong);
-        box-shadow: 0 0 8px var(--color-neutral-strong);
-
-        .text {
-          font-weight: 300;
-        }
+      .digivice {
+        position: absolute;
+        top: 8px;
+        right: 40px;
+        z-index: 103;
       }
 
-      .player-actions {
-        display: flex;
-        place-content: flex-end;
-        gap: 4px;
+      .settings {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        z-index: 105;
+      }
 
-        padding: 8px;
+      > div > .button {
+        position: relative;
+        z-index: 103;
 
-        .digivice {
-          position: relative;
-          z-index: 103;
-        }
+        padding: 4px;
 
-        > div > .button {
-          position: relative;
-          z-index: 103;
+        background-color: var(--color-secondary-strong);
 
-          padding: 4px;
-
-          background-color: var(--color-secondary-strong);
-
-          svg {
-            width: 16px;
-            height: 16px;
-          }
+        svg {
+          width: 16px;
+          height: 16px;
         }
       }
     }

@@ -30,5 +30,7 @@ export const RENAMEPARTNER_002_TEXT = `Alright. [DIGIMON] it is!`
 
 export const EQUIPMENT_001_TEXT = `Here are your available equipments! Choose wisely.`
 
-export const SAVEGAME_001_TEXT = `Do you wish to save current data, master?`
+export const SAVEGAME_001_TEXT = `Would you like to rewrite a current file, or create a new one?`
 export const SAVEGAME_002_TEXT = `Done!`
+export const SAVEGAME_001_NEWGAME = `Create new file`
+export const SAVEGAME_001_REWRITE = `Rewrite`

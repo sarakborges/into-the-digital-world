@@ -7,29 +7,19 @@ import { getTexts } from '@/Helpers/Language'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
-import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 
 import { Button } from '@/DesignSystem/Button'
 
 import './NewGame.style.scss'
 
 export const NewGame = () => {
-  const { savedProfiles, setSavedProfiles } = useSavedProfilesStore(
-    (state) => state
-  )
   const { setProfile } = useProfileStore((state) => state)
   const { setDigivice } = useDigiviceStore((state) => state)
   const { setScene } = useSceneStore((state) => state)
 
   const createNewProfile = () => {
-    const sortedProfiles = [...(savedProfiles || [])].sort(
-      (a, b) => b.id - a.id
-    )
-
-    const newId = (sortedProfiles?.[0]?.id ?? 0) + 1
-
     const newProfile: ProfileType = {
-      id: newId,
+      id: 0,
       name: '',
       lastSave: new Date(),
       currentTitle: 'chosenChild',
@@ -55,8 +45,6 @@ export const NewGame = () => {
         y: 3
       }
     }
-
-    setSavedProfiles([...sortedProfiles, newProfile])
 
     setProfile(newProfile)
     setDigivice({ isOpen: false })

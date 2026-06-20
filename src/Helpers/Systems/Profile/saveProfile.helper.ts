@@ -1,35 +1,57 @@
-import { useProfileStore } from '@/Stores/Profile.store'
+import { SaveGameScenes } from '@/GameData/Scenes/SaveGame'
 
 import { loadData, saveSession, saveData } from '@/Helpers/Systems/Data'
 
-export const saveProfile = () => {
+import { useSceneStore } from '@/Stores/Scene.store'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
+
+export const saveProfile = (profileId?: number) => {
   try {
     const { profile } = useProfileStore.getState()
+    const { savedProfiles } = useSavedProfilesStore.getState()
+    const { setScene } = useSceneStore.getState()
 
     if (!profile) {
       return
     }
 
-    const updatedProfile = { ...profile, lastSave: new Date() }
-    const savedProfiles = loadData({ key: 'profiles' })
+    const sortedProfiles = [...(savedProfiles || [])].sort(
+      (a, b) => b.id - a.id
+    )
+
+    const newId = (sortedProfiles?.[0]?.id ?? 0) + 1
+
+    const updatedProfile = {
+      ...profile,
+      id: profileId || newId,
+      lastSave: new Date()
+    }
+    const savedProfilesLoaded = loadData({ key: 'profiles' })
 
     saveData({
-      key: `profile${profile.id}`,
+      key: `profile${profileId || newId}`,
       value: updatedProfile
     })
 
     saveSession(updatedProfile)
 
     const updatedProfiles = Array.from(
-      new Set([
-        ...savedProfiles?.map((savedProfile) => savedProfile),
-        profile.id
-      ])
+      new Set(
+        [...(savedProfilesLoaded ?? []), !profileId ? newId : undefined].filter(
+          (profile) => !!profile
+        )
+      )
     )
 
     saveData({
       key: 'profiles',
       value: updatedProfiles
+    })
+
+    setScene({
+      currentScene: SaveGameScenes.id,
+      currentStage: '002'
     })
   } catch (e) {
     console.warn(e)

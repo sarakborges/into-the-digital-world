@@ -1,7 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { getDialogs } from '@/Helpers/Language'
-import { saveProfile } from '@/Helpers/Systems/Profile'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
@@ -10,6 +9,7 @@ import { useSceneStore } from '@/Stores/Scene.store'
 import { Text } from '@/DesignSystem/Text'
 
 import { Dialog } from '@/Components/Dialog'
+import { SaveGame } from '@/Components/SaveGame'
 
 export const SaveGame001 = () => {
   const { setScene } = useSceneStore((state) => state)
@@ -18,8 +18,12 @@ export const SaveGame001 = () => {
     speaker: AllNpcs.appmon.savemon,
 
     content: (
-      <div className="text-bubble">
-        <Text as="p">{getDialogs('SAVEGAME_001_TEXT')}</Text>
+      <div className="dialog-with-reactions">
+        <div className="text-bubble">
+          <Text as="p">{getDialogs('SAVEGAME_001_TEXT')}</Text>
+        </div>
+
+        <SaveGame />
       </div>
     ),
 
@@ -29,19 +33,6 @@ export const SaveGame001 = () => {
         text: getDialogs('SCENES_CANCEL_BUTTON'),
         action: () => {
           setScene(null)
-        }
-      },
-
-      {
-        id: 'scene-savegame-001-confirm',
-        text: getDialogs('SCENES_CONFIRM_BUTTON'),
-        action: () => {
-          saveProfile()
-
-          setScene({
-            currentScene: 'saveGame',
-            currentStage: '002'
-          })
         }
       }
     ]

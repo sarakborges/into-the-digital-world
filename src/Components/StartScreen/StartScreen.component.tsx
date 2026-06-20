@@ -17,9 +17,7 @@ import { GameFile } from '@/Components/GameFile'
 import './StartScreen.style.scss'
 
 export const StartScreen = () => {
-  const { savedProfiles, setSavedProfiles } = useSavedProfilesStore(
-    (state) => state
-  )
+  const { savedProfiles } = useSavedProfilesStore((state) => state)
   const { settings } = useSettingsStore((state) => state)
 
   if (!settings) {

@@ -2,17 +2,17 @@ import type { ProfileType } from '@/Types/Profile.type'
 
 import { AllZones } from '@/GameData/Zones'
 
-import { getTexts } from '@/Helpers/Language'
+import { getDialogs, getTexts } from '@/Helpers/Language'
 
 import { Text } from '@/DesignSystem/Text'
+import { Button } from '@/DesignSystem/Button'
 
-import { LoadGame } from '@/Components/LoadGame'
-import { DeleteGame } from '@/Components/DeleteGame'
 import { PlayerAvatar } from '@/Components/PlayerAvatar'
 
-import './GameFile.style.scss'
+import './GameFileSave.style.scss'
+import { saveProfile } from '@/Helpers/Systems/Profile'
 
-export const GameFile = ({ profile }: { profile: ProfileType }) => {
+export const GameFileSave = ({ profile }: { profile: ProfileType }) => {
   if (!profile.currentZone) {
     return
   }
@@ -20,7 +20,7 @@ export const GameFile = ({ profile }: { profile: ProfileType }) => {
   const zone = AllZones[profile.currentZone.id]
 
   return (
-    <div className="game-file">
+    <div className="game-file-save">
       <PlayerAvatar replaceAvatar={profile.avatar} />
 
       <header>
@@ -45,8 +45,9 @@ export const GameFile = ({ profile }: { profile: ProfileType }) => {
       </header>
 
       <div className="game-options">
-        <LoadGame profileId={profile.id} />
-        <DeleteGame profileId={profile.id} />
+        <Button onClick={() => saveProfile(profile.id)}>
+          {getDialogs('SAVEGAME_001_REWRITE')}
+        </Button>
       </div>
     </div>
   )

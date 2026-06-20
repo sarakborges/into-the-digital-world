@@ -1,0 +1,16 @@
+.save-game {
+  display: flex;
+  flex-flow: column;
+  gap: 4px;
+
+  > .button {
+    width: 100%;
+    padding: 4px 0;
+  }
+
+  .games-list {
+    display: flex;
+    flex-flow: column;
+    gap: 4px;
+  }
+}

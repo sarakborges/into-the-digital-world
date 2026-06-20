@@ -55,10 +55,8 @@ export const Game = () => {
       <div className="main-game">
         <div className="game-container">
           <header>
-            <div className="player-actions">
-              <Digivice />
-              <Settings />
-            </div>
+            <Digivice />
+            <Settings />
           </header>
 
           <Gameboard />

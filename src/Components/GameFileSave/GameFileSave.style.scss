@@ -1,11 +1,11 @@
-.game-file-save {
+.game-file {
   display: flex;
   place-items: center;
   gap: 6px;
 
   padding: 4px;
 
-  background-color: var(--color-secondary);
+  background-color: var(--color-primary);
   border-radius: 4px;
 
   .player-avatar {
@@ -41,7 +41,9 @@
     .button {
       padding: 4px 6px;
 
-      background-color: var(--color-primary-strong);
+      &:not(.cancel) {
+        background-color: var(--color-secondary-strong);
+      }
     }
   }
 }
