@@ -1,13 +1,13 @@
-import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
+import type {PartyDigimonType} from '@/Types/PartyDigimon.type'
 
-import { AllDigimons } from '@/GameData/Digimons'
-import { AllZones } from '@/GameData/Zones'
+import {AllDigimons} from '@/GameData/Digimons'
+import {AllZones} from '@/GameData/Zones'
 
-import { generateRandomNumber, getSuccesses } from '@/Helpers/Math'
+import {generateRandomNumber, getSuccesses} from '@/Helpers/Math'
 
-import { useProfileStore } from '@/Stores/Profile.store'
-import { useSceneStore } from '@/Stores/Scene.store'
-import { useBattleStore } from '@/Stores/Battle.store'
+import {useProfileStore} from '@/Stores/Profile.store'
+import {useSceneStore} from '@/Stores/Scene.store'
+import {useBattleStore} from '@/Stores/Battle.store'
 
 const spawnEnemies = () => {
   const { profile } = useProfileStore.getState()

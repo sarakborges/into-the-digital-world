@@ -1,6 +1,6 @@
-import { isDigimonDefeated } from '@/Helpers/Systems/Battle'
+import {isDigimonDefeated} from '@/Helpers/Systems/Battle'
 
-import { useBattleStore } from '@/Stores/Battle.store'
+import {useBattleStore} from '@/Stores/Battle.store'
 
 export const skipTurn = () => {
   const { battle, setBattle } = useBattleStore.getState()

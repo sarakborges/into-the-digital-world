@@ -1,13 +1,13 @@
-import type { DialogType } from '@/Types/Dialog.type'
+import type {DialogType} from '@/Types/Dialog.type'
 
-import { useSceneStore } from '@/Stores/Scene.store'
+import {useSceneStore} from '@/Stores/Scene.store'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import {AllNpcs} from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/Language'
+import {getDialogs} from '@/Helpers/Language'
 
-import { Dialog } from '@/Components/Dialog'
-import { ResearchList } from '@/Components/ResearchList'
+import {Dialog} from '@/Components/DesignSystem/Dialog'
+import {ResearchList} from '@/Components/Digivice/Apps/ResearchesList'
 
 export const Research002 = () => {
   const { setScene } = useSceneStore((state) => state)

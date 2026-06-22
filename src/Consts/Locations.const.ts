@@ -1,4 +1,4 @@
-import { AllZones } from '@/GameData/Zones'
+import {AllZones} from '@/GameData/Zones'
 
 export const WARP_LOCATIONS = {
   rootDomain: {

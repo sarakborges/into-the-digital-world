@@ -1,17 +1,17 @@
-import type { ZoneType } from '@/Types/Zone.type'
+import type {ZoneType} from '@/Types/Zone.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
-import { AllQuests } from '@/GameData/Quests'
+import {AllNpcs} from '@/GameData/Npcs'
+import {AllQuests} from '@/GameData/Quests'
 
-import { fillGrid } from '@/Helpers/Systems/Zones'
-import { isQuestDone } from '@/Helpers/Systems/Quests'
-import { getDialogs } from '@/Helpers/Language'
+import {fillGrid} from '@/Helpers/Systems/Zones'
+import {isQuestDone} from '@/Helpers/Systems/Quests'
+import {getDialogs} from '@/Helpers/Language'
 
-import { useProfileStore } from '@/Stores/Profile.store'
+import {useProfileStore} from '@/Stores/Profile.store'
 
-import { OpenLocation } from './Events/OpenLocation.event'
+import {OpenLocation} from './Events/OpenLocation.event'
 
-import { grid } from './MainRoom.grid'
+import {grid} from './MainRoom.grid'
 
 const gridSize = 19
 const filledGrid = fillGrid({ grid, gridSize })

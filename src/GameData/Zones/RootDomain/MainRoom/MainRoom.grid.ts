@@ -1,7 +1,7 @@
-import type { TileType } from '@/Types/Tile.type'
-import type { GridType } from '@/Types/Grid.type'
+import type {TileType} from '@/Types/Tile.type'
+import type {GridType} from '@/Types/Grid.type'
 
-import { floorTile } from '@/GameData/Zones/floor.tile'
+import {floorTile} from '@/GameData/Zones/floor.tile'
 
 const currentFloorTile: TileType = {
   ...floorTile

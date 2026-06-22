@@ -1,4 +1,4 @@
-import type { AttributeType } from '@/Types/Attribute.type'
+import type {AttributeType} from '@/Types/Attribute.type'
 
 export const DIGIMON_ATTRIBUTES: AttributeType = {
   va: {

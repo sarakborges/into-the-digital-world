@@ -1,5 +1,5 @@
-import { AllResearches } from '@/GameData/Researches'
-import { useCompositionStore } from '@/Stores/Composition.store'
+import {AllResearches} from '@/GameData/Researches'
+import {useCompositionStore} from '@/Stores/Composition.store'
 
 const getCompositionFill = () => {
   const { composition } = useCompositionStore.getState()

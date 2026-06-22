@@ -1,19 +1,19 @@
-import type { ProfileType } from '@/Types/Profile.type'
-import type { DialogType } from '@/Types/Dialog.type'
+import type {ProfileType} from '@/Types/Profile.type'
+import type {DialogType} from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
-import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
+import {AllNpcs} from '@/GameData/Npcs'
+import {StarterDigimonQuest} from '@/GameData/Quests/StarterDigimon.quest'
 
-import { getDialogs } from '@/Helpers/Language'
-import { saveSession } from '@/Helpers/Systems/Data'
-import { updateQuestObjective } from '@/Helpers/Systems/Quests'
+import {getDialogs} from '@/Helpers/Language'
+import {saveSession} from '@/Helpers/Systems/Data'
+import {updateQuestObjective} from '@/Helpers/Systems/Quests'
 
-import { Text } from '@/DesignSystem/Text'
+import {Text} from '@/Components/DesignSystem/Text'
 
-import { useSceneStore } from '@/Stores/Scene.store'
-import { useProfileStore } from '@/Stores/Profile.store'
+import {useSceneStore} from '@/Stores/Scene.store'
+import {useProfileStore} from '@/Stores/Profile.store'
 
-import { Dialog } from '@/Components/Dialog'
+import {Dialog} from '@/Components/DesignSystem/Dialog'
 
 export const GetStarterDigimon021 = () => {
   const { setScene } = useSceneStore((state) => state)

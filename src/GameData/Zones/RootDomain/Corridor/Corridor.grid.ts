@@ -1,6 +1,6 @@
-import type { GridType } from '@/Types/Grid.type'
+import type {GridType} from '@/Types/Grid.type'
 
-import { floorTile } from '@/GameData/Zones/floor.tile'
+import {floorTile} from '@/GameData/Zones/floor.tile'
 
 const fullFloorRow = {
   1: { ...floorTile },

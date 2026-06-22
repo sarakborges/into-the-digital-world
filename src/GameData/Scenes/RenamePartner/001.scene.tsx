@@ -1,20 +1,20 @@
-import type { DialogType } from '@/Types/Dialog.type'
+import type {DialogType} from '@/Types/Dialog.type'
 
-import { useSceneStore } from '@/Stores/Scene.store'
+import {useSceneStore} from '@/Stores/Scene.store'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import {AllNpcs} from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/Language'
+import {getDialogs} from '@/Helpers/Language'
 
-import { useProfileStore } from '@/Stores/Profile.store'
-import { useDigiviceStore } from '@/Stores/Digivice.store'
+import {useProfileStore} from '@/Stores/Profile.store'
+import {useDigiviceStore} from '@/Stores/Digivice.store'
 
-import { Text } from '@/DesignSystem/Text'
-import { Input } from '@/DesignSystem/Input'
+import {Text} from '@/Components/DesignSystem/Text'
+import {Input} from '@/Components/DesignSystem/Input'
 
-import { Dialog } from '@/Components/Dialog'
-import { AllDigimons } from '@/GameData/Digimons'
-import { saveSession } from '@/Helpers/Systems/Data'
+import {Dialog} from '@/Components/DesignSystem/Dialog'
+import {AllDigimons} from '@/GameData/Digimons'
+import {saveSession} from '@/Helpers/Systems/Data'
 
 export const RenamePartner001 = () => {
   const { profile } = useProfileStore((state) => state)

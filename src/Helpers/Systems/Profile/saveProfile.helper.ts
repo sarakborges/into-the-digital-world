@@ -1,10 +1,10 @@
-import { SaveGameScenes } from '@/GameData/Scenes/SaveGame'
+import {SaveGameScenes} from '@/GameData/Scenes/SaveGame'
 
-import { loadData, saveSession, saveData } from '@/Helpers/Systems/Data'
+import {loadData, saveSession, saveData} from '@/Helpers/Systems/Data'
 
-import { useSceneStore } from '@/Stores/Scene.store'
-import { useProfileStore } from '@/Stores/Profile.store'
-import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
+import {useSceneStore} from '@/Stores/Scene.store'
+import {useProfileStore} from '@/Stores/Profile.store'
+import {useSavedProfilesStore} from '@/Stores/SavedProfiles.store'
 
 export const saveProfile = (profileId?: number) => {
   try {

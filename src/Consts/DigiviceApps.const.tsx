@@ -1,9 +1,10 @@
-import { Acquaintances } from '@/Components/Acquaintances'
-import { PartnersList } from '@/Components/PartnersList'
-import { Inventory } from '@/Components/Inventory'
-import { MyResearchesList } from '@/Components/MyResearchesList'
-import { Location } from '@/Components/Location'
-import { QuestsLog } from '@/Components/QuestsLog'
+import {Acquaintances} from '@/Components/Digivice/Apps/Acquaintances/Container'
+import {PartnersList} from '@/Components/Digivice/Apps/Partners/PartnersList'
+import {Inventory} from '@/Components/Digivice/Apps/Inventory'
+import {MyResearchesList} from '@/Components/Digivice/Apps/MyResearchesList'
+import {Location} from '@/Components/Digivice/Apps/Location'
+import {QuestsLog} from '@/Components/Digivice/Apps/QuestsLog/Container'
+import {Map} from '@/Components/Global/Map'
 
 export const APP_SAVE = {
   id: 'save',
@@ -49,6 +50,12 @@ export const APP_LOCATION = {
   component: <Location />
 }
 
+export const APP_MAP = {
+  id: 'map',
+  app: 'map',
+  component: <Map />
+}
+
 export const APP_JOURNAL = {
   id: 'journal',
   app: 'journal',
@@ -59,6 +66,7 @@ export const AllApps = {
   inventory: APP_INVENTORY,
   location: APP_LOCATION,
   journal: APP_JOURNAL,
+  map: APP_MAP,
   acquaintances: APP_ACQUAINTANCES,
   researchesList: APP_RESEARCHESLIST,
   partnersList: APP_PARTNERSLIST,
@@ -70,6 +78,7 @@ export const AllApps = {
 export const DigiviceApps = {
   inventory: APP_INVENTORY,
   journal: APP_JOURNAL,
+  map: APP_MAP,
   acquaintances: APP_ACQUAINTANCES,
   partnersList: APP_PARTNERSLIST,
   save: APP_SAVE,

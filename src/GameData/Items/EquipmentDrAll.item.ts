@@ -1,9 +1,9 @@
-import type { ItemType } from '@/Types/Item.type'
+import type {ItemType} from '@/Types/Item.type'
 
-import { AllDigimons } from '@/GameData/Digimons'
+import {AllDigimons} from '@/GameData/Digimons'
 
-import { useProfileStore } from '@/Stores/Profile.store'
-import { useDigiviceStore } from '@/Stores/Digivice.store'
+import {useProfileStore} from '@/Stores/Profile.store'
+import {useDigiviceStore} from '@/Stores/Digivice.store'
 
 export const EquipmentDrAllItem: ItemType = {
   id: 'equipmentDrAll',

@@ -1,6 +1,6 @@
-import { create } from 'zustand'
+import {create} from 'zustand'
 
-import type { CompositionType } from '@/Types/Composition.type'
+import type {CompositionType} from '@/Types/Composition.type'
 
 type CompositionStore = {
   composition: CompositionType | null

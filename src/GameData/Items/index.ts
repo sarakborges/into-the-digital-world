@@ -1,15 +1,15 @@
-import type { ItemType } from '@/Types/Item.type'
+import type {ItemType} from '@/Types/Item.type'
 
-import { DigiviceItem } from './Digivice.item'
+import {DigiviceItem} from './Digivice.item'
 
-import { EquipmentDrAllItem } from './EquipmentDrAll.item'
+import {EquipmentDrAllItem} from './EquipmentDrAll.item'
 
-import { KoromonCoreItem } from './KoromonCore.item'
-import { DorimonCoreItem } from './DorimonCore.item'
+import {KoromonCoreItem} from './KoromonCore.item'
+import {DorimonCoreItem} from './DorimonCore.item'
 
-import { VirusBustersCoreItem } from './VirusBustersCore.item'
-import { DragonsRoarCoreItem } from './DragonsRoarCore.item'
-import { NatureSpiritsCoreItem } from './NatureSpiritsCore.item'
+import {VirusBustersCoreItem} from './VirusBustersCore.item'
+import {DragonsRoarCoreItem} from './DragonsRoarCore.item'
+import {NatureSpiritsCoreItem} from './NatureSpiritsCore.item'
 
 export const AllItems: {
   [itemId: string]: ItemType

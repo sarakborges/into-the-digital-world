@@ -1,4 +1,4 @@
-import { useSceneStore } from '@/Stores/Scene.store'
+import {useSceneStore} from '@/Stores/Scene.store'
 
 export const TriggerAvatarCustomization = () => {
   const setScene = useSceneStore.getState().setScene

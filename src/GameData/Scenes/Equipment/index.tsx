@@ -1,4 +1,4 @@
-import { Equipment001 } from './001.scene'
+import {Equipment001} from './001.scene'
 
 export const EquipmentScenes = {
   id: 'equipment',

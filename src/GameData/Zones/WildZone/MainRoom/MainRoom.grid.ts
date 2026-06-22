@@ -1,9 +1,9 @@
-import type { TileType } from '@/Types/Tile.type'
-import type { GridType } from '@/Types/Grid.type'
+import type {TileType} from '@/Types/Tile.type'
+import type {GridType} from '@/Types/Grid.type'
 
-import { floorTile } from '@/GameData/Zones/floor.tile'
+import {floorTile} from '@/GameData/Zones/floor.tile'
 
-import { WildZoneKoromon } from './Enemies/Koromon.enemy'
+import {WildZoneKoromon} from './Enemies/Koromon.enemy'
 
 const currentFloorTile: TileType = {
   ...floorTile,

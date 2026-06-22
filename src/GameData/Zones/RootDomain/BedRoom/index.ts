@@ -1,20 +1,20 @@
-import type { ZoneType } from '@/Types/Zone.type'
+import type {ZoneType} from '@/Types/Zone.type'
 
-import { fillGrid } from '@/Helpers/Systems/Zones'
-import { getDialogs } from '@/Helpers/Language'
-import { isQuestDone } from '@/Helpers/Systems/Quests'
+import {fillGrid} from '@/Helpers/Systems/Zones'
+import {getDialogs} from '@/Helpers/Language'
+import {isQuestDone} from '@/Helpers/Systems/Quests'
 
-import { AllNpcs } from '@/GameData/Npcs'
-import { AllQuests } from '@/GameData/Quests'
+import {AllNpcs} from '@/GameData/Npcs'
+import {AllQuests} from '@/GameData/Quests'
 
-import { useProfileStore } from '@/Stores/Profile.store'
-import { useSceneStore } from '@/Stores/Scene.store'
+import {useProfileStore} from '@/Stores/Profile.store'
+import {useSceneStore} from '@/Stores/Scene.store'
 
-import { WarpToCorridor } from './Events/WarpToCorridor.event'
-import { TriggerAvatarFixing } from './Events/TriggerAvatarFixing.event'
-import { TriggerAvatarCustomization } from './Events/TriggerAvatarCustomization.event'
+import {WarpToCorridor} from './Events/WarpToCorridor.event'
+import {TriggerAvatarFixing} from './Events/TriggerAvatarFixing.event'
+import {TriggerAvatarCustomization} from './Events/TriggerAvatarCustomization.event'
 
-import { grid } from './BedRoom.grid'
+import {grid} from './BedRoom.grid'
 
 const gridSize = 13
 const filledGrid = fillGrid({ grid, gridSize })

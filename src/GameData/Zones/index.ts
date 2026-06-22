@@ -1,10 +1,10 @@
 // Root Domain
-import { RootDomainMainRoom } from './RootDomain/MainRoom'
-import { RootDomainCorridor } from './RootDomain/Corridor'
-import { RootDomainBedRoom } from './RootDomain/BedRoom'
+import {RootDomainMainRoom} from './RootDomain/MainRoom'
+import {RootDomainCorridor} from './RootDomain/Corridor'
+import {RootDomainBedRoom} from './RootDomain/BedRoom'
 
 // Wild Zone
-import { WildZoneMainRoom } from './WildZone/MainRoom'
+import {WildZoneMainRoom} from './WildZone/MainRoom'
 
 export const AllZones = {
   rootDomain: {

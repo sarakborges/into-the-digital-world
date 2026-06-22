@@ -1,0 +1,30 @@
+.minimap {
+  --map-size: 80px;
+  --container-size: 52px;
+
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 1;
+
+  display: flex;
+  gap: 4px;
+
+  > main {
+    display: flex;
+    flex-flow: column;
+
+    .zone-name {
+      display: flex;
+
+      .text {
+        padding: 2px 4px 4px;
+
+        font-size: 12px;
+
+        background-color: var(--color-secondary-strong);
+        border-radius: 0 0 4px 4px;
+      }
+    }
+  }
+}

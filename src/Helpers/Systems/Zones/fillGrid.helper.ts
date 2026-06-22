@@ -1,4 +1,4 @@
-import type { GridType } from '@/Types/Grid.type'
+import type {GridType} from '@/Types/Grid.type'
 
 export const fillGrid = ({
   grid,

@@ -1,6 +1,6 @@
-import { createRoot } from 'react-dom/client'
+import {createRoot} from 'react-dom/client'
 
-import { Game } from '@/Templates/Game'
+import {Game} from '@/Components/Main/Game'
 
 import '@/Assets/main.css'
 

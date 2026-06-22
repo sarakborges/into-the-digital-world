@@ -1,17 +1,17 @@
-import type { DialogType } from '@/Types/Dialog.type'
+import type {DialogType} from '@/Types/Dialog.type'
 
-import { getDialogs } from '@/Helpers/Language'
-import { saveSession } from '@/Helpers/Systems/Data'
+import {getDialogs} from '@/Helpers/Language'
+import {saveSession} from '@/Helpers/Systems/Data'
 
-import { AllNpcs } from '@/GameData/Npcs'
-import { AllResearches } from '@/GameData/Researches'
+import {AllNpcs} from '@/GameData/Npcs'
+import {AllResearches} from '@/GameData/Researches'
 
-import { useSceneStore } from '@/Stores/Scene.store'
-import { useProfileStore } from '@/Stores/Profile.store'
-import { useCompositionStore } from '@/Stores/Composition.store'
+import {useSceneStore} from '@/Stores/Scene.store'
+import {useProfileStore} from '@/Stores/Profile.store'
+import {useCompositionStore} from '@/Stores/Composition.store'
 
-import { Dialog } from '@/Components/Dialog'
-import { Compose } from '@/Components/Compose'
+import {Dialog} from '@/Components/DesignSystem/Dialog'
+import {Compose} from '@/Components/Digivice/Apps/Compose/Container'
 
 export const Compose003 = () => {
   const { setScene } = useSceneStore((state) => state)

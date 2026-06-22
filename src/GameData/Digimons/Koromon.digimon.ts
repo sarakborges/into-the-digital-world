@@ -1,9 +1,9 @@
-import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
+import type {BaseDigimonType} from '@/Types/BaseDigimon.type'
 
-import { AllAttacks } from '@/GameData/Attacks'
+import {AllAttacks} from '@/GameData/Attacks'
 
-import { DIGIMON_FAMILIES } from '@/Consts/Families.const'
-import { DIGIMON_ATTRIBUTES } from '@/Consts/Attributes.const'
+import {DIGIMON_FAMILIES} from '@/Consts/Families.const'
+import {DIGIMON_ATTRIBUTES} from '@/Consts/Attributes.const'
 
 export const DigimonKoromon: BaseDigimonType = {
   id: 'koromon',

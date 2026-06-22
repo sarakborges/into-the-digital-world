@@ -1,5 +1,5 @@
-import { AllQuests } from '@/GameData/Quests'
-import { useProfileStore } from '@/Stores/Profile.store'
+import {AllQuests} from '@/GameData/Quests'
+import {useProfileStore} from '@/Stores/Profile.store'
 
 export const isObjectiveDone = ({
   questId,

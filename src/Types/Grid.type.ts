@@ -1,4 +1,4 @@
-import type { TileType } from '@/Types/Tile.type'
+import type {TileType} from '@/Types/Tile.type'
 
 export type GridType = {
   [y: number]: {

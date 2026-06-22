@@ -1,19 +1,19 @@
-import type { DialogType } from '@/Types/Dialog.type'
+import type {DialogType} from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
-import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
-import { AvatarFixingQuest } from '@/GameData/Quests/AvatarFixing.quest'
+import {AllNpcs} from '@/GameData/Npcs'
+import {StarterDigimonQuest} from '@/GameData/Quests/StarterDigimon.quest'
+import {AvatarFixingQuest} from '@/GameData/Quests/AvatarFixing.quest'
 
-import { getDialogs } from '@/Helpers/Language'
-import { saveSession } from '@/Helpers/Systems/Data'
-import { addNewQuest, updateQuestObjective } from '@/Helpers/Systems/Quests'
+import {getDialogs} from '@/Helpers/Language'
+import {saveSession} from '@/Helpers/Systems/Data'
+import {addNewQuest, updateQuestObjective} from '@/Helpers/Systems/Quests'
 
-import { useSceneStore } from '@/Stores/Scene.store'
-import { useProfileStore } from '@/Stores/Profile.store'
+import {useSceneStore} from '@/Stores/Scene.store'
+import {useProfileStore} from '@/Stores/Profile.store'
 
-import { Text } from '@/DesignSystem/Text'
+import {Text} from '@/Components/DesignSystem/Text'
 
-import { Dialog } from '@/Components/Dialog'
+import {Dialog} from '@/Components/DesignSystem/Dialog'
 
 export const Introduction028 = () => {
   const { setScene } = useSceneStore((state) => state)

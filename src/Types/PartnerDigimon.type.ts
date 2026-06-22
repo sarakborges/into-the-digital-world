@@ -1,4 +1,4 @@
-import type { EquipmentType } from '@/Types/Equipment.type'
+import type {EquipmentType} from '@/Types/Equipment.type'
 
 export type PartnerDigimonType = {
   id: number

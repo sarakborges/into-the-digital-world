@@ -1,6 +1,6 @@
-import { create } from 'zustand'
+import {create} from 'zustand'
 
-import type { AvatarType } from '@/Types/Avatar.type'
+import type {AvatarType} from '@/Types/Avatar.type'
 
 type AvatarCustomizationStore = {
   avatarCustomization: {

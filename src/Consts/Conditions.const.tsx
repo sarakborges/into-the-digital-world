@@ -1,5 +1,5 @@
-import { BiDizzy } from 'react-icons/bi'
-import { FaFlask, FaQuestion, FaSkull, FaWind } from 'react-icons/fa'
+import {BiDizzy} from 'react-icons/bi'
+import {FaFlask, FaQuestion, FaSkull, FaWind} from 'react-icons/fa'
 
 export const CONDITIONS = {
   shaken: {

@@ -1,24 +1,24 @@
-import type { ZoneType } from '@/Types/Zone.type'
+import type {ZoneType} from '@/Types/Zone.type'
 
-import { fillGrid } from '@/Helpers/Systems/Zones'
-import { getDialogs } from '@/Helpers/Language'
-import { isQuestDone } from '@/Helpers/Systems/Quests'
+import {fillGrid} from '@/Helpers/Systems/Zones'
+import {getDialogs} from '@/Helpers/Language'
+import {isQuestDone} from '@/Helpers/Systems/Quests'
 
-import { AllNpcs } from '@/GameData/Npcs'
-import { AllQuests } from '@/GameData/Quests'
+import {AllNpcs} from '@/GameData/Npcs'
+import {AllQuests} from '@/GameData/Quests'
 
-import { useProfileStore } from '@/Stores/Profile.store'
+import {useProfileStore} from '@/Stores/Profile.store'
 
-import { WarpToCorridor } from './Events/WarpToCorridor.event'
-import { TriggerGetStarterDigimon } from './Events/TriggerGetStarterDigimon.event'
-import { OpenResearch } from './Events/OpenResearch.event'
-import { OpenNanomonIntroduction } from './Events/OpenNanomonIntroduction.event'
-import { OpenJijimonIntroduction } from './Events/OpenJijimonIntroduction.event'
-import { OpenCompose } from './Events/OpenCompose.event'
+import {WarpToCorridor} from './Events/WarpToCorridor.event'
+import {TriggerGetStarterDigimon} from './Events/TriggerGetStarterDigimon.event'
+import {OpenResearch} from './Events/OpenResearch.event'
+import {OpenNanomonIntroduction} from './Events/OpenNanomonIntroduction.event'
+import {OpenJijimonIntroduction} from './Events/OpenJijimonIntroduction.event'
+import {OpenCompose} from './Events/OpenCompose.event'
 
-import { OpenLocation } from './Events/OpenLocation.event'
+import {OpenLocation} from './Events/OpenLocation.event'
 
-import { grid } from './MainRoom.grid'
+import {grid} from './MainRoom.grid'
 
 const gridSize = 19
 const filledGrid = fillGrid({ grid, gridSize })

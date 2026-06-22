@@ -1,13 +1,13 @@
-import type { DialogType } from '@/Types/Dialog.type'
+import type {DialogType} from '@/Types/Dialog.type'
 
-import { useSceneStore } from '@/Stores/Scene.store'
+import {useSceneStore} from '@/Stores/Scene.store'
 
-import { deleteGame } from '@/Helpers/Systems/Data'
-import { getDialogs } from '@/Helpers/Language'
+import {deleteGame} from '@/Helpers/Systems/Data'
+import {getDialogs} from '@/Helpers/Language'
 
-import { Text } from '@/DesignSystem/Text'
+import {Text} from '@/Components/DesignSystem/Text'
 
-import { Dialog } from '@/Components/Dialog'
+import {Dialog} from '@/Components/DesignSystem/Dialog'
 
 export const DeleteGame001 = () => {
   const { setScene } = useSceneStore((state) => state)

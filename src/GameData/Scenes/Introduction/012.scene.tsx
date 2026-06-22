@@ -1,15 +1,15 @@
-import type { DialogType } from '@/Types/Dialog.type'
+import type {DialogType} from '@/Types/Dialog.type'
 
-import { getDialogs } from '@/Helpers/Language'
+import {getDialogs} from '@/Helpers/Language'
 
-import { AllItems } from '@/GameData/Items'
+import {AllItems} from '@/GameData/Items'
 
-import { useSceneStore } from '@/Stores/Scene.store'
+import {useSceneStore} from '@/Stores/Scene.store'
 
-import { Text } from '@/DesignSystem/Text'
-import { Portrait } from '@/DesignSystem/Portrait'
+import {Text} from '@/Components/DesignSystem/Text'
+import {Portrait} from '@/Components/DesignSystem/Portrait'
 
-import { Dialog } from '@/Components/Dialog'
+import {Dialog} from '@/Components/DesignSystem/Dialog'
 
 export const Introduction012 = () => {
   const { setScene } = useSceneStore((state) => state)

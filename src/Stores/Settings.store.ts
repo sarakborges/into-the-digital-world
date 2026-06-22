@@ -1,6 +1,6 @@
-import { create } from 'zustand'
+import {create} from 'zustand'
 
-import type { SettingsType } from '@/Types/Settings.type'
+import type {SettingsType} from '@/Types/Settings.type'
 
 type SettingsStore = {
   settings: SettingsType | null

@@ -1,17 +1,17 @@
-import type { DialogType } from '@/Types/Dialog.type'
+import type {DialogType} from '@/Types/Dialog.type'
 
-import { useSceneStore } from '@/Stores/Scene.store'
+import {useSceneStore} from '@/Stores/Scene.store'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import {AllNpcs} from '@/GameData/Npcs'
 
-import { useProfileStore } from '@/Stores/Profile.store'
-import { deleteSession } from '@/Helpers/Systems/Data'
+import {useProfileStore} from '@/Stores/Profile.store'
+import {deleteSession} from '@/Helpers/Systems/Data'
 
-import { getDialogs } from '@/Helpers/Language'
+import {getDialogs} from '@/Helpers/Language'
 
-import { Text } from '@/DesignSystem/Text'
+import {Text} from '@/Components/DesignSystem/Text'
 
-import { Dialog } from '@/Components/Dialog'
+import {Dialog} from '@/Components/DesignSystem/Dialog'
 
 export const Logoff001 = () => {
   const { setProfile } = useProfileStore((state) => state)

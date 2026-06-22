@@ -1,4 +1,4 @@
-import type { AttackType } from '@/Types/Attack.type'
+import type {AttackType} from '@/Types/Attack.type'
 
 export const TackleAttack: AttackType = {
   id: 'tackle',

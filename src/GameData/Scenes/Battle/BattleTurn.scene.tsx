@@ -1,17 +1,17 @@
-import type { DialogType } from '@/Types/Dialog.type'
+import type {DialogType} from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import {AllNpcs} from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/Language'
-import { doAttack } from '@/Helpers/Systems/Battle'
-import { generateRandomNumber } from '@/Helpers/Math'
+import {getDialogs} from '@/Helpers/Language'
+import {doAttack} from '@/Helpers/Systems/Battle'
+import {generateRandomNumber} from '@/Helpers/Math'
 
-import { useBattleStore } from '@/Stores/Battle.store'
+import {useBattleStore} from '@/Stores/Battle.store'
 
-import { Text } from '@/DesignSystem/Text'
+import {Text} from '@/Components/DesignSystem/Text'
 
-import { Dialog } from '@/Components/Dialog'
-import { SelectAttack } from '@/Components/SelectAttack'
+import {Dialog} from '@/Components/DesignSystem/Dialog'
+import {SelectAttack} from '@/Components/Combat/SelectAttack'
 
 export const BattleTurn = () => {
   const { battle } = useBattleStore((state) => state)

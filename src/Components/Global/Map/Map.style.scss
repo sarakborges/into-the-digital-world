@@ -1,0 +1,49 @@
+.map {
+  --tile-size: calc(var(--container-size) / var(--grid-size));
+
+  display: flex;
+  place-items: center;
+  place-content: center;
+
+  width: var(--map-size);
+  height: var(--map-size);
+  overflow: hidden;
+
+  background-color: var(--color-neutral-strong);
+  border: 2px solid var(--color-secondary-strong);
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 0 4px var(--color-neutral-strong);
+
+  .map-tiles {
+    position: relative;
+
+    width: var(--container-size);
+    height: var(--container-size);
+
+    transform: rotate(-45deg);
+
+    background-color: var(--color-secondary-weak);
+
+    > div {
+      position: absolute;
+      top: calc(var(--tile-y) * var(--tile-size));
+      left: calc(var(--tile-x) * var(--tile-size));
+
+      width: var(--tile-size);
+      height: var(--tile-size);
+
+      &.player {
+        background-color: var(--color-primary-strong);
+      }
+
+      &.npcs,
+      &.events {
+        background-color: var(--color-neutral-weak);
+      }
+
+      &.blocked {
+        background-color: var(--color-neutral-strong);
+      }
+    }
+  }
+}

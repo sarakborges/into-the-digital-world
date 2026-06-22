@@ -1,16 +1,16 @@
-import type { DialogType } from '@/Types/Dialog.type'
+import type {DialogType} from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import {AllNpcs} from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/Language'
+import {getDialogs} from '@/Helpers/Language'
 
-import { useBattleStore } from '@/Stores/Battle.store'
-import { useSceneStore } from '@/Stores/Scene.store'
+import {useBattleStore} from '@/Stores/Battle.store'
+import {useSceneStore} from '@/Stores/Scene.store'
 
-import { Dialog } from '@/Components/Dialog'
-import { CombatLogEntry } from '@/Components/CombatLogEntry'
-import { generateRandomNumber } from '@/Helpers/Math'
-import { isDigimonDefeated } from '@/Helpers/Systems/Battle'
+import {Dialog} from '@/Components/DesignSystem/Dialog'
+import {CombatLogEntry} from '@/Components/Combat/CombatLogEntry'
+import {generateRandomNumber} from '@/Helpers/Math'
+import {isDigimonDefeated} from '@/Helpers/Systems/Battle'
 
 export const BattleAttack = () => {
   const { setScene } = useSceneStore((state) => state)

@@ -1,6 +1,6 @@
-import { saveSession } from '@/Helpers/Systems/Data'
+import {saveSession} from '@/Helpers/Systems/Data'
 
-import { useProfileStore } from '@/Stores/Profile.store'
+import {useProfileStore} from '@/Stores/Profile.store'
 
 export const updateEquipement = ({
   digimonId,

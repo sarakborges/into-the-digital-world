@@ -1,19 +1,19 @@
-import type { ProfileType } from '@/Types/Profile.type'
-import type { DialogType } from '@/Types/Dialog.type'
+import type {ProfileType} from '@/Types/Profile.type'
+import type {DialogType} from '@/Types/Dialog.type'
 
-import { getDialogs } from '@/Helpers/Language'
-import { saveSession } from '@/Helpers/Systems/Data'
-import { isQuestDone } from '@/Helpers/Systems/Quests'
+import {getDialogs} from '@/Helpers/Language'
+import {saveSession} from '@/Helpers/Systems/Data'
+import {isQuestDone} from '@/Helpers/Systems/Quests'
 
-import { AllNpcs } from '@/GameData/Npcs'
-import { AllQuests } from '@/GameData/Quests'
+import {AllNpcs} from '@/GameData/Npcs'
+import {AllQuests} from '@/GameData/Quests'
 
-import { useProfileStore } from '@/Stores/Profile.store'
-import { useSceneStore } from '@/Stores/Scene.store'
-import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
+import {useProfileStore} from '@/Stores/Profile.store'
+import {useSceneStore} from '@/Stores/Scene.store'
+import {useAvatarCustomizationStore} from '@/Stores/AvatarCustomization.store'
 
-import { Dialog } from '@/Components/Dialog'
-import { AvatarCustomization } from '@/Components/AvatarCustomization'
+import {Dialog} from '@/Components/DesignSystem/Dialog'
+import {AvatarCustomizationContainer} from '@/Components/Digivice/Apps/AvatarCustomization/Container'
 
 export const AvatarCustomization003 = () => {
   const { profile } = useProfileStore((state) => state)
@@ -53,7 +53,7 @@ export const AvatarCustomization003 = () => {
   const dialogOptions: DialogType = {
     speaker: AllNpcs.appmon.dressmon,
 
-    content: <AvatarCustomization />,
+    content: <AvatarCustomizationContainer />,
 
     options: [
       {

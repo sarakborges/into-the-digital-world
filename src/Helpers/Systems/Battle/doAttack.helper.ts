@@ -1,13 +1,13 @@
-import type { AttackType } from '@/Types/Attack.type'
+import type {AttackType} from '@/Types/Attack.type'
 
-import { AllAttacks } from '@/GameData/Attacks'
+import {AllAttacks} from '@/GameData/Attacks'
 
-import { generateRandomNumber } from '@/Helpers/Math'
-import { getSuccesses } from '@/Helpers/Math'
-import { isDigimonDefeated, calcExtraStats } from '@/Helpers/Systems/Battle'
+import {generateRandomNumber} from '@/Helpers/Math'
+import {getSuccesses} from '@/Helpers/Math'
+import {isDigimonDefeated, calcExtraStats} from '@/Helpers/Systems/Battle'
 
-import { useBattleStore } from '@/Stores/Battle.store'
-import { useSceneStore } from '@/Stores/Scene.store'
+import {useBattleStore} from '@/Stores/Battle.store'
+import {useSceneStore} from '@/Stores/Scene.store'
 
 export const doAttack = (move: string) => {
   const { battle, setBattle } = useBattleStore.getState()

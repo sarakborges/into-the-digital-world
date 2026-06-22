@@ -1,20 +1,20 @@
-import type { DialogType } from '@/Types/Dialog.type'
+import type {DialogType} from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import {AllNpcs} from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/Language'
-import { warpTo } from '@/Helpers/Systems/Zones'
-import { saveSession } from '@/Helpers/Systems/Data'
-import { isDigimonDefeated } from '@/Helpers/Systems/Battle'
+import {getDialogs} from '@/Helpers/Language'
+import {warpTo} from '@/Helpers/Systems/Zones'
+import {saveSession} from '@/Helpers/Systems/Data'
+import {isDigimonDefeated} from '@/Helpers/Systems/Battle'
 
-import { useBattleStore } from '@/Stores/Battle.store'
-import { useSceneStore } from '@/Stores/Scene.store'
-import { useProfileStore } from '@/Stores/Profile.store'
+import {useBattleStore} from '@/Stores/Battle.store'
+import {useSceneStore} from '@/Stores/Scene.store'
+import {useProfileStore} from '@/Stores/Profile.store'
 
-import { Text } from '@/DesignSystem/Text'
+import {Text} from '@/Components/DesignSystem/Text'
 
-import { Dialog } from '@/Components/Dialog'
-import { CombatLoot } from '@/Components/CombatLoot'
+import {Dialog} from '@/Components/DesignSystem/Dialog'
+import {CombatLoot} from '@/Components/Combat/CombatLoot'
 
 export const BattleEnd = () => {
   const { setScene } = useSceneStore((state) => state)

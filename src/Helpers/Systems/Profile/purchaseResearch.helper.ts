@@ -1,8 +1,8 @@
-import { AllResearches } from '@/GameData/Researches'
+import {AllResearches} from '@/GameData/Researches'
 
-import { saveSession } from '@/Helpers/Systems/Data'
+import {saveSession} from '@/Helpers/Systems/Data'
 
-import { useProfileStore } from '@/Stores/Profile.store'
+import {useProfileStore} from '@/Stores/Profile.store'
 
 export const purchaseResearch = (researchId) => {
   const { profile } = useProfileStore.getState()

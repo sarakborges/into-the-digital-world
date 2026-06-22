@@ -1,18 +1,18 @@
-import { useEffect } from 'react'
+import {useEffect} from 'react'
 
-import type { DialogType } from '@/Types/Dialog.type'
+import type {DialogType} from '@/Types/Dialog.type'
 
-import { useSceneStore } from '@/Stores/Scene.store'
-import { useProfileStore } from '@/Stores/Profile.store'
+import {useSceneStore} from '@/Stores/Scene.store'
+import {useProfileStore} from '@/Stores/Profile.store'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import {AllNpcs} from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/Language'
+import {getDialogs} from '@/Helpers/Language'
 
-import { Text } from '@/DesignSystem/Text'
-import { Input } from '@/DesignSystem/Input'
+import {Text} from '@/Components/DesignSystem/Text'
+import {Input} from '@/Components/DesignSystem/Input'
 
-import { Dialog } from '@/Components/Dialog'
+import {Dialog} from '@/Components/DesignSystem/Dialog'
 
 export const Introduction005 = () => {
   const { setScene } = useSceneStore((state) => state)

@@ -1,6 +1,6 @@
-import type { QuestType } from '@/Types/Quest.type'
+import type {QuestType} from '@/Types/Quest.type'
 
-import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
+import {NpcGennai} from '@/GameData/Npcs/Gennai.npc'
 
 export const StarterDigimonQuest: QuestType = {
   id: 'starterDigimon',

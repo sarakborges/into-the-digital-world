@@ -1,6 +1,6 @@
-import { loadData } from '@/Helpers/Systems/Data'
+import {loadData} from '@/Helpers/Systems/Data'
 
-import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
+import {useSavedProfilesStore} from '@/Stores/SavedProfiles.store'
 
 export const loadProfiles = () => {
   const { setSavedProfiles } = useSavedProfilesStore.getState()

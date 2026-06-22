@@ -1,20 +1,20 @@
-import type { DialogType } from '@/Types/Dialog.type'
+import type {DialogType} from '@/Types/Dialog.type'
 
-import { getDialogs } from '@/Helpers/Language'
-import { addNewQuest, updateQuestObjective } from '@/Helpers/Systems/Quests'
-import { saveSession } from '@/Helpers/Systems/Data'
+import {getDialogs} from '@/Helpers/Language'
+import {addNewQuest, updateQuestObjective} from '@/Helpers/Systems/Quests'
+import {saveSession} from '@/Helpers/Systems/Data'
 
-import { AllItems } from '@/GameData/Items'
-import { AllNpcs } from '@/GameData/Npcs'
-import { AvatarFixingQuest } from '@/GameData/Quests/AvatarFixing.quest'
-import { IntroductionQuest } from '@/GameData/Quests/Introduction.quest'
+import {AllItems} from '@/GameData/Items'
+import {AllNpcs} from '@/GameData/Npcs'
+import {AvatarFixingQuest} from '@/GameData/Quests/AvatarFixing.quest'
+import {IntroductionQuest} from '@/GameData/Quests/Introduction.quest'
 
-import { useProfileStore } from '@/Stores/Profile.store'
-import { useSceneStore } from '@/Stores/Scene.store'
+import {useProfileStore} from '@/Stores/Profile.store'
+import {useSceneStore} from '@/Stores/Scene.store'
 
-import { Text } from '@/DesignSystem/Text'
+import {Text} from '@/Components/DesignSystem/Text'
 
-import { Dialog } from '@/Components/Dialog'
+import {Dialog} from '@/Components/DesignSystem/Dialog'
 
 export const Introduction021 = () => {
   const { setScene } = useSceneStore((state) => state)
