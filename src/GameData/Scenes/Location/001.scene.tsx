@@ -1,13 +1,13 @@
-import type {DialogType} from '@/Types/Dialog.type'
+import type { DialogType } from '@/Types/Dialog.type'
 
-import {useSceneStore} from '@/Stores/Scene.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {AllNpcs} from '@/GameData/Npcs'
+import { AllNpcs } from '@/GameData/Npcs'
 
-import {getDialogs} from '@/Helpers/Language'
+import { getDialogs } from '@/Helpers/Language'
 
-import {Dialog} from '@/Components/DesignSystem/Dialog'
-import {Location} from '@/Components/Digivice/Apps/Location'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
+import { AppLocation } from '@/Components/Digivice/Apps/AppLocation'
 
 export const Location001 = () => {
   const { setScene } = useSceneStore((state) => state)
@@ -17,7 +17,7 @@ export const Location001 = () => {
 
     content: (
       <div className="text-bubble">
-        <Location />
+        <AppLocation />
       </div>
     ),
 

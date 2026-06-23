@@ -1,23 +1,23 @@
-import {HiOutlineDevicePhoneMobile} from 'react-icons/hi2'
-import {IoCaretBack} from 'react-icons/io5'
-import {BiSolidSquareRounded} from 'react-icons/bi'
+import { HiOutlineDevicePhoneMobile } from 'react-icons/hi2'
+import { IoCaretBack } from 'react-icons/io5'
+import { BiSolidSquareRounded } from 'react-icons/bi'
 
-import {AllApps, DigiviceApps} from '@/Consts/DigiviceApps.const'
+import { AllApps, DigiviceApps } from '@/Consts/DigiviceApps.const'
 
-import {getTexts} from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 
-import {useSceneStore} from '@/Stores/Scene.store'
-import {useDigiviceStore} from '@/Stores/Digivice.store'
-import {useProfileStore} from '@/Stores/Profile.store'
-import {useBattleStore} from '@/Stores/Battle.store'
+import { useSceneStore } from '@/Stores/Scene.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useBattleStore } from '@/Stores/Battle.store'
 
-import {Text} from '@/Components/DesignSystem/Text'
-import {Portrait} from '@/Components/DesignSystem/Portrait'
-import {Button} from '@/Components/DesignSystem/Button'
-import {Modal} from '@/Components/DesignSystem/Modal'
+import { Text } from '@/Components/DesignSystem/Text'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
+import { Button } from '@/Components/DesignSystem/Button'
+import { Modal } from '@/Components/DesignSystem/Modal'
 
-import {DigiviceCurrentApp} from '@/Components/Digivice/CurrentApp'
-import {PlayerProfile} from '@/Components/Digivice/Apps/PlayerProfile'
+import { DigiviceCurrentApp } from '@/Components/Digivice/CurrentApp'
+import { AppPlayerProfile } from '@/Components/Digivice/Apps/AppPlayerProfile'
 
 import './DigiviceContainer.style.scss'
 
@@ -66,7 +66,7 @@ export const DigiviceContainer = () => {
             <div className="digivice-body">
               {!digivice.currentApp && (
                 <>
-                  <PlayerProfile />
+                  <AppPlayerProfile />
 
                   <Text>{getTexts('APPS_TITLE')}</Text>
 

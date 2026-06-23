@@ -1,15 +1,15 @@
-import type {DialogType} from '@/Types/Dialog.type'
+import type { DialogType } from '@/Types/Dialog.type'
 
-import {getDialogs} from '@/Helpers/Language'
+import { getDialogs } from '@/Helpers/Language'
 
-import {AllNpcs} from '@/GameData/Npcs'
+import { AllNpcs } from '@/GameData/Npcs'
 
-import {useSceneStore} from '@/Stores/Scene.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {Text} from '@/Components/DesignSystem/Text'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {Dialog} from '@/Components/DesignSystem/Dialog'
-import {SaveGame} from '@/Components/Digivice/Apps/SaveGame'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
+import { AppSaveGame } from '@/Components/Digivice/Apps/AppSaveGame'
 
 export const SaveGame001 = () => {
   const { setScene } = useSceneStore((state) => state)
@@ -23,7 +23,7 @@ export const SaveGame001 = () => {
           <Text as="p">{getDialogs('SAVEGAME_001_TEXT')}</Text>
         </div>
 
-        <SaveGame />
+        <AppSaveGame />
       </div>
     ),
 

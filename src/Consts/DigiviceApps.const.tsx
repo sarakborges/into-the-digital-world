@@ -1,10 +1,10 @@
-import {Acquaintances} from '@/Components/Digivice/Apps/Acquaintances/Container'
-import {PartnersList} from '@/Components/Digivice/Apps/Partners/PartnersList'
-import {Inventory} from '@/Components/Digivice/Apps/Inventory'
-import {MyResearchesList} from '@/Components/Digivice/Apps/MyResearchesList'
-import {Location} from '@/Components/Digivice/Apps/Location'
-import {QuestsLog} from '@/Components/Digivice/Apps/QuestsLog/Container'
-import {Map} from '@/Components/Global/Map'
+import { AppAcquaintances } from '@/Components/Digivice/Apps/AppAcquaintances/List'
+import { AppPartnersList } from '@/Components/Digivice/Apps/AppPartners/List'
+import { AppInventory } from '@/Components/Digivice/Apps/AppInventory'
+import { AppResearchesList } from '@/Components/Digivice/Apps/AppResearchesList'
+import { AppLocation } from '@/Components/Digivice/Apps/AppLocation'
+import { AppQuestsLog } from '@/Components/Digivice/Apps/AppQuestsLog'
+import { AppMap } from '@/Components/Digivice/Apps/AppMap'
 
 export const APP_SAVE = {
   id: 'save',
@@ -14,7 +14,7 @@ export const APP_SAVE = {
 export const APP_INVENTORY = {
   id: 'inventory',
   app: 'inventory',
-  component: <Inventory />
+  component: <AppInventory />
 }
 
 export const APP_LOGOFF = {
@@ -29,37 +29,37 @@ export const APP_ACHIEVEMENTS = {
 export const APP_PARTNERSLIST = {
   id: 'partnersList',
   app: 'partnersList',
-  component: <PartnersList />
+  component: <AppPartnersList />
 }
 
 export const APP_RESEARCHESLIST = {
   id: 'researchesList',
   app: 'researchesList',
-  component: <MyResearchesList />
+  component: <AppResearchesList />
 }
 
 export const APP_ACQUAINTANCES = {
   id: 'acquaintances',
   app: 'acquaintances',
-  component: <Acquaintances />
+  component: <AppAcquaintances />
 }
 
 export const APP_LOCATION = {
   id: 'location',
   app: 'location',
-  component: <Location />
+  component: <AppLocation />
 }
 
 export const APP_MAP = {
   id: 'map',
   app: 'map',
-  component: <Map />
+  component: <AppMap />
 }
 
 export const APP_JOURNAL = {
   id: 'journal',
   app: 'journal',
-  component: <QuestsLog />
+  component: <AppQuestsLog />
 }
 
 export const AllApps = {
