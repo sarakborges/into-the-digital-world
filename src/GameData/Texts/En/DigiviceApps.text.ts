@@ -4,6 +4,7 @@ export const APPS_LOGOFF = `Log Off`
 export const APPS_ACHIEVEMENTS = `Achievements`
 export const APPS_ACQUAINTANCES = `Contacts`
 export const APPS_JOURNAL = `Journal`
+export const APPS_MAP = `Map`
 export const APPS_LOCATION = `Fast Travel`
 export const APPS_PARTNERSLIST = `Encyclopedia`
 export const APPS_RESEARCHESLIST = `Encyclopedia`

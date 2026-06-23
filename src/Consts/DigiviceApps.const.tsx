@@ -78,9 +78,9 @@ export const AllApps = {
 export const DigiviceApps = {
   inventory: APP_INVENTORY,
   journal: APP_JOURNAL,
-  map: APP_MAP,
   acquaintances: APP_ACQUAINTANCES,
   partnersList: APP_PARTNERSLIST,
+  map: APP_MAP,
   save: APP_SAVE,
   logoff: APP_LOGOFF
 }

@@ -176,6 +176,11 @@
 
           padding: 8px;
 
+          > div {
+            display: flex;
+            place-content: center;
+          }
+
           .button {
             flex-flow: column;
             place-content: flex-start;

@@ -1,0 +1,24 @@
+.app-map {
+  --map-size: 100cqw;
+  --container-size: 70cqw;
+
+  padding: 8px;
+
+  container-type: inline-size;
+
+  .map {
+    border-color: var(--color-primary-strong);
+    box-shadow: none;
+  }
+
+  .map-name {
+    display: flex;
+
+    .text {
+      padding: 4px;
+
+      background-color: var(--color-primary-strong);
+      border-radius: 0 0 4px 4px;
+    }
+  }
+}
