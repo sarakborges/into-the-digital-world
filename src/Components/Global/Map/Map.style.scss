@@ -1,6 +1,4 @@
 .map {
-  --tile-size: calc(var(--container-size) / var(--grid-size));
-
   display: flex;
   place-items: center;
   place-content: center;
@@ -17,28 +15,29 @@
   .map-tiles {
     position: relative;
 
+    display: grid;
+    grid-template-columns: repeat(var(--grid-size), 1fr);
+
     width: var(--container-size);
     height: var(--container-size);
 
     transform: rotate(-45deg);
 
-    background-color: var(--color-secondary-weak);
-
     > div {
-      position: absolute;
-      top: calc(var(--tile-y) * var(--tile-size));
-      left: calc(var(--tile-x) * var(--tile-size));
-
-      width: var(--tile-size);
-      height: var(--tile-size);
+      aspect-ratio: 1;
+      margin-right: -1px;
+      margin-bottom: -1px;
 
       &.player {
         background-color: var(--color-primary-strong);
       }
 
-      &.npcs,
-      &.events {
-        background-color: var(--color-neutral-weak);
+      &.event {
+        background-color: var(--color-secondary-strong);
+      }
+
+      &.other {
+        background-color: var(--color-neutral);
       }
 
       &.blocked {

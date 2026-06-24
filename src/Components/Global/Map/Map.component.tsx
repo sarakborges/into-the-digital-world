@@ -1,10 +1,10 @@
-import type {CSSProperties} from 'react'
+import type { CSSProperties } from 'react'
 
-import type {ZoneType} from '@/Types/Zone.type'
+import type { ZoneType } from '@/Types/Zone.type'
 
-import {AllZones} from '@/GameData/Zones'
+import { AllZones } from '@/GameData/Zones'
 
-import {useProfileStore} from '@/Stores/Profile.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 
 import './Map.style.scss'
 
@@ -27,24 +27,33 @@ export const Map = () => {
       (tile.condition === undefined || !!tile.condition()) && !!tile.onEnter
   )
 
-  const nonExistantTiles: Array<{ id: string; x: number; y: number }> = []
+  const tiles: Array<{ id: string; type: string; x: number; y: number }> = []
 
   for (let y = 0; y < Number(currentZone.gridSize); y++) {
     for (let x = 0; x < Number(currentZone.gridSize); x++) {
-      if (!currentZone?.grid[y]?.[x]) {
-        if (
-          npcs.some((tile) => tile.x === x && tile.y === y) ||
-          events.some((tile) => tile.x === x && tile.y === y)
-        ) {
-          continue
-        }
+      let type = 'other'
 
-        nonExistantTiles.push({
-          id: `${x}-${y}`,
-          x,
-          y
-        })
+      if (profile.currentZone.x === x && profile.currentZone.y === y) {
+        type = 'player'
       }
+
+      if (!currentZone?.grid[y]?.[x]) {
+        type = 'blocked'
+      }
+
+      if (
+        npcs.some((tile) => tile.x === x && tile.y === y) ||
+        events.some((tile) => tile.x === x && tile.y === y)
+      ) {
+        type = 'event'
+      }
+
+      tiles.push({
+        id: `${x}-${y}`,
+        type,
+        x,
+        y
+      })
     }
   }
 
@@ -60,28 +69,10 @@ export const Map = () => {
       }
     >
       <div className="map-tiles">
-        <div className="player" />
-
-        {npcs.map((tile) => (
+        {tiles.map((tile) => (
           <div
             style={{ '--tile-x': tile.x, '--tile-y': tile.y } as CSSProperties}
-            className="npcs"
-            key={`minimap-${currentZone.name}-tile-${tile.id}`}
-          />
-        ))}
-
-        {events.map((tile) => (
-          <div
-            style={{ '--tile-x': tile.x, '--tile-y': tile.y } as CSSProperties}
-            className="events"
-            key={`minimap-${currentZone.name}-tile-${tile.id}`}
-          />
-        ))}
-
-        {nonExistantTiles.map((tile) => (
-          <div
-            style={{ '--tile-x': tile.x, '--tile-y': tile.y } as CSSProperties}
-            className="blocked"
+            className={tile.type}
             key={`minimap-${currentZone.name}-tile-${tile.id}`}
           />
         ))}

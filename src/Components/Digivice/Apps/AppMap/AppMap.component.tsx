@@ -26,7 +26,11 @@ export const AppMap = () => {
       </main>
 
       <div className="map-name">
-        <Text>{currentZone.name}</Text>
+        <Text>
+          <>{currentZone.name}</>
+          <> - </>
+          <>{currentZone[profile.currentZone.map].name}</>
+        </Text>
       </div>
     </div>
   )
