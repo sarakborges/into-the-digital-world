@@ -3,10 +3,10 @@ import { AiOutlineSelect } from 'react-icons/ai'
 import { AllZones } from '@/GameData/Zones'
 
 import { getTexts } from '@/Helpers/Language'
+import { openMap } from '@/Helpers/Systems/Digivice'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useBattleStore } from '@/Stores/Battle.store'
-import { useDigiviceStore } from '@/Stores/Digivice.store'
 
 import { Text } from '@/Components/DesignSystem/Text'
 import { Button } from '@/Components/DesignSystem/Button'
@@ -17,15 +17,10 @@ import './Minimap.style.scss'
 
 export const Minimap = () => {
   const { profile } = useProfileStore((state) => state)
-  const { setDigivice } = useDigiviceStore((state) => state)
   const { battle } = useBattleStore((state) => state)
 
   if (!profile?.currentZone || !!battle) {
     return
-  }
-
-  const openMap = () => {
-    setDigivice({ isOpen: true, currentApp: 'map' })
   }
 
   return (
