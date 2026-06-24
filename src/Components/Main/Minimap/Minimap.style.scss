@@ -14,6 +14,21 @@
     display: flex;
     flex-flow: column;
 
+    > .button {
+      position: absolute;
+      top: 0;
+      left: calc(var(--map-size) + 4px);
+
+      padding: 4px;
+
+      box-shadow: 0 0 4px var(--color-neutral-strong);
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
     .zone-name {
       display: flex;
 
