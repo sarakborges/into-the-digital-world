@@ -1,20 +1,20 @@
-import type {ZoneType} from '@/Types/Zone.type'
+import type { ZoneType } from '@/Types/Zone.type'
 
-import {fillGrid} from '@/Helpers/Systems/Zones'
-import {getDialogs} from '@/Helpers/Language'
-import {isQuestDone} from '@/Helpers/Systems/Quests'
+import { fillGrid } from '@/Helpers/Systems/Zones'
+import { getDialogs } from '@/Helpers/Language'
+import { isQuestDone } from '@/Helpers/Systems/Quests'
 
-import {AllNpcs} from '@/GameData/Npcs'
-import {AllQuests} from '@/GameData/Quests'
+import { AllNpcs } from '@/GameData/Npcs'
+import { AllQuests } from '@/GameData/Quests'
 
-import {useProfileStore} from '@/Stores/Profile.store'
-import {useSceneStore} from '@/Stores/Scene.store'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {WarpToCorridor} from './Events/WarpToCorridor.event'
-import {TriggerAvatarFixing} from './Events/TriggerAvatarFixing.event'
-import {TriggerAvatarCustomization} from './Events/TriggerAvatarCustomization.event'
+import { WarpToCorridor } from './Events/WarpToCorridor.event'
+import { TriggerAvatarFixing } from './Events/TriggerAvatarFixing.event'
+import { TriggerAvatarCustomization } from './Events/TriggerAvatarCustomization.event'
 
-import {grid} from './BedRoom.grid'
+import { grid } from './BedRoom.grid'
 
 const gridSize = 13
 const filledGrid = fillGrid({ grid, gridSize })
@@ -70,7 +70,7 @@ export const RootDomainBedRoom: ZoneType = {
       id: 'avatarFixing',
       x: 11,
       y: 2,
-      defaultText: getDialogs('INTRODUCTION_024_TEXT'),
+      defaultText: getDialogs('AVATARCUSTOMIZATION_001_TEXT'),
       npc: {
         ...AllNpcs.appmon.dressmon,
         isVisible: false
@@ -80,56 +80,43 @@ export const RootDomainBedRoom: ZoneType = {
         {
           function: TriggerAvatarFixing,
           eventText: getDialogs('INTRODUCTION_024_TRIGGER'),
-          eventType: 'important'
-        }
-      ],
+          eventType: 'important',
 
-      condition: () => {
-        const profile = useProfileStore.getState().profile
+          condition: () => {
+            const profile = useProfileStore.getState().profile
 
-        if (!profile) {
-          return false
-        }
+            if (!profile) {
+              return false
+            }
 
-        const doneQuests = Object.keys(profile.quests).filter((quest) =>
-          isQuestDone(quest)
-        )
+            const doneQuests = Object.keys(profile.quests).filter((quest) =>
+              isQuestDone(quest)
+            )
 
-        return !doneQuests.includes(AllQuests.avatarFixing.id)
-      }
-    },
+            return !doneQuests.includes(AllQuests.avatarFixing.id)
+          }
+        },
 
-    {
-      id: 'customizeAvatar',
-      x: 11,
-      y: 2,
-      defaultText: getDialogs('AVATARCUSTOMIZATION_001_TEXT'),
-      npc: {
-        ...AllNpcs.appmon.dressmon,
-        isVisible: false
-      },
-
-      events: [
         {
           function: TriggerAvatarCustomization,
           eventText: getDialogs('AVATARCUSTOMIZATION_TRIGGER'),
-          eventType: 'default'
+          eventType: 'default',
+
+          condition: () => {
+            const profile = useProfileStore.getState().profile
+
+            if (!profile) {
+              return false
+            }
+
+            const doneQuests = Object.keys(profile.quests).filter((quest) =>
+              isQuestDone(quest)
+            )
+
+            return !!doneQuests.includes(AllQuests.avatarFixing.id)
+          }
         }
-      ],
-
-      condition: () => {
-        const profile = useProfileStore.getState().profile
-
-        if (!profile) {
-          return false
-        }
-
-        const doneQuests = Object.keys(profile.quests).filter((quest) =>
-          isQuestDone(quest)
-        )
-
-        return !!doneQuests.includes(AllQuests.avatarFixing.id)
-      }
+      ]
     }
   ]
 }

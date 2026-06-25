@@ -7,6 +7,7 @@ import { openMap } from '@/Helpers/Systems/Digivice'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useBattleStore } from '@/Stores/Battle.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Text } from '@/Components/DesignSystem/Text'
 import { Button } from '@/Components/DesignSystem/Button'
@@ -18,8 +19,9 @@ import './Minimap.style.scss'
 export const Minimap = () => {
   const { profile } = useProfileStore((state) => state)
   const { battle } = useBattleStore((state) => state)
+  const { scene } = useSceneStore((state) => state)
 
-  if (!profile?.currentZone || !!battle) {
+  if (!profile?.currentZone || !!battle || !!scene) {
     return
   }
 

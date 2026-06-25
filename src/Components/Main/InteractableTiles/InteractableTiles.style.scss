@@ -41,6 +41,10 @@
                 width: 24px;
                 height: 24px;
               }
+
+              .text {
+                line-height: var(--line-height-sm);
+              }
             }
           }
         }

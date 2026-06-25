@@ -1,4 +1,4 @@
-import type {NpcType} from '@/Types/Npc.type'
+import type { NpcType } from '@/Types/Npc.type'
 
 export type ZoneTileType = {
   id: string
@@ -14,6 +14,7 @@ export type ZoneTileType = {
 
   events?: Array<{
     function: () => void
+    condition?: () => boolean
     eventText?: string
     eventType?: 'default' | 'important'
   }>

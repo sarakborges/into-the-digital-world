@@ -1,19 +1,28 @@
-import {Fragment} from 'react/jsx-runtime'
-import {BsArrowDown, BsArrowDownLeft, BsArrowDownRight, BsArrowLeft, BsArrowRight, BsArrowUp, BsArrowUpLeft, BsArrowUpRight} from 'react-icons/bs'
+import { Fragment } from 'react/jsx-runtime'
+import {
+  BsArrowDown,
+  BsArrowDownLeft,
+  BsArrowDownRight,
+  BsArrowLeft,
+  BsArrowRight,
+  BsArrowUp,
+  BsArrowUpLeft,
+  BsArrowUpRight
+} from 'react-icons/bs'
 
-import type {ZoneType} from '@/Types/Zone.type'
+import type { ZoneType } from '@/Types/Zone.type'
 
-import {saveSession} from '@/Helpers/Systems/Data'
-import {startBattle} from '@/Helpers/Systems/Battle'
+import { saveSession } from '@/Helpers/Systems/Data'
+import { startBattle } from '@/Helpers/Systems/Battle'
 
-import {AllZones} from '@/GameData/Zones'
+import { AllZones } from '@/GameData/Zones'
 
-import {useProfileStore} from '@/Stores/Profile.store'
-import {useSceneStore} from '@/Stores/Scene.store'
-import {useBattleStore} from '@/Stores/Battle.store'
-import {useGameStore} from '@/Stores/Game.store'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
+import { useBattleStore } from '@/Stores/Battle.store'
+import { useGameStore } from '@/Stores/Game.store'
 
-import {Button} from '@/Components/DesignSystem/Button'
+import { Button } from '@/Components/DesignSystem/Button'
 
 import './Gamepad.style.scss'
 
@@ -23,7 +32,7 @@ export const Gamepad = () => {
   const { battle } = useBattleStore((state) => state)
   const { game } = useGameStore((state) => state)
 
-  if (!profile || !!battle) {
+  if (!profile || !!battle || !!scene) {
     return
   }
 

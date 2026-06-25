@@ -1,24 +1,24 @@
-import type {ZoneType} from '@/Types/Zone.type'
+import type { ZoneType } from '@/Types/Zone.type'
 
-import {fillGrid} from '@/Helpers/Systems/Zones'
-import {getDialogs} from '@/Helpers/Language'
-import {isQuestDone} from '@/Helpers/Systems/Quests'
+import { fillGrid } from '@/Helpers/Systems/Zones'
+import { getDialogs } from '@/Helpers/Language'
+import { isQuestDone } from '@/Helpers/Systems/Quests'
 
-import {AllNpcs} from '@/GameData/Npcs'
-import {AllQuests} from '@/GameData/Quests'
+import { AllNpcs } from '@/GameData/Npcs'
+import { AllQuests } from '@/GameData/Quests'
 
-import {useProfileStore} from '@/Stores/Profile.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 
-import {WarpToCorridor} from './Events/WarpToCorridor.event'
-import {TriggerGetStarterDigimon} from './Events/TriggerGetStarterDigimon.event'
-import {OpenResearch} from './Events/OpenResearch.event'
-import {OpenNanomonIntroduction} from './Events/OpenNanomonIntroduction.event'
-import {OpenJijimonIntroduction} from './Events/OpenJijimonIntroduction.event'
-import {OpenCompose} from './Events/OpenCompose.event'
+import { WarpToCorridor } from './Events/WarpToCorridor.event'
+import { TriggerGetStarterDigimon } from './Events/TriggerGetStarterDigimon.event'
+import { OpenResearch } from './Events/OpenResearch.event'
+import { OpenNanomonIntroduction } from './Events/OpenNanomonIntroduction.event'
+import { OpenJijimonIntroduction } from './Events/OpenJijimonIntroduction.event'
+import { OpenCompose } from './Events/OpenCompose.event'
 
-import {OpenLocation} from './Events/OpenLocation.event'
+import { OpenLocation } from './Events/OpenLocation.event'
 
-import {grid} from './MainRoom.grid'
+import { grid } from './MainRoom.grid'
 
 const gridSize = 19
 const filledGrid = fillGrid({ grid, gridSize })
@@ -41,10 +41,10 @@ export const RootDomainMainRoom: ZoneType = {
     },
 
     {
-      id: 'nanomon-introduction',
+      id: 'nanomon',
       x: 9,
       y: 3,
-      defaultText: getDialogs('RESEARCH_DEFAULT'),
+      defaultText: getDialogs('NANOMON_DEFAULT'),
 
       npc: {
         ...AllNpcs.digimon.nanomon,
@@ -54,45 +54,36 @@ export const RootDomainMainRoom: ZoneType = {
       events: [
         {
           function: OpenNanomonIntroduction,
-          eventText: getDialogs('RESEARCH_INTRODUCTION')
-        }
-      ],
+          eventText: getDialogs('NANOMON_INTRODUCTION'),
 
-      condition: () => {
-        const { profile } = useProfileStore.getState()
+          condition: () => {
+            const { profile } = useProfileStore.getState()
 
-        if (!profile) {
-          return false
-        }
+            if (!profile) {
+              return false
+            }
 
-        const doneQuests = Object.keys(profile.quests).filter((quest) =>
-          isQuestDone(quest)
-        )
+            return !Object.keys(profile.npcAcquaintances ?? {}).includes(
+              AllNpcs.digimon.nanomon.id
+            )
+          }
+        },
 
-        return (
-          !!doneQuests.includes(AllQuests.starterDigimon.id) &&
-          !Object.keys(profile.npcAcquaintances ?? {}).includes(
-            AllNpcs.digimon.nanomon.id
-          )
-        )
-      }
-    },
-
-    {
-      id: 'nanomon-research',
-      x: 9,
-      y: 3,
-      defaultText: getDialogs('RESEARCH_DEFAULT'),
-
-      npc: {
-        ...AllNpcs.digimon.nanomon,
-        isVisible: true
-      },
-
-      events: [
         {
           function: OpenResearch,
-          eventText: getDialogs('RESEARCH_SEE_RESEARCHABLE')
+          eventText: getDialogs('RESEARCH_TRIGGER'),
+
+          condition: () => {
+            const { profile } = useProfileStore.getState()
+
+            if (!profile) {
+              return false
+            }
+
+            return !!Object.keys(profile.npcAcquaintances ?? {}).includes(
+              AllNpcs.digimon.nanomon.id
+            )
+          }
         }
       ],
 
@@ -107,20 +98,15 @@ export const RootDomainMainRoom: ZoneType = {
           isQuestDone(quest)
         )
 
-        return (
-          !!doneQuests.includes(AllQuests.starterDigimon.id) &&
-          !!Object.keys(profile.npcAcquaintances ?? {}).includes(
-            AllNpcs.digimon.nanomon.id
-          )
-        )
+        return !!doneQuests.includes(AllQuests.starterDigimon.id)
       }
     },
 
     {
-      id: 'jijimon-compose',
+      id: 'jijimon',
       x: 2,
       y: 8,
-      defaultText: getDialogs('COMPOSE_DEFAULT'),
+      defaultText: getDialogs('JIJIMON_DEFAULT'),
 
       npc: {
         ...AllNpcs.digimon.jijimon,
@@ -130,45 +116,36 @@ export const RootDomainMainRoom: ZoneType = {
       events: [
         {
           function: OpenJijimonIntroduction,
-          eventText: getDialogs('COMPOSE_INTRODUCTION')
-        }
-      ],
+          eventText: getDialogs('JIJIMON_INTRODUCTION'),
 
-      condition: () => {
-        const { profile } = useProfileStore.getState()
+          condition: () => {
+            const { profile } = useProfileStore.getState()
 
-        if (!profile) {
-          return false
-        }
+            if (!profile) {
+              return false
+            }
 
-        const doneQuests = Object.keys(profile.quests).filter((quest) =>
-          isQuestDone(quest)
-        )
+            return !Object.keys(profile.npcAcquaintances ?? {}).includes(
+              AllNpcs.digimon.jijimon.id
+            )
+          }
+        },
 
-        return (
-          !!doneQuests.includes(AllQuests.starterDigimon.id) &&
-          !Object.keys(profile.npcAcquaintances ?? {}).includes(
-            AllNpcs.digimon.jijimon.id
-          )
-        )
-      }
-    },
-
-    {
-      id: 'jijimon-research',
-      x: 2,
-      y: 8,
-      defaultText: getDialogs('COMPOSE_DEFAULT'),
-
-      npc: {
-        ...AllNpcs.digimon.jijimon,
-        isVisible: true
-      },
-
-      events: [
         {
           function: OpenCompose,
-          eventText: getDialogs('COMPOSE_SEE_COMPOSEABLE')
+          eventText: getDialogs('COMPOSE_TRIGGER'),
+
+          condition: () => {
+            const { profile } = useProfileStore.getState()
+
+            if (!profile) {
+              return false
+            }
+
+            return !!Object.keys(profile.npcAcquaintances ?? {}).includes(
+              AllNpcs.digimon.jijimon.id
+            )
+          }
         }
       ],
 
@@ -183,70 +160,62 @@ export const RootDomainMainRoom: ZoneType = {
           isQuestDone(quest)
         )
 
-        return (
-          !!doneQuests.includes(AllQuests.starterDigimon.id) &&
-          !!Object.keys(profile.npcAcquaintances ?? {}).includes(
-            AllNpcs.digimon.jijimon.id
-          )
-        )
+        return !!doneQuests.includes(AllQuests.starterDigimon.id)
       }
     },
 
     {
-      id: 'gennaiGetStarter',
+      id: 'gennai',
       x: 9,
       y: 12,
-      defaultText: getDialogs('GETSTARTERDIGIMON_DEFAULTTEXT'),
+      defaultText: getDialogs('GENNAI_DEFAULT'),
 
       events: [
         {
           function: TriggerGetStarterDigimon,
           eventText: getDialogs('GETSTARTERDIGIMON_TRIGGER'),
-          eventType: 'important'
-        }
-      ],
+          eventType: 'important',
 
-      npc: {
-        ...AllNpcs.general.gennai,
-        isVisible: true
-      },
+          condition: () => {
+            const profile = useProfileStore.getState().profile
 
-      condition: () => {
-        const profile = useProfileStore.getState().profile
+            if (!profile) {
+              return false
+            }
 
-        if (!profile) {
-          return false
-        }
+            const doneQuests = Object.keys(profile.quests).filter((quest) =>
+              isQuestDone(quest)
+            )
 
-        const doneQuests = Object.keys(profile.quests).filter((quest) =>
-          isQuestDone(quest)
-        )
+            return !doneQuests.includes(AllQuests.starterDigimon.id)
+          }
+        },
 
-        return (
-          !!doneQuests.includes(AllQuests.avatarFixing.id) &&
-          !doneQuests.includes(AllQuests.starterDigimon.id)
-        )
-      }
-    },
-
-    {
-      id: 'gennaiFastTravel',
-      x: 9,
-      y: 12,
-      defaultText: getDialogs('LOCATION_001_TEXT'),
-
-      npc: {
-        ...AllNpcs.general.gennai,
-        isVisible: true
-      },
-
-      events: [
         {
           function: OpenLocation,
           eventText: getDialogs('LOCATION_TRIGGER'),
-          eventType: 'default'
+          eventType: 'default',
+
+          condition: () => {
+            const profile = useProfileStore.getState().profile
+
+            if (!profile) {
+              return false
+            }
+
+            const doneQuests = Object.keys(profile.quests).filter((quest) =>
+              isQuestDone(quest)
+            )
+
+            return !!doneQuests.includes(AllQuests.starterDigimon.id)
+          }
         }
       ],
+
+      npc: {
+        ...AllNpcs.general.gennai,
+        isVisible: true
+      },
 
       condition: () => {
         const profile = useProfileStore.getState().profile
@@ -259,10 +228,7 @@ export const RootDomainMainRoom: ZoneType = {
           isQuestDone(quest)
         )
 
-        return (
-          !!doneQuests.includes(AllQuests.introduction.id) &&
-          !!doneQuests.includes(AllQuests.starterDigimon.id)
-        )
+        return !!doneQuests.includes(AllQuests.avatarFixing.id)
       }
     }
   ]

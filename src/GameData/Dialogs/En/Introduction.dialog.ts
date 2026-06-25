@@ -5,13 +5,13 @@ export const INTRODUCTION_002_IMAGE = `Gennai`
 
 export const INTRODUCTION_003_TEXT = `Hello, young one. So the rumours are indeed true. The world is once more in need of balance. And we found you before others could. Good.`
 
-export const INTRODUCTION_004_TEXT = `Forgive me. I forgot to introduce myself. You can call me Gennai. I'm the last survivor from the agents of Homeostasis. I was looking for the chosen children for a long time. You have a very importante role to play in the future of our Digital World.`
+export const INTRODUCTION_004_TEXT = `Forgive me. I forgot to introduce myself. You can call me Gennai. I'm the last survivor from the agents of Homeostasis. I was looking for the Destined Ones for a long time. You have a very importante role to play in the future of our Digital World.`
 
 export const INTRODUCTION_005_TEXT = `I know that's a lot of information. Take your time to digest it. In the meanwhile, why don't you introduce yourself to me?`
 export const INTRODUCTION_005_INPUT = `Insert your name`
-export const INTRODUCTION_005_INPUT_PLACEHOLDER = `Chosen child`
+export const INTRODUCTION_005_INPUT_PLACEHOLDER = `Destined one`
 
-export const INTRODUCTION_006_TEXT = `Uhm. I'm [NAME].\nWhat do you mean by "chosen children"? And "Digital World"? Old age is getting to you, sir? Or do you just enjoy roleplaying?`
+export const INTRODUCTION_006_TEXT = `Uhm. I'm [NAME].\nWhat do you mean by "Destined Ones"? And "Digital World"? Old age is getting to you, sir? Or do you just enjoy roleplaying?`
 
 export const INTRODUCTION_007_TEXT = `Spirited one, aren't we? Don't worry. I will explain everything in due time. But no, old age does not get to me. This is just the apperance of my avatar. Speaking of which, looks really like you need to fix yours.`
 

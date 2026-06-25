@@ -1,14 +1,14 @@
-import type {DialogType} from '@/Types/Dialog.type'
+import type { DialogType } from '@/Types/Dialog.type'
 
-import {AllNpcs} from '@/GameData/Npcs'
+import { AllNpcs } from '@/GameData/Npcs'
 
-import {getDialogs} from '@/Helpers/Language'
+import { getDialogs } from '@/Helpers/Language'
 
-import {Text} from '@/Components/DesignSystem/Text'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {useSceneStore} from '@/Stores/Scene.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {Dialog} from '@/Components/DesignSystem/Dialog'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const GetStarterDigimon012 = () => {
   const { setScene } = useSceneStore((state) => state)
@@ -29,7 +29,7 @@ export const GetStarterDigimon012 = () => {
         action: () => {
           setScene({
             currentScene: 'getStarterDigimon',
-            currentStage: '013'
+            currentStage: '014'
           })
         }
       }

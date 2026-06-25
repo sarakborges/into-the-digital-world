@@ -1,18 +1,18 @@
-import {Fragment} from 'react/jsx-runtime'
-import {HiOutlineChatBubbleLeftEllipsis} from 'react-icons/hi2'
-import {AiOutlineExclamationCircle} from 'react-icons/ai'
+import { Fragment } from 'react/jsx-runtime'
+import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
+import { AiOutlineExclamationCircle } from 'react-icons/ai'
 
-import type {ZoneType} from '@/Types/Zone.type'
+import type { ZoneType } from '@/Types/Zone.type'
 
-import {AllZones} from '@/GameData/Zones'
+import { AllZones } from '@/GameData/Zones'
 
-import {useProfileStore} from '@/Stores/Profile.store'
-import {useSceneStore} from '@/Stores/Scene.store'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {Text} from '@/Components/DesignSystem/Text'
-import {Button} from '@/Components/DesignSystem/Button'
+import { Text } from '@/Components/DesignSystem/Text'
+import { Button } from '@/Components/DesignSystem/Button'
 
-import {Dialog} from '@/Components/DesignSystem/Dialog'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 import './InteractableTiles.style.scss'
 
@@ -52,56 +52,62 @@ export const InteractableTiles = () => {
 
   return (
     <aside className="interactable-tiles">
-      {surroundingTiles.map((tile) => (
-        <Fragment key={`interactable-tile-y-${tile.y}-x${tile.x}-${tile.id}`}>
-          {(!!tile?.events?.length || !!tile.defaultText) && (
-            <div className="events">
-              <div className="scene">
-                <Dialog
-                  content={
-                    <div className="npc-dialogs">
-                      {!!tile.defaultText && (
-                        <div className="text-bubble">
-                          <Text as="p">{tile.defaultText}</Text>
-                        </div>
-                      )}
+      {surroundingTiles.map((tile) => {
+        const events = tile?.events?.filter(
+          (event) => event.condition === undefined || !!event.condition()
+        )
 
-                      {!!tile.events?.length && (
-                        <div className="events-list">
-                          {tile.events.map((event) => (
-                            <div
-                              key={`interactable-tile-y-${tile.y}-x${tile.x}-${tile.id}-event-${event.function}`}
-                            >
-                              <Button
-                                onClick={() => event?.function()}
-                                data-isimportant={
-                                  event.eventType === 'important'
-                                }
+        return (
+          <Fragment key={`interactable-tile-y-${tile.y}-x${tile.x}-${tile.id}`}>
+            {(!!events?.length || !!tile.defaultText) && (
+              <div className="events">
+                <div className="scene">
+                  <Dialog
+                    content={
+                      <div className="npc-dialogs">
+                        {!!tile.defaultText && (
+                          <div className="text-bubble">
+                            <Text as="p">{tile.defaultText}</Text>
+                          </div>
+                        )}
+
+                        {!!events?.length && (
+                          <div className="events-list">
+                            {events.map((event) => (
+                              <div
+                                key={`interactable-tile-y-${tile.y}-x${tile.x}-${tile.id}-event-${event.function}`}
                               >
-                                {event.eventType === 'important' && (
-                                  <AiOutlineExclamationCircle />
-                                )}
+                                <Button
+                                  onClick={() => event?.function()}
+                                  data-isimportant={
+                                    event.eventType === 'important'
+                                  }
+                                >
+                                  {event.eventType === 'important' && (
+                                    <AiOutlineExclamationCircle />
+                                  )}
 
-                                {(!event.eventType ||
-                                  event.eventType === 'default') && (
-                                  <HiOutlineChatBubbleLeftEllipsis />
-                                )}
+                                  {(!event.eventType ||
+                                    event.eventType === 'default') && (
+                                    <HiOutlineChatBubbleLeftEllipsis />
+                                  )}
 
-                                <Text>{event.eventText}</Text>
-                              </Button>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  }
-                  speaker={tile.npc}
-                />
+                                  <Text>{event.eventText}</Text>
+                                </Button>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    }
+                    speaker={tile.npc}
+                  />
+                </div>
               </div>
-            </div>
-          )}
-        </Fragment>
-      ))}
+            )}
+          </Fragment>
+        )
+      })}
     </aside>
   )
 }
