@@ -8,15 +8,16 @@ export type ZoneTileType = {
   condition?: () => boolean
 
   onEnter?: {
-    function: () => void
     eventText?: string
+    function: () => void
+    condition?: () => boolean
   }
 
   events?: Array<{
-    function: () => void
-    condition?: () => boolean
     eventText?: string
     eventType?: 'default' | 'important'
+    function: () => void
+    condition?: () => boolean
   }>
 
   npc?: NpcType

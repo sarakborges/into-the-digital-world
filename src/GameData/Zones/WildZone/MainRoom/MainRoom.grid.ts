@@ -1,17 +1,10 @@
-import type {TileType} from '@/Types/Tile.type'
-import type {GridType} from '@/Types/Grid.type'
+import type { TileType } from '@/Types/Tile.type'
+import type { GridType } from '@/Types/Grid.type'
 
-import {floorTile} from '@/GameData/Zones/floor.tile'
-
-import {WildZoneKoromon} from './Enemies/Koromon.enemy'
+import { floorTile } from '@/GameData/Zones/floor.tile'
 
 const currentFloorTile: TileType = {
-  ...floorTile,
-  maxEnemies: 1,
-
-  possibleSpawns: {
-    ...WildZoneKoromon
-  }
+  ...floorTile
 }
 
 const fullFloorRow = {
