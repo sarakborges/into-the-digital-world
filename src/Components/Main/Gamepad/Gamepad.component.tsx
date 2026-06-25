@@ -54,8 +54,8 @@ export const Gamepad = () => {
 
   return (
     <aside className="gamepad">
-      {coordinates.map((coordinate) => (
-        <Fragment key={`gamepad-${coordinate}`}>
+      {coordinates.map((coordinate, coordinateIndex) => (
+        <Fragment key={`gamepad-${coordinateIndex}`}>
           {!!coordinate ? (
             <Button
               style="secondary"
