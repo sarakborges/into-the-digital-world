@@ -29,8 +29,8 @@ export const Map = () => {
 
   const tiles: Array<{ id: string; type: string; x: number; y: number }> = []
 
-  for (let y = 0; y < Number(currentZone.gridSize); y++) {
-    for (let x = 0; x < Number(currentZone.gridSize); x++) {
+  for (let y = 1; y <= Number(currentZone.gridSize); y++) {
+    for (let x = 1; x <= Number(currentZone.gridSize); x++) {
       let type = 'other'
 
       if (profile.currentZone.x === x && profile.currentZone.y === y) {

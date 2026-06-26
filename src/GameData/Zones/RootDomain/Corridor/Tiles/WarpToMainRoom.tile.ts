@@ -4,7 +4,7 @@ import { WarpToMainRoom } from '@/GameData/Zones/RootDomain/Corridor/Events/Warp
 
 export const RootDomainCorridorWarpToMainRoomTile: ZoneTileType = {
   id: 'rootDomainCorridorWarpToMainRoom',
-  x: 0,
+  x: 1,
   y: 6,
   onEnter: {
     function: WarpToMainRoom

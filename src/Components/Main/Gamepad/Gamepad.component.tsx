@@ -32,15 +32,15 @@ export const Gamepad = () => {
   }
 
   const coordinates = [
-    { x: 0, y: -1, icon: <BsArrowUpLeft /> },
-    { x: 1, y: -1, icon: <BsArrowUp /> },
-    { x: 1, y: 0, icon: <BsArrowUpRight /> },
-    { x: -1, y: -1, icon: <BsArrowLeft /> },
+    { x: -1, y: -1, icon: <BsArrowUpLeft /> },
+    { x: 0, y: -1, icon: <BsArrowUp /> },
+    { x: +1, y: -1, icon: <BsArrowUpRight /> },
+    { x: -1, y: 0, icon: <BsArrowLeft /> },
     null,
-    { x: 1, y: 1, icon: <BsArrowRight /> },
-    { x: -1, y: 0, icon: <BsArrowDownLeft /> },
-    { x: -1, y: 1, icon: <BsArrowDown /> },
-    { x: 0, y: 1, icon: <BsArrowDownRight /> }
+    { x: +1, y: 0, icon: <BsArrowRight /> },
+    { x: -1, y: +1, icon: <BsArrowDownLeft /> },
+    { x: +0, y: +1, icon: <BsArrowDown /> },
+    { x: +1, y: +1, icon: <BsArrowDownRight /> }
   ].map((coordinate) => {
     if (!coordinate) {
       return null

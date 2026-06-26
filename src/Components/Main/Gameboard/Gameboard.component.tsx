@@ -1,16 +1,16 @@
-import type {ZoneType} from '@/Types/Zone.type'
+import type { ZoneType } from '@/Types/Zone.type'
 
-import {AllZones} from '@/GameData/Zones'
+import { AllZones } from '@/GameData/Zones'
 
-import {useProfileStore} from '@/Stores/Profile.store'
-import {useGameStore} from '@/Stores/Game.store'
-import {useBattleStore} from '@/Stores/Battle.store'
-import {useSceneStore} from '@/Stores/Scene.store'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useGameStore } from '@/Stores/Game.store'
+import { useBattleStore } from '@/Stores/Battle.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {GameboardCharacter} from '@/Components/Main/GameboardCharacter'
-import {Battlefield} from '@/Components/Combat/Battlefield'
-import {Minimap} from '@/Components/Main/Minimap'
-import {Gamepad} from '@/Components/Main/Gamepad'
+import { GameboardCharacter } from '@/Components/Main/GameboardCharacter'
+import { Battlefield } from '@/Components/Combat/Battlefield'
+import { Minimap } from '@/Components/Main/Minimap'
+import { Gamepad } from '@/Components/Main/Gamepad'
 
 import './Gameboard.style.scss'
 
@@ -31,8 +31,7 @@ export const Gameboard = () => {
     '--current-x': profile.currentZone.x,
     '--current-y': profile.currentZone.y,
     '--grid-size': currentZone.gridSize,
-    '--is-warping': !game?.isWarping ? 1 : 0,
-    backgroundImage: `url('/zones/${currentZone.background}.webp')`
+    '--is-warping': !game?.isWarping ? 1 : 0
   } as React.CSSProperties
 
   return (
@@ -51,6 +50,13 @@ export const Gameboard = () => {
 
         <main className="gameboard">
           <div className="gameboard-body" style={gameboardBodyVars}>
+            <div
+              className="gameboard-bg"
+              style={{
+                backgroundImage: `url('/zones/${currentZone.background}.webp')`
+              }}
+            />
+
             {!!(!battle || scene?.currentStage === 'start') && (
               <>
                 <GameboardCharacter isPlayer />

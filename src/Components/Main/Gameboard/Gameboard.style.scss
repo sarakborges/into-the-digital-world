@@ -23,7 +23,15 @@
 
     background-color: var(--color-neutral-strong);
     box-shadow: 0 0 8px var(--color-neutral-strong);
-    transform: rotate(-45deg);
+
+    .gameboard-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+    }
 
     .gameboard-body {
       position: absolute;

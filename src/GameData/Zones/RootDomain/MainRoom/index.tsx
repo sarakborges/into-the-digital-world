@@ -5,7 +5,12 @@ import { fillGrid } from '@/Helpers/Systems/Zones'
 import { RootDomainMainRoomGennaiTile } from './Tiles/Gennai.tile'
 import { RootDomainMainRoomJijimonTile } from './Tiles/Jijimon.tile'
 import { RootDomainMainRoomNanomonTile } from './Tiles/Nanomon.tile'
-import { RootDomainMainRoomWarpToCorridorTile } from './Tiles/WarpToCorridor.tile'
+
+import {
+  RootDomainMainRoomWarpToCorridorTile1,
+  RootDomainMainRoomWarpToCorridorTile2,
+  RootDomainMainRoomWarpToCorridorTile3
+} from './Tiles/WarpToCorridor.tile'
 
 import { grid } from './MainRoom.grid'
 
@@ -20,7 +25,9 @@ export const RootDomainMainRoom: ZoneType = {
   grid: filledGrid,
 
   tiles: [
-    RootDomainMainRoomWarpToCorridorTile,
+    RootDomainMainRoomWarpToCorridorTile1,
+    RootDomainMainRoomWarpToCorridorTile2,
+    RootDomainMainRoomWarpToCorridorTile3,
 
     RootDomainMainRoomNanomonTile,
     RootDomainMainRoomJijimonTile,

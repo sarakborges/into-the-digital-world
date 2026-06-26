@@ -210,6 +210,16 @@
               aspect-ratio: unset;
             }
 
+            &:disabled {
+              .portrait {
+                filter: grayscale(1);
+              }
+
+              .text {
+                background-color: var(--color-neutral);
+              }
+            }
+
             &:not(:disabled):hover {
               background-color: var(--color-primary);
               box-shadow: 0 0 4px 4px var(--color-primary);

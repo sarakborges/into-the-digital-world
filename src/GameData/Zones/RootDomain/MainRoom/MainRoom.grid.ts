@@ -1,112 +1,233 @@
-import type {TileType} from '@/Types/Tile.type'
-import type {GridType} from '@/Types/Grid.type'
+import type { GridType } from '@/Types/Grid.type'
 
-import {floorTile} from '@/GameData/Zones/floor.tile'
-
-const currentFloorTile: TileType = {
-  ...floorTile
-}
-
-const fullFloorRow = {
-  1: { ...currentFloorTile },
-  2: { ...currentFloorTile },
-  3: { ...currentFloorTile },
-  4: { ...currentFloorTile },
-  5: { ...currentFloorTile },
-  6: { ...currentFloorTile },
-  7: { ...currentFloorTile },
-  8: { ...currentFloorTile },
-  9: { ...currentFloorTile },
-  10: { ...currentFloorTile },
-  11: { ...currentFloorTile },
-  12: { ...currentFloorTile },
-  13: { ...currentFloorTile },
-  14: { ...currentFloorTile },
-  15: { ...currentFloorTile },
-  16: { ...currentFloorTile },
-  17: { ...currentFloorTile }
-}
-
-const coreRow = {
-  1: { ...currentFloorTile },
-  2: { ...currentFloorTile },
-  3: { ...currentFloorTile },
-  4: { ...currentFloorTile },
-  5: { ...currentFloorTile },
-  6: { ...currentFloorTile },
-  12: { ...currentFloorTile },
-  13: { ...currentFloorTile },
-  14: { ...currentFloorTile },
-  15: { ...currentFloorTile },
-  16: { ...currentFloorTile },
-  17: { ...currentFloorTile }
-}
+import { floorTile } from '@/GameData/Zones/floor.tile'
 
 export const grid: GridType = {
   2: {
-    1: { ...currentFloorTile },
-    2: { ...currentFloorTile },
-    3: { ...currentFloorTile },
-    4: { ...currentFloorTile },
-    5: { ...currentFloorTile },
-    7: { ...currentFloorTile },
-    11: { ...currentFloorTile },
-    13: { ...currentFloorTile },
-    14: { ...currentFloorTile },
-    15: { ...currentFloorTile },
-    16: { ...currentFloorTile },
-    17: { ...currentFloorTile }
+    6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile }
   },
 
   3: {
-    2: { ...currentFloorTile },
-    3: { ...currentFloorTile },
-    4: { ...currentFloorTile },
-    5: { ...currentFloorTile },
-    6: { ...currentFloorTile },
-    7: { ...currentFloorTile },
-    8: { ...currentFloorTile },
-    9: { ...currentFloorTile },
-    10: { ...currentFloorTile },
-    11: { ...currentFloorTile },
-    12: { ...currentFloorTile },
-    13: { ...currentFloorTile },
-    14: { ...currentFloorTile },
-    15: { ...currentFloorTile },
-    16: { ...currentFloorTile }
+    5: { ...floorTile },
+    6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile },
+    14: { ...floorTile }
   },
 
-  4: { ...fullFloorRow },
-  5: { ...fullFloorRow },
-  6: { ...fullFloorRow },
-  7: { ...coreRow },
-  8: { ...coreRow },
-  9: { ...coreRow },
-  10: { ...coreRow },
-  11: { ...coreRow },
-  12: { ...fullFloorRow },
-  13: { ...fullFloorRow },
-  14: { ...fullFloorRow },
+  4: {
+    6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile }
+  },
+
+  5: {
+    5: { ...floorTile },
+    6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile }
+  },
+
+  6: {
+    2: { ...floorTile },
+    3: { ...floorTile },
+    4: { ...floorTile },
+    5: { ...floorTile },
+    6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile },
+    14: { ...floorTile },
+    16: { ...floorTile },
+    17: { ...floorTile }
+  },
+
+  7: {
+    1: { ...floorTile },
+    2: { ...floorTile },
+    3: { ...floorTile },
+    4: { ...floorTile },
+    5: { ...floorTile },
+    6: { ...floorTile },
+    7: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile },
+    14: { ...floorTile },
+    15: { ...floorTile },
+    16: { ...floorTile },
+    17: { ...floorTile }
+  },
+
+  8: {
+    1: { ...floorTile },
+    2: { ...floorTile },
+    3: { ...floorTile },
+    4: { ...floorTile },
+    5: { ...floorTile },
+    6: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile },
+    14: { ...floorTile },
+    15: { ...floorTile },
+    16: { ...floorTile },
+    17: { ...floorTile },
+    18: { ...floorTile }
+  },
+
+  9: {
+    1: { ...floorTile },
+    2: { ...floorTile },
+    3: { ...floorTile },
+    4: { ...floorTile },
+    5: { ...floorTile },
+    6: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile },
+    14: { ...floorTile },
+    15: { ...floorTile },
+    16: { ...floorTile },
+    17: { ...floorTile },
+    18: { ...floorTile }
+  },
+
+  10: {
+    1: { ...floorTile },
+    2: { ...floorTile },
+    3: { ...floorTile },
+    4: { ...floorTile },
+    5: { ...floorTile },
+    6: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile },
+    14: { ...floorTile },
+    15: { ...floorTile },
+    16: { ...floorTile },
+    17: { ...floorTile },
+    18: { ...floorTile }
+  },
+
+  11: {
+    1: { ...floorTile },
+    2: { ...floorTile },
+    3: { ...floorTile },
+    4: { ...floorTile },
+    5: { ...floorTile },
+    6: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile },
+    14: { ...floorTile },
+    15: { ...floorTile },
+    16: { ...floorTile },
+    17: { ...floorTile },
+    18: { ...floorTile }
+  },
+
+  12: {
+    1: { ...floorTile },
+    2: { ...floorTile },
+    3: { ...floorTile },
+    4: { ...floorTile },
+    5: { ...floorTile },
+    6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile },
+    14: { ...floorTile },
+    15: { ...floorTile },
+    16: { ...floorTile },
+    17: { ...floorTile },
+    18: { ...floorTile }
+  },
+
+  13: {
+    1: { ...floorTile },
+    6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile },
+    17: { ...floorTile }
+  },
+
+  14: {
+    6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile }
+  },
 
   15: {
-    2: { ...currentFloorTile },
-    3: { ...currentFloorTile },
-    4: { ...currentFloorTile },
-    6: { ...currentFloorTile },
-    7: { ...currentFloorTile },
-    8: { ...currentFloorTile },
-    9: { ...currentFloorTile },
-    10: { ...currentFloorTile },
-    11: { ...currentFloorTile },
-    12: { ...currentFloorTile },
-    14: { ...currentFloorTile },
-    15: { ...currentFloorTile },
-    16: { ...currentFloorTile }
+    5: { ...floorTile },
+    6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile }
   },
 
-  16: { ...fullFloorRow },
+  16: {
+    4: { ...floorTile },
+    5: { ...floorTile },
+    6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile },
+    14: { ...floorTile }
+  },
 
   17: {
-    9: { ...currentFloorTile }
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile }
+  },
+
+  18: {
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile }
   }
 }

@@ -2,11 +2,25 @@ import type { ZoneTileType } from '@/Types/ZoneTile.type'
 
 import { WarpToCorridor } from '@/GameData/Zones/RootDomain/MainRoom/Events/WarpToCorridor.event'
 
-export const RootDomainMainRoomWarpToCorridorTile: ZoneTileType = {
+const RootDomainMainRoomWarpToCorridorTile = {
   id: 'rootDomainMainRoomWarpToCorridor',
-  x: 9,
   y: 18,
   onEnter: {
     function: WarpToCorridor
   }
+}
+
+export const RootDomainMainRoomWarpToCorridorTile1: ZoneTileType = {
+  ...RootDomainMainRoomWarpToCorridorTile,
+  x: 9
+}
+
+export const RootDomainMainRoomWarpToCorridorTile2: ZoneTileType = {
+  ...RootDomainMainRoomWarpToCorridorTile,
+  x: 10
+}
+
+export const RootDomainMainRoomWarpToCorridorTile3: ZoneTileType = {
+  ...RootDomainMainRoomWarpToCorridorTile,
+  x: 11
 }

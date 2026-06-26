@@ -30,36 +30,22 @@
     img,
     .avatar-layers,
     .avatar-layers img {
-      max-width: calc(var(--tile-size) + 6px);
-      width: calc(var(--tile-size) + 6px);
+      max-width: 100%;
+      aspect-ratio: 1;
 
       border-radius: 0;
-    }
-
-    > .portrait {
-      margin-top: -12px;
-
-      transform: rotate(45deg);
-    }
-
-    .avatar-layers {
-      top: -10px;
-      left: -10px;
-
-      transform: rotate(45deg);
     }
   }
 
   > .text {
     position: absolute;
     z-index: 1;
-    top: -16px;
-    left: 16px;
+    top: -6px;
+    left: -3px;
 
     padding: 2px 4px;
 
     background-color: var(--color-primary-strong);
     border-radius: 4px;
-    transform: rotate(45deg);
   }
 }
