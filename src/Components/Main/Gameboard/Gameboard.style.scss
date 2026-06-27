@@ -36,10 +36,12 @@
     .gameboard-body {
       position: absolute;
       top: calc(
-        50% - (var(--tile-size) / 2) - (var(--tile-size) * var(--current-y))
+        50% - (var(--tile-size) / 2) -
+          (var(--tile-size) * (var(--current-y) - 1))
       );
       left: calc(
-        50% - (var(--tile-size) / 2) - (var(--tile-size) * var(--current-x))
+        50% - (var(--tile-size) / 2) -
+          (var(--tile-size) * (var(--current-x) - 1))
       );
 
       width: calc(var(--grid-size) * var(--tile-size));

@@ -3,54 +3,8 @@ import type { GridType } from '@/Types/Grid.type'
 import { floorTile } from '@/GameData/Zones/floor.tile'
 
 export const grid: GridType = {
-  2: {
-    6: { ...floorTile },
-    7: { ...floorTile },
-    8: { ...floorTile },
-    9: { ...floorTile },
-    10: { ...floorTile },
-    11: { ...floorTile },
-    12: { ...floorTile },
-    13: { ...floorTile }
-  },
-
-  3: {
-    5: { ...floorTile },
-    6: { ...floorTile },
-    7: { ...floorTile },
-    8: { ...floorTile },
-    9: { ...floorTile },
-    10: { ...floorTile },
-    11: { ...floorTile },
-    12: { ...floorTile },
-    13: { ...floorTile },
-    14: { ...floorTile }
-  },
-
-  4: {
-    6: { ...floorTile },
-    7: { ...floorTile },
-    8: { ...floorTile },
-    9: { ...floorTile },
-    10: { ...floorTile },
-    11: { ...floorTile },
-    12: { ...floorTile },
-    13: { ...floorTile }
-  },
-
-  5: {
-    5: { ...floorTile },
-    6: { ...floorTile },
-    7: { ...floorTile },
-    8: { ...floorTile },
-    9: { ...floorTile },
-    10: { ...floorTile },
-    11: { ...floorTile },
-    12: { ...floorTile },
-    13: { ...floorTile }
-  },
-
-  6: {
+  1: {
+    1: { ...floorTile },
     2: { ...floorTile },
     3: { ...floorTile },
     4: { ...floorTile },
@@ -64,8 +18,121 @@ export const grid: GridType = {
     12: { ...floorTile },
     13: { ...floorTile },
     14: { ...floorTile },
+    15: { ...floorTile },
     16: { ...floorTile },
-    17: { ...floorTile }
+    17: { ...floorTile },
+    18: { ...floorTile },
+    19: { ...floorTile }
+  },
+
+  2: {
+    1: { ...floorTile },
+    2: { ...floorTile },
+    3: { ...floorTile },
+    4: { ...floorTile },
+    5: { ...floorTile },
+    6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile },
+    14: { ...floorTile },
+    15: { ...floorTile },
+    16: { ...floorTile },
+    17: { ...floorTile },
+    18: { ...floorTile },
+    19: { ...floorTile }
+  },
+
+  3: {
+    1: { ...floorTile },
+    2: { ...floorTile },
+    3: { ...floorTile },
+    4: { ...floorTile },
+    5: { ...floorTile },
+    6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile },
+    14: { ...floorTile },
+    15: { ...floorTile },
+    16: { ...floorTile },
+    17: { ...floorTile },
+    18: { ...floorTile },
+    19: { ...floorTile }
+  },
+
+  4: {
+    1: { ...floorTile },
+    2: { ...floorTile },
+    3: { ...floorTile },
+    4: { ...floorTile },
+    5: { ...floorTile },
+    6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile },
+    14: { ...floorTile },
+    15: { ...floorTile },
+    16: { ...floorTile },
+    17: { ...floorTile },
+    18: { ...floorTile },
+    19: { ...floorTile }
+  },
+
+  5: {
+    1: { ...floorTile },
+    2: { ...floorTile },
+    3: { ...floorTile },
+    4: { ...floorTile },
+    5: { ...floorTile },
+    6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile },
+    14: { ...floorTile },
+    15: { ...floorTile },
+    16: { ...floorTile },
+    17: { ...floorTile },
+    18: { ...floorTile },
+    19: { ...floorTile }
+  },
+
+  6: {
+    1: { ...floorTile },
+    2: { ...floorTile },
+    3: { ...floorTile },
+    4: { ...floorTile },
+    5: { ...floorTile },
+    6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile },
+    14: { ...floorTile },
+    15: { ...floorTile },
+    16: { ...floorTile },
+    17: { ...floorTile },
+    18: { ...floorTile },
+    19: { ...floorTile }
   },
 
   7: {
@@ -76,12 +143,18 @@ export const grid: GridType = {
     5: { ...floorTile },
     6: { ...floorTile },
     7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
     12: { ...floorTile },
     13: { ...floorTile },
     14: { ...floorTile },
     15: { ...floorTile },
     16: { ...floorTile },
-    17: { ...floorTile }
+    17: { ...floorTile },
+    18: { ...floorTile },
+    19: { ...floorTile }
   },
 
   8: {
@@ -91,13 +164,19 @@ export const grid: GridType = {
     4: { ...floorTile },
     5: { ...floorTile },
     6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
     12: { ...floorTile },
     13: { ...floorTile },
     14: { ...floorTile },
     15: { ...floorTile },
     16: { ...floorTile },
     17: { ...floorTile },
-    18: { ...floorTile }
+    18: { ...floorTile },
+    19: { ...floorTile }
   },
 
   9: {
@@ -107,13 +186,19 @@ export const grid: GridType = {
     4: { ...floorTile },
     5: { ...floorTile },
     6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
     12: { ...floorTile },
     13: { ...floorTile },
     14: { ...floorTile },
     15: { ...floorTile },
     16: { ...floorTile },
     17: { ...floorTile },
-    18: { ...floorTile }
+    18: { ...floorTile },
+    19: { ...floorTile }
   },
 
   10: {
@@ -123,13 +208,19 @@ export const grid: GridType = {
     4: { ...floorTile },
     5: { ...floorTile },
     6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
     12: { ...floorTile },
     13: { ...floorTile },
     14: { ...floorTile },
     15: { ...floorTile },
     16: { ...floorTile },
     17: { ...floorTile },
-    18: { ...floorTile }
+    18: { ...floorTile },
+    19: { ...floorTile }
   },
 
   11: {
@@ -139,13 +230,19 @@ export const grid: GridType = {
     4: { ...floorTile },
     5: { ...floorTile },
     6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
     12: { ...floorTile },
     13: { ...floorTile },
     14: { ...floorTile },
     15: { ...floorTile },
     16: { ...floorTile },
     17: { ...floorTile },
-    18: { ...floorTile }
+    18: { ...floorTile },
+    19: { ...floorTile }
   },
 
   12: {
@@ -166,46 +263,14 @@ export const grid: GridType = {
     15: { ...floorTile },
     16: { ...floorTile },
     17: { ...floorTile },
-    18: { ...floorTile }
+    18: { ...floorTile },
+    19: { ...floorTile }
   },
 
   13: {
     1: { ...floorTile },
-    6: { ...floorTile },
-    7: { ...floorTile },
-    8: { ...floorTile },
-    9: { ...floorTile },
-    10: { ...floorTile },
-    11: { ...floorTile },
-    12: { ...floorTile },
-    13: { ...floorTile },
-    17: { ...floorTile }
-  },
-
-  14: {
-    6: { ...floorTile },
-    7: { ...floorTile },
-    8: { ...floorTile },
-    9: { ...floorTile },
-    10: { ...floorTile },
-    11: { ...floorTile },
-    12: { ...floorTile },
-    13: { ...floorTile }
-  },
-
-  15: {
-    5: { ...floorTile },
-    6: { ...floorTile },
-    7: { ...floorTile },
-    8: { ...floorTile },
-    9: { ...floorTile },
-    10: { ...floorTile },
-    11: { ...floorTile },
-    12: { ...floorTile },
-    13: { ...floorTile }
-  },
-
-  16: {
+    2: { ...floorTile },
+    3: { ...floorTile },
     4: { ...floorTile },
     5: { ...floorTile },
     6: { ...floorTile },
@@ -216,18 +281,143 @@ export const grid: GridType = {
     11: { ...floorTile },
     12: { ...floorTile },
     13: { ...floorTile },
-    14: { ...floorTile }
+    14: { ...floorTile },
+    15: { ...floorTile },
+    16: { ...floorTile },
+    17: { ...floorTile },
+    18: { ...floorTile },
+    19: { ...floorTile }
+  },
+
+  14: {
+    1: { ...floorTile },
+    2: { ...floorTile },
+    3: { ...floorTile },
+    4: { ...floorTile },
+    5: { ...floorTile },
+    6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile },
+    14: { ...floorTile },
+    15: { ...floorTile },
+    16: { ...floorTile },
+    17: { ...floorTile },
+    18: { ...floorTile },
+    19: { ...floorTile }
+  },
+
+  15: {
+    1: { ...floorTile },
+    2: { ...floorTile },
+    3: { ...floorTile },
+    4: { ...floorTile },
+    5: { ...floorTile },
+    6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile },
+    14: { ...floorTile },
+    15: { ...floorTile },
+    16: { ...floorTile },
+    17: { ...floorTile },
+    18: { ...floorTile },
+    19: { ...floorTile }
+  },
+
+  16: {
+    1: { ...floorTile },
+    2: { ...floorTile },
+    3: { ...floorTile },
+    4: { ...floorTile },
+    5: { ...floorTile },
+    6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile },
+    14: { ...floorTile },
+    15: { ...floorTile },
+    16: { ...floorTile },
+    17: { ...floorTile },
+    18: { ...floorTile },
+    19: { ...floorTile }
   },
 
   17: {
+    1: { ...floorTile },
+    2: { ...floorTile },
+    3: { ...floorTile },
+    4: { ...floorTile },
+    5: { ...floorTile },
+    6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
     9: { ...floorTile },
     10: { ...floorTile },
-    11: { ...floorTile }
+    11: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile },
+    14: { ...floorTile },
+    15: { ...floorTile },
+    16: { ...floorTile },
+    17: { ...floorTile },
+    18: { ...floorTile },
+    19: { ...floorTile }
   },
 
   18: {
+    1: { ...floorTile },
+    2: { ...floorTile },
+    3: { ...floorTile },
+    4: { ...floorTile },
+    5: { ...floorTile },
+    6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
     9: { ...floorTile },
     10: { ...floorTile },
-    11: { ...floorTile }
+    11: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile },
+    14: { ...floorTile },
+    15: { ...floorTile },
+    16: { ...floorTile },
+    17: { ...floorTile },
+    18: { ...floorTile },
+    19: { ...floorTile }
+  },
+
+  19: {
+    1: { ...floorTile },
+    2: { ...floorTile },
+    3: { ...floorTile },
+    4: { ...floorTile },
+    5: { ...floorTile },
+    6: { ...floorTile },
+    7: { ...floorTile },
+    8: { ...floorTile },
+    9: { ...floorTile },
+    10: { ...floorTile },
+    11: { ...floorTile },
+    12: { ...floorTile },
+    13: { ...floorTile },
+    14: { ...floorTile },
+    15: { ...floorTile },
+    16: { ...floorTile },
+    17: { ...floorTile },
+    18: { ...floorTile },
+    19: { ...floorTile }
   }
 }

@@ -1,7 +1,7 @@
 .gameboard-character {
   position: absolute;
-  top: calc((var(--tile-size) * var(--character-y)));
-  left: calc((var(--tile-size) * var(--character-x)));
+  top: calc((var(--tile-size) * (var(--character-y) - 1)));
+  left: calc((var(--tile-size) * (var(--character-x) - 1)));
 
   display: flex;
   flex-flow: column;
