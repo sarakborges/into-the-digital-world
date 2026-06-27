@@ -12,8 +12,8 @@ import { useProfileStore } from '@/Stores/Profile.store'
 
 export const RootDomainMainRoomGennaiTile: ZoneTileType = {
   id: 'rootDomainMainRoomGennai',
-  x: 9,
-  y: 12,
+  x: 10,
+  y: 13,
   defaultText: getDialogs('ROOTDOMAIN_GENNAI_DEFAULT'),
 
   events: [

@@ -3,30 +3,7 @@ import type { GridType } from '@/Types/Grid.type'
 import { floorTile } from '@/GameData/Zones/floor.tile'
 
 export const grid: GridType = {
-  1: {
-    1: { ...floorTile },
-    2: { ...floorTile },
-    3: { ...floorTile },
-    4: { ...floorTile },
-    5: { ...floorTile },
-    6: { ...floorTile },
-    7: { ...floorTile },
-    8: { ...floorTile },
-    9: { ...floorTile },
-    10: { ...floorTile },
-    11: { ...floorTile },
-    12: { ...floorTile },
-    13: { ...floorTile },
-    14: { ...floorTile },
-    15: { ...floorTile },
-    16: { ...floorTile },
-    17: { ...floorTile },
-    18: { ...floorTile },
-    19: { ...floorTile }
-  },
-
   2: {
-    1: { ...floorTile },
     2: { ...floorTile },
     3: { ...floorTile },
     4: { ...floorTile },
@@ -43,12 +20,10 @@ export const grid: GridType = {
     15: { ...floorTile },
     16: { ...floorTile },
     17: { ...floorTile },
-    18: { ...floorTile },
-    19: { ...floorTile }
+    18: { ...floorTile }
   },
 
   3: {
-    1: { ...floorTile },
     2: { ...floorTile },
     3: { ...floorTile },
     4: { ...floorTile },
@@ -65,12 +40,10 @@ export const grid: GridType = {
     15: { ...floorTile },
     16: { ...floorTile },
     17: { ...floorTile },
-    18: { ...floorTile },
-    19: { ...floorTile }
+    18: { ...floorTile }
   },
 
   4: {
-    1: { ...floorTile },
     2: { ...floorTile },
     3: { ...floorTile },
     4: { ...floorTile },
@@ -87,12 +60,10 @@ export const grid: GridType = {
     15: { ...floorTile },
     16: { ...floorTile },
     17: { ...floorTile },
-    18: { ...floorTile },
-    19: { ...floorTile }
+    18: { ...floorTile }
   },
 
   5: {
-    1: { ...floorTile },
     2: { ...floorTile },
     3: { ...floorTile },
     4: { ...floorTile },
@@ -109,12 +80,10 @@ export const grid: GridType = {
     15: { ...floorTile },
     16: { ...floorTile },
     17: { ...floorTile },
-    18: { ...floorTile },
-    19: { ...floorTile }
+    18: { ...floorTile }
   },
 
   6: {
-    1: { ...floorTile },
     2: { ...floorTile },
     3: { ...floorTile },
     4: { ...floorTile },
@@ -131,12 +100,10 @@ export const grid: GridType = {
     15: { ...floorTile },
     16: { ...floorTile },
     17: { ...floorTile },
-    18: { ...floorTile },
-    19: { ...floorTile }
+    18: { ...floorTile }
   },
 
   7: {
-    1: { ...floorTile },
     2: { ...floorTile },
     3: { ...floorTile },
     4: { ...floorTile },
@@ -153,12 +120,10 @@ export const grid: GridType = {
     15: { ...floorTile },
     16: { ...floorTile },
     17: { ...floorTile },
-    18: { ...floorTile },
-    19: { ...floorTile }
+    18: { ...floorTile }
   },
 
   8: {
-    1: { ...floorTile },
     2: { ...floorTile },
     3: { ...floorTile },
     4: { ...floorTile },
@@ -166,87 +131,57 @@ export const grid: GridType = {
     6: { ...floorTile },
     7: { ...floorTile },
     8: { ...floorTile },
-    9: { ...floorTile },
-    10: { ...floorTile },
-    11: { ...floorTile },
-    12: { ...floorTile },
     13: { ...floorTile },
     14: { ...floorTile },
     15: { ...floorTile },
     16: { ...floorTile },
     17: { ...floorTile },
-    18: { ...floorTile },
-    19: { ...floorTile }
+    18: { ...floorTile }
   },
 
   9: {
-    1: { ...floorTile },
     2: { ...floorTile },
     3: { ...floorTile },
     4: { ...floorTile },
     5: { ...floorTile },
     6: { ...floorTile },
     7: { ...floorTile },
-    8: { ...floorTile },
-    9: { ...floorTile },
-    10: { ...floorTile },
-    11: { ...floorTile },
-    12: { ...floorTile },
-    13: { ...floorTile },
     14: { ...floorTile },
     15: { ...floorTile },
     16: { ...floorTile },
     17: { ...floorTile },
-    18: { ...floorTile },
-    19: { ...floorTile }
+    18: { ...floorTile }
   },
 
   10: {
-    1: { ...floorTile },
     2: { ...floorTile },
     3: { ...floorTile },
     4: { ...floorTile },
     5: { ...floorTile },
     6: { ...floorTile },
     7: { ...floorTile },
-    8: { ...floorTile },
-    9: { ...floorTile },
-    10: { ...floorTile },
-    11: { ...floorTile },
-    12: { ...floorTile },
-    13: { ...floorTile },
     14: { ...floorTile },
     15: { ...floorTile },
     16: { ...floorTile },
     17: { ...floorTile },
-    18: { ...floorTile },
-    19: { ...floorTile }
+    18: { ...floorTile }
   },
 
   11: {
-    1: { ...floorTile },
     2: { ...floorTile },
     3: { ...floorTile },
     4: { ...floorTile },
     5: { ...floorTile },
     6: { ...floorTile },
     7: { ...floorTile },
-    8: { ...floorTile },
-    9: { ...floorTile },
-    10: { ...floorTile },
-    11: { ...floorTile },
-    12: { ...floorTile },
-    13: { ...floorTile },
     14: { ...floorTile },
     15: { ...floorTile },
     16: { ...floorTile },
     17: { ...floorTile },
-    18: { ...floorTile },
-    19: { ...floorTile }
+    18: { ...floorTile }
   },
 
   12: {
-    1: { ...floorTile },
     2: { ...floorTile },
     3: { ...floorTile },
     4: { ...floorTile },
@@ -254,21 +189,15 @@ export const grid: GridType = {
     6: { ...floorTile },
     7: { ...floorTile },
     8: { ...floorTile },
-    9: { ...floorTile },
-    10: { ...floorTile },
-    11: { ...floorTile },
-    12: { ...floorTile },
     13: { ...floorTile },
     14: { ...floorTile },
     15: { ...floorTile },
     16: { ...floorTile },
     17: { ...floorTile },
-    18: { ...floorTile },
-    19: { ...floorTile }
+    18: { ...floorTile }
   },
 
   13: {
-    1: { ...floorTile },
     2: { ...floorTile },
     3: { ...floorTile },
     4: { ...floorTile },
@@ -285,12 +214,10 @@ export const grid: GridType = {
     15: { ...floorTile },
     16: { ...floorTile },
     17: { ...floorTile },
-    18: { ...floorTile },
-    19: { ...floorTile }
+    18: { ...floorTile }
   },
 
   14: {
-    1: { ...floorTile },
     2: { ...floorTile },
     3: { ...floorTile },
     4: { ...floorTile },
@@ -307,12 +234,10 @@ export const grid: GridType = {
     15: { ...floorTile },
     16: { ...floorTile },
     17: { ...floorTile },
-    18: { ...floorTile },
-    19: { ...floorTile }
+    18: { ...floorTile }
   },
 
   15: {
-    1: { ...floorTile },
     2: { ...floorTile },
     3: { ...floorTile },
     4: { ...floorTile },
@@ -329,12 +254,10 @@ export const grid: GridType = {
     15: { ...floorTile },
     16: { ...floorTile },
     17: { ...floorTile },
-    18: { ...floorTile },
-    19: { ...floorTile }
+    18: { ...floorTile }
   },
 
   16: {
-    1: { ...floorTile },
     2: { ...floorTile },
     3: { ...floorTile },
     4: { ...floorTile },
@@ -351,12 +274,10 @@ export const grid: GridType = {
     15: { ...floorTile },
     16: { ...floorTile },
     17: { ...floorTile },
-    18: { ...floorTile },
-    19: { ...floorTile }
+    18: { ...floorTile }
   },
 
   17: {
-    1: { ...floorTile },
     2: { ...floorTile },
     3: { ...floorTile },
     4: { ...floorTile },
@@ -373,51 +294,12 @@ export const grid: GridType = {
     15: { ...floorTile },
     16: { ...floorTile },
     17: { ...floorTile },
-    18: { ...floorTile },
-    19: { ...floorTile }
+    18: { ...floorTile }
   },
 
   18: {
-    1: { ...floorTile },
-    2: { ...floorTile },
-    3: { ...floorTile },
-    4: { ...floorTile },
-    5: { ...floorTile },
-    6: { ...floorTile },
-    7: { ...floorTile },
-    8: { ...floorTile },
     9: { ...floorTile },
     10: { ...floorTile },
-    11: { ...floorTile },
-    12: { ...floorTile },
-    13: { ...floorTile },
-    14: { ...floorTile },
-    15: { ...floorTile },
-    16: { ...floorTile },
-    17: { ...floorTile },
-    18: { ...floorTile },
-    19: { ...floorTile }
-  },
-
-  19: {
-    1: { ...floorTile },
-    2: { ...floorTile },
-    3: { ...floorTile },
-    4: { ...floorTile },
-    5: { ...floorTile },
-    6: { ...floorTile },
-    7: { ...floorTile },
-    8: { ...floorTile },
-    9: { ...floorTile },
-    10: { ...floorTile },
-    11: { ...floorTile },
-    12: { ...floorTile },
-    13: { ...floorTile },
-    14: { ...floorTile },
-    15: { ...floorTile },
-    16: { ...floorTile },
-    17: { ...floorTile },
-    18: { ...floorTile },
-    19: { ...floorTile }
+    11: { ...floorTile }
   }
 }

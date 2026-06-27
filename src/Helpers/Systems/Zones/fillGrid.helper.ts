@@ -9,14 +9,14 @@ export const fillGrid = ({
 }): GridType => {
   const gridArr = new Array(gridSize).fill(null)
 
-  for (let x in gridArr) {
-    if (!grid[x]) {
-      grid[x] = {}
+  for (let y in gridArr) {
+    if (!grid[y]) {
+      grid[y] = {}
     }
 
-    for (let y in gridArr) {
-      if (!grid[x][y]) {
-        grid[x][y] = null
+    for (let x in gridArr) {
+      if (!grid[y][x]) {
+        grid[y][x] = null
       }
     }
   }

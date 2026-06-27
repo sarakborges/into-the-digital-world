@@ -12,8 +12,8 @@ import { useProfileStore } from '@/Stores/Profile.store'
 
 export const RootDomainMainRoomJijimonTile: ZoneTileType = {
   id: 'rootDomainMainRoomJijimon',
-  x: 2,
-  y: 8,
+  x: 14,
+  y: 7,
   defaultText: getDialogs('ROOTDOMAIN_JIJIMON_DEFAULT'),
 
   npc: {

@@ -12,8 +12,8 @@ import { useProfileStore } from '@/Stores/Profile.store'
 
 export const RootDomainMainRoomNanomonTile: ZoneTileType = {
   id: 'rootDomainMainRoomNanomon',
-  x: 9,
-  y: 3,
+  x: 6,
+  y: 7,
   defaultText: getDialogs('ROOTDOMAIN_NANOMON_DEFAULT'),
 
   npc: {
