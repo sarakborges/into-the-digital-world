@@ -1,14 +1,5 @@
 import { Fragment } from 'react/jsx-runtime'
-import {
-  BsArrowDown,
-  BsArrowDownLeft,
-  BsArrowDownRight,
-  BsArrowLeft,
-  BsArrowRight,
-  BsArrowUp,
-  BsArrowUpLeft,
-  BsArrowUpRight
-} from 'react-icons/bs'
+import { BiCaretDown } from 'react-icons/bi'
 
 import { canMoveToCoordinate, setLocation } from '@/Helpers/Systems/Zones'
 
@@ -32,15 +23,15 @@ export const Gamepad = () => {
   }
 
   const coordinates = [
-    { x: -1, y: -1, icon: <BsArrowUpLeft /> },
-    { x: 0, y: -1, icon: <BsArrowUp /> },
-    { x: +1, y: -1, icon: <BsArrowUpRight /> },
-    { x: -1, y: 0, icon: <BsArrowLeft /> },
+    { x: -1, y: -1 },
+    { x: 0, y: -1 },
+    { x: +1, y: -1 },
+    { x: -1, y: 0 },
     null,
-    { x: +1, y: 0, icon: <BsArrowRight /> },
-    { x: -1, y: +1, icon: <BsArrowDownLeft /> },
-    { x: +0, y: +1, icon: <BsArrowDown /> },
-    { x: +1, y: +1, icon: <BsArrowDownRight /> }
+    { x: +1, y: 0 },
+    { x: -1, y: +1 },
+    { x: +0, y: +1 },
+    { x: +1, y: +1 }
   ].map((coordinate) => {
     if (!coordinate) {
       return null
@@ -62,7 +53,7 @@ export const Gamepad = () => {
               disabled={!coordinate.canMove || !!game?.isWarping}
               onClick={() => setLocation({ ...coordinate })}
             >
-              {coordinate.icon}
+              <BiCaretDown />
             </Button>
           ) : (
             <div />

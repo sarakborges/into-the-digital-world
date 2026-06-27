@@ -6,15 +6,15 @@
   padding: 4px;
 
   background-color: var(--color-secondary);
-  border-radius: 4px;
+  border-radius: 12px;
 
   .player-avatar {
-    width: 48px;
+    width: 128px;
     padding: 2px;
     overflow: hidden;
 
     background-color: var(--color-primary-strong);
-    border-radius: 4px;
+    border-radius: 12px;
   }
 
   header {

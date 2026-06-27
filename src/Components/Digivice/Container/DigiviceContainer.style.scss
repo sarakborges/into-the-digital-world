@@ -189,7 +189,7 @@
             padding: 4px;
 
             background-color: transparent;
-            border-radius: 4px;
+            border-radius: 12px;
 
             transition:
               box-shadow 0.3s,
@@ -199,10 +199,10 @@
               font-size: 12px;
               word-break: break-word;
 
-              padding: 2px 4px;
+              padding: 4px;
 
               background-color: var(--color-primary);
-              border-radius: 4px;
+              border-radius: 8px;
             }
 
             .portrait {

@@ -28,6 +28,10 @@
         width: 100%;
       }
     }
+
+    .button:disabled {
+      filter: grayscale(1);
+    }
   }
 
   .customization-back {

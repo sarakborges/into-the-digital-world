@@ -1,12 +1,12 @@
-import {FaCheck} from 'react-icons/fa'
+import { FaCheck } from 'react-icons/fa'
 
-import {getTexts} from '@/Helpers/Language'
-import {updateSettings} from '@/Helpers/Systems/Settings'
+import { getTexts } from '@/Helpers/Language'
+import { updateSettings } from '@/Helpers/Systems/Settings'
 
-import {useSettingsStore} from '@/Stores/Settings.store'
+import { useSettingsStore } from '@/Stores/Settings.store'
 
-import {Button} from '@/Components/DesignSystem/Button'
-import {Text} from '@/Components/DesignSystem/Text'
+import { Button } from '@/Components/DesignSystem/Button'
+import { Text } from '@/Components/DesignSystem/Text'
 
 import './UpdateTheme.style.scss'
 

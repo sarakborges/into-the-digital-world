@@ -1,15 +1,17 @@
-import type {BaseDigimonType} from '@/Types/BaseDigimon.type'
-import type {PartnerDigimonType} from '@/Types/PartnerDigimon.type'
+import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
+import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 
-import {AllDigimons} from '@/GameData/Digimons'
+import { AllDigimons } from '@/GameData/Digimons'
 
-import {getTexts} from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 
-import {useDigiviceStore} from '@/Stores/Digivice.store'
-import {useProfileStore} from '@/Stores/Profile.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 
-import {Portrait} from '@/Components/DesignSystem/Portrait'
-import {Text} from '@/Components/DesignSystem/Text'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
+import { Text } from '@/Components/DesignSystem/Text'
+
+import './CharacterFullPicture.style.scss'
 
 export const CharacterFullPicture = () => {
   const { profile } = useProfileStore((state) => state)

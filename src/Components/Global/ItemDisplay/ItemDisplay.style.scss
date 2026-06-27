@@ -9,7 +9,11 @@
     overflow: hidden;
 
     background-color: var(--color-primary-strong);
-    border-radius: 4px;
+    border-radius: 12px;
+
+    img {
+      border-radius: 12px;
+    }
   }
 
   > .text {
@@ -22,7 +26,7 @@
     font-size: 12px;
 
     > div {
-      border-radius: 4px;
+      border-radius: 8px;
 
       &:first-child {
         flex: 1;
@@ -51,7 +55,6 @@
       padding: 2px;
 
       background-color: var(--color-primary-strong);
-      border-radius: 4px;
     }
 
     .text {

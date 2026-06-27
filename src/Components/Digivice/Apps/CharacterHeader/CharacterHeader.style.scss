@@ -53,7 +53,7 @@
   &[data-isplayer='true'] {
     .avatar-content {
       background-color: var(--color-secondary-strong);
-      border-radius: 4px;
+      border-radius: 12px;
     }
 
     .player-avatar .avatar-content > .portrait {
@@ -72,10 +72,10 @@
 
     display: flex;
 
-    border-radius: 4px;
+    border-radius: 12px;
 
     img {
-      border-radius: 4px;
+      border-radius: 12px;
     }
   }
 
@@ -99,7 +99,7 @@
         text-overflow: ellipsis;
 
         background-color: var(--color-secondary-strong);
-        border-radius: 0 4px 4px 0;
+        border-radius: 0 12px 12px 0;
       }
     }
   }

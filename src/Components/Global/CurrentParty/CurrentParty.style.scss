@@ -28,7 +28,7 @@
 
             border: 3px solid var(--color-primary-strong);
             border-right-color: transparent;
-            border-radius: 4px 4px 0 0;
+            border-radius: 12px 0 0 0;
           }
         }
 
@@ -43,7 +43,7 @@
 
           border: 3px solid var(--color-primary-strong);
           background-color: var(--color-primary);
-          border-radius: 4px 4px 4px 0;
+          border-radius: 12px 12px 12px 0;
         }
       }
 
@@ -51,10 +51,10 @@
         display: flex;
 
         .text {
-          padding: 1px 4px 4px;
+          padding: 1px 6px 4px;
 
           background-color: var(--color-primary-strong);
-          border-radius: 0 0 4px 4px;
+          border-radius: 0 0 8px 8px;
 
           font-weight: 500;
         }
