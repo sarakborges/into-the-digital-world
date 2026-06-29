@@ -9,13 +9,12 @@ export const WildZoneKoromonNestTile: ZoneTileType = {
   x: 12,
   y: 11,
   defaultText: getDialogs('WILDZONE_KOROMON_NEST_DEFAULT'),
-  hideFromMap: true,
 
   events: [
     {
       function: OpenDungeonKoromon,
       eventText: getDialogs('WILDZONE_KOROMON_NEST_TRIGGER'),
-      eventType: 'default'
+      eventType: 'dungeon'
     }
   ]
 }

@@ -7,6 +7,7 @@ export const RootDomainCorridorWarpToBedRoomTile: ZoneTileType = {
   x: 4,
   y: 4,
   onEnter: {
+    type: 'warp',
     function: WarpToBedRoom
   }
 }

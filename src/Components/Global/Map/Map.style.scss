@@ -13,8 +13,6 @@
   box-shadow: 0 0 4px var(--color-neutral-strong);
 
   .map-tiles {
-    position: relative;
-
     display: grid;
     grid-template-columns: repeat(var(--grid-size), 1fr);
 
@@ -24,20 +22,30 @@
     > div {
       aspect-ratio: 1;
 
+      background-color: var(--color-secondary-weak);
+
       &.player {
-        background-color: var(--color-primary-strong);
+        color: var(--color-primary-strong);
       }
 
       &.event {
-        background-color: var(--color-secondary-strong);
-      }
-
-      &.other {
-        background-color: var(--color-neutral);
+        color: var(--color-secondary-strong);
       }
 
       &.blocked {
-        background-color: var(--color-neutral-strong);
+        background-color: transparent;
+      }
+
+      &.dungeon,
+      &.important,
+      &.npc,
+      &.warp {
+        color: var(--color-neutral-weak);
+      }
+
+      svg {
+        width: 100%;
+        height: 100%;
       }
     }
   }

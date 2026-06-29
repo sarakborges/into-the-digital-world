@@ -5,18 +5,18 @@ export type ZoneTileType = {
   x: number
   y: number
   defaultText?: string
-  hideFromMap?: boolean
   condition?: () => boolean
 
   onEnter?: {
     eventText?: string
+    type?: 'warp'
     function: () => void
     condition?: () => boolean
   }
 
   events?: Array<{
     eventText?: string
-    eventType?: 'default' | 'important'
+    eventType?: 'default' | 'important' | 'dungeon'
     function: () => void
     condition?: () => boolean
   }>

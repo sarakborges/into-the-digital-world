@@ -1,5 +1,5 @@
-import type {AvatarType} from '@/Types/Avatar.type'
-import type {PartnerDigimonType} from '@/Types/PartnerDigimon.type'
+import type { AvatarType } from '@/Types/Avatar.type'
+import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 
 export type ProfileType = {
   id: number
@@ -11,6 +11,8 @@ export type ProfileType = {
   currentScene: string | null
   party: Array<number>
   titles: Array<string>
+  dungeonsFound: Array<string>
+  researchesFound: Array<string>
   researches: Array<string>
 
   quests: {

@@ -1,15 +1,15 @@
-import {getTexts} from '@/Helpers/Language'
-import {isQuestDone} from '@/Helpers/Systems/Quests'
+import { getTexts } from '@/Helpers/Language'
+import { isQuestDone } from '@/Helpers/Systems/Quests'
 
-import {AllQuests} from '@/GameData/Quests'
+import { AllQuests } from '@/GameData/Quests'
 
-import {useProfileStore} from '@/Stores/Profile.store'
-import {useSceneStore} from '@/Stores/Scene.store'
-import {useDigiviceStore} from '@/Stores/Digivice.store'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 
-import {Button} from '@/Components/DesignSystem/Button'
-import {Text} from '@/Components/DesignSystem/Text'
-import {Portrait} from '@/Components/DesignSystem/Portrait'
+import { Button } from '@/Components/DesignSystem/Button'
+import { Text } from '@/Components/DesignSystem/Text'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
 
 export const DigiviceCurrentApp = ({ app }) => {
   const { profile } = useProfileStore((state) => state)
@@ -22,6 +22,7 @@ export const DigiviceCurrentApp = ({ app }) => {
 
   const isSave = app.id === 'save'
   const isLogoff = app.id === 'logoff'
+  const isMap = app.id === 'map'
 
   const doneQuests = Object.keys(profile.quests).filter((quest) =>
     isQuestDone(quest)
@@ -30,7 +31,7 @@ export const DigiviceCurrentApp = ({ app }) => {
   const isAppDisabled =
     !!scene ||
     (!doneQuests.includes(AllQuests.starterDigimon.id) &&
-      !(!!isSave || !!isLogoff))
+      !(!!isSave || !!isLogoff || !!isMap))
 
   const openApp = () => {
     setDigivice({ ...digivice, currentApp: app.app })
