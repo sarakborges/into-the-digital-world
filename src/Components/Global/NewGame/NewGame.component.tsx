@@ -1,14 +1,14 @@
-import type {ProfileType} from '@/Types/Profile.type'
+import type { ProfileType } from '@/Types/Profile.type'
 
-import {AllNpcs} from '@/GameData/Npcs'
+import { AllNpcs } from '@/GameData/Npcs'
 
-import {getTexts} from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 
-import {useProfileStore} from '@/Stores/Profile.store'
-import {useSceneStore} from '@/Stores/Scene.store'
-import {useDigiviceStore} from '@/Stores/Digivice.store'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 
-import {Button} from '@/Components/DesignSystem/Button'
+import { Button } from '@/Components/DesignSystem/Button'
 
 import './NewGame.style.scss'
 
@@ -25,9 +25,11 @@ export const NewGame = () => {
       currentTitle: 'chosenChild',
       currentScene: 'introduction',
 
-      party: [],
       titles: ['chosenChild'],
+      party: [],
       researches: [],
+      researchesFound: [],
+      dungeonsFound: [],
 
       quests: {},
       items: {},
