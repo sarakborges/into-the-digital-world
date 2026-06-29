@@ -3,6 +3,7 @@ export * from './Compose.dialog'
 export * from './GetStarterDigimon.dialog'
 export * from './Introduction.dialog'
 export * from './Research.dialog'
+export * from './Dungeon.dialog'
 
 export * from './RootDomain.dialog'
 

@@ -95,6 +95,10 @@ export const Map = () => {
         type = 'dungeon'
       }
 
+      if (!type) {
+        continue
+      }
+
       tiles.push({
         id: `${x}-${y}`,
         type,

@@ -8,12 +8,12 @@ export const WildZoneKoromonNestTile: ZoneTileType = {
   id: 'wildZoneKoromonNest',
   x: 12,
   y: 11,
-  defaultText: getDialogs('WILDZONE_KOROMON_NEST_DEFAULT'),
+  defaultText: getDialogs('DUNGEON_WILDZONE_KOROMON_NEST_DEFAULT'),
 
   events: [
     {
       function: OpenDungeonKoromon,
-      eventText: getDialogs('WILDZONE_KOROMON_NEST_TRIGGER'),
+      eventText: getDialogs('DUNGEON_WILDZONE_KOROMON_NEST_TRIGGER'),
       eventType: 'dungeon'
     }
   ]

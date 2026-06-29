@@ -9,7 +9,7 @@ export const INTRODUCTION_004_TEXT = `Forgive me. I forgot to introduce myself. 
 
 export const INTRODUCTION_005_TEXT = `I know that's a lot of information. Take your time to digest it. In the meanwhile, why don't you introduce yourself to me?`
 export const INTRODUCTION_005_INPUT = `Insert your name`
-export const INTRODUCTION_005_INPUT_PLACEHOLDER = `Destined one`
+export const INTRODUCTION_005_INPUT_PLACEHOLDER = `Destined One`
 
 export const INTRODUCTION_006_TEXT = `Uhm. I'm [NAME].\nWhat do you mean by "Destined Ones"? And "Digital World"? Old age is getting to you, sir? Or do you just enjoy roleplaying?`
 

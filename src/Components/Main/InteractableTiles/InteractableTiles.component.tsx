@@ -1,6 +1,7 @@
 import { Fragment } from 'react/jsx-runtime'
 import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
 import { AiOutlineExclamationCircle } from 'react-icons/ai'
+import { BsEye } from 'react-icons/bs'
 
 import type { ZoneType } from '@/Types/Zone.type'
 
@@ -83,6 +84,8 @@ export const InteractableTiles = () => {
                                     event.eventType === 'important'
                                   }
                                 >
+                                  {event.eventType === 'dungeon' && <BsEye />}
+
                                   {event.eventType === 'important' && (
                                     <AiOutlineExclamationCircle />
                                   )}

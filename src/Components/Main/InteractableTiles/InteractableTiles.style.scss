@@ -21,7 +21,7 @@
         .npc-dialogs {
           display: flex;
           flex-flow: column;
-          gap: 4px;
+          gap: 8px;
 
           .events-list {
             display: flex;
@@ -30,12 +30,12 @@
 
             .button {
               place-content: flex-start;
-              padding: 0;
-              gap: 4px;
-
-              background-color: transparent;
+              padding: 4px 6px;
+              gap: 6px;
 
               text-align: left;
+
+              background-color: var(--color-secondary);
 
               svg {
                 width: 24px;

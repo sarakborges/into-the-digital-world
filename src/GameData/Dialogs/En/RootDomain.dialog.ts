@@ -6,6 +6,6 @@ export const ROOTDOMAIN_NANOMON_DEFAULT = `What? Can't you see I'm busy?`
 export const ROOTDOMAIN_NANOMON_INTRODUCTION = `So rude! Who are you?`
 export const ROOTDOMAIN_RESEARCH_TRIGGER = `I want to research new patterns.`
 
-export const ROOTDOMAIN_JIJIMON_DEFAULT = `Oh. Destined one. Come closer.`
+export const ROOTDOMAIN_JIJIMON_DEFAULT = `Oh. Destined One. Come closer.`
 export const ROOTDOMAIN_JIJIMON_INTRODUCTION = `Another old man. And who are you?`
 export const ROOTDOMAIN_COMPOSE_TRIGGER = `I want to compose a new Digimon.`
