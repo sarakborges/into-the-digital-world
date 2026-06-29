@@ -5,6 +5,7 @@ export type ZoneTileType = {
   x: number
   y: number
   defaultText?: string
+  hideFromMap?: boolean
   condition?: () => boolean
 
   onEnter?: {

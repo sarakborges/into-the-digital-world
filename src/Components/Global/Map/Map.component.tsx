@@ -19,12 +19,15 @@ export const Map = () => {
     AllZones[profile.currentZone.id][profile.currentZone.map]
 
   const npcs = currentZone.tiles.filter(
-    (tile) => tile.condition === undefined || !!tile.condition()
+    (tile) =>
+      (tile.condition === undefined || !!tile.condition()) && !tile.hideFromMap
   )
 
   const events = currentZone.tiles.filter(
     (tile) =>
-      (tile.condition === undefined || !!tile.condition()) && !!tile.onEnter
+      (tile.condition === undefined || !!tile.condition()) &&
+      !!tile.onEnter &&
+      !tile.hideFromMap
   )
 
   const tiles: Array<{ id: string; type: string; x: number; y: number }> = []

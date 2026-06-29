@@ -3,7 +3,7 @@ import type { ZoneTileType } from '@/Types/ZoneTile.type'
 import { getDialogs } from '@/Helpers/Language'
 
 import { AllNpcs } from '@/GameData/Npcs'
-import { OpenLocation } from '@/GameData/Zones/RootDomain/MainRoom/Events/OpenLocation.event'
+import { OpenLocation } from '@/GameData/Zones/WildZone/MainRoom/Events/OpenLocation.event'
 
 export const WildZoneGennaiTile: ZoneTileType = {
   id: 'wildZoneGennai',

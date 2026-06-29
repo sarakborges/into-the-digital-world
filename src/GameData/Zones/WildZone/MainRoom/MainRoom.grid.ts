@@ -8,7 +8,6 @@ const currentFloorTile: TileType = {
 }
 
 const fullFloorRow = {
-  1: { ...currentFloorTile },
   2: { ...currentFloorTile },
   3: { ...currentFloorTile },
   4: { ...currentFloorTile },
@@ -24,11 +23,11 @@ const fullFloorRow = {
   14: { ...currentFloorTile },
   15: { ...currentFloorTile },
   16: { ...currentFloorTile },
-  17: { ...currentFloorTile }
+  17: { ...currentFloorTile },
+  18: { ...currentFloorTile }
 }
 
 export const grid: GridType = {
-  1: { ...fullFloorRow },
   2: { ...fullFloorRow },
   3: { ...fullFloorRow },
   4: { ...fullFloorRow },
@@ -44,5 +43,6 @@ export const grid: GridType = {
   14: { ...fullFloorRow },
   15: { ...fullFloorRow },
   16: { ...fullFloorRow },
-  17: { ...fullFloorRow }
+  17: { ...fullFloorRow },
+  18: { ...fullFloorRow }
 }

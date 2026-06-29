@@ -2,8 +2,10 @@ import type { ZoneType } from '@/Types/Zone.type'
 
 import { fillGrid } from '@/Helpers/Systems/Zones'
 
-import { grid } from './MainRoom.grid'
 import { WildZoneGennaiTile } from './Tiles/Gennai.tile'
+import { WildZoneKoromonNestTile } from './Tiles/KoromonNest.tile'
+
+import { grid } from './MainRoom.grid'
 
 const gridSize = 19
 const filledGrid = fillGrid({ grid, gridSize })
@@ -15,5 +17,5 @@ export const WildZoneMainRoom: ZoneType = {
   gridSize,
   grid: filledGrid,
 
-  tiles: [WildZoneGennaiTile]
+  tiles: [WildZoneGennaiTile, WildZoneKoromonNestTile]
 }
