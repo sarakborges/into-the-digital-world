@@ -1,12 +1,17 @@
 import type { DungeonType } from '@/Types/Dungeon.type'
 
+import { DungeonWildZoneKoromonNestRoomRest } from './Rooms/Rest'
+import { DungeonWildZoneKoromonNestRoomRandom } from './Rooms/Random'
+
 export const DungeonWildZoneKoromonNest: DungeonType = {
-  id: 'koromonNest',
   name: 'DUNGEON_WILDZONE_KOROMON_NEST_TITLE',
-  maxAmountOfStages: 3,
+  maxAmountOfRooms: 3,
 
-  possibleStages: {},
+  possibleRooms: {
+    rest: DungeonWildZoneKoromonNestRoomRest,
+    random: DungeonWildZoneKoromonNestRoomRandom
+  },
 
-  unavailableStagesAtFirstRoom: [],
-  unavailableStagesAtLastRoom: []
+  unavailableRoomsAtFirstRoom: ['rest'],
+  unavailableRoomsAtLastRoom: ['rest']
 }

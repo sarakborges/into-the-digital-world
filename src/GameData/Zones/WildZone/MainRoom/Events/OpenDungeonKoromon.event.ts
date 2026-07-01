@@ -1,10 +1,7 @@
-import { saveDungeon } from '@/Helpers/Systems/Dungeon'
-
 import { DungeonWildZoneKoromonNest } from '@/GameData/Dungeons/WildZone/KoromonNest'
 
+import { enterDungeon } from '@/Helpers/Systems/Dungeon'
+
 export const OpenDungeonKoromon = () => {
-  saveDungeon({
-    ...DungeonWildZoneKoromonNest,
-    doneStages: []
-  })
+  enterDungeon(DungeonWildZoneKoromonNest)
 }

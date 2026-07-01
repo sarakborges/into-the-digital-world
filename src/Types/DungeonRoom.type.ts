@@ -1,3 +1,11 @@
 export type DungeonRoomType = {
-  id: string
+  name: string
+
+  choices: {
+    [eventId: string]: {
+      name: string
+      description: string
+      event: () => void
+    }
+  }
 }
