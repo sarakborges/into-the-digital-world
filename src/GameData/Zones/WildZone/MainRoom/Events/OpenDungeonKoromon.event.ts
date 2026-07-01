@@ -1,11 +1,9 @@
-import { useDungeonStore } from '@/Stores/Dungeon.store'
+import { saveDungeon } from '@/Helpers/Systems/Dungeon'
 
 import { DungeonWildZoneKoromonNest } from '@/GameData/Dungeons/WildZone/KoromonNest'
 
 export const OpenDungeonKoromon = () => {
-  const setDungeon = useDungeonStore.getState().setDungeon
-
-  setDungeon({
+  saveDungeon({
     ...DungeonWildZoneKoromonNest,
     doneStages: []
   })

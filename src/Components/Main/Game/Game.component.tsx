@@ -4,9 +4,8 @@ import { Scene } from '@/GameData/Scenes'
 
 import { THEMES } from '@/Consts/Themes.const'
 
-import { loadData, loadSession } from '@/Helpers/Systems/Data'
+import { loadData, loadGameSession } from '@/Helpers/Systems/Data'
 
-import { useProfileStore } from '@/Stores/Profile.store'
 import { useSettingsStore } from '@/Stores/Settings.store'
 
 import { InteractableTiles } from '@/Components/Main/InteractableTiles'
@@ -22,7 +21,6 @@ import { Dungeon } from '@/Components/Combat/Dungeon'
 import './Game.style.scss'
 
 export const Game = () => {
-  const { setProfile } = useProfileStore((state) => state)
   const { settings, setSettings } = useSettingsStore((state) => state)
 
   if (!settings) {
@@ -30,7 +28,7 @@ export const Game = () => {
   }
 
   useEffect(() => {
-    setProfile(loadSession({ key: 'profile' }))
+    loadGameSession()
     setSettings({ ...loadData({ key: 'settings' }), isOpen: false })
   }, [])
 

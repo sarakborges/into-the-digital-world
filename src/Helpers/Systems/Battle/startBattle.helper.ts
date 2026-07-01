@@ -1,13 +1,13 @@
-import type {PartyDigimonType} from '@/Types/PartyDigimon.type'
+import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
-import {AllDigimons} from '@/GameData/Digimons'
-import {AllZones} from '@/GameData/Zones'
+import { AllDigimons } from '@/GameData/Digimons'
+import { AllZones } from '@/GameData/Zones'
 
-import {generateRandomNumber, getSuccesses} from '@/Helpers/Math'
+import { generateRandomNumber, getSuccesses } from '@/Helpers/Math'
 
-import {useProfileStore} from '@/Stores/Profile.store'
-import {useSceneStore} from '@/Stores/Scene.store'
-import {useBattleStore} from '@/Stores/Battle.store'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
+import { saveBattle } from './saveBattle.helper'
 
 const spawnEnemies = () => {
   const { profile } = useProfileStore.getState()
@@ -64,7 +64,6 @@ const spawnEnemies = () => {
 export const startBattle = () => {
   const { profile } = useProfileStore.getState()
   const { setScene } = useSceneStore.getState()
-  const { setBattle } = useBattleStore.getState()
 
   if (!profile) {
     return
@@ -110,7 +109,7 @@ export const startBattle = () => {
     currentStage: 'start'
   })
 
-  setBattle({
+  saveBattle({
     combatLog: [],
     turnOrder: [...allies, ...enemies]
       .map((digimon) => ({

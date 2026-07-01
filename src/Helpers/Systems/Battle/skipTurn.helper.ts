@@ -1,9 +1,9 @@
-import {isDigimonDefeated} from '@/Helpers/Systems/Battle'
+import { isDigimonDefeated, saveBattle } from '@/Helpers/Systems/Battle'
 
-import {useBattleStore} from '@/Stores/Battle.store'
+import { useBattleStore } from '@/Stores/Battle.store'
 
 export const skipTurn = () => {
-  const { battle, setBattle } = useBattleStore.getState()
+  const { battle } = useBattleStore.getState()
 
   if (!battle) {
     return
@@ -12,7 +12,7 @@ export const skipTurn = () => {
   const [currentDigimon, ...otherDigimons] = battle.turnOrder
 
   if (isDigimonDefeated(currentDigimon)) {
-    setBattle({
+    saveBattle({
       ...battle,
       turnOrder: [...otherDigimons, currentDigimon]
     })
