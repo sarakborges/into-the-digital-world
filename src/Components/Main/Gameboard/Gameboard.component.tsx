@@ -6,9 +6,9 @@ import { useProfileStore } from '@/Stores/Profile.store'
 import { useGameStore } from '@/Stores/Game.store'
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
+import { useDungeonStore } from '@/Stores/Dungeon.store'
 
 import { GameboardCharacter } from '@/Components/Main/GameboardCharacter'
-import { Battlefield } from '@/Components/Combat/Battlefield'
 import { Minimap } from '@/Components/Main/Minimap'
 import { Gamepad } from '@/Components/Main/Gamepad'
 
@@ -19,8 +19,9 @@ export const Gameboard = () => {
   const { game } = useGameStore((state) => state)
   const { battle } = useBattleStore((state) => state)
   const { scene } = useSceneStore((state) => state)
+  const { dungeon } = useDungeonStore((state) => state)
 
-  if (!profile?.currentZone) {
+  if (!profile?.currentZone || !!battle || !!dungeon) {
     return
   }
 
@@ -35,47 +36,35 @@ export const Gameboard = () => {
   } as React.CSSProperties
 
   return (
-    <>
-      <div
-        className="gameboard-container"
-        style={
-          {
-            '--tile-size':
-              !battle || scene?.currentStage === 'start' ? '64px' : '40px'
-          } as React.CSSProperties
-        }
-      >
-        <Minimap />
-        <Gamepad />
+    <div className="gameboard-container">
+      <Minimap />
+      <Gamepad />
 
-        <main className="gameboard">
-          <div className="gameboard-body" style={gameboardBodyVars}>
-            <div
-              className="gameboard-bg"
-              style={{
-                backgroundImage: `url('/zones/${currentZone.background}.webp')`
-              }}
-            />
+      <main className="gameboard">
+        <div className="gameboard-body" style={gameboardBodyVars}>
+          <div
+            className="gameboard-bg"
+            style={{
+              backgroundImage: `url('/zones/${currentZone.background}.webp')`
+            }}
+          />
 
-            {!!(!battle || scene?.currentStage === 'start') && (
-              <>
-                <GameboardCharacter isPlayer />
+          {!!(!battle || scene?.currentStage === 'start') && (
+            <>
+              <GameboardCharacter isPlayer />
 
-                {currentZone.tiles.map((tile) => {
-                  return (
-                    <GameboardCharacter
-                      tile={tile}
-                      key={`zone-${currentZone.id}-x${tile.x}-y${tile.y}-${tile.id}`}
-                    />
-                  )
-                })}
-              </>
-            )}
-          </div>
-
-          {!(!battle || scene?.currentStage === 'start') && <Battlefield />}
-        </main>
-      </div>
-    </>
+              {currentZone.tiles.map((tile) => {
+                return (
+                  <GameboardCharacter
+                    tile={tile}
+                    key={`zone-${currentZone.id}-x${tile.x}-y${tile.y}-${tile.id}`}
+                  />
+                )
+              })}
+            </>
+          )}
+        </div>
+      </main>
+    </div>
   )
 }

@@ -1,10 +1,10 @@
 import { create } from 'zustand'
 
-import type { DungeonType } from '@/Types/Dungeon.type'
+import type { DungeonStoreType } from '@/Types/Dungeon.type'
 
 type DungeonStore = {
-  dungeon: DungeonType | null
-  setDungeon: (dungeon: DungeonType | null) => void
+  dungeon: DungeonStoreType | null
+  setDungeon: (dungeon: DungeonStoreType | null) => void
 }
 
 export const useDungeonStore = create<DungeonStore>((set) => ({

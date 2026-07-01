@@ -9,6 +9,7 @@ import { AllZones } from '@/GameData/Zones'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
+import { useDungeonStore } from '@/Stores/Dungeon.store'
 
 import { Text } from '@/Components/DesignSystem/Text'
 import { Button } from '@/Components/DesignSystem/Button'
@@ -20,8 +21,9 @@ import './InteractableTiles.style.scss'
 export const InteractableTiles = () => {
   const { profile } = useProfileStore((state) => state)
   const { scene } = useSceneStore((state) => state)
+  const { dungeon } = useDungeonStore((state) => state)
 
-  if (!profile?.currentZone || !!scene) {
+  if (!profile?.currentZone || !!scene || !!dungeon) {
     return
   }
 

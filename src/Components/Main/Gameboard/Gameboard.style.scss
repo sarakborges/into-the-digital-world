@@ -1,4 +1,6 @@
 .gameboard-container {
+  --tile-size: 64px;
+
   position: relative;
 
   display: flex;

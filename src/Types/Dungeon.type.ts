@@ -2,6 +2,7 @@ import type { DungeonRoomType } from '@/Types/DungeonRoom.type'
 
 export type DungeonType = {
   id: string
+  name: string
   maxAmountOfStages: number
 
   spawnConditions?: () => boolean
@@ -13,4 +14,8 @@ export type DungeonType = {
 
   unavailableStagesAtFirstRoom: Array<string>
   unavailableStagesAtLastRoom: Array<string>
+}
+
+export type DungeonStoreType = DungeonType & {
+  doneStages: Array<string>
 }

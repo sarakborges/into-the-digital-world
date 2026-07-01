@@ -1,32 +1,34 @@
-import {useEffect} from 'react'
+import { useEffect } from 'react'
 
-import {getTexts} from '@/Helpers/Language'
-import {loadProfiles} from '@/Helpers/Systems/Profile'
+import { getTexts } from '@/Helpers/Language'
+import { loadProfiles } from '@/Helpers/Systems/Profile'
 
-import {THEMES} from '@/Consts/Themes.const'
+import { THEMES } from '@/Consts/Themes.const'
 
-import {useSavedProfilesStore} from '@/Stores/SavedProfiles.store'
-import {useSettingsStore} from '@/Stores/Settings.store'
+import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
+import { useSettingsStore } from '@/Stores/Settings.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 
-import {Text} from '@/Components/DesignSystem/Text'
-import {Portrait} from '@/Components/DesignSystem/Portrait'
+import { Text } from '@/Components/DesignSystem/Text'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
 
-import {NewGame} from '@/Components/Global/NewGame'
-import {GameFile} from '@/Components/Global/GameFile'
+import { NewGame } from '@/Components/Global/NewGame'
+import { GameFile } from '@/Components/Global/GameFile'
 
 import './StartScreen.style.scss'
 
 export const StartScreen = () => {
   const { savedProfiles } = useSavedProfilesStore((state) => state)
   const { settings } = useSettingsStore((state) => state)
-
-  if (!settings) {
-    return
-  }
+  const { profile } = useProfileStore((state) => state)
 
   useEffect(() => {
     loadProfiles()
   }, [])
+
+  if (!!profile || !settings) {
+    return
+  }
 
   return (
     <main className="start-screen">
