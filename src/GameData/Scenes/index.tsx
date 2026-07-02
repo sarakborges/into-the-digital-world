@@ -1,19 +1,19 @@
-import {IntroductionScenes} from './Introduction'
-import {AvatarCustomizationScenes} from './AvatarCustomization'
-import {SaveGameScenes} from './SaveGame'
-import {LogoffScenes} from './Logoff'
-import {GetStarterDigimonScenes} from './GetStarterDigimon'
-import {BattleScenes} from './Battle'
-import {RenamePartnerScenes} from './RenamePartner'
-import {ResearchScenes} from './Research'
-import {ComposeScenes} from './Compose'
-import {EquipmentScenes} from './Equipment'
-import {LocationScenes} from './Location'
-import {DeleteGameScenes} from './DeleteGame'
+import { IntroductionScenes } from './Introduction'
+import { AvatarCustomizationScenes } from './AvatarCustomization'
+import { SaveGameScenes } from './SaveGame'
+import { LogoffScenes } from './Logoff'
+import { GetStarterDigimonScenes } from './GetStarterDigimon'
+import { BattleScenes } from './Battle'
+import { RenamePartnerScenes } from './RenamePartner'
+import { ResearchScenes } from './Research'
+import { ComposeScenes } from './Compose'
+import { EquipmentScenes } from './Equipment'
+import { LocationScenes } from './Location'
+import { DeleteGameScenes } from './DeleteGame'
 
-import {useSceneStore} from '@/Stores/Scene.store'
-import {useDigiviceStore} from '@/Stores/Digivice.store'
-import {useBattleStore} from '@/Stores/Battle.store'
+import { useSceneStore } from '@/Stores/Scene.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
+import { useBattleStore } from '@/Stores/Battle.store'
 
 export const AllScenes = {
   [IntroductionScenes.id]: IntroductionScenes,
@@ -34,6 +34,8 @@ export const Scene = () => {
   const { scene } = useSceneStore((state) => state)
   const { digivice } = useDigiviceStore((state) => state)
   const { battle } = useBattleStore((state) => state)
+
+  console.log(scene)
 
   if (!scene || !digivice) {
     return

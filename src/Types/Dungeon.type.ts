@@ -1,6 +1,8 @@
 import type { DungeonRoomType } from '@/Types/DungeonRoom.type'
 
 export type DungeonType = {
+  id: string
+  zone: string
   name: string
   maxAmountOfRooms: number
 
@@ -8,14 +10,16 @@ export type DungeonType = {
   enterConditions?: () => boolean
 
   possibleRooms: {
-    [stageId: string]: DungeonRoomType
+    [roomId: string]: DungeonRoomType
   }
 
-  unavailableRoomsAtFirstRoom: Array<string>
-  unavailableRoomsAtLastRoom: Array<string>
+  availableFirstRooms: Array<string>
+  availableLastRooms: Array<string>
 }
 
-export type DungeonStoreType = DungeonType & {
+export type DungeonStoreType = {
+  dungeonId: string
+  zoneId: string
   rooms: Array<string>
   doneRooms: Array<string>
 }

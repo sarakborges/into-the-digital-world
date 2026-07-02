@@ -1,8 +1,15 @@
+import { useEffect } from 'react'
+
+import { AllDungeons } from '@/GameData/Dungeons'
+
 import { getDialogs } from '@/Helpers/Language'
 
 import { leaveDungeon } from '@/Helpers/Systems/Dungeon'
+import { startBattle } from '@/Helpers/Systems/Battle'
 
 import { useDungeonStore } from '@/Stores/Dungeon.store'
+import { useBattleStore } from '@/Stores/Battle.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Text } from '@/Components/DesignSystem/Text'
 import { Button } from '@/Components/DesignSystem/Button'
@@ -11,18 +18,38 @@ import './Dungeon.style.scss'
 
 export const Dungeon = () => {
   const { dungeon } = useDungeonStore((state) => state)
+  const { battle } = useBattleStore((state) => state)
+  const { scene, setScene } = useSceneStore((state) => state)
+
+  useEffect(() => {
+    if (!dungeon) {
+      return
+    }
+
+    if (dungeon.rooms[currentRoom] === 'random' && !battle) {
+      startBattle()
+    }
+
+    if (!scene) {
+      setScene({
+        currentScene: 'battle',
+        currentStage: 'start'
+      })
+    }
+  }, [dungeon?.doneRooms])
 
   if (!dungeon) {
     return
   }
 
+  const currentDungeon = AllDungeons[dungeon.zoneId]?.[dungeon.dungeonId]
   const currentRoom = dungeon.rooms.length - 1
-  const room = dungeon.possibleRooms[dungeon.rooms[currentRoom]]
+  const room = currentDungeon?.possibleRooms[dungeon.rooms[currentRoom]]
 
   return (
     <div className="dungeon">
       <div>
-        <Text>{getDialogs(dungeon.name)}</Text>
+        <Text>{getDialogs(currentDungeon.name)}</Text>
       </div>
 
       <div>

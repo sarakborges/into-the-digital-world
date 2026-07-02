@@ -4,6 +4,9 @@ import { DungeonWildZoneKoromonNestRoomRest } from './Rooms/Rest'
 import { DungeonWildZoneKoromonNestRoomRandom } from './Rooms/Random'
 
 export const DungeonWildZoneKoromonNest: DungeonType = {
+  id: 'koromonNest',
+  zone: 'wildZone',
+
   name: 'DUNGEON_WILDZONE_KOROMON_NEST_TITLE',
   maxAmountOfRooms: 3,
 
@@ -12,6 +15,6 @@ export const DungeonWildZoneKoromonNest: DungeonType = {
     random: DungeonWildZoneKoromonNestRoomRandom
   },
 
-  unavailableRoomsAtFirstRoom: ['rest'],
-  unavailableRoomsAtLastRoom: ['rest']
+  availableFirstRooms: ['random'],
+  availableLastRooms: []
 }

@@ -1,58 +1,66 @@
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
 import { AllDigimons } from '@/GameData/Digimons'
-import { AllZones } from '@/GameData/Zones'
+import { AllDungeons } from '@/GameData/Dungeons'
 
 import { generateRandomNumber, getSuccesses } from '@/Helpers/Math'
+import { saveBattle } from '@/Helpers/Systems/Battle/saveBattle.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useSceneStore } from '@/Stores/Scene.store'
-import { saveBattle } from './saveBattle.helper'
+import { useDungeonStore } from '@/Stores/Dungeon.store'
 
-const spawnEnemies = () => {
+export const spawnEnemies = () => {
   const { profile } = useProfileStore.getState()
+  const { dungeon } = useDungeonStore.getState()
 
-  if (!profile) {
+  if (!profile || !dungeon) {
     return
   }
 
-  const { id, map, x, y } = profile.currentZone
-  const tile = AllZones[id][map].grid[y][x]
+  const currentDungeon = AllDungeons[dungeon.zoneId]?.[dungeon.dungeonId]
 
-  const { possibleSpawns, maxEnemies } = tile
+  const currentRoom =
+    currentDungeon.possibleRooms[dungeon.rooms[dungeon.rooms.length - 1]]
+
+  if (!currentRoom?.spawns) {
+    return
+  }
+
+  const { min, max, digimons } = currentRoom.spawns
   const enemiesSpawned: Array<PartyDigimonType> = []
 
-  if (!possibleSpawns || !Object.keys(possibleSpawns!).length) {
-    return
-  }
+  const enemyQuantity =
+    Math.floor(
+      generateRandomNumber({
+        min: min || 1,
+        max: (max || 4) * 5
+      }) / 5
+    ) || min
 
-  const enemyQuantity = Math.floor(
-    generateRandomNumber({
-      min: 0,
-      max: (maxEnemies || 4) * 5
-    }) / 5
-  )
+  if (Object.keys(digimons).length < 2) {
+    const digimon = AllDigimons[Object.keys(digimons)[0]]
 
-  if (enemyQuantity <= 0) {
-    return
+    return new Array(enemyQuantity).fill({
+      ...digimon
+    })
   }
 
   while (enemiesSpawned.length < enemyQuantity) {
-    const randomizedPossibleSpawns = Object.keys(possibleSpawns!).sort(
+    const randomizedPossibleSpawns = Object.keys(digimons).sort(
       () => Math.random() - 0.5
     )
 
-    for (let spawn of randomizedPossibleSpawns!) {
+    for (let spawn of randomizedPossibleSpawns) {
       if (enemiesSpawned.length >= enemyQuantity) {
         break
       }
 
       const rng = generateRandomNumber({ min: 0, max: 100 })
 
-      if (rng < possibleSpawns[spawn].spawnChance) {
+      if (rng < digimons[spawn].spawnChance) {
         enemiesSpawned.push({
-          ...AllDigimons[possibleSpawns[spawn].digimonId],
-          equipments: possibleSpawns[spawn].equipments
+          ...AllDigimons[digimons[spawn].digimonId],
+          equipments: digimons[spawn].equipments
         })
       }
     }
@@ -63,16 +71,18 @@ const spawnEnemies = () => {
 
 export const startBattle = () => {
   const { profile } = useProfileStore.getState()
-  const { setScene } = useSceneStore.getState()
+  const { dungeon } = useDungeonStore.getState()
 
-  if (!profile) {
+  if (!profile || !dungeon) {
     return
   }
 
-  const { id, map, x, y } = profile.currentZone
-  const tile = AllZones[id][map].grid[y][x]
+  const currentDungeon = AllDungeons[dungeon.zoneId]?.[dungeon.dungeonId]
 
-  if (!tile || !profile.party.length) {
+  const currentRoom =
+    currentDungeon.possibleRooms[dungeon.rooms[dungeon.rooms.length - 1]]
+
+  if (!currentRoom || !profile.party.length) {
     return
   }
 
@@ -100,14 +110,9 @@ export const startBattle = () => {
 
     party: 'enemies' as 'allies' | 'enemies',
     index: digimonIndex,
-    equipments: tile.possibleSpawns![digimon.id].equipments,
-    lootTable: [...(tile.possibleSpawns![digimon.id].lootTable ?? [])]
+    equipments: currentRoom.spawns?.digimons![digimon.id].equipments,
+    lootTable: [...(currentRoom.spawns?.digimons![digimon.id].lootTable ?? [])]
   }))
-
-  setScene({
-    currentScene: 'battle',
-    currentStage: 'start'
-  })
 
   saveBattle({
     combatLog: [],

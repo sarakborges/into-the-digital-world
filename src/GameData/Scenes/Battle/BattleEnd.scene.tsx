@@ -6,6 +6,7 @@ import { getDialogs } from '@/Helpers/Language'
 import { warpTo } from '@/Helpers/Systems/Zones'
 import { saveSession } from '@/Helpers/Systems/Data'
 import { isDigimonDefeated, saveBattle } from '@/Helpers/Systems/Battle'
+import { saveDungeon } from '@/Helpers/Systems/Dungeon'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -67,11 +68,12 @@ export const BattleEnd = () => {
               zoneId: 'rootDomain',
               mapId: 'restRoom'
             })
+
+            saveDungeon(null)
           }
 
-          saveBattle(null)
-
           setScene(null)
+          saveBattle(null)
           saveSession(profile)
         }
       }

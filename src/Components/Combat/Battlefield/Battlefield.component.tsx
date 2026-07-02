@@ -1,29 +1,29 @@
-import {useEffect} from 'react'
+import { useEffect } from 'react'
 
-import {skipTurn} from '@/Helpers/Systems/Battle'
+import { skipTurn } from '@/Helpers/Systems/Battle'
 
-import {useBattleStore} from '@/Stores/Battle.store'
+import { useBattleStore } from '@/Stores/Battle.store'
 
-import {CombatParties} from '@/Components/Combat/CombatParties'
-import {TurnOrder} from '@/Components/Combat/TurnOrder'
+import { CombatParties } from '@/Components/Combat/CombatParties'
+import { TurnOrder } from '@/Components/Combat/TurnOrder'
 
 import './Battlefield.style.scss'
 
 export const Battlefield = () => {
   const { battle } = useBattleStore((state) => state)
 
-  if (!battle) {
-    return
-  }
-
   useEffect(() => {
     skipTurn()
   }, [battle])
 
+  if (!battle) {
+    return
+  }
+
   return (
     <div className="battlefield">
-      <TurnOrder />
       <CombatParties />
+      <TurnOrder />
     </div>
   )
 }

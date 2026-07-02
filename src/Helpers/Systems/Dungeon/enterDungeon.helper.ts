@@ -4,22 +4,19 @@ import { generateRandomNumber } from '@/Helpers/Math'
 import { saveDungeon } from '@/Helpers/Systems/Dungeon'
 
 export const enterDungeon = (dungeon: DungeonType) => {
-  const { possibleRooms, unavailableRoomsAtFirstRoom } = dungeon
-
-  const rooms = Object.keys(possibleRooms).filter(
-    (roomId) => !unavailableRoomsAtFirstRoom.includes(roomId)
-  )
+  const { availableFirstRooms } = dungeon
 
   const rng = generateRandomNumber({
     min: 0,
-    max: rooms.length - 1
+    max: availableFirstRooms.length - 1
   })
 
-  const firstRoom = rooms[rng]
+  const room = availableFirstRooms[rng]
 
   saveDungeon({
-    ...dungeon,
-    rooms: [firstRoom],
+    dungeonId: dungeon.id,
+    zoneId: dungeon.zone,
+    rooms: [room],
     doneRooms: []
   })
 }

@@ -38,7 +38,7 @@
 
   .party-member {
     &[data-defeated='true'] {
-      opacity: 0.25;
+      filter: grayscale(1);
     }
 
     &[data-currentturn='true'] {
@@ -54,7 +54,6 @@
       position: relative;
 
       display: flex;
-      flex-flow: column;
       place-items: flex-start;
       gap: 4px;
 
@@ -63,6 +62,10 @@
         padding: 2px;
 
         border-radius: 12px;
+
+        img {
+          border-radius: 12px;
+        }
       }
 
       .conditions {
@@ -70,6 +73,8 @@
         flex-flow: column;
         place-items: center;
         gap: 4px;
+
+        padding-top: 12px;
 
         > .text {
           font-size: 12px;
