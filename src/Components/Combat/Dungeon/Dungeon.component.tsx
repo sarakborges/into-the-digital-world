@@ -33,7 +33,7 @@ export const Dungeon = () => {
     if (!scene) {
       setScene({
         currentScene: 'battle',
-        currentStage: 'start'
+        currentStage: 'turn'
       })
     }
   }, [dungeon?.doneRooms])
