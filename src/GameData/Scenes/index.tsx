@@ -35,8 +35,6 @@ export const Scene = () => {
   const { digivice } = useDigiviceStore((state) => state)
   const { battle } = useBattleStore((state) => state)
 
-  console.log(scene)
-
   if (!scene || !digivice) {
     return
   }
