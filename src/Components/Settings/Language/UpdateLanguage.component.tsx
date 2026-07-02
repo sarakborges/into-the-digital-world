@@ -35,7 +35,7 @@ export const UpdateLanguage = ({ language }: { language: string }) => {
           {getTexts(`LANGUAGE_${language.replace('-', '').toUpperCase()}`)}
         </Text>
 
-        {language === settings.language && <FaCheck />}
+        {language === settings?.language && <FaCheck />}
       </Button>
     </div>
   )
