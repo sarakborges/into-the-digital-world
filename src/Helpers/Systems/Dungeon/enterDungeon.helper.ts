@@ -2,7 +2,7 @@ import type { DungeonType } from '@/Types/Dungeon.type'
 
 import { generateRandomNumber } from '@/Helpers/Math'
 import { saveDungeon } from '@/Helpers/Systems/Dungeon'
-import { getCurrentParty } from '@/Helpers/Systems/Profile/getCurrentParty.helper'
+import { getCurrentParty } from '@/Helpers/Systems/Profile'
 
 export const enterDungeon = (dungeon: DungeonType) => {
   const { availableFirstRooms, availableLastRooms, possibleRooms } = dungeon
@@ -26,6 +26,10 @@ export const enterDungeon = (dungeon: DungeonType) => {
   const middleRooms: Array<string> = []
 
   for (let _ of new Array(dungeon.maxAmountOfRooms - 2)) {
+    if (!possibleRooms[firstRoom].branchesTo) {
+      break
+    }
+
     if (!middleRooms.length) {
       const room =
         possibleRooms[firstRoom].branchesTo[
@@ -40,13 +44,19 @@ export const enterDungeon = (dungeon: DungeonType) => {
       continue
     }
 
+    const lastRoom = middleRooms[middleRooms.length - 1]
+
+    if (!possibleRooms[lastRoom].branchesTo) {
+      return
+    }
+
+    const branches = possibleRooms[lastRoom].branchesTo
+
     middleRooms.push(
-      possibleRooms[middleRooms[middleRooms.length - 1]].branchesTo[
+      branches[
         generateRandomNumber({
           min: 0,
-          max:
-            possibleRooms[middleRooms[middleRooms.length - 1]].branchesTo
-              .length - 1
+          max: branches.length - 1
         })
       ]
     )
