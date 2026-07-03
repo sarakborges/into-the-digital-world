@@ -4,6 +4,7 @@ export type DungeonRoomType = {
   name: string
   description: string
   branchesTo?: Array<string>
+  type: 'battle' | 'event'
 
   spawns?: {
     min: number

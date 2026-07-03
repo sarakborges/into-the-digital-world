@@ -5,6 +5,7 @@ import { WildZoneKoromon } from './Enemies/Koromon.enemy'
 export const DungeonWildZoneKoromonNestRoomRandom: DungeonRoomType = {
   name: 'DUNGEON_WILDZONE_KOROMON_NEST_ROOM_RANDOM_NAME',
   description: 'DUNGEON_WILDZONE_KOROMON_NEST_ROOM_RANDOM_DESCRIPTION',
+  type: 'battle',
 
   branchesTo: ['random', 'rest'],
 

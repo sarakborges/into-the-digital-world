@@ -1,14 +1,14 @@
-import type {DialogType} from '@/Types/Dialog.type'
+import type { DialogType } from '@/Types/Dialog.type'
 
-import {useSceneStore} from '@/Stores/Scene.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {AllNpcs} from '@/GameData/Npcs'
+import { AllNpcs } from '@/GameData/Npcs'
 
-import {getDialogs} from '@/Helpers/Language'
+import { getDialogs } from '@/Helpers/Language'
 
-import {Text} from '@/Components/DesignSystem/Text'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {Dialog} from '@/Components/DesignSystem/Dialog'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const BattleStart = () => {
   const { setScene } = useSceneStore((state) => state)

@@ -16,7 +16,7 @@ import { StartScreen } from '@/Components/Main/StartScreen'
 import { QuestsLogMinimal } from '@/Components/Main/QuestsLogMinimal'
 import { CurrentParty } from '@/Components/Global/CurrentParty'
 import { Battlefield } from '@/Components/Combat/Battlefield'
-import { Dungeon } from '@/Components/Combat/Dungeon'
+import { Dungeon } from '@/Components/Main/Dungeon'
 
 import './Game.style.scss'
 

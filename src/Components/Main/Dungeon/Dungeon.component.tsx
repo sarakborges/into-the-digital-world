@@ -3,13 +3,12 @@ import { useEffect } from 'react'
 import { AllDungeons } from '@/GameData/Dungeons'
 
 import { getDialogs } from '@/Helpers/Language'
-
-import { leaveDungeon } from '@/Helpers/Systems/Dungeon'
 import { startBattle } from '@/Helpers/Systems/Battle'
+import { leaveDungeon } from '@/Helpers/Systems/Dungeon'
 
 import { useDungeonStore } from '@/Stores/Dungeon.store'
-import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
+import { useBattleStore } from '@/Stores/Battle.store'
 
 import { Text } from '@/Components/DesignSystem/Text'
 import { Button } from '@/Components/DesignSystem/Button'
@@ -18,31 +17,34 @@ import './Dungeon.style.scss'
 
 export const Dungeon = () => {
   const { dungeon } = useDungeonStore((state) => state)
-  const { battle } = useBattleStore((state) => state)
   const { scene, setScene } = useSceneStore((state) => state)
+  const { battle } = useBattleStore((state) => state)
 
   useEffect(() => {
     if (!dungeon) {
       return
     }
 
-    const currentRoom = dungeon.doneRooms.length
+    const room = currentDungeon?.possibleRooms[dungeon.rooms[currentRoom]]
 
-    if (
-      (dungeon.rooms[currentRoom] === 'random' ||
-        dungeon.rooms[currentRoom] === 'boss') &&
-      !battle
-    ) {
-      startBattle()
-    }
+    if (room?.type === 'battle' && !scene) {
+      if (!battle) {
+        startBattle()
 
-    if (!scene) {
+        setScene({
+          currentScene: 'battle',
+          currentStage: 'start'
+        })
+
+        return
+      }
+
       setScene({
         currentScene: 'battle',
         currentStage: 'turn'
       })
     }
-  }, [dungeon?.doneRooms])
+  }, [dungeon])
 
   if (!dungeon) {
     return
