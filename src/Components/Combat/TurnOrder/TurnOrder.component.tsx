@@ -1,12 +1,12 @@
-import {isDigimonDefeated} from '@/Helpers/Systems/Battle'
+import { isDigimonDefeated } from '@/Helpers/Systems/Battle'
 
-import {useBattleStore} from '@/Stores/Battle.store'
+import { useBattleStore } from '@/Stores/Battle.store'
 
-import {Portrait} from '@/Components/DesignSystem/Portrait'
-import {Text} from '@/Components/DesignSystem/Text'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
+import { Text } from '@/Components/DesignSystem/Text'
 
 import './TurnOrder.style.scss'
-import {getTexts} from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 
 export const TurnOrder = () => {
   const { battle } = useBattleStore((state) => state)
@@ -21,8 +21,6 @@ export const TurnOrder = () => {
 
   return (
     <div className="turn-order">
-      <Text>{getTexts('TURN_ORDER_TITLE')}</Text>
-
       <div className="timeline">
         <div className="current-digimon">
           <div data-party={currentDigimon.party}>

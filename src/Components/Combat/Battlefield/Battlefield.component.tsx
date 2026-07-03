@@ -21,7 +21,7 @@ export const Battlefield = () => {
   }
 
   return (
-    <div className="battlefield">
+    <div className="battlefield-container">
       <CombatParties />
       <TurnOrder />
     </div>

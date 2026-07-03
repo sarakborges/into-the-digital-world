@@ -4,19 +4,57 @@ import { generateRandomNumber } from '@/Helpers/Math'
 import { saveDungeon } from '@/Helpers/Systems/Dungeon'
 
 export const enterDungeon = (dungeon: DungeonType) => {
-  const { availableFirstRooms } = dungeon
+  const { availableFirstRooms, availableLastRooms, possibleRooms } = dungeon
 
-  const rng = generateRandomNumber({
-    min: 0,
-    max: availableFirstRooms.length - 1
-  })
+  const firstRoom =
+    availableFirstRooms[
+      generateRandomNumber({
+        min: 0,
+        max: availableFirstRooms.length - 1
+      })
+    ]
 
-  const room = availableFirstRooms[rng]
+  const lastRoom =
+    availableLastRooms[
+      generateRandomNumber({
+        min: 0,
+        max: availableLastRooms.length - 1
+      })
+    ]
+
+  const middleRooms: Array<string> = []
+
+  for (let _ of new Array(dungeon.maxAmountOfRooms - 2)) {
+    if (!middleRooms.length) {
+      const room =
+        possibleRooms[firstRoom].branchesTo[
+          generateRandomNumber({
+            min: 0,
+            max: possibleRooms[firstRoom].branchesTo.length - 1
+          })
+        ]
+
+      middleRooms.push(room)
+
+      continue
+    }
+
+    middleRooms.push(
+      possibleRooms[middleRooms[middleRooms.length - 1]].branchesTo[
+        generateRandomNumber({
+          min: 0,
+          max:
+            possibleRooms[middleRooms[middleRooms.length - 1]].branchesTo
+              .length - 1
+        })
+      ]
+    )
+  }
 
   saveDungeon({
     dungeonId: dungeon.id,
     zoneId: dungeon.zone,
-    rooms: [room],
+    rooms: [firstRoom, ...middleRooms, lastRoom],
     doneRooms: []
   })
 }

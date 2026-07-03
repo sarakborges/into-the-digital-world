@@ -55,8 +55,8 @@ export const Game = () => {
 
           <Gameboard />
           <InteractableTiles />
-          <Battlefield />
           <Dungeon />
+          <Battlefield />
           <QuestsLogMinimal />
         </div>
 

@@ -9,8 +9,6 @@ export const BATTLE_TARGET_ENEMIES = `enemy `
 export const BATTLE_ATTACK_ENEMIES = `Enemy `
 export const BATTLE_LOG_DEFEATED = `[TARGET] has been defeated.`
 
-export const TURN_ORDER_TITLE = `Turn order`
-
 export const BATTLE_LOG_DIGIMON_HEALTHY = `Healthy`
 export const BATTLE_LOG_DIGIMON_DEFEATED = `Defeated`
 export const ATTACK_CONDITION_SHAKEN = `Shaken`

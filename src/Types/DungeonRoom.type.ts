@@ -2,6 +2,8 @@ import type { SpawnableDigimonType } from '@/Types/SpawnableDigimon.type'
 
 export type DungeonRoomType = {
   name: string
+  description: string
+  branchesTo: Array<string>
 
   spawns?: {
     min: number

@@ -8,6 +8,8 @@
 
     .party-member {
       .party-digimon {
+        flex-flow: row-reverse;
+
         > .text {
           left: auto;
           right: 4px;
@@ -70,8 +72,8 @@
 
       .conditions {
         display: flex;
-        flex-flow: column;
         place-items: center;
+        flex-wrap: wrap;
         gap: 4px;
 
         padding-top: 12px;

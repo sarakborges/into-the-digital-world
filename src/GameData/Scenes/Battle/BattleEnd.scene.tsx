@@ -11,6 +11,7 @@ import { saveDungeon } from '@/Helpers/Systems/Dungeon'
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useProfileStore } from '@/Stores/Profile.store'
+import { useDungeonStore } from '@/Stores/Dungeon.store'
 
 import { Text } from '@/Components/DesignSystem/Text'
 
@@ -21,6 +22,7 @@ export const BattleEnd = () => {
   const { setScene } = useSceneStore((state) => state)
   const { profile } = useProfileStore((state) => state)
   const { battle } = useBattleStore((state) => state)
+  const { dungeon } = useDungeonStore((state) => state)
 
   if (!battle || !profile) {
     return
@@ -52,6 +54,10 @@ export const BattleEnd = () => {
         id: 'scene-battle-battleend-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
         action: () => {
+          if (!dungeon) {
+            return
+          }
+
           if (battleResult === 'victory') {
             if (!!battle.loot) {
               for (let item of Object.keys(battle.loot)) {
@@ -71,6 +77,15 @@ export const BattleEnd = () => {
 
             saveDungeon(null)
           }
+
+          saveDungeon({
+            ...dungeon,
+
+            doneRooms: [
+              ...dungeon.doneRooms,
+              dungeon.rooms[dungeon.doneRooms.length]
+            ]
+          })
 
           setScene(null)
           saveBattle(null)

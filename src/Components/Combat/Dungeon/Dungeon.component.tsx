@@ -26,7 +26,13 @@ export const Dungeon = () => {
       return
     }
 
-    if (dungeon.rooms[currentRoom] === 'random' && !battle) {
+    const currentRoom = dungeon.doneRooms.length
+
+    if (
+      (dungeon.rooms[currentRoom] === 'random' ||
+        dungeon.rooms[currentRoom] === 'boss') &&
+      !battle
+    ) {
       startBattle()
     }
 
@@ -43,11 +49,11 @@ export const Dungeon = () => {
   }
 
   const currentDungeon = AllDungeons[dungeon.zoneId]?.[dungeon.dungeonId]
-  const currentRoom = dungeon.rooms.length - 1
+  const currentRoom = dungeon.doneRooms.length
   const room = currentDungeon?.possibleRooms[dungeon.rooms[currentRoom]]
 
   return (
-    <div className="dungeon">
+    <div className="dungeon-container">
       <div>
         <Text>{getDialogs(currentDungeon.name)}</Text>
       </div>

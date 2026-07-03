@@ -2,6 +2,7 @@ import type { DungeonType } from '@/Types/Dungeon.type'
 
 import { DungeonWildZoneKoromonNestRoomRest } from './Rooms/Rest'
 import { DungeonWildZoneKoromonNestRoomRandom } from './Rooms/Random'
+import { DungeonWildZoneKoromonNestRoomBoss } from './Rooms/Boss'
 
 export const DungeonWildZoneKoromonNest: DungeonType = {
   id: 'koromonNest',
@@ -12,9 +13,10 @@ export const DungeonWildZoneKoromonNest: DungeonType = {
 
   possibleRooms: {
     rest: DungeonWildZoneKoromonNestRoomRest,
-    random: DungeonWildZoneKoromonNestRoomRandom
+    random: DungeonWildZoneKoromonNestRoomRandom,
+    boss: DungeonWildZoneKoromonNestRoomBoss
   },
 
   availableFirstRooms: ['random'],
-  availableLastRooms: []
+  availableLastRooms: ['boss']
 }
