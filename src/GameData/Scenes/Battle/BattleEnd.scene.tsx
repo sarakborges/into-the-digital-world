@@ -84,7 +84,11 @@ export const BattleEnd = () => {
             doneRooms: [
               ...dungeon.doneRooms,
               dungeon.rooms[dungeon.doneRooms.length]
-            ]
+            ],
+
+            party: battle.turnOrder.filter(
+              (digimon) => digimon.party === 'allies'
+            )
           })
 
           setScene(null)

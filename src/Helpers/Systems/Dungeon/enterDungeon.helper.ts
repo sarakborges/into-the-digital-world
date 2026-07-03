@@ -2,6 +2,7 @@ import type { DungeonType } from '@/Types/Dungeon.type'
 
 import { generateRandomNumber } from '@/Helpers/Math'
 import { saveDungeon } from '@/Helpers/Systems/Dungeon'
+import { getCurrentParty } from '@/Helpers/Systems/Profile/getCurrentParty.helper'
 
 export const enterDungeon = (dungeon: DungeonType) => {
   const { availableFirstRooms, availableLastRooms, possibleRooms } = dungeon
@@ -55,6 +56,7 @@ export const enterDungeon = (dungeon: DungeonType) => {
     dungeonId: dungeon.id,
     zoneId: dungeon.zone,
     rooms: [firstRoom, ...middleRooms, lastRoom],
-    doneRooms: []
+    doneRooms: [],
+    party: getCurrentParty()
   })
 }

@@ -1,4 +1,5 @@
 import type { DungeonRoomType } from '@/Types/DungeonRoom.type'
+import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
 export type DungeonType = {
   id: string
@@ -22,4 +23,5 @@ export type DungeonStoreType = {
   zoneId: string
   rooms: Array<string>
   doneRooms: Array<string>
+  party: Array<PartyDigimonType>
 }

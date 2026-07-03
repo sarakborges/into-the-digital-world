@@ -92,19 +92,6 @@ export const startBattle = () => {
     return
   }
 
-  const allies = profile.party.map((digimon, digimonIndex) => ({
-    ...AllDigimons[profile.partnerDigimons[digimon].baseDigimon],
-
-    name:
-      profile.partnerDigimons[digimon].name ||
-      AllDigimons[profile.partnerDigimons[digimon].baseDigimon].name,
-
-    equipments: profile.partnerDigimons[digimon].equipments,
-
-    party: 'allies' as 'allies' | 'enemies',
-    index: digimonIndex
-  }))
-
   const enemies = spawnedEnemies.map((digimon, digimonIndex) => ({
     ...digimon,
 
@@ -116,7 +103,7 @@ export const startBattle = () => {
 
   saveBattle({
     combatLog: [],
-    turnOrder: [...allies, ...enemies]
+    turnOrder: [...dungeon.party, ...enemies]
       .map((digimon) => ({
         ...digimon,
         initiative: getSuccesses(digimon.stats.agi)
