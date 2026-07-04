@@ -10,6 +10,7 @@ import { ComposeScenes } from './Compose'
 import { EquipmentScenes } from './Equipment'
 import { LocationScenes } from './Location'
 import { DeleteGameScenes } from './DeleteGame'
+import { DungeonScenes } from './Dungeon'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -27,7 +28,8 @@ export const AllScenes = {
   [ComposeScenes.id]: ComposeScenes,
   [EquipmentScenes.id]: EquipmentScenes,
   [LocationScenes.id]: LocationScenes,
-  [DeleteGameScenes.id]: DeleteGameScenes
+  [DeleteGameScenes.id]: DeleteGameScenes,
+  [DungeonScenes.id]: DungeonScenes
 }
 
 export const Scene = () => {

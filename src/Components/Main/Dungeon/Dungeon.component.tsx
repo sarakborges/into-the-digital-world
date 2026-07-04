@@ -4,14 +4,12 @@ import { AllDungeons } from '@/GameData/Dungeons'
 
 import { getDialogs } from '@/Helpers/Language'
 import { startBattle } from '@/Helpers/Systems/Battle'
-import { leaveDungeon } from '@/Helpers/Systems/Dungeon'
 
 import { useDungeonStore } from '@/Stores/Dungeon.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useBattleStore } from '@/Stores/Battle.store'
 
 import { Text } from '@/Components/DesignSystem/Text'
-import { Button } from '@/Components/DesignSystem/Button'
 
 import './Dungeon.style.scss'
 
@@ -25,6 +23,16 @@ export const Dungeon = () => {
       return
     }
 
+    if (!scene && !!dungeon.currentRoomsOptions.length) {
+      setScene({
+        currentScene: 'dungeon',
+        currentStage: 'chooseRoom'
+      })
+
+      return
+    }
+
+    const currentRoom = dungeon.doneRooms.length
     const room = currentDungeon?.possibleRooms[dungeon.rooms[currentRoom]]
 
     if (room?.type === 'battle' && !scene) {
@@ -60,13 +68,12 @@ export const Dungeon = () => {
         <Text>{getDialogs(currentDungeon.name)}</Text>
       </div>
 
-      <div>
-        <Text>{getDialogs(room.name)}</Text>
-      </div>
-
-      <div>
-        <Button onClick={leaveDungeon}>Give up</Button>
-      </div>
+      {!!room && (
+        <div>
+          <Text>Room {(dungeon.doneRooms.length || 0) + 1}: </Text>
+          <Text>{getDialogs(room.name)}</Text>
+        </div>
+      )}
     </div>
   )
 }

@@ -4,14 +4,13 @@ import { AllNpcs } from '@/GameData/Npcs'
 
 import { getDialogs } from '@/Helpers/Language'
 import { warpTo } from '@/Helpers/Systems/Zones'
-import { saveSession } from '@/Helpers/Systems/Data'
 import { isDigimonDefeated, saveBattle } from '@/Helpers/Systems/Battle'
-import { saveDungeon } from '@/Helpers/Systems/Dungeon'
+import { enterNextDungeonRoom, saveDungeon } from '@/Helpers/Systems/Dungeon'
 
 import { useBattleStore } from '@/Stores/Battle.store'
-import { useSceneStore } from '@/Stores/Scene.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useDungeonStore } from '@/Stores/Dungeon.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Text } from '@/Components/DesignSystem/Text'
 
@@ -19,10 +18,10 @@ import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { CombatLoot } from '@/Components/Combat/CombatLoot'
 
 export const BattleEnd = () => {
-  const { setScene } = useSceneStore((state) => state)
   const { profile } = useProfileStore((state) => state)
   const { battle } = useBattleStore((state) => state)
   const { dungeon } = useDungeonStore((state) => state)
+  const { setScene } = useSceneStore((state) => state)
 
   if (!battle || !profile) {
     return
@@ -76,24 +75,11 @@ export const BattleEnd = () => {
             })
 
             saveDungeon(null)
+            saveBattle(null)
+            setScene(null)
           }
 
-          saveDungeon({
-            ...dungeon,
-
-            doneRooms: [
-              ...dungeon.doneRooms,
-              dungeon.rooms[dungeon.doneRooms.length]
-            ],
-
-            party: battle.turnOrder.filter(
-              (digimon) => digimon.party === 'allies'
-            )
-          })
-
-          setScene(null)
-          saveBattle(null)
-          saveSession(profile)
+          enterNextDungeonRoom()
         }
       }
     ]

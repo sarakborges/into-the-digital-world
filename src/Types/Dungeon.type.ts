@@ -24,4 +24,5 @@ export type DungeonStoreType = {
   rooms: Array<string>
   doneRooms: Array<string>
   party: Array<PartyDigimonType>
+  currentRoomsOptions: Array<string>
 }

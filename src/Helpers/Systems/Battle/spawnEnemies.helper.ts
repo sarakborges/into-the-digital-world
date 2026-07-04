@@ -44,7 +44,7 @@ export const spawnEnemies = () => {
     })
   }
 
-  while (enemiesSpawned.length < enemyQuantity) {
+  while (enemiesSpawned.length <= enemyQuantity) {
     const randomizedPossibleSpawns = Object.keys(digimons).sort(
       () => Math.random() - 0.5
     )

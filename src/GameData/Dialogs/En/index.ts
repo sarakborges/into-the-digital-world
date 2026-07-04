@@ -12,6 +12,7 @@ export const SCENES_CONFIRM_BUTTON = `Confirm`
 export const SCENES_LEAVE_BUTTON = `Leave`
 export const SCENES_BACK_BUTTON = `Go back`
 export const SCENES_CANCEL_BUTTON = `Cancel`
+export const SCENES_GIVEUP_BUTTON = `Leave dungeon`
 
 export const AVATARCUSTOMIZATION_000_TEXT = `Yes, I can! Give me a second...\n\nHere!\nI've created a sample for you. But feel free to change whatever you like! The goal is for you to feel like yourself!`
 export const AVATARCUSTOMIZATION_001_TEXT = `Hello, master! Are you feeling in need of a change? I'm glad to help!`

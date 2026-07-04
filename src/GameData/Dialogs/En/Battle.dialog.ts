@@ -1,4 +1,4 @@
-export const BATTLE_START_TEXT = `I can sense enemies right ahead. Brace yourself, master.`
+export const BATTLE_START_TEXT = `It seems there are enemies ahead. It's time to rock 'em, master!`
 export const BATTLE_START_TEXT_ALT = `Hey, master. Not the best of times to meet, but you can call me Oujamon. Enemies have showed up. I'll support you in battle. Let's rock'n'roll!`
 
 export const BATTLE_ALLIES_TURN_TEXT = `[NAME]'s turn.`
