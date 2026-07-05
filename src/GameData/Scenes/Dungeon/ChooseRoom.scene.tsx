@@ -1,6 +1,7 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
+import { AllDungeons } from '@/GameData/Dungeons'
 
 import { getDialogs } from '@/Helpers/Language'
 import { advanceDungeon, leaveDungeon } from '@/Helpers/Systems/Dungeon'
@@ -10,8 +11,8 @@ import { useDungeonStore } from '@/Stores/Dungeon.store'
 import { Text } from '@/Components/DesignSystem/Text'
 
 import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { AllDungeons } from '@/GameData/Dungeons'
 import { Button } from '@/Components/DesignSystem/Button'
+import { AiOutlineExclamationCircle } from 'react-icons/ai'
 
 export const DungeonChooseRoom = () => {
   const { dungeon } = useDungeonStore((state) => state)
@@ -35,43 +36,56 @@ export const DungeonChooseRoom = () => {
           )}
         </div>
 
-        <div>
-          <Text>Room Options: </Text>
-        </div>
+        <div className="dialog-reactions dialog-reactions-options">
+          <div className="dungeon-paths">
+            {dungeon.currentRoomsOptions.map((roomId) => {
+              const room =
+                AllDungeons[dungeon.zoneId][dungeon.dungeonId].possibleRooms[
+                  roomId
+                ]
 
-        <div className="dialog-reactions">
-          {dungeon.currentRoomsOptions.map((roomId) => {
-            const room =
-              AllDungeons[dungeon.zoneId][dungeon.dungeonId].possibleRooms[
-                roomId
-              ]
-
-            return (
-              <div key={`scene-dungeon-chooseroom-room-${roomId}`}>
-                <Button
-                  style="secondary"
-                  onClick={() => {
-                    advanceDungeon(roomId)
-                  }}
+              return (
+                <div
+                  key={`scene-dungeon-chooseroom-room-${roomId}`}
+                  className="dungeon-path"
                 >
-                  {getDialogs(room.name)}
-                </Button>
-              </div>
-            )
-          })}
+                  <Text as="p">{getDialogs(room.description)}</Text>
+
+                  <div>
+                    <Button
+                      style="secondary"
+                      onClick={() => {
+                        advanceDungeon(roomId)
+                      }}
+                    >
+                      <AiOutlineExclamationCircle />
+                      Follow this path
+                    </Button>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+
+          <div className="dungeon-path">
+            <Text as="p">{getDialogs('DUNGEON_GIVEUP_DESCRIPTION')}</Text>
+
+            <div>
+              <Button
+                style="secondary"
+                onClick={() => {
+                  leaveDungeon()
+                }}
+              >
+                <AiOutlineExclamationCircle />
+
+                {getDialogs('SCENES_GIVEUP_BUTTON')}
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
-    ),
-
-    options: [
-      {
-        id: 'scene-dungeon-chooseroom-giveup',
-        text: getDialogs('SCENES_GIVEUP_BUTTON'),
-        action: () => {
-          leaveDungeon()
-        }
-      }
-    ]
+    )
   }
 
   return <Dialog {...dialogOptions} />

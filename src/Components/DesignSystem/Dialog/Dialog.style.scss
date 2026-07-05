@@ -122,6 +122,44 @@
         flex-flow: column;
         gap: 4px;
 
+        &.dialog-reactions-options {
+          display: flex;
+          place-content: center;
+          gap: 8px;
+
+          .dungeon-paths {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+            gap: 8px;
+          }
+
+          .dungeon-path {
+            display: flex;
+            flex-flow: column;
+            gap: 4px;
+
+            padding: 4px 6px;
+
+            background-color: var(--color-secondary);
+            border-radius: 8px;
+
+            > .text {
+              font-size: 12px;
+            }
+
+            .button {
+              gap: 4px;
+
+              background-color: var(--color-secondary-strong);
+
+              svg {
+                width: 16px;
+                height: 16px;
+              }
+            }
+          }
+        }
+
         .button {
           place-content: flex-start;
           padding: 4px 6px;
