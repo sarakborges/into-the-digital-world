@@ -9,7 +9,7 @@ export const WildZoneGennaiTile: ZoneTileType = {
   id: 'wildZoneGennai',
   x: 9,
   y: 7,
-  defaultText: getDialogs('WILDZONE_GENNAI_DEFAULT'),
+  defaultText: getDialogs('ROOTDOMAIN_GENNAI_DEFAULT'),
 
   npc: {
     ...AllNpcs.general.gennai,
@@ -19,7 +19,7 @@ export const WildZoneGennaiTile: ZoneTileType = {
   events: [
     {
       function: OpenLocation,
-      eventText: getDialogs('WILDZONE_LOCATION_TRIGGER'),
+      eventText: getDialogs('ROOTDOMAIN_LOCATION_TRIGGER'),
       eventType: 'default'
     }
   ]

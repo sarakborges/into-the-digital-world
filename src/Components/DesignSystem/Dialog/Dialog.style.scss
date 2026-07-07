@@ -128,8 +128,8 @@
           gap: 8px;
 
           .dungeon-paths {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+            display: flex;
+            flex-flow: column;
             gap: 8px;
           }
 

@@ -1,16 +1,16 @@
-import type {ProfileType} from '@/Types/Profile.type'
+import type { ProfileType } from '@/Types/Profile.type'
 
-import {AllZones} from '@/GameData/Zones'
+import { AllZones } from '@/GameData/Zones'
 
-import {getDialogs, getTexts} from '@/Helpers/Language'
+import { getDialogs, getTexts } from '@/Helpers/Language'
 
-import {Text} from '@/Components/DesignSystem/Text'
-import {Button} from '@/Components/DesignSystem/Button'
+import { Text } from '@/Components/DesignSystem/Text'
+import { Button } from '@/Components/DesignSystem/Button'
 
-import {PlayerAvatar} from '@/Components/Global/PlayerAvatar'
+import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 
 import './GameFileSave.style.scss'
-import {saveProfile} from '@/Helpers/Systems/Profile'
+import { saveProfile } from '@/Helpers/Systems/Profile'
 
 export const GameFileSave = ({ profile }: { profile: ProfileType }) => {
   if (!profile.currentZone) {
@@ -27,7 +27,7 @@ export const GameFileSave = ({ profile }: { profile: ProfileType }) => {
         <Text as="p">
           {getTexts('GAME_FILE_TITLE')
             .replaceAll(`[NAME]`, profile.name)
-            .replaceAll(`[ID]`, profile.id)}
+            .replaceAll(`[ID]`, String(profile.id))}
         </Text>
 
         <Text as="p">

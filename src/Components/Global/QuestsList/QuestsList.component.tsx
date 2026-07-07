@@ -1,19 +1,22 @@
-import {FaCheck} from 'react-icons/fa'
-import {TbListDetails} from 'react-icons/tb'
+import { FaCheck } from 'react-icons/fa'
+import { TbListDetails } from 'react-icons/tb'
 
-import {AllQuests} from '@/GameData/Quests'
-import {AllNpcs} from '@/GameData/Npcs'
-import {AllZones} from '@/GameData/Zones'
+import { AllQuests } from '@/GameData/Quests'
+import { AllNpcs } from '@/GameData/Npcs'
+import { AllZones } from '@/GameData/Zones'
 
-import {getTexts} from '@/Helpers/Language'
-import {isObjectiveDone} from '@/Helpers/Systems/Quests'
+import { getTexts } from '@/Helpers/Language'
+import {
+  getQuestObjectives,
+  getQuestObjectiveText
+} from '@/Helpers/Systems/Quests'
 
-import {Text} from '@/Components/DesignSystem/Text'
-import {Button} from '@/Components/DesignSystem/Button'
+import { Text } from '@/Components/DesignSystem/Text'
+import { Button } from '@/Components/DesignSystem/Button'
 
 import './QuestsList.style.scss'
-import {useDigiviceStore} from '@/Stores/Digivice.store'
-import {setCurrentDetails} from '@/Helpers/Systems/Digivice'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
+import { setCurrentDetails } from '@/Helpers/Systems/Digivice'
 
 export const QuestsList = ({
   list,
@@ -58,49 +61,16 @@ export const QuestsList = ({
 
               {digivice?.currentDetails === quest && (
                 <>
-                  {Object.keys(AllQuests[quest].objectives ?? {})
-                    ?.map((objective) => ({
-                      id: objective,
-                      ...AllQuests[quest].objectives[objective],
+                  {getQuestObjectives(quest).map((objective) => (
+                    <main
+                      key={`quests-${quest}-objectives-${objective.id}`}
+                      data-isdone={objective.isDone}
+                    >
+                      {objective.isDone && <FaCheck />}
 
-                      isDone: isObjectiveDone({
-                        objectiveId: objective,
-                        questId: quest
-                      })
-                    }))
-                    .sort((a) => (a.isDone ? 1 : -1))
-                    .map((objective) => (
-                      <main
-                        key={`quests-${quest}-objectives-${objective.id}`}
-                        data-isdone={objective.isDone}
-                      >
-                        {objective.isDone && <FaCheck />}
-
-                        <Text>
-                          {getTexts('QUEST_OBJECTIVE')
-                            .replaceAll(
-                              '[TYPE]',
-                              getTexts(
-                                `QUEST_OBJECTIVE_TYPE_${objective.type.toLocaleUpperCase()}`
-                              )
-                            )
-                            .replaceAll(
-                              '[TARGET]',
-                              AllNpcs?.[objective.target.type]?.[
-                                objective.target.id
-                              ].name
-                            )
-                            .replaceAll(
-                              '[WHERE]',
-                              AllZones[objective.where].name
-                            )
-                            .replaceAll(
-                              '[MAP]',
-                              AllZones[objective.where][objective.map].name
-                            )}
-                        </Text>
-                      </main>
-                    ))}
+                      <Text>{getQuestObjectiveText(objective)}</Text>
+                    </main>
+                  ))}
                 </>
               )}
             </div>

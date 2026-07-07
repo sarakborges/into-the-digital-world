@@ -1,6 +1,7 @@
 import type { ZoneTileType } from '@/Types/ZoneTile.type'
 
 import { useProfileStore } from '@/Stores/Profile.store'
+import { getCharacterVisibility } from '@/Helpers/Systems/Profile'
 
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
@@ -21,10 +22,13 @@ export const GameboardCharacter = ({
     return
   }
 
-  if (
-    (!tile?.npc?.id && !isPlayer && !profile) ||
-    (!isPlayer && !tile?.npc?.isVisible)
-  ) {
+  const { shouldRender, opacity } = getCharacterVisibility({
+    profile,
+    tile,
+    isPlayer
+  })
+
+  if (!shouldRender) {
     return
   }
 
@@ -35,8 +39,7 @@ export const GameboardCharacter = ({
         {
           '--character-x': tile?.x || profile.currentZone.x,
           '--character-y': tile?.y || profile.currentZone.y,
-          '--character-opacity':
-            tile?.condition === undefined || !!tile?.condition?.() ? 1 : 0
+          '--character-opacity': opacity
         } as React.CSSProperties
       }
     >

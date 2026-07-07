@@ -1,8 +1,8 @@
-import {getTexts} from '@/Helpers/Language'
+import { getBattlePartyGroups } from '@/Helpers/Systems/Battle'
 
-import {useBattleStore} from '@/Stores/Battle.store'
+import { useBattleStore } from '@/Stores/Battle.store'
 
-import {BattleParty} from '@/Components/Combat/BattleParty'
+import { BattleParty } from '@/Components/Combat/BattleParty'
 
 import './CombatParties.style.scss'
 
@@ -13,22 +13,15 @@ export const CombatParties = () => {
     return
   }
 
-  const parties: {
-    [partySide: string]: string
-  } = {
-    allies: getTexts('BATTLE_PARTY_ALLIES'),
-    enemies: getTexts('BATTLE_PARTY_ENEMIES')
-  }
+  const partyGroups = getBattlePartyGroups(battle)
 
   return (
     <div className="combat-parties">
-      {Object.keys(parties).map((party) => (
+      {partyGroups.map(({ party, title, list }) => (
         <BattleParty
           party={{
-            title: parties[party],
-            list: battle.turnOrder
-              .filter((digimon) => digimon.party === party)
-              .sort((a, b) => (a.index > b.index ? 1 : -1))
+            title,
+            list
           }}
           key={`party-${party}`}
         />

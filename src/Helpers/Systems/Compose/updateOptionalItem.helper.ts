@@ -1,7 +1,7 @@
-import {AllResearches} from '@/GameData/Researches'
-import {useCompositionStore} from '@/Stores/Composition.store'
+import { AllResearches } from '@/GameData/Researches'
+import { useCompositionStore } from '@/Stores/Composition.store'
 
-const getCompositionFill = () => {
+const getCompositionFill = (): number => {
   const { composition } = useCompositionStore.getState()
 
   if (!composition) {
@@ -45,7 +45,7 @@ export const updateOptionalItem = ({
 
   const updatedAmount = (composition.optionalItems?.[item] || 0) + amount
 
-  const totalItems = {}
+  const totalItems: Record<string, number> = {}
 
   for (let item in requiredItems) {
     totalItems[item] = (totalItems[item] || 0) + requiredItems[item]

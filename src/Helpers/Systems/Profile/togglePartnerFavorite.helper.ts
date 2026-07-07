@@ -1,5 +1,5 @@
-import {useDigiviceStore} from '@/Stores/Digivice.store'
-import {useProfileStore} from '@/Stores/Profile.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 
 export const togglePartnerFavorite = () => {
   const { profile, setProfile } = useProfileStore.getState()

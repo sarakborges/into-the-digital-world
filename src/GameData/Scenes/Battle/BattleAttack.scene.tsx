@@ -12,6 +12,52 @@ import { CombatLogEntry } from '@/Components/Combat/CombatLogEntry'
 import { generateRandomNumber } from '@/Helpers/Math'
 import { isDigimonDefeated, saveBattle } from '@/Helpers/Systems/Battle'
 
+const getBattleOutcome = (battle) => {
+  const nonDefeatedDigimons = battle.turnOrder.filter(
+    (digimon) => !isDigimonDefeated(digimon)
+  )
+
+  const alliesWon = nonDefeatedDigimons.every(
+    (digimon) => digimon.party === 'allies'
+  )
+
+  const enemiesWon = nonDefeatedDigimons.every(
+    (digimon) => digimon.party === 'enemies'
+  )
+
+  return {
+    alliesWon,
+    enemiesWon,
+    isBattleOver: alliesWon || enemiesWon
+  }
+}
+
+const getLoot = (battle) => {
+  const loot = {}
+
+  if (!battle.turnOrder.some((digimon) => digimon.party === 'allies')) {
+    return loot
+  }
+
+  for (const digimon of battle.turnOrder.filter(
+    (entry) => entry.party === 'enemies'
+  )) {
+    if (!digimon.lootTable?.length) {
+      continue
+    }
+
+    for (const item of digimon.lootTable) {
+      const rng = generateRandomNumber({ min: 0, max: 100 })
+
+      if (rng < item.dropChance) {
+        loot[item.itemId] = (loot[item.itemId] || 0) + item.amount
+      }
+    }
+  }
+
+  return loot
+}
+
 export const BattleAttack = () => {
   const { setScene } = useSceneStore((state) => state)
   const { battle } = useBattleStore((state) => state)
@@ -21,6 +67,33 @@ export const BattleAttack = () => {
   }
 
   const logEntry = battle.combatLog[0]!
+
+  const handleContinue = () => {
+    const [currentDigimon, ...otherDigimons] = battle.turnOrder!
+    const { isBattleOver } = getBattleOutcome(battle)
+    const loot = getLoot(battle)
+    const updatedTurnOrder = [...otherDigimons, currentDigimon]
+
+    saveBattle({
+      ...battle,
+      loot,
+      turnOrder: updatedTurnOrder
+    })
+
+    if (isBattleOver) {
+      setScene({
+        currentScene: 'battle',
+        currentStage: 'end'
+      })
+
+      return
+    }
+
+    setScene({
+      currentScene: 'battle',
+      currentStage: 'turn'
+    })
+  }
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.appmon.oujamon,
@@ -37,65 +110,7 @@ export const BattleAttack = () => {
       {
         id: 'scene-battle-battleattack-continue',
         text: getDialogs('SCENES_CONTINUE_BUTTON'),
-        action: () => {
-          const [currentDigimon, ...otherDigimons] = battle.turnOrder!
-
-          const nonDefeatedDigimons = battle.turnOrder.filter(
-            (digimon) => !isDigimonDefeated(digimon)
-          )
-
-          const alliesWon = nonDefeatedDigimons.every(
-            (digimon) => digimon.party === 'allies'
-          )
-
-          const enemiesWon = nonDefeatedDigimons.every(
-            (digimon) => digimon.party === 'enemies'
-          )
-
-          const isBattleOver = !!alliesWon || !!enemiesWon
-
-          const loot = {}
-
-          if (!!alliesWon) {
-            for (let digimon of battle.turnOrder.filter(
-              (digimon) => digimon.party === 'enemies'
-            )) {
-              if (!digimon.lootTable?.length) {
-                continue
-              }
-
-              for (let item of digimon.lootTable) {
-                const rng = generateRandomNumber({ min: 0, max: 100 })
-
-                if (rng < item.dropChance) {
-                  loot[item.itemId] = (loot[item.itemId] || 0) + item.amount
-                }
-              }
-            }
-          }
-
-          const updatedTurnOrder = [...otherDigimons, currentDigimon]
-
-          saveBattle({
-            ...battle,
-            loot,
-            turnOrder: updatedTurnOrder
-          })
-
-          if (!!isBattleOver) {
-            setScene({
-              currentScene: 'battle',
-              currentStage: 'end'
-            })
-
-            return
-          }
-
-          setScene({
-            currentScene: 'battle',
-            currentStage: 'turn'
-          })
-        }
+        action: handleContinue
       }
     ]
   }

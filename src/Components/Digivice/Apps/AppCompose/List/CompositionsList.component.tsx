@@ -1,17 +1,17 @@
-import {AiOutlineSelect} from 'react-icons/ai'
+import { AiOutlineSelect } from 'react-icons/ai'
 
-import {getDialogs} from '@/Helpers/Language'
+import { getDialogs } from '@/Helpers/Language'
+import { getAvailableCompositions } from '@/Helpers/Systems/Compose'
 
-import {AvailableResearchesAtJijimon} from '@/GameData/Researches'
-import {AllDigimons} from '@/GameData/Digimons'
+import { AvailableResearchesAtJijimon } from '@/GameData/Researches'
 
-import {useProfileStore} from '@/Stores/Profile.store'
-import {useCompositionStore} from '@/Stores/Composition.store'
-import {useSceneStore} from '@/Stores/Scene.store'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useCompositionStore } from '@/Stores/Composition.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {Text} from '@/Components/DesignSystem/Text'
-import {Button} from '@/Components/DesignSystem/Button'
-import {Portrait} from '@/Components/DesignSystem/Portrait'
+import { Text } from '@/Components/DesignSystem/Text'
+import { Button } from '@/Components/DesignSystem/Button'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
 
 import './CompositionsList.style.scss'
 
@@ -24,13 +24,7 @@ export const CompositionsList = () => {
     return
   }
 
-  const availableCompositions = Object.keys(AvailableResearchesAtJijimon)
-    .filter((research) => profile.researches?.includes(research))
-    .map((research) => ({
-      ...AvailableResearchesAtJijimon[research],
-      baseDigimon: AllDigimons[research]
-    }))
-    .sort((a, b) => (a > b ? 1 : -1))
+  const availableCompositions = getAvailableCompositions(profile)
 
   if (!availableCompositions.length) {
     return <Text as="p">{getDialogs('COMPOSE_002_NO_RESEARCHES')}</Text>

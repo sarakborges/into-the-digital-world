@@ -84,8 +84,14 @@ export const AppCompose = () => {
 
                       <Text>
                         {getDialogs('COMPOSE_002_OPTIONAL_ITEMS_AMOUNT')
-                          .replaceAll('[AMOUNT]', profile.items[item] || 0)
-                          .replaceAll('[WEIGHT]', optionalItems?.[item])}
+                          .replaceAll(
+                            '[AMOUNT]',
+                            String(profile.items[item] || 0)
+                          )
+                          .replaceAll(
+                            '[WEIGHT]',
+                            String(optionalItems?.[item] ?? 0)
+                          )}
                       </Text>
                     </div>
                   </aside>

@@ -1,4 +1,4 @@
-export const saveData = ({ key, value }: { key: string; value: any }) => {
+export const saveData = ({ key, value }: { key: string; value: unknown }) => {
   try {
     localStorage.setItem(`itdw_${key}`, JSON.stringify(value))
   } catch {

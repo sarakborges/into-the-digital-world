@@ -1,6 +1,6 @@
-import {generateRandomNumber} from '.'
+import { generateRandomNumber } from '.'
 
-export const rollDies = (amountOfDies) => {
+export const rollDies = (amountOfDies: number): Array<number> => {
   const results: Array<number> = []
 
   for (let die = 0; die < amountOfDies; die++) {

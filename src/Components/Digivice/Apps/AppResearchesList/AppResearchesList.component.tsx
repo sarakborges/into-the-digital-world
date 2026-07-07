@@ -1,6 +1,7 @@
 import { BiDetail } from 'react-icons/bi'
 
 import { getTexts } from '@/Helpers/Language'
+import { getResearches } from '@/Helpers/Systems/Profile'
 
 import { AllResearches } from '@/GameData/Researches'
 import { AllDigimons } from '@/GameData/Digimons'
@@ -25,9 +26,7 @@ export const AppResearchesList = () => {
     return
   }
 
-  const allResearches = Object.values(profile.researches!).map((research) => ({
-    ...AllDigimons[research]
-  }))
+  const allResearches = getResearches(profile)
 
   const toggleDetails = (researchId: string) => {
     setDigivice({

@@ -10,7 +10,10 @@ import { useSceneStore } from '@/Stores/Scene.store'
 import { Button } from '@/Components/DesignSystem/Button'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
-import { setCurrentDetails } from '@/Helpers/Systems/Digivice'
+import {
+  getAcquaintanceGroups,
+  setCurrentDetails
+} from '@/Helpers/Systems/Digivice'
 
 import { AppAcquaintancesDetails } from '@/Components/Digivice/Apps/AppAcquaintances/Details'
 
@@ -29,63 +32,44 @@ export const AppAcquaintances = () => {
     return <AppAcquaintancesDetails />
   }
 
+  const acquaintanceGroups = getAcquaintanceGroups(profile)
+
   return (
     <div className="acquaintances">
-      {Object.keys(AllNpcs).map(
-        (category) =>
-          !!Object.keys(AllNpcs[category]).filter(
-            (npc) =>
-              AllNpcs.digimon.dorimon.id !== npc &&
-              Object.keys(profile.npcAcquaintances ?? {}).includes(npc)
-          ).length && (
-            <Fragment key={`acquaintances-${category}`}>
-              <div className="acquaintances-category">
-                <Text>{category}</Text>
+      {acquaintanceGroups.map(({ category, npcs }) => (
+        <Fragment key={`acquaintances-${category}`}>
+          <div className="acquaintances-category">
+            <Text>{category}</Text>
 
-                <div className="acquaintances-list">
-                  {Object.keys(AllNpcs[category])
-                    .filter(
-                      (npc) =>
-                        AllNpcs.digimon.dorimon.id !== npc &&
-                        Object.keys(profile.npcAcquaintances ?? {}).includes(
-                          npc
-                        )
-                    )
-                    .sort((a, b) => (a > b ? 1 : -1))
-                    .map((npc) => (
-                      <div
-                        className="npc-item"
-                        key={`acquaintances-${category}-${AllNpcs[category][npc].id}`}
-                      >
-                        <aside>
-                          <Portrait
-                            alt={AllNpcs[category][npc].name}
-                            src={`/${AllNpcs[category][npc].portrait}.webp`}
-                          />
-                        </aside>
+            <div className="acquaintances-list">
+              {npcs.map((npc) => (
+                <div
+                  className="npc-item"
+                  key={`acquaintances-${category}-${npc.id}`}
+                >
+                  <aside>
+                    <Portrait alt={npc.name} src={`/${npc.portrait}.webp`} />
+                  </aside>
 
-                        <header>
-                          <Text>{AllNpcs[category][npc].name}</Text>
-                        </header>
+                  <header>
+                    <Text>{npc.name}</Text>
+                  </header>
 
-                        <footer>
-                          <Button
-                            onClick={() =>
-                              setCurrentDetails(AllNpcs[category][npc].id)
-                            }
-                            style="secondary"
-                            disabled={!!scene}
-                          >
-                            <TbListDetails />
-                          </Button>
-                        </footer>
-                      </div>
-                    ))}
+                  <footer>
+                    <Button
+                      onClick={() => setCurrentDetails(npc.id)}
+                      style="secondary"
+                      disabled={!!scene}
+                    >
+                      <TbListDetails />
+                    </Button>
+                  </footer>
                 </div>
-              </div>
-            </Fragment>
-          )
-      )}
+              ))}
+            </div>
+          </div>
+        </Fragment>
+      ))}
       <></>
     </div>
   )

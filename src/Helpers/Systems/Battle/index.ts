@@ -1,5 +1,8 @@
 export { calcExtraStats } from './calcExtraStats.helper'
 export { doAttack } from './doAttack.helper'
+export { getBattlePartyGroups } from './getBattlePartyGroups.helper'
+export { getBattleTurnOrder } from './getBattleTurnOrder.helper'
+export { getBattleAttackOptions } from './getBattleAttackOptions.helper'
 export { isDigimonDefeated } from './isDigimonDefeated.helper'
 export { startBattle } from './startBattle.helper'
 export { skipTurn } from './skipTurn.helper'

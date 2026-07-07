@@ -4,7 +4,7 @@ import * as EnTexts from '@/GameData/Texts/En'
 
 const defaultLanguage = 'en'
 
-export const getTexts = (textKey) => {
+export const getTexts = (textKey: string): string => {
   const texts = {
     en: EnTexts
   }

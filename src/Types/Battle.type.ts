@@ -1,5 +1,4 @@
-
-import type {PartyDigimonType} from '@/Types/PartyDigimon.type'
+import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
 export type BattleType = {
   turnOrder: Array<
@@ -16,6 +15,7 @@ export type BattleType = {
   >
 
   combatLog: Array<{
+    index: number
     attacker: string
     attackerParty: 'allies' | 'enemies'
     target: string

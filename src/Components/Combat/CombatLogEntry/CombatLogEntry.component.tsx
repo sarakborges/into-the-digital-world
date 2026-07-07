@@ -1,10 +1,16 @@
-import {getTexts} from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 
-import {Text} from '@/Components/DesignSystem/Text'
+import { Text } from '@/Components/DesignSystem/Text'
+
+import type { BattleType } from '@/Types/Battle.type'
 
 import './CombatLogEntry.style.scss'
 
-export const CombatLogEntry = ({ logEntry }) => {
+type CombatLogEntryProps = {
+  logEntry?: BattleType['combatLog'][number]
+}
+
+export const CombatLogEntry = ({ logEntry }: CombatLogEntryProps) => {
   if (!logEntry) {
     return
   }
@@ -15,7 +21,7 @@ export const CombatLogEntry = ({ logEntry }) => {
         <Text>
           {getTexts('BATTLE_LOG_TURN_TITLE').replaceAll(
             '[TURN]',
-            logEntry.index
+            String(logEntry.index)
           )}
         </Text>
       </div>
@@ -36,13 +42,15 @@ export const CombatLogEntry = ({ logEntry }) => {
                 '[CONDITION]',
                 !logEntry.isTargetDefeated
                   ? getTexts(
-                      `ATTACK_CONDITION_${logEntry.effect.toLocaleUpperCase()}`
+                      `ATTACK_CONDITION_${logEntry.effect?.toLocaleUpperCase() ?? ''}`
                     )
                   : getTexts('BATTLE_LOG_DIGIMON_DEFEATED').toLocaleLowerCase()
               )
               .replaceAll(
                 '[SEVERITY]',
-                !logEntry.isTargetDefeated ? ` ${logEntry.severity}` : ''
+                !logEntry.isTargetDefeated
+                  ? ` ${String(logEntry.severity ?? '')}`
+                  : ''
               )
               .replaceAll(
                 '[TARGETPARTY]',
@@ -51,7 +59,7 @@ export const CombatLogEntry = ({ logEntry }) => {
                   : ''
               )
           : getTexts('BATTLE_LOG_MISS')
-              .replaceAll('[TURN]', logEntry.index)
+              .replaceAll('[TURN]', String(logEntry.index))
               .replaceAll(
                 '[PARTY]',
                 logEntry.attackerParty === 'enemies'

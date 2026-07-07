@@ -1,6 +1,7 @@
 import { AllZones } from '@/GameData/Zones'
 
 import { getTexts } from '@/Helpers/Language'
+import { getAvailableWarpLocations } from '@/Helpers/Systems/Digivice'
 import { warpTo } from '@/Helpers/Systems/Zones'
 
 import { WARP_LOCATIONS } from '@/Consts/Locations.const'
@@ -36,23 +37,23 @@ export const AppLocation = () => {
     setScene(null)
   }
 
+  const availableWarpLocations = getAvailableWarpLocations(profile)
+
   return (
     <div className="locations">
       <Text>{getTexts('LOCATION_SELECT')}</Text>
 
       <div className="locations-list">
-        {Object.keys(WARP_LOCATIONS)
-          .filter((location) => location !== profile.currentZone.id)
-          .map((location) => (
-            <Button onClick={() => warp(location)} key={`warp-to-${location}`}>
-              <Portrait
-                src={`/zones/${WARP_LOCATIONS[location].background}.webp`}
-                alt={AllZones[location].name}
-              />
+        {availableWarpLocations.map((location) => (
+          <Button onClick={() => warp(location)} key={`warp-to-${location}`}>
+            <Portrait
+              src={`/zones/Locations/${location}.webp`}
+              alt={AllZones[location].name}
+            />
 
-              <Text>{AllZones[location].name}</Text>
-            </Button>
-          ))}
+            <Text>{AllZones[location].name}</Text>
+          </Button>
+        ))}
       </div>
     </div>
   )

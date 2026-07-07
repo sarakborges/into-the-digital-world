@@ -18,12 +18,18 @@ export const Dungeon = () => {
   const { scene, setScene } = useSceneStore((state) => state)
   const { battle } = useBattleStore((state) => state)
 
-  useEffect(() => {
-    if (!dungeon) {
-      return
-    }
+  if (!dungeon) {
+    return
+  }
 
-    if (!scene && !!dungeon.currentRoomsOptions.length) {
+  const currentDungeon = AllDungeons[dungeon.zoneId]?.[dungeon.dungeonId]
+  const currentRoomIndex = dungeon.doneRooms.length
+  const room = currentDungeon?.possibleRooms[dungeon.rooms[currentRoomIndex]]
+  const shouldChooseRoom = !scene && dungeon.currentRoomsOptions.length > 0
+  const shouldStartBattle = room?.type === 'battle' && !scene
+
+  useEffect(() => {
+    if (shouldChooseRoom) {
       setScene({
         currentScene: 'dungeon',
         currentStage: 'chooseRoom'
@@ -32,40 +38,31 @@ export const Dungeon = () => {
       return
     }
 
-    const currentRoom = dungeon.doneRooms.length
-    const room = currentDungeon?.possibleRooms[dungeon.rooms[currentRoom]]
+    if (!shouldStartBattle) {
+      return
+    }
 
-    if (room?.type === 'battle' && !scene) {
-      if (!battle) {
-        startBattle()
-
-        setScene({
-          currentScene: 'battle',
-          currentStage: 'start'
-        })
-
-        return
-      }
+    if (!battle) {
+      startBattle()
 
       setScene({
         currentScene: 'battle',
-        currentStage: 'turn'
+        currentStage: 'start'
       })
+
+      return
     }
-  }, [dungeon])
 
-  if (!dungeon) {
-    return
-  }
-
-  const currentDungeon = AllDungeons[dungeon.zoneId]?.[dungeon.dungeonId]
-  const currentRoom = dungeon.doneRooms.length
-  const room = currentDungeon?.possibleRooms[dungeon.rooms[currentRoom]]
+    setScene({
+      currentScene: 'battle',
+      currentStage: 'turn'
+    })
+  }, [battle, shouldChooseRoom, shouldStartBattle, setScene, scene])
 
   return (
     <div className="dungeon-container">
       <div>
-        <Text>{getDialogs(currentDungeon.name)}</Text>
+        <Text>{getDialogs(currentDungeon?.name ?? '')}</Text>
       </div>
 
       {!!room && (

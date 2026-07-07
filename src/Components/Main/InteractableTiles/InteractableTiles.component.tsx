@@ -10,6 +10,7 @@ import { AllZones } from '@/GameData/Zones'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 import { useDungeonStore } from '@/Stores/Dungeon.store'
+import { getInteractableTiles } from '../../../Helpers/Systems/Zones/getInteractableTiles.helper'
 
 import { Text } from '@/Components/DesignSystem/Text'
 import { Button } from '@/Components/DesignSystem/Button'
@@ -30,24 +31,7 @@ export const InteractableTiles = () => {
   const currentZone: ZoneType =
     AllZones[profile.currentZone.id][profile.currentZone.map]
 
-  const surroundingTiles = [
-    ...currentZone.tiles.filter(
-      (tile) =>
-        tile.x === profile.currentZone.x - 1 && tile.y === profile.currentZone.y
-    ),
-    ...currentZone.tiles.filter(
-      (tile) =>
-        tile.x === profile.currentZone.x + 1 && tile.y === profile.currentZone.y
-    ),
-    ...currentZone.tiles.filter(
-      (tile) =>
-        tile.y === profile.currentZone.y - 1 && tile.x === profile.currentZone.x
-    ),
-    ...currentZone.tiles.filter(
-      (tile) =>
-        tile.y === profile.currentZone.y + 1 && tile.x === profile.currentZone.x
-    )
-  ].filter((tile) => tile.condition === undefined || !!tile.condition())
+  const surroundingTiles = getInteractableTiles(currentZone, profile)
 
   if (!surroundingTiles.length) {
     return

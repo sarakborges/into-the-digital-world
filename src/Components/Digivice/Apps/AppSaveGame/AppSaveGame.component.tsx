@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 
 import { getDialogs } from '@/Helpers/Language'
+import { getSavedProfiles } from '@/Helpers/Systems/Digivice'
 import { loadProfiles, saveProfile } from '@/Helpers/Systems/Profile'
 
 import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
@@ -18,6 +19,8 @@ export const AppSaveGame = () => {
     loadProfiles()
   }, [])
 
+  const sortedSavedProfiles = getSavedProfiles(savedProfiles)
+
   return (
     <div className="save-game">
       <Button onClick={() => saveProfile()}>
@@ -25,14 +28,9 @@ export const AppSaveGame = () => {
       </Button>
 
       <div className="games-list">
-        {savedProfiles
-          ?.sort((a, b) => (a.lastSave > b.lastSave ? -1 : 1))
-          .map((profile) => (
-            <GameFileSave
-              profile={profile}
-              key={`savedProfiles-${profile.id}`}
-            />
-          ))}
+        {sortedSavedProfiles.map((profile) => (
+          <GameFileSave profile={profile} key={`savedProfiles-${profile.id}`} />
+        ))}
       </div>
     </div>
   )

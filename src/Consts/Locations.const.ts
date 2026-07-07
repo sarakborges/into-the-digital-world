@@ -1,8 +1,5 @@
-import {AllZones} from '@/GameData/Zones'
-
 export const WARP_LOCATIONS = {
   rootDomain: {
-    background: AllZones.rootDomain.mainRoom.background,
     zoneId: 'rootDomain',
     mapId: 'mainRoom',
     x: 9,
@@ -10,7 +7,6 @@ export const WARP_LOCATIONS = {
   },
 
   wildZone: {
-    background: AllZones.wildZone.mainRoom.background,
     zoneId: 'wildZone',
     mapId: 'mainRoom',
     x: 9,

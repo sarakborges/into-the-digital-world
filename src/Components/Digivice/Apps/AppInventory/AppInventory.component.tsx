@@ -1,6 +1,7 @@
 import { Fragment } from 'react/jsx-runtime'
 
 import { getTexts } from '@/Helpers/Language'
+import { getInventoryCategories } from '@/Helpers/Systems/Digivice'
 
 import { AllItems } from '@/GameData/Items'
 
@@ -17,16 +18,7 @@ export const AppInventory = () => {
     return
   }
 
-  const categories = {
-    general: {},
-    equipment: {},
-    keyItem: {},
-    core: {}
-  }
-
-  for (let item of Object.keys(profile.items)) {
-    categories[AllItems[item].category][item] = profile.items[item]
-  }
+  const categories = getInventoryCategories(profile)
 
   return (
     <div className="inventory">

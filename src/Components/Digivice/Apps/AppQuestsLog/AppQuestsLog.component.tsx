@@ -1,5 +1,5 @@
 import { getTexts } from '@/Helpers/Language'
-import { isQuestDone } from '@/Helpers/Systems/Quests'
+import { getQuestGroups } from '@/Helpers/Systems/Quests'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -14,24 +14,18 @@ export const AppQuestsLog = () => {
     return
   }
 
-  const notDoneQuests = Object.keys(profile.quests ?? {}).filter(
-    (quest) => !isQuestDone(quest)
-  )
-
-  const doneQuests = Object.keys(profile.quests ?? {}).filter(
-    (quest) => !!isQuestDone(quest)
-  )
+  const { notDone, done } = getQuestGroups(profile)
 
   return (
     <div className="quests-log">
       <QuestsList
-        list={notDoneQuests}
+        list={notDone}
         title={getTexts('QUESTS_LOG_TITLE')}
         noListText={getTexts('QUESTS_LOG_NOQUESTS')}
       />
 
       <QuestsList
-        list={doneQuests}
+        list={done}
         title={getTexts('QUESTS_LOG_TITLE_DONE')}
         noListText={getTexts('QUESTS_LOG_NOQUESTS_DONE')}
       />

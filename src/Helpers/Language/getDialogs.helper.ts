@@ -4,7 +4,7 @@ import * as EnDialogs from '@/GameData/Dialogs/En'
 
 const defaultLanguage = 'en'
 
-export const getDialogs = (dialogKey) => {
+export const getDialogs = (dialogKey: string): string => {
   const dialogs = {
     en: EnDialogs
   }

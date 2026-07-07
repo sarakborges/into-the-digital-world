@@ -1,7 +1,7 @@
-import type {PartnerDigimonType} from '@/Types/PartnerDigimon.type'
-import type {PartyDigimonType} from '@/Types/PartyDigimon.type'
+import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
+import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
-import {AllItems} from '@/GameData/Items'
+import { AllItems } from '@/GameData/Items'
 
 export const calcExtraStats = ({
   digimon,
@@ -9,7 +9,7 @@ export const calcExtraStats = ({
 }: {
   digimon: PartyDigimonType | PartnerDigimonType
   stat: string
-}) => {
+}): number => {
   const equipments = digimon.equipments
 
   const equipmentsBoostingStat = Object.values(equipments ?? {})

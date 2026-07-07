@@ -5,6 +5,7 @@ import { TbListDetails } from 'react-icons/tb'
 import { getTexts } from '@/Helpers/Language'
 import { setCurrentDetails } from '@/Helpers/Systems/Digivice'
 import { addToParty, removeFromParty } from '@/Helpers/Systems/Profile'
+import { getPartnerGroups } from '@/Helpers/Systems/Profile'
 
 import { AllDigimons } from '@/GameData/Digimons'
 
@@ -34,19 +35,7 @@ export const AppPartnersList = () => {
     return <PartnerDetails />
   }
 
-  const partners = {
-    inParty: profile.party.map((digimon) => ({
-      ...profile.partnerDigimons[digimon],
-      baseDigimon: AllDigimons[profile.partnerDigimons[digimon].baseDigimon]
-    })),
-
-    others: Object.values(profile.partnerDigimons)
-      .filter((partner) => !profile.party.includes(partner.id))
-      .map((partner) => ({
-        ...partner,
-        baseDigimon: AllDigimons[partner.baseDigimon]
-      }))
-  }
+  const partners = getPartnerGroups(profile)
 
   return (
     <div className="partners-list">

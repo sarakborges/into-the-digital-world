@@ -1,4 +1,4 @@
-import { isDigimonDefeated } from '@/Helpers/Systems/Battle'
+import { getBattleTurnOrder } from '@/Helpers/Systems/Battle'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 
@@ -15,9 +15,7 @@ export const TurnOrder = () => {
     return
   }
 
-  const [currentDigimon, ...otherDigimons] = battle.turnOrder.filter(
-    (digimon) => !isDigimonDefeated(digimon)
-  )
+  const [currentDigimon, ...otherDigimons] = getBattleTurnOrder(battle)
 
   return (
     <div className="turn-order">

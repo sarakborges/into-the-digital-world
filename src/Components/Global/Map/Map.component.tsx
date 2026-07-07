@@ -10,6 +10,7 @@ import type { ZoneType } from '@/Types/Zone.type'
 import { AllZones } from '@/GameData/Zones'
 
 import { useProfileStore } from '@/Stores/Profile.store'
+import { getVisibleTiles } from '@/Helpers/Systems/Zones'
 
 import './Map.style.scss'
 
@@ -33,7 +34,17 @@ export const Map = () => {
       (!!tile.onEnter || !!tile.events?.length)
   )
 
-  const tiles: Array<{ id: string; type: string; x: number; y: number }> = []
+  const tiles = getVisibleTiles(
+    currentZone,
+    profile,
+    events as Array<{
+      x: number
+      y: number
+      onEnter?: { type?: 'warp' }
+      events?: Array<{ eventType?: 'important' | 'dungeon' }>
+    }>,
+    npcs
+  )
 
   const tileIcons = {
     dungeon: <GiCrossedSwords />,
@@ -42,70 +53,6 @@ export const Map = () => {
     warp: <GiPortal />,
     player: <BiSolidUserCircle />,
     important: <AiOutlineExclamationCircle />
-  }
-
-  for (let y = 1; y <= Number(currentZone.gridSize); y++) {
-    for (let x = 1; x <= Number(currentZone.gridSize); x++) {
-      let type = 'floor'
-
-      if (!currentZone?.grid[y]?.[x]) {
-        type = 'blocked'
-      }
-
-      if (profile.currentZone.x === x && profile.currentZone.y === y) {
-        type = 'player'
-      }
-
-      if (events.some((tile) => tile.x === x && tile.y === y)) {
-        type = 'event'
-      }
-
-      if (
-        events.some(
-          (tile) =>
-            tile.x === x && tile.y === y && tile.onEnter?.type === 'warp'
-        )
-      ) {
-        type = 'warp'
-      }
-
-      if (npcs.some((tile) => tile.x === x && tile.y === y)) {
-        type = 'npc'
-      }
-
-      if (
-        events.some(
-          (tile) =>
-            tile.x === x &&
-            tile.y === y &&
-            tile.events?.some((event) => event.eventType === 'important')
-        )
-      ) {
-        type = 'important'
-      }
-
-      if (
-        events.some(
-          (tile) =>
-            tile.x === x &&
-            tile.y === y &&
-            tile.events?.some((event) => event.eventType === 'dungeon')
-        )
-      ) {
-        type = 'dungeon'
-      }
-
-      if (!type) {
-        continue
-      }
-
-      tiles.push({
-        id: `${x}-${y}`,
-        type,
-        x,
-        y
-      })
-    }
   }
 
   return (
