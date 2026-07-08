@@ -4,8 +4,8 @@ import { BiCaretDown } from 'react-icons/bi'
 import { canMoveToCoordinate, setLocation } from '@/Helpers/Systems/Zones'
 
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useSceneStore } from '@/Stores/Scene.store'
 import { useBattleStore } from '@/Stores/Battle.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 import { useGameStore } from '@/Stores/Game.store'
 
 import { Button } from '@/Components/DesignSystem/Button'

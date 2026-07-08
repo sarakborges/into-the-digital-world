@@ -1,13 +1,13 @@
-import type {DialogType} from '@/Types/Dialog.type'
+import type { DialogType } from '@/Types/Dialog.type'
 
-import {useSceneStore} from '@/Stores/Scene.store'
-import {useProfileStore} from '@/Stores/Profile.store'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {getDialogs} from '@/Helpers/Language'
+import { getTranslation } from '@/Helpers/Language'
 
-import {Text} from '@/Components/DesignSystem/Text'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {Dialog} from '@/Components/DesignSystem/Dialog'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const Introduction006 = () => {
   const { setScene } = useSceneStore((state) => state)
@@ -24,10 +24,9 @@ export const Introduction006 = () => {
     content: (
       <div className="text-bubble">
         <Text as="p">
-          {getDialogs('INTRODUCTION_006_TEXT').replaceAll(
-            '[NAME]',
-            profile.name
-          )}
+          {getTranslation('INTRODUCTION_006_TEXT', {
+            '[NAME]': profile.name
+          })}
         </Text>
       </div>
     ),
@@ -35,7 +34,7 @@ export const Introduction006 = () => {
     options: [
       {
         id: 'scene-introduction-006-continue',
-        text: getDialogs('SCENES_CONTINUE_BUTTON'),
+        text: getTranslation('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({
             currentScene: 'introduction',

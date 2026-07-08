@@ -1,34 +1,29 @@
-import type {BaseDigimonType} from '@/Types/BaseDigimon.type'
-import type {PartnerDigimonType} from '@/Types/PartnerDigimon.type'
+import { getCurrentDigimon } from '@/Helpers/Systems/Digimon'
+import { getTranslation } from '@/Helpers/Language'
 
-import {AllDigimons} from '@/GameData/Digimons'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 
-import {getTexts} from '@/Helpers/Language'
-
-import {useProfileStore} from '@/Stores/Profile.store'
-import {useDigiviceStore} from '@/Stores/Digivice.store'
-
-import {Text} from '@/Components/DesignSystem/Text'
+import { Text } from '@/Components/DesignSystem/Text'
 
 import './CharacterDescription.style.scss'
 
 export const CharacterDescription = () => {
-  const { profile } = useProfileStore((state) => state)
   const { digivice } = useDigiviceStore((state) => state)
 
-  if (!digivice?.currentDetails || !profile) {
+  if (!digivice?.currentDetails) {
     return
   }
 
-  const partner = profile.partnerDigimons[
-    digivice.currentDetails
-  ] as PartnerDigimonType
-  const baseDigimon = AllDigimons[partner.baseDigimon] as BaseDigimonType
+  const baseDigimon = getCurrentDigimon()
+
+  if (!baseDigimon) {
+    return
+  }
 
   return (
     <section className="character-description">
       <header>
-        <Text>{getTexts('ENCYCLOPEDIA_DESCRIPTION')}</Text>
+        <Text>{getTranslation('ENCYCLOPEDIA_DESCRIPTION')}</Text>
       </header>
 
       <main>

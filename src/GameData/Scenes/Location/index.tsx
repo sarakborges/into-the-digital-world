@@ -1,4 +1,4 @@
-import {Location001} from './001.scene'
+import { Location001 } from './001.scene'
 
 export const LocationScenes = {
   id: 'location',

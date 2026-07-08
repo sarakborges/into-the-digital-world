@@ -2,5 +2,18 @@
   "trailingComma": "none",
   "tabWidth": 2,
   "semi": false,
-  "singleQuote": true
+  "singleQuote": true,
+  "plugins": ["prettier-plugin-sort-imports"],
+  "importOrder": [
+    "^(react/(.*)$)|^(react$)",
+    "^(types/.*)$",
+    "^(gameData/.*)$",
+    "^(helpers/.*)$",
+    "^(consts/.*)$",
+    "^(stores/.*)$",
+    "^(components/(.*)$)|^(components/.*)",
+    "^(styles/.*)$",
+    "^(.*).scss$",
+    "^(.*).css$"
+  ]
 }

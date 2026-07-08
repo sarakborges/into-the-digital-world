@@ -1,18 +1,22 @@
-import {GiTwoCoins} from 'react-icons/gi'
+import { GiTwoCoins } from 'react-icons/gi'
 
-import {getDialogs} from '@/Helpers/Language'
-import {purchaseResearch} from '@/Helpers/Systems/Profile'
+import {
+  getAvailableResearches,
+  isResearchPurchasable,
+  purchaseResearch
+} from '@/Helpers/Systems/Profile'
+import { getTranslation } from '@/Helpers/Language'
 
-import {AllResearches} from '@/GameData/Researches'
-import {AllDigimons} from '@/GameData/Digimons'
+import { AllResearches } from '@/GameData/Researches'
+import { AllDigimons } from '@/GameData/Digimons'
 
-import {useProfileStore} from '@/Stores/Profile.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 
-import {Text} from '@/Components/DesignSystem/Text'
-import {Button} from '@/Components/DesignSystem/Button'
-import {Portrait} from '@/Components/DesignSystem/Portrait'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
+import { Button } from '@/Components/DesignSystem/Button'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {ItemsList} from '@/Components/Global/ItemsList'
+import { ItemsList } from '@/Components/Global/ItemsList'
 
 import './ResearchList.style.scss'
 
@@ -23,15 +27,13 @@ export const ResearchList = () => {
     return
   }
 
-  const availableResearches = Object.keys(AllResearches)
-    .filter((research) => !profile.researches.includes(research))
-    .sort((a, b) => (a > b ? 1 : -1))
+  const availableResearches = getAvailableResearches()
 
   return (
     <div className="research-list">
       {!!availableResearches.length && (
         <div className="research-list-container">
-          <Text>{getDialogs('RESEARCH_002_TITLE')}</Text>
+          <Text>{getTranslation('RESEARCH_002_TITLE')}</Text>
 
           <div className="list">
             {availableResearches.map((research) => (
@@ -49,13 +51,7 @@ export const ResearchList = () => {
                   <Button
                     onClick={() => purchaseResearch(research)}
                     style="secondary"
-                    disabled={
-                      !Object.keys(AllResearches[research].cost).every(
-                        (item) =>
-                          profile.items[item] >=
-                          AllResearches[research].cost[item]
-                      )
-                    }
+                    disabled={!isResearchPurchasable(research)}
                   >
                     <GiTwoCoins />
                   </Button>

@@ -1,12 +1,12 @@
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
-import { AllDigimons } from '@/GameData/Digimons'
 import { AllDungeons } from '@/GameData/Dungeons'
+import { AllDigimons } from '@/GameData/Digimons'
 
 import { generateRandomNumber } from '@/Helpers/Math'
 
-import { useDungeonStore } from '@/Stores/Dungeon.store'
 import { useProfileStore } from '@/Stores/Profile.store'
+import { useDungeonStore } from '@/Stores/Dungeon.store'
 
 export const spawnEnemies = () => {
   const { profile } = useProfileStore.getState()
@@ -40,6 +40,8 @@ export const spawnEnemies = () => {
     const digimon = AllDigimons[Object.keys(digimons)[0]]
 
     return new Array(enemyQuantity).fill({
+      party: 'enemies',
+      index: 0,
       ...digimon
     })
   }
@@ -58,6 +60,8 @@ export const spawnEnemies = () => {
 
       if (rng < digimons[spawn].spawnChance) {
         enemiesSpawned.push({
+          party: 'enemies',
+          index: enemiesSpawned.length,
           ...AllDigimons[digimons[spawn].digimonId],
           equipments: digimons[spawn].equipments
         })

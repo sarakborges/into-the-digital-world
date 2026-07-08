@@ -1,13 +1,13 @@
-import type {DialogType} from '@/Types/Dialog.type'
+import type { DialogType } from '@/Types/Dialog.type'
+import { getTranslation } from '@/Helpers/Language'
 
-import {getDialogs} from '@/Helpers/Language'
 
-import {useSceneStore} from '@/Stores/Scene.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {Text} from '@/Components/DesignSystem/Text'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {Dialog} from '@/Components/DesignSystem/Dialog'
-import {PlayerAvatar} from '@/Components/Global/PlayerAvatar'
+import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const Introduction026 = () => {
   const { setScene } = useSceneStore((state) => state)
@@ -18,7 +18,7 @@ export const Introduction026 = () => {
         <PlayerAvatar />
 
         <div className="text-bubble">
-          <Text as="p">{getDialogs('INTRODUCTION_026_TEXT')}</Text>
+          <Text as="p">{getTranslation('INTRODUCTION_026_TEXT')}</Text>
         </div>
       </>
     ),
@@ -26,7 +26,7 @@ export const Introduction026 = () => {
     options: [
       {
         id: 'scene-introduction-026-confirm',
-        text: getDialogs('SCENES_CONTINUE_BUTTON'),
+        text: getTranslation('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({
             currentScene: 'introduction',

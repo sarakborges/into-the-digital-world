@@ -1,10 +1,10 @@
-import {ENCYCLOPEDIA_HEADER} from '@/Consts/EncyclopediaHeader.const'
+import { ENCYCLOPEDIA_HEADER } from '@/Consts/EncyclopediaHeader.const'
 
-import {getTexts} from '@/Helpers/Language'
+import { getTranslation } from '@/Helpers/Language'
 
-import {useDigiviceStore} from '@/Stores/Digivice.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 
-import {Button} from '@/Components/DesignSystem/Button'
+import { Button } from '@/Components/DesignSystem/Button'
 
 import './EncyclopediaHeader.style.scss'
 
@@ -28,7 +28,9 @@ export const EncyclopediaHeader = () => {
           style="secondary"
           key={`encyclopedia-header-${headerApp}`}
         >
-          {getTexts(`ENCYCLOPEDIA_HEADER_${headerApp.toLocaleUpperCase()}`)}
+          {getTranslation(
+            `ENCYCLOPEDIA_HEADER_${headerApp.toLocaleUpperCase()}`
+          )}
         </Button>
       ))}
     </header>

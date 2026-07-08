@@ -1,4 +1,4 @@
-import type {AttackType} from '@/Types/Attack.type'
+import type { AttackType } from '@/Types/Attack.type'
 
 export const AcidBubblesAttack: AttackType = {
   id: 'acidBubbles',

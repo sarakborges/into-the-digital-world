@@ -1,7 +1,7 @@
 import { AllZones } from '@/GameData/Zones'
 
-import { getTexts } from '@/Helpers/Language'
 import { getAvailableWarpLocations } from '@/Helpers/Systems/Digivice'
+import { getTranslation } from '@/Helpers/Language'
 import { warpTo } from '@/Helpers/Systems/Zones'
 
 import { WARP_LOCATIONS } from '@/Consts/Locations.const'
@@ -10,8 +10,8 @@ import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
+import { Button } from '@/Components/DesignSystem/Button'
 import { Text } from '@/Components/DesignSystem/Text'
 
 import './AppLocation.style.scss'
@@ -41,7 +41,7 @@ export const AppLocation = () => {
 
   return (
     <div className="locations">
-      <Text>{getTexts('LOCATION_SELECT')}</Text>
+      <Text>{getTranslation('LOCATION_SELECT')}</Text>
 
       <div className="locations-list">
         {availableWarpLocations.map((location) => (

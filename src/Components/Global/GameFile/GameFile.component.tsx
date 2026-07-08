@@ -1,14 +1,15 @@
 import type { ProfileType } from '@/Types/Profile.type'
+import type { ZoneType } from '@/Types/Zone.type'
 
+import type { ZoneCategoryType } from '@/GameData/Zones'
 import { AllZones } from '@/GameData/Zones'
 
-import { getTexts } from '@/Helpers/Language'
+import { getTranslation } from '@/Helpers/Language'
 
-import { Text } from '@/Components/DesignSystem/Text'
-
-import { LoadGame } from '@/Components/Global/LoadGame'
-import { DeleteGame } from '@/Components/Global/DeleteGame'
 import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
+import { DeleteGame } from '@/Components/Global/DeleteGame'
+import { LoadGame } from '@/Components/Global/LoadGame'
+import { Text } from '@/Components/DesignSystem/Text'
 
 import './GameFile.style.scss'
 
@@ -17,7 +18,7 @@ export const GameFile = ({ profile }: { profile: ProfileType }) => {
     return
   }
 
-  const zone = AllZones[profile.currentZone.id]
+  const zone = AllZones[profile.currentZone.id] as ZoneCategoryType
 
   return (
     <div className="game-file">
@@ -25,22 +26,23 @@ export const GameFile = ({ profile }: { profile: ProfileType }) => {
 
       <header>
         <Text as="p">
-          {getTexts('GAME_FILE_TITLE')
-            .replaceAll(`[NAME]`, profile.name)
-            .replaceAll(`[ID]`, String(profile.id))}
+          {getTranslation('GAME_FILE_TITLE', {
+            '[NAME]': profile.name,
+            '[ID]': String(profile.id)
+          })}
         </Text>
 
         <Text as="p">
-          {getTexts('GAME_FILE_ZONE')
-            .replaceAll(`[ZONE]`, zone.name)
-            .replaceAll(`[MAP]`, zone[profile.currentZone.map].name)}
+          {getTranslation('GAME_FILE_ZONE', {
+            '[ZONE]': zone.name,
+            '[MAP]': (zone[profile.currentZone.map] as ZoneType).name
+          })}
         </Text>
 
         <Text as="p">
-          {getTexts('GAME_FILE_TIME').replaceAll(
-            `[TIME]`,
-            new Date(profile.lastSave).toLocaleString()
-          )}
+          {getTranslation('GAME_FILE_TIME', {
+            '[TIME]': new Date(profile.lastSave).toLocaleString()
+          })}
         </Text>
       </header>
 

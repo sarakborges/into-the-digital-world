@@ -1,15 +1,15 @@
-import type {DialogType} from '@/Types/Dialog.type'
+import type { DialogType } from '@/Types/Dialog.type'
+import { getTranslation } from '@/Helpers/Language'
 
-import {AllNpcs} from '@/GameData/Npcs'
+import { AllNpcs } from '@/GameData/Npcs'
 
-import {getDialogs} from '@/Helpers/Language'
 
-import {useSceneStore} from '@/Stores/Scene.store'
-import {useDigiviceStore} from '@/Stores/Digivice.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {Text} from '@/Components/DesignSystem/Text'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {Dialog} from '@/Components/DesignSystem/Dialog'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const Introduction025 = () => {
   const { setScene } = useSceneStore((state) => state)
@@ -20,14 +20,14 @@ export const Introduction025 = () => {
 
     content: (
       <div className="text-bubble">
-        <Text as="p">{getDialogs('INTRODUCTION_025_TEXT')}</Text>
+        <Text as="p">{getTranslation('INTRODUCTION_025_TEXT')}</Text>
       </div>
     ),
 
     options: [
       {
         id: 'scene-introduction-025-confirm',
-        text: getDialogs('SCENES_CONFIRM_BUTTON'),
+        text: getTranslation('SCENES_CONFIRM_BUTTON'),
         action: () => {
           setDigivice({ ...digivice, isOpen: false, currentApp: undefined })
 

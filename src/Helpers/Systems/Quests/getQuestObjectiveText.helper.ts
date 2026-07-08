@@ -1,7 +1,9 @@
-import { AllNpcs } from '@/GameData/Npcs'
 import { AllZones } from '@/GameData/Zones'
+import { AllNpcs } from '@/GameData/Npcs'
 
-import { getTexts } from '@/Helpers/Language'
+import { getTranslation } from '@/Helpers/Language'
+
+import type { ZoneType } from '@/Types/Zone.type'
 
 export const getQuestObjectiveText = (objective: {
   type: string
@@ -9,15 +11,12 @@ export const getQuestObjectiveText = (objective: {
   where: string
   map: string
 }) => {
-  return getTexts('QUEST_OBJECTIVE')
-    .replaceAll(
-      '[TYPE]',
-      getTexts(`QUEST_OBJECTIVE_TYPE_${objective.type.toLocaleUpperCase()}`)
-    )
-    .replaceAll(
-      '[TARGET]',
-      AllNpcs?.[objective.target.type]?.[objective.target.id].name
-    )
-    .replaceAll('[WHERE]', AllZones[objective.where].name)
-    .replaceAll('[MAP]', AllZones[objective.where][objective.map].name)
+  return getTranslation('QUEST_OBJECTIVE', {
+    '[TYPE]': getTranslation(
+      `QUEST_OBJECTIVE_TYPE_${objective.type.toLocaleUpperCase()}`
+    ),
+    '[TARGET]': AllNpcs?.[objective.target.type]?.[objective.target.id].name,
+    '[WHERE]': AllZones[objective.where].name,
+    '[MAP]': (AllZones[objective.where][objective.map] as ZoneType).name
+  })
 }

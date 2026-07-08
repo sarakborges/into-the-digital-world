@@ -1,20 +1,20 @@
-import type {DialogType} from '@/Types/Dialog.type'
+import type { DialogType } from '@/Types/Dialog.type'
+import { getTranslation } from '@/Helpers/Language'
 
-import {getDialogs} from '@/Helpers/Language'
-import {addNewQuest, updateQuestObjective} from '@/Helpers/Systems/Quests'
-import {saveSession} from '@/Helpers/Systems/Data'
+import { addNewQuest, updateQuestObjective } from '@/Helpers/Systems/Quests'
+import { saveSession } from '@/Helpers/Systems/Data'
 
-import {AllItems} from '@/GameData/Items'
-import {AllNpcs} from '@/GameData/Npcs'
-import {AvatarFixingQuest} from '@/GameData/Quests/AvatarFixing.quest'
-import {IntroductionQuest} from '@/GameData/Quests/Introduction.quest'
+import { IntroductionQuest } from '@/GameData/Quests/Introduction.quest'
+import { AvatarFixingQuest } from '@/GameData/Quests/AvatarFixing.quest'
+import { AllItems } from '@/GameData/Items'
+import { AllNpcs } from '@/GameData/Npcs'
 
-import {useProfileStore} from '@/Stores/Profile.store'
-import {useSceneStore} from '@/Stores/Scene.store'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {Text} from '@/Components/DesignSystem/Text'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {Dialog} from '@/Components/DesignSystem/Dialog'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const Introduction021 = () => {
   const { setScene } = useSceneStore((state) => state)
@@ -24,14 +24,14 @@ export const Introduction021 = () => {
 
     content: (
       <div className="text-bubble">
-        <Text as="p">{getDialogs('INTRODUCTION_021_TEXT')}</Text>
+        <Text as="p">{getTranslation('INTRODUCTION_021_TEXT')}</Text>
       </div>
     ),
 
     options: [
       {
         id: 'scene-introduction-021-continue',
-        text: getDialogs('SCENES_CONTINUE_BUTTON'),
+        text: getTranslation('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene(null)
 

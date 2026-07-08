@@ -1,10 +1,12 @@
-import type {DialogType} from '@/Types/Dialog.type'
+import type { DialogType } from '@/Types/Dialog.type'
 
-import {useProfileStore} from '@/Stores/Profile.store'
+import { isNpcAcquainted } from '@/Helpers/Systems/Profile'
 
-import {Button} from '@/Components/DesignSystem/Button'
+import { useProfileStore } from '@/Stores/Profile.store'
 
-import {CharacterHeader} from '@/Components/Digivice/Apps/CharacterHeader'
+import { Button } from '@/Components/DesignSystem/Button'
+
+import { CharacterHeader } from '@/Components/Digivice/Apps/CharacterHeader'
 
 import './Dialog.style.scss'
 
@@ -13,15 +15,13 @@ export const Dialog = ({ speaker, content, options }: DialogType) => {
 
   return (
     <main className="dialog">
-      {!!speaker && (
+      {!!speaker && profile && (
         <CharacterHeader
           character={{
             ...speaker,
             isPlayer: !!speaker.isPlayer,
             name:
-              Object.keys(profile?.npcAcquaintances ?? {}).includes(
-                speaker.id.toString()
-              ) || !!speaker.isPlayer
+              isNpcAcquainted(speaker.id) || !!speaker.isPlayer
                 ? speaker.name
                 : `???`
           }}

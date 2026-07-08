@@ -1,17 +1,17 @@
-import type {DialogType} from '@/Types/Dialog.type'
+import type { DialogType } from '@/Types/Dialog.type'
+import { getTranslation } from '@/Helpers/Language'
 
-import {useSceneStore} from '@/Stores/Scene.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {AllNpcs} from '@/GameData/Npcs'
+import { AllNpcs } from '@/GameData/Npcs'
 
-import {useProfileStore} from '@/Stores/Profile.store'
-import {deleteSession} from '@/Helpers/Systems/Data'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { deleteSession } from '@/Helpers/Systems/Data'
 
-import {getDialogs} from '@/Helpers/Language'
 
-import {Text} from '@/Components/DesignSystem/Text'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {Dialog} from '@/Components/DesignSystem/Dialog'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const Logoff001 = () => {
   const { setProfile } = useProfileStore((state) => state)
@@ -22,14 +22,14 @@ export const Logoff001 = () => {
 
     content: (
       <div className="text-bubble">
-        <Text as="p">{getDialogs('LOGOFF_001_TEXT')}</Text>
+        <Text as="p">{getTranslation('LOGOFF_001_TEXT')}</Text>
       </div>
     ),
 
     options: [
       {
         id: 'scene-logoff-001-cancel',
-        text: getDialogs('SCENES_CANCEL_BUTTON'),
+        text: getTranslation('SCENES_CANCEL_BUTTON'),
         action: () => {
           setScene(null)
         }
@@ -37,7 +37,7 @@ export const Logoff001 = () => {
 
       {
         id: 'scene-logoff-001-confirm',
-        text: getDialogs('SCENES_CONFIRM_BUTTON'),
+        text: getTranslation('SCENES_CONFIRM_BUTTON'),
         action: () => {
           setProfile(null)
           setScene(null)

@@ -1,6 +1,6 @@
-import {useBattleStore} from '@/Stores/Battle.store'
+import { useBattleStore } from '@/Stores/Battle.store'
 
-import {ItemsList} from '@/Components/Global/ItemsList'
+import { ItemsList } from '@/Components/Global/ItemsList'
 
 import './CombatLoot.style.scss'
 

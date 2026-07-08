@@ -11,8 +11,9 @@ export const canMoveToCoordinate = ({ x, y }: { x: number; y: number }) => {
     return false
   }
 
-  const currentZone: ZoneType =
-    AllZones[profile.currentZone.id][profile.currentZone.map]
+  const currentZone: ZoneType = AllZones[profile.currentZone.id][
+    profile.currentZone.map
+  ] as ZoneType
 
   const tile = currentZone.tiles.filter(
     (tile) =>

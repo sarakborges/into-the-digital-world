@@ -1,8 +1,8 @@
-import {BiPencil} from 'react-icons/bi'
+import { BiPencil } from 'react-icons/bi'
 
-import {useSceneStore} from '@/Stores/Scene.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {Button} from '@/Components/DesignSystem/Button'
+import { Button } from '@/Components/DesignSystem/Button'
 
 export const RenamePartner = () => {
   const { scene, setScene } = useSceneStore((state) => state)

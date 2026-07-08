@@ -1,4 +1,4 @@
-import { getTexts } from '@/Helpers/Language'
+import { getTranslation } from '@/Helpers/Language'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
@@ -26,14 +26,14 @@ export const AppAcquaintancesDetails = () => {
     <div className="npc-profile">
       <header className="npc-header">
         <CharacterHeader character={npc} lg>
-          <>{!!npc.title && <Text>{getTexts(npc.title)}</Text>}</>
+          <>{!!npc.title && <Text>{getTranslation(npc.title)}</Text>}</>
         </CharacterHeader>
       </header>
 
       <main>
         <section>
           <header>
-            <Text>{getTexts('ACQUAINTANCES_FULL_PICTURE')}</Text>
+            <Text>{getTranslation('ACQUAINTANCES_FULL_PICTURE')}</Text>
           </header>
 
           <main>
@@ -43,7 +43,7 @@ export const AppAcquaintancesDetails = () => {
 
         <section>
           <header>
-            <Text>{getTexts('ACQUAINTANCES_DESCRIPTION')}</Text>
+            <Text>{getTranslation('ACQUAINTANCES_DESCRIPTION')}</Text>
           </header>
 
           <main className="acquaintance-description">

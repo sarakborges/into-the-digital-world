@@ -1,13 +1,13 @@
-import type {JSX} from 'react'
+import type { JSX } from 'react'
 
-import type {ProfileType} from '@/Types/Profile.type'
-import type {BaseDigimonType} from '@/Types/BaseDigimon.type'
-import type {NpcType} from '@/Types/Npc.type'
+import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
+import type { ProfileType } from '@/Types/Profile.type'
+import type { NpcType } from '@/Types/Npc.type'
 
-import {Text} from '@/Components/DesignSystem/Text'
-import {Portrait} from '@/Components/DesignSystem/Portrait'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {PlayerAvatar} from '@/Components/Global/PlayerAvatar'
+import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 
 import './CharacterHeader.style.scss'
 

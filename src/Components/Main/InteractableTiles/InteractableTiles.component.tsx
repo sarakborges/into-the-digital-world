@@ -1,4 +1,5 @@
 import { Fragment } from 'react/jsx-runtime'
+
 import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
 import { AiOutlineExclamationCircle } from 'react-icons/ai'
 import { BsEye } from 'react-icons/bs'
@@ -7,15 +8,15 @@ import type { ZoneType } from '@/Types/Zone.type'
 
 import { AllZones } from '@/GameData/Zones'
 
-import { useProfileStore } from '@/Stores/Profile.store'
-import { useSceneStore } from '@/Stores/Scene.store'
-import { useDungeonStore } from '@/Stores/Dungeon.store'
-import { getInteractableTiles } from '../../../Helpers/Systems/Zones/getInteractableTiles.helper'
+import { getInteractableTiles, getActiveEvents } from '@/Helpers/Systems/Zones'
 
-import { Text } from '@/Components/DesignSystem/Text'
-import { Button } from '@/Components/DesignSystem/Button'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useDungeonStore } from '@/Stores/Dungeon.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Dialog } from '@/Components/DesignSystem/Dialog'
+import { Button } from '@/Components/DesignSystem/Button'
+import { Text } from '@/Components/DesignSystem/Text'
 
 import './InteractableTiles.style.scss'
 
@@ -28,8 +29,9 @@ export const InteractableTiles = () => {
     return
   }
 
-  const currentZone: ZoneType =
-    AllZones[profile.currentZone.id][profile.currentZone.map]
+  const currentZone: ZoneType = AllZones[profile.currentZone.id][
+    profile.currentZone.map
+  ] as ZoneType
 
   const surroundingTiles = getInteractableTiles(currentZone, profile)
 
@@ -40,9 +42,7 @@ export const InteractableTiles = () => {
   return (
     <aside className="interactable-tiles">
       {surroundingTiles.map((tile) => {
-        const events = tile?.events?.filter(
-          (event) => event.condition === undefined || !!event.condition()
-        )
+        const events = getActiveEvents(tile)
 
         return (
           <Fragment key={`interactable-tile-y-${tile.y}-x${tile.x}-${tile.id}`}>

@@ -1,8 +1,8 @@
 import type { ZoneType } from '@/Types/Zone.type'
 
-import { saveSession } from '@/Helpers/Systems/Data'
-
 import { AllZones } from '@/GameData/Zones'
+
+import { saveSession } from '@/Helpers/Systems/Data'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -13,8 +13,9 @@ export const setLocation = ({ x, y }: { x?: number; y?: number }) => {
     return false
   }
 
-  const currentZone: ZoneType =
-    AllZones[profile.currentZone.id][profile.currentZone.map]
+  const currentZone: ZoneType = AllZones[profile.currentZone.id][
+    profile.currentZone.map
+  ] as ZoneType
 
   const updatedX = profile.currentZone.x + (x || 0)
   const updatedY = profile.currentZone.y + (y || 0)

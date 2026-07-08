@@ -1,23 +1,19 @@
-import type { ZoneType } from '@/Types/Zone.type'
-
 import { AllZones } from '@/GameData/Zones'
 
-import { useProfileStore } from '@/Stores/Profile.store'
+import { getCurrentZone } from '@/Helpers/Systems/Zones'
+import { getTranslation } from '@/Helpers/Language'
 
 import { Text } from '@/Components/DesignSystem/Text'
-
 import { Map } from '@/Components/Global/Map'
 
 import './AppMap.style.scss'
 
 export const AppMap = () => {
-  const { profile } = useProfileStore((state) => state)
+  const currentMap = getCurrentZone()
 
-  if (!profile?.currentZone) {
+  if (!currentMap) {
     return
   }
-
-  const currentZone: ZoneType = AllZones[profile.currentZone.id]
 
   return (
     <div className="app-map">
@@ -27,9 +23,10 @@ export const AppMap = () => {
 
       <div className="map-name">
         <Text>
-          <>{currentZone.name}</>
-          <> - </>
-          <>{currentZone[profile.currentZone.map].name}</>
+          {getTranslation('MAP_NAME_FORMAT', {
+            '[ZONE]': AllZones[currentMap.id].name,
+            '[MAP]': currentMap.name
+          })}
         </Text>
       </div>
     </div>

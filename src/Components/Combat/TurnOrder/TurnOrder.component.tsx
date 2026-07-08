@@ -3,10 +3,8 @@ import { getBattleTurnOrder } from '@/Helpers/Systems/Battle'
 import { useBattleStore } from '@/Stores/Battle.store'
 
 import { Portrait } from '@/Components/DesignSystem/Portrait'
-import { Text } from '@/Components/DesignSystem/Text'
 
 import './TurnOrder.style.scss'
-import { getTexts } from '@/Helpers/Language'
 
 export const TurnOrder = () => {
   const { battle } = useBattleStore((state) => state)

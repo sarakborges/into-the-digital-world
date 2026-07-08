@@ -1,15 +1,15 @@
-import type {DialogType} from '@/Types/Dialog.type'
+import type { DialogType } from '@/Types/Dialog.type'
+import { getTranslation } from '@/Helpers/Language'
 
-import {AllNpcs} from '@/GameData/Npcs'
+import { AllNpcs } from '@/GameData/Npcs'
 
-import {getDialogs} from '@/Helpers/Language'
 
-import {useDigiviceStore} from '@/Stores/Digivice.store'
-import {useSceneStore} from '@/Stores/Scene.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {Text} from '@/Components/DesignSystem/Text'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {Dialog} from '@/Components/DesignSystem/Dialog'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const SaveGame002 = () => {
   const { setScene } = useSceneStore((state) => state)
@@ -24,14 +24,14 @@ export const SaveGame002 = () => {
 
     content: (
       <div className="text-bubble">
-        <Text as="p">{getDialogs('SAVEGAME_002_TEXT')}</Text>
+        <Text as="p">{getTranslation('SAVEGAME_002_TEXT')}</Text>
       </div>
     ),
 
     options: [
       {
         id: 'scene-savegame-002-continue',
-        text: getDialogs('SCENES_CONTINUE_BUTTON'),
+        text: getTranslation('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setDigivice({ ...digivice, currentApp: undefined })
           setScene(null)

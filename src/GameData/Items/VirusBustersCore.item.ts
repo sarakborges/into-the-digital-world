@@ -1,4 +1,4 @@
-import type {ItemType} from '@/Types/Item.type'
+import type { ItemType } from '@/Types/Item.type'
 
 export const VirusBustersCoreItem: ItemType = {
   id: 'virusBustersCore',

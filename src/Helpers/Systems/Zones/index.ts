@@ -7,3 +7,9 @@ export { getInteractableTiles } from './getInteractableTiles.helper'
 export { getTileType } from './getTileType.helper'
 export { hasTileAt } from './hasTileAt.helper'
 export { hasEventTypeAt } from './hasEventTypeAt.helper'
+export { getCurrentZone } from './getCurrentZone.helper'
+export {
+  getNpcsOnZone,
+  getEventsOnZone,
+  getActiveEvents
+} from './getNpcsAndEvents.helper'

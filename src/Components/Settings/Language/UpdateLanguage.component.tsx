@@ -1,13 +1,13 @@
 import { FaCheck } from 'react-icons/fa'
 
-import { getTexts } from '@/Helpers/Language'
 import { updateSettings } from '@/Helpers/Systems/Settings'
+import { getTranslation } from '@/Helpers/Language'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
 
+import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Button } from '@/Components/DesignSystem/Button'
 import { Text } from '@/Components/DesignSystem/Text'
-import { Portrait } from '@/Components/DesignSystem/Portrait'
 
 import './UpdateLanguage.style.scss'
 
@@ -32,7 +32,9 @@ export const UpdateLanguage = ({ language }: { language: string }) => {
         </div>
 
         <Text>
-          {getTexts(`LANGUAGE_${language.replace('-', '').toUpperCase()}`)}
+          {getTranslation(
+            `LANGUAGE_${language.replace('-', '').toUpperCase()}`
+          )}
         </Text>
 
         {language === settings?.language && <FaCheck />}

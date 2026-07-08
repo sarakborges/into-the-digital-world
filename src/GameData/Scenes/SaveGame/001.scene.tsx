@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getDialogs } from '@/Helpers/Language'
+import { getTranslation } from '@/Helpers/Language'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
@@ -8,8 +8,8 @@ import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Text } from '@/Components/DesignSystem/Text'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { AppSaveGame } from '@/Components/Digivice/Apps/AppSaveGame'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const SaveGame001 = () => {
   const { setScene } = useSceneStore((state) => state)
@@ -20,7 +20,7 @@ export const SaveGame001 = () => {
     content: (
       <div className="dialog-with-reactions">
         <div className="text-bubble">
-          <Text as="p">{getDialogs('SAVEGAME_001_TEXT')}</Text>
+          <Text as="p">{getTranslation('SAVEGAME_001_TEXT')}</Text>
         </div>
 
         <AppSaveGame />
@@ -30,7 +30,7 @@ export const SaveGame001 = () => {
     options: [
       {
         id: 'scene-savegame-001-cancel',
-        text: getDialogs('SCENES_CANCEL_BUTTON'),
+        text: getTranslation('SCENES_CANCEL_BUTTON'),
         action: () => {
           setScene(null)
         }

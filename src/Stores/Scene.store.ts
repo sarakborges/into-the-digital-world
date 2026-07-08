@@ -1,6 +1,6 @@
-import {create} from 'zustand'
+import { create } from 'zustand'
 
-import type {SceneType} from '@/Types/Scene.type'
+import type { SceneType } from '@/Types/Scene.type'
 
 type SceneStore = {
   scene: SceneType | null

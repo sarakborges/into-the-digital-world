@@ -1,10 +1,9 @@
-import {getTexts} from '@/Helpers/Language'
+import { getTranslation } from '@/Helpers/Language'
 
-import {useBattleStore} from '@/Stores/Battle.store'
+import { useBattleStore } from '@/Stores/Battle.store'
 
-import {Text} from '@/Components/DesignSystem/Text'
-
-import {CombatLogEntry} from '@/Components/Combat/CombatLogEntry'
+import { CombatLogEntry } from '@/Components/Combat/CombatLogEntry'
+import { Text } from '@/Components/DesignSystem/Text'
 
 import './CombatLog.style.scss'
 
@@ -17,7 +16,7 @@ export const CombatLog = () => {
 
   return (
     <div className="combat-log">
-      <Text>{getTexts('BATTLE_LOG_TITLE')}</Text>
+      <Text>{getTranslation('BATTLE_LOG_TITLE')}</Text>
 
       {[...battle.combatLog].map((logEntry, logIndex) => (
         <div

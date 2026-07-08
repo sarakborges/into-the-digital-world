@@ -13,7 +13,7 @@ export const CombatParties = () => {
     return
   }
 
-  const partyGroups = getBattlePartyGroups(battle)
+  const partyGroups = getBattlePartyGroups()
 
   return (
     <div className="combat-parties">

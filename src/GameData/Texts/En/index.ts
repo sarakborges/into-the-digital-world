@@ -5,6 +5,8 @@ export * from './DigiviceApps.text'
 export * from './Encyclopedia.text'
 export * from './StartScreen.text'
 export * from './Settings.text'
+export * from './Dungeon.text'
+export * from './GameData.text'
 export * from './Titles.text'
 
 export const START_SCREEN_TITLE = `Welcome Into the\nDigital World!`

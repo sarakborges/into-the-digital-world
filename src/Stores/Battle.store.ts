@@ -1,6 +1,6 @@
-import {create} from 'zustand'
+import { create } from 'zustand'
 
-import type {BattleType} from '@/Types/Battle.type'
+import type { BattleType } from '@/Types/Battle.type'
 
 type BattleStore = {
   battle: BattleType | null

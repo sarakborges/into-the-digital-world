@@ -1,11 +1,11 @@
-import {getTexts} from '@/Helpers/Language'
+import { getTranslation } from '@/Helpers/Language'
 
 export const getAvatarOptionsText = (): { [layer: string]: string } => {
   return {
-    skin: getTexts('AVATARCUSTOMIZATION_SKIN'),
-    hair: getTexts('AVATARCUSTOMIZATION_HAIR'),
-    hairColor: getTexts('AVATARCUSTOMIZATION_HAIR_COLOR'),
-    eyes: getTexts('AVATARCUSTOMIZATION_EYES'),
-    clothes: getTexts('AVATARCUSTOMIZATION_CLOTHES')
+    skin: getTranslation('AVATARCUSTOMIZATION_SKIN'),
+    hair: getTranslation('AVATARCUSTOMIZATION_HAIR'),
+    hairColor: getTranslation('AVATARCUSTOMIZATION_HAIR_COLOR'),
+    eyes: getTranslation('AVATARCUSTOMIZATION_EYES'),
+    clothes: getTranslation('AVATARCUSTOMIZATION_CLOTHES')
   }
 }

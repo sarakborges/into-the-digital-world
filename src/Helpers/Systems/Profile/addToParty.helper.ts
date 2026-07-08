@@ -1,4 +1,4 @@
-import {useProfileStore} from '@/Stores/Profile.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 
 export const addToParty = (digimonId: number) => {
   const { profile, setProfile } = useProfileStore.getState()

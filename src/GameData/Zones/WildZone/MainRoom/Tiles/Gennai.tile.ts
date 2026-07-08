@@ -1,15 +1,15 @@
 import type { ZoneTileType } from '@/Types/ZoneTile.type'
 
-import { getDialogs } from '@/Helpers/Language'
+import { getTranslation } from '@/Helpers/Language'
 
-import { AllNpcs } from '@/GameData/Npcs'
 import { OpenLocation } from '@/GameData/Zones/WildZone/MainRoom/Events/OpenLocation.event'
+import { AllNpcs } from '@/GameData/Npcs'
 
 export const WildZoneGennaiTile: ZoneTileType = {
   id: 'wildZoneGennai',
   x: 9,
   y: 7,
-  defaultText: getDialogs('ROOTDOMAIN_GENNAI_DEFAULT'),
+  defaultText: getTranslation('ROOTDOMAIN_GENNAI_DEFAULT'),
 
   npc: {
     ...AllNpcs.general.gennai,
@@ -19,7 +19,7 @@ export const WildZoneGennaiTile: ZoneTileType = {
   events: [
     {
       function: OpenLocation,
-      eventText: getDialogs('ROOTDOMAIN_LOCATION_TRIGGER'),
+      eventText: getTranslation('ROOTDOMAIN_LOCATION_TRIGGER'),
       eventType: 'default'
     }
   ]

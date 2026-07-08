@@ -1,17 +1,16 @@
 import { BiDetail } from 'react-icons/bi'
 
-import { getTexts } from '@/Helpers/Language'
 import { getResearches } from '@/Helpers/Systems/Profile'
+import { getTranslation } from '@/Helpers/Language'
 
 import { AllResearches } from '@/GameData/Researches'
-import { AllDigimons } from '@/GameData/Digimons'
 
-import { useProfileStore } from '@/Stores/Profile.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Text } from '@/Components/DesignSystem/Text'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Button } from '@/Components/DesignSystem/Button'
+import { Text } from '@/Components/DesignSystem/Text'
 
 import { EncyclopediaHeader } from '@/Components/Digivice/Apps/EncyclopediaHeader'
 import { ItemsList } from '@/Components/Global/ItemsList'
@@ -40,12 +39,12 @@ export const AppResearchesList = () => {
       <EncyclopediaHeader />
 
       {!allResearches.length && (
-        <Text as="p">{getTexts('MY_RESEARCHES_EMPTY')}</Text>
+        <Text as="p">{getTranslation('MY_RESEARCHES_EMPTY')}</Text>
       )}
 
       {!!allResearches.length && (
         <div className="researches">
-          <Text>{getTexts('MY_RESEARCHES_TITLE')}</Text>
+          <Text>{getTranslation('MY_RESEARCHES_TITLE')}</Text>
 
           {allResearches.map((research) => (
             <div className="research-content" key={`researches-${research.id}`}>
@@ -74,12 +73,12 @@ export const AppResearchesList = () => {
               {digivice?.currentDetails === research.id && (
                 <>
                   <ItemsList
-                    title={getTexts('MY_RESEARCHES_DETAILS_REQUIRED')}
+                    title={getTranslation('MY_RESEARCHES_DETAILS_REQUIRED')}
                     list={AllResearches[research.id].requiredItems}
                   />
 
                   <ItemsList
-                    title={getTexts('MY_RESEARCHES_DETAILS_OPTIONAL')}
+                    title={getTranslation('MY_RESEARCHES_DETAILS_OPTIONAL')}
                     list={AllResearches[research.id].optionalItems}
                   />
                 </>

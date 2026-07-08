@@ -1,22 +1,19 @@
-import { FaCheck } from 'react-icons/fa'
 import { TbListDetails } from 'react-icons/tb'
+import { FaCheck } from 'react-icons/fa'
 
 import { AllQuests } from '@/GameData/Quests'
-import { AllNpcs } from '@/GameData/Npcs'
-import { AllZones } from '@/GameData/Zones'
 
-import { getTexts } from '@/Helpers/Language'
 import {
   getQuestObjectives,
   getQuestObjectiveText
 } from '@/Helpers/Systems/Quests'
 
-import { Text } from '@/Components/DesignSystem/Text'
 import { Button } from '@/Components/DesignSystem/Button'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import './QuestsList.style.scss'
-import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { setCurrentDetails } from '@/Helpers/Systems/Digivice'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
+import './QuestsList.style.scss'
 
 export const QuestsList = ({
   list,

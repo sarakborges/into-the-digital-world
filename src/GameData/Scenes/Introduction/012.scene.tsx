@@ -1,15 +1,15 @@
-import type {DialogType} from '@/Types/Dialog.type'
+import type { DialogType } from '@/Types/Dialog.type'
+import { getTranslation } from '@/Helpers/Language'
 
-import {getDialogs} from '@/Helpers/Language'
 
-import {AllItems} from '@/GameData/Items'
+import { AllItems } from '@/GameData/Items'
 
-import {useSceneStore} from '@/Stores/Scene.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {Text} from '@/Components/DesignSystem/Text'
-import {Portrait} from '@/Components/DesignSystem/Portrait'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {Dialog} from '@/Components/DesignSystem/Dialog'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const Introduction012 = () => {
   const { setScene } = useSceneStore((state) => state)
@@ -18,11 +18,11 @@ export const Introduction012 = () => {
     content: (
       <>
         <Portrait
-          alt={getDialogs('INTRODUCTION_011_IMAGE')}
+          alt={getTranslation('INTRODUCTION_011_IMAGE')}
           src={`/${AllItems.digivice?.portrait}.webp`}
         />
         <div className="text-bubble">
-          <Text as="p">{getDialogs('INTRODUCTION_012_TEXT')}</Text>
+          <Text as="p">{getTranslation('INTRODUCTION_012_TEXT')}</Text>
         </div>
       </>
     ),
@@ -30,7 +30,7 @@ export const Introduction012 = () => {
     options: [
       {
         id: 'scene-introduction-012-continue',
-        text: getDialogs('SCENES_CONTINUE_BUTTON'),
+        text: getTranslation('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({
             currentScene: 'introduction',

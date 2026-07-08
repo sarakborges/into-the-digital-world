@@ -1,13 +1,13 @@
-import { useEffect } from 'react'
 import { FaPaintBrush } from 'react-icons/fa'
+import { useEffect } from 'react'
 
 import type { AvatarType } from '@/Types/Avatar.type'
 
-import { getTexts } from '@/Helpers/Language'
 import {
   generateRandomAvatar,
   getAvatarOptionsText
 } from '@/Helpers/Systems/Profile'
+import { getTranslation } from '@/Helpers/Language'
 
 import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -15,8 +15,8 @@ import { useProfileStore } from '@/Stores/Profile.store'
 import { Button } from '@/Components/DesignSystem/Button'
 import { Text } from '@/Components/DesignSystem/Text'
 
-import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 import { AvatarCustomizationOptions } from '@/Components/Digivice/Apps/AppAvatarCustomization/Options'
+import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 
 import './AppAvatarCustomization.style.scss'
 
@@ -45,7 +45,7 @@ export const AppAvatarCustomization = () => {
 
       {!avatarCustomization.layer && (
         <main className="avatar-options">
-          <Text>{getTexts('AVATARCUSTOMIZATION_OPTIONS_TITLE')}</Text>
+          <Text>{getTranslation('AVATARCUSTOMIZATION_OPTIONS_TITLE')}</Text>
 
           {(Object.keys(options) as Array<keyof AvatarType>).map((option) => (
             <div key={`avatar-options-${option}`}>

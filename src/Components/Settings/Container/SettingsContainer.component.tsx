@@ -1,15 +1,15 @@
-import {FaCog, FaTimes} from 'react-icons/fa'
+import { FaCog, FaTimes } from 'react-icons/fa'
 
-import {getTexts} from '@/Helpers/Language'
+import { getTranslation } from '@/Helpers/Language'
 
-import {useSettingsStore} from '@/Stores/Settings.store'
+import { useSettingsStore } from '@/Stores/Settings.store'
 
-import {Button} from '@/Components/DesignSystem/Button'
-import {Modal} from '@/Components/DesignSystem/Modal'
-import {Text} from '@/Components/DesignSystem/Text'
+import { Button } from '@/Components/DesignSystem/Button'
+import { Modal } from '@/Components/DesignSystem/Modal'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {SettingsTheme} from '@/Components/Settings/Themes'
-import {SettingsLanguage} from '@/Components/Settings/Languages'
+import { SettingsLanguage } from '@/Components/Settings/Languages'
+import { SettingsTheme } from '@/Components/Settings/Themes'
 
 import './SettingsContainer.style.scss'
 
@@ -29,7 +29,7 @@ export const SettingsContainer = () => {
       {!!settings.isOpen && (
         <Modal>
           <header className="settings-header">
-            <Text>{getTexts('SETTINGS_TITLE')}</Text>
+            <Text>{getTranslation('SETTINGS_TITLE')}</Text>
 
             <Button style="secondary" onClick={toggleModal}>
               {<FaTimes />}

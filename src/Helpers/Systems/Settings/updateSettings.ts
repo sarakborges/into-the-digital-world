@@ -1,6 +1,6 @@
-import {saveData} from '@/Helpers/Systems/Data'
+import { saveData } from '@/Helpers/Systems/Data'
 
-import {useSettingsStore} from '@/Stores/Settings.store'
+import { useSettingsStore } from '@/Stores/Settings.store'
 
 export const updateSettings = ({
   language,

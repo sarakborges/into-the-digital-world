@@ -1,7 +1,7 @@
-import type {SpawnableDigimonType} from '@/Types/SpawnableDigimon.type'
+import type { SpawnableDigimonType } from '@/Types/SpawnableDigimon.type'
 
-import {AllDigimons} from '@/GameData/Digimons'
-import {AllItems} from '@/GameData/Items'
+import { AllDigimons } from '@/GameData/Digimons'
+import { AllItems } from '@/GameData/Items'
 
 export const WildZoneKoromon: {
   [digimonId: string]: SpawnableDigimonType

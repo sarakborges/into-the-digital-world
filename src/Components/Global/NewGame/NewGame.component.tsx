@@ -1,12 +1,9 @@
-import type { ProfileType } from '@/Types/Profile.type'
+import { createNewProfile } from '@/Helpers/Systems/Profile'
+import { getTranslation } from '@/Helpers/Language'
 
-import { AllNpcs } from '@/GameData/Npcs'
-
-import { getTexts } from '@/Helpers/Language'
-
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
-import { useDigiviceStore } from '@/Stores/Digivice.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
 
@@ -17,36 +14,8 @@ export const NewGame = () => {
   const { setDigivice } = useDigiviceStore((state) => state)
   const { setScene } = useSceneStore((state) => state)
 
-  const createNewProfile = () => {
-    const newProfile: ProfileType = {
-      id: 0,
-      name: '',
-      lastSave: new Date(),
-      currentTitle: 'chosenChild',
-      currentScene: 'introduction',
-
-      titles: ['chosenChild'],
-      party: [],
-      researches: [],
-      researchesFound: [],
-      dungeonsFound: [],
-
-      quests: {},
-      items: {},
-      meaningfulChoices: {},
-      partnerDigimons: {},
-
-      npcAcquaintances: {
-        ...AllNpcs.appmon
-      },
-
-      currentZone: {
-        id: 'rootDomain',
-        map: 'restRoom',
-        x: 2,
-        y: 3
-      }
-    }
+  const handleCreateNewProfile = () => {
+    const newProfile = createNewProfile()
 
     setProfile(newProfile)
     setDigivice({ isOpen: false })
@@ -59,8 +28,8 @@ export const NewGame = () => {
 
   return (
     <div className="new-game">
-      <Button style="secondary" onClick={createNewProfile}>
-        {getTexts('START_NEW_GAME')}
+      <Button style="secondary" onClick={handleCreateNewProfile}>
+        {getTranslation('START_NEW_GAME')}
       </Button>
     </div>
   )

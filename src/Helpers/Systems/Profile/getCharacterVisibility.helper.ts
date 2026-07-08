@@ -1,5 +1,5 @@
-import type { ProfileType } from '@/Types/Profile.type'
 import type { ZoneTileType } from '@/Types/ZoneTile.type'
+import type { ProfileType } from '@/Types/Profile.type'
 
 export const getCharacterVisibility = ({
   profile,

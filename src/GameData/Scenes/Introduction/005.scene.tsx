@@ -1,18 +1,18 @@
-import {useEffect} from 'react'
+import { getTranslation } from '@/Helpers/Language'
+import { useEffect } from 'react'
 
-import type {DialogType} from '@/Types/Dialog.type'
+import type { DialogType } from '@/Types/Dialog.type'
 
-import {useSceneStore} from '@/Stores/Scene.store'
-import {useProfileStore} from '@/Stores/Profile.store'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {AllNpcs} from '@/GameData/Npcs'
+import { AllNpcs } from '@/GameData/Npcs'
 
-import {getDialogs} from '@/Helpers/Language'
 
-import {Text} from '@/Components/DesignSystem/Text'
-import {Input} from '@/Components/DesignSystem/Input'
+import { Input } from '@/Components/DesignSystem/Input'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {Dialog} from '@/Components/DesignSystem/Dialog'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const Introduction005 = () => {
   const { setScene } = useSceneStore((state) => state)
@@ -36,12 +36,12 @@ export const Introduction005 = () => {
     content: (
       <div className="dialog-with-reactions">
         <div className="text-bubble">
-          <Text as="p">{getDialogs('INTRODUCTION_005_TEXT')}</Text>
+          <Text as="p">{getTranslation('INTRODUCTION_005_TEXT')}</Text>
         </div>
 
         <Input
-          label={getDialogs('INTRODUCTION_005_INPUT')}
-          placeholder={getDialogs('INTRODUCTION_005_INPUT_PLACEHOLDER')}
+          label={getTranslation('INTRODUCTION_005_INPUT')}
+          placeholder={getTranslation('INTRODUCTION_005_INPUT_PLACEHOLDER')}
           name="player-name"
           autoFocus
           onChange={(e) =>
@@ -58,7 +58,7 @@ export const Introduction005 = () => {
     options: [
       {
         id: 'scene-introduction-005-continue',
-        text: getDialogs('SCENES_CONTINUE_BUTTON'),
+        text: getTranslation('SCENES_CONTINUE_BUTTON'),
         action: () => {
           const name = (
             document.querySelector('[name=player-name]') as HTMLInputElement

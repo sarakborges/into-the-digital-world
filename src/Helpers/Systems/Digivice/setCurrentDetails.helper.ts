@@ -1,4 +1,4 @@
-import {useDigiviceStore} from '@/Stores/Digivice.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 
 export const setCurrentDetails = (value: string | undefined) => {
   const { digivice, setDigivice } = useDigiviceStore.getState()

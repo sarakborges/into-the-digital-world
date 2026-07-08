@@ -1,6 +1,6 @@
-import {create} from 'zustand'
+import { create } from 'zustand'
 
-import type {ProfileType} from '@/Types/Profile.type'
+import type { ProfileType } from '@/Types/Profile.type'
 
 type ProfileStore = {
   profile: ProfileType | null

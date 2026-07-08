@@ -1,18 +1,18 @@
-import type {DialogType} from '@/Types/Dialog.type'
+import type { DialogType } from '@/Types/Dialog.type'
 
-import {useSceneStore} from '@/Stores/Scene.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {AllNpcs} from '@/GameData/Npcs'
+import { AllNpcs } from '@/GameData/Npcs'
 
-import {getDialogs} from '@/Helpers/Language'
+import { getTranslation } from '@/Helpers/Language'
 
-import {useProfileStore} from '@/Stores/Profile.store'
-import {useDigiviceStore} from '@/Stores/Digivice.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 
-import {Text} from '@/Components/DesignSystem/Text'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {Dialog} from '@/Components/DesignSystem/Dialog'
-import {AllDigimons} from '@/GameData/Digimons'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
+import { AllDigimons } from '@/GameData/Digimons'
 
 export const RenamePartner002 = () => {
   const { profile } = useProfileStore((state) => state)
@@ -32,10 +32,9 @@ export const RenamePartner002 = () => {
     content: (
       <div className="text-bubble">
         <Text as="p">
-          {getDialogs('RENAMEPARTNER_002_TEXT').replaceAll(
-            '[DIGIMON]',
-            digimon.name || baseDigimon.name
-          )}
+          {getTranslation('RENAMEPARTNER_002_TEXT', {
+            '[DIGIMON]': digimon.name || baseDigimon.name
+          })}
         </Text>
       </div>
     ),
@@ -43,7 +42,7 @@ export const RenamePartner002 = () => {
     options: [
       {
         id: 'scene-renamepartner-002-continue',
-        text: getDialogs('SCENES_CONTINUE_BUTTON'),
+        text: getTranslation('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene(null)
         }

@@ -1,17 +1,17 @@
-import type {DialogType} from '@/Types/Dialog.type'
+import type { DialogType } from '@/Types/Dialog.type'
 
-import {AllNpcs} from '@/GameData/Npcs'
+import { AllNpcs } from '@/GameData/Npcs'
 
-import {getDialogs} from '@/Helpers/Language'
-import {doAttack} from '@/Helpers/Systems/Battle'
-import {generateRandomNumber} from '@/Helpers/Math'
+import { generateRandomNumber } from '@/Helpers/Math'
+import { doAttack } from '@/Helpers/Systems/Battle'
+import { getTranslation } from '@/Helpers/Language'
 
-import {useBattleStore} from '@/Stores/Battle.store'
+import { useBattleStore } from '@/Stores/Battle.store'
 
-import {Text} from '@/Components/DesignSystem/Text'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {Dialog} from '@/Components/DesignSystem/Dialog'
-import {SelectAttack} from '@/Components/Combat/SelectAttack'
+import { SelectAttack } from '@/Components/Combat/SelectAttack'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const BattleTurn = () => {
   const { battle } = useBattleStore((state) => state)
@@ -29,9 +29,10 @@ export const BattleTurn = () => {
       <div className="dialog-with-reactions">
         <div className="text-bubble">
           <Text as="p">
-            {getDialogs(
-              `BATTLE_${currentTurn.party.toLocaleUpperCase()}_TURN_TEXT`
-            ).replaceAll('[NAME]', currentTurn.name)}
+            {getTranslation(
+              `BATTLE_${currentTurn.party.toLocaleUpperCase()}_TURN_TEXT`,
+              { '[NAME]': currentTurn.name }
+            )}
           </Text>
         </div>
 
@@ -44,7 +45,7 @@ export const BattleTurn = () => {
         ? [
             {
               id: 'scene-battle-battleturn-continue',
-              text: getDialogs('SCENES_CONTINUE_BUTTON'),
+              text: getTranslation('SCENES_CONTINUE_BUTTON'),
               action: () => {
                 const rng = generateRandomNumber({
                   min: 0,

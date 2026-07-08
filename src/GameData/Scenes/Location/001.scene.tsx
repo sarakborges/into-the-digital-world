@@ -4,10 +4,10 @@ import { useSceneStore } from '@/Stores/Scene.store'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/Language'
+import { getTranslation } from '@/Helpers/Language'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { AppLocation } from '@/Components/Digivice/Apps/AppLocation'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const Location001 = () => {
   const { setScene } = useSceneStore((state) => state)
@@ -24,7 +24,7 @@ export const Location001 = () => {
     options: [
       {
         id: 'scene-logoff-001-cancel',
-        text: getDialogs('SCENES_CANCEL_BUTTON'),
+        text: getTranslation('SCENES_CANCEL_BUTTON'),
         action: () => {
           setScene(null)
         }

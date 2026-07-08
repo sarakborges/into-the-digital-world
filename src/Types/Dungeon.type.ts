@@ -1,5 +1,5 @@
-import type { DungeonRoomType } from '@/Types/DungeonRoom.type'
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
+import type { DungeonRoomType } from '@/Types/DungeonRoom.type'
 
 export type DungeonType = {
   id: string

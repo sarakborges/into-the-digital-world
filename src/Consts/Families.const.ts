@@ -1,4 +1,4 @@
-import type {FamilyType} from '@/Types/Family.type'
+import type { FamilyType } from '@/Types/Family.type'
 
 export const DIGIMON_FAMILIES: FamilyType = {
   vb: {

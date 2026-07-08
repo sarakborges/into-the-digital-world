@@ -1,14 +1,13 @@
-import type {DialogType} from '@/Types/Dialog.type'
+import type { DialogType } from '@/Types/Dialog.type'
+import { getTranslation } from '@/Helpers/Language'
 
-import {getDialogs} from '@/Helpers/Language'
+import { AllNpcs } from '@/GameData/Npcs'
 
-import {AllNpcs} from '@/GameData/Npcs'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {useSceneStore} from '@/Stores/Scene.store'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {Text} from '@/Components/DesignSystem/Text'
-
-import {Dialog} from '@/Components/DesignSystem/Dialog'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const AvatarCustomization002 = () => {
   const { setScene } = useSceneStore((state) => state)
@@ -18,14 +17,14 @@ export const AvatarCustomization002 = () => {
 
     content: (
       <div className="text-bubble">
-        <Text as="p">{getDialogs('AVATARCUSTOMIZATION_002_TEXT')}</Text>
+        <Text as="p">{getTranslation('AVATARCUSTOMIZATION_002_TEXT')}</Text>
       </div>
     ),
 
     options: [
       {
         id: 'scene-avatarCustomization-002-confirm',
-        text: getDialogs('SCENES_CONFIRM_BUTTON'),
+        text: getTranslation('SCENES_CONFIRM_BUTTON'),
         action: () => {
           setScene(null)
         }

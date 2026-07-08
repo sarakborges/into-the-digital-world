@@ -1,13 +1,13 @@
-import { getTexts } from '@/Helpers/Language'
 import { getAppAvailability } from '@/Helpers/Systems/Digivice'
+import { getTranslation } from '@/Helpers/Language'
 
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
-import { useDigiviceStore } from '@/Stores/Digivice.store'
 
+import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Button } from '@/Components/DesignSystem/Button'
 import { Text } from '@/Components/DesignSystem/Text'
-import { Portrait } from '@/Components/DesignSystem/Portrait'
 
 type DigiviceCurrentAppProps = {
   app: {
@@ -19,7 +19,7 @@ type DigiviceCurrentAppProps = {
 
 export const DigiviceCurrentApp = ({ app }: DigiviceCurrentAppProps) => {
   const { profile } = useProfileStore((state) => state)
-  const { scene, setScene } = useSceneStore((state) => state)
+  const { setScene } = useSceneStore((state) => state)
   const { digivice, setDigivice } = useDigiviceStore((state) => state)
 
   if (!profile || !digivice) {
@@ -47,11 +47,11 @@ export const DigiviceCurrentApp = ({ app }: DigiviceCurrentAppProps) => {
   return (
     <Button onClick={openApp} disabled={!!isAppDisabled}>
       <Portrait
-        alt={getTexts(`APPS_${app.id.toLocaleUpperCase()}`)}
+        alt={getTranslation(`APPS_${app.id.toLocaleUpperCase()}`)}
         src={`/apps/${app.id}.png`}
       />
 
-      <Text>{getTexts(`APPS_${app.id.toLocaleUpperCase()}`)}</Text>
+      <Text>{getTranslation(`APPS_${app.id.toLocaleUpperCase()}`)}</Text>
     </Button>
   )
 }

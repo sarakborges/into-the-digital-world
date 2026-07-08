@@ -1,5 +1,5 @@
 import { doAttack, getBattleAttackOptions } from '@/Helpers/Systems/Battle'
-import { getTexts } from '@/Helpers/Language'
+import { getTranslation } from '@/Helpers/Language'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 
@@ -26,9 +26,11 @@ export const SelectAttack = () => {
   return (
     <div className="select-attack">
       <Text>
-        {getTexts('SELECT_ATTACK_TITLE').replaceAll('[NAME]', currentTurn.name)}
-        ?
+        {getTranslation('SELECT_ATTACK_TITLE', {
+          '[NAME]': currentTurn.name
+        })}
       </Text>
+      <Text>{getTranslation('SELECT_ATTACK_PROMPT')}</Text>
 
       <main className="attacks-list">
         {attackOptions.map((attack) => (

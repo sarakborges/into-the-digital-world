@@ -1,12 +1,8 @@
-import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
-import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
+import { getTranslation } from '@/Helpers/Language'
 
-import { AllDigimons } from '@/GameData/Digimons'
-
-import { getTexts } from '@/Helpers/Language'
+import { getCurrentDigimon } from '@/Helpers/Systems/Digimon'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
-import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
@@ -14,23 +10,22 @@ import { Text } from '@/Components/DesignSystem/Text'
 import './CharacterFullPicture.style.scss'
 
 export const CharacterFullPicture = () => {
-  const { profile } = useProfileStore((state) => state)
   const { digivice } = useDigiviceStore((state) => state)
 
-  if (!digivice?.currentDetails || !profile) {
+  if (!digivice?.currentDetails) {
     return
   }
 
-  const partner = profile.partnerDigimons[
-    digivice.currentDetails
-  ] as PartnerDigimonType
+  const baseDigimon = getCurrentDigimon()
 
-  const baseDigimon = AllDigimons[partner.baseDigimon] as BaseDigimonType
+  if (!baseDigimon) {
+    return
+  }
 
   return (
     <section className="character-full-picture">
       <header>
-        <Text>{getTexts('ENCYCLOPEDIA_FULL_PICTURE')}</Text>
+        <Text>{getTranslation('ENCYCLOPEDIA_FULL_PICTURE')}</Text>
       </header>
 
       <main>

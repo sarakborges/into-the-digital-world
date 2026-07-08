@@ -19,3 +19,5 @@ export const ATTACK_CONDITION_POISONED = `Poisoned`
 
 export const SELECT_ATTACK_TITLE = `What move should [NAME] use?`
 export const SELECT_ATTACK_OPTION = `[NAME] ([COOLDOWN] turns cooldown)`
+
+export const SELECT_ATTACK_PROMPT = `?`

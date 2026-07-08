@@ -2,20 +2,20 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/Language'
-import { warpTo } from '@/Helpers/Systems/Zones'
-import { isDigimonDefeated, saveBattle } from '@/Helpers/Systems/Battle'
 import { enterNextDungeonRoom, saveDungeon } from '@/Helpers/Systems/Dungeon'
+import { isDigimonDefeated, saveBattle } from '@/Helpers/Systems/Battle'
+import { getTranslation } from '@/Helpers/Language'
+import { warpTo } from '@/Helpers/Systems/Zones'
 
-import { useBattleStore } from '@/Stores/Battle.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useDungeonStore } from '@/Stores/Dungeon.store'
+import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Text } from '@/Components/DesignSystem/Text'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { CombatLoot } from '@/Components/Combat/CombatLoot'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const BattleEnd = () => {
   const { profile } = useProfileStore((state) => state)
@@ -40,7 +40,7 @@ export const BattleEnd = () => {
       <div className="dialog-with-reactions">
         <div className="text-bubble">
           <Text as="p">
-            {getDialogs(`BATTLE_END_${battleResult.toLocaleUpperCase()}`)}
+            {getTranslation(`BATTLE_END_${battleResult.toLocaleUpperCase()}`)}
           </Text>
         </div>
 
@@ -51,7 +51,7 @@ export const BattleEnd = () => {
     options: [
       {
         id: 'scene-battle-battleend-continue',
-        text: getDialogs('SCENES_CONTINUE_BUTTON'),
+        text: getTranslation('SCENES_CONTINUE_BUTTON'),
         action: () => {
           if (!dungeon) {
             return

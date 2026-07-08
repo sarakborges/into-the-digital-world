@@ -1,4 +1,4 @@
-import {useSceneStore} from '@/Stores/Scene.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 export const OpenCompose = () => {
   const setScene = useSceneStore.getState().setScene

@@ -1,18 +1,18 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
 import { AllDungeons } from '@/GameData/Dungeons'
+import { AllNpcs } from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/Language'
 import { advanceDungeon, leaveDungeon } from '@/Helpers/Systems/Dungeon'
+import { getTranslation } from '@/Helpers/Language'
 
 import { useDungeonStore } from '@/Stores/Dungeon.store'
 
 import { Text } from '@/Components/DesignSystem/Text'
 
+import { AiOutlineExclamationCircle } from 'react-icons/ai'
 import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { Button } from '@/Components/DesignSystem/Button'
-import { AiOutlineExclamationCircle } from 'react-icons/ai'
 
 export const DungeonChooseRoom = () => {
   const { dungeon } = useDungeonStore((state) => state)
@@ -28,11 +28,11 @@ export const DungeonChooseRoom = () => {
       <div className="dialog-with-reactions">
         <div className="text-bubble">
           {dungeon.currentRoomsOptions.length === 1 && (
-            <Text as="p">{getDialogs('DUNGEON_SINGLEROOM_TEXT')}</Text>
+            <Text as="p">{getTranslation('DUNGEON_SINGLEROOM_TEXT')}</Text>
           )}
 
           {dungeon.currentRoomsOptions.length > 1 && (
-            <Text as="p">{getDialogs('DUNGEON_CHOOSEROOM_TEXT')}</Text>
+            <Text as="p">{getTranslation('DUNGEON_CHOOSEROOM_TEXT')}</Text>
           )}
         </div>
 
@@ -49,7 +49,7 @@ export const DungeonChooseRoom = () => {
                   key={`scene-dungeon-chooseroom-room-${roomId}`}
                   className="dungeon-path"
                 >
-                  <Text as="p">{getDialogs(room.description)}</Text>
+                  <Text as="p">{getTranslation(room.description)}</Text>
 
                   <div>
                     <Button
@@ -68,7 +68,7 @@ export const DungeonChooseRoom = () => {
           </div>
 
           <div className="dungeon-path">
-            <Text as="p">{getDialogs('DUNGEON_GIVEUP_DESCRIPTION')}</Text>
+            <Text as="p">{getTranslation('DUNGEON_GIVEUP_DESCRIPTION')}</Text>
 
             <div>
               <Button
@@ -79,7 +79,7 @@ export const DungeonChooseRoom = () => {
               >
                 <AiOutlineExclamationCircle />
 
-                {getDialogs('SCENES_GIVEUP_BUTTON')}
+                {getTranslation('SCENES_GIVEUP_BUTTON')}
               </Button>
             </div>
           </div>

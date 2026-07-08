@@ -1,7 +1,7 @@
-import {DeleteGameScenes} from '@/GameData/Scenes/DeleteGame'
+import { DeleteGameScenes } from '@/GameData/Scenes/DeleteGame'
 
-import {useDigiviceStore} from '@/Stores/Digivice.store'
-import {useSceneStore} from '@/Stores/Scene.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 export const openDeleteGameDialog = (profileId: number) => {
   const { digivice, setDigivice } = useDigiviceStore.getState()

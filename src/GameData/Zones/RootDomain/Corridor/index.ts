@@ -2,8 +2,8 @@ import type { ZoneType } from '@/Types/Zone.type'
 
 import { fillGrid } from '@/Helpers/Systems/Zones'
 
-import { RootDomainCorridorWarpToBedRoomTile } from './Tiles/WarpToBedRoom.tile'
 import { RootDomainCorridorWarpToMainRoomTile } from './Tiles/WarpToMainRoom.tile'
+import { RootDomainCorridorWarpToBedRoomTile } from './Tiles/WarpToBedRoom.tile'
 
 import { grid } from './Corridor.grid'
 

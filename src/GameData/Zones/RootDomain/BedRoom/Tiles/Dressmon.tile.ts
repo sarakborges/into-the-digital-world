@@ -1,21 +1,21 @@
 import type { ZoneTileType } from '@/Types/ZoneTile.type'
 
-import { getDialogs } from '@/Helpers/Language'
 import { isQuestDone } from '@/Helpers/Systems/Quests'
+import { getTranslation } from '@/Helpers/Language'
 
-import { AllNpcs } from '@/GameData/Npcs'
 import { AllQuests } from '@/GameData/Quests'
+import { AllNpcs } from '@/GameData/Npcs'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { TriggerAvatarFixing } from '@/GameData/Zones/RootDomain/BedRoom/Events/TriggerAvatarFixing.event'
 import { TriggerAvatarCustomization } from '@/GameData/Zones/RootDomain/BedRoom/Events/TriggerAvatarCustomization.event'
+import { TriggerAvatarFixing } from '@/GameData/Zones/RootDomain/BedRoom/Events/TriggerAvatarFixing.event'
 
 export const RootDomainBedRoomDressmonRoomTile: ZoneTileType = {
   id: 'rootDomainBedRoomDressmon',
   x: 11,
   y: 2,
-  defaultText: getDialogs('AVATARCUSTOMIZATION_001_TEXT'),
+  defaultText: getTranslation('AVATARCUSTOMIZATION_001_TEXT'),
   npc: {
     ...AllNpcs.appmon.dressmon,
     isVisible: false
@@ -24,7 +24,7 @@ export const RootDomainBedRoomDressmonRoomTile: ZoneTileType = {
   events: [
     {
       function: TriggerAvatarFixing,
-      eventText: getDialogs('INTRODUCTION_024_TRIGGER'),
+      eventText: getTranslation('INTRODUCTION_024_TRIGGER'),
       eventType: 'important',
 
       condition: () => {
@@ -44,7 +44,7 @@ export const RootDomainBedRoomDressmonRoomTile: ZoneTileType = {
 
     {
       function: TriggerAvatarCustomization,
-      eventText: getDialogs('AVATARCUSTOMIZATION_TRIGGER'),
+      eventText: getTranslation('AVATARCUSTOMIZATION_TRIGGER'),
       eventType: 'default',
 
       condition: () => {

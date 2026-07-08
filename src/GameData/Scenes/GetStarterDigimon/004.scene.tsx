@@ -1,16 +1,16 @@
-import {HiOutlineChatBubbleLeftEllipsis} from 'react-icons/hi2'
+import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
+import { getTranslation } from '@/Helpers/Language'
 
-import type {DialogType} from '@/Types/Dialog.type'
+import type { DialogType } from '@/Types/Dialog.type'
 
-import {getDialogs} from '@/Helpers/Language'
-import {reactToMeaningfulChoice} from '@/Helpers/Systems/Scenes'
+import { reactToMeaningfulChoice } from '@/Helpers/Systems/Scenes'
 
-import {useProfileStore} from '@/Stores/Profile.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 
-import {Text} from '@/Components/DesignSystem/Text'
-import {Button} from '@/Components/DesignSystem/Button'
+import { Button } from '@/Components/DesignSystem/Button'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {Dialog} from '@/Components/DesignSystem/Dialog'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const GetStarterDigimon004 = () => {
   const { profile } = useProfileStore((state) => state)
@@ -21,17 +21,17 @@ export const GetStarterDigimon004 = () => {
 
   const dialogReactions = [
     {
-      label: getDialogs('GETSTARTERDIGIMON_004_OPTION_ACCEPT'),
+      label: getTranslation('GETSTARTERDIGIMON_004_OPTION_ACCEPT'),
       value: 'accept'
     },
 
     {
-      label: getDialogs('GETSTARTERDIGIMON_004_OPTION_NEUTRAL'),
+      label: getTranslation('GETSTARTERDIGIMON_004_OPTION_NEUTRAL'),
       value: 'neutral'
     },
 
     {
-      label: getDialogs('GETSTARTERDIGIMON_004_OPTION_REFUSE'),
+      label: getTranslation('GETSTARTERDIGIMON_004_OPTION_REFUSE'),
       value: 'refuse'
     }
   ]
@@ -40,7 +40,7 @@ export const GetStarterDigimon004 = () => {
     content: (
       <div className="dialog-with-reactions">
         <div className="text-bubble">
-          <Text as="p">{getDialogs('GETSTARTERDIGIMON_004_TEXT')}</Text>
+          <Text as="p">{getTranslation('GETSTARTERDIGIMON_004_TEXT')}</Text>
         </div>
 
         <div className="dialog-reactions">

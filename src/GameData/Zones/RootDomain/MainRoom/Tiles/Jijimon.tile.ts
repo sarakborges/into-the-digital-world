@@ -1,12 +1,12 @@
 import type { ZoneTileType } from '@/Types/ZoneTile.type'
 
-import { getDialogs } from '@/Helpers/Language'
 import { isQuestDone } from '@/Helpers/Systems/Quests'
+import { getTranslation } from '@/Helpers/Language'
 
+import { OpenJijimonIntroduction } from '@/GameData/Zones/RootDomain/MainRoom/Events/OpenJijimonIntroduction.event'
+import { OpenCompose } from '@/GameData/Zones/RootDomain/MainRoom/Events/OpenCompose.event'
 import { AllQuests } from '@/GameData/Quests'
 import { AllNpcs } from '@/GameData/Npcs'
-import { OpenCompose } from '@/GameData/Zones/RootDomain/MainRoom/Events/OpenCompose.event'
-import { OpenJijimonIntroduction } from '@/GameData/Zones/RootDomain/MainRoom/Events/OpenJijimonIntroduction.event'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -14,7 +14,7 @@ export const RootDomainMainRoomJijimonTile: ZoneTileType = {
   id: 'rootDomainMainRoomJijimon',
   x: 14,
   y: 7,
-  defaultText: getDialogs('ROOTDOMAIN_JIJIMON_DEFAULT'),
+  defaultText: getTranslation('ROOTDOMAIN_JIJIMON_DEFAULT'),
 
   npc: {
     ...AllNpcs.digimon.jijimon,
@@ -24,7 +24,7 @@ export const RootDomainMainRoomJijimonTile: ZoneTileType = {
   events: [
     {
       function: OpenJijimonIntroduction,
-      eventText: getDialogs('ROOTDOMAIN_JIJIMON_INTRODUCTION'),
+      eventText: getTranslation('ROOTDOMAIN_JIJIMON_INTRODUCTION'),
 
       condition: () => {
         const { profile } = useProfileStore.getState()
@@ -41,7 +41,7 @@ export const RootDomainMainRoomJijimonTile: ZoneTileType = {
 
     {
       function: OpenCompose,
-      eventText: getDialogs('ROOTDOMAIN_COMPOSE_TRIGGER'),
+      eventText: getTranslation('ROOTDOMAIN_COMPOSE_TRIGGER'),
 
       condition: () => {
         const { profile } = useProfileStore.getState()

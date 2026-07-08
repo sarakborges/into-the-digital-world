@@ -1,4 +1,4 @@
-import { getTexts } from '@/Helpers/Language'
+import { getTranslation } from '@/Helpers/Language'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -19,7 +19,7 @@ export const AppPlayerProfile = () => {
     <div className="player-profile">
       <CharacterHeader character={{ ...profile, isPlayer: true }} lg>
         <Text>
-          {getTexts(`TITLES_${profile.currentTitle.toLocaleUpperCase()}`)}
+          {getTranslation(`TITLES_${profile.currentTitle.toLocaleUpperCase()}`)}
         </Text>
       </CharacterHeader>
     </div>

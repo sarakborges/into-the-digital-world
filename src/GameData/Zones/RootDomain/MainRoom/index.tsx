@@ -2,9 +2,9 @@ import type { ZoneType } from '@/Types/Zone.type'
 
 import { fillGrid } from '@/Helpers/Systems/Zones'
 
-import { RootDomainMainRoomGennaiTile } from './Tiles/Gennai.tile'
-import { RootDomainMainRoomJijimonTile } from './Tiles/Jijimon.tile'
 import { RootDomainMainRoomNanomonTile } from './Tiles/Nanomon.tile'
+import { RootDomainMainRoomJijimonTile } from './Tiles/Jijimon.tile'
+import { RootDomainMainRoomGennaiTile } from './Tiles/Gennai.tile'
 
 import {
   RootDomainMainRoomWarpToCorridorTile1,

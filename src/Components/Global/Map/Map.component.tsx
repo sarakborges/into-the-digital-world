@@ -1,16 +1,22 @@
 import type { CSSProperties } from 'react'
-import { BiSolidUserCircle } from 'react-icons/bi'
+
+import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
 import { AiOutlineExclamationCircle } from 'react-icons/ai'
 import { GiCrossedSwords, GiPortal } from 'react-icons/gi'
+import { BiSolidUserCircle } from 'react-icons/bi'
 import { TbStars } from 'react-icons/tb'
-import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
 
 import type { ZoneType } from '@/Types/Zone.type'
 
 import { AllZones } from '@/GameData/Zones'
 
+import {
+  getVisibleTiles,
+  getNpcsOnZone,
+  getEventsOnZone
+} from '@/Helpers/Systems/Zones'
+
 import { useProfileStore } from '@/Stores/Profile.store'
-import { getVisibleTiles } from '@/Helpers/Systems/Zones'
 
 import './Map.style.scss'
 
@@ -21,18 +27,12 @@ export const Map = () => {
     return
   }
 
-  const currentZone: ZoneType =
-    AllZones[profile.currentZone.id][profile.currentZone.map]
+  const currentZone: ZoneType = AllZones[profile.currentZone.id][
+    profile.currentZone.map
+  ] as ZoneType
 
-  const npcs = currentZone.tiles.filter(
-    (tile) => (tile.condition === undefined || !!tile.condition()) && !!tile.npc
-  )
-
-  const events = currentZone.tiles.filter(
-    (tile) =>
-      (tile.condition === undefined || !!tile.condition()) &&
-      (!!tile.onEnter || !!tile.events?.length)
-  )
+  const npcs = getNpcsOnZone(currentZone.tiles)
+  const events = getEventsOnZone(currentZone.tiles)
 
   const tiles = getVisibleTiles(
     currentZone,

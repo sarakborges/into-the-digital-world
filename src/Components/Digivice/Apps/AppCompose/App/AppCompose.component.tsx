@@ -3,18 +3,18 @@ import { BiMinus, BiPlus } from 'react-icons/bi'
 import { AllResearches } from '@/GameData/Researches'
 import { AllItems } from '@/GameData/Items'
 
-import { getDialogs } from '@/Helpers/Language'
 import { updateOptionalItem } from '@/Helpers/Systems/Compose'
+import { getTranslation } from '@/Helpers/Language'
 
 import { useCompositionStore } from '@/Stores/Composition.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Text } from '@/Components/DesignSystem/Text'
-import { Button } from '@/Components/DesignSystem/Button'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
+import { Button } from '@/Components/DesignSystem/Button'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import { ItemCore } from '@/Components/Global/ItemCore'
 import { ItemsList } from '@/Components/Global/ItemsList'
+import { ItemCore } from '@/Components/Global/ItemCore'
 
 import './AppCompose.style.scss'
 
@@ -35,10 +35,9 @@ export const AppCompose = () => {
     <div className="compose" key={`composition-${baseDigimon.name}`}>
       <header>
         <Text>
-          {getDialogs('COMPOSE_002_DIGIMON_TITLE').replaceAll(
-            '[DIGIMON]',
-            baseDigimon.name
-          )}
+          {getTranslation('COMPOSE_002_DIGIMON_TITLE', {
+            '[DIGIMON]': baseDigimon.name
+          })}
         </Text>
 
         <Portrait
@@ -52,7 +51,7 @@ export const AppCompose = () => {
           <div>
             <ItemsList
               list={requiredItems}
-              title={getDialogs('COMPOSE_002_REQUIRED_ITEMS')}
+              title={getTranslation('COMPOSE_002_REQUIRED_ITEMS')}
               displayPlayerResouce
             />
           </div>
@@ -60,7 +59,7 @@ export const AppCompose = () => {
 
         {!!Object.keys(optionalItems ?? {}).length && (
           <div>
-            <Text>{getDialogs('COMPOSE_002_OPTIONAL_ITEMS')}</Text>
+            <Text>{getTranslation('COMPOSE_002_OPTIONAL_ITEMS')}</Text>
 
             <div className="fill-bar">
               <div className="bar">
@@ -83,15 +82,10 @@ export const AppCompose = () => {
                       <Text>{AllItems[item].name}</Text>
 
                       <Text>
-                        {getDialogs('COMPOSE_002_OPTIONAL_ITEMS_AMOUNT')
-                          .replaceAll(
-                            '[AMOUNT]',
-                            String(profile.items[item] || 0)
-                          )
-                          .replaceAll(
-                            '[WEIGHT]',
-                            String(optionalItems?.[item] ?? 0)
-                          )}
+                        {getTranslation('COMPOSE_002_OPTIONAL_ITEMS_AMOUNT', {
+                          '[AMOUNT]': String(profile.items[item] || 0),
+                          '[WEIGHT]': String(optionalItems?.[item] ?? 0)
+                        })}
                       </Text>
                     </div>
                   </aside>

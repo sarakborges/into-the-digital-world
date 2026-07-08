@@ -1,11 +1,17 @@
 import type { ZoneTileType } from '@/Types/ZoneTile.type'
 
-import { useProfileStore } from '@/Stores/Profile.store'
-import { getCharacterVisibility } from '@/Helpers/Systems/Profile'
+import {
+  getCharacterVisibility,
+  isNpcAcquainted
+} from '@/Helpers/Systems/Profile'
 
+import { getTranslation } from '@/Helpers/Language'
+
+import { useProfileStore } from '@/Stores/Profile.store'
+
+import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
-import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 
 import './GameboardCharacter.style.scss'
 
@@ -61,11 +67,9 @@ export const GameboardCharacter = ({
           </div>
 
           <Text>
-            {Object.keys(profile.npcAcquaintances ?? {}).includes(
-              tile.npc?.id || ''
-            )
+            {isNpcAcquainted(tile.npc?.id || '')
               ? tile.npc?.name
-              : `???`}
+              : getTranslation('UNKNOWN_NPC')}
           </Text>
         </>
       )}

@@ -1,13 +1,13 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getDialogs } from '@/Helpers/Language'
+import { getTranslation } from '@/Helpers/Language'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { CompositionsList } from '@/Components/Digivice/Apps/AppCompose/List'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const Compose002 = () => {
   const { setScene } = useSceneStore((state) => state)
@@ -20,7 +20,7 @@ export const Compose002 = () => {
     options: [
       {
         id: 'scene-compose-002-leave',
-        text: getDialogs('SCENES_LEAVE_BUTTON'),
+        text: getTranslation('SCENES_LEAVE_BUTTON'),
         action: () => {
           setScene(null)
         }

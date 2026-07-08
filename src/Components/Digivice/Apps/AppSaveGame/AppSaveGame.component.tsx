@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 
-import { getDialogs } from '@/Helpers/Language'
-import { getSavedProfiles } from '@/Helpers/Systems/Digivice'
 import { loadProfiles, saveProfile } from '@/Helpers/Systems/Profile'
+import { getSavedProfiles } from '@/Helpers/Systems/Digivice'
+import { getTranslation } from '@/Helpers/Language'
 
 import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 
@@ -24,7 +24,7 @@ export const AppSaveGame = () => {
   return (
     <div className="save-game">
       <Button onClick={() => saveProfile()}>
-        {getDialogs('SAVEGAME_001_NEWGAME')}
+        {getTranslation('SAVEGAME_001_NEWGAME')}
       </Button>
 
       <div className="games-list">

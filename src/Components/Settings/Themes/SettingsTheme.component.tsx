@@ -1,8 +1,8 @@
-import { getTexts } from '@/Helpers/Language'
 import { getThemeGroups } from '@/Helpers/Systems/Settings'
+import { getTranslation } from '@/Helpers/Language'
 
-import { Text } from '@/Components/DesignSystem/Text'
 import { UpdateTheme } from '@/Components/Settings/Theme'
+import { Text } from '@/Components/DesignSystem/Text'
 
 import './SettingsTheme.style.scss'
 
@@ -16,10 +16,12 @@ export const SettingsTheme = () => {
           <div key={`themes-list-${category}`}>
             <header>
               <Text>
-                {getTexts(`THEME_CATEGORIES_${category.toLocaleUpperCase()}`)}
+                {getTranslation(
+                  `THEME_CATEGORIES_${category.toLocaleUpperCase()}`
+                )}
               </Text>
 
-              <Text>{getTexts('THEMES_TITLE')}</Text>
+              <Text>{getTranslation('THEMES_TITLE')}</Text>
             </header>
 
             <main>

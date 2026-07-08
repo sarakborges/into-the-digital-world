@@ -1,41 +1,38 @@
-import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
-import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
-
-import { getTexts } from '@/Helpers/Language'
+import { getCurrentDigimon, getPartnerDigimon } from '@/Helpers/Systems/Digimon'
 import { updateEquipement } from '@/Helpers/Systems/Profile'
 import { openEquipDialog } from '@/Helpers/Systems/Scenes'
+import { getTranslation } from '@/Helpers/Language'
 
-import { AllDigimons } from '@/GameData/Digimons'
 import { AllItems } from '@/GameData/Items'
 
-import { useProfileStore } from '@/Stores/Profile.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Text } from '@/Components/DesignSystem/Text'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Button } from '@/Components/DesignSystem/Button'
+import { Text } from '@/Components/DesignSystem/Text'
 
 import './DigimonEquipments.style.scss'
 
 export const DigimonEquipments = () => {
-  const { profile } = useProfileStore((state) => state)
-  const { scene } = useSceneStore((state) => state)
   const { digivice } = useDigiviceStore((state) => state)
+  const { scene } = useSceneStore((state) => state)
 
-  if (!digivice?.currentDetails || !profile) {
+  if (!digivice?.currentDetails) {
     return
   }
 
-  const partner = profile.partnerDigimons[
-    digivice.currentDetails
-  ] as PartnerDigimonType
-  const baseDigimon = AllDigimons[partner.baseDigimon] as BaseDigimonType
+  const partner = getPartnerDigimon()
+  const baseDigimon = getCurrentDigimon()
+
+  if (!baseDigimon || !partner) {
+    return
+  }
 
   return (
     <section className="digimon-equipments">
       <header>
-        <Text>{getTexts('ENCYCLOPEDIA_EQUIPMENTS')}</Text>
+        <Text>{getTranslation('ENCYCLOPEDIA_EQUIPMENTS')}</Text>
       </header>
 
       <main className="equipments">
@@ -64,7 +61,9 @@ export const DigimonEquipments = () => {
                   )}
 
                   {!partner.equipments?.[item]?.equipmentId && (
-                    <Text>{getTexts('ENCYCLOPEDIA_EQUIPMENTS_NOITEMS')}</Text>
+                    <Text>
+                      {getTranslation('ENCYCLOPEDIA_EQUIPMENTS_NOITEMS')}
+                    </Text>
                   )}
 
                   <footer>

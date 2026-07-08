@@ -1,49 +1,33 @@
-import type {PartnerDigimonType} from '@/Types/PartnerDigimon.type'
-import type {BaseDigimonType} from '@/Types/BaseDigimon.type'
+import { getCurrentDigimon, getPartnerDigimon } from '@/Helpers/Systems/Digimon'
+import { getExtraStatsFromPartner } from '@/Helpers/Systems/Battle'
+import { getTranslation } from '@/Helpers/Language'
 
-import {getTexts} from '@/Helpers/Language'
-import {calcExtraStats} from '@/Helpers/Systems/Battle'
+import { DIGIMON_STATS } from '@/Consts/Stats.const'
 
-import {AllDigimons} from '@/GameData/Digimons'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 
-import {DIGIMON_STATS} from '@/Consts/Stats.const'
-
-import {useProfileStore} from '@/Stores/Profile.store'
-import {useDigiviceStore} from '@/Stores/Digivice.store'
-
-import {Text} from '@/Components/DesignSystem/Text'
+import { Text } from '@/Components/DesignSystem/Text'
 
 import './DigimonStats.style.scss'
 
 export const DigimonStats = () => {
-  const { profile } = useProfileStore((state) => state)
   const { digivice } = useDigiviceStore((state) => state)
 
-  if (!digivice?.currentDetails || !profile) {
+  if (!digivice?.currentDetails) {
     return
   }
 
-  const partner = profile.partnerDigimons[
-    digivice.currentDetails
-  ] as PartnerDigimonType
-  const baseDigimon = AllDigimons[partner.baseDigimon] as BaseDigimonType
+  const partner = getPartnerDigimon()
+  const baseDigimon = getCurrentDigimon()
 
-  const getExtraStats = (stat: string) => {
-    const { profile } = useProfileStore.getState()
-
-    if (!profile) {
-      return 0
-    }
-
-    const partner = profile.partnerDigimons[digivice.currentDetails!]
-
-    return calcExtraStats({ digimon: partner, stat })
+  if (!baseDigimon || !partner) {
+    return
   }
 
   return (
     <section className="digimon-stats">
       <header>
-        <Text>{getTexts('ENCYCLOPEDIA_STATS')}</Text>
+        <Text>{getTranslation('ENCYCLOPEDIA_STATS')}</Text>
       </header>
 
       <main>
@@ -54,7 +38,7 @@ export const DigimonStats = () => {
             <Text>
               <>{baseDigimon.stats[stat]}</>
               <> + </>
-              <>{getExtraStats(stat)}</>
+              <>{getExtraStatsFromPartner(partner, stat)}</>
             </Text>
           </div>
         ))}

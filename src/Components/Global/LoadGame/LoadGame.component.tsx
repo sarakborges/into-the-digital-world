@@ -1,10 +1,10 @@
-import {getTexts} from '@/Helpers/Language'
+import { getTranslation } from '@/Helpers/Language'
 
-import {loadData, saveSession} from '@/Helpers/Systems/Data'
+import { loadData, saveSession } from '@/Helpers/Systems/Data'
 
-import {useDigiviceStore} from '@/Stores/Digivice.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 
-import {Button} from '@/Components/DesignSystem/Button'
+import { Button } from '@/Components/DesignSystem/Button'
 
 export const LoadGame = ({ profileId }: { profileId: number }) => {
   const { setDigivice } = useDigiviceStore((state) => state)
@@ -22,5 +22,5 @@ export const LoadGame = ({ profileId }: { profileId: number }) => {
     })
   }
 
-  return <Button onClick={loadProfile}>{getTexts('LOAD_GAME')}</Button>
+  return <Button onClick={loadProfile}>{getTranslation('LOAD_GAME')}</Button>
 }

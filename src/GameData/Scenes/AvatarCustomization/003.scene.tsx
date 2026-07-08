@@ -1,19 +1,19 @@
 import type { ProfileType } from '@/Types/Profile.type'
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getDialogs } from '@/Helpers/Language'
-import { saveSession } from '@/Helpers/Systems/Data'
 import { isQuestDone } from '@/Helpers/Systems/Quests'
+import { saveSession } from '@/Helpers/Systems/Data'
+import { getTranslation } from '@/Helpers/Language'
 
-import { AllNpcs } from '@/GameData/Npcs'
 import { AllQuests } from '@/GameData/Quests'
+import { AllNpcs } from '@/GameData/Npcs'
 
+import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
-import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { AppAvatarCustomization } from '@/Components/Digivice/Apps/AppAvatarCustomization/App'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const AvatarCustomization003 = () => {
   const { profile } = useProfileStore((state) => state)
@@ -58,7 +58,7 @@ export const AvatarCustomization003 = () => {
     options: [
       {
         id: 'scene-avatarCustomization-003-back',
-        text: getDialogs('SCENES_BACK_BUTTON'),
+        text: getTranslation('SCENES_BACK_BUTTON'),
         action: () => {
           const { avatarCustomization } = useAvatarCustomizationStore.getState()
 
@@ -73,7 +73,7 @@ export const AvatarCustomization003 = () => {
 
       {
         id: 'scene-avatarCustomization-003-confirm',
-        text: getDialogs('SCENES_CONFIRM_BUTTON'),
+        text: getTranslation('SCENES_CONFIRM_BUTTON'),
         action: saveAvatar
       }
     ]

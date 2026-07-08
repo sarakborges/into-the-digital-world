@@ -1,5 +1,5 @@
-import type { AvatarType } from '@/Types/Avatar.type'
 import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
+import type { AvatarType } from '@/Types/Avatar.type'
 
 export type ProfileType = {
   id: number

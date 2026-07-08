@@ -1,24 +1,28 @@
-import { BiSolidStar } from 'react-icons/bi'
 import { BsArrowDown, BsArrowUp } from 'react-icons/bs'
 import { TbListDetails } from 'react-icons/tb'
+import { BiSolidStar } from 'react-icons/bi'
 
-import { getTexts } from '@/Helpers/Language'
-import { setCurrentDetails } from '@/Helpers/Systems/Digivice'
-import { addToParty, removeFromParty } from '@/Helpers/Systems/Profile'
-import { getPartnerGroups } from '@/Helpers/Systems/Profile'
+import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
 
 import { AllDigimons } from '@/GameData/Digimons'
 
+import {
+  addToParty,
+  removeFromParty,
+  getPartnerGroups
+} from '@/Helpers/Systems/Profile'
+import { setCurrentDetails } from '@/Helpers/Systems/Digivice'
+import { getTranslation } from '@/Helpers/Language'
+
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
-import { useDigiviceStore } from '@/Stores/Digivice.store'
 
+import { EncyclopediaHeader } from '@/Components/Digivice/Apps/EncyclopediaHeader'
+import { PartnerDetails } from '@/Components/Digivice/Apps/AppPartners/Details'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Button } from '@/Components/DesignSystem/Button'
 import { Text } from '@/Components/DesignSystem/Text'
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-
-import { PartnerDetails } from '@/Components/Digivice/Apps/AppPartners/Details'
-import { EncyclopediaHeader } from '@/Components/Digivice/Apps/EncyclopediaHeader'
 
 import './AppPartnersList.style.scss'
 
@@ -47,70 +51,78 @@ export const AppPartnersList = () => {
           key={`partners-list-partners-${category}`}
         >
           <Text>
-            {getTexts(`ENCYCLOPEDIA_CATEGORY_${category.toLocaleUpperCase()}`)}
+            {getTranslation(
+              `ENCYCLOPEDIA_CATEGORY_${category.toLocaleUpperCase()}`
+            )}
           </Text>
 
           <div className="partners-list-list">
             {!!partners[category].length ? (
-              partners[category].map((partner) => (
-                <div
-                  className="partners-list-partner"
-                  key={`partners-list-partner-${partner.id}`}
-                >
-                  <aside className="partner-avatar">
-                    <Portrait
-                      alt={partner.name || partner.baseDigimon.name}
-                      src={`/${partner.baseDigimon.portrait}.webp`}
-                    />
-                  </aside>
+              partners[category].map((partner) => {
+                const baseDigimon = AllDigimons[
+                  partner.baseDigimon
+                ] as BaseDigimonType
 
-                  <header className="partner-name">
-                    <Text>{partner.name || partner.baseDigimon.name}</Text>
+                return (
+                  <div
+                    className="partners-list-partner"
+                    key={`partners-list-partner-${partner.id}`}
+                  >
+                    <aside className="partner-avatar">
+                      <Portrait
+                        alt={partner.name || baseDigimon?.name || ''}
+                        src={`/${baseDigimon?.portrait}.webp`}
+                      />
+                    </aside>
 
-                    {partner.name && <Text>{partner.baseDigimon.name}</Text>}
-                  </header>
+                    <header className="partner-name">
+                      <Text>{partner.name || baseDigimon?.name || ''}</Text>
 
-                  <aside>
-                    {!!partner.isFavorite && (
-                      <Text>
-                        <BiSolidStar />
-                      </Text>
-                    )}
-                  </aside>
+                      {partner.name && <Text>{baseDigimon?.name}</Text>}
+                    </header>
 
-                  <footer>
-                    <Button
-                      disabled={!!scene}
-                      style="secondary"
-                      onClick={() => setCurrentDetails(partner.id)}
-                    >
-                      <TbListDetails />
-                    </Button>
+                    <aside>
+                      {!!partner.isFavorite && (
+                        <Text>
+                          <BiSolidStar />
+                        </Text>
+                      )}
+                    </aside>
 
-                    {category === 'inParty' && (
+                    <footer>
                       <Button
-                        disabled={!!scene || profile.party.length < 2}
+                        disabled={!!scene}
                         style="secondary"
-                        onClick={() => removeFromParty(partner.id)}
+                        onClick={() => setCurrentDetails(partner.id)}
                       >
-                        <BsArrowDown />
+                        <TbListDetails />
                       </Button>
-                    )}
 
-                    {category === 'others' && (
-                      <Button
-                        disabled={!!scene || profile.party.length > 3}
-                        style="secondary"
-                        onClick={() => addToParty(partner.id)}
-                      >
-                        <BsArrowUp />
-                      </Button>
-                    )}
-                  </footer>
-                </div>
-              ))
+                      {category === 'inParty' && (
+                        <Button
+                          disabled={!!scene || profile.party.length < 2}
+                          style="secondary"
+                          onClick={() => removeFromParty(partner.id)}
+                        >
+                          <BsArrowDown />
+                        </Button>
+                      )}
+
+                      {category === 'others' && (
+                        <Button
+                          disabled={!!scene || profile.party.length > 3}
+                          style="secondary"
+                          onClick={() => addToParty(partner.id)}
+                        >
+                          <BsArrowUp />
+                        </Button>
+                      )}
+                    </footer>
+                  </div>
+                )
+              })
             ) : (
-              <Text>{getTexts('ENCYCLOPEDIA_NO_OTHERS')}</Text>
+              <Text>{getTranslation('ENCYCLOPEDIA_NO_OTHERS')}</Text>
             )}
           </div>
         </div>

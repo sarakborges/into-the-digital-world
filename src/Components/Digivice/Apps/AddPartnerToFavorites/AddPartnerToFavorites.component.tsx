@@ -1,14 +1,14 @@
-import {BiSolidStar, BiStar} from 'react-icons/bi'
+import { BiSolidStar, BiStar } from 'react-icons/bi'
 
-import type {PartnerDigimonType} from '@/Types/PartnerDigimon.type'
+import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 
-import {togglePartnerFavorite} from '@/Helpers/Systems/Profile'
+import { togglePartnerFavorite } from '@/Helpers/Systems/Profile'
 
-import {useProfileStore} from '@/Stores/Profile.store'
-import {useDigiviceStore} from '@/Stores/Digivice.store'
-import {useSceneStore} from '@/Stores/Scene.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {Button} from '@/Components/DesignSystem/Button'
+import { Button } from '@/Components/DesignSystem/Button'
 
 export const AddPartnerToFavorites = () => {
   const { profile } = useProfileStore((state) => state)

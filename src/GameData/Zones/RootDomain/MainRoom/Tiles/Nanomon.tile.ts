@@ -1,12 +1,12 @@
 import type { ZoneTileType } from '@/Types/ZoneTile.type'
 
-import { getDialogs } from '@/Helpers/Language'
 import { isQuestDone } from '@/Helpers/Systems/Quests'
+import { getTranslation } from '@/Helpers/Language'
 
-import { AllQuests } from '@/GameData/Quests'
-import { AllNpcs } from '@/GameData/Npcs'
 import { OpenNanomonIntroduction } from '@/GameData/Zones/RootDomain/MainRoom/Events/OpenNanomonIntroduction.event'
 import { OpenResearch } from '@/GameData/Zones/RootDomain/MainRoom/Events/OpenResearch.event'
+import { AllQuests } from '@/GameData/Quests'
+import { AllNpcs } from '@/GameData/Npcs'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -14,7 +14,7 @@ export const RootDomainMainRoomNanomonTile: ZoneTileType = {
   id: 'rootDomainMainRoomNanomon',
   x: 6,
   y: 7,
-  defaultText: getDialogs('ROOTDOMAIN_NANOMON_DEFAULT'),
+  defaultText: getTranslation('ROOTDOMAIN_NANOMON_DEFAULT'),
 
   npc: {
     ...AllNpcs.digimon.nanomon,
@@ -24,7 +24,7 @@ export const RootDomainMainRoomNanomonTile: ZoneTileType = {
   events: [
     {
       function: OpenNanomonIntroduction,
-      eventText: getDialogs('ROOTDOMAIN_NANOMON_INTRODUCTION'),
+      eventText: getTranslation('ROOTDOMAIN_NANOMON_INTRODUCTION'),
 
       condition: () => {
         const { profile } = useProfileStore.getState()
@@ -41,7 +41,7 @@ export const RootDomainMainRoomNanomonTile: ZoneTileType = {
 
     {
       function: OpenResearch,
-      eventText: getDialogs('ROOTDOMAIN_RESEARCH_TRIGGER'),
+      eventText: getTranslation('ROOTDOMAIN_RESEARCH_TRIGGER'),
 
       condition: () => {
         const { profile } = useProfileStore.getState()

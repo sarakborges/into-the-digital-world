@@ -1,16 +1,15 @@
-import type {DialogType} from '@/Types/Dialog.type'
+import type { DialogType } from '@/Types/Dialog.type'
+import { getTranslation } from '@/Helpers/Language'
 
-import {AllNpcs} from '@/GameData/Npcs'
+import { AllNpcs } from '@/GameData/Npcs'
 
-import {getDialogs} from '@/Helpers/Language'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {useSceneStore} from '@/Stores/Scene.store'
-import {useProfileStore} from '@/Stores/Profile.store'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {Text} from '@/Components/DesignSystem/Text'
-
-import {Dialog} from '@/Components/DesignSystem/Dialog'
-import {Portrait} from '@/Components/DesignSystem/Portrait'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const GetStarterDigimon002 = () => {
   const { setScene } = useSceneStore((state) => state)
@@ -26,12 +25,12 @@ export const GetStarterDigimon002 = () => {
     content: (
       <>
         <Portrait
-          alt={getDialogs('GETSTARTERDIGIMON_002_IMG')}
+          alt={getTranslation('GETSTARTERDIGIMON_002_IMG')}
           src="/digimons/dorimon.webp"
         />
 
         <div className="text-bubble">
-          <Text as="p">{getDialogs('GETSTARTERDIGIMON_002_TEXT')}</Text>
+          <Text as="p">{getTranslation('GETSTARTERDIGIMON_002_TEXT')}</Text>
         </div>
       </>
     ),
@@ -39,7 +38,7 @@ export const GetStarterDigimon002 = () => {
     options: [
       {
         id: 'scene-getstarterdigimon-002-continue',
-        text: getDialogs('SCENES_CONTINUE_BUTTON'),
+        text: getTranslation('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({
             currentScene: 'getStarterDigimon',

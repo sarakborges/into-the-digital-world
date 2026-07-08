@@ -1,13 +1,13 @@
-import type {DialogType} from '@/Types/Dialog.type'
+import type { DialogType } from '@/Types/Dialog.type'
+import { getTranslation } from '@/Helpers/Language'
 
-import {getDialogs} from '@/Helpers/Language'
 
-import {Text} from '@/Components/DesignSystem/Text'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {useSceneStore} from '@/Stores/Scene.store'
-import {useProfileStore} from '@/Stores/Profile.store'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {Dialog} from '@/Components/DesignSystem/Dialog'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const GetStarterDigimon020 = () => {
   const { setScene } = useSceneStore((state) => state)
@@ -23,14 +23,14 @@ export const GetStarterDigimon020 = () => {
 
     content: (
       <div className="text-bubble">
-        <Text as="p">{getDialogs(`GETSTARTERDIGIMON_020_TEXT`)}</Text>
+        <Text as="p">{getTranslation(`GETSTARTERDIGIMON_020_TEXT`)}</Text>
       </div>
     ),
 
     options: [
       {
         id: 'scene-getstarterdigimon-020-continue',
-        text: getDialogs('SCENES_CONTINUE_BUTTON'),
+        text: getTranslation('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({
             currentScene: 'getStarterDigimon',

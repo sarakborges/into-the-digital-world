@@ -1,0 +1,25 @@
+import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
+import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
+
+import { AllDigimons } from '@/GameData/Digimons'
+
+import { useProfileStore } from '@/Stores/Profile.store'
+
+export const getBaseDigimon = (
+  digimonId: number | string
+): BaseDigimonType | undefined => {
+  const { profile } = useProfileStore.getState()
+
+  if (!profile) {
+    return undefined
+  }
+
+  const partner = profile.partnerDigimons[digimonId] as
+    PartnerDigimonType | undefined
+
+  if (!partner) {
+    return undefined
+  }
+
+  return AllDigimons[partner.baseDigimon] as BaseDigimonType | undefined
+}

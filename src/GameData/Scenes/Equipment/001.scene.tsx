@@ -1,20 +1,19 @@
-import type {DialogType} from '@/Types/Dialog.type'
+import type { DialogType } from '@/Types/Dialog.type'
+import { getTranslation } from '@/Helpers/Language'
 
-import {AllItems} from '@/GameData/Items'
-import {AllNpcs} from '@/GameData/Npcs'
+import { AllItems } from '@/GameData/Items'
+import { AllNpcs } from '@/GameData/Npcs'
 
-import {getTexts} from '@/Helpers/Language'
-import {getDialogs} from '@/Helpers/Language'
-import {saveSession} from '@/Helpers/Systems/Data'
+import { saveSession } from '@/Helpers/Systems/Data'
 
-import {useProfileStore} from '@/Stores/Profile.store'
-import {useDigiviceStore} from '@/Stores/Digivice.store'
-import {useSceneStore} from '@/Stores/Scene.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {Text} from '@/Components/DesignSystem/Text'
-import {Button} from '@/Components/DesignSystem/Button'
+import { Button } from '@/Components/DesignSystem/Button'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {Dialog} from '@/Components/DesignSystem/Dialog'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const Equipment001 = () => {
   const { profile } = useProfileStore((state) => state)
@@ -69,11 +68,11 @@ export const Equipment001 = () => {
     content: (
       <div className="dialog-with-reactions">
         <div className="text-bubble">
-          <Text as="p">{getDialogs('EQUIPMENT_001_TEXT')}</Text>
+          <Text as="p">{getTranslation('EQUIPMENT_001_TEXT')}</Text>
         </div>
 
         {!availableItems.length && (
-          <Text>{getTexts('ENCYCLOPEDIA_EQUIPMENTS_NOAVAILABLE')}</Text>
+          <Text>{getTranslation('ENCYCLOPEDIA_EQUIPMENTS_NOAVAILABLE')}</Text>
         )}
 
         {!!availableItems.length &&
@@ -90,7 +89,7 @@ export const Equipment001 = () => {
     options: [
       {
         id: 'scene-equipment-001-leave',
-        text: getDialogs('SCENES_LEAVE_BUTTON'),
+        text: getTranslation('SCENES_LEAVE_BUTTON'),
         action: () => {
           setScene(null)
         }

@@ -1,7 +1,7 @@
 import { AllDungeons } from '@/GameData/Dungeons'
 
-import { generateRandomNumber, getSuccesses } from '@/Helpers/Math'
 import { saveBattle, spawnEnemies } from '@/Helpers/Systems/Battle'
+import { generateRandomNumber, getSuccesses } from '@/Helpers/Math'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useDungeonStore } from '@/Stores/Dungeon.store'

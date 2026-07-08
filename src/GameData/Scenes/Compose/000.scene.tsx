@@ -1,16 +1,16 @@
-import type {DialogType} from '@/Types/Dialog.type'
+import type { DialogType } from '@/Types/Dialog.type'
+import { getTranslation } from '@/Helpers/Language'
 
-import {useProfileStore} from '@/Stores/Profile.store'
-import {useSceneStore} from '@/Stores/Scene.store'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {AllNpcs} from '@/GameData/Npcs'
+import { AllNpcs } from '@/GameData/Npcs'
 
-import {getDialogs} from '@/Helpers/Language'
-import {saveSession} from '@/Helpers/Systems/Data'
+import { saveSession } from '@/Helpers/Systems/Data'
 
-import {Text} from '@/Components/DesignSystem/Text'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {Dialog} from '@/Components/DesignSystem/Dialog'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const Compose000 = () => {
   const { setScene } = useSceneStore((state) => state)
@@ -25,14 +25,14 @@ export const Compose000 = () => {
 
     content: (
       <div className="text-bubble">
-        <Text as="p">{getDialogs('COMPOSE_000_TEXT')}</Text>
+        <Text as="p">{getTranslation('COMPOSE_000_TEXT')}</Text>
       </div>
     ),
 
     options: [
       {
         id: 'scene-compose-000-continue',
-        text: getDialogs('SCENES_CONTINUE_BUTTON'),
+        text: getTranslation('SCENES_CONTINUE_BUTTON'),
         action: () => {
           const updatedProfile = {
             ...profile,

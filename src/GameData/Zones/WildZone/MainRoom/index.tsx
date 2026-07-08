@@ -2,8 +2,8 @@ import type { ZoneType } from '@/Types/Zone.type'
 
 import { fillGrid } from '@/Helpers/Systems/Zones'
 
-import { WildZoneGennaiTile } from './Tiles/Gennai.tile'
 import { WildZoneKoromonNestTile } from './Tiles/KoromonNest.tile'
+import { WildZoneGennaiTile } from './Tiles/Gennai.tile'
 
 import { grid } from './MainRoom.grid'
 

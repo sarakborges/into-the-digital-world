@@ -1,4 +1,4 @@
-import {AVATAR_OPTIONS} from '@/Consts/Avatars.const'
+import { AVATAR_OPTIONS } from '@/Consts/Avatars.const'
 
 export const generateRandomAvatar = () => {
   return {

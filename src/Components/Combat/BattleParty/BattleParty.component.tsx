@@ -1,15 +1,15 @@
-import type {CSSProperties} from 'react'
+import type { CSSProperties } from 'react'
 
-import type {PartyDigimonType} from '@/Types/PartyDigimon.type'
+import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
-import {isDigimonDefeated} from '@/Helpers/Systems/Battle'
+import { isDigimonDefeated, isBattleOver } from '@/Helpers/Systems/Battle'
 
-import {CONDITIONS} from '@/Consts/Conditions.const'
+import { CONDITIONS } from '@/Consts/Conditions.const'
 
-import {useBattleStore} from '@/Stores/Battle.store'
+import { useBattleStore } from '@/Stores/Battle.store'
 
-import {Text} from '@/Components/DesignSystem/Text'
-import {Portrait} from '@/Components/DesignSystem/Portrait'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
+import { Text } from '@/Components/DesignSystem/Text'
 
 import './BattleParty.style.scss'
 
@@ -27,12 +27,7 @@ export const BattleParty = ({
     return
   }
 
-  const notDefeatedDigimons = battle.turnOrder.filter(
-    (digimon) => !isDigimonDefeated(digimon)
-  )
-  const battleOver =
-    notDefeatedDigimons.every((digimon) => digimon.party === 'allies') ||
-    notDefeatedDigimons.every((digimon) => digimon.party === 'enemies')
+  const battleOver = isBattleOver(battle.turnOrder)
 
   return (
     <div className="battle-party">

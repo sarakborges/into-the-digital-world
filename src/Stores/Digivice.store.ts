@@ -1,6 +1,6 @@
-import {create} from 'zustand'
+import { create } from 'zustand'
 
-import type {DigiviceType} from '@/Types/Digivice.type'
+import type { DigiviceType } from '@/Types/Digivice.type'
 
 type DigiviceStore = {
   digivice: DigiviceType | null

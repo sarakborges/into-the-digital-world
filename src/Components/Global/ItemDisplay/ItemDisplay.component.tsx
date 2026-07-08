@@ -1,12 +1,12 @@
-import {AllItems} from '@/GameData/Items'
+import { AllItems } from '@/GameData/Items'
 
-import {Portrait} from '@/Components/DesignSystem/Portrait'
-import {Text} from '@/Components/DesignSystem/Text'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
+import { Text } from '@/Components/DesignSystem/Text'
 
-import {ItemCore} from '@/Components/Global/ItemCore'
+import { ItemCore } from '@/Components/Global/ItemCore'
 
+import { useProfileStore } from '@/Stores/Profile.store'
 import './ItemDisplay.style.scss'
-import {useProfileStore} from '@/Stores/Profile.store'
 
 export const ItemDisplay = ({
   item,

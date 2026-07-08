@@ -1,8 +1,8 @@
-import type {AvatarType} from '@/Types/Avatar.type'
+import type { AvatarType } from '@/Types/Avatar.type'
 
-import {useProfileStore} from '@/Stores/Profile.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 
-import {Portrait} from '@/Components/DesignSystem/Portrait'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
 
 import './PlayerAvatar.style.scss'
 

@@ -1,17 +1,17 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getDialogs } from '@/Helpers/Language'
 import { saveSession } from '@/Helpers/Systems/Data'
+import { getTranslation } from '@/Helpers/Language'
 
-import { AllNpcs } from '@/GameData/Npcs'
 import { AllResearches } from '@/GameData/Researches'
+import { AllNpcs } from '@/GameData/Npcs'
 
-import { useSceneStore } from '@/Stores/Scene.store'
-import { useProfileStore } from '@/Stores/Profile.store'
 import { useCompositionStore } from '@/Stores/Composition.store'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { AppCompose } from '@/Components/Digivice/Apps/AppCompose/App'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const Compose003 = () => {
   const { setScene } = useSceneStore((state) => state)
@@ -72,7 +72,7 @@ export const Compose003 = () => {
     options: [
       {
         id: 'scene-compose-002-back',
-        text: getDialogs('SCENES_BACK_BUTTON'),
+        text: getTranslation('SCENES_BACK_BUTTON'),
         action: () => {
           setComposition(null)
           setScene({
@@ -84,7 +84,7 @@ export const Compose003 = () => {
 
       {
         id: 'scene-compose-002-confirm',
-        text: getDialogs('SCENES_CONFIRM_BUTTON'),
+        text: getTranslation('SCENES_CONFIRM_BUTTON'),
         action: () => {
           composeDigimon()
           setScene(null)

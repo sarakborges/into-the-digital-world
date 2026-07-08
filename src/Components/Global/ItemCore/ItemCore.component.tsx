@@ -1,6 +1,6 @@
-import {AllItems} from '@/GameData/Items'
+import { AllItems } from '@/GameData/Items'
 
-import {Portrait} from '@/Components/DesignSystem/Portrait'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
 
 import './ItemCore.style.scss'
 

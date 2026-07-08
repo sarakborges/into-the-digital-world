@@ -1,13 +1,13 @@
-import type {DialogType} from '@/Types/Dialog.type'
+import type { DialogType } from '@/Types/Dialog.type'
+import { getTranslation } from '@/Helpers/Language'
 
-import {useSceneStore} from '@/Stores/Scene.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-import {AllNpcs} from '@/GameData/Npcs'
+import { AllNpcs } from '@/GameData/Npcs'
 
-import {getDialogs} from '@/Helpers/Language'
 
-import {Dialog} from '@/Components/DesignSystem/Dialog'
-import {ResearchList} from '@/Components/Digivice/Apps/ResearchesList'
+import { ResearchList } from '@/Components/Digivice/Apps/ResearchesList'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const Research002 = () => {
   const { setScene } = useSceneStore((state) => state)
@@ -20,7 +20,7 @@ export const Research002 = () => {
     options: [
       {
         id: 'scene-research-002-leave',
-        text: getDialogs('SCENES_LEAVE_BUTTON'),
+        text: getTranslation('SCENES_LEAVE_BUTTON'),
         action: () => {
           setScene(null)
         }

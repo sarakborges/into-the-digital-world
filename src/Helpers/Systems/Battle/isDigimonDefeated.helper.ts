@@ -1,4 +1,4 @@
-import type {PartyDigimonType} from '@/Types/PartyDigimon.type'
+import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
 export const isDigimonDefeated = (target: PartyDigimonType) => {
   if (!target.conditions) {

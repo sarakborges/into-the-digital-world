@@ -1,17 +1,17 @@
 import { AiOutlineSelect } from 'react-icons/ai'
 
-import { getDialogs } from '@/Helpers/Language'
 import { getAvailableCompositions } from '@/Helpers/Systems/Compose'
+import { getTranslation } from '@/Helpers/Language'
 
 import { AvailableResearchesAtJijimon } from '@/GameData/Researches'
 
-import { useProfileStore } from '@/Stores/Profile.store'
 import { useCompositionStore } from '@/Stores/Composition.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Text } from '@/Components/DesignSystem/Text'
-import { Button } from '@/Components/DesignSystem/Button'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
+import { Button } from '@/Components/DesignSystem/Button'
+import { Text } from '@/Components/DesignSystem/Text'
 
 import './CompositionsList.style.scss'
 
@@ -27,14 +27,14 @@ export const CompositionsList = () => {
   const availableCompositions = getAvailableCompositions(profile)
 
   if (!availableCompositions.length) {
-    return <Text as="p">{getDialogs('COMPOSE_002_NO_RESEARCHES')}</Text>
+    return <Text as="p">{getTranslation('COMPOSE_002_NO_RESEARCHES')}</Text>
   }
 
   return (
     <div className="composition-list">
       {!!availableCompositions.length && (
         <div className="composition-list-container">
-          <Text>{getDialogs('COMPOSE_002_TITLE')}</Text>
+          <Text>{getTranslation('COMPOSE_002_TITLE')}</Text>
 
           <div className="list">
             {availableCompositions.map((composition) => (

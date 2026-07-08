@@ -4,7 +4,7 @@ import { useSceneStore } from '@/Stores/Scene.store'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/Language'
+import { getTranslation } from '@/Helpers/Language'
 
 import { Text } from '@/Components/DesignSystem/Text'
 
@@ -18,14 +18,14 @@ export const BattleStart = () => {
 
     content: (
       <div className="text-bubble">
-        <Text as="p">{getDialogs('BATTLE_START_TEXT')}</Text>
+        <Text as="p">{getTranslation('BATTLE_START_TEXT')}</Text>
       </div>
     ),
 
     options: [
       {
         id: 'scene-battle-battlestart-confirm',
-        text: getDialogs('SCENES_CONFIRM_BUTTON'),
+        text: getTranslation('SCENES_CONFIRM_BUTTON'),
         action: () => {
           setScene({
             currentScene: 'battle',

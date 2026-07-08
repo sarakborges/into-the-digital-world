@@ -1,4 +1,4 @@
-import {warpTo} from '@/Helpers/Systems/Zones'
+import { warpTo } from '@/Helpers/Systems/Zones'
 
 export const WarpToCorridor = () => {
   warpTo({

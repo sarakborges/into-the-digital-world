@@ -2,15 +2,15 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getDialogs } from '@/Helpers/Language'
+import { getTranslation } from '@/Helpers/Language'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { CombatLogEntry } from '@/Components/Combat/CombatLogEntry'
-import { generateRandomNumber } from '@/Helpers/Math'
 import { isDigimonDefeated, saveBattle } from '@/Helpers/Systems/Battle'
+import { CombatLogEntry } from '@/Components/Combat/CombatLogEntry'
+import { Dialog } from '@/Components/DesignSystem/Dialog'
+import { generateRandomNumber } from '@/Helpers/Math'
 
 const getBattleOutcome = (battle) => {
   const nonDefeatedDigimons = battle.turnOrder.filter(
@@ -109,7 +109,7 @@ export const BattleAttack = () => {
     options: [
       {
         id: 'scene-battle-battleattack-continue',
-        text: getDialogs('SCENES_CONTINUE_BUTTON'),
+        text: getTranslation('SCENES_CONTINUE_BUTTON'),
         action: handleContinue
       }
     ]

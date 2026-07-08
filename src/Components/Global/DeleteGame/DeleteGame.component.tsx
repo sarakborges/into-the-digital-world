@@ -1,7 +1,7 @@
-import {getTexts} from '@/Helpers/Language'
-import {openDeleteGameDialog} from '@/Helpers/Systems/Scenes'
+import { openDeleteGameDialog } from '@/Helpers/Systems/Scenes'
+import { getTranslation } from '@/Helpers/Language'
 
-import {Button} from '@/Components/DesignSystem/Button'
+import { Button } from '@/Components/DesignSystem/Button'
 
 export const DeleteGame = ({ profileId }: { profileId: number }) => {
   if (!profileId) {
@@ -10,7 +10,7 @@ export const DeleteGame = ({ profileId }: { profileId: number }) => {
 
   return (
     <Button onClick={() => openDeleteGameDialog(profileId)} style="cancel">
-      {getTexts('DELETE_GAME_FILE')}
+      {getTranslation('DELETE_GAME_FILE')}
     </Button>
   )
 }

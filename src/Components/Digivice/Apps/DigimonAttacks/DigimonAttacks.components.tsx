@@ -1,35 +1,32 @@
-import type {PartnerDigimonType} from '@/Types/PartnerDigimon.type'
-import type {BaseDigimonType} from '@/Types/BaseDigimon.type'
+import { getCurrentDigimon, getPartnerDigimon } from '@/Helpers/Systems/Digimon'
+import { getTranslation } from '@/Helpers/Language'
 
-import {getTexts} from '@/Helpers/Language'
+import { AllAttacks } from '@/GameData/Attacks'
 
-import {AllDigimons} from '@/GameData/Digimons'
-import {AllAttacks} from '@/GameData/Attacks'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 
-import {useProfileStore} from '@/Stores/Profile.store'
-import {useDigiviceStore} from '@/Stores/Digivice.store'
-
-import {Text} from '@/Components/DesignSystem/Text'
+import { Text } from '@/Components/DesignSystem/Text'
 
 import './DigimonAttacks.style.scss'
 
 export const DigimonAttacks = () => {
-  const { profile } = useProfileStore((state) => state)
   const { digivice } = useDigiviceStore((state) => state)
 
-  if (!digivice?.currentDetails || !profile) {
+  if (!digivice?.currentDetails) {
     return
   }
 
-  const partner = profile.partnerDigimons[
-    digivice.currentDetails
-  ] as PartnerDigimonType
-  const baseDigimon = AllDigimons[partner.baseDigimon] as BaseDigimonType
+  const partner = getPartnerDigimon()
+  const baseDigimon = getCurrentDigimon()
+
+  if (!baseDigimon || !partner) {
+    return
+  }
 
   return (
     <section className="digimon-attacks">
       <header>
-        <Text>{getTexts('ENCYCLOPEDIA_ATTACKS')}</Text>
+        <Text>{getTranslation('ENCYCLOPEDIA_ATTACKS')}</Text>
       </header>
 
       <main>
@@ -39,9 +36,10 @@ export const DigimonAttacks = () => {
             key={`digimon-${partner.id}-attacks-${attack}`}
           >
             <Text>
-              {getTexts('ENCYCLOPEDIA_ATTACKS_DETAILS')
-                .replaceAll('[NAME]', AllAttacks[attack].name)
-                .replaceAll('[COOLDOWN]', AllAttacks[attack].cooldown || 0)}
+              {getTranslation('ENCYCLOPEDIA_ATTACKS_DETAILS', {
+                '[NAME]': AllAttacks[attack].name,
+                '[COOLDOWN]': String(AllAttacks[attack].cooldown || 0)
+              })}
             </Text>
 
             <Text as="p">{AllAttacks[attack].description}</Text>

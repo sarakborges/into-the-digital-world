@@ -1,9 +1,7 @@
 import { Fragment } from 'react/jsx-runtime'
 
-import { getTexts } from '@/Helpers/Language'
 import { getInventoryCategories } from '@/Helpers/Systems/Digivice'
-
-import { AllItems } from '@/GameData/Items'
+import { getTranslation } from '@/Helpers/Language'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -27,7 +25,7 @@ export const AppInventory = () => {
           {Object.keys(categories[category]).length > 0 && (
             <ItemsList
               list={categories[category]}
-              title={getTexts(
+              title={getTranslation(
                 `INVENTORY_CATEGORY_${category.toLocaleUpperCase()}`
               )}
             />

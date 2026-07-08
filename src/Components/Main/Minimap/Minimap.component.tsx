@@ -2,15 +2,15 @@ import { AiOutlineSelect } from 'react-icons/ai'
 
 import { AllZones } from '@/GameData/Zones'
 
-import { getTexts } from '@/Helpers/Language'
 import { openMap } from '@/Helpers/Systems/Digivice'
+import { getTranslation } from '@/Helpers/Language'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Text } from '@/Components/DesignSystem/Text'
 import { Button } from '@/Components/DesignSystem/Button'
+import { Text } from '@/Components/DesignSystem/Text'
 
 import { Map } from '@/Components/Global/Map'
 
@@ -36,10 +36,9 @@ export const Minimap = () => {
 
         <div className="zone-name">
           <Text>
-            {getTexts('CURRENT_ZONE').replaceAll(
-              '[ZONE]',
-              AllZones[profile.currentZone.id].name
-            )}
+            {getTranslation('CURRENT_ZONE', {
+              '[ZONE]': AllZones[profile.currentZone.id].name
+            })}
           </Text>
         </div>
       </main>

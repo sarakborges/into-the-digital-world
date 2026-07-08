@@ -1,12 +1,19 @@
 // Root Domain
-import {RootDomainMainRoom} from './RootDomain/MainRoom'
-import {RootDomainCorridor} from './RootDomain/Corridor'
-import {RootDomainBedRoom} from './RootDomain/BedRoom'
+import { RootDomainMainRoom } from './RootDomain/MainRoom'
+import { RootDomainCorridor } from './RootDomain/Corridor'
+import { RootDomainBedRoom } from './RootDomain/BedRoom'
 
 // Wild Zone
-import {WildZoneMainRoom} from './WildZone/MainRoom'
+import { WildZoneMainRoom } from './WildZone/MainRoom'
 
-export const AllZones = {
+import type { ZoneType } from '@/Types/Zone.type'
+
+export type ZoneCategoryType = {
+  name: string
+  [key: string]: ZoneType | string
+}
+
+export const AllZones: Record<string, ZoneCategoryType> = {
   rootDomain: {
     name: 'Root Domain',
 
