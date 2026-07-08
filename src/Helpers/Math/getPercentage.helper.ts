@@ -4,7 +4,7 @@ export const getPercentage = ({
 }: {
   current: number
   max: number
-}) => {
+}): number => {
   if (max <= 0) return 0
 
   const percentage = (current / max) * 100

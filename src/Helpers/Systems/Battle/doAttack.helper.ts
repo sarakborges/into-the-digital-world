@@ -4,8 +4,7 @@ import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
 import { AllAttacks } from '@/GameData/Attacks'
 
-import { generateRandomNumber } from '@/Helpers/Math'
-import { getSuccesses } from '@/Helpers/Math'
+import { generateRandomNumber, getSuccesses } from '@/Helpers/Math'
 import {
   calcExtraStats,
   isDigimonDefeated,

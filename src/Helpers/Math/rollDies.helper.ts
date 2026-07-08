@@ -1,16 +1,6 @@
-import { generateRandomNumber } from '.'
+import { generateRandomNumber } from './generateRandomNumber.helper'
 
-export const rollDies = (amountOfDies: number): Array<number> => {
-  const results: Array<number> = []
-
-  for (let die = 0; die < amountOfDies; die++) {
-    results.push(
-      generateRandomNumber({
-        min: 1,
-        max: 6
-      })
-    )
-  }
-
-  return results
-}
+export const rollDies = (amountOfDies: number): number[] =>
+  Array.from({ length: amountOfDies }, () =>
+    generateRandomNumber({ min: 1, max: 6 })
+  )

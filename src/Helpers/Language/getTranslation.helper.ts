@@ -7,16 +7,14 @@ export const getTranslation = (
   key: string,
   replace?: Record<string, string>
 ): string => {
-  const defaultLanguage = 'en'
+  const settings = useSettingsStore.getState().settings
+  const lang = settings?.language || 'en'
 
   const translations = {
     en: { ...EnDialogs, ...EnTexts }
   }
 
-  const settings = useSettingsStore.getState().settings
-  const lang = settings?.language || defaultLanguage
-
-  let value = translations[lang][key]
+  const value = translations[lang]?.[key]
 
   if (!value) {
     return ''
@@ -26,9 +24,8 @@ export const getTranslation = (
     return value
   }
 
-  for (const replaceKey of Object.keys(replace)) {
-    value = value.replaceAll(replaceKey, replace[replaceKey])
-  }
-
-  return value
+  return Object.keys(replace).reduce(
+    (text, replaceKey) => text.replaceAll(replaceKey, replace[replaceKey]),
+    value
+  )
 }

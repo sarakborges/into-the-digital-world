@@ -2,7 +2,7 @@ import { saveSession } from '@/Helpers/Systems/Data'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-export const updateEquipement = ({
+export const updateEquipment = ({
   digimonId,
   equipmentSlot,
   equipmentId

@@ -48,12 +48,14 @@ export const updateOptionalItem = ({
 
   const totalItems: Record<string, number> = {}
 
-  for (let item in requiredItems) {
-    totalItems[item] = (totalItems[item] || 0) + requiredItems[item]
+  for (const requiredItem in requiredItems) {
+    totalItems[requiredItem] =
+      (totalItems[requiredItem] || 0) + requiredItems[requiredItem]
   }
 
-  for (let item in optionalItems) {
-    totalItems[item] = (totalItems[item] || 0) + optionalItems[item]
+  for (const optionalItem in optionalItems) {
+    totalItems[optionalItem] =
+      (totalItems[optionalItem] || 0) + optionalItems[optionalItem]
   }
 
   totalItems[item] += amount

@@ -2,7 +2,7 @@ import { AllItems } from '@/GameData/Items'
 
 import { getTranslation } from '@/Helpers/Language'
 import { getCurrentDigimon, getPartnerDigimon } from '@/Helpers/Systems/Digimon'
-import { updateEquipement } from '@/Helpers/Systems/Profile'
+import { updateEquipment } from '@/Helpers/Systems/Profile'
 import { openEquipDialog } from '@/Helpers/Systems/Scenes'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -70,7 +70,7 @@ export const DigimonEquipments = () => {
                     {!!partner.equipments?.[item]?.equipmentId && (
                       <Button
                         onClick={() =>
-                          updateEquipement({
+                          updateEquipment({
                             digimonId: partner.id,
                             equipmentSlot: item,
                             equipmentId: undefined
