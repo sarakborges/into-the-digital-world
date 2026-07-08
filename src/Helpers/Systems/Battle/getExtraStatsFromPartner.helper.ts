@@ -1,6 +1,6 @@
-import { calcExtraStats } from '@/Helpers/Systems/Battle'
-
 import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
+
+import { calcExtraStats } from '@/Helpers/Systems/Battle'
 
 export const getExtraStatsFromPartner = (
   partner: PartnerDigimonType,

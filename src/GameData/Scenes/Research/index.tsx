@@ -1,6 +1,6 @@
-import { Research002 } from './002.scene'
-import { Research001 } from './001.scene'
 import { Research000 } from './000.scene'
+import { Research001 } from './001.scene'
+import { Research002 } from './002.scene'
 
 export const ResearchScenes = {
   id: 'research',

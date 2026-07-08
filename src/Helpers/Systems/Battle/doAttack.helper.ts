@@ -1,16 +1,16 @@
-import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
-import type { BattleType } from '@/Types/Battle.type'
 import type { AttackType } from '@/Types/Attack.type'
+import type { BattleType } from '@/Types/Battle.type'
+import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
 import { AllAttacks } from '@/GameData/Attacks'
 
-import {
-  isDigimonDefeated,
-  calcExtraStats,
-  saveBattle
-} from '@/Helpers/Systems/Battle'
 import { generateRandomNumber } from '@/Helpers/Math'
 import { getSuccesses } from '@/Helpers/Math'
+import {
+  calcExtraStats,
+  isDigimonDefeated,
+  saveBattle
+} from '@/Helpers/Systems/Battle'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'

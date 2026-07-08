@@ -1,16 +1,15 @@
 import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
-import { getTranslation } from '@/Helpers/Language'
 
 import type { DialogType } from '@/Types/Dialog.type'
 
+import { getTranslation } from '@/Helpers/Language'
 import { reactToMeaningfulChoice } from '@/Helpers/Systems/Scenes'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
-import { Text } from '@/Components/DesignSystem/Text'
-
 import { Dialog } from '@/Components/DesignSystem/Dialog'
+import { Text } from '@/Components/DesignSystem/Text'
 
 export const GetStarterDigimon004 = () => {
   const { profile } = useProfileStore((state) => state)

@@ -1,5 +1,4 @@
 import { getTranslation } from '@/Helpers/Language'
-
 import { getCurrentDigimon } from '@/Helpers/Systems/Digimon'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'

@@ -1,28 +1,28 @@
+import { BiSolidStar } from 'react-icons/bi'
 import { BsArrowDown, BsArrowUp } from 'react-icons/bs'
 import { TbListDetails } from 'react-icons/tb'
-import { BiSolidStar } from 'react-icons/bi'
 
 import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
 
 import { AllDigimons } from '@/GameData/Digimons'
 
+import { getTranslation } from '@/Helpers/Language'
+import { setCurrentDetails } from '@/Helpers/Systems/Digivice'
 import {
   addToParty,
-  removeFromParty,
-  getPartnerGroups
+  getPartnerGroups,
+  removeFromParty
 } from '@/Helpers/Systems/Profile'
-import { setCurrentDetails } from '@/Helpers/Systems/Digivice'
-import { getTranslation } from '@/Helpers/Language'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { EncyclopediaHeader } from '@/Components/Digivice/Apps/EncyclopediaHeader'
-import { PartnerDetails } from '@/Components/Digivice/Apps/AppPartners/Details'
-import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Button } from '@/Components/DesignSystem/Button'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
+import { PartnerDetails } from '@/Components/Digivice/Apps/AppPartners/Details'
+import { EncyclopediaHeader } from '@/Components/Digivice/Apps/EncyclopediaHeader'
 
 import './AppPartnersList.style.scss'
 

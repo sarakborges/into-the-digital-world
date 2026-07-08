@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react'
 
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
-import { isDigimonDefeated, isBattleOver } from '@/Helpers/Systems/Battle'
+import { isBattleOver, isDigimonDefeated } from '@/Helpers/Systems/Battle'
 
 import { CONDITIONS } from '@/Consts/Conditions.const'
 

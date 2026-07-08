@@ -1,7 +1,7 @@
 import { FaCheck } from 'react-icons/fa'
 
-import { updateSettings } from '@/Helpers/Systems/Settings'
 import { getTranslation } from '@/Helpers/Language'
+import { updateSettings } from '@/Helpers/Systems/Settings'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
 

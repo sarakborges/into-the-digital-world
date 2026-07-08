@@ -4,12 +4,12 @@ import type { ZoneType } from '@/Types/Zone.type'
 import type { ZoneCategoryType } from '@/GameData/Zones'
 import { AllZones } from '@/GameData/Zones'
 
-import { saveProfile } from '@/Helpers/Systems/Profile'
 import { getTranslation } from '@/Helpers/Language'
+import { saveProfile } from '@/Helpers/Systems/Profile'
 
-import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 import { Button } from '@/Components/DesignSystem/Button'
 import { Text } from '@/Components/DesignSystem/Text'
+import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 
 import './GameFileSave.style.scss'
 

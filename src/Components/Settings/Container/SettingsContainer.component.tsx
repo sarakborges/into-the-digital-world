@@ -7,7 +7,6 @@ import { useSettingsStore } from '@/Stores/Settings.store'
 import { Button } from '@/Components/DesignSystem/Button'
 import { Modal } from '@/Components/DesignSystem/Modal'
 import { Text } from '@/Components/DesignSystem/Text'
-
 import { SettingsLanguage } from '@/Components/Settings/Languages'
 import { SettingsTheme } from '@/Components/Settings/Themes'
 

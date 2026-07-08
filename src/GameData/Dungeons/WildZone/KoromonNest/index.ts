@@ -1,8 +1,8 @@
-import type { DungeonType } from '@/Types/Dungeon.type'
-
+import { DungeonWildZoneKoromonNestRoomBoss } from './Rooms/Boss'
 import { DungeonWildZoneKoromonNestRoomRandom } from './Rooms/Random'
 import { DungeonWildZoneKoromonNestRoomRest } from './Rooms/Rest'
-import { DungeonWildZoneKoromonNestRoomBoss } from './Rooms/Boss'
+
+import type { DungeonType } from '@/Types/Dungeon.type'
 
 export const DungeonWildZoneKoromonNest: DungeonType = {
   id: 'koromonNest',

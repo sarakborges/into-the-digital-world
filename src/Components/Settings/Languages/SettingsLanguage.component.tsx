@@ -1,9 +1,8 @@
-import { LANGUAGES } from '@/Consts/Languages.const'
-
 import { getTranslation } from '@/Helpers/Language'
 
-import { Text } from '@/Components/DesignSystem/Text'
+import { LANGUAGES } from '@/Consts/Languages.const'
 
+import { Text } from '@/Components/DesignSystem/Text'
 import { UpdateLanguage } from '@/Components/Settings/Language'
 
 import './SettingsLanguage.style.scss'

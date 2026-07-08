@@ -3,7 +3,6 @@ import { getTranslation } from '@/Helpers/Language'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Text } from '@/Components/DesignSystem/Text'
-
 import { CharacterHeader } from '@/Components/Digivice/Apps/CharacterHeader'
 
 import './AppPlayerProfile.style.scss'

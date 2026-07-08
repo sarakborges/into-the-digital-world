@@ -1,20 +1,20 @@
 import { FaPaintBrush } from 'react-icons/fa'
+
 import { useEffect } from 'react'
 
 import type { AvatarType } from '@/Types/Avatar.type'
 
+import { getTranslation } from '@/Helpers/Language'
 import {
   generateRandomAvatar,
   getAvatarOptionsText
 } from '@/Helpers/Systems/Profile'
-import { getTranslation } from '@/Helpers/Language'
 
 import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
 import { Text } from '@/Components/DesignSystem/Text'
-
 import { AvatarCustomizationOptions } from '@/Components/Digivice/Apps/AppAvatarCustomization/Options'
 import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 

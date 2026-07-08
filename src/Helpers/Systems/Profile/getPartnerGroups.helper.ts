@@ -1,6 +1,6 @@
-import { AllDigimons } from '@/GameData/Digimons'
-
 import type { ProfileType } from '@/Types/Profile.type'
+
+import { AllDigimons } from '@/GameData/Digimons'
 
 export const getPartnerGroups = (profile: ProfileType) => ({
   inParty: profile.party.map((digimon) => ({

@@ -2,11 +2,11 @@ import { useEffect } from 'react'
 
 import { AllDungeons } from '@/GameData/Dungeons'
 
-import { startBattle } from '@/Helpers/Systems/Battle'
 import { getTranslation } from '@/Helpers/Language'
+import { startBattle } from '@/Helpers/Systems/Battle'
 
-import { useDungeonStore } from '@/Stores/Dungeon.store'
 import { useBattleStore } from '@/Stores/Battle.store'
+import { useDungeonStore } from '@/Stores/Dungeon.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Text } from '@/Components/DesignSystem/Text'

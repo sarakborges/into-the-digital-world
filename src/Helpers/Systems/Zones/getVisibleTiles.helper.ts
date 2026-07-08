@@ -1,10 +1,11 @@
+import { getTileType } from './getTileType.helper'
+
+import type { ZoneType } from '@/Types/Zone.type'
 import type {
   VisibleTileType,
   ZoneEventType,
   ZoneProfilePositionType
 } from '@/Types/ZoneHelpers.type'
-import { getTileType } from './getTileType.helper'
-import type { ZoneType } from '@/Types/Zone.type'
 
 export const getVisibleTiles = (
   currentZone: ZoneType,

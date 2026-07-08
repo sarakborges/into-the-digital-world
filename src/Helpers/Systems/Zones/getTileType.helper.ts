@@ -1,10 +1,11 @@
+import { hasEventTypeAt } from './hasEventTypeAt.helper'
+import { hasTileAt } from './hasTileAt.helper'
+
+import type { ZoneType } from '@/Types/Zone.type'
 import type {
   ZoneEventType,
   ZoneProfilePositionType
 } from '@/Types/ZoneHelpers.type'
-import { hasEventTypeAt } from './hasEventTypeAt.helper'
-import type { ZoneType } from '@/Types/Zone.type'
-import { hasTileAt } from './hasTileAt.helper'
 
 const isPlayerPosition = (
   profile: ZoneProfilePositionType,

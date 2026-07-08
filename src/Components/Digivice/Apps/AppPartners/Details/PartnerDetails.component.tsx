@@ -1,5 +1,5 @@
-import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
+import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 
 import { AllDigimons } from '@/GameData/Digimons'
 
@@ -7,17 +7,16 @@ import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Text } from '@/Components/DesignSystem/Text'
-
 import { AddPartnerToFavorites } from '@/Components/Digivice/Apps/AddPartnerToFavorites'
-import { CharacterFullPicture } from '@/Components/Digivice/Apps/CharacterFullPicture'
 import { CharacterDescription } from '@/Components/Digivice/Apps/CharacterDescription'
-import { DigimonEquipments } from '@/Components/Digivice/Apps/DigimonEquipments'
-import { DigimonAttribute } from '@/Components/Digivice/Apps/DigimonAttribute'
-import { DigimonFamilies } from '@/Components/Digivice/Apps/DigimonFamilies'
+import { CharacterFullPicture } from '@/Components/Digivice/Apps/CharacterFullPicture'
 import { CharacterHeader } from '@/Components/Digivice/Apps/CharacterHeader'
 import { DigimonAttacks } from '@/Components/Digivice/Apps/DigimonAttacks'
-import { RenamePartner } from '@/Components/Digivice/Apps/RenamePartner'
+import { DigimonAttribute } from '@/Components/Digivice/Apps/DigimonAttribute'
+import { DigimonEquipments } from '@/Components/Digivice/Apps/DigimonEquipments'
+import { DigimonFamilies } from '@/Components/Digivice/Apps/DigimonFamilies'
 import { DigimonStats } from '@/Components/Digivice/Apps/DigimonStats'
+import { RenamePartner } from '@/Components/Digivice/Apps/RenamePartner'
 
 import './PartnerDetails.style.scss'
 

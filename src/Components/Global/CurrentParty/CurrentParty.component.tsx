@@ -2,14 +2,13 @@ import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
 
 import { AllDigimons } from '@/GameData/Digimons'
 
-import { useProfileStore } from '@/Stores/Profile.store'
 import { useBattleStore } from '@/Stores/Battle.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
-
-import { PartyDigimonStats } from '@/Components/Global/PartyDigimonStats'
 import { PartnerBond } from '@/Components/Global/PartnerBond'
+import { PartyDigimonStats } from '@/Components/Global/PartyDigimonStats'
 
 import './CurrentParty.style.scss'
 

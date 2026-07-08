@@ -1,17 +1,16 @@
 import type { ZoneTileType } from '@/Types/ZoneTile.type'
 
+import { getTranslation } from '@/Helpers/Language'
 import {
   getCharacterVisibility,
   isNpcAcquainted
 } from '@/Helpers/Systems/Profile'
 
-import { getTranslation } from '@/Helpers/Language'
-
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
+import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 
 import './GameboardCharacter.style.scss'
 

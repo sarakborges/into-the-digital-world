@@ -1,8 +1,8 @@
-import type { QuestType } from '@/Types/Quest.type'
-
-import { StarterDigimonQuest } from './StarterDigimon.quest'
-import { IntroductionQuest } from './Introduction.quest'
 import { AvatarFixingQuest } from './AvatarFixing.quest'
+import { IntroductionQuest } from './Introduction.quest'
+import { StarterDigimonQuest } from './StarterDigimon.quest'
+
+import type { QuestType } from '@/Types/Quest.type'
 
 export const AllQuests: {
   [questId: string]: QuestType

@@ -1,13 +1,12 @@
 import type { DialogType } from '@/Types/Dialog.type'
+
 import { getTranslation } from '@/Helpers/Language'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 
-
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
-
-import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const Introduction009 = () => {
   const { setScene } = useSceneStore((state) => state)

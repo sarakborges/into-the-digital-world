@@ -2,20 +2,19 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { enterNextDungeonRoom, saveDungeon } from '@/Helpers/Systems/Dungeon'
-import { isDigimonDefeated, saveBattle } from '@/Helpers/Systems/Battle'
 import { getTranslation } from '@/Helpers/Language'
+import { isDigimonDefeated, saveBattle } from '@/Helpers/Systems/Battle'
+import { enterNextDungeonRoom, saveDungeon } from '@/Helpers/Systems/Dungeon'
 import { warpTo } from '@/Helpers/Systems/Zones'
 
-import { useProfileStore } from '@/Stores/Profile.store'
-import { useDungeonStore } from '@/Stores/Dungeon.store'
 import { useBattleStore } from '@/Stores/Battle.store'
+import { useDungeonStore } from '@/Stores/Dungeon.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
-
-import { Text } from '@/Components/DesignSystem/Text'
 
 import { CombatLoot } from '@/Components/Combat/CombatLoot'
 import { Dialog } from '@/Components/DesignSystem/Dialog'
+import { Text } from '@/Components/DesignSystem/Text'
 
 export const BattleEnd = () => {
   const { profile } = useProfileStore((state) => state)

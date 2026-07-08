@@ -1,18 +1,17 @@
-import { getTranslation } from '@/Helpers/Language'
 import { useEffect } from 'react'
 
 import type { DialogType } from '@/Types/Dialog.type'
 
+import { AllNpcs } from '@/GameData/Npcs'
+
+import { getTranslation } from '@/Helpers/Language'
+
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { AllNpcs } from '@/GameData/Npcs'
-
-
+import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { Input } from '@/Components/DesignSystem/Input'
 import { Text } from '@/Components/DesignSystem/Text'
-
-import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 export const Introduction005 = () => {
   const { setScene } = useSceneStore((state) => state)

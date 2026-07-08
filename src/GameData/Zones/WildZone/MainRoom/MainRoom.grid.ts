@@ -1,5 +1,5 @@
-import type { TileType } from '@/Types/Tile.type'
 import type { GridType } from '@/Types/Grid.type'
+import type { TileType } from '@/Types/Tile.type'
 
 import { floorTile } from '@/GameData/Zones/floor.tile'
 

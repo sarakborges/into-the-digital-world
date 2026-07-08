@@ -1,5 +1,4 @@
 import { getTranslation } from '@/Helpers/Language'
-
 import { loadData, saveSession } from '@/Helpers/Systems/Data'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'

@@ -1,8 +1,8 @@
+import type { BattlePartyGroupType } from '@/Types/BattleHelpers.type'
+
 import { getTranslation } from '@/Helpers/Language'
 
 import { useBattleStore } from '@/Stores/Battle.store'
-
-import type { BattlePartyGroupType } from '@/Types/BattleHelpers.type'
 
 export const getBattlePartyGroups = (): BattlePartyGroupType[] => {
   const { battle } = useBattleStore.getState()

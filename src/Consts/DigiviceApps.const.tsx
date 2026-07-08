@@ -1,10 +1,10 @@
 import { AppAcquaintances } from '@/Components/Digivice/Apps/AppAcquaintances/List'
-import { AppResearchesList } from '@/Components/Digivice/Apps/AppResearchesList'
-import { AppPartnersList } from '@/Components/Digivice/Apps/AppPartners/List'
-import { AppQuestsLog } from '@/Components/Digivice/Apps/AppQuestsLog'
 import { AppInventory } from '@/Components/Digivice/Apps/AppInventory'
 import { AppLocation } from '@/Components/Digivice/Apps/AppLocation'
 import { AppMap } from '@/Components/Digivice/Apps/AppMap'
+import { AppPartnersList } from '@/Components/Digivice/Apps/AppPartners/List'
+import { AppQuestsLog } from '@/Components/Digivice/Apps/AppQuestsLog'
+import { AppResearchesList } from '@/Components/Digivice/Apps/AppResearchesList'
 
 export const APP_SAVE = {
   id: 'save',

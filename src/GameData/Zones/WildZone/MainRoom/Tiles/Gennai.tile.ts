@@ -1,9 +1,9 @@
 import type { ZoneTileType } from '@/Types/ZoneTile.type'
 
-import { getTranslation } from '@/Helpers/Language'
-
-import { OpenLocation } from '@/GameData/Zones/WildZone/MainRoom/Events/OpenLocation.event'
 import { AllNpcs } from '@/GameData/Npcs'
+import { OpenLocation } from '@/GameData/Zones/WildZone/MainRoom/Events/OpenLocation.event'
+
+import { getTranslation } from '@/Helpers/Language'
 
 export const WildZoneGennaiTile: ZoneTileType = {
   id: 'wildZoneGennai',

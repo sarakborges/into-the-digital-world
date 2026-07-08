@@ -1,12 +1,12 @@
-import { getAppAvailability } from '@/Helpers/Systems/Digivice'
 import { getTranslation } from '@/Helpers/Language'
+import { getAppAvailability } from '@/Helpers/Systems/Digivice'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Button } from '@/Components/DesignSystem/Button'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
 
 type DigiviceCurrentAppProps = {

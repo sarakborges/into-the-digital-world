@@ -1,5 +1,5 @@
-import { createNewProfile } from '@/Helpers/Systems/Profile'
 import { getTranslation } from '@/Helpers/Language'
+import { createNewProfile } from '@/Helpers/Systems/Profile'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'

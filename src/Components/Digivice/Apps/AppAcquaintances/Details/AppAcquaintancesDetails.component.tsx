@@ -1,12 +1,11 @@
-import { getTranslation } from '@/Helpers/Language'
-
 import { AllNpcs } from '@/GameData/Npcs'
+
+import { getTranslation } from '@/Helpers/Language'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
-
 import { CharacterHeader } from '@/Components/Digivice/Apps/CharacterHeader'
 
 import './AppAcquaintancesDetails.style.scss'

@@ -1,9 +1,9 @@
 import type { DialogType } from '@/Types/Dialog.type'
-import { getTranslation } from '@/Helpers/Language'
 
 import { AllItems } from '@/GameData/Items'
 import { AllNpcs } from '@/GameData/Npcs'
 
+import { getTranslation } from '@/Helpers/Language'
 import { saveSession } from '@/Helpers/Systems/Data'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -11,9 +11,8 @@ import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
-import { Text } from '@/Components/DesignSystem/Text'
-
 import { Dialog } from '@/Components/DesignSystem/Dialog'
+import { Text } from '@/Components/DesignSystem/Text'
 
 export const Equipment001 = () => {
   const { profile } = useProfileStore((state) => state)

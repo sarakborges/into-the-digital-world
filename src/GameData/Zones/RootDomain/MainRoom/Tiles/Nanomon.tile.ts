@@ -1,12 +1,12 @@
 import type { ZoneTileType } from '@/Types/ZoneTile.type'
 
-import { isQuestDone } from '@/Helpers/Systems/Quests'
-import { getTranslation } from '@/Helpers/Language'
-
+import { AllNpcs } from '@/GameData/Npcs'
+import { AllQuests } from '@/GameData/Quests'
 import { OpenNanomonIntroduction } from '@/GameData/Zones/RootDomain/MainRoom/Events/OpenNanomonIntroduction.event'
 import { OpenResearch } from '@/GameData/Zones/RootDomain/MainRoom/Events/OpenResearch.event'
-import { AllQuests } from '@/GameData/Quests'
-import { AllNpcs } from '@/GameData/Npcs'
+
+import { getTranslation } from '@/Helpers/Language'
+import { isQuestDone } from '@/Helpers/Systems/Quests'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 

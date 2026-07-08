@@ -1,17 +1,17 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { saveSession } from '@/Helpers/Systems/Data'
-import { getTranslation } from '@/Helpers/Language'
-
-import { AllResearches } from '@/GameData/Researches'
 import { AllNpcs } from '@/GameData/Npcs'
+import { AllResearches } from '@/GameData/Researches'
+
+import { getTranslation } from '@/Helpers/Language'
+import { saveSession } from '@/Helpers/Systems/Data'
 
 import { useCompositionStore } from '@/Stores/Composition.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { AppCompose } from '@/Components/Digivice/Apps/AppCompose/App'
 import { Dialog } from '@/Components/DesignSystem/Dialog'
+import { AppCompose } from '@/Components/Digivice/Apps/AppCompose/App'
 
 export const Compose003 = () => {
   const { setScene } = useSceneStore((state) => state)

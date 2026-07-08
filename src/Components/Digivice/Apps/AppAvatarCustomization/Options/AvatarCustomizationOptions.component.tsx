@@ -1,12 +1,11 @@
-import { AVATAR_OPTIONS } from '@/Consts/Avatars.const'
-
 import { getAvatarOptionsText } from '@/Helpers/Systems/Profile'
+
+import { AVATAR_OPTIONS } from '@/Consts/Avatars.const'
 
 import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
 import { Text } from '@/Components/DesignSystem/Text'
-
 import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 
 import './AvatarCustomizationOptions.style.scss'

@@ -2,16 +2,15 @@ import { AiOutlineSelect } from 'react-icons/ai'
 
 import { AllZones } from '@/GameData/Zones'
 
-import { openMap } from '@/Helpers/Systems/Digivice'
 import { getTranslation } from '@/Helpers/Language'
+import { openMap } from '@/Helpers/Systems/Digivice'
 
-import { useProfileStore } from '@/Stores/Profile.store'
 import { useBattleStore } from '@/Stores/Battle.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
 import { Text } from '@/Components/DesignSystem/Text'
-
 import { Map } from '@/Components/Global/Map'
 
 import './Minimap.style.scss'

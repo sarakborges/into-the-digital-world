@@ -1,12 +1,12 @@
 import type { ZoneTileType } from '@/Types/ZoneTile.type'
 
-import { isQuestDone } from '@/Helpers/Systems/Quests'
-import { getTranslation } from '@/Helpers/Language'
-
-import { TriggerGetStarterDigimon } from '@/GameData/Zones/RootDomain/MainRoom/Events/TriggerGetStarterDigimon.event'
-import { OpenLocation } from '@/GameData/Zones/RootDomain/MainRoom/Events/OpenLocation.event'
-import { AllQuests } from '@/GameData/Quests'
 import { AllNpcs } from '@/GameData/Npcs'
+import { AllQuests } from '@/GameData/Quests'
+import { OpenLocation } from '@/GameData/Zones/RootDomain/MainRoom/Events/OpenLocation.event'
+import { TriggerGetStarterDigimon } from '@/GameData/Zones/RootDomain/MainRoom/Events/TriggerGetStarterDigimon.event'
+
+import { getTranslation } from '@/Helpers/Language'
+import { isQuestDone } from '@/Helpers/Systems/Quests'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 

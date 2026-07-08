@@ -1,13 +1,13 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getTranslation } from '@/Helpers/Language'
-
 import { AllNpcs } from '@/GameData/Npcs'
+
+import { getTranslation } from '@/Helpers/Language'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { CompositionsList } from '@/Components/Digivice/Apps/AppCompose/List'
 import { Dialog } from '@/Components/DesignSystem/Dialog'
+import { CompositionsList } from '@/Components/Digivice/Apps/AppCompose/List'
 
 export const Compose002 = () => {
   const { setScene } = useSceneStore((state) => state)

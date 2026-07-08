@@ -1,15 +1,14 @@
 import type { ZoneTileType } from '@/Types/ZoneTile.type'
 
-import { isQuestDone } from '@/Helpers/Systems/Quests'
-import { getTranslation } from '@/Helpers/Language'
-
-import { AllQuests } from '@/GameData/Quests'
 import { AllNpcs } from '@/GameData/Npcs'
-
-import { useProfileStore } from '@/Stores/Profile.store'
-
+import { AllQuests } from '@/GameData/Quests'
 import { TriggerAvatarCustomization } from '@/GameData/Zones/RootDomain/BedRoom/Events/TriggerAvatarCustomization.event'
 import { TriggerAvatarFixing } from '@/GameData/Zones/RootDomain/BedRoom/Events/TriggerAvatarFixing.event'
+
+import { getTranslation } from '@/Helpers/Language'
+import { isQuestDone } from '@/Helpers/Systems/Quests'
+
+import { useProfileStore } from '@/Stores/Profile.store'
 
 export const RootDomainBedRoomDressmonRoomTile: ZoneTileType = {
   id: 'rootDomainBedRoomDressmon',

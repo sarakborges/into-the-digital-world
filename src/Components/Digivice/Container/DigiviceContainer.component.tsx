@@ -1,21 +1,20 @@
-import { HiOutlineDevicePhoneMobile } from 'react-icons/hi2'
 import { BiSolidSquareRounded } from 'react-icons/bi'
+import { HiOutlineDevicePhoneMobile } from 'react-icons/hi2'
 import { IoCaretBack } from 'react-icons/io5'
-
-import { AllApps, DigiviceApps } from '@/Consts/DigiviceApps.const'
 
 import { getTranslation } from '@/Helpers/Language'
 
+import { AllApps, DigiviceApps } from '@/Consts/DigiviceApps.const'
+
+import { useBattleStore } from '@/Stores/Battle.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Button } from '@/Components/DesignSystem/Button'
 import { Modal } from '@/Components/DesignSystem/Modal'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
-
 import { AppPlayerProfile } from '@/Components/Digivice/Apps/AppPlayerProfile'
 import { DigiviceCurrentApp } from '@/Components/Digivice/CurrentApp'
 

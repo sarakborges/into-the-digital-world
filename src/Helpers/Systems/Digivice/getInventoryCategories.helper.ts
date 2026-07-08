@@ -1,6 +1,6 @@
-import { AllItems } from '@/GameData/Items'
-
 import type { ProfileType } from '@/Types/Profile.type'
+
+import { AllItems } from '@/GameData/Items'
 
 export const getInventoryCategories = (profile: ProfileType) => {
   const categories = {

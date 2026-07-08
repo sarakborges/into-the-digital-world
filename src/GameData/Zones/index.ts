@@ -1,8 +1,7 @@
 // Root Domain
-import { RootDomainMainRoom } from './RootDomain/MainRoom'
-import { RootDomainCorridor } from './RootDomain/Corridor'
 import { RootDomainBedRoom } from './RootDomain/BedRoom'
-
+import { RootDomainCorridor } from './RootDomain/Corridor'
+import { RootDomainMainRoom } from './RootDomain/MainRoom'
 // Wild Zone
 import { WildZoneMainRoom } from './WildZone/MainRoom'
 

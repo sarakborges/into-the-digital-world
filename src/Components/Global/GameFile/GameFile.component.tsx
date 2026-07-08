@@ -6,10 +6,10 @@ import { AllZones } from '@/GameData/Zones'
 
 import { getTranslation } from '@/Helpers/Language'
 
-import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
+import { Text } from '@/Components/DesignSystem/Text'
 import { DeleteGame } from '@/Components/Global/DeleteGame'
 import { LoadGame } from '@/Components/Global/LoadGame'
-import { Text } from '@/Components/DesignSystem/Text'
+import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 
 import './GameFile.style.scss'
 

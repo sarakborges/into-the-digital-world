@@ -1,6 +1,6 @@
+import { getTranslation } from '@/Helpers/Language'
 import { getExtraStatsFromPartner } from '@/Helpers/Systems/Battle'
 import { getBaseDigimon } from '@/Helpers/Systems/Digimon'
-import { getTranslation } from '@/Helpers/Language'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 

@@ -1,9 +1,9 @@
 import type { ZoneTileType } from '@/Types/ZoneTile.type'
 
-import { isQuestDone } from '@/Helpers/Systems/Quests'
-
-import { AllQuests } from '@/GameData/Quests'
 import { AllNpcs } from '@/GameData/Npcs'
+import { AllQuests } from '@/GameData/Quests'
+
+import { isQuestDone } from '@/Helpers/Systems/Quests'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'

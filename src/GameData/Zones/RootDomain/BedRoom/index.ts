@@ -1,11 +1,11 @@
-import type { ZoneType } from '@/Types/Zone.type'
-
-import { RootDomainBedRoomWarpToCorridorRoomTile } from './Tiles/WarpToCorridor.tile'
+import { grid } from './BedRoom.grid'
 import { RootDomainBedRoomDressmonRoomTile } from './Tiles/Dressmon.tile'
 import { RootDomainBedRoomGennaiRoomTile } from './Tiles/Gennai.tile'
-import { fillGrid } from '@/Helpers/Systems/Zones'
+import { RootDomainBedRoomWarpToCorridorRoomTile } from './Tiles/WarpToCorridor.tile'
 
-import { grid } from './BedRoom.grid'
+import type { ZoneType } from '@/Types/Zone.type'
+
+import { fillGrid } from '@/Helpers/Systems/Zones'
 
 const gridSize = 13
 const filledGrid = fillGrid({ grid, gridSize })

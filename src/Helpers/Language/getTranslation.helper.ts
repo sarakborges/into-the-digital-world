@@ -1,7 +1,7 @@
-import { loadData } from '@/Helpers/Systems/Data'
-
 import * as EnDialogs from '@/GameData/Dialogs/En'
 import * as EnTexts from '@/GameData/Texts/En'
+
+import { loadData } from '@/Helpers/Systems/Data'
 
 export const getTranslation = (
   key: string,

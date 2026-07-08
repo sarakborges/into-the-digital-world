@@ -1,6 +1,6 @@
-import { getTranslation } from '@/Helpers/Language'
-
 import type { BattleType } from '@/Types/Battle.type'
+
+import { getTranslation } from '@/Helpers/Language'
 
 export const formatLogEntry = (
   logEntry: BattleType['combatLog'][number]

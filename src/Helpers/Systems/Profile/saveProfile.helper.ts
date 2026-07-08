@@ -1,9 +1,9 @@
 import { SaveGameScenes } from '@/GameData/Scenes/SaveGame'
 
-import { loadData, saveSession, saveData } from '@/Helpers/Systems/Data'
+import { loadData, saveData, saveSession } from '@/Helpers/Systems/Data'
 
-import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 import { useProfileStore } from '@/Stores/Profile.store'
+import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 export const saveProfile = (profileId?: number) => {

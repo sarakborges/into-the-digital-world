@@ -1,12 +1,13 @@
-import { Fragment } from 'react/jsx-runtime'
 import { BiCaretDown } from 'react-icons/bi'
+
+import { Fragment } from 'react/jsx-runtime'
 
 import { canMoveToCoordinate, setLocation } from '@/Helpers/Systems/Zones'
 
-import { useProfileStore } from '@/Stores/Profile.store'
 import { useBattleStore } from '@/Stores/Battle.store'
-import { useSceneStore } from '@/Stores/Scene.store'
 import { useGameStore } from '@/Stores/Game.store'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
 

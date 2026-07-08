@@ -1,13 +1,13 @@
 import type { DialogType } from '@/Types/Dialog.type'
+
+import { AllNpcs } from '@/GameData/Npcs'
+
 import { getTranslation } from '@/Helpers/Language'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { AllNpcs } from '@/GameData/Npcs'
-
-
-import { ResearchList } from '@/Components/Digivice/Apps/ResearchesList'
 import { Dialog } from '@/Components/DesignSystem/Dialog'
+import { ResearchList } from '@/Components/Digivice/Apps/ResearchesList'
 
 export const Research002 = () => {
   const { setScene } = useSceneStore((state) => state)

@@ -5,7 +5,6 @@ import { isNpcAcquainted } from '@/Helpers/Systems/Profile'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
-
 import { CharacterHeader } from '@/Components/Digivice/Apps/CharacterHeader'
 
 import './Dialog.style.scss'

@@ -1,7 +1,7 @@
 import { AllZones } from '@/GameData/Zones'
 
-import { getCurrentZone } from '@/Helpers/Systems/Zones'
 import { getTranslation } from '@/Helpers/Language'
+import { getCurrentZone } from '@/Helpers/Systems/Zones'
 
 import { Text } from '@/Components/DesignSystem/Text'
 import { Map } from '@/Components/Global/Map'

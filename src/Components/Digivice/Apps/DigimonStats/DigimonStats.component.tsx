@@ -1,6 +1,6 @@
-import { getCurrentDigimon, getPartnerDigimon } from '@/Helpers/Systems/Digimon'
-import { getExtraStatsFromPartner } from '@/Helpers/Systems/Battle'
 import { getTranslation } from '@/Helpers/Language'
+import { getExtraStatsFromPartner } from '@/Helpers/Systems/Battle'
+import { getCurrentDigimon, getPartnerDigimon } from '@/Helpers/Systems/Digimon'
 
 import { DIGIMON_STATS } from '@/Consts/Stats.const'
 

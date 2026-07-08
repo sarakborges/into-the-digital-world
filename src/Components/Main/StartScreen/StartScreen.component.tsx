@@ -1,16 +1,15 @@
 import { useEffect } from 'react'
 
-import { getThemeBackground } from '@/Helpers/Systems/Settings'
-import { loadProfiles } from '@/Helpers/Systems/Profile'
 import { getTranslation } from '@/Helpers/Language'
+import { loadProfiles } from '@/Helpers/Systems/Profile'
+import { getThemeBackground } from '@/Helpers/Systems/Settings'
 
+import { useProfileStore } from '@/Stores/Profile.store'
 import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 import { useSettingsStore } from '@/Stores/Settings.store'
-import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
-
 import { GameFile } from '@/Components/Global/GameFile'
 import { NewGame } from '@/Components/Global/NewGame'
 

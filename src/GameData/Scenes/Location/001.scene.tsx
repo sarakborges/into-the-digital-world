@@ -1,13 +1,13 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { useSceneStore } from '@/Stores/Scene.store'
-
 import { AllNpcs } from '@/GameData/Npcs'
 
 import { getTranslation } from '@/Helpers/Language'
 
-import { AppLocation } from '@/Components/Digivice/Apps/AppLocation'
+import { useSceneStore } from '@/Stores/Scene.store'
+
 import { Dialog } from '@/Components/DesignSystem/Dialog'
+import { AppLocation } from '@/Components/Digivice/Apps/AppLocation'
 
 export const Location001 = () => {
   const { setScene } = useSceneStore((state) => state)

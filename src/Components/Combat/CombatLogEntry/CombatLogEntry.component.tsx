@@ -1,7 +1,7 @@
 import type { BattleType } from '@/Types/Battle.type'
 
-import { formatLogEntry } from '@/Helpers/Systems/Battle'
 import { getTranslation } from '@/Helpers/Language'
+import { formatLogEntry } from '@/Helpers/Systems/Battle'
 
 import { Text } from '@/Components/DesignSystem/Text'
 

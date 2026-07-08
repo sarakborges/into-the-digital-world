@@ -1,18 +1,19 @@
 import { TbListDetails } from 'react-icons/tb'
-import { Fragment } from 'react/jsx-runtime'
 
-import { useDigiviceStore } from '@/Stores/Digivice.store'
-import { useProfileStore } from '@/Stores/Profile.store'
-import { useSceneStore } from '@/Stores/Scene.store'
+import { Fragment } from 'react/jsx-runtime'
 
 import {
   getAcquaintanceGroups,
   setCurrentDetails
 } from '@/Helpers/Systems/Digivice'
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-import { Button } from '@/Components/DesignSystem/Button'
-import { Text } from '@/Components/DesignSystem/Text'
 
+import { useDigiviceStore } from '@/Stores/Digivice.store'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
+
+import { Button } from '@/Components/DesignSystem/Button'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
+import { Text } from '@/Components/DesignSystem/Text'
 import { AppAcquaintancesDetails } from '@/Components/Digivice/Apps/AppAcquaintances/Details'
 
 import './AppAcquaintances.style.scss'

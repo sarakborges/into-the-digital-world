@@ -1,5 +1,5 @@
-import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
+import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 
 import { AllDigimons } from '@/GameData/Digimons'
 

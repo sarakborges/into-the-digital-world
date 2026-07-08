@@ -7,9 +7,8 @@ import { getTranslation } from '@/Helpers/Language'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Text } from '@/Components/DesignSystem/Text'
-
 import { Dialog } from '@/Components/DesignSystem/Dialog'
+import { Text } from '@/Components/DesignSystem/Text'
 
 export const GetStarterDigimon003 = () => {
   const { profile } = useProfileStore((state) => state)

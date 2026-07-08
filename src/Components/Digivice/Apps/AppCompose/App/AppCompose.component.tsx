@@ -1,20 +1,19 @@
 import { BiMinus, BiPlus } from 'react-icons/bi'
 
-import { AllResearches } from '@/GameData/Researches'
 import { AllItems } from '@/GameData/Items'
+import { AllResearches } from '@/GameData/Researches'
 
-import { updateOptionalItem } from '@/Helpers/Systems/Compose'
 import { getTranslation } from '@/Helpers/Language'
+import { updateOptionalItem } from '@/Helpers/Systems/Compose'
 
 import { useCompositionStore } from '@/Stores/Composition.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Button } from '@/Components/DesignSystem/Button'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
-
-import { ItemsList } from '@/Components/Global/ItemsList'
 import { ItemCore } from '@/Components/Global/ItemCore'
+import { ItemsList } from '@/Components/Global/ItemsList'
 
 import './AppCompose.style.scss'
 

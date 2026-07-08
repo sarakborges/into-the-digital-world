@@ -1,11 +1,11 @@
 import { AllItems } from '@/GameData/Items'
 
+import { useProfileStore } from '@/Stores/Profile.store'
+
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
-
 import { ItemCore } from '@/Components/Global/ItemCore'
 
-import { useProfileStore } from '@/Stores/Profile.store'
 import './ItemDisplay.style.scss'
 
 export const ItemDisplay = ({

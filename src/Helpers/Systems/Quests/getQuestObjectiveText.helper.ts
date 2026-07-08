@@ -1,9 +1,9 @@
-import { AllZones } from '@/GameData/Zones'
+import type { ZoneType } from '@/Types/Zone.type'
+
 import { AllNpcs } from '@/GameData/Npcs'
+import { AllZones } from '@/GameData/Zones'
 
 import { getTranslation } from '@/Helpers/Language'
-
-import type { ZoneType } from '@/Types/Zone.type'
 
 export const getQuestObjectiveText = (objective: {
   type: string

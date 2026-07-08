@@ -1,8 +1,8 @@
 import type { ZoneTileType } from '@/Types/ZoneTile.type'
 
-import { getTranslation } from '@/Helpers/Language'
-
 import { OpenDungeonKoromon } from '@/GameData/Zones/WildZone/MainRoom/Events/OpenDungeonKoromon.event'
+
+import { getTranslation } from '@/Helpers/Language'
 
 export const WildZoneKoromonNestTile: ZoneTileType = {
   id: 'wildZoneKoromonNest',

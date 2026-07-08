@@ -1,15 +1,15 @@
+import { AllItems } from '@/GameData/Items'
+
+import { getTranslation } from '@/Helpers/Language'
 import { getCurrentDigimon, getPartnerDigimon } from '@/Helpers/Systems/Digimon'
 import { updateEquipement } from '@/Helpers/Systems/Profile'
 import { openEquipDialog } from '@/Helpers/Systems/Scenes'
-import { getTranslation } from '@/Helpers/Language'
-
-import { AllItems } from '@/GameData/Items'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Button } from '@/Components/DesignSystem/Button'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
 
 import './DigimonEquipments.style.scss'

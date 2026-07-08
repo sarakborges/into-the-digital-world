@@ -1,5 +1,5 @@
-import type { ZoneTileType } from '@/Types/ZoneTile.type'
 import type { GridType } from '@/Types/Grid.type'
+import type { ZoneTileType } from '@/Types/ZoneTile.type'
 
 export type ZoneType = {
   id: string

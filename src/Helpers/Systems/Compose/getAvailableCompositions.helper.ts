@@ -1,7 +1,7 @@
-import { AvailableResearchesAtJijimon } from '@/GameData/Researches'
-import { AllDigimons } from '@/GameData/Digimons'
-
 import type { ProfileType } from '@/Types/Profile.type'
+
+import { AllDigimons } from '@/GameData/Digimons'
+import { AvailableResearchesAtJijimon } from '@/GameData/Researches'
 
 export const getAvailableCompositions = (profile: ProfileType) =>
   Object.keys(AvailableResearchesAtJijimon)

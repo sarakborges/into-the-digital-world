@@ -1,8 +1,8 @@
-import { getThemeGroups } from '@/Helpers/Systems/Settings'
 import { getTranslation } from '@/Helpers/Language'
+import { getThemeGroups } from '@/Helpers/Systems/Settings'
 
-import { UpdateTheme } from '@/Components/Settings/Theme'
 import { Text } from '@/Components/DesignSystem/Text'
+import { UpdateTheme } from '@/Components/Settings/Theme'
 
 import './SettingsTheme.style.scss'
 

@@ -1,7 +1,7 @@
-import { getCurrentDigimon, getPartnerDigimon } from '@/Helpers/Systems/Digimon'
-import { getTranslation } from '@/Helpers/Language'
-
 import { AllAttacks } from '@/GameData/Attacks'
+
+import { getTranslation } from '@/Helpers/Language'
+import { getCurrentDigimon, getPartnerDigimon } from '@/Helpers/Systems/Digimon'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 

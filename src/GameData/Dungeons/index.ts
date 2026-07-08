@@ -1,7 +1,7 @@
 // Wild Zone
-import type { DungeonType } from '@/Types/Dungeon.type'
-
 import { DungeonWildZoneKoromonNest } from './WildZone/KoromonNest'
+
+import type { DungeonType } from '@/Types/Dungeon.type'
 
 export const AllDungeons: {
   [zoneId: string]: {

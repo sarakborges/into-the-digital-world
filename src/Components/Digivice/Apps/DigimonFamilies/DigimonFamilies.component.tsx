@@ -1,5 +1,5 @@
-import { getCurrentDigimon, getPartnerDigimon } from '@/Helpers/Systems/Digimon'
 import { getTranslation } from '@/Helpers/Language'
+import { getCurrentDigimon, getPartnerDigimon } from '@/Helpers/Systems/Digimon'
 
 import { DIGIMON_FAMILIES } from '@/Consts/Families.const'
 

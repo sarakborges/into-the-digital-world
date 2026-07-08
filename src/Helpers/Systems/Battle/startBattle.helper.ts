@@ -1,10 +1,10 @@
 import { AllDungeons } from '@/GameData/Dungeons'
 
-import { saveBattle, spawnEnemies } from '@/Helpers/Systems/Battle'
 import { generateRandomNumber, getSuccesses } from '@/Helpers/Math'
+import { saveBattle, spawnEnemies } from '@/Helpers/Systems/Battle'
 
-import { useProfileStore } from '@/Stores/Profile.store'
 import { useDungeonStore } from '@/Stores/Dungeon.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 
 export const startBattle = () => {
   const { profile } = useProfileStore.getState()

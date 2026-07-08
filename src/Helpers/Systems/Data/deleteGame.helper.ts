@@ -1,7 +1,7 @@
-import { saveData, deleteData } from '@/Helpers/Systems/Data'
+import { deleteData, saveData } from '@/Helpers/Systems/Data'
 
-import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
+import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 
 export const deleteGame = () => {
   const { savedProfiles, setSavedProfiles } = useSavedProfilesStore.getState()

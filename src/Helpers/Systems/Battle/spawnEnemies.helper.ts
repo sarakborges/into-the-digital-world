@@ -1,12 +1,12 @@
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
-import { AllDungeons } from '@/GameData/Dungeons'
 import { AllDigimons } from '@/GameData/Digimons'
+import { AllDungeons } from '@/GameData/Dungeons'
 
 import { generateRandomNumber } from '@/Helpers/Math'
 
-import { useProfileStore } from '@/Stores/Profile.store'
 import { useDungeonStore } from '@/Stores/Dungeon.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 
 export const spawnEnemies = () => {
   const { profile } = useProfileStore.getState()

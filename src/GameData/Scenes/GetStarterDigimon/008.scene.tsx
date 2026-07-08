@@ -1,12 +1,12 @@
 import type { DialogType } from '@/Types/Dialog.type'
-import { getTranslation } from '@/Helpers/Language'
 
-import { Text } from '@/Components/DesignSystem/Text'
+import { getTranslation } from '@/Helpers/Language'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Dialog } from '@/Components/DesignSystem/Dialog'
+import { Text } from '@/Components/DesignSystem/Text'
 
 export const GetStarterDigimon008 = () => {
   const { setScene } = useSceneStore((state) => state)

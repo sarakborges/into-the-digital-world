@@ -1,16 +1,16 @@
 import { AiOutlineSelect } from 'react-icons/ai'
 
-import { getAvailableCompositions } from '@/Helpers/Systems/Compose'
-import { getTranslation } from '@/Helpers/Language'
-
 import { AvailableResearchesAtJijimon } from '@/GameData/Researches'
+
+import { getTranslation } from '@/Helpers/Language'
+import { getAvailableCompositions } from '@/Helpers/Systems/Compose'
 
 import { useCompositionStore } from '@/Stores/Composition.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Button } from '@/Components/DesignSystem/Button'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
 
 import './CompositionsList.style.scss'

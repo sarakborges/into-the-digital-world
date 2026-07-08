@@ -1,7 +1,7 @@
-import { AllNpcs } from '@/GameData/Npcs'
-
 import type { AcquaintanceGroupType } from '@/Types/DigiviceHelpers.type'
 import type { ProfileType } from '@/Types/Profile.type'
+
+import { AllNpcs } from '@/GameData/Npcs'
 
 export const getAcquaintanceGroups = (
   profile: ProfileType

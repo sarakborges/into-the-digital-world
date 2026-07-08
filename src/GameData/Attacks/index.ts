@@ -1,9 +1,10 @@
-import { PoisonBubblesAttack } from './PoisonBubbles.attack'
 import { AcidBubblesAttack } from './AcidBubbles.attack'
-import type { AttackType } from '@/Types/Attack.type'
-import { MetalDropAttack } from './MetalDrop.attack'
 import { BubblesAttack } from './Bubbles.attack'
+import { MetalDropAttack } from './MetalDrop.attack'
+import { PoisonBubblesAttack } from './PoisonBubbles.attack'
 import { TackleAttack } from './Tackle.attack'
+
+import type { AttackType } from '@/Types/Attack.type'
 
 export const AllAttacks: Record<string, AttackType> = {
   tackle: TackleAttack,

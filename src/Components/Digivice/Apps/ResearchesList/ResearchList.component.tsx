@@ -1,21 +1,20 @@
 import { GiTwoCoins } from 'react-icons/gi'
 
+import { AllDigimons } from '@/GameData/Digimons'
+import { AllResearches } from '@/GameData/Researches'
+
+import { getTranslation } from '@/Helpers/Language'
 import {
   getAvailableResearches,
   isResearchPurchasable,
   purchaseResearch
 } from '@/Helpers/Systems/Profile'
-import { getTranslation } from '@/Helpers/Language'
-
-import { AllResearches } from '@/GameData/Researches'
-import { AllDigimons } from '@/GameData/Digimons'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Button } from '@/Components/DesignSystem/Button'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
-
 import { ItemsList } from '@/Components/Global/ItemsList'
 
 import './ResearchList.style.scss'

@@ -1,18 +1,19 @@
-import { TbListDetails } from 'react-icons/tb'
 import { FaCheck } from 'react-icons/fa'
+import { TbListDetails } from 'react-icons/tb'
 
 import { AllQuests } from '@/GameData/Quests'
 
+import { setCurrentDetails } from '@/Helpers/Systems/Digivice'
 import {
-  getQuestObjectives,
-  getQuestObjectiveText
+  getQuestObjectiveText,
+  getQuestObjectives
 } from '@/Helpers/Systems/Quests'
+
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
 import { Text } from '@/Components/DesignSystem/Text'
 
-import { setCurrentDetails } from '@/Helpers/Systems/Digivice'
-import { useDigiviceStore } from '@/Stores/Digivice.store'
 import './QuestsList.style.scss'
 
 export const QuestsList = ({
