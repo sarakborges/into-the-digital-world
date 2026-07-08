@@ -1,17 +1,12 @@
-import { AiOutlineExclamationCircle } from 'react-icons/ai'
-import { BsEye } from 'react-icons/bs'
-import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
-
 import { Fragment } from 'react/jsx-runtime'
 
-import type { ZoneType } from '@/Types/Zone.type'
+import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
+import { AiOutlineExclamationCircle } from 'react-icons/ai'
+import { BsEye } from 'react-icons/bs'
 
-import { AllZones } from '@/GameData/Zones'
-
-import { getActiveEvents, getInteractableTiles } from '@/Helpers/Systems/Zones'
+import { getInteractableTiles, getActiveEvents } from '@/Helpers/Systems/Zones'
 
 import { useDungeonStore } from '@/Stores/Dungeon.store'
-import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
@@ -21,19 +16,14 @@ import { Text } from '@/Components/DesignSystem/Text'
 import './InteractableTiles.style.scss'
 
 export const InteractableTiles = () => {
-  const { profile } = useProfileStore((state) => state)
   const { scene } = useSceneStore((state) => state)
   const { dungeon } = useDungeonStore((state) => state)
 
-  if (!profile?.currentZone || !!scene || !!dungeon) {
+  if (!!scene || !!dungeon) {
     return
   }
 
-  const currentZone: ZoneType = AllZones[profile.currentZone.id][
-    profile.currentZone.map
-  ] as ZoneType
-
-  const surroundingTiles = getInteractableTiles(currentZone, profile)
+  const surroundingTiles = getInteractableTiles()
 
   if (!surroundingTiles.length) {
     return
@@ -53,15 +43,15 @@ export const InteractableTiles = () => {
                     content={
                       <div className="npc-dialogs">
                         {!!tile.defaultText && (
-                          <div className="text-bubble">
+                          <blockquote className="text-bubble">
                             <Text as="p">{tile.defaultText}</Text>
-                          </div>
+                          </blockquote>
                         )}
 
                         {!!events?.length && (
-                          <div className="events-list">
+                          <ul className="events-list">
                             {events.map((event) => (
-                              <div
+                              <li
                                 key={`interactable-tile-y-${tile.y}-x${tile.x}-${tile.id}-event-${event.function}`}
                               >
                                 <Button
@@ -83,9 +73,9 @@ export const InteractableTiles = () => {
 
                                   <Text>{event.eventText}</Text>
                                 </Button>
-                              </div>
+                              </li>
                             ))}
-                          </div>
+                          </ul>
                         )}
                       </div>
                     }

@@ -1,20 +1,12 @@
-import { AiOutlineExclamationCircle } from 'react-icons/ai'
-import { BiSolidUserCircle } from 'react-icons/bi'
-import { GiCrossedSwords, GiPortal } from 'react-icons/gi'
-import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
-import { TbStars } from 'react-icons/tb'
-
 import type { CSSProperties } from 'react'
 
-import type { ZoneType } from '@/Types/Zone.type'
+import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
+import { AiOutlineExclamationCircle } from 'react-icons/ai'
+import { GiCrossedSwords, GiPortal } from 'react-icons/gi'
+import { BiSolidUserCircle } from 'react-icons/bi'
+import { TbStars } from 'react-icons/tb'
 
-import { AllZones } from '@/GameData/Zones'
-
-import {
-  getEventsOnZone,
-  getNpcsOnZone,
-  getVisibleTiles
-} from '@/Helpers/Systems/Zones'
+import { getVisibleTiles, getCurrentZone } from '@/Helpers/Systems/Zones'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -27,24 +19,12 @@ export const Map = () => {
     return
   }
 
-  const currentZone: ZoneType = AllZones[profile.currentZone.id][
-    profile.currentZone.map
-  ] as ZoneType
+  const currentZone = getCurrentZone()
+  const tiles = getVisibleTiles()
 
-  const npcs = getNpcsOnZone(currentZone.tiles)
-  const events = getEventsOnZone(currentZone.tiles)
-
-  const tiles = getVisibleTiles(
-    currentZone,
-    profile,
-    events as Array<{
-      x: number
-      y: number
-      onEnter?: { type?: 'warp' }
-      events?: Array<{ eventType?: 'important' | 'dungeon' }>
-    }>,
-    npcs
-  )
+  if (!currentZone) {
+    return
+  }
 
   const tileIcons = {
     dungeon: <GiCrossedSwords />,
@@ -56,7 +36,7 @@ export const Map = () => {
   }
 
   return (
-    <div
+    <section
       className="map"
       style={
         {
@@ -65,18 +45,19 @@ export const Map = () => {
           '--grid-size': currentZone.gridSize
         } as CSSProperties
       }
+      aria-label="Game map"
     >
-      <div className="map-tiles">
+      <ul className="map-tiles">
         {tiles.map((tile) => (
-          <div
+          <li
             style={{ '--tile-x': tile.x, '--tile-y': tile.y } as CSSProperties}
             className={tile.type}
             key={`minimap-${currentZone.name}-tile-${tile.id}`}
           >
             {tileIcons[tile.type]}
-          </div>
+          </li>
         ))}
-      </div>
-    </div>
+      </ul>
+    </section>
   )
 }

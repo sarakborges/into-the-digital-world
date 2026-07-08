@@ -1,37 +1,62 @@
+import type { ZoneEventType } from '@/Types/ZoneHelpers.type'
 import { hasEventTypeAt } from './hasEventTypeAt.helper'
+import { getCurrentZone } from './getCurrentZone.helper'
+import { useProfileStore } from '@/Stores/Profile.store'
 import { hasTileAt } from './hasTileAt.helper'
 
-import type { ZoneType } from '@/Types/Zone.type'
-import type {
-  ZoneEventType,
-  ZoneProfilePositionType
-} from '@/Types/ZoneHelpers.type'
-
-const isPlayerPosition = (
-  profile: ZoneProfilePositionType,
-  tileX: number,
+const isPlayerPosition = ({
+  profile,
+  tileX,
+  tileY
+}: {
+  profile: { currentZone: { x: number; y: number } }
+  tileX: number
   tileY: number
-) => profile.currentZone.x === tileX && profile.currentZone.y === tileY
+}) => profile.currentZone.x === tileX && profile.currentZone.y === tileY
 
-const isWarpTile = (events: ZoneEventType[], tileX: number, tileY: number) =>
+const isWarpTile = ({
+  events,
+  tileX,
+  tileY
+}: {
+  events: ZoneEventType[]
+  tileX: number
+  tileY: number
+}) =>
   events.some(
     (tile) =>
       tile.x === tileX && tile.y === tileY && tile.onEnter?.type === 'warp'
   )
 
-export const getTileType = (
-  currentZone: ZoneType,
-  profile: ZoneProfilePositionType,
-  events: ZoneEventType[],
-  npcs: Array<{ x: number; y: number }>,
-  tileX: number,
+export const getTileType = ({
+  tileX,
+  tileY
+}: {
+  tileX: number
   tileY: number
-) => {
+}) => {
+  const currentZone = getCurrentZone()
+  const { profile } = useProfileStore.getState()
+
+  if (!currentZone || !profile) {
+    return 'blocked'
+  }
+
+  const events = currentZone.tiles.filter(
+    (tile) =>
+      (tile.condition === undefined || !!tile.condition()) &&
+      (!!tile.onEnter || !!tile.events?.length)
+  )
+
+  const npcs = currentZone.tiles.filter(
+    (tile) => (tile.condition === undefined || !!tile.condition()) && !!tile.npc
+  )
+
   if (!currentZone.grid[tileY]?.[tileX]) {
     return 'blocked'
   }
 
-  if (isPlayerPosition(profile, tileX, tileY)) {
+  if (isPlayerPosition({ profile, tileX, tileY })) {
     return 'player'
   }
 
@@ -39,7 +64,7 @@ export const getTileType = (
     return 'event'
   }
 
-  if (isWarpTile(events, tileX, tileY)) {
+  if (isWarpTile({ events, tileX, tileY })) {
     return 'warp'
   }
 
