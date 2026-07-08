@@ -3,7 +3,7 @@ import { AllResearches } from '@/GameData/Researches'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 export const getAvailableResearches = (): string[] => {
-  const { profile } = useProfileStore.getState()
+  const profile = useProfileStore.getState().profile
 
   if (!profile) {
     return []

@@ -14,7 +14,7 @@ export const AppQuestsLog = () => {
     return
   }
 
-  const { notDone, done } = getQuestGroups(profile)
+  const { notDone, done } = getQuestGroups()
 
   return (
     <div className="quests-log">

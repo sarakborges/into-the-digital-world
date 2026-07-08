@@ -16,7 +16,7 @@ export const QuestsLogMinimal = () => {
     return
   }
 
-  const { notDone } = getQuestGroups(profile)
+  const { notDone } = getQuestGroups()
 
   return (
     <div className="quests-log-minimal">

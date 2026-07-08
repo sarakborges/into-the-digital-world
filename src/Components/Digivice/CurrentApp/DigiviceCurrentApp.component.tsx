@@ -26,10 +26,7 @@ export const DigiviceCurrentApp = ({ app }: DigiviceCurrentAppProps) => {
     return
   }
 
-  const { isAppDisabled } = getAppAvailability({
-    appId: app.id,
-    profileQuests: profile.quests
-  })
+  const { isAppDisabled } = getAppAvailability(app.id)
 
   const openApp = () => {
     setDigivice({ ...digivice, currentApp: app.app })

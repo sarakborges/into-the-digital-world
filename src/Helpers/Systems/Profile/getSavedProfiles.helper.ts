@@ -1,4 +1,11 @@
 import type { ProfileType } from '@/Types/Profile.type'
 
-export const getSavedProfiles = (savedProfiles: ProfileType[] | null) =>
-  [...(savedProfiles ?? [])].sort((a, b) => (a.lastSave > b.lastSave ? -1 : 1))
+import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
+
+export const getSavedProfiles = (): ProfileType[] => {
+  const savedProfiles = useSavedProfilesStore.getState().savedProfiles
+
+  return [...(savedProfiles ?? [])].sort((a, b) =>
+    a.lastSave > b.lastSave ? -1 : 1
+  )
+}

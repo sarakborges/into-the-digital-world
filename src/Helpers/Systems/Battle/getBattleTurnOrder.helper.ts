@@ -2,5 +2,12 @@ import type { BattleType } from '@/Types/Battle.type'
 
 import { isDigimonDefeated } from '@/Helpers/Systems/Battle'
 
-export const getBattleTurnOrder = (battle: BattleType) =>
-  battle.turnOrder.filter((digimon) => !isDigimonDefeated(digimon))
+import { useBattleStore } from '@/Stores/Battle.store'
+
+export const getBattleTurnOrder = (): BattleType['turnOrder'] => {
+  const { battle } = useBattleStore.getState()
+
+  if (!battle) return []
+
+  return battle.turnOrder.filter((digimon) => !isDigimonDefeated(digimon))
+}

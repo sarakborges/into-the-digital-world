@@ -1,12 +1,12 @@
-import type { CSSProperties } from 'react'
-
-import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
 import { AiOutlineExclamationCircle } from 'react-icons/ai'
-import { GiCrossedSwords, GiPortal } from 'react-icons/gi'
 import { BiSolidUserCircle } from 'react-icons/bi'
+import { GiCrossedSwords, GiPortal } from 'react-icons/gi'
+import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
 import { TbStars } from 'react-icons/tb'
 
-import { getVisibleTiles, getCurrentZone } from '@/Helpers/Systems/Zones'
+import type { CSSProperties } from 'react'
+
+import { getCurrentZone, getVisibleTiles } from '@/Helpers/Systems/Zones'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 

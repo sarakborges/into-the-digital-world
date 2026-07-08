@@ -4,8 +4,14 @@ import { AllZones } from '@/GameData/Zones'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-export const canMoveToCoordinate = ({ x, y }: { x: number; y: number }) => {
-  const { profile } = useProfileStore.getState()
+export const canMoveToCoordinate = ({
+  x,
+  y
+}: {
+  x: number
+  y: number
+}): boolean => {
+  const profile = useProfileStore.getState().profile
 
   if (!profile) {
     return false

@@ -31,7 +31,7 @@ export const AppAcquaintances = () => {
     return <AppAcquaintancesDetails />
   }
 
-  const acquaintanceGroups = getAcquaintanceGroups(profile)
+  const acquaintanceGroups = getAcquaintanceGroups()
 
   return (
     <div className="acquaintances">

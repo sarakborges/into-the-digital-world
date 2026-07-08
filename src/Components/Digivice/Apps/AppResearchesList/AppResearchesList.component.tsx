@@ -24,7 +24,7 @@ export const AppResearchesList = () => {
     return
   }
 
-  const allResearches = getResearches(profile)
+  const allResearches = getResearches()
 
   const toggleDetails = (researchId: string) => {
     setDigivice({

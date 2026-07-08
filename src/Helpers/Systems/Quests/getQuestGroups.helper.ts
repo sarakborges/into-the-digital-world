@@ -1,8 +1,14 @@
-import type { ProfileType } from '@/Types/Profile.type'
+import { isQuestDone } from '@/Helpers/Systems/Quests/isQuestDone.helper'
 
-import { isQuestDone } from '@/Helpers/Systems/Quests'
+import { useProfileStore } from '@/Stores/Profile.store'
 
-export const getQuestGroups = (profile: ProfileType) => {
+export const getQuestGroups = () => {
+  const profile = useProfileStore.getState().profile
+
+  if (!profile) {
+    return { notDone: [], done: [] }
+  }
+
   const questIds = Object.keys(profile.quests ?? {})
 
   return {

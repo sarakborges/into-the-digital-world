@@ -1,12 +1,17 @@
 import type { AcquaintanceGroupType } from '@/Types/DigiviceHelpers.type'
-import type { ProfileType } from '@/Types/Profile.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-export const getAcquaintanceGroups = (
-  profile: ProfileType
-): AcquaintanceGroupType[] =>
-  Object.keys(AllNpcs)
+import { useProfileStore } from '@/Stores/Profile.store'
+
+export const getAcquaintanceGroups = (): AcquaintanceGroupType[] => {
+  const profile = useProfileStore.getState().profile
+
+  if (!profile) {
+    return []
+  }
+
+  return Object.keys(AllNpcs)
     .map((category) => {
       const npcs = Object.keys(AllNpcs[category])
         .filter(
@@ -32,3 +37,4 @@ export const getAcquaintanceGroups = (
       }
     })
     .filter(({ npcs }) => npcs.length)
+}

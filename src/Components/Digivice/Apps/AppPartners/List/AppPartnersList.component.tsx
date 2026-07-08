@@ -39,7 +39,7 @@ export const AppPartnersList = () => {
     return <PartnerDetails />
   }
 
-  const partners = getPartnerGroups(profile)
+  const partners = getPartnerGroups()
 
   return (
     <div className="partners-list">

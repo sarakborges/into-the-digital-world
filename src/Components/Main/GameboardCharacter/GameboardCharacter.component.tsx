@@ -28,7 +28,6 @@ export const GameboardCharacter = ({
   }
 
   const { shouldRender, opacity } = getCharacterVisibility({
-    profile,
     tile,
     isPlayer
   })

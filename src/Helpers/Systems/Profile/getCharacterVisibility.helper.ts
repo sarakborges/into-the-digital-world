@@ -1,15 +1,16 @@
-import type { ProfileType } from '@/Types/Profile.type'
 import type { ZoneTileType } from '@/Types/ZoneTile.type'
 
+import { useProfileStore } from '@/Stores/Profile.store'
+
 export const getCharacterVisibility = ({
-  profile,
   tile,
   isPlayer
 }: {
-  profile: ProfileType
   tile?: ZoneTileType
   isPlayer?: boolean
 }) => {
+  const profile = useProfileStore.getState().profile
+
   const isVisible =
     (!tile?.npc?.id && !isPlayer && !profile) ||
     (!isPlayer && !tile?.npc?.isVisible)

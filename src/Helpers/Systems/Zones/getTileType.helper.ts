@@ -1,18 +1,15 @@
-import type { ZoneEventType } from '@/Types/ZoneHelpers.type'
-import { hasEventTypeAt } from './hasEventTypeAt.helper'
 import { getCurrentZone } from './getCurrentZone.helper'
-import { useProfileStore } from '@/Stores/Profile.store'
+import { hasEventTypeAt } from './hasEventTypeAt.helper'
 import { hasTileAt } from './hasTileAt.helper'
 
-const isPlayerPosition = ({
-  profile,
-  tileX,
-  tileY
-}: {
-  profile: { currentZone: { x: number; y: number } }
-  tileX: number
-  tileY: number
-}) => profile.currentZone.x === tileX && profile.currentZone.y === tileY
+import type { ZoneEventType } from '@/Types/ZoneHelpers.type'
+
+import { useProfileStore } from '@/Stores/Profile.store'
+
+const isPlayerPosition = (tileX: number, tileY: number): boolean => {
+  const profile = useProfileStore.getState().profile
+  return profile?.currentZone?.x === tileX && profile?.currentZone?.y === tileY
+}
 
 const isWarpTile = ({
   events,
@@ -36,9 +33,8 @@ export const getTileType = ({
   tileY: number
 }) => {
   const currentZone = getCurrentZone()
-  const { profile } = useProfileStore.getState()
 
-  if (!currentZone || !profile) {
+  if (!currentZone) {
     return 'blocked'
   }
 
@@ -56,7 +52,7 @@ export const getTileType = ({
     return 'blocked'
   }
 
-  if (isPlayerPosition({ profile, tileX, tileY })) {
+  if (isPlayerPosition(tileX, tileY)) {
     return 'player'
   }
 

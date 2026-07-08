@@ -1,7 +1,7 @@
 import * as EnDialogs from '@/GameData/Dialogs/En'
 import * as EnTexts from '@/GameData/Texts/En'
 
-import { loadData } from '@/Helpers/Systems/Data'
+import { useSettingsStore } from '@/Stores/Settings.store'
 
 export const getTranslation = (
   key: string,
@@ -13,7 +13,7 @@ export const getTranslation = (
     en: { ...EnDialogs, ...EnTexts }
   }
 
-  const settings = loadData({ key: 'settings' })
+  const settings = useSettingsStore.getState().settings
   const lang = settings?.language || defaultLanguage
 
   let value = translations[lang][key]

@@ -1,6 +1,10 @@
 import { THEMES } from '@/Consts/Themes.const'
 
-export const getThemeBackground = (theme?: string) => {
+import { useSettingsStore } from '@/Stores/Settings.store'
+
+export const getThemeBackground = (): string => {
+  const theme = useSettingsStore.getState().settings?.theme
+
   const availableThemes = {
     ...THEMES.default,
     ...THEMES.crests

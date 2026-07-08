@@ -37,7 +37,7 @@ export const AppLocation = () => {
     setScene(null)
   }
 
-  const availableWarpLocations = getAvailableWarpLocations(profile)
+  const availableWarpLocations = getAvailableWarpLocations()
 
   return (
     <div className="locations">

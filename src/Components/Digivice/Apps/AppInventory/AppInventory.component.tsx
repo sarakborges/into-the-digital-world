@@ -16,7 +16,7 @@ export const AppInventory = () => {
     return
   }
 
-  const categories = getInventoryCategories(profile)
+  const categories = getInventoryCategories()
 
   return (
     <div className="inventory">

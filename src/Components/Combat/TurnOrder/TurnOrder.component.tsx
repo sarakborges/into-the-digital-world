@@ -10,10 +10,10 @@ export const TurnOrder = () => {
   const { battle } = useBattleStore((state) => state)
 
   if (!battle) {
-    return
+    return null
   }
 
-  const [currentDigimon, ...otherDigimons] = getBattleTurnOrder(battle)
+  const [currentDigimon, ...otherDigimons] = getBattleTurnOrder()
 
   return (
     <div className="turn-order">

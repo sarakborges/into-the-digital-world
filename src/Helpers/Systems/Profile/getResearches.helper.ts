@@ -1,8 +1,21 @@
-import type { ProfileType } from '@/Types/Profile.type'
-
 import { AllDigimons } from '@/GameData/Digimons'
 
-export const getResearches = (profile: ProfileType) =>
-  Object.values(profile.researches ?? {}).map((research) => ({
-    ...AllDigimons[research]
+import { useProfileStore } from '@/Stores/Profile.store'
+
+export const getResearches = (): Array<{
+  id: string
+  name: string
+  portrait: string
+}> => {
+  const profile = useProfileStore.getState().profile
+
+  if (!profile) {
+    return []
+  }
+
+  return Object.values(profile.researches ?? {}).map((research) => ({
+    id: research,
+    name: AllDigimons[Number(research)].name,
+    portrait: AllDigimons[Number(research)].portrait
   }))
+}

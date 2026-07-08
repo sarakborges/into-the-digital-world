@@ -1,7 +1,9 @@
-import type { VisibleTileType } from '@/Types/ZoneHelpers.type'
 import { getCurrentZone } from './getCurrentZone.helper'
-import { useProfileStore } from '@/Stores/Profile.store'
 import { getTileType } from './getTileType.helper'
+
+import type { VisibleTileType } from '@/Types/ZoneHelpers.type'
+
+import { useProfileStore } from '@/Stores/Profile.store'
 
 export const getVisibleTiles = (): VisibleTileType[] => {
   const currentZone = getCurrentZone()

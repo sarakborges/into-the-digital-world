@@ -5,7 +5,7 @@ import { AllZones } from '@/GameData/Zones'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 export const getCurrentZone = (): ZoneType | undefined => {
-  const { profile } = useProfileStore.getState()
+  const profile = useProfileStore.getState().profile
 
   if (!profile?.currentZone) {
     return undefined

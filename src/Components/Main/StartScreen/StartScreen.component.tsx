@@ -33,7 +33,7 @@ export const StartScreen = () => {
       <header>
         <Portrait
           alt={getTranslation('START_SCREEN_TITLE')}
-          src={`/digivice_backgrounds/${getThemeBackground(settings.theme)}.webp`}
+          src={`/digivice_backgrounds/${getThemeBackground()}.webp`}
         />
 
         <Text as="p">{getTranslation('START_SCREEN_TITLE')}</Text>
