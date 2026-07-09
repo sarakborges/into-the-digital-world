@@ -64,12 +64,12 @@ export const CompositionsList = () => {
                         AvailableResearchesAtJijimon[baseDigimon.id]
                           .optionalItems
 
-                      for (let item in requiredItems) {
+                      for (const item in requiredItems) {
                         totalItems[item] =
                           (totalItems[item] || 0) + requiredItems[item]
                       }
 
-                      for (let item in optionalItems) {
+                      for (const item in optionalItems) {
                         totalItems[item] =
                           (totalItems[item] || 0) + optionalItems[item]
                       }

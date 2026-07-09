@@ -10,26 +10,16 @@ export const Input: React.FC<InputType> = ({
   label,
   ...rest
 }) => {
-  const InputComponent = () => (
-    <input
-      id={name}
-      name={name}
-      className={`input ${className || ''}`}
-      {...rest}
-    />
-  )
-
   return (
-    <>
-      {!label && <InputComponent />}
+    <div className="input-wrapper">
+      {label && <label htmlFor={name}>{label}</label>}
 
-      {!!label && (
-        <div className="input-wrapper">
-          <label htmlFor={name}>{label}</label>
-
-          <InputComponent />
-        </div>
-      )}
-    </>
+      <input
+        id={name}
+        name={name}
+        className={`input ${className || ''}`}
+        {...rest}
+      />
+    </div>
   )
 }

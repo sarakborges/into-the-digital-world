@@ -2,7 +2,12 @@ import type { CSSProperties } from 'react'
 
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
-import { isBattleOver, isDigimonDefeated } from '@/Helpers/Systems/Battle'
+import {
+  getConditionColor,
+  isBattleOver,
+  isCurrentTurnDigimon,
+  isDigimonDefeated
+} from '@/Helpers/Systems/Battle'
 
 import { CONDITIONS } from '@/Consts/Conditions.const'
 
@@ -36,9 +41,7 @@ export const BattleParty = ({
           key={`battle-party-${party.title}-digimon-${digimon.index}`}
           className="party-member"
           data-currentturn={
-            !battleOver &&
-            battle.turnOrder[0].party === digimon.party &&
-            battle.turnOrder[0].index === digimon.index
+            !battleOver && isCurrentTurnDigimon(battle, digimon)
           }
           data-defeated={isDigimonDefeated(digimon)}
         >
@@ -53,7 +56,7 @@ export const BattleParty = ({
                   <div
                     style={
                       {
-                        '--icon-color': CONDITIONS[condition].color
+                        '--icon-color': getConditionColor(condition)
                       } as CSSProperties
                     }
                     key={`party-${digimon.party}-digimon-${digimon.index}-condition-${condition}`}

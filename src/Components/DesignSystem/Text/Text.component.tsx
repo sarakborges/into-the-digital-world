@@ -1,3 +1,5 @@
+import { splitTextIntoParagraphs } from '@/Helpers/Components'
+
 import './Text.style.scss'
 
 export const Text = ({
@@ -12,7 +14,7 @@ export const Text = ({
   if (as === 'p') {
     return (
       <>
-        {`${children}`.split('\n\n').reduce(
+        {splitTextIntoParagraphs(children).reduce(
           (acc, cur) => (
             <>
               {acc}

@@ -22,10 +22,10 @@ export const Compose003 = () => {
     return
   }
 
-  const requiredItems = !!composition
+  const requiredItems = composition
     ? AllResearches[composition.baseDigimon.id].requiredItems || {}
     : {}
-  const optionalItems = !!composition ? composition.optionalItems || {} : {}
+  const optionalItems = composition ? composition.optionalItems || {} : {}
 
   const playerHasEnoughItems = Object.keys(composition.totalItems ?? {}).some(
     (item) =>
@@ -52,11 +52,11 @@ export const Compose003 = () => {
       }
     }
 
-    for (let item of Object.keys(requiredItems)) {
+    for (const item of Object.keys(requiredItems)) {
       updatedProfile.items[item] -= requiredItems[item] || 0
     }
 
-    for (let item of Object.keys(optionalItems)) {
+    for (const item of Object.keys(optionalItems)) {
       updatedProfile.items[item] -= optionalItems[item] || 0
     }
 

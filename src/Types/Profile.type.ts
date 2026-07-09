@@ -39,7 +39,7 @@ export type ProfileType = {
   }
 
   npcAcquaintances: {
-    [key: string]: {}
+    [key: string]: unknown
   }
 
   meaningfulChoices: {

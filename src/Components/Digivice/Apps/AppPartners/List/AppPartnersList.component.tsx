@@ -35,7 +35,7 @@ export const AppPartnersList = () => {
     return
   }
 
-  if (!!digivice?.currentDetails) {
+  if (digivice?.currentDetails) {
     return <PartnerDetails />
   }
 
@@ -57,7 +57,7 @@ export const AppPartnersList = () => {
           </Text>
 
           <div className="partners-list-list">
-            {!!partners[category].length ? (
+            {partners[category].length ? (
               partners[category].map((partner) => {
                 const baseDigimon = AllDigimons[
                   partner.baseDigimon

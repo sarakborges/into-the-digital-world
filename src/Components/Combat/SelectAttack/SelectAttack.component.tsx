@@ -1,5 +1,9 @@
 import { getTranslation } from '@/Helpers/Language'
-import { doAttack, getBattleAttackOptions } from '@/Helpers/Systems/Battle'
+import {
+  doAttack,
+  getBattleAttackOptions,
+  isEnemyTurn
+} from '@/Helpers/Systems/Battle'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 
@@ -11,15 +15,11 @@ import './SelectAttack.style.scss'
 export const SelectAttack = () => {
   const { battle } = useBattleStore((state) => state)
 
-  if (!battle) {
+  if (!battle || isEnemyTurn(battle)) {
     return
   }
 
   const [currentTurn] = battle.turnOrder
-
-  if (currentTurn.party === 'enemies') {
-    return
-  }
 
   const attackOptions = getBattleAttackOptions(currentTurn)
 

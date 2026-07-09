@@ -1,4 +1,4 @@
-import { getCurrentZone } from '@/Helpers/Systems/Zones'
+import { getCurrentZone, getGameboardStyles } from '@/Helpers/Systems/Zones'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useDungeonStore } from '@/Stores/Dungeon.store'
@@ -25,12 +25,12 @@ export const Gameboard = () => {
 
   const currentZone = getCurrentZone()!
 
-  const gameboardBodyVars = {
-    '--current-x': profile.currentZone.x,
-    '--current-y': profile.currentZone.y,
-    '--grid-size': currentZone.gridSize,
-    '--is-warping': !game?.isWarping ? 1 : 0
-  } as React.CSSProperties
+  const gameboardBodyVars = getGameboardStyles(
+    profile.currentZone.x || 0,
+    profile.currentZone.y || 0,
+    currentZone.gridSize || 0,
+    !!game?.isWarping
+  )
 
   return (
     <div className="gameboard-container">

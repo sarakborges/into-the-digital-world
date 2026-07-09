@@ -1,8 +1,20 @@
+import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
+import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
+
 import { AllDigimons } from '@/GameData/Digimons'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-export const getPartnerGroups = (): { inParty: any[]; others: any[] } => {
+type PartnerWithBaseDigimonType = Omit<PartnerDigimonType, 'baseDigimon'> & {
+  baseDigimon: BaseDigimonType
+}
+
+type PartnerGroupType = {
+  inParty: Array<PartnerWithBaseDigimonType>
+  others: Array<PartnerWithBaseDigimonType>
+}
+
+export const getPartnerGroups = (): PartnerGroupType => {
   const profile = useProfileStore.getState().profile
 
   if (!profile) {

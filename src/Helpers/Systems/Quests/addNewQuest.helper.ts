@@ -26,7 +26,7 @@ export const addNewQuest = ({
     }
   }
 
-  if (!!ignoreSession) {
+  if (ignoreSession) {
     setProfile(updatedProfile)
     return
   }

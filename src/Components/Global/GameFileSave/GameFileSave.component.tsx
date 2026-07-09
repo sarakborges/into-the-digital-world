@@ -19,6 +19,7 @@ export const GameFileSave = ({ profile }: { profile: ProfileType }) => {
   }
 
   const zone = AllZones[profile.currentZone.id] as ZoneCategoryType
+  const currentMap = zone[profile.currentZone.map] as ZoneType
 
   return (
     <div className="game-file-save">
@@ -35,7 +36,7 @@ export const GameFileSave = ({ profile }: { profile: ProfileType }) => {
         <Text as="p">
           {getTranslation('GAME_FILE_ZONE', {
             '[ZONE]': zone.name,
-            '[MAP]': (zone[profile.currentZone.map] as ZoneType).name
+            '[MAP]': currentMap.name
           })}
         </Text>
 

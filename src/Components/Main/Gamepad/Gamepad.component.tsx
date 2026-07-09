@@ -2,7 +2,11 @@ import { BiCaretDown } from 'react-icons/bi'
 
 import { Fragment } from 'react/jsx-runtime'
 
-import { canMoveToCoordinate, setLocation } from '@/Helpers/Systems/Zones'
+import {
+  canMoveToCoordinate,
+  getGamepadCoordinates,
+  setLocation
+} from '@/Helpers/Systems/Zones'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useGameStore } from '@/Stores/Game.store'
@@ -23,17 +27,7 @@ export const Gamepad = () => {
     return
   }
 
-  const coordinates = [
-    { x: -1, y: -1 },
-    { x: 0, y: -1 },
-    { x: +1, y: -1 },
-    { x: -1, y: 0 },
-    null,
-    { x: +1, y: 0 },
-    { x: -1, y: +1 },
-    { x: +0, y: +1 },
-    { x: +1, y: +1 }
-  ].map((coordinate) => {
+  const coordinates = getGamepadCoordinates().map((coordinate) => {
     if (!coordinate) {
       return null
     }
@@ -48,7 +42,7 @@ export const Gamepad = () => {
     <aside className="gamepad">
       {coordinates.map((coordinate, coordinateIndex) => (
         <Fragment key={`gamepad-${coordinateIndex}`}>
-          {!!coordinate ? (
+          {coordinate ? (
             <Button
               style="secondary"
               disabled={!coordinate.canMove || !!game?.isWarping}

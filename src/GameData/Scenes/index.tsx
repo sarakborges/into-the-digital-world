@@ -16,6 +16,7 @@ import { useBattleStore } from '@/Stores/Battle.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const AllScenes = {
   [IntroductionScenes.id]: IntroductionScenes,
   [AvatarCustomizationScenes.id]: AvatarCustomizationScenes,

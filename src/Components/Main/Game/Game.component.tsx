@@ -3,8 +3,7 @@ import { useEffect } from 'react'
 import { Scene } from '@/GameData/Scenes'
 
 import { loadData, loadGameSession } from '@/Helpers/Systems/Data'
-
-import { THEMES } from '@/Consts/Themes.const'
+import { getThemeClassName } from '@/Helpers/Systems/Game'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
 
@@ -23,29 +22,17 @@ import './Game.style.scss'
 export const Game = () => {
   const { settings, setSettings } = useSettingsStore((state) => state)
 
+  useEffect(() => {
+    loadGameSession()
+    setSettings({ ...loadData({ key: 'settings' }), isOpen: false })
+  }, [setSettings])
+
   if (!settings) {
     return
   }
 
-  useEffect(() => {
-    loadGameSession()
-    setSettings({ ...loadData({ key: 'settings' }), isOpen: false })
-  }, [])
-
   return (
-    <div
-      className={`game-body theme-${
-        settings.theme &&
-        Object.keys({
-          ...THEMES.default,
-          ...THEMES.crests,
-          ...THEMES.families,
-          ...THEMES.other
-        }).includes(settings.theme)
-          ? settings.theme
-          : 'default'
-      }`}
-    >
+    <div className={`game-body theme-${getThemeClassName(settings.theme)}`}>
       <div className="main-game">
         <div className="game-container">
           <header>

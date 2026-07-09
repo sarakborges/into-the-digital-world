@@ -1,5 +1,7 @@
 import type { ButtonHTMLAttributes } from 'react'
 
+import { getButtonClassNames } from '@/Helpers/Components'
+
 import './Button.style.scss'
 
 type ButtonType = {
@@ -12,26 +14,8 @@ export const Button: React.FC<ButtonType> = ({
   style,
   ...rest
 }) => {
-  const classNames = ['button']
-
-  if (style === 'primary' || !style) {
-    classNames.push('primary')
-  }
-
-  if (style === 'secondary') {
-    classNames.push('secondary')
-  }
-
-  if (style === 'cancel') {
-    classNames.push('cancel')
-  }
-
-  if (!!className) {
-    classNames.push(className)
-  }
-
   return (
-    <button className={classNames.join(' ')} {...rest}>
+    <button className={getButtonClassNames(style, className)} {...rest}>
       {children}
     </button>
   )

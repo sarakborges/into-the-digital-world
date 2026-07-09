@@ -16,7 +16,7 @@ export const purchaseResearch = (researchId: string) => {
     researches: [...(profile.researches ?? []), researchId]
   }
 
-  for (let item of Object.keys(AllResearches[researchId].cost)) {
+  for (const item of Object.keys(AllResearches[researchId].cost)) {
     updatedProfile.items[item] -= AllResearches[researchId].cost[item]
   }
 

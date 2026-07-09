@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 import { getTranslation } from '@/Helpers/Language'
-import { loadProfiles } from '@/Helpers/Systems/Profile'
+import { getSortedProfiles, loadProfiles } from '@/Helpers/Systems/Profile'
 import { getThemeBackground } from '@/Helpers/Systems/Settings'
 
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -47,14 +47,9 @@ export const StartScreen = () => {
           </header>
 
           <div className="games-list">
-            {savedProfiles
-              ?.sort((a, b) => (a.lastSave > b.lastSave ? -1 : 1))
-              .map((profile) => (
-                <GameFile
-                  profile={profile}
-                  key={`savedProfiles-${profile.id}`}
-                />
-              ))}
+            {getSortedProfiles(savedProfiles || []).map((profile) => (
+              <GameFile profile={profile} key={`savedProfiles-${profile.id}`} />
+            ))}
           </div>
         </div>
       </main>

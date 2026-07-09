@@ -27,7 +27,7 @@ export const AppAcquaintances = () => {
     return
   }
 
-  if (!!digivice?.currentDetails) {
+  if (digivice?.currentDetails) {
     return <AppAcquaintancesDetails />
   }
 

@@ -18,17 +18,22 @@ export const Dungeon = () => {
   const { scene, setScene } = useSceneStore((state) => state)
   const { battle } = useBattleStore((state) => state)
 
-  if (!dungeon) {
-    return
-  }
-
-  const currentDungeon = AllDungeons[dungeon.zoneId]?.[dungeon.dungeonId]
-  const currentRoomIndex = dungeon.doneRooms.length
-  const room = currentDungeon?.possibleRooms[dungeon.rooms[currentRoomIndex]]
-  const shouldChooseRoom = !scene && dungeon.currentRoomsOptions.length > 0
+  const currentDungeon = dungeon
+    ? AllDungeons[dungeon.zoneId]?.[dungeon.dungeonId]
+    : undefined
+  const currentRoomIndex = dungeon?.doneRooms.length ?? 0
+  const room =
+    currentDungeon?.possibleRooms[dungeon?.rooms[currentRoomIndex] ?? ''] ??
+    undefined
+  const shouldChooseRoom =
+    !!dungeon && !scene && dungeon.currentRoomsOptions.length > 0
   const shouldStartBattle = room?.type === 'battle' && !scene
 
   useEffect(() => {
+    if (!dungeon) {
+      return
+    }
+
     if (shouldChooseRoom) {
       setScene({
         currentScene: 'dungeon',
@@ -57,7 +62,11 @@ export const Dungeon = () => {
       currentScene: 'battle',
       currentStage: 'turn'
     })
-  }, [battle, shouldChooseRoom, shouldStartBattle, setScene, scene])
+  }, [battle, dungeon, scene, shouldChooseRoom, shouldStartBattle, setScene])
+
+  if (!dungeon) {
+    return
+  }
 
   return (
     <div className="dungeon-container">

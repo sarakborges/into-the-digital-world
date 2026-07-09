@@ -17,15 +17,12 @@ const getNextRoomOptions = (roomIds: Array<string>) => {
 
   const nextRoomOptions: Array<string> = []
 
-  for (let _ of new Array(2)) {
-    nextRoomOptions.push(
-      roomIds[
-        generateRandomNumber({
-          min: 0,
-          max: roomIds.length - 1
-        })
-      ]
-    )
+  for (let i = 0; i < 2; i++) {
+    const randomIndex = generateRandomNumber({
+      min: 0,
+      max: roomIds.length - 1
+    })
+    nextRoomOptions.push(roomIds[randomIndex])
   }
 
   return nextRoomOptions

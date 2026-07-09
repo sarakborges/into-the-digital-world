@@ -17,7 +17,7 @@ import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { Text } from '@/Components/DesignSystem/Text'
 
 export const BattleEnd = () => {
-  const { profile } = useProfileStore((state) => state)
+  const { profile, setProfile } = useProfileStore((state) => state)
   const { battle } = useBattleStore((state) => state)
   const { dungeon } = useDungeonStore((state) => state)
   const { setScene } = useSceneStore((state) => state)
@@ -56,13 +56,15 @@ export const BattleEnd = () => {
             return
           }
 
-          if (battleResult === 'victory') {
-            if (!!battle.loot) {
-              for (let item of Object.keys(battle.loot)) {
-                profile.items[item] =
-                  (profile.items[item] || 0) + battle.loot[item]
-              }
+          if (battleResult === 'victory' && battle.loot) {
+            const updatedItems = { ...profile.items }
+
+            for (const item of Object.keys(battle.loot)) {
+              updatedItems[item] =
+                (profile.items[item] || 0) + battle.loot[item]
             }
+
+            setProfile({ ...profile, items: updatedItems })
           }
 
           if (battleResult === 'defeat') {

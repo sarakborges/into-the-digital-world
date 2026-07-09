@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { skipTurn } from '@/Helpers/Systems/Battle'
+import { isSceneStart, skipTurn } from '@/Helpers/Systems/Battle'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -18,7 +18,7 @@ export const Battlefield = () => {
     skipTurn()
   }, [battle])
 
-  if (!battle || scene?.currentStage === 'start') {
+  if (!battle || isSceneStart(scene)) {
     return
   }
 

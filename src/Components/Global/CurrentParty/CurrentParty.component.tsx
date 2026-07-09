@@ -1,6 +1,5 @@
-import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
-
-import { AllDigimons } from '@/GameData/Digimons'
+import { getBaseDigimonFromParty } from '@/Helpers/Systems/Profile'
+import { getDigimonDisplayName } from '@/Helpers/Systems/Profile'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -25,11 +24,10 @@ export const CurrentParty = () => {
       <div className="current-party">
         <div className="party-digimons">
           {profile.party.map((digimon) => {
-            const baseDigimon = profile.partnerDigimons[digimon]
-              ? (AllDigimons[
-                  profile.partnerDigimons[digimon].baseDigimon
-                ] as BaseDigimonType)
-              : undefined
+            const baseDigimon = getBaseDigimonFromParty(
+              digimon,
+              profile.partnerDigimons
+            )
 
             if (!baseDigimon) {
               return null
@@ -56,7 +54,11 @@ export const CurrentParty = () => {
 
                 <footer>
                   <Text>
-                    {profile.partnerDigimons[digimon].name || baseDigimon.name}
+                    {getDigimonDisplayName(
+                      digimon,
+                      profile.partnerDigimons,
+                      baseDigimon
+                    )}
                   </Text>
                 </footer>
               </div>

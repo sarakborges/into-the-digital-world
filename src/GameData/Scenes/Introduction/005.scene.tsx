@@ -17,10 +17,6 @@ export const Introduction005 = () => {
   const { setScene } = useSceneStore((state) => state)
   const { profile, setProfile } = useProfileStore((state) => state)
 
-  if (!profile) {
-    return
-  }
-
   useEffect(() => {
     const sceneContinue = document.querySelector(
       '#scene-introduction-005-continue'
@@ -28,6 +24,10 @@ export const Introduction005 = () => {
 
     sceneContinue.disabled = true
   }, [])
+
+  if (!profile) {
+    return
+  }
 
   const dialogOptions: DialogType = {
     speaker: AllNpcs.general.gennai,

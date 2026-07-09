@@ -51,7 +51,7 @@ export const spawnEnemies = () => {
       () => Math.random() - 0.5
     )
 
-    for (let spawn of randomizedPossibleSpawns) {
+    for (const spawn of randomizedPossibleSpawns) {
       if (enemiesSpawned.length >= enemyQuantity) {
         break
       }

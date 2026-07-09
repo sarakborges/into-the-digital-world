@@ -10,15 +10,12 @@ export const enterDungeon = (dungeon: DungeonType) => {
   let firstRoomOptions: Array<string> = []
 
   if (availableFirstRooms.length > 2) {
-    for (let _ of new Array(2)) {
-      firstRoomOptions.push(
-        availableFirstRooms[
-          generateRandomNumber({
-            min: 0,
-            max: availableFirstRooms.length - 1
-          })
-        ]
-      )
+    for (let i = 0; i < 2; i++) {
+      const randomIndex = generateRandomNumber({
+        min: 0,
+        max: availableFirstRooms.length - 1
+      })
+      firstRoomOptions.push(availableFirstRooms[randomIndex])
     }
   }
 
