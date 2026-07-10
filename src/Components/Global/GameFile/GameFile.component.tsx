@@ -1,7 +1,5 @@
 import type { ProfileType } from '@/Types/Profile.type'
-import type { ZoneType } from '@/Types/Zone.type'
 
-import type { ZoneCategoryType } from '@/GameData/Zones'
 import { AllZones } from '@/GameData/Zones'
 
 import { getTranslation } from '@/Helpers/Language'
@@ -18,8 +16,12 @@ export const GameFile = ({ profile }: { profile: ProfileType }) => {
     return
   }
 
-  const zone = AllZones[profile.currentZone.id] as ZoneCategoryType
-  const currentMap = zone[profile.currentZone.map] as ZoneType
+  const zone = AllZones[profile.currentZone.id]
+  const map = zone.maps[profile.currentZone.map]
+
+  if (!zone || !map) {
+    return
+  }
 
   return (
     <div className="game-file">
@@ -36,7 +38,7 @@ export const GameFile = ({ profile }: { profile: ProfileType }) => {
         <Text as="p">
           {getTranslation('GAME_FILE_ZONE', {
             '[ZONE]': zone.name,
-            '[MAP]': currentMap.name
+            '[MAP]': map.name
           })}
         </Text>
 

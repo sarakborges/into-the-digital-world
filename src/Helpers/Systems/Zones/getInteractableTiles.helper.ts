@@ -1,14 +1,9 @@
-import type { ZoneType } from '@/Types/Zone.type'
-
-import { AllZones } from '@/GameData/Zones'
-
 import { getCurrentMap } from '@/Helpers/Systems/Zones/getCurrentMap.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
 export const getInteractableTiles = () => {
   const profile = useProfileStore.getState().profile
-
   const currentMap = getCurrentMap()
 
   if (!profile?.currentZone || !currentMap) {

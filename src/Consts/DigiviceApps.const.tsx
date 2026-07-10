@@ -80,7 +80,6 @@ export const DigiviceApps = {
   journal: APP_JOURNAL,
   acquaintances: APP_ACQUAINTANCES,
   partnersList: APP_PARTNERSLIST,
-  map: APP_MAP,
   save: APP_SAVE,
   logoff: APP_LOGOFF
 }

@@ -1,11 +1,10 @@
 import type { ProfileType } from '@/Types/Profile.type'
-import type { ZoneType } from '@/Types/Zone.type'
 
-import type { ZoneCategoryType } from '@/GameData/Zones'
 import { AllZones } from '@/GameData/Zones'
 
 import { getTranslation } from '@/Helpers/Language'
 import { saveProfile } from '@/Helpers/Systems/Profile'
+import { getCurrentMap, getCurrentZone } from '@/Helpers/Systems/Zones'
 
 import { Button } from '@/Components/DesignSystem/Button'
 import { Text } from '@/Components/DesignSystem/Text'
@@ -18,8 +17,12 @@ export const GameFileSave = ({ profile }: { profile: ProfileType }) => {
     return
   }
 
-  const zone = AllZones[profile.currentZone.id] as ZoneCategoryType
-  const currentMap = zone[profile.currentZone.map] as ZoneType
+  const zone = AllZones[profile.currentZone.id]
+  const map = zone.maps[profile.currentZone.map]
+
+  if (!zone || !map) {
+    return
+  }
 
   return (
     <div className="game-file-save">
@@ -36,7 +39,7 @@ export const GameFileSave = ({ profile }: { profile: ProfileType }) => {
         <Text as="p">
           {getTranslation('GAME_FILE_ZONE', {
             '[ZONE]': zone.name,
-            '[MAP]': currentMap.name
+            '[MAP]': map.name
           })}
         </Text>
 
@@ -48,7 +51,7 @@ export const GameFileSave = ({ profile }: { profile: ProfileType }) => {
       </header>
 
       <div className="game-options">
-        <Button onClick={() => saveProfile(profile.id)} style="secondary">
+        <Button onClick={() => saveProfile(profile.id)}>
           {getTranslation('SAVEGAME_001_REWRITE')}
         </Button>
       </div>

@@ -34,7 +34,7 @@ export const Gameboard = () => {
 
   return (
     <div className="gameboard-container">
-      <Minimap />
+      {/* <Minimap /> */}
       <Gamepad />
 
       <main className="gameboard">

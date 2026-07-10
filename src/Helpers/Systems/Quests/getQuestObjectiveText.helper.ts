@@ -1,5 +1,3 @@
-import type { ZoneType } from '@/Types/Zone.type'
-
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllZones } from '@/GameData/Zones'
 
@@ -17,6 +15,6 @@ export const getQuestObjectiveText = (objective: {
     ),
     '[TARGET]': AllNpcs?.[objective.target.type]?.[objective.target.id].name,
     '[WHERE]': AllZones[objective.where].name,
-    '[MAP]': (AllZones[objective.where][objective.map] as ZoneType).name
+    '[MAP]': AllZones[objective.where].maps[objective.map].name
   })
 }

@@ -30,7 +30,6 @@ export const SelectAttack = () => {
           '[NAME]': currentTurn.name
         })}
       </Text>
-      <Text>{getTranslation('SELECT_ATTACK_PROMPT')}</Text>
 
       <main className="attacks-list">
         {attackOptions.map((attack) => (

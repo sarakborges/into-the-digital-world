@@ -2,10 +2,6 @@ import { BiSolidStar } from 'react-icons/bi'
 import { BsArrowDown, BsArrowUp } from 'react-icons/bs'
 import { TbListDetails } from 'react-icons/tb'
 
-import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
-
-import { AllDigimons } from '@/GameData/Digimons'
-
 import { getTranslation } from '@/Helpers/Language'
 import { setCurrentDetails } from '@/Helpers/Systems/Digivice'
 import {
@@ -59,9 +55,7 @@ export const AppPartnersList = () => {
           <div className="partners-list-list">
             {partners[category].length ? (
               partners[category].map((partner) => {
-                const baseDigimon = AllDigimons[
-                  partner.baseDigimon
-                ] as BaseDigimonType
+                const baseDigimon = partner.baseDigimon
 
                 return (
                   <div

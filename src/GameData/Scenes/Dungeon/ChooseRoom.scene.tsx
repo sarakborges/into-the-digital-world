@@ -53,7 +53,6 @@ export const DungeonChooseRoom = () => {
 
                   <div>
                     <Button
-                      style="secondary"
                       onClick={() => {
                         advanceDungeon(roomId)
                       }}
@@ -72,7 +71,6 @@ export const DungeonChooseRoom = () => {
 
             <div>
               <Button
-                style="secondary"
                 onClick={() => {
                   leaveDungeon()
                 }}

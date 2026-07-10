@@ -7,6 +7,7 @@ import { Fragment } from 'react/jsx-runtime'
 import { getActiveEvents, getInteractableTiles } from '@/Helpers/Systems/Zones'
 
 import { useDungeonStore } from '@/Stores/Dungeon.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
@@ -16,6 +17,7 @@ import { Text } from '@/Components/DesignSystem/Text'
 import './InteractableTiles.style.scss'
 
 export const InteractableTiles = () => {
+  useProfileStore((state) => state)
   const { scene } = useSceneStore((state) => state)
   const { dungeon } = useDungeonStore((state) => state)
 

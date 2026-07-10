@@ -1,62 +1,29 @@
 import { AllQuests } from '@/GameData/Quests'
 
+import { isQuestDone } from '@/Helpers/Systems/Quests'
+
 import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-export const getAppAvailability = (
-  appId: string
-): {
-  isSave: boolean
-  isLogoff: boolean
-  isMap: boolean
-  isAppDisabled: boolean
-} => {
+export const getAppAvailability = (appId: string): boolean => {
   const profile = useProfileStore.getState().profile
-
-  const profileQuests = profile?.quests || {}
-  const doneQuests = Object.keys(profileQuests).filter((quest) =>
-    isQuestDone(quest)
-  )
-
-  return {
-    isSave: appId === 'save',
-    isLogoff: appId === 'logoff',
-    isMap: appId === 'map',
-    isAppDisabled:
-      !doneQuests.includes(AllQuests.starterDigimon?.id ?? '') &&
-      !(appId === 'save' || appId === 'logoff' || appId === 'map')
-  }
-}
-
-const isQuestDone = (questId: string): boolean => {
-  const profile = useProfileStore.getState().profile
+  const scene = useSceneStore.getState().scene
 
   if (!profile) {
     return false
   }
 
-  const quest = profile.quests[questId]
-  if (!quest) {
-    return false
-  }
+  const doneQuests = Object.keys(profile.quests).filter((quest) =>
+    isQuestDone(quest)
+  )
 
-  return Object.keys(AllQuests[questId]?.objectives ?? {}).every(
-    (objective) => {
-      if (AllQuests[questId].objectives[objective].type === 'interact') {
-        return !!quest.objectives[objective]
-      }
+  const isSave = appId === 'save'
+  const isLogoff = appId === 'logoff'
+  const isMap = appId === 'map'
 
-      if (
-        ['defeatInZone', 'defeatSpecific'].includes(
-          AllQuests[questId].objectives[objective].type
-        )
-      ) {
-        return (
-          Number(quest.objectives[objective] || 0) >=
-          Number(AllQuests[questId].objectives[objective].amount || 0)
-        )
-      }
-
-      return false
-    }
+  return !(
+    !!scene ||
+    (!doneQuests.includes(AllQuests.starterDigimon.id) &&
+      !(!!isSave || !!isLogoff || !!isMap))
   )
 }

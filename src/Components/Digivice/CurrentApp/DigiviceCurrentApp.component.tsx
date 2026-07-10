@@ -26,8 +26,6 @@ export const DigiviceCurrentApp = ({ app }: DigiviceCurrentAppProps) => {
     return
   }
 
-  const { isAppDisabled } = getAppAvailability(app.id)
-
   const openApp = () => {
     setDigivice({ ...digivice, currentApp: app.app })
 
@@ -42,7 +40,7 @@ export const DigiviceCurrentApp = ({ app }: DigiviceCurrentAppProps) => {
   }
 
   return (
-    <Button onClick={openApp} disabled={!!isAppDisabled}>
+    <Button onClick={openApp} disabled={!getAppAvailability(app.id)}>
       <Portrait
         alt={getTranslation(`APPS_${app.id.toLocaleUpperCase()}`)}
         src={`/apps/${app.id}.png`}

@@ -25,7 +25,7 @@ export const Game = () => {
   useEffect(() => {
     loadGameSession()
     setSettings({ ...loadData({ key: 'settings' }), isOpen: false })
-  }, [setSettings])
+  }, [])
 
   if (!settings) {
     return

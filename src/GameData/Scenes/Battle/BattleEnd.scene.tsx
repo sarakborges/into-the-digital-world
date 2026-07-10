@@ -43,7 +43,7 @@ export const BattleEnd = () => {
           </Text>
         </div>
 
-        <CombatLoot />
+        {battleResult === 'victory' && <CombatLoot />}
       </div>
     ),
 
