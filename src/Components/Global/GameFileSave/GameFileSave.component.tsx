@@ -4,7 +4,6 @@ import { AllZones } from '@/GameData/Zones'
 
 import { getTranslation } from '@/Helpers/Language'
 import { saveProfile } from '@/Helpers/Systems/Profile'
-import { getCurrentMap, getCurrentZone } from '@/Helpers/Systems/Zones'
 
 import { Button } from '@/Components/DesignSystem/Button'
 import { Text } from '@/Components/DesignSystem/Text'

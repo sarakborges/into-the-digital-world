@@ -1,4 +1,3 @@
-import * as EnDialogs from '@/GameData/Dialogs/En'
 import * as EnTexts from '@/GameData/Texts/En'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
@@ -11,7 +10,7 @@ export const getTranslation = (
   const lang = settings?.language || 'en'
 
   const translations = {
-    en: { ...EnDialogs, ...EnTexts }
+    en: { ...EnTexts }
   }
 
   const value = translations[lang]?.[key]

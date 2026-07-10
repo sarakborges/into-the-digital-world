@@ -8,7 +8,8 @@ import { useSceneStore } from '@/Stores/Scene.store'
 
 import { GameboardCharacter } from '@/Components/Main/GameboardCharacter'
 import { Gamepad } from '@/Components/Main/Gamepad'
-import { Minimap } from '@/Components/Main/Minimap'
+
+// import { Minimap } from '@/Components/Main/Minimap'
 
 import './Gameboard.style.scss'
 
