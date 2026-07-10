@@ -1,9 +1,8 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
-
 import { getTexts } from '@/Helpers/Language'
 
+import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Dialog } from '@/Components/DesignSystem/Dialog'
@@ -12,8 +11,14 @@ import { Text } from '@/Components/DesignSystem/Text'
 export const GetStarterDigimon014 = () => {
   const { setScene } = useSceneStore((state) => state)
 
+  const { profile } = useProfileStore((state) => state)
+
+  if (!profile) {
+    return
+  }
+
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.general.gennai,
+    speaker: { ...profile, isPlayer: true },
 
     content: (
       <div className="text-bubble">
@@ -28,7 +33,7 @@ export const GetStarterDigimon014 = () => {
         action: () => {
           setScene({
             currentScene: 'getStarterDigimon',
-            currentStage: '016'
+            currentStage: '015'
           })
         }
       }

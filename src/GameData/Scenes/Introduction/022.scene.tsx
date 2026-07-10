@@ -2,42 +2,38 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { getTexts } from '@/Helpers/Language'
 
-import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { Text } from '@/Components/DesignSystem/Text'
+import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 
-export const GetStarterDigimon020 = () => {
+export const Introduction022 = () => {
   const { setScene } = useSceneStore((state) => state)
 
-  const { profile } = useProfileStore((state) => state)
-
-  if (!profile) {
-    return
-  }
-
   const dialogOptions: DialogType = {
-    speaker: { ...profile, isPlayer: true },
-
     content: (
-      <div className="text-bubble">
-        <Text as="p">{getTexts(`GETSTARTERDIGIMON_020_TEXT`)}</Text>
-      </div>
+      <>
+        <PlayerAvatar />
+
+        <div className="text-bubble">
+          <Text as="p">{getTexts('INTRODUCTION_022_TEXT')}</Text>
+        </div>
+      </>
     ),
 
     options: [
       {
-        id: 'scene-getstarterdigimon-020-continue',
+        id: 'scene-introduction-026-confirm',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({
-            currentScene: 'getStarterDigimon',
-            currentStage: '021'
+            currentScene: 'introduction',
+            currentStage: '023'
           })
         }
       }
-    ]
+    ].filter((option) => !!option)
   }
 
   return <Dialog {...dialogOptions} />

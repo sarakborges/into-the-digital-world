@@ -4,39 +4,35 @@ import { AllNpcs } from '@/GameData/Npcs'
 
 import { getTexts } from '@/Helpers/Language'
 
-import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { Text } from '@/Components/DesignSystem/Text'
 
-export const Introduction025 = () => {
+export const GetStarterDigimon013 = () => {
   const { setScene } = useSceneStore((state) => state)
-  const { digivice, setDigivice } = useDigiviceStore((state) => state)
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.appmon.dressmon,
+    speaker: AllNpcs.general.gennai,
 
     content: (
       <div className="text-bubble">
-        <Text as="p">{getTexts('INTRODUCTION_025_TEXT')}</Text>
+        <Text as="p">{getTexts(`GETSTARTERDIGIMON_013_TEXT`)}</Text>
       </div>
     ),
 
     options: [
       {
-        id: 'scene-introduction-025-confirm',
-        text: getTexts('SCENES_CONFIRM_BUTTON'),
+        id: 'scene-getstarterdigimon-013-continue',
+        text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setDigivice({ ...digivice, isOpen: false, currentApp: undefined })
-
           setScene({
-            currentScene: 'introduction',
-            currentStage: '026'
+            currentScene: 'getStarterDigimon',
+            currentStage: '014'
           })
         }
       }
-    ].filter((option) => !!option)
+    ]
   }
 
   return <Dialog {...dialogOptions} />

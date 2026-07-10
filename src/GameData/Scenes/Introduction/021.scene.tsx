@@ -1,15 +1,10 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllItems } from '@/GameData/Items'
 import { AllNpcs } from '@/GameData/Npcs'
-import { AvatarFixingQuest } from '@/GameData/Quests/AvatarFixing.quest'
-import { IntroductionQuest } from '@/GameData/Quests/Introduction.quest'
 
 import { getTexts } from '@/Helpers/Language'
-import { saveSession } from '@/Helpers/Systems/Data'
-import { addNewQuest, updateQuestObjective } from '@/Helpers/Systems/Quests'
 
-import { useProfileStore } from '@/Stores/Profile.store'
+import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Dialog } from '@/Components/DesignSystem/Dialog'
@@ -17,9 +12,10 @@ import { Text } from '@/Components/DesignSystem/Text'
 
 export const Introduction021 = () => {
   const { setScene } = useSceneStore((state) => state)
+  const { digivice, setDigivice } = useDigiviceStore((state) => state)
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.general.gennai,
+    speaker: AllNpcs.appmon.dressmon,
 
     content: (
       <div className="text-bubble">
@@ -29,33 +25,18 @@ export const Introduction021 = () => {
 
     options: [
       {
-        id: 'scene-introduction-021-continue',
-        text: getTexts('SCENES_CONTINUE_BUTTON'),
+        id: 'scene-introduction-025-confirm',
+        text: getTexts('SCENES_CONFIRM_BUTTON'),
         action: () => {
-          setScene(null)
+          setDigivice({ ...digivice, isOpen: false, currentApp: undefined })
 
-          addNewQuest({ questId: AvatarFixingQuest.id })
-
-          updateQuestObjective({
-            questId: IntroductionQuest.id,
-            objectiveId: 'completeTutorial',
-            objectiveValue: true
+          setScene({
+            currentScene: 'introduction',
+            currentStage: '022'
           })
-
-          const currentProfile = useProfileStore.getState().profile
-
-          const updatedProfile = {
-            ...currentProfile!,
-            currentScene: null,
-            items: {
-              [AllItems.digivice?.id]: 1
-            }
-          }
-
-          saveSession(updatedProfile)
         }
       }
-    ]
+    ].filter((option) => !!option)
   }
 
   return <Dialog {...dialogOptions} />

@@ -33,7 +33,7 @@ export const Introduction012 = () => {
         action: () => {
           setScene({
             currentScene: 'introduction',
-            currentStage: '015'
+            currentStage: '013'
           })
         }
       }

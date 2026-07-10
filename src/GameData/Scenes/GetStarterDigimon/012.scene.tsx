@@ -28,7 +28,7 @@ export const GetStarterDigimon012 = () => {
         action: () => {
           setScene({
             currentScene: 'getStarterDigimon',
-            currentStage: '014'
+            currentStage: '013'
           })
         }
       }

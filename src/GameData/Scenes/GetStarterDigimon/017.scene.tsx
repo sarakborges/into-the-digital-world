@@ -4,6 +4,7 @@ import { AllNpcs } from '@/GameData/Npcs'
 
 import { getTexts } from '@/Helpers/Language'
 
+import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Dialog } from '@/Components/DesignSystem/Dialog'
@@ -11,13 +12,22 @@ import { Text } from '@/Components/DesignSystem/Text'
 
 export const GetStarterDigimon017 = () => {
   const { setScene } = useSceneStore((state) => state)
+  const { profile } = useProfileStore((state) => state)
+
+  if (!profile) {
+    return
+  }
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.general.gennai,
+    speaker: AllNpcs.digimon.dorimon,
 
     content: (
       <div className="text-bubble">
-        <Text as="p">{getTexts(`GETSTARTERDIGIMON_017_TEXT`)}</Text>
+        <Text as="p">
+          {getTexts(`GETSTARTERDIGIMON_017_TEXT`, {
+            '[NAME]': profile.name
+          })}
+        </Text>
       </div>
     ),
 
