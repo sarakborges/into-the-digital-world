@@ -7,23 +7,22 @@ import { WildZoneMainRoom } from './WildZone/MainRoom'
 
 import type { ZoneType } from '@/Types/Zone.type'
 
-export type ZoneCategoryType = {
-  name: string
-  [key: string]: ZoneType | string
-}
-
-export const AllZones: Record<string, ZoneCategoryType> = {
+export const AllZones: Record<string, ZoneType> = {
   rootDomain: {
     name: 'Root Domain',
 
-    mainRoom: RootDomainMainRoom,
-    corridor: RootDomainCorridor,
-    restRoom: RootDomainBedRoom
+    maps: {
+      mainRoom: RootDomainMainRoom,
+      corridor: RootDomainCorridor,
+      restRoom: RootDomainBedRoom
+    }
   },
 
   wildZone: {
     name: 'Wild Zone',
 
-    mainRoom: WildZoneMainRoom
+    maps: {
+      mainRoom: WildZoneMainRoom
+    }
   }
 }

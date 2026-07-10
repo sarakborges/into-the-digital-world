@@ -1,21 +1,15 @@
-import type { ZoneType } from '@/Types/Zone.type'
-
-import { AllZones } from '@/GameData/Zones'
-
 import { saveSession } from '@/Helpers/Systems/Data'
+import { getCurrentMap } from '@/Helpers/Systems/Zones/getCurrentMap.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
 export const setLocation = ({ x, y }: { x?: number; y?: number }) => {
   const { profile } = useProfileStore.getState()
+  const currentMap = getCurrentMap()
 
-  if (!profile) {
+  if (!profile || !currentMap) {
     return false
   }
-
-  const currentZone: ZoneType = AllZones[profile.currentZone.id][
-    profile.currentZone.map
-  ] as ZoneType
 
   const updatedX = profile.currentZone.x + (x || 0)
   const updatedY = profile.currentZone.y + (y || 0)
@@ -32,7 +26,7 @@ export const setLocation = ({ x, y }: { x?: number; y?: number }) => {
 
   saveSession(updatedProfile)
 
-  const currentTile = currentZone.tiles.find(
+  const currentTile = currentMap.tiles.find(
     (tile) =>
       tile.x === updatedX &&
       tile.y === updatedY &&

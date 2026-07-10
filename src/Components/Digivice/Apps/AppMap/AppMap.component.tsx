@@ -1,7 +1,5 @@
-import { AllZones } from '@/GameData/Zones'
-
 import { getTranslation } from '@/Helpers/Language'
-import { getCurrentZone } from '@/Helpers/Systems/Zones'
+import { getCurrentMap, getCurrentZone } from '@/Helpers/Systems/Zones'
 
 import { Text } from '@/Components/DesignSystem/Text'
 import { Map } from '@/Components/Global/Map'
@@ -9,9 +7,10 @@ import { Map } from '@/Components/Global/Map'
 import './AppMap.style.scss'
 
 export const AppMap = () => {
-  const currentMap = getCurrentZone()
+  const currentZone = getCurrentZone()
+  const currentMap = getCurrentMap()
 
-  if (!currentMap) {
+  if (!currentMap || !currentZone) {
     return
   }
 
@@ -24,7 +23,7 @@ export const AppMap = () => {
       <div className="map-name">
         <Text>
           {getTranslation('MAP_NAME_FORMAT', {
-            '[ZONE]': AllZones[currentMap.id].name,
+            '[ZONE]': currentZone.name,
             '[MAP]': currentMap.name
           })}
         </Text>

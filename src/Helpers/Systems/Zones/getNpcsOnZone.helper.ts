@@ -1,9 +1,9 @@
-import { getCurrentZone } from './getCurrentZone.helper'
+import { getCurrentMap } from './getCurrentMap.helper'
 
-import type { ZoneTileType } from '@/Types/ZoneTile.type'
+import type { MapTileType } from '@/Types/MapTile.type'
 
-export const getNpcsOnZone = (): ZoneTileType[] => {
-  const currentZone = getCurrentZone()
+export const getNpcsOnZone = (): MapTileType[] => {
+  const currentZone = getCurrentMap()
 
   if (!currentZone) {
     return []

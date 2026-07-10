@@ -1,4 +1,4 @@
-import type { ZoneTileType } from '@/Types/ZoneTile.type'
+import type { MapTileType } from '@/Types/MapTile.type'
 
 import { getTranslation } from '@/Helpers/Language'
 import {
@@ -18,7 +18,7 @@ export const GameboardCharacter = ({
   tile,
   isPlayer
 }: {
-  tile?: ZoneTileType
+  tile?: MapTileType
   isPlayer?: boolean
 }) => {
   const { profile } = useProfileStore((state) => state)

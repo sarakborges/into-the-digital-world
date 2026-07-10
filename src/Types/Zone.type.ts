@@ -1,7 +1,14 @@
 import type { GridType } from '@/Types/Grid.type'
-import type { ZoneTileType } from '@/Types/ZoneTile.type'
+import type { MapTileType } from '@/Types/MapTile.type'
 
 export type ZoneType = {
+  name: string
+  maps: {
+    [key: string]: MapType
+  }
+}
+
+export type MapType = {
   id: string
   background: string
   name: string
@@ -9,5 +16,5 @@ export type ZoneType = {
 
   grid: GridType
 
-  tiles: Array<ZoneTileType>
+  tiles: Array<MapTileType>
 }

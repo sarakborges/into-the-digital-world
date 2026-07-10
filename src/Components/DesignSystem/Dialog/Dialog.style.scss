@@ -1,21 +1,13 @@
 .scene {
   position: absolute;
-  top: calc(100cqw - 40px);
+  bottom: 0;
   z-index: 104;
 
   width: 100%;
   padding: 8px 8px 12px;
 
   &[data-isdigiviceopen='true'] {
-    top: auto;
-    bottom: 0;
-
     padding: 20px;
-  }
-
-  &[data-isinbattle='true'] {
-    top: auto;
-    bottom: 0;
   }
 }
 

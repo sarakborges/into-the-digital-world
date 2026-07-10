@@ -1,4 +1,4 @@
-import { getCurrentZone } from './getCurrentZone.helper'
+import { getCurrentMap } from './getCurrentMap.helper'
 import { getTileType } from './getTileType.helper'
 
 import type { VisibleTileType } from '@/Types/ZoneHelpers.type'
@@ -6,7 +6,7 @@ import type { VisibleTileType } from '@/Types/ZoneHelpers.type'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 export const getVisibleTiles = (): VisibleTileType[] => {
-  const currentZone = getCurrentZone()
+  const currentZone = getCurrentMap()
   const { profile } = useProfileStore.getState()
 
   if (!currentZone || !profile) {
@@ -16,12 +16,16 @@ export const getVisibleTiles = (): VisibleTileType[] => {
   const tiles: VisibleTileType[] = []
   const gridSize = Number(currentZone.gridSize)
 
-  for (let y = 0; y < gridSize; y++) {
-    for (let x = 0; x < gridSize; x++) {
-      const tileX = x + 1
-      const tileY = y + 1
+  for (let y = 1; y <= gridSize; y++) {
+    for (let x = 1; x <= gridSize; x++) {
+      const tileX = x
+      const tileY = y
 
       const tileType = getTileType({ tileX, tileY })
+
+      if (!tileType) {
+        continue
+      }
 
       tiles.push({
         id: `${tileX}-${tileY}`,

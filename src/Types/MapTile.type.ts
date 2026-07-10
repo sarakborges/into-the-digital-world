@@ -1,6 +1,6 @@
 import type { NpcType } from '@/Types/Npc.type'
 
-export type ZoneTileType = {
+export type MapTileType = {
   id: string
   x: number
   y: number

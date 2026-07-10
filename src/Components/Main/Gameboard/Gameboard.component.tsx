@@ -1,4 +1,4 @@
-import { getCurrentZone, getGameboardStyles } from '@/Helpers/Systems/Zones'
+import { getCurrentMap, getGameboardStyles } from '@/Helpers/Systems/Zones'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useDungeonStore } from '@/Stores/Dungeon.store'
@@ -19,16 +19,16 @@ export const Gameboard = () => {
   const { scene } = useSceneStore((state) => state)
   const { dungeon } = useDungeonStore((state) => state)
 
-  if (!profile?.currentZone || !!battle || !!dungeon) {
+  const currentMap = getCurrentMap()
+
+  if (!profile?.currentZone || !currentMap || !!battle || !!dungeon) {
     return
   }
-
-  const currentZone = getCurrentZone()!
 
   const gameboardBodyVars = getGameboardStyles(
     profile.currentZone.x || 0,
     profile.currentZone.y || 0,
-    currentZone.gridSize || 0,
+    currentMap.gridSize || 0,
     !!game?.isWarping
   )
 
@@ -42,7 +42,7 @@ export const Gameboard = () => {
           <div
             className="gameboard-bg"
             style={{
-              backgroundImage: `url('/zones/${currentZone.background}.webp')`
+              backgroundImage: `url('/zones/${currentMap.background}.webp')`
             }}
           />
 
@@ -50,11 +50,11 @@ export const Gameboard = () => {
             <>
               <GameboardCharacter isPlayer />
 
-              {currentZone.tiles.map((tile) => {
+              {currentMap.tiles.map((tile) => {
                 return (
                   <GameboardCharacter
                     tile={tile}
-                    key={`zone-${currentZone.id}-x${tile.x}-y${tile.y}-${tile.id}`}
+                    key={`zone-${currentMap.id}-x${tile.x}-y${tile.y}-${tile.id}`}
                   />
                 )
               })}

@@ -1,6 +1,4 @@
-import type { ZoneType } from '@/Types/Zone.type'
-
-import { AllZones } from '@/GameData/Zones'
+import { getCurrentMap } from '@/Helpers/Systems/Zones/getCurrentMap.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -12,16 +10,13 @@ export const canMoveToCoordinate = ({
   y: number
 }): boolean => {
   const profile = useProfileStore.getState().profile
+  const currentMap = getCurrentMap()
 
-  if (!profile) {
+  if (!profile || !currentMap) {
     return false
   }
 
-  const currentZone: ZoneType = AllZones[profile.currentZone.id][
-    profile.currentZone.map
-  ] as ZoneType
-
-  const tile = currentZone.tiles.filter(
+  const tile = currentMap.tiles.filter(
     (tile) =>
       tile.x === profile.currentZone.x + x &&
       tile.y === profile.currentZone.y + y
@@ -37,7 +32,7 @@ export const canMoveToCoordinate = ({
   )
 
   const existsInGrid =
-    !!currentZone?.grid[profile.currentZone.y + y]?.[profile.currentZone.x + x]
+    !!currentMap?.grid[profile.currentZone.y + y]?.[profile.currentZone.x + x]
 
   return (eventExists || existsInGrid) && !npcExists
 }

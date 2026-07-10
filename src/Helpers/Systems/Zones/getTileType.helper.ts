@@ -1,4 +1,4 @@
-import { getCurrentZone } from './getCurrentZone.helper'
+import { getCurrentMap } from './getCurrentMap.helper'
 import { hasEventTypeAt } from './hasEventTypeAt.helper'
 import { hasTileAt } from './hasTileAt.helper'
 
@@ -32,10 +32,10 @@ export const getTileType = ({
   tileX: number
   tileY: number
 }) => {
-  const currentZone = getCurrentZone()
+  const currentZone = getCurrentMap()
 
   if (!currentZone) {
-    return 'blocked'
+    return
   }
 
   const events = currentZone.tiles.filter(
@@ -48,20 +48,16 @@ export const getTileType = ({
     (tile) => (tile.condition === undefined || !!tile.condition()) && !!tile.npc
   )
 
-  if (!currentZone.grid[tileY]?.[tileX]) {
-    return 'blocked'
-  }
-
   if (isPlayerPosition(tileX, tileY)) {
     return 'player'
   }
 
-  if (hasTileAt(events, tileX, tileY)) {
-    return 'event'
-  }
-
   if (isWarpTile({ events, tileX, tileY })) {
     return 'warp'
+  }
+
+  if (hasTileAt(events, tileX, tileY)) {
+    return 'event'
   }
 
   if (hasTileAt(npcs, tileX, tileY)) {
@@ -75,6 +71,4 @@ export const getTileType = ({
   if (hasEventTypeAt(events, tileX, tileY, 'dungeon')) {
     return 'dungeon'
   }
-
-  return 'floor'
 }

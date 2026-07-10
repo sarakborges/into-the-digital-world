@@ -1,4 +1,4 @@
-import type { ZoneTileType } from '@/Types/ZoneTile.type'
+import type { MapTileType } from '@/Types/MapTile.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllQuests } from '@/GameData/Quests'
@@ -8,7 +8,7 @@ import { isQuestDone } from '@/Helpers/Systems/Quests'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-export const RootDomainBedRoomGennaiRoomTile: ZoneTileType = {
+export const RootDomainBedRoomGennaiRoomTile: MapTileType = {
   id: 'rootDomainBedRoomGennai',
   x: 2,
   y: 5,

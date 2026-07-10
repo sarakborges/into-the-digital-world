@@ -1,14 +1,18 @@
 import { AiOutlineExclamationCircle } from 'react-icons/ai'
-import { BiSolidUserCircle } from 'react-icons/bi'
 import { GiCrossedSwords, GiPortal } from 'react-icons/gi'
-import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
 import { TbStars } from 'react-icons/tb'
 
 import type { CSSProperties } from 'react'
 
-import { getCurrentZone, getVisibleTiles } from '@/Helpers/Systems/Zones'
+import {
+  getCurrentMap,
+  getNpcAt,
+  getVisibleTiles
+} from '@/Helpers/Systems/Zones'
 
 import { useProfileStore } from '@/Stores/Profile.store'
+
+import { CharacterHeader } from '@/Components/Digivice/Apps/CharacterHeader'
 
 import './Map.style.scss'
 
@@ -19,19 +23,17 @@ export const Map = () => {
     return
   }
 
-  const currentZone = getCurrentZone()
+  const currentMap = getCurrentMap()
   const tiles = getVisibleTiles()
 
-  if (!currentZone) {
+  if (!currentMap) {
     return
   }
 
   const tileIcons = {
     dungeon: <GiCrossedSwords />,
-    npc: <HiOutlineChatBubbleLeftEllipsis />,
     event: <TbStars />,
     warp: <GiPortal />,
-    player: <BiSolidUserCircle />,
     important: <AiOutlineExclamationCircle />
   }
 
@@ -40,9 +42,8 @@ export const Map = () => {
       className="map"
       style={
         {
-          '--tile-x': profile.currentZone.x,
-          '--tile-y': profile.currentZone.y,
-          '--grid-size': currentZone.gridSize
+          '--grid-size': currentMap.gridSize,
+          backgroundImage: `url("/zones/${currentMap.background}.webp")`
         } as CSSProperties
       }
       aria-label="Game map"
@@ -52,9 +53,19 @@ export const Map = () => {
           <li
             style={{ '--tile-x': tile.x, '--tile-y': tile.y } as CSSProperties}
             className={tile.type}
-            key={`minimap-${currentZone.name}-tile-${tile.id}`}
+            key={`minimap-${currentMap.name}-tile-${tile.id}`}
           >
-            {tileIcons[tile.type]}
+            {!!tileIcons[tile.type] && tileIcons[tile.type]}
+
+            {tile.type === 'player' && (
+              <CharacterHeader character={{ ...profile, isPlayer: true }} />
+            )}
+
+            {tile.type === 'npc' && (
+              <CharacterHeader
+                character={getNpcAt({ tileX: tile.x, tileY: tile.y })!}
+              />
+            )}
           </li>
         ))}
       </ul>

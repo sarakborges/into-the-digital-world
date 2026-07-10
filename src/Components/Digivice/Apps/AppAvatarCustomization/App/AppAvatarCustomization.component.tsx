@@ -33,7 +33,7 @@ export const AppAvatarCustomization = () => {
     if (profile && avatarCustomization) {
       setAvatarCustomization({ avatar })
     }
-  }, [avatar, avatarCustomization, profile, setAvatarCustomization])
+  }, [])
 
   if (!profile || !avatarCustomization) {
     return

@@ -8,14 +8,14 @@ import {
   RootDomainMainRoomWarpToCorridorTile3
 } from './Tiles/WarpToCorridor.tile'
 
-import type { ZoneType } from '@/Types/Zone.type'
+import type { MapType } from '@/Types/Zone.type'
 
 import { fillGrid } from '@/Helpers/Systems/Zones'
 
 const gridSize = 19
 const filledGrid = fillGrid({ grid, gridSize })
 
-export const RootDomainMainRoom: ZoneType = {
+export const RootDomainMainRoom: MapType = {
   id: `rootDomainMainRoom`,
   background: `RootDomain/MainRoom`,
   name: `Main Room`,

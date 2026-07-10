@@ -1,10 +1,10 @@
-import type { ZoneTileType } from '@/Types/ZoneTile.type'
+import type { MapTileType } from '@/Types/MapTile.type'
 
 import { OpenDungeonKoromon } from '@/GameData/Zones/WildZone/MainRoom/Events/OpenDungeonKoromon.event'
 
 import { getTranslation } from '@/Helpers/Language'
 
-export const WildZoneKoromonNestTile: ZoneTileType = {
+export const WildZoneKoromonNestTile: MapTileType = {
   id: 'wildZoneKoromonNest',
   x: 12,
   y: 11,

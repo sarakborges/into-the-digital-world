@@ -2,33 +2,33 @@ import type { ZoneType } from '@/Types/Zone.type'
 
 import { AllZones } from '@/GameData/Zones'
 
+import { getCurrentMap } from '@/Helpers/Systems/Zones/getCurrentMap.helper'
+
 import { useProfileStore } from '@/Stores/Profile.store'
 
 export const getInteractableTiles = () => {
   const profile = useProfileStore.getState().profile
 
-  if (!profile?.currentZone) {
+  const currentMap = getCurrentMap()
+
+  if (!profile?.currentZone || !currentMap) {
     return []
   }
 
-  const currentZone: ZoneType = AllZones[profile.currentZone.id][
-    profile.currentZone.map
-  ] as ZoneType
-
   return [
-    ...currentZone.tiles.filter(
+    ...currentMap.tiles.filter(
       (tile) =>
         tile.x === profile.currentZone.x - 1 && tile.y === profile.currentZone.y
     ),
-    ...currentZone.tiles.filter(
+    ...currentMap.tiles.filter(
       (tile) =>
         tile.x === profile.currentZone.x + 1 && tile.y === profile.currentZone.y
     ),
-    ...currentZone.tiles.filter(
+    ...currentMap.tiles.filter(
       (tile) =>
         tile.y === profile.currentZone.y - 1 && tile.x === profile.currentZone.x
     ),
-    ...currentZone.tiles.filter(
+    ...currentMap.tiles.filter(
       (tile) =>
         tile.y === profile.currentZone.y + 1 && tile.x === profile.currentZone.x
     )

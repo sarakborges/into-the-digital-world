@@ -1,8 +1,8 @@
-import type { ZoneTileType } from '@/Types/ZoneTile.type'
+import type { MapTileType } from '@/Types/MapTile.type'
 
 export const getActiveEvents = (
-  tile: ZoneTileType
-): ZoneTileType['events'] | undefined => {
+  tile: MapTileType
+): MapTileType['events'] | undefined => {
   return tile?.events?.filter(
     (event) => event.condition === undefined || !!event.condition()
   )
