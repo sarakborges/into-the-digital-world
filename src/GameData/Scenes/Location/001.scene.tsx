@@ -2,7 +2,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 
@@ -24,7 +24,7 @@ export const Location001 = () => {
     options: [
       {
         id: 'scene-logoff-001-cancel',
-        text: getTranslation('SCENES_CANCEL_BUTTON'),
+        text: getTexts('SCENES_CANCEL_BUTTON'),
         action: () => {
           setScene(null)
         }

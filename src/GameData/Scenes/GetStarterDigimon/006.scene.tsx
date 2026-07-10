@@ -2,7 +2,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -24,7 +24,7 @@ export const GetStarterDigimon006 = () => {
     content: (
       <div className="text-bubble">
         <Text as="p">
-          {getTranslation(
+          {getTexts(
             `GETSTARTERDIGIMON_006_TEXT_${profile.meaningfulChoices.dorimonMeeting.toLocaleUpperCase()}`
           )}
         </Text>
@@ -34,7 +34,7 @@ export const GetStarterDigimon006 = () => {
     options: [
       {
         id: 'scene-getstarterdigimon-006-continue',
-        text: getTranslation('SCENES_CONTINUE_BUTTON'),
+        text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({
             currentScene: 'getStarterDigimon',

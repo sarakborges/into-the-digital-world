@@ -2,7 +2,7 @@ import { AiOutlineSelect } from 'react-icons/ai'
 
 import { AvailableResearchesAtJijimon } from '@/GameData/Researches'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { getAvailableCompositions } from '@/Helpers/Systems/Compose'
 
 import { useCompositionStore } from '@/Stores/Composition.store'
@@ -27,14 +27,14 @@ export const CompositionsList = () => {
   const availableCompositions = getAvailableCompositions(profile)
 
   if (!availableCompositions.length) {
-    return <Text as="p">{getTranslation('COMPOSE_002_NO_RESEARCHES')}</Text>
+    return <Text as="p">{getTexts('COMPOSE_002_NO_RESEARCHES')}</Text>
   }
 
   return (
     <div className="composition-list">
       {!!availableCompositions.length && (
         <div className="composition-list-container">
-          <Text>{getTranslation('COMPOSE_002_TITLE')}</Text>
+          <Text>{getTexts('COMPOSE_002_TITLE')}</Text>
 
           <div className="list">
             {availableCompositions.map((composition) => (

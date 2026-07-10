@@ -4,7 +4,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -35,12 +35,12 @@ export const Introduction005 = () => {
     content: (
       <div className="dialog-with-reactions">
         <div className="text-bubble">
-          <Text as="p">{getTranslation('INTRODUCTION_005_TEXT')}</Text>
+          <Text as="p">{getTexts('INTRODUCTION_005_TEXT')}</Text>
         </div>
 
         <Input
-          label={getTranslation('INTRODUCTION_005_INPUT')}
-          placeholder={getTranslation('INTRODUCTION_005_INPUT_PLACEHOLDER')}
+          label={getTexts('INTRODUCTION_005_INPUT')}
+          placeholder={getTexts('INTRODUCTION_005_INPUT_PLACEHOLDER')}
           name="player-name"
           autoFocus
           onChange={(e) =>
@@ -57,7 +57,7 @@ export const Introduction005 = () => {
     options: [
       {
         id: 'scene-introduction-005-continue',
-        text: getTranslation('SCENES_CONTINUE_BUTTON'),
+        text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
           const name = (
             document.querySelector('[name=player-name]') as HTMLInputElement

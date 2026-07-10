@@ -3,7 +3,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { AllDigimons } from '@/GameData/Digimons'
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -30,7 +30,7 @@ export const RenamePartner002 = () => {
     content: (
       <div className="text-bubble">
         <Text as="p">
-          {getTranslation('RENAMEPARTNER_002_TEXT', {
+          {getTexts('RENAMEPARTNER_002_TEXT', {
             '[DIGIMON]': digimon.name || baseDigimon.name
           })}
         </Text>
@@ -40,7 +40,7 @@ export const RenamePartner002 = () => {
     options: [
       {
         id: 'scene-renamepartner-002-continue',
-        text: getTranslation('SCENES_CONTINUE_BUTTON'),
+        text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene(null)
         }

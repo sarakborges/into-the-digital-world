@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 
@@ -15,12 +15,12 @@ export const Introduction009 = () => {
     content: (
       <>
         <Portrait
-          alt={getTranslation('INTRODUCTION_009_IMAGE')}
+          alt={getTexts('INTRODUCTION_009_IMAGE')}
           src="/avatars/glitch.webp"
         />
 
         <div className="text-bubble">
-          <Text as="p">{getTranslation('INTRODUCTION_009_TEXT')}</Text>
+          <Text as="p">{getTexts('INTRODUCTION_009_TEXT')}</Text>
         </div>
       </>
     ),
@@ -28,7 +28,7 @@ export const Introduction009 = () => {
     options: [
       {
         id: 'scene-introduction-009-continue',
-        text: getTranslation('SCENES_CONTINUE_BUTTON'),
+        text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({
             currentScene: 'introduction',

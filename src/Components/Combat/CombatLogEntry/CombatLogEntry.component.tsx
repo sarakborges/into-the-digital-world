@@ -1,6 +1,6 @@
 import type { BattleType } from '@/Types/Battle.type'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { formatLogEntry } from '@/Helpers/Systems/Battle'
 
 import { Text } from '@/Components/DesignSystem/Text'
@@ -20,7 +20,7 @@ export const CombatLogEntry = ({ logEntry }: CombatLogEntryProps) => {
     <div className="combat-log-entry">
       <div className="turn-title">
         <Text>
-          {getTranslation('BATTLE_LOG_TURN_TITLE', {
+          {getTexts('BATTLE_LOG_TURN_TITLE', {
             '[TURN]': String(logEntry.index)
           })}
         </Text>
@@ -31,7 +31,7 @@ export const CombatLogEntry = ({ logEntry }: CombatLogEntryProps) => {
       {!!logEntry.isTargetDefeated && (
         <div className="target-defeated">
           <Text as="p">
-            {getTranslation('BATTLE_LOG_DEFEATED', {
+            {getTexts('BATTLE_LOG_DEFEATED', {
               '[TARGET]': logEntry.target
             })}
           </Text>

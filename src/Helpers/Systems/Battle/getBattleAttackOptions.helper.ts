@@ -1,6 +1,6 @@
 import { AllAttacks } from '@/GameData/Attacks'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 
 export const getBattleAttackOptions = (currentTurn: {
   attacks: Record<string, unknown>
@@ -10,7 +10,7 @@ export const getBattleAttackOptions = (currentTurn: {
 }) =>
   Object.keys(currentTurn.attacks).map((attack) => ({
     id: attack,
-    label: getTranslation('SELECT_ATTACK_OPTION', {
+    label: getTexts('SELECT_ATTACK_OPTION', {
       '[NAME]': AllAttacks[attack].name,
       '[COOLDOWN]': String(AllAttacks[attack].cooldown || 0)
     })

@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 
@@ -17,7 +17,7 @@ export const Introduction026 = () => {
         <PlayerAvatar />
 
         <div className="text-bubble">
-          <Text as="p">{getTranslation('INTRODUCTION_026_TEXT')}</Text>
+          <Text as="p">{getTexts('INTRODUCTION_026_TEXT')}</Text>
         </div>
       </>
     ),
@@ -25,7 +25,7 @@ export const Introduction026 = () => {
     options: [
       {
         id: 'scene-introduction-026-confirm',
-        text: getTranslation('SCENES_CONTINUE_BUTTON'),
+        text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({
             currentScene: 'introduction',

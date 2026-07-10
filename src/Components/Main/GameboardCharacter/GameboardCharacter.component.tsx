@@ -1,6 +1,6 @@
 import type { MapTileType } from '@/Types/MapTile.type'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import {
   getCharacterVisibility,
   isNpcAcquainted
@@ -67,7 +67,7 @@ export const GameboardCharacter = ({
           <Text>
             {isNpcAcquainted(tile.npc?.id || '')
               ? tile.npc?.name
-              : getTranslation('UNKNOWN_NPC')}
+              : getTexts('UNKNOWN_NPC')}
           </Text>
         </>
       )}

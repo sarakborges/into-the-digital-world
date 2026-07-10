@@ -5,7 +5,7 @@ import { AllQuests } from '@/GameData/Quests'
 import { TriggerAvatarCustomization } from '@/GameData/Zones/RootDomain/BedRoom/Events/TriggerAvatarCustomization.event'
 import { TriggerAvatarFixing } from '@/GameData/Zones/RootDomain/BedRoom/Events/TriggerAvatarFixing.event'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { isQuestDone } from '@/Helpers/Systems/Quests'
 
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -14,7 +14,7 @@ export const RootDomainBedRoomDressmonRoomTile: MapTileType = {
   id: 'rootDomainBedRoomDressmon',
   x: 11,
   y: 2,
-  defaultText: getTranslation('AVATARCUSTOMIZATION_001_TEXT'),
+  defaultText: getTexts('AVATARCUSTOMIZATION_001_TEXT'),
   npc: {
     ...AllNpcs.appmon.dressmon,
     isVisible: false
@@ -23,7 +23,7 @@ export const RootDomainBedRoomDressmonRoomTile: MapTileType = {
   events: [
     {
       function: TriggerAvatarFixing,
-      eventText: getTranslation('INTRODUCTION_024_TRIGGER'),
+      eventText: getTexts('INTRODUCTION_024_TRIGGER'),
       eventType: 'important',
 
       condition: () => {
@@ -43,7 +43,7 @@ export const RootDomainBedRoomDressmonRoomTile: MapTileType = {
 
     {
       function: TriggerAvatarCustomization,
-      eventText: getTranslation('AVATARCUSTOMIZATION_TRIGGER'),
+      eventText: getTexts('AVATARCUSTOMIZATION_TRIGGER'),
       eventType: 'default',
 
       condition: () => {

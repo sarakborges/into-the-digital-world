@@ -1,4 +1,4 @@
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import {
   doAttack,
   getBattleAttackOptions,
@@ -26,7 +26,7 @@ export const SelectAttack = () => {
   return (
     <div className="select-attack">
       <Text>
-        {getTranslation('SELECT_ATTACK_TITLE', {
+        {getTexts('SELECT_ATTACK_TITLE', {
           '[NAME]': currentTurn.name
         })}
       </Text>

@@ -1,4 +1,4 @@
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { getExtraStatsFromPartner } from '@/Helpers/Systems/Battle'
 import { getCurrentDigimon, getPartnerDigimon } from '@/Helpers/Systems/Digimon'
 
@@ -27,7 +27,7 @@ export const DigimonStats = () => {
   return (
     <section className="digimon-stats">
       <header>
-        <Text>{getTranslation('ENCYCLOPEDIA_STATS')}</Text>
+        <Text>{getTexts('ENCYCLOPEDIA_STATS')}</Text>
       </header>
 
       <main>

@@ -2,7 +2,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { generateRandomNumber } from '@/Helpers/Math'
 import { isDigimonDefeated, saveBattle } from '@/Helpers/Systems/Battle'
 
@@ -109,7 +109,7 @@ export const BattleAttack = () => {
     options: [
       {
         id: 'scene-battle-battleattack-continue',
-        text: getTranslation('SCENES_CONTINUE_BUTTON'),
+        text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: handleContinue
       }
     ]

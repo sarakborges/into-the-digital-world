@@ -2,7 +2,7 @@ import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
 
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { reactToMeaningfulChoice } from '@/Helpers/Systems/Scenes'
 
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -20,17 +20,17 @@ export const GetStarterDigimon004 = () => {
 
   const dialogReactions = [
     {
-      label: getTranslation('GETSTARTERDIGIMON_004_OPTION_ACCEPT'),
+      label: getTexts('GETSTARTERDIGIMON_004_OPTION_ACCEPT'),
       value: 'accept'
     },
 
     {
-      label: getTranslation('GETSTARTERDIGIMON_004_OPTION_NEUTRAL'),
+      label: getTexts('GETSTARTERDIGIMON_004_OPTION_NEUTRAL'),
       value: 'neutral'
     },
 
     {
-      label: getTranslation('GETSTARTERDIGIMON_004_OPTION_REFUSE'),
+      label: getTexts('GETSTARTERDIGIMON_004_OPTION_REFUSE'),
       value: 'refuse'
     }
   ]
@@ -39,7 +39,7 @@ export const GetStarterDigimon004 = () => {
     content: (
       <div className="dialog-with-reactions">
         <div className="text-bubble">
-          <Text as="p">{getTranslation('GETSTARTERDIGIMON_004_TEXT')}</Text>
+          <Text as="p">{getTexts('GETSTARTERDIGIMON_004_TEXT')}</Text>
         </div>
 
         <div className="dialog-reactions">

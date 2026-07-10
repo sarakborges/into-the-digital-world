@@ -1,4 +1,4 @@
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { getCurrentMap, getCurrentZone } from '@/Helpers/Systems/Zones'
 
 import { Text } from '@/Components/DesignSystem/Text'
@@ -22,7 +22,7 @@ export const AppMap = () => {
 
       <div className="map-name">
         <Text>
-          {getTranslation('MAP_NAME_FORMAT', {
+          {getTexts('MAP_NAME_FORMAT', {
             '[ZONE]': currentZone.name,
             '[MAP]': currentMap.name
           })}

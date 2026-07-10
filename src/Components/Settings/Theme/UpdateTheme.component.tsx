@@ -1,6 +1,6 @@
 import { FaCheck } from 'react-icons/fa'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { updateSettings } from '@/Helpers/Systems/Settings'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
@@ -31,9 +31,7 @@ export const UpdateTheme = ({ theme }: { theme: string }) => {
         </div>
 
         <Text>
-          {getTranslation(`THEME_${theme.toLocaleUpperCase()}`)
-            .split(' ')
-            .join('\n')}
+          {getTexts(`THEME_${theme.toLocaleUpperCase()}`).split(' ').join('\n')}
         </Text>
 
         {theme === settings.theme && <FaCheck />}

@@ -2,7 +2,7 @@ import { BiDetail } from 'react-icons/bi'
 
 import { AllResearches } from '@/GameData/Researches'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { getResearches } from '@/Helpers/Systems/Profile'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -38,12 +38,12 @@ export const AppResearchesList = () => {
       <EncyclopediaHeader />
 
       {!allResearches.length && (
-        <Text as="p">{getTranslation('MY_RESEARCHES_EMPTY')}</Text>
+        <Text as="p">{getTexts('MY_RESEARCHES_EMPTY')}</Text>
       )}
 
       {!!allResearches.length && (
         <div className="researches">
-          <Text>{getTranslation('MY_RESEARCHES_TITLE')}</Text>
+          <Text>{getTexts('MY_RESEARCHES_TITLE')}</Text>
 
           {allResearches.map((research) => (
             <div className="research-content" key={`researches-${research.id}`}>
@@ -72,12 +72,12 @@ export const AppResearchesList = () => {
               {digivice?.currentDetails === research.id && (
                 <>
                   <ItemsList
-                    title={getTranslation('MY_RESEARCHES_DETAILS_REQUIRED')}
+                    title={getTexts('MY_RESEARCHES_DETAILS_REQUIRED')}
                     list={AllResearches[research.id].requiredItems}
                   />
 
                   <ItemsList
-                    title={getTranslation('MY_RESEARCHES_DETAILS_OPTIONAL')}
+                    title={getTexts('MY_RESEARCHES_DETAILS_OPTIONAL')}
                     list={AllResearches[research.id].optionalItems}
                   />
                 </>

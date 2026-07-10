@@ -2,7 +2,7 @@ import type { ProfileType } from '@/Types/Profile.type'
 
 import { AllZones } from '@/GameData/Zones'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 
 import { Text } from '@/Components/DesignSystem/Text'
 import { DeleteGame } from '@/Components/Global/DeleteGame'
@@ -29,21 +29,21 @@ export const GameFile = ({ profile }: { profile: ProfileType }) => {
 
       <header>
         <Text as="p">
-          {getTranslation('GAME_FILE_TITLE', {
+          {getTexts('GAME_FILE_TITLE', {
             '[NAME]': profile.name,
             '[ID]': String(profile.id)
           })}
         </Text>
 
         <Text as="p">
-          {getTranslation('GAME_FILE_ZONE', {
+          {getTexts('GAME_FILE_ZONE', {
             '[ZONE]': zone.name,
             '[MAP]': map.name
           })}
         </Text>
 
         <Text as="p">
-          {getTranslation('GAME_FILE_TIME', {
+          {getTexts('GAME_FILE_TIME', {
             '[TIME]': new Date(profile.lastSave).toLocaleString()
           })}
         </Text>

@@ -2,7 +2,7 @@ import * as EnTexts from '@/GameData/Texts/En'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
 
-export const getTranslation = (
+export const getTexts = (
   key: string,
   replace?: Record<string, string>
 ): string => {

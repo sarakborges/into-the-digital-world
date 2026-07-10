@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { getSortedProfiles, loadProfiles } from '@/Helpers/Systems/Profile'
 import { getThemeBackground } from '@/Helpers/Systems/Settings'
 
@@ -32,17 +32,17 @@ export const StartScreen = () => {
     <main className="start-screen">
       <header>
         <Portrait
-          alt={getTranslation('START_SCREEN_TITLE')}
+          alt={getTexts('START_SCREEN_TITLE')}
           src={`/digivice_backgrounds/${getThemeBackground()}.webp`}
         />
 
-        <Text as="p">{getTranslation('START_SCREEN_TITLE')}</Text>
+        <Text as="p">{getTexts('START_SCREEN_TITLE')}</Text>
       </header>
 
       <main>
         <div className="saved-games">
           <header>
-            <Text as="h2">{getTranslation('SAVED_GAMES')}</Text>
+            <Text as="h2">{getTexts('SAVED_GAMES')}</Text>
             <NewGame />
           </header>
 

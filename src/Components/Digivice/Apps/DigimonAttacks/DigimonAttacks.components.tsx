@@ -1,6 +1,6 @@
 import { AllAttacks } from '@/GameData/Attacks'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { getCurrentDigimon, getPartnerDigimon } from '@/Helpers/Systems/Digimon'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -26,7 +26,7 @@ export const DigimonAttacks = () => {
   return (
     <section className="digimon-attacks">
       <header>
-        <Text>{getTranslation('ENCYCLOPEDIA_ATTACKS')}</Text>
+        <Text>{getTexts('ENCYCLOPEDIA_ATTACKS')}</Text>
       </header>
 
       <main>
@@ -36,7 +36,7 @@ export const DigimonAttacks = () => {
             key={`digimon-${partner.id}-attacks-${attack}`}
           >
             <Text>
-              {getTranslation('ENCYCLOPEDIA_ATTACKS_DETAILS', {
+              {getTexts('ENCYCLOPEDIA_ATTACKS_DETAILS', {
                 '[NAME]': AllAttacks[attack].name,
                 '[COOLDOWN]': String(AllAttacks[attack].cooldown || 0)
               })}

@@ -1,4 +1,4 @@
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { loadData, saveSession } from '@/Helpers/Systems/Data'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -21,5 +21,5 @@ export const LoadGame = ({ profileId }: { profileId: number }) => {
     })
   }
 
-  return <Button onClick={loadProfile}>{getTranslation('LOAD_GAME')}</Button>
+  return <Button onClick={loadProfile}>{getTexts('LOAD_GAME')}</Button>
 }

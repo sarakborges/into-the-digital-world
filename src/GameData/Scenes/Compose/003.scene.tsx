@@ -3,7 +3,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllResearches } from '@/GameData/Researches'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { saveSession } from '@/Helpers/Systems/Data'
 
 import { useCompositionStore } from '@/Stores/Composition.store'
@@ -72,7 +72,7 @@ export const Compose003 = () => {
     options: [
       {
         id: 'scene-compose-002-back',
-        text: getTranslation('SCENES_BACK_BUTTON'),
+        text: getTexts('SCENES_BACK_BUTTON'),
         action: () => {
           setComposition(null)
           setScene({
@@ -84,7 +84,7 @@ export const Compose003 = () => {
 
       {
         id: 'scene-compose-002-confirm',
-        text: getTranslation('SCENES_CONFIRM_BUTTON'),
+        text: getTexts('SCENES_CONFIRM_BUTTON'),
         action: () => {
           composeDigimon()
           setScene(null)

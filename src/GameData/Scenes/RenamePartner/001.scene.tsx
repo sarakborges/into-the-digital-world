@@ -3,7 +3,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { AllDigimons } from '@/GameData/Digimons'
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { saveSession } from '@/Helpers/Systems/Data'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -33,14 +33,14 @@ export const RenamePartner001 = () => {
       <div className="dialog-with-reactions">
         <div className="text-bubble">
           <Text as="p">
-            {getTranslation('RENAMEPARTNER_001_TEXT', {
+            {getTexts('RENAMEPARTNER_001_TEXT', {
               '[DIGIMON]': digimon.name || baseDigimon.name
             })}
           </Text>
         </div>
 
         <Input
-          label={getTranslation('RENAMEPARTNER_001_INPUT')}
+          label={getTexts('RENAMEPARTNER_001_INPUT')}
           placeholder={digimon?.name || baseDigimon.name}
           name="partner-name"
           defaultValue={digimon?.name}
@@ -52,7 +52,7 @@ export const RenamePartner001 = () => {
     options: [
       {
         id: 'scene-renamepartner-001-cancel',
-        text: getTranslation('SCENES_CANCEL_BUTTON'),
+        text: getTexts('SCENES_CANCEL_BUTTON'),
         action: () => {
           setScene(null)
         }
@@ -60,7 +60,7 @@ export const RenamePartner001 = () => {
 
       {
         id: 'scene-renamepartner-001-confirm',
-        text: getTranslation('SCENES_CONFIRM_BUTTON'),
+        text: getTexts('SCENES_CONFIRM_BUTTON'),
         action: () => {
           if (!digivice?.currentDetails) {
             return

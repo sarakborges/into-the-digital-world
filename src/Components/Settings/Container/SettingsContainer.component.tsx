@@ -1,6 +1,6 @@
 import { FaCog, FaTimes } from 'react-icons/fa'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
 
@@ -28,7 +28,7 @@ export const SettingsContainer = () => {
       {!!settings.isOpen && (
         <Modal>
           <header className="settings-header">
-            <Text>{getTranslation('SETTINGS_TITLE')}</Text>
+            <Text>{getTexts('SETTINGS_TITLE')}</Text>
 
             <Button style="secondary" onClick={toggleModal}>
               {<FaTimes />}

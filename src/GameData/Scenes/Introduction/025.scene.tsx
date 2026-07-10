@@ -2,7 +2,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -19,14 +19,14 @@ export const Introduction025 = () => {
 
     content: (
       <div className="text-bubble">
-        <Text as="p">{getTranslation('INTRODUCTION_025_TEXT')}</Text>
+        <Text as="p">{getTexts('INTRODUCTION_025_TEXT')}</Text>
       </div>
     ),
 
     options: [
       {
         id: 'scene-introduction-025-confirm',
-        text: getTranslation('SCENES_CONFIRM_BUTTON'),
+        text: getTexts('SCENES_CONFIRM_BUTTON'),
         action: () => {
           setDigivice({ ...digivice, isOpen: false, currentApp: undefined })
 

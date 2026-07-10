@@ -1,4 +1,4 @@
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { getCurrentDigimon } from '@/Helpers/Systems/Digimon'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -23,7 +23,7 @@ export const CharacterDescription = () => {
   return (
     <section className="character-description">
       <header>
-        <Text>{getTranslation('ENCYCLOPEDIA_DESCRIPTION')}</Text>
+        <Text>{getTexts('ENCYCLOPEDIA_DESCRIPTION')}</Text>
       </header>
 
       <main>

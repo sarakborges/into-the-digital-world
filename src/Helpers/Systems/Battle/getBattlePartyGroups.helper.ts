@@ -1,6 +1,6 @@
 import type { BattlePartyGroupType } from '@/Types/BattleHelpers.type'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 
@@ -12,8 +12,8 @@ export const getBattlePartyGroups = (): BattlePartyGroupType[] => {
   }
 
   const partyLabels: Record<'allies' | 'enemies', string> = {
-    allies: getTranslation('BATTLE_PARTY_ALLIES'),
-    enemies: getTranslation('BATTLE_PARTY_ENEMIES')
+    allies: getTexts('BATTLE_PARTY_ALLIES'),
+    enemies: getTexts('BATTLE_PARTY_ENEMIES')
   }
 
   return (Object.keys(partyLabels) as Array<keyof typeof partyLabels>).map(

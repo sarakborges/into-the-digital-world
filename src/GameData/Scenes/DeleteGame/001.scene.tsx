@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { deleteGame } from '@/Helpers/Systems/Data'
 
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -14,14 +14,14 @@ export const DeleteGame001 = () => {
   const dialogOptions: DialogType = {
     content: (
       <div className="text-bubble">
-        <Text as="p">{getTranslation('DELETEGAME_001')}</Text>
+        <Text as="p">{getTexts('DELETEGAME_001')}</Text>
       </div>
     ),
 
     options: [
       {
         id: 'scene-deletegame-001-cancel',
-        text: getTranslation('SCENES_CANCEL_BUTTON'),
+        text: getTexts('SCENES_CANCEL_BUTTON'),
         action: () => {
           setScene(null)
         }
@@ -29,7 +29,7 @@ export const DeleteGame001 = () => {
 
       {
         id: 'scene-deletegame-001-confirm',
-        text: getTranslation('SCENES_CONFIRM_BUTTON'),
+        text: getTexts('SCENES_CONFIRM_BUTTON'),
         action: () => {
           deleteGame()
           setScene(null)

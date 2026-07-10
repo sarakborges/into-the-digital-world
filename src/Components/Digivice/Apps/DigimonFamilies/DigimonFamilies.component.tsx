@@ -1,4 +1,4 @@
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { getCurrentDigimon, getPartnerDigimon } from '@/Helpers/Systems/Digimon'
 
 import { DIGIMON_FAMILIES } from '@/Consts/Families.const'
@@ -27,7 +27,7 @@ export const DigimonFamilies = () => {
   return (
     <section className="digimon-families">
       <header>
-        <Text>{getTranslation('ENCYCLOPEDIA_FAMILIES')}</Text>
+        <Text>{getTexts('ENCYCLOPEDIA_FAMILIES')}</Text>
       </header>
 
       <main className="families">

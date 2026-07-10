@@ -1,4 +1,4 @@
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { getThemeGroups } from '@/Helpers/Systems/Settings'
 
 import { Text } from '@/Components/DesignSystem/Text'
@@ -16,12 +16,10 @@ export const SettingsTheme = () => {
           <div key={`themes-list-${category}`}>
             <header>
               <Text>
-                {getTranslation(
-                  `THEME_CATEGORIES_${category.toLocaleUpperCase()}`
-                )}
+                {getTexts(`THEME_CATEGORIES_${category.toLocaleUpperCase()}`)}
               </Text>
 
-              <Text>{getTranslation('THEMES_TITLE')}</Text>
+              <Text>{getTexts('THEMES_TITLE')}</Text>
             </header>
 
             <main>

@@ -2,7 +2,7 @@ import { BiSolidSquareRounded } from 'react-icons/bi'
 import { HiOutlineDevicePhoneMobile } from 'react-icons/hi2'
 import { IoCaretBack } from 'react-icons/io5'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { isBattleDisabled } from '@/Helpers/Systems/Battle'
 import { doesProfileHaveDigivice } from '@/Helpers/Systems/Digivice'
 
@@ -65,7 +65,7 @@ export const DigiviceContainer = () => {
                 <>
                   <AppPlayerProfile />
 
-                  <Text>{getTranslation('APPS_TITLE')}</Text>
+                  <Text>{getTexts('APPS_TITLE')}</Text>
 
                   <div className="digivice-apps">
                     {Object.values(DigiviceApps).map((app) => (
@@ -82,14 +82,14 @@ export const DigiviceContainer = () => {
                   <header className="app-header">
                     <div className="app-identifier">
                       <Portrait
-                        alt={getTranslation(
+                        alt={getTexts(
                           `APPS_${AllApps[digivice.currentApp].id.toLocaleUpperCase()}`
                         )}
                         src={`/apps/${AllApps[digivice.currentApp].id}.png`}
                       />
 
                       <Text>
-                        {getTranslation(
+                        {getTexts(
                           `APPS_${AllApps[digivice.currentApp].id.toLocaleUpperCase()}`
                         )}
                       </Text>

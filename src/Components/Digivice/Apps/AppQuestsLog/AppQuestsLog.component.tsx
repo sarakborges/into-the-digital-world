@@ -1,4 +1,4 @@
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { getQuestGroups } from '@/Helpers/Systems/Quests'
 
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -20,14 +20,14 @@ export const AppQuestsLog = () => {
     <div className="quests-log">
       <QuestsList
         list={notDone}
-        title={getTranslation('QUESTS_LOG_TITLE')}
-        noListText={getTranslation('QUESTS_LOG_NOQUESTS')}
+        title={getTexts('QUESTS_LOG_TITLE')}
+        noListText={getTexts('QUESTS_LOG_NOQUESTS')}
       />
 
       <QuestsList
         list={done}
-        title={getTranslation('QUESTS_LOG_TITLE_DONE')}
-        noListText={getTranslation('QUESTS_LOG_NOQUESTS_DONE')}
+        title={getTexts('QUESTS_LOG_TITLE_DONE')}
+        noListText={getTexts('QUESTS_LOG_NOQUESTS_DONE')}
       />
     </div>
   )

@@ -2,7 +2,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { deleteSession } from '@/Helpers/Systems/Data'
 
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -20,14 +20,14 @@ export const Logoff001 = () => {
 
     content: (
       <div className="text-bubble">
-        <Text as="p">{getTranslation('LOGOFF_001_TEXT')}</Text>
+        <Text as="p">{getTexts('LOGOFF_001_TEXT')}</Text>
       </div>
     ),
 
     options: [
       {
         id: 'scene-logoff-001-cancel',
-        text: getTranslation('SCENES_CANCEL_BUTTON'),
+        text: getTexts('SCENES_CANCEL_BUTTON'),
         action: () => {
           setScene(null)
         }
@@ -35,7 +35,7 @@ export const Logoff001 = () => {
 
       {
         id: 'scene-logoff-001-confirm',
-        text: getTranslation('SCENES_CONFIRM_BUTTON'),
+        text: getTexts('SCENES_CONFIRM_BUTTON'),
         action: () => {
           setProfile(null)
           setScene(null)

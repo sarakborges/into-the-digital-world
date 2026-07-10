@@ -2,7 +2,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { isDigimonDefeated, saveBattle } from '@/Helpers/Systems/Battle'
 import { enterNextDungeonRoom, saveDungeon } from '@/Helpers/Systems/Dungeon'
 import { warpTo } from '@/Helpers/Systems/Zones'
@@ -39,7 +39,7 @@ export const BattleEnd = () => {
       <div className="dialog-with-reactions">
         <div className="text-bubble">
           <Text as="p">
-            {getTranslation(`BATTLE_END_${battleResult.toLocaleUpperCase()}`)}
+            {getTexts(`BATTLE_END_${battleResult.toLocaleUpperCase()}`)}
           </Text>
         </div>
 
@@ -50,7 +50,7 @@ export const BattleEnd = () => {
     options: [
       {
         id: 'scene-battle-battleend-continue',
-        text: getTranslation('SCENES_CONTINUE_BUTTON'),
+        text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
           if (!dungeon) {
             return

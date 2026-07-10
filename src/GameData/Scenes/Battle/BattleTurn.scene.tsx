@@ -2,7 +2,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { generateRandomNumber } from '@/Helpers/Math'
 import { doAttack } from '@/Helpers/Systems/Battle'
 
@@ -28,7 +28,7 @@ export const BattleTurn = () => {
       <div className="dialog-with-reactions">
         <div className="text-bubble">
           <Text as="p">
-            {getTranslation(
+            {getTexts(
               `BATTLE_${currentTurn.party.toLocaleUpperCase()}_TURN_TEXT`,
               { '[NAME]': currentTurn.name }
             )}
@@ -44,7 +44,7 @@ export const BattleTurn = () => {
         ? [
             {
               id: 'scene-battle-battleturn-continue',
-              text: getTranslation('SCENES_CONTINUE_BUTTON'),
+              text: getTexts('SCENES_CONTINUE_BUTTON'),
               action: () => {
                 const rng = generateRandomNumber({
                   min: 0,

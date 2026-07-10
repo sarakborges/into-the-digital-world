@@ -5,7 +5,7 @@ import { AllQuests } from '@/GameData/Quests'
 import { OpenCompose } from '@/GameData/Zones/RootDomain/MainRoom/Events/OpenCompose.event'
 import { OpenJijimonIntroduction } from '@/GameData/Zones/RootDomain/MainRoom/Events/OpenJijimonIntroduction.event'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { isQuestDone } from '@/Helpers/Systems/Quests'
 
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -14,7 +14,7 @@ export const RootDomainMainRoomJijimonTile: MapTileType = {
   id: 'rootDomainMainRoomJijimon',
   x: 14,
   y: 7,
-  defaultText: getTranslation('ROOTDOMAIN_JIJIMON_DEFAULT'),
+  defaultText: getTexts('ROOTDOMAIN_JIJIMON_DEFAULT'),
 
   npc: {
     ...AllNpcs.digimon.jijimon,
@@ -24,7 +24,7 @@ export const RootDomainMainRoomJijimonTile: MapTileType = {
   events: [
     {
       function: OpenJijimonIntroduction,
-      eventText: getTranslation('ROOTDOMAIN_JIJIMON_INTRODUCTION'),
+      eventText: getTexts('ROOTDOMAIN_JIJIMON_INTRODUCTION'),
 
       condition: () => {
         const { profile } = useProfileStore.getState()
@@ -41,7 +41,7 @@ export const RootDomainMainRoomJijimonTile: MapTileType = {
 
     {
       function: OpenCompose,
-      eventText: getTranslation('ROOTDOMAIN_COMPOSE_TRIGGER'),
+      eventText: getTexts('ROOTDOMAIN_COMPOSE_TRIGGER'),
 
       condition: () => {
         const { profile } = useProfileStore.getState()

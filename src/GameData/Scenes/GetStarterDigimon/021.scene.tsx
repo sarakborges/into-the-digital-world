@@ -4,7 +4,7 @@ import type { ProfileType } from '@/Types/Profile.type'
 import { AllNpcs } from '@/GameData/Npcs'
 import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { saveSession } from '@/Helpers/Systems/Data'
 import { updateQuestObjective } from '@/Helpers/Systems/Quests'
 
@@ -28,7 +28,7 @@ export const GetStarterDigimon021 = () => {
     content: (
       <div className="text-bubble">
         <Text as="p">
-          {getTranslation(`GETSTARTERDIGIMON_021_TEXT`, {
+          {getTexts(`GETSTARTERDIGIMON_021_TEXT`, {
             '[NAME]': profile.name
           })}
         </Text>
@@ -38,7 +38,7 @@ export const GetStarterDigimon021 = () => {
     options: [
       {
         id: 'scene-getstarterdigimon-021-continue',
-        text: getTranslation('SCENES_CONTINUE_BUTTON'),
+        text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
           updateQuestObjective({
             questId: StarterDigimonQuest.id,

@@ -2,7 +2,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 
@@ -17,14 +17,14 @@ export const GetStarterDigimon017 = () => {
 
     content: (
       <div className="text-bubble">
-        <Text as="p">{getTranslation(`GETSTARTERDIGIMON_017_TEXT`)}</Text>
+        <Text as="p">{getTexts(`GETSTARTERDIGIMON_017_TEXT`)}</Text>
       </div>
     ),
 
     options: [
       {
         id: 'scene-getstarterdigimon-017-continue',
-        text: getTranslation('SCENES_CONTINUE_BUTTON'),
+        text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene({
             currentScene: 'getStarterDigimon',

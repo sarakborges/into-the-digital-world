@@ -1,4 +1,4 @@
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { getCurrentDigimon } from '@/Helpers/Systems/Digimon'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -24,7 +24,7 @@ export const CharacterFullPicture = () => {
   return (
     <section className="character-full-picture">
       <header>
-        <Text>{getTranslation('ENCYCLOPEDIA_FULL_PICTURE')}</Text>
+        <Text>{getTexts('ENCYCLOPEDIA_FULL_PICTURE')}</Text>
       </header>
 
       <main>

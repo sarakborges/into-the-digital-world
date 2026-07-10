@@ -1,4 +1,4 @@
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { createNewProfile } from '@/Helpers/Systems/Profile'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -29,7 +29,7 @@ export const NewGame = () => {
   return (
     <div className="new-game">
       <Button style="secondary" onClick={handleCreateNewProfile}>
-        {getTranslation('START_NEW_GAME')}
+        {getTexts('START_NEW_GAME')}
       </Button>
     </div>
   )

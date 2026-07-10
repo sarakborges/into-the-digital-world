@@ -1,6 +1,6 @@
 import { AllZones } from '@/GameData/Zones'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { getAvailableWarpLocations } from '@/Helpers/Systems/Digivice'
 import { warpTo } from '@/Helpers/Systems/Zones'
 
@@ -41,7 +41,7 @@ export const AppLocation = () => {
 
   return (
     <div className="locations">
-      <Text>{getTranslation('LOCATION_SELECT')}</Text>
+      <Text>{getTexts('LOCATION_SELECT')}</Text>
 
       <div className="locations-list">
         {availableWarpLocations.map((location) => (

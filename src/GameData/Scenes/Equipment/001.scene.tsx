@@ -3,7 +3,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { AllItems } from '@/GameData/Items'
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { saveSession } from '@/Helpers/Systems/Data'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -67,11 +67,11 @@ export const Equipment001 = () => {
     content: (
       <div className="dialog-with-reactions">
         <div className="text-bubble">
-          <Text as="p">{getTranslation('EQUIPMENT_001_TEXT')}</Text>
+          <Text as="p">{getTexts('EQUIPMENT_001_TEXT')}</Text>
         </div>
 
         {!availableItems.length && (
-          <Text>{getTranslation('ENCYCLOPEDIA_EQUIPMENTS_NOAVAILABLE')}</Text>
+          <Text>{getTexts('ENCYCLOPEDIA_EQUIPMENTS_NOAVAILABLE')}</Text>
         )}
 
         {!!availableItems.length &&
@@ -88,7 +88,7 @@ export const Equipment001 = () => {
     options: [
       {
         id: 'scene-equipment-001-leave',
-        text: getTranslation('SCENES_LEAVE_BUTTON'),
+        text: getTexts('SCENES_LEAVE_BUTTON'),
         action: () => {
           setScene(null)
         }

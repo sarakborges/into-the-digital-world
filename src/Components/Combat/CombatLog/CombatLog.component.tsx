@@ -1,4 +1,4 @@
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 
@@ -16,7 +16,7 @@ export const CombatLog = () => {
 
   return (
     <div className="combat-log">
-      <Text>{getTranslation('BATTLE_LOG_TITLE')}</Text>
+      <Text>{getTexts('BATTLE_LOG_TITLE')}</Text>
 
       {[...battle.combatLog].map((logEntry, logIndex) => (
         <div

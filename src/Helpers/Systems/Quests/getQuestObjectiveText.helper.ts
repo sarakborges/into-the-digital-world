@@ -1,7 +1,7 @@
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllZones } from '@/GameData/Zones'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 
 export const getQuestObjectiveText = (objective: {
   type: string
@@ -9,8 +9,8 @@ export const getQuestObjectiveText = (objective: {
   where: string
   map: string
 }) => {
-  return getTranslation('QUEST_OBJECTIVE', {
-    '[TYPE]': getTranslation(
+  return getTexts('QUEST_OBJECTIVE', {
+    '[TYPE]': getTexts(
       `QUEST_OBJECTIVE_TYPE_${objective.type.toLocaleUpperCase()}`
     ),
     '[TARGET]': AllNpcs?.[objective.target.type]?.[objective.target.id].name,

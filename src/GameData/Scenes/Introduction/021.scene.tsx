@@ -5,7 +5,7 @@ import { AllNpcs } from '@/GameData/Npcs'
 import { AvatarFixingQuest } from '@/GameData/Quests/AvatarFixing.quest'
 import { IntroductionQuest } from '@/GameData/Quests/Introduction.quest'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { saveSession } from '@/Helpers/Systems/Data'
 import { addNewQuest, updateQuestObjective } from '@/Helpers/Systems/Quests'
 
@@ -23,14 +23,14 @@ export const Introduction021 = () => {
 
     content: (
       <div className="text-bubble">
-        <Text as="p">{getTranslation('INTRODUCTION_021_TEXT')}</Text>
+        <Text as="p">{getTexts('INTRODUCTION_021_TEXT')}</Text>
       </div>
     ),
 
     options: [
       {
         id: 'scene-introduction-021-continue',
-        text: getTranslation('SCENES_CONTINUE_BUTTON'),
+        text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setScene(null)
 

@@ -1,6 +1,6 @@
 import { FaCheck } from 'react-icons/fa'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { updateSettings } from '@/Helpers/Systems/Settings'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
@@ -32,9 +32,7 @@ export const UpdateLanguage = ({ language }: { language: string }) => {
         </div>
 
         <Text>
-          {getTranslation(
-            `LANGUAGE_${language.replace('-', '').toUpperCase()}`
-          )}
+          {getTexts(`LANGUAGE_${language.replace('-', '').toUpperCase()}`)}
         </Text>
 
         {language === settings?.language && <FaCheck />}

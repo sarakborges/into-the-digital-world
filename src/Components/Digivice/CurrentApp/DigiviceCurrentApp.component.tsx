@@ -1,4 +1,4 @@
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { getAppAvailability } from '@/Helpers/Systems/Digivice'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -42,11 +42,11 @@ export const DigiviceCurrentApp = ({ app }: DigiviceCurrentAppProps) => {
   return (
     <Button onClick={openApp} disabled={!getAppAvailability(app.id)}>
       <Portrait
-        alt={getTranslation(`APPS_${app.id.toLocaleUpperCase()}`)}
+        alt={getTexts(`APPS_${app.id.toLocaleUpperCase()}`)}
         src={`/apps/${app.id}.png`}
       />
 
-      <Text>{getTranslation(`APPS_${app.id.toLocaleUpperCase()}`)}</Text>
+      <Text>{getTexts(`APPS_${app.id.toLocaleUpperCase()}`)}</Text>
     </Button>
   )
 }

@@ -3,7 +3,7 @@ import { BiMinus, BiPlus } from 'react-icons/bi'
 import { AllItems } from '@/GameData/Items'
 import { AllResearches } from '@/GameData/Researches'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { updateOptionalItem } from '@/Helpers/Systems/Compose'
 
 import { useCompositionStore } from '@/Stores/Composition.store'
@@ -34,7 +34,7 @@ export const AppCompose = () => {
     <div className="compose" key={`composition-${baseDigimon.name}`}>
       <header>
         <Text>
-          {getTranslation('COMPOSE_002_DIGIMON_TITLE', {
+          {getTexts('COMPOSE_002_DIGIMON_TITLE', {
             '[DIGIMON]': baseDigimon.name
           })}
         </Text>
@@ -50,7 +50,7 @@ export const AppCompose = () => {
           <div>
             <ItemsList
               list={requiredItems}
-              title={getTranslation('COMPOSE_002_REQUIRED_ITEMS')}
+              title={getTexts('COMPOSE_002_REQUIRED_ITEMS')}
               displayPlayerResouce
             />
           </div>
@@ -58,7 +58,7 @@ export const AppCompose = () => {
 
         {!!Object.keys(optionalItems ?? {}).length && (
           <div>
-            <Text>{getTranslation('COMPOSE_002_OPTIONAL_ITEMS')}</Text>
+            <Text>{getTexts('COMPOSE_002_OPTIONAL_ITEMS')}</Text>
 
             <div className="fill-bar">
               <div className="bar">
@@ -81,7 +81,7 @@ export const AppCompose = () => {
                       <Text>{AllItems[item].name}</Text>
 
                       <Text>
-                        {getTranslation('COMPOSE_002_OPTIONAL_ITEMS_AMOUNT', {
+                        {getTexts('COMPOSE_002_OPTIONAL_ITEMS_AMOUNT', {
                           '[AMOUNT]': String(profile.items[item] || 0),
                           '[WEIGHT]': String(optionalItems?.[item] ?? 0)
                         })}

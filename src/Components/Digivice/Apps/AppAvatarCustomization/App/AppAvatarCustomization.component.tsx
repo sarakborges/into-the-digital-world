@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 
 import type { AvatarType } from '@/Types/Avatar.type'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import {
   generateRandomAvatar,
   getAvatarOptionsText
@@ -47,7 +47,7 @@ export const AppAvatarCustomization = () => {
 
       {!avatarCustomization.layer && (
         <main className="avatar-options">
-          <Text>{getTranslation('AVATARCUSTOMIZATION_OPTIONS_TITLE')}</Text>
+          <Text>{getTexts('AVATARCUSTOMIZATION_OPTIONS_TITLE')}</Text>
 
           {(Object.keys(options) as Array<keyof AvatarType>).map((option) => (
             <div key={`avatar-options-${option}`}>

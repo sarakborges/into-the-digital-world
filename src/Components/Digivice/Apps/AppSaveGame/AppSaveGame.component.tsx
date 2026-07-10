@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import {
   getSavedProfiles,
   loadProfiles,
@@ -22,7 +22,7 @@ export const AppSaveGame = () => {
   return (
     <div className="save-game">
       <Button onClick={() => saveProfile()}>
-        {getTranslation('SAVEGAME_001_NEWGAME')}
+        {getTexts('SAVEGAME_001_NEWGAME')}
       </Button>
 
       <div className="games-list">

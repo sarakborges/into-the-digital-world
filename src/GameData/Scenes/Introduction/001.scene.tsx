@@ -2,7 +2,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { IntroductionQuest } from '@/GameData/Quests/Introduction.quest'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { addNewQuest } from '@/Helpers/Systems/Quests'
 
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -16,14 +16,14 @@ export const Introduction001 = () => {
   const dialogOptions: DialogType = {
     content: (
       <div className="text-bubble">
-        <Text as="p">{getTranslation('INTRODUCTION_001_TEXT')}</Text>
+        <Text as="p">{getTexts('INTRODUCTION_001_TEXT')}</Text>
       </div>
     ),
 
     options: [
       {
         id: 'scene-introduction-001-continue',
-        text: getTranslation('SCENES_CONTINUE_BUTTON'),
+        text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
           addNewQuest({
             questId: IntroductionQuest.id,

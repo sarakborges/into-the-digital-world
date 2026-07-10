@@ -2,7 +2,7 @@ import { BiSolidStar } from 'react-icons/bi'
 import { BsArrowDown, BsArrowUp } from 'react-icons/bs'
 import { TbListDetails } from 'react-icons/tb'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { setCurrentDetails } from '@/Helpers/Systems/Digivice'
 import {
   addToParty,
@@ -47,9 +47,7 @@ export const AppPartnersList = () => {
           key={`partners-list-partners-${category}`}
         >
           <Text>
-            {getTranslation(
-              `ENCYCLOPEDIA_CATEGORY_${category.toLocaleUpperCase()}`
-            )}
+            {getTexts(`ENCYCLOPEDIA_CATEGORY_${category.toLocaleUpperCase()}`)}
           </Text>
 
           <div className="partners-list-list">
@@ -116,7 +114,7 @@ export const AppPartnersList = () => {
                 )
               })
             ) : (
-              <Text>{getTranslation('ENCYCLOPEDIA_NO_OTHERS')}</Text>
+              <Text>{getTexts('ENCYCLOPEDIA_NO_OTHERS')}</Text>
             )}
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 
 import { ENCYCLOPEDIA_HEADER } from '@/Consts/EncyclopediaHeader.const'
 
@@ -28,9 +28,7 @@ export const EncyclopediaHeader = () => {
           style="secondary"
           key={`encyclopedia-header-${headerApp}`}
         >
-          {getTranslation(
-            `ENCYCLOPEDIA_HEADER_${headerApp.toLocaleUpperCase()}`
-          )}
+          {getTexts(`ENCYCLOPEDIA_HEADER_${headerApp.toLocaleUpperCase()}`)}
         </Button>
       ))}
     </header>

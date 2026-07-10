@@ -1,4 +1,4 @@
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { getCurrentDigimon } from '@/Helpers/Systems/Digimon'
 
 import { DIGIMON_ATTRIBUTES } from '@/Consts/Attributes.const'
@@ -26,7 +26,7 @@ export const DigimonAttribute = () => {
   return (
     <section className="digimon-attribute">
       <header>
-        <Text>{getTranslation('ENCYCLOPEDIA_ATTRIBUTE')}</Text>
+        <Text>{getTexts('ENCYCLOPEDIA_ATTRIBUTE')}</Text>
       </header>
 
       <main className="attribute">

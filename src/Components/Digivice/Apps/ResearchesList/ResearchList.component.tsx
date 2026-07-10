@@ -3,7 +3,7 @@ import { GiTwoCoins } from 'react-icons/gi'
 import { AllDigimons } from '@/GameData/Digimons'
 import { AllResearches } from '@/GameData/Researches'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import {
   getAvailableResearches,
   isResearchPurchasable,
@@ -32,7 +32,7 @@ export const ResearchList = () => {
     <div className="research-list">
       {!!availableResearches.length && (
         <div className="research-list-container">
-          <Text>{getTranslation('RESEARCH_002_TITLE')}</Text>
+          <Text>{getTexts('RESEARCH_002_TITLE')}</Text>
 
           <div className="list">
             {availableResearches.map((research) => (

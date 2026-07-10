@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 import { AllDungeons } from '@/GameData/Dungeons'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { startBattle } from '@/Helpers/Systems/Battle'
 
 import { useBattleStore } from '@/Stores/Battle.store'
@@ -71,17 +71,17 @@ export const Dungeon = () => {
   return (
     <div className="dungeon-container">
       <div>
-        <Text>{getTranslation(currentDungeon?.name ?? '')}</Text>
+        <Text>{getTexts(currentDungeon?.name ?? '')}</Text>
       </div>
 
       {!!room && (
         <div>
           <Text>
-            {getTranslation('DUNGEON_ROOM_NUMBER', {
+            {getTexts('DUNGEON_ROOM_NUMBER', {
               '[NUMBER]': String(dungeon.doneRooms.length + 1)
             })}
           </Text>
-          <Text>{getTranslation(room.name)}</Text>
+          <Text>{getTexts(room.name)}</Text>
         </div>
       )}
     </div>

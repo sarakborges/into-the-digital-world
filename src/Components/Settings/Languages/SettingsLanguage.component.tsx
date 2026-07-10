@@ -1,4 +1,4 @@
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 
 import { LANGUAGES } from '@/Consts/Languages.const'
 
@@ -10,7 +10,7 @@ import './SettingsLanguage.style.scss'
 export const SettingsLanguage = () => {
   return (
     <div className="settings-language">
-      <Text>{getTranslation('LANGUAGES_TITLE')}</Text>
+      <Text>{getTexts('LANGUAGES_TITLE')}</Text>
 
       <div className="languages-list">
         {LANGUAGES.map((language) => (

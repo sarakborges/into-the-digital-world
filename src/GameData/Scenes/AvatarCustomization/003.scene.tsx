@@ -4,7 +4,7 @@ import type { ProfileType } from '@/Types/Profile.type'
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllQuests } from '@/GameData/Quests'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { saveSession } from '@/Helpers/Systems/Data'
 import { isQuestDone } from '@/Helpers/Systems/Quests'
 
@@ -58,7 +58,7 @@ export const AvatarCustomization003 = () => {
     options: [
       {
         id: 'scene-avatarCustomization-003-back',
-        text: getTranslation('SCENES_BACK_BUTTON'),
+        text: getTexts('SCENES_BACK_BUTTON'),
         action: () => {
           const { avatarCustomization } = useAvatarCustomizationStore.getState()
 
@@ -73,7 +73,7 @@ export const AvatarCustomization003 = () => {
 
       {
         id: 'scene-avatarCustomization-003-confirm',
-        text: getTranslation('SCENES_CONFIRM_BUTTON'),
+        text: getTexts('SCENES_CONFIRM_BUTTON'),
         action: saveAvatar
       }
     ]

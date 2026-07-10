@@ -1,6 +1,6 @@
 import { AllItems } from '@/GameData/Items'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { getCurrentDigimon, getPartnerDigimon } from '@/Helpers/Systems/Digimon'
 import { updateEquipment } from '@/Helpers/Systems/Profile'
 import { openEquipDialog } from '@/Helpers/Systems/Scenes'
@@ -32,7 +32,7 @@ export const DigimonEquipments = () => {
   return (
     <section className="digimon-equipments">
       <header>
-        <Text>{getTranslation('ENCYCLOPEDIA_EQUIPMENTS')}</Text>
+        <Text>{getTexts('ENCYCLOPEDIA_EQUIPMENTS')}</Text>
       </header>
 
       <main className="equipments">
@@ -61,9 +61,7 @@ export const DigimonEquipments = () => {
                   )}
 
                   {!partner.equipments?.[item]?.equipmentId && (
-                    <Text>
-                      {getTranslation('ENCYCLOPEDIA_EQUIPMENTS_NOITEMS')}
-                    </Text>
+                    <Text>{getTexts('ENCYCLOPEDIA_EQUIPMENTS_NOITEMS')}</Text>
                   )}
 
                   <footer>

@@ -5,7 +5,7 @@ import { AllQuests } from '@/GameData/Quests'
 import { OpenNanomonIntroduction } from '@/GameData/Zones/RootDomain/MainRoom/Events/OpenNanomonIntroduction.event'
 import { OpenResearch } from '@/GameData/Zones/RootDomain/MainRoom/Events/OpenResearch.event'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { isQuestDone } from '@/Helpers/Systems/Quests'
 
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -14,7 +14,7 @@ export const RootDomainMainRoomNanomonTile: MapTileType = {
   id: 'rootDomainMainRoomNanomon',
   x: 6,
   y: 7,
-  defaultText: getTranslation('ROOTDOMAIN_NANOMON_DEFAULT'),
+  defaultText: getTexts('ROOTDOMAIN_NANOMON_DEFAULT'),
 
   npc: {
     ...AllNpcs.digimon.nanomon,
@@ -24,7 +24,7 @@ export const RootDomainMainRoomNanomonTile: MapTileType = {
   events: [
     {
       function: OpenNanomonIntroduction,
-      eventText: getTranslation('ROOTDOMAIN_NANOMON_INTRODUCTION'),
+      eventText: getTexts('ROOTDOMAIN_NANOMON_INTRODUCTION'),
 
       condition: () => {
         const { profile } = useProfileStore.getState()
@@ -41,7 +41,7 @@ export const RootDomainMainRoomNanomonTile: MapTileType = {
 
     {
       function: OpenResearch,
-      eventText: getTranslation('ROOTDOMAIN_RESEARCH_TRIGGER'),
+      eventText: getTexts('ROOTDOMAIN_RESEARCH_TRIGGER'),
 
       condition: () => {
         const { profile } = useProfileStore.getState()

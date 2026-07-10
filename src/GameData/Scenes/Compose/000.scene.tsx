@@ -2,7 +2,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { saveSession } from '@/Helpers/Systems/Data'
 
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -24,14 +24,14 @@ export const Compose000 = () => {
 
     content: (
       <div className="text-bubble">
-        <Text as="p">{getTranslation('COMPOSE_000_TEXT')}</Text>
+        <Text as="p">{getTexts('COMPOSE_000_TEXT')}</Text>
       </div>
     ),
 
     options: [
       {
         id: 'scene-compose-000-continue',
-        text: getTranslation('SCENES_CONTINUE_BUTTON'),
+        text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
           const updatedProfile = {
             ...profile,

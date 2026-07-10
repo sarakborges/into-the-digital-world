@@ -1,1 +1,1 @@
-export { getTranslation } from './getTranslation.helper'
+export { getTexts } from './getTexts.helper'

@@ -1,12 +1,12 @@
 import type { BattleType } from '@/Types/Battle.type'
 
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 
 const getPartyText = (isEnemyAttacker: boolean): string =>
-  isEnemyAttacker ? getTranslation('BATTLE_ATTACK_ENEMIES') : ''
+  isEnemyAttacker ? getTexts('BATTLE_ATTACK_ENEMIES') : ''
 
 const getTargetPartyText = (isEnemyAttacker: boolean): string =>
-  !isEnemyAttacker ? getTranslation('BATTLE_TARGET_ENEMIES') : ''
+  !isEnemyAttacker ? getTexts('BATTLE_TARGET_ENEMIES') : ''
 
 export const formatLogEntry = (
   logEntry: BattleType['combatLog'][number]
@@ -14,7 +14,7 @@ export const formatLogEntry = (
   const isEnemyAttacker = logEntry.attackerParty === 'enemies'
 
   if (!logEntry.hasHitLanded) {
-    return getTranslation('BATTLE_LOG_MISS', {
+    return getTexts('BATTLE_LOG_MISS', {
       '[TURN]': String(logEntry.index),
       '[PARTY]': getPartyText(isEnemyAttacker),
       '[NAME]': logEntry.attacker,
@@ -26,14 +26,12 @@ export const formatLogEntry = (
 
   const isTargetDefeated = logEntry.isTargetDefeated
   const condition = isTargetDefeated
-    ? getTranslation('BATTLE_LOG_DIGIMON_DEFEATED').toLocaleLowerCase()
-    : getTranslation(
-        `ATTACK_CONDITION_${logEntry.effect?.toLocaleUpperCase() ?? ''}`
-      )
+    ? getTexts('BATTLE_LOG_DIGIMON_DEFEATED').toLocaleLowerCase()
+    : getTexts(`ATTACK_CONDITION_${logEntry.effect?.toLocaleUpperCase() ?? ''}`)
 
   const severity = isTargetDefeated ? '' : ` ${logEntry.severity ?? ''}`
 
-  return getTranslation('BATTLE_LOG_TURN', {
+  return getTexts('BATTLE_LOG_TURN', {
     '[PARTY]': getPartyText(isEnemyAttacker),
     '[NAME]': logEntry.attacker,
     '[TARGET]': logEntry.target,

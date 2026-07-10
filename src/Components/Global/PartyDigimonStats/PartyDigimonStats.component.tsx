@@ -1,4 +1,4 @@
-import { getTranslation } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language'
 import { getExtraStatsFromPartner } from '@/Helpers/Systems/Battle'
 import { getBaseDigimon } from '@/Helpers/Systems/Digimon'
 
@@ -27,7 +27,7 @@ export const PartyDigimonStats = ({ digimonId }: { digimonId: number }) => {
       {Object.keys(baseDigimon.stats).map((stat) => (
         <section key={`profile-party-${digimonId}-stats-${stat}`}>
           <Text>
-            {getTranslation('ENCYCLOPEDIA_STATS_VALUE', {
+            {getTexts('ENCYCLOPEDIA_STATS_VALUE', {
               '[NAME]': stat.toLocaleUpperCase(),
               '[VALUE]':
                 baseDigimon.stats[stat] +
