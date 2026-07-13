@@ -10,9 +10,9 @@ export const loadGameSession = () => {
   const { setBattle } = useBattleStore.getState()
 
   try {
-    const profile = loadSession({ key: `profile` })
-    const dungeon = loadSession({ key: `dungeon` })
-    const battle = loadSession({ key: `battle` })
+    const profile = loadSession(`profile`)
+    const dungeon = loadSession(`dungeon`)
+    const battle = loadSession(`battle`)
 
     setProfile(profile)
     setDungeon(dungeon)

@@ -1,4 +1,4 @@
-export const deleteSession = ({ key }: { key: string }) => {
+export const deleteSession = (key: string) => {
   try {
     sessionStorage.removeItem(`itdw_${key}`)
   } catch {

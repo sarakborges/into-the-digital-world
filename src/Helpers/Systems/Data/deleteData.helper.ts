@@ -1,4 +1,4 @@
-export const deleteData = ({ key }: { key: string }) => {
+export const deleteData = (key: string) => {
   try {
     localStorage.removeItem(`itdw_${key}`)
   } catch {

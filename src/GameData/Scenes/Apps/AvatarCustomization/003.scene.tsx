@@ -1,4 +1,5 @@
 import type { DialogType } from '@/Types/Dialog.type'
+import { AllScenes } from '@/GameData/Scenes'
 import type { ProfileType } from '@/Types/Profile.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
@@ -36,15 +37,9 @@ export const AvatarCustomization003 = () => {
     )
 
     if (!doneQuests.includes(AllQuests.avatarFixing.id)) {
-      setScene({
-        currentScene: 'introduction',
-        currentStage: '021'
-      })
+      setScene(AllScenes.introduction['021'])
     } else {
-      setScene({
-        currentScene: 'avatarCustomization',
-        currentStage: '002'
-      })
+      setScene(AllScenes.avatarCustomization['002'])
     }
 
     saveSession(updatedProfile)

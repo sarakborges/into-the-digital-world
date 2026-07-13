@@ -1,4 +1,5 @@
 import type { DialogType } from '@/Types/Dialog.type'
+import { AllScenes } from '@/GameData/Scenes'
 
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllResearches } from '@/GameData/Researches'
@@ -75,10 +76,7 @@ export const Compose003 = () => {
         text: getTexts('SCENES_BACK_BUTTON'),
         action: () => {
           setComposition(null)
-          setScene({
-            currentScene: 'compose',
-            currentStage: '002'
-          })
+          setScene(AllScenes.compose['002'])
         }
       },
 

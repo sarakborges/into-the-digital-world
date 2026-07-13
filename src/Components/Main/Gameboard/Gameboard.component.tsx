@@ -4,7 +4,6 @@ import { useBattleStore } from '@/Stores/Battle.store'
 import { useDungeonStore } from '@/Stores/Dungeon.store'
 import { useGameStore } from '@/Stores/Game.store'
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useSceneStore } from '@/Stores/Scene.store'
 
 import { GameboardCharacter } from '@/Components/Main/GameboardCharacter'
 import { Gamepad } from '@/Components/Main/Gamepad'
@@ -17,7 +16,6 @@ export const Gameboard = () => {
   const { profile } = useProfileStore((state) => state)
   const { game } = useGameStore((state) => state)
   const { battle } = useBattleStore((state) => state)
-  const { scene } = useSceneStore((state) => state)
   const { dungeon } = useDungeonStore((state) => state)
 
   const currentMap = getCurrentMap()
@@ -47,7 +45,7 @@ export const Gameboard = () => {
             }}
           />
 
-          {!!(!battle || scene?.currentStage === 'start') && (
+          {!battle && (
             <>
               <GameboardCharacter isPlayer />
 

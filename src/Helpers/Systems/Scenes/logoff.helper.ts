@@ -22,7 +22,7 @@ export const logoff = () => {
     isOpen: false
   })
 
-  deleteSession({ key: 'profile' })
-  deleteSession({ key: 'battle' })
-  deleteSession({ key: 'dungeon' })
+  deleteSession('profile')
+  deleteSession('battle')
+  deleteSession('dungeon')
 }

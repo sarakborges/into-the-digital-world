@@ -1,4 +1,5 @@
 import { BiPencil } from 'react-icons/bi'
+import { AllScenes } from '@/GameData/Scenes'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 
@@ -12,10 +13,7 @@ export const RenamePartner = () => {
       disabled={!!scene}
       style="secondary"
       onClick={() => {
-        setScene({
-          currentScene: 'renamePartner',
-          currentStage: '001'
-        })
+        setScene(AllScenes.renamePartner['001'])
       }}
     >
       <BiPencil />

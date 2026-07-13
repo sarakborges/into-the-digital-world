@@ -7,6 +7,10 @@ import { getTexts } from '@/Helpers/Language'
 export const getCharacterTitle = (
   character: ProfileType | NpcType | BaseDigimonType
 ): string | undefined => {
+  if (character.name === getTexts('UNKNOWN_NPC')) {
+    return undefined
+  }
+
   if ('titles' in character) {
     const title = character.currentTitle
     return title ? getTexts(`TITLES_${title.toLocaleUpperCase()}`) : undefined

@@ -1,4 +1,4 @@
-export const loadData = ({ key }: { key: string }) => {
+export const loadData = (key: string) => {
   try {
     const data = localStorage.getItem(`itdw_${key}`) || ''
     return JSON.parse(data)

@@ -1,4 +1,5 @@
 import type { DialogType } from '@/Types/Dialog.type'
+import { AllScenes } from '@/GameData/Scenes'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
@@ -26,10 +27,7 @@ export const BattleStart = () => {
         id: 'scene-battle-battlestart-confirm',
         text: getTexts('SCENES_CONFIRM_BUTTON'),
         action: () => {
-          setScene({
-            currentScene: 'battle',
-            currentStage: 'turn'
-          })
+          setScene(AllScenes.battle['turn'])
         }
       }
     ]

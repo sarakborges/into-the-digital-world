@@ -1,4 +1,5 @@
 import type { DialogType } from '@/Types/Dialog.type'
+import { AllScenes } from '@/GameData/Scenes'
 
 import { getTexts } from '@/Helpers/Language'
 
@@ -32,10 +33,7 @@ export const GetStarterDigimon005 = () => {
         id: 'scene-getstarterdigimon-005-continue',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setScene({
-            currentScene: 'getStarterDigimon',
-            currentStage: '006'
-          })
+          setScene(AllScenes.getStarterDigimon['006'])
         }
       }
     ]

@@ -1,6 +1,7 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { IntroductionQuest } from '@/GameData/Quests/Introduction.quest'
+import { AllScenes } from '@/GameData/Scenes'
 
 import { getTexts } from '@/Helpers/Language'
 import { addNewQuest } from '@/Helpers/Systems/Quests'
@@ -30,10 +31,7 @@ export const Introduction001 = () => {
             ignoreSession: true
           })
 
-          setScene({
-            currentScene: 'introduction',
-            currentStage: '002'
-          })
+          setScene(AllScenes.introduction['002'])
         }
       }
     ]

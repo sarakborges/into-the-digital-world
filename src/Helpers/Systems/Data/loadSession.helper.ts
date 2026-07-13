@@ -1,4 +1,4 @@
-export const loadSession = ({ key }: { key: string }) => {
+export const loadSession = (key: string) => {
   try {
     const data = sessionStorage.getItem(`itdw_${key}`) || ''
     return JSON.parse(data)

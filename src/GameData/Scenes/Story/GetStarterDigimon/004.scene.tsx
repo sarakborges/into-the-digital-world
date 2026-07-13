@@ -2,6 +2,8 @@ import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
 
 import type { DialogType } from '@/Types/Dialog.type'
 
+import { AllScenes } from '@/GameData/Scenes'
+
 import { getTexts } from '@/Helpers/Language'
 import { reactToMeaningfulChoice } from '@/Helpers/Systems/Scenes'
 
@@ -53,10 +55,7 @@ export const GetStarterDigimon004 = () => {
                       value: reaction.value
                     },
 
-                    nextScene: {
-                      currentScene: 'getStarterDigimon',
-                      currentStage: '005'
-                    }
+                    nextScene: AllScenes.getStarterDigimon['005']
                   })
                 }
               >

@@ -12,7 +12,7 @@ export const deleteGame = () => {
   }
 
   try {
-    deleteData({ key: `profile${digivice.currentDetails}` })
+    deleteData(`profile${digivice.currentDetails}`)
 
     const updatedProfiles =
       savedProfiles?.filter(

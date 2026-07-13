@@ -1,4 +1,5 @@
 import { AiOutlineSelect } from 'react-icons/ai'
+import { AllScenes } from '@/GameData/Scenes'
 
 import { AvailableResearchesAtJijimon } from '@/GameData/Researches'
 
@@ -83,10 +84,7 @@ export const CompositionsList = () => {
                             : {}
                       })
 
-                      setScene({
-                        currentScene: 'compose',
-                        currentStage: '003'
-                      })
+                      setScene(AllScenes.compose['003'])
                     }}
                   >
                     <AiOutlineSelect />

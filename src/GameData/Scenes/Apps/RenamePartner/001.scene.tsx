@@ -1,4 +1,5 @@
 import type { DialogType } from '@/Types/Dialog.type'
+import { AllScenes } from '@/GameData/Scenes'
 
 import { AllDigimons } from '@/GameData/Digimons'
 import { AllNpcs } from '@/GameData/Npcs'
@@ -85,10 +86,7 @@ export const RenamePartner001 = () => {
 
           saveSession(updatedProfile)
 
-          setScene({
-            currentScene: 'renamePartner',
-            currentStage: '002'
-          })
+          setScene(AllScenes.renamePartner['002'])
         }
       }
     ]

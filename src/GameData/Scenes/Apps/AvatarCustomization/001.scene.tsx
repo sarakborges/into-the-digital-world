@@ -1,4 +1,5 @@
 import { AiOutlineExclamationCircle } from 'react-icons/ai'
+import { AllScenes } from '@/GameData/Scenes'
 import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
 
 import type { DialogType } from '@/Types/Dialog.type'
@@ -30,19 +31,13 @@ export const AvatarCustomization001 = () => {
 
   const triggerCustomization = () => {
     if (!!doneQuests.includes(AllQuests.avatarFixing.id)) {
-      setScene({
-        currentScene: 'avatarCustomization',
-        currentStage: '003'
-      })
+      setScene(AllScenes.avatarCustomization['003'])
 
       return
     }
 
     if (!doneQuests.includes(AllQuests.avatarFixing.id)) {
-      setScene({
-        currentScene: 'avatarCustomization',
-        currentStage: '000'
-      })
+      setScene(AllScenes.avatarCustomization['000'])
 
       return
     }

@@ -1,6 +1,7 @@
 import type { ProfileType } from '@/Types/Profile.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
+import { AllScenes } from '@/GameData/Scenes'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -44,8 +45,5 @@ export const createNewProfile = () => {
   setProfile(profile)
   setDigivice({ isOpen: false })
 
-  setScene({
-    currentScene: 'introduction',
-    currentStage: '001'
-  })
+  setScene(AllScenes.introduction['001'])
 }

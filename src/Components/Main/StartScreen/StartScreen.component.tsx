@@ -1,17 +1,21 @@
 import { useEffect } from 'react'
 
 import { getTexts } from '@/Helpers/Language'
-import { getSortedProfiles, loadProfiles } from '@/Helpers/Systems/Profile'
+import {
+  createNewProfile,
+  getSortedProfiles,
+  loadProfiles
+} from '@/Helpers/Systems/Profile'
 import { getThemeBackground } from '@/Helpers/Systems/Settings'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 import { useSettingsStore } from '@/Stores/Settings.store'
 
+import { Button } from '@/Components/DesignSystem/Button'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
 import { GameFile } from '@/Components/Global/GameFile'
-import { NewGame } from '@/Components/Global/NewGame'
 
 import './StartScreen.style.scss'
 
@@ -41,13 +45,13 @@ export const StartScreen = () => {
 
       <main>
         <div className="saved-games">
-          <header>
-            {!!savedProfiles?.length && (
-              <Text as="h2">{getTexts('SAVED_GAMES')}</Text>
-            )}
-          </header>
+          {!!savedProfiles?.length && (
+            <Text as="h2">{getTexts('SAVED_GAMES')}</Text>
+          )}
 
-          <NewGame />
+          <Button style="secondary" onClick={createNewProfile}>
+            {getTexts('START_NEW_GAME')}
+          </Button>
 
           <div className="games-list">
             {getSortedProfiles(savedProfiles || []).map((profile) => (

@@ -1,5 +1,7 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
+import { AllScenes } from '@/GameData/Scenes'
+
 import { getTexts } from '@/Helpers/Language'
 
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -27,10 +29,7 @@ export const Introduction022 = () => {
         id: 'scene-introduction-026-confirm',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setScene({
-            currentScene: 'introduction',
-            currentStage: '023'
-          })
+          setScene(AllScenes.introduction['023'])
         }
       }
     ].filter((option) => !!option)

@@ -1,4 +1,5 @@
 import type { DialogType } from '@/Types/Dialog.type'
+import { AllScenes } from '@/GameData/Scenes'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
@@ -26,10 +27,7 @@ export const Compose001 = () => {
         id: 'scene-compose-001-continue',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setScene({
-            currentScene: 'compose',
-            currentStage: '002'
-          })
+          setScene(AllScenes.compose['002'])
         }
       }
     ]

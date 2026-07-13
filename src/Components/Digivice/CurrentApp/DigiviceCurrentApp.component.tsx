@@ -1,3 +1,5 @@
+import { AllScenes } from '@/GameData/Scenes'
+
 import { getTexts } from '@/Helpers/Language'
 import { getAppAvailability } from '@/Helpers/Systems/Digivice'
 
@@ -33,10 +35,7 @@ export const DigiviceCurrentApp = ({ app }: DigiviceCurrentAppProps) => {
       return
     }
 
-    setScene({
-      currentScene: app.scene,
-      currentStage: '001'
-    })
+    setScene(AllScenes[app.scene]['001'])
   }
 
   return (

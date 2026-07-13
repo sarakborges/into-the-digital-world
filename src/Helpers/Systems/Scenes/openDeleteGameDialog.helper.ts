@@ -1,4 +1,4 @@
-import { DeleteGameScenes } from '@/GameData/Scenes/DeleteGame'
+import { AllScenes } from '@/GameData/Scenes'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -16,8 +16,5 @@ export const openDeleteGameDialog = (profileId: number) => {
     currentDetails: profileId
   })
 
-  setScene({
-    currentScene: DeleteGameScenes.id,
-    currentStage: '001'
-  })
+  setScene(AllScenes.deleteGame['001'])
 }

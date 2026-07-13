@@ -1,10 +1,8 @@
 import { useSceneStore } from '@/Stores/Scene.store'
+import { AllScenes } from '@/GameData/Scenes'
 
 export const OpenCompose = () => {
   const setScene = useSceneStore.getState().setScene
 
-  setScene({
-    currentScene: 'compose',
-    currentStage: '001'
-  })
+  setScene(AllScenes.compose['001'])
 }

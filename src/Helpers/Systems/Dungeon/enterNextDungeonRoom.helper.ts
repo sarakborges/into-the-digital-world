@@ -1,4 +1,5 @@
 import { AllDungeons } from '@/GameData/Dungeons'
+import { AllScenes } from '@/GameData/Scenes'
 
 import { generateRandomNumber } from '@/Helpers/Math'
 import { saveBattle } from '@/Helpers/Systems/Battle'
@@ -65,8 +66,5 @@ export const enterNextDungeonRoom = () => {
   saveBattle(null)
   saveSession(profile)
 
-  setScene({
-    currentScene: 'dungeon',
-    currentStage: 'chooseRoom'
-  })
+  setScene(AllScenes.dungeon['chooseRoom'])
 }

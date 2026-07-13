@@ -1,4 +1,5 @@
 import type { DialogType } from '@/Types/Dialog.type'
+import { AllScenes } from '@/GameData/Scenes'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
@@ -43,10 +44,7 @@ export const Research000 = () => {
 
           saveSession(updatedProfile)
 
-          setScene({
-            currentScene: 'research',
-            currentStage: '001'
-          })
+          setScene(AllScenes.research['001'])
         }
       }
     ]

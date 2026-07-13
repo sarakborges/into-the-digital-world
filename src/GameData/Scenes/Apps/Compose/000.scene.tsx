@@ -1,4 +1,5 @@
 import type { DialogType } from '@/Types/Dialog.type'
+import { AllScenes } from '@/GameData/Scenes'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
@@ -43,10 +44,7 @@ export const Compose000 = () => {
 
           saveSession(updatedProfile)
 
-          setScene({
-            currentScene: 'compose',
-            currentStage: '001'
-          })
+          setScene(AllScenes.compose['001'])
         }
       }
     ]

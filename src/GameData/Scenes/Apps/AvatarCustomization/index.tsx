@@ -4,9 +4,8 @@ import { AvatarCustomization002 } from './002.scene'
 import { AvatarCustomization003 } from './003.scene'
 
 export const AvatarCustomizationScenes = {
-  id: 'avatarCustomization',
-  '000': AvatarCustomization000,
-  '001': AvatarCustomization001,
-  '002': AvatarCustomization002,
-  '003': AvatarCustomization003
+  '000': { component: AvatarCustomization000 },
+  '001': { component: AvatarCustomization001 },
+  '002': { component: AvatarCustomization002 },
+  '003': { component: AvatarCustomization003 }
 }

@@ -1,3 +1,5 @@
+import { AllScenes } from '@/GameData/Scenes'
+
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
@@ -9,10 +11,7 @@ export const openEquipDialog = (equipmentSlot: number) => {
     return
   }
 
-  setScene({
-    currentScene: 'equipment',
-    currentStage: '001'
-  })
+  setScene(AllScenes.equipment['001'])
 
   setDigivice({
     ...digivice,

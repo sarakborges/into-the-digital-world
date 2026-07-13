@@ -24,7 +24,7 @@ export const Game = () => {
   useEffect(() => {
     loadGameSession()
     openCurrentTileScene()
-    setSettings({ ...loadData({ key: 'settings' }), isOpen: false })
+    setSettings({ ...loadData('settings'), isOpen: false })
   }, [])
 
   if (!settings) {

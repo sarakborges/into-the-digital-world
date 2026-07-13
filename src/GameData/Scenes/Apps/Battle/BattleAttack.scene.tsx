@@ -1,4 +1,5 @@
 import type { DialogType } from '@/Types/Dialog.type'
+import { AllScenes } from '@/GameData/Scenes'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
@@ -81,18 +82,12 @@ export const BattleAttack = () => {
     })
 
     if (isBattleOver) {
-      setScene({
-        currentScene: 'battle',
-        currentStage: 'end'
-      })
+      setScene(AllScenes.battle['end'])
 
       return
     }
 
-    setScene({
-      currentScene: 'battle',
-      currentStage: 'turn'
-    })
+    setScene(AllScenes.battle['turn'])
   }
 
   const dialogOptions: DialogType = {

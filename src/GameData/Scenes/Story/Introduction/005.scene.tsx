@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
+import { AllScenes } from '@/GameData/Scenes'
 
 import { getTexts } from '@/Helpers/Language'
 
@@ -70,10 +71,7 @@ export const Introduction005 = () => {
 
           setProfile(updatedProfile)
 
-          setScene({
-            currentScene: 'introduction',
-            currentStage: '006'
-          })
+          setScene(AllScenes.introduction['006'])
         }
       }
     ]

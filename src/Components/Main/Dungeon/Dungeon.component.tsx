@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { AllScenes } from '@/GameData/Scenes'
 
 import { AllDungeons } from '@/GameData/Dungeons'
 
@@ -35,10 +36,7 @@ export const Dungeon = () => {
     }
 
     if (shouldChooseRoom) {
-      setScene({
-        currentScene: 'dungeon',
-        currentStage: 'chooseRoom'
-      })
+      setScene(AllScenes.dungeon['chooseRoom'])
 
       return
     }
@@ -50,18 +48,12 @@ export const Dungeon = () => {
     if (!battle) {
       startBattle()
 
-      setScene({
-        currentScene: 'battle',
-        currentStage: 'start'
-      })
+      setScene(AllScenes.battle['start'])
 
       return
     }
 
-    setScene({
-      currentScene: 'battle',
-      currentStage: 'turn'
-    })
+    setScene(AllScenes.battle['turn'])
   }, [battle, dungeon, scene, shouldChooseRoom, shouldStartBattle, setScene])
 
   if (!dungeon) {

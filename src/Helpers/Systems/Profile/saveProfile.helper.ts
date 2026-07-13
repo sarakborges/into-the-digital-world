@@ -1,4 +1,4 @@
-import { SaveGameScenes } from '@/GameData/Scenes/Apps/SaveGame'
+import { AllScenes } from '@/GameData/Scenes'
 
 import { loadData, saveData, saveSession } from '@/Helpers/Systems/Data'
 
@@ -27,7 +27,7 @@ export const saveProfile = (profileId?: number) => {
       id: profileId || newId,
       lastSave: new Date()
     }
-    const savedProfilesLoaded = loadData({ key: 'profiles' })
+    const savedProfilesLoaded = loadData('profiles')
 
     saveData({
       key: `profile${profileId || newId}`,
@@ -49,10 +49,7 @@ export const saveProfile = (profileId?: number) => {
       value: updatedProfiles
     })
 
-    setScene({
-      currentScene: SaveGameScenes.id,
-      currentStage: '002'
-    })
+    setScene(AllScenes.saveGame['002'])
   } catch (e) {
     console.warn(e)
   }

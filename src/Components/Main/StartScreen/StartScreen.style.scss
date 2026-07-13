@@ -47,10 +47,8 @@
       flex-flow: column;
       gap: 4px;
 
-      > header {
-        display: flex;
-        place-items: flex-end;
-        place-content: space-between;
+      > .button {
+        padding: 8px;
       }
 
       .games-list {

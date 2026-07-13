@@ -1,10 +1,8 @@
 import { useSceneStore } from '@/Stores/Scene.store'
+import { AllScenes } from '@/GameData/Scenes'
 
 export const OpenJijimonIntroduction = () => {
   const setScene = useSceneStore.getState().setScene
 
-  setScene({
-    currentScene: 'compose',
-    currentStage: '000'
-  })
+  setScene(AllScenes.compose['000'])
 }

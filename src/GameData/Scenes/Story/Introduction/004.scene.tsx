@@ -1,6 +1,7 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
+import { AllScenes } from '@/GameData/Scenes'
 
 import { getTexts } from '@/Helpers/Language'
 
@@ -40,10 +41,7 @@ export const Introduction004 = () => {
             }
           })
 
-          setScene({
-            currentScene: 'introduction',
-            currentStage: '005'
-          })
+          setScene(AllScenes.introduction['005'])
         }
       }
     ]

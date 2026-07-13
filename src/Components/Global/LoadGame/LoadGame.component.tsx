@@ -9,7 +9,7 @@ export const LoadGame = ({ profileId }: { profileId: number }) => {
   const { setDigivice } = useDigiviceStore((state) => state)
 
   const loadProfile = () => {
-    const loadedProfile = loadData({ key: `profile${profileId}` })
+    const loadedProfile = loadData(`profile${profileId}`)
 
     if (!loadedProfile) {
       return

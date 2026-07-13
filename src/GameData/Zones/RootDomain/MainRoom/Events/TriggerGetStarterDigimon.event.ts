@@ -1,10 +1,8 @@
 import { useSceneStore } from '@/Stores/Scene.store'
+import { AllScenes } from '@/GameData/Scenes'
 
 export const TriggerGetStarterDigimon = () => {
   const setScene = useSceneStore.getState().setScene
 
-  setScene({
-    currentScene: 'getStarterDigimon',
-    currentStage: '001'
-  })
+  setScene(AllScenes.getStarterDigimon['001'])
 }
