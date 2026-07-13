@@ -3,6 +3,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { AllNpcs } from '@/GameData/Npcs'
 
 import { getTexts } from '@/Helpers/Language'
+import { openCurrentTileScene } from '@/Helpers/Systems/Zones'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 
@@ -13,7 +14,7 @@ export const Location001 = () => {
   const { setScene } = useSceneStore((state) => state)
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.digimon.gennai,
+    speaker: AllNpcs.general.gennai,
 
     content: (
       <div className="text-bubble">
@@ -27,6 +28,7 @@ export const Location001 = () => {
         text: getTexts('SCENES_CANCEL_BUTTON'),
         action: () => {
           setScene(null)
+          openCurrentTileScene()
         }
       }
     ]

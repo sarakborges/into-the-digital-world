@@ -1,26 +1,17 @@
 import type { MapTileType } from '@/Types/MapTile.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
-import { OpenLocation } from '@/GameData/Zones/WildZone/MainRoom/Events/OpenLocation.event'
-
-import { getTexts } from '@/Helpers/Language'
+import { AllScenes } from '@/GameData/Scenes'
 
 export const WildZoneGennaiTile: MapTileType = {
   id: 'wildZoneGennai',
   x: 9,
   y: 7,
-  defaultText: getTexts('ROOTDOMAIN_GENNAI_DEFAULT'),
+
+  scene: { ...AllScenes.location['001'], enablesMovement: true },
 
   npc: {
     ...AllNpcs.general.gennai,
     isVisible: true
-  },
-
-  events: [
-    {
-      function: OpenLocation,
-      eventText: getTexts('ROOTDOMAIN_LOCATION_TRIGGER'),
-      eventType: 'default'
-    }
-  ]
+  }
 }

@@ -6,7 +6,6 @@ import { AllQuests } from '@/GameData/Quests'
 import { isQuestDone } from '@/Helpers/Systems/Quests'
 
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useSceneStore } from '@/Stores/Scene.store'
 
 export const RootDomainBedRoomGennaiRoomTile: MapTileType = {
   id: 'rootDomainBedRoomGennai',
@@ -15,7 +14,6 @@ export const RootDomainBedRoomGennaiRoomTile: MapTileType = {
 
   condition: () => {
     const profile = useProfileStore.getState().profile
-    const scene = useSceneStore.getState().scene
 
     if (!profile) {
       return false
@@ -25,11 +23,7 @@ export const RootDomainBedRoomGennaiRoomTile: MapTileType = {
       isQuestDone(quest)
     )
 
-    return (
-      !doneQuests.includes(AllQuests.avatarFixing.id) &&
-      scene?.currentStage !== '001' &&
-      scene?.currentStage !== '002'
-    )
+    return !doneQuests.includes(AllQuests.avatarFixing.id)
   },
 
   npc: {

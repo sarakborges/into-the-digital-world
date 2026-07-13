@@ -40,8 +40,7 @@ export const getTileType = ({
 
   const events = currentZone.tiles.filter(
     (tile) =>
-      (tile.condition === undefined || !!tile.condition()) &&
-      (!!tile.onEnter || !!tile.events?.length)
+      (tile.condition === undefined || !!tile.condition()) && !!tile.onEnter
   )
 
   const npcs = currentZone.tiles.filter(

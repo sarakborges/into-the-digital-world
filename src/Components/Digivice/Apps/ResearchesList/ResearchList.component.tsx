@@ -49,7 +49,6 @@ export const ResearchList = () => {
 
                   <Button
                     onClick={() => purchaseResearch(research)}
-                    style="secondary"
                     disabled={!isResearchPurchasable(research)}
                   >
                     <GiTwoCoins />

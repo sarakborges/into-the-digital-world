@@ -2,10 +2,8 @@ import type { MapTileType } from '@/Types/MapTile.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllQuests } from '@/GameData/Quests'
-import { OpenNanomonIntroduction } from '@/GameData/Zones/RootDomain/MainRoom/Events/OpenNanomonIntroduction.event'
-import { OpenResearch } from '@/GameData/Zones/RootDomain/MainRoom/Events/OpenResearch.event'
+import { AllScenes } from '@/GameData/Scenes'
 
-import { getTexts } from '@/Helpers/Language'
 import { isQuestDone } from '@/Helpers/Systems/Quests'
 
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -14,48 +12,13 @@ export const RootDomainMainRoomNanomonTile: MapTileType = {
   id: 'rootDomainMainRoomNanomon',
   x: 6,
   y: 7,
-  defaultText: getTexts('ROOTDOMAIN_NANOMON_DEFAULT'),
+
+  scene: { ...AllScenes.research['001'], enablesMovement: true },
 
   npc: {
     ...AllNpcs.digimon.nanomon,
     isVisible: true
   },
-
-  events: [
-    {
-      function: OpenNanomonIntroduction,
-      eventText: getTexts('ROOTDOMAIN_NANOMON_INTRODUCTION'),
-
-      condition: () => {
-        const { profile } = useProfileStore.getState()
-
-        if (!profile) {
-          return false
-        }
-
-        return !Object.keys(profile.npcAcquaintances ?? {}).includes(
-          AllNpcs.digimon.nanomon.id
-        )
-      }
-    },
-
-    {
-      function: OpenResearch,
-      eventText: getTexts('ROOTDOMAIN_RESEARCH_TRIGGER'),
-
-      condition: () => {
-        const { profile } = useProfileStore.getState()
-
-        if (!profile) {
-          return false
-        }
-
-        return !!Object.keys(profile.npcAcquaintances ?? {}).includes(
-          AllNpcs.digimon.nanomon.id
-        )
-      }
-    }
-  ],
 
   condition: () => {
     const { profile } = useProfileStore.getState()

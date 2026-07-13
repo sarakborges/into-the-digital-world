@@ -1,3 +1,4 @@
+import { GetStarterDigimon000 } from './000.scene'
 import { GetStarterDigimon001 } from './001.scene'
 import { GetStarterDigimon002 } from './002.scene'
 import { GetStarterDigimon003 } from './003.scene'
@@ -19,6 +20,7 @@ import { GetStarterDigimon018 } from './018.scene'
 import { GetStarterDigimon019 } from './019.scene'
 
 export const GetStarterDigimonScenes = {
+  '000': { component: GetStarterDigimon000 },
   '001': { component: GetStarterDigimon001 },
   '002': { component: GetStarterDigimon002 },
   '003': { component: GetStarterDigimon003 },

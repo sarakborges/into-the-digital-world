@@ -8,20 +8,20 @@ import { isQuestDone } from '@/Helpers/Systems/Quests'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-export const RootDomainMainRoomJijimonTile: MapTileType = {
-  id: 'rootDomainMainRoomJijimon',
-  x: 14,
-  y: 7,
+export const GetStarterDigimonGennaiTile: MapTileType = {
+  id: 'getStarterDigimonGennaiTile',
+  x: 10,
+  y: 13,
 
   npc: {
-    ...AllNpcs.digimon.jijimon,
+    ...AllNpcs.general.gennai,
     isVisible: true
   },
 
-  scene: { ...AllScenes.compose['001'], enablesMovement: true },
+  scene: { ...AllScenes.getStarterDigimon['000'], enablesMovement: true },
 
   condition: () => {
-    const { profile } = useProfileStore.getState()
+    const profile = useProfileStore.getState().profile
 
     if (!profile) {
       return false
@@ -31,6 +31,9 @@ export const RootDomainMainRoomJijimonTile: MapTileType = {
       isQuestDone(quest)
     )
 
-    return !!doneQuests.includes(AllQuests.starterDigimon.id)
+    return (
+      !!doneQuests.includes(AllQuests.avatarFixing.id) &&
+      !doneQuests.includes(AllQuests.starterDigimon.id)
+    )
   }
 }

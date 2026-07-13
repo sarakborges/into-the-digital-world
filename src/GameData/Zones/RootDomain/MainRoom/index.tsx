@@ -1,6 +1,7 @@
 import { grid } from './MainRoom.grid'
-import { RootDomainMainRoomGennaiTile } from './Tiles/Gennai.tile'
+import { GetStarterDigimonGennaiTile } from './Tiles/GetStarterDigimonGennai.tile'
 import { RootDomainMainRoomJijimonTile } from './Tiles/Jijimon.tile'
+import { LocationGennaiTile } from './Tiles/LocationGennai.tile'
 import { RootDomainMainRoomNanomonTile } from './Tiles/Nanomon.tile'
 import {
   RootDomainMainRoomWarpToCorridorTile1,
@@ -29,6 +30,7 @@ export const RootDomainMainRoom: MapType = {
 
     RootDomainMainRoomNanomonTile,
     RootDomainMainRoomJijimonTile,
-    RootDomainMainRoomGennaiTile
+    GetStarterDigimonGennaiTile,
+    LocationGennaiTile
   ]
 }
