@@ -38,7 +38,7 @@ export const AvatarCustomization003 = () => {
     if (!doneQuests.includes(AllQuests.avatarFixing.id)) {
       setScene({
         currentScene: 'introduction',
-        currentStage: '025'
+        currentStage: '021'
       })
     } else {
       setScene({

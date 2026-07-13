@@ -2,8 +2,16 @@ import type { ProfileType } from '@/Types/Profile.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 
-export const createNewProfile = (): ProfileType => {
-  return {
+import { useDigiviceStore } from '@/Stores/Digivice.store'
+import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
+
+export const createNewProfile = () => {
+  const { setProfile } = useProfileStore.getState()
+  const { setDigivice } = useDigiviceStore.getState()
+  const { setScene } = useSceneStore.getState()
+
+  const profile = {
     id: 0,
     name: '',
     lastSave: new Date(),
@@ -32,4 +40,12 @@ export const createNewProfile = (): ProfileType => {
       y: 3
     }
   } as ProfileType
+
+  setProfile(profile)
+  setDigivice({ isOpen: false })
+
+  setScene({
+    currentScene: 'introduction',
+    currentStage: '001'
+  })
 }

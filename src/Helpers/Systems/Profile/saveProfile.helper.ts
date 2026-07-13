@@ -1,4 +1,4 @@
-import { SaveGameScenes } from '@/GameData/Scenes/SaveGame'
+import { SaveGameScenes } from '@/GameData/Scenes/Apps/SaveGame'
 
 import { loadData, saveData, saveSession } from '@/Helpers/Systems/Data'
 

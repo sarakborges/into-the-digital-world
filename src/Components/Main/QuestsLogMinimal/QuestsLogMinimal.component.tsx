@@ -12,7 +12,7 @@ export const QuestsLogMinimal = () => {
   const { profile } = useProfileStore((state) => state)
   const { scene } = useSceneStore((state) => state)
 
-  if (!profile || !!scene) {
+  if (!profile || (!!scene && !scene?.enablesMovement)) {
     return
   }
 

@@ -4,8 +4,8 @@ import { WarpToCorridor } from '@/GameData/Zones/RootDomain/BedRoom/Events/WarpT
 
 export const RootDomainBedRoomWarpToCorridorRoomTile: MapTileType = {
   id: 'rootDomainBedRoomWarpToCorridor',
-  x: 6,
-  y: 12,
+  x: 7,
+  y: 13,
   onEnter: {
     type: 'warp',
     function: WarpToCorridor

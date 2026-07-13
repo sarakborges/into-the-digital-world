@@ -17,7 +17,7 @@ export const Introduction012 = () => {
     content: (
       <>
         <Portrait
-          alt={getTexts('INTRODUCTION_011_IMAGE')}
+          alt={getTexts('INTRODUCTION_011_ALT')}
           src={`/${AllItems.digivice?.portrait}.webp`}
         />
         <div className="text-bubble">

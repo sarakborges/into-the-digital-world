@@ -6,4 +6,6 @@
   --color-secondary: #b99f65;
   --color-secondary-strong: #a08446;
   --color-secondary-weak: #ccb78b;
+
+  --theme-image: url('/digivice_backgrounds/love.webp');
 }

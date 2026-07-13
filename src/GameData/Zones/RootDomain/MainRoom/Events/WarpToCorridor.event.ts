@@ -4,7 +4,7 @@ export const WarpToCorridor = () => {
   warpTo({
     zoneId: 'rootDomain',
     mapId: 'corridor',
-    x: 1,
+    x: 2,
     y: 6
   })
 }

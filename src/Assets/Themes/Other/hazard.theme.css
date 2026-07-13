@@ -6,4 +6,6 @@
   --color-secondary: #c03030;
   --color-secondary-strong: #d61010;
   --color-secondary-weak: #a84f4f;
+
+  --theme-image: url('/digivice_backgrounds/hazard.webp');
 }

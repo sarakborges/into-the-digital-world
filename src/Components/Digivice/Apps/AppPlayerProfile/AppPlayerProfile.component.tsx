@@ -1,8 +1,5 @@
-import { getTexts } from '@/Helpers/Language'
-
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Text } from '@/Components/DesignSystem/Text'
 import { CharacterHeader } from '@/Components/Digivice/Apps/CharacterHeader'
 
 import './AppPlayerProfile.style.scss'
@@ -16,11 +13,7 @@ export const AppPlayerProfile = () => {
 
   return (
     <div className="player-profile">
-      <CharacterHeader character={{ ...profile, isPlayer: true }} lg>
-        <Text>
-          {getTexts(`TITLES_${profile.currentTitle.toLocaleUpperCase()}`)}
-        </Text>
-      </CharacterHeader>
+      <CharacterHeader character={{ ...profile, isPlayer: true }} lg />
     </div>
   )
 }

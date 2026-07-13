@@ -1,4 +1,4 @@
-import { FaCog, FaTimes } from 'react-icons/fa'
+import { FaCog } from 'react-icons/fa'
 
 import { getTexts } from '@/Helpers/Language'
 
@@ -29,10 +29,6 @@ export const SettingsContainer = () => {
         <Modal>
           <header className="settings-header">
             <Text>{getTexts('SETTINGS_TITLE')}</Text>
-
-            <Button style="secondary" onClick={toggleModal}>
-              {<FaTimes />}
-            </Button>
           </header>
 
           <main>
@@ -42,7 +38,10 @@ export const SettingsContainer = () => {
         </Modal>
       )}
 
-      <Button style="secondary" onClick={toggleModal}>
+      <Button
+        onClick={toggleModal}
+        style={settings.isOpen ? 'cancel' : undefined}
+      >
         {<FaCog />}
       </Button>
     </div>

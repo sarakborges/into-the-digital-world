@@ -3,12 +3,11 @@ import { HiOutlineDevicePhoneMobile } from 'react-icons/hi2'
 import { IoCaretBack } from 'react-icons/io5'
 
 import { getTexts } from '@/Helpers/Language'
-import { isBattleDisabled } from '@/Helpers/Systems/Battle'
 import { doesProfileHaveDigivice } from '@/Helpers/Systems/Digivice'
+import { openCurrentTileScene } from '@/Helpers/Systems/Zones'
 
 import { AllApps, DigiviceApps } from '@/Consts/DigiviceApps.const'
 
-import { useBattleStore } from '@/Stores/Battle.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -24,7 +23,6 @@ import './DigiviceContainer.style.scss'
 
 export const DigiviceContainer = () => {
   const { profile } = useProfileStore((state) => state)
-  const { battle } = useBattleStore((state) => state)
   const { digivice, setDigivice } = useDigiviceStore((state) => state)
   const { scene } = useSceneStore((state) => state)
 
@@ -32,12 +30,14 @@ export const DigiviceContainer = () => {
     return
   }
 
-  const areButtonsDisabled = isBattleDisabled(battle, scene)
+  const areButtonsDisabled = !!scene && !scene.enablesMovement
 
   const toggleModal = () => {
     setDigivice({
       isOpen: !digivice.isOpen
     })
+
+    openCurrentTileScene()
   }
 
   const pressBackButton = () => {
@@ -128,7 +128,7 @@ export const DigiviceContainer = () => {
 
       <Button
         onClick={toggleModal}
-        style={digivice.isOpen ? 'cancel' : 'secondary'}
+        style={digivice.isOpen ? 'cancel' : undefined}
         disabled={areButtonsDisabled}
       >
         {<HiOutlineDevicePhoneMobile />}

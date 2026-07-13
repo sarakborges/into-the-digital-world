@@ -8,7 +8,6 @@ import {
   setLocation
 } from '@/Helpers/Systems/Zones'
 
-import { useBattleStore } from '@/Stores/Battle.store'
 import { useGameStore } from '@/Stores/Game.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -20,10 +19,9 @@ import './Gamepad.style.scss'
 export const Gamepad = () => {
   const { profile } = useProfileStore((state) => state)
   const { scene } = useSceneStore((state) => state)
-  const { battle } = useBattleStore((state) => state)
   const { game } = useGameStore((state) => state)
 
-  if (!profile || !!battle || !!scene) {
+  if (!profile || (!!scene && !scene?.enablesMovement)) {
     return
   }
 
@@ -44,7 +42,6 @@ export const Gamepad = () => {
         <Fragment key={`gamepad-${coordinateIndex}`}>
           {coordinate ? (
             <Button
-              style="secondary"
               disabled={!coordinate.canMove || !!game?.isWarping}
               onClick={() => setLocation({ ...coordinate })}
             >

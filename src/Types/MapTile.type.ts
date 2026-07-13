@@ -1,25 +1,18 @@
 import type { NpcType } from '@/Types/Npc.type'
+import type { SceneType } from '@/Types/Scene.type'
 
 export type MapTileType = {
   id: string
   x: number
   y: number
-  defaultText?: string
+  scene?: SceneType
   condition?: () => boolean
 
   onEnter?: {
-    eventText?: string
     type?: 'warp'
     function: () => void
     condition?: () => boolean
   }
-
-  events?: Array<{
-    eventText?: string
-    eventType?: 'default' | 'important' | 'dungeon'
-    function: () => void
-    condition?: () => boolean
-  }>
 
   npc?: NpcType
 }

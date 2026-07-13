@@ -1,5 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
+import { getTexts } from '@/Helpers/Language'
 import { isNpcAcquainted } from '@/Helpers/Systems/Profile'
 
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -22,7 +23,7 @@ export const Dialog = ({ speaker, content, options }: DialogType) => {
             name:
               isNpcAcquainted(speaker.id) || !!speaker.isPlayer
                 ? speaker.name
-                : `???`
+                : getTexts('UNKNOWN_NPC')
           }}
         />
       )}

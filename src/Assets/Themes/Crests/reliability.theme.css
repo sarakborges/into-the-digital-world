@@ -6,4 +6,6 @@
   --color-secondary: #9c4821;
   --color-secondary-strong: #c9440f;
   --color-secondary-weak: #c2683e;
+
+  --theme-image: url('/digivice_backgrounds/reliability.webp');
 }

@@ -24,9 +24,7 @@ export const AppAcquaintancesDetails = () => {
   return (
     <div className="npc-profile">
       <header className="npc-header">
-        <CharacterHeader character={npc} lg>
-          <>{!!npc.title && <Text>{getTexts(npc.title)}</Text>}</>
-        </CharacterHeader>
+        <CharacterHeader character={npc} lg />
       </header>
 
       <main>

@@ -1,9 +1,8 @@
 import { useEffect } from 'react'
 
-import { Scene } from '@/GameData/Scenes'
-
 import { loadData, loadGameSession } from '@/Helpers/Systems/Data'
 import { getThemeClassName } from '@/Helpers/Systems/Game'
+import { openCurrentTileScene } from '@/Helpers/Systems/Zones'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
 
@@ -12,8 +11,8 @@ import { DigiviceContainer } from '@/Components/Digivice/Container'
 import { CurrentParty } from '@/Components/Global/CurrentParty'
 import { Dungeon } from '@/Components/Main/Dungeon'
 import { Gameboard } from '@/Components/Main/Gameboard'
-import { InteractableTiles } from '@/Components/Main/InteractableTiles'
 import { QuestsLogMinimal } from '@/Components/Main/QuestsLogMinimal'
+import { Scene } from '@/Components/Main/Scene'
 import { StartScreen } from '@/Components/Main/StartScreen'
 import { SettingsContainer } from '@/Components/Settings/Container'
 
@@ -24,6 +23,7 @@ export const Game = () => {
 
   useEffect(() => {
     loadGameSession()
+    openCurrentTileScene()
     setSettings({ ...loadData({ key: 'settings' }), isOpen: false })
   }, [])
 
@@ -41,7 +41,6 @@ export const Game = () => {
           </header>
 
           <Gameboard />
-          <InteractableTiles />
           <Dungeon />
           <Battlefield />
           <QuestsLogMinimal />

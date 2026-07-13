@@ -1,11 +1,9 @@
 import { useEffect } from 'react'
 
 import { getTexts } from '@/Helpers/Language'
-import {
-  getSavedProfiles,
-  loadProfiles,
-  saveProfile
-} from '@/Helpers/Systems/Profile'
+import { loadProfiles, saveProfile } from '@/Helpers/Systems/Profile'
+
+import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
 import { GameFileSave } from '@/Components/Global/GameFileSave'
@@ -13,11 +11,11 @@ import { GameFileSave } from '@/Components/Global/GameFileSave'
 import './AppSaveGame.style.scss'
 
 export const AppSaveGame = () => {
+  const { savedProfiles } = useSavedProfilesStore((state) => state)
+
   useEffect(() => {
     loadProfiles()
   }, [])
-
-  const sortedSavedProfiles = getSavedProfiles()
 
   return (
     <div className="save-game">
@@ -26,7 +24,7 @@ export const AppSaveGame = () => {
       </Button>
 
       <div className="games-list">
-        {sortedSavedProfiles.map((profile) => (
+        {savedProfiles?.map((profile) => (
           <GameFileSave profile={profile} key={`savedProfiles-${profile.id}`} />
         ))}
       </div>

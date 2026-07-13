@@ -1,0 +1,16 @@
+.scene {
+  position: absolute;
+  bottom: 0;
+  z-index: 104;
+
+  width: 100%;
+  padding: 8px 8px 12px;
+
+  &[data-isdigiviceopen='true'] {
+    padding: 20px;
+  }
+
+  &[data-enablesmovement='true'] {
+    z-index: 102;
+  }
+}

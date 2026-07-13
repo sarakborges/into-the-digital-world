@@ -3,44 +3,32 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { AllNpcs } from '@/GameData/Npcs'
 
 import { getTexts } from '@/Helpers/Language'
-import { deleteSession } from '@/Helpers/Systems/Data'
+import { openCurrentTileScene } from '@/Helpers/Systems/Zones'
 
-import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { Text } from '@/Components/DesignSystem/Text'
 
-export const Logoff001 = () => {
-  const { setProfile } = useProfileStore((state) => state)
+export const AvatarCustomization002 = () => {
   const { setScene } = useSceneStore((state) => state)
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.appmon.logamon,
+    speaker: AllNpcs.appmon.dressmon,
 
     content: (
       <div className="text-bubble">
-        <Text as="p">{getTexts('LOGOFF_001_TEXT')}</Text>
+        <Text as="p">{getTexts('AVATARCUSTOMIZATION_002_TEXT')}</Text>
       </div>
     ),
 
     options: [
       {
-        id: 'scene-logoff-001-cancel',
-        text: getTexts('SCENES_CANCEL_BUTTON'),
-        action: () => {
-          setScene(null)
-        }
-      },
-
-      {
-        id: 'scene-logoff-001-confirm',
+        id: 'scene-avatarCustomization-002-confirm',
         text: getTexts('SCENES_CONFIRM_BUTTON'),
         action: () => {
-          setProfile(null)
           setScene(null)
-
-          deleteSession({ key: 'profile' })
+          openCurrentTileScene()
         }
       }
     ]

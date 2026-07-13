@@ -5,18 +5,10 @@
     place-items: center;
 
     width: 100%;
-    padding: 8px;
+    height: 40px;
+    padding: 0 8px;
 
     background-color: var(--color-primary-strong);
-
-    .button {
-      padding: 4px;
-
-      svg {
-        width: 16px;
-        height: 16px;
-      }
-    }
   }
 
   .modal {

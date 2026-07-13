@@ -4,6 +4,8 @@ import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
 import type { NpcType } from '@/Types/Npc.type'
 import type { ProfileType } from '@/Types/Profile.type'
 
+import { getCharacterTitle } from '@/Helpers/Systems/Profile'
+
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
 import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
@@ -22,6 +24,8 @@ export const CharacterHeader = ({
   lg?: boolean
   children?: JSX.Element
 }) => {
+  const title = getCharacterTitle(character)
+
   return (
     <header
       className="character-header"
@@ -38,7 +42,13 @@ export const CharacterHeader = ({
         {children}
 
         <div className="character-name">
-          <Text>{character.name}</Text>
+          {[character.name, title]
+            .filter((str) => !!str)
+            .map((str) => (
+              <Text key={`character-header-${character.name}-${str}`}>
+                {str}
+              </Text>
+            ))}
         </div>
       </div>
     </header>

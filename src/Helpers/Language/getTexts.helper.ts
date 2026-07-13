@@ -16,6 +16,7 @@ export const getTexts = (
   const value = translations[lang]?.[key]
 
   if (!value) {
+    console.warn('Text not found!', key)
     return ''
   }
 

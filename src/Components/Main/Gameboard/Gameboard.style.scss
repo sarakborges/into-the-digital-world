@@ -33,6 +33,8 @@
 
       width: 100%;
       height: 100%;
+
+      background-size: cover;
     }
 
     .gameboard-body {
@@ -49,7 +51,6 @@
       width: calc(var(--grid-size) * var(--tile-size));
       height: calc(var(--grid-size) * var(--tile-size));
 
-      background-size: cover;
       background-repeat: no-repeat;
 
       opacity: var(--is-warping);

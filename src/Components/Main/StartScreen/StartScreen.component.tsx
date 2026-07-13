@@ -42,9 +42,12 @@ export const StartScreen = () => {
       <main>
         <div className="saved-games">
           <header>
-            <Text as="h2">{getTexts('SAVED_GAMES')}</Text>
-            <NewGame />
+            {!!savedProfiles?.length && (
+              <Text as="h2">{getTexts('SAVED_GAMES')}</Text>
+            )}
           </header>
+
+          <NewGame />
 
           <div className="games-list">
             {getSortedProfiles(savedProfiles || []).map((profile) => (

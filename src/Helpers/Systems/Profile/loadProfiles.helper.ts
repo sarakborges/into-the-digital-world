@@ -12,6 +12,8 @@ export const loadProfiles = () => {
   }
 
   setSavedProfiles(
-    savedProfiles?.map((profile) => loadData({ key: `profile${profile}` }))
+    savedProfiles
+      ?.map((profile) => loadData({ key: `profile${profile}` }))
+      .sort((a, b) => (a.lastSave > b.lastSave ? -1 : 1))
   )
 }

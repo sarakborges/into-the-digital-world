@@ -4,7 +4,7 @@ export const WarpToMainRoom = () => {
   warpTo({
     zoneId: 'rootDomain',
     mapId: 'mainRoom',
-    x: 9,
+    x: 10,
     y: 17
   })
 }

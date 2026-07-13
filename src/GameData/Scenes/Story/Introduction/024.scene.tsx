@@ -7,6 +7,7 @@ import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
 import { getTexts } from '@/Helpers/Language'
 import { saveSession } from '@/Helpers/Systems/Data'
 import { addNewQuest, updateQuestObjective } from '@/Helpers/Systems/Quests'
+import { openCurrentTileScene } from '@/Helpers/Systems/Zones'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -47,6 +48,8 @@ export const Introduction024 = () => {
           }
 
           setScene(null)
+          openCurrentTileScene()
+
           saveSession(updatedProfile)
         }
       }

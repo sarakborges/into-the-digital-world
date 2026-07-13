@@ -6,4 +6,6 @@
   --color-secondary: #1aa3a8;
   --color-secondary-strong: #148286;
   --color-secondary-weak: #6fa6a8;
+
+  --theme-image: url('/digivice_backgrounds/alternative.webp');
 }
