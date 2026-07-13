@@ -8,7 +8,7 @@ export const RootDomainBedRoomDressmonRoomTile: MapTileType = {
   x: 12,
   y: 3,
 
-  scene: AllScenes.avatarCustomization['001'],
+  scene: { ...AllScenes.avatarCustomization['001'], enablesMovement: true },
 
   npc: {
     ...AllNpcs.appmon.dressmon,
