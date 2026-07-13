@@ -1,11 +1,12 @@
 import type { DialogType } from '@/Types/Dialog.type'
-import { AllScenes } from '@/GameData/Scenes'
 
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllResearches } from '@/GameData/Researches'
+import { AllScenes } from '@/GameData/Scenes'
 
 import { getTexts } from '@/Helpers/Language'
 import { saveSession } from '@/Helpers/Systems/Data'
+import { closeScene } from '@/Helpers/Systems/Scenes'
 
 import { useCompositionStore } from '@/Stores/Composition.store'
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -15,9 +16,9 @@ import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { AppCompose } from '@/Components/Digivice/Apps/AppCompose/App'
 
 export const Compose003 = () => {
-  const { setScene } = useSceneStore((state) => state)
   const { profile } = useProfileStore((state) => state)
   const { composition, setComposition } = useCompositionStore((state) => state)
+  const { setScene } = useSceneStore((state) => state)
 
   if (!profile || !composition) {
     return
@@ -85,7 +86,7 @@ export const Compose003 = () => {
         text: getTexts('SCENES_CONFIRM_BUTTON'),
         action: () => {
           composeDigimon()
-          setScene(null)
+          closeScene()
         },
 
         disabled:

@@ -2,15 +2,12 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { getTexts } from '@/Helpers/Language'
 import { deleteGame } from '@/Helpers/Systems/Data'
-
-import { useSceneStore } from '@/Stores/Scene.store'
+import { closeScene } from '@/Helpers/Systems/Scenes'
 
 import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { Text } from '@/Components/DesignSystem/Text'
 
 export const DeleteGame001 = () => {
-  const { setScene } = useSceneStore((state) => state)
-
   const dialogOptions: DialogType = {
     content: (
       <div className="text-bubble">
@@ -23,7 +20,7 @@ export const DeleteGame001 = () => {
         id: 'scene-deletegame-001-cancel',
         text: getTexts('SCENES_CANCEL_BUTTON'),
         action: () => {
-          setScene(null)
+          closeScene()
         }
       },
 
@@ -32,7 +29,7 @@ export const DeleteGame001 = () => {
         text: getTexts('SCENES_CONFIRM_BUTTON'),
         action: () => {
           deleteGame()
-          setScene(null)
+          closeScene()
         }
       }
     ]

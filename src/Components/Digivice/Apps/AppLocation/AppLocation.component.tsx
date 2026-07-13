@@ -2,13 +2,13 @@ import { AllZones } from '@/GameData/Zones'
 
 import { getTexts } from '@/Helpers/Language'
 import { getAvailableWarpLocations } from '@/Helpers/Systems/Digivice'
+import { closeScene } from '@/Helpers/Systems/Scenes'
 import { warpTo } from '@/Helpers/Systems/Zones'
 
 import { WARP_LOCATIONS } from '@/Consts/Locations.const'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
@@ -19,7 +19,6 @@ import './AppLocation.style.scss'
 export const AppLocation = () => {
   const { profile } = useProfileStore((state) => state)
   const { setDigivice } = useDigiviceStore((state) => state)
-  const { setScene } = useSceneStore((state) => state)
 
   if (!profile) {
     return
@@ -34,7 +33,7 @@ export const AppLocation = () => {
       currentDetails: undefined
     })
 
-    setScene(null)
+    closeScene()
   }
 
   const availableWarpLocations = getAvailableWarpLocations()

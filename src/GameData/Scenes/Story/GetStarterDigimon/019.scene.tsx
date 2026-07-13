@@ -7,15 +7,14 @@ import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
 import { getTexts } from '@/Helpers/Language'
 import { saveSession } from '@/Helpers/Systems/Data'
 import { updateQuestObjective } from '@/Helpers/Systems/Quests'
+import { closeScene } from '@/Helpers/Systems/Scenes'
 
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { Text } from '@/Components/DesignSystem/Text'
 
 export const GetStarterDigimon019 = () => {
-  const { setScene } = useSceneStore((state) => state)
   const { profile } = useProfileStore((state) => state)
 
   if (!profile) {
@@ -61,7 +60,7 @@ export const GetStarterDigimon019 = () => {
             }
           }
 
-          setScene(null)
+          closeScene()
           saveSession(updatedProfile)
         }
       }

@@ -8,16 +8,14 @@ import { IntroductionQuest } from '@/GameData/Quests/Introduction.quest'
 import { getTexts } from '@/Helpers/Language'
 import { saveSession } from '@/Helpers/Systems/Data'
 import { addNewQuest, updateQuestObjective } from '@/Helpers/Systems/Quests'
+import { closeScene } from '@/Helpers/Systems/Scenes'
 
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { Text } from '@/Components/DesignSystem/Text'
 
 export const Introduction019 = () => {
-  const { setScene } = useSceneStore((state) => state)
-
   const dialogOptions: DialogType = {
     speaker: AllNpcs.general.gennai,
 
@@ -32,7 +30,7 @@ export const Introduction019 = () => {
         id: 'scene-introduction-019-continue',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setScene(null)
+          closeScene()
 
           addNewQuest({ questId: AvatarFixingQuest.id })
 

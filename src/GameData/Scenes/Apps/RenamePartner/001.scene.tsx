@@ -1,11 +1,12 @@
 import type { DialogType } from '@/Types/Dialog.type'
-import { AllScenes } from '@/GameData/Scenes'
 
 import { AllDigimons } from '@/GameData/Digimons'
 import { AllNpcs } from '@/GameData/Npcs'
+import { AllScenes } from '@/GameData/Scenes'
 
 import { getTexts } from '@/Helpers/Language'
 import { saveSession } from '@/Helpers/Systems/Data'
+import { closeScene } from '@/Helpers/Systems/Scenes'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -55,7 +56,7 @@ export const RenamePartner001 = () => {
         id: 'scene-renamepartner-001-cancel',
         text: getTexts('SCENES_CANCEL_BUTTON'),
         action: () => {
-          setScene(null)
+          closeScene()
         }
       },
 

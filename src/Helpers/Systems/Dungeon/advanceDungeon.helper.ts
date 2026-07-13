@@ -1,11 +1,11 @@
 import { saveDungeon } from './saveDungeon.helper'
 
+import { closeScene } from '@/Helpers/Systems/Scenes'
+
 import { useDungeonStore } from '@/Stores/Dungeon.store'
-import { useSceneStore } from '@/Stores/Scene.store'
 
 export const advanceDungeon = (roomId: string) => {
   const { dungeon } = useDungeonStore.getState()
-  const { setScene } = useSceneStore.getState()
 
   if (!dungeon) {
     return
@@ -17,5 +17,5 @@ export const advanceDungeon = (roomId: string) => {
     currentRoomsOptions: []
   })
 
-  setScene(null)
+  closeScene()
 }

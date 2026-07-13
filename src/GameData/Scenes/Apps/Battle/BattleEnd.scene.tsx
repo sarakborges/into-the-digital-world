@@ -5,12 +5,12 @@ import { AllNpcs } from '@/GameData/Npcs'
 import { getTexts } from '@/Helpers/Language'
 import { isDigimonDefeated, saveBattle } from '@/Helpers/Systems/Battle'
 import { enterNextDungeonRoom, saveDungeon } from '@/Helpers/Systems/Dungeon'
+import { closeScene } from '@/Helpers/Systems/Scenes'
 import { warpTo } from '@/Helpers/Systems/Zones'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useDungeonStore } from '@/Stores/Dungeon.store'
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useSceneStore } from '@/Stores/Scene.store'
 
 import { CombatLoot } from '@/Components/Combat/CombatLoot'
 import { Dialog } from '@/Components/DesignSystem/Dialog'
@@ -20,7 +20,6 @@ export const BattleEnd = () => {
   const { profile, setProfile } = useProfileStore((state) => state)
   const { battle } = useBattleStore((state) => state)
   const { dungeon } = useDungeonStore((state) => state)
-  const { setScene } = useSceneStore((state) => state)
 
   if (!battle || !profile) {
     return
@@ -77,7 +76,7 @@ export const BattleEnd = () => {
 
             saveDungeon(null)
             saveBattle(null)
-            setScene(null)
+            closeScene()
           }
 
           enterNextDungeonRoom()

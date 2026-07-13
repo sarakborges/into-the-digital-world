@@ -1,13 +1,10 @@
 import { saveBattle } from '@/Helpers/Systems/Battle'
 import { saveDungeon } from '@/Helpers/Systems/Dungeon'
-
-import { useSceneStore } from '@/Stores/Scene.store'
+import { closeScene } from '@/Helpers/Systems/Scenes'
 
 export const leaveDungeon = () => {
-  const { setScene } = useSceneStore.getState()
-
   saveDungeon(null)
   saveBattle(null)
 
-  setScene(null)
+  closeScene()
 }

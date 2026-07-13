@@ -7,17 +7,14 @@ import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
 import { getTexts } from '@/Helpers/Language'
 import { saveSession } from '@/Helpers/Systems/Data'
 import { addNewQuest, updateQuestObjective } from '@/Helpers/Systems/Quests'
-import { openCurrentTileScene } from '@/Helpers/Systems/Zones'
+import { closeScene } from '@/Helpers/Systems/Scenes'
 
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { Text } from '@/Components/DesignSystem/Text'
 
 export const Introduction024 = () => {
-  const { setScene } = useSceneStore((state) => state)
-
   const dialogOptions: DialogType = {
     speaker: AllNpcs.general.gennai,
 
@@ -47,8 +44,7 @@ export const Introduction024 = () => {
             currentScene: null
           }
 
-          setScene(null)
-          openCurrentTileScene()
+          closeScene()
 
           saveSession(updatedProfile)
         }

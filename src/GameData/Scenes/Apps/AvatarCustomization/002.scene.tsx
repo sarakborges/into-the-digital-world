@@ -3,16 +3,12 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { AllNpcs } from '@/GameData/Npcs'
 
 import { getTexts } from '@/Helpers/Language'
-import { openCurrentTileScene } from '@/Helpers/Systems/Zones'
-
-import { useSceneStore } from '@/Stores/Scene.store'
+import { closeScene } from '@/Helpers/Systems/Scenes'
 
 import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { Text } from '@/Components/DesignSystem/Text'
 
 export const AvatarCustomization002 = () => {
-  const { setScene } = useSceneStore((state) => state)
-
   const dialogOptions: DialogType = {
     speaker: AllNpcs.appmon.dressmon,
 
@@ -27,8 +23,7 @@ export const AvatarCustomization002 = () => {
         id: 'scene-avatarCustomization-002-confirm',
         text: getTexts('SCENES_CONFIRM_BUTTON'),
         action: () => {
-          setScene(null)
-          openCurrentTileScene()
+          closeScene()
         }
       }
     ]

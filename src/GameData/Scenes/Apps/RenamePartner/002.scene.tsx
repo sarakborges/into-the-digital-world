@@ -4,10 +4,10 @@ import { AllDigimons } from '@/GameData/Digimons'
 import { AllNpcs } from '@/GameData/Npcs'
 
 import { getTexts } from '@/Helpers/Language'
+import { closeScene } from '@/Helpers/Systems/Scenes'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { Text } from '@/Components/DesignSystem/Text'
@@ -15,7 +15,6 @@ import { Text } from '@/Components/DesignSystem/Text'
 export const RenamePartner002 = () => {
   const { profile } = useProfileStore((state) => state)
   const { digivice } = useDigiviceStore((state) => state)
-  const { setScene } = useSceneStore((state) => state)
 
   if (!profile || !digivice) {
     return
@@ -42,7 +41,7 @@ export const RenamePartner002 = () => {
         id: 'scene-renamepartner-002-continue',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setScene(null)
+          closeScene()
         }
       }
     ]

@@ -5,10 +5,10 @@ import { AllNpcs } from '@/GameData/Npcs'
 
 import { getTexts } from '@/Helpers/Language'
 import { saveSession } from '@/Helpers/Systems/Data'
+import { closeScene } from '@/Helpers/Systems/Scenes'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
 import { Dialog } from '@/Components/DesignSystem/Dialog'
@@ -17,7 +17,6 @@ import { Text } from '@/Components/DesignSystem/Text'
 export const Equipment001 = () => {
   const { profile } = useProfileStore((state) => state)
   const { digivice } = useDigiviceStore((state) => state)
-  const { setScene } = useSceneStore((state) => state)
 
   if (!profile || !digivice) {
     return
@@ -50,7 +49,7 @@ export const Equipment001 = () => {
     }
 
     saveSession(updatedProfile)
-    setScene(null)
+    closeScene()
   }
 
   const availableItems = Object.keys(profile.items).filter(
@@ -90,7 +89,7 @@ export const Equipment001 = () => {
         id: 'scene-equipment-001-leave',
         text: getTexts('SCENES_LEAVE_BUTTON'),
         action: () => {
-          setScene(null)
+          closeScene()
         }
       }
     ]

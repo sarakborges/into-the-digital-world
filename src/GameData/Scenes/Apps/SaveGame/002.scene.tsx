@@ -3,15 +3,14 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { AllNpcs } from '@/GameData/Npcs'
 
 import { getTexts } from '@/Helpers/Language'
+import { closeScene } from '@/Helpers/Systems/Scenes'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
-import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { Text } from '@/Components/DesignSystem/Text'
 
 export const SaveGame002 = () => {
-  const { setScene } = useSceneStore((state) => state)
   const { digivice, setDigivice } = useDigiviceStore((state) => state)
 
   if (!digivice) {
@@ -33,7 +32,7 @@ export const SaveGame002 = () => {
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
           setDigivice({ ...digivice, currentApp: undefined })
-          setScene(null)
+          closeScene()
         }
       }
     ]
