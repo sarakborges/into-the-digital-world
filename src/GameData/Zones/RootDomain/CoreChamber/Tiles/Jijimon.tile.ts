@@ -8,8 +8,8 @@ import { isQuestDone } from '@/Helpers/Systems/Quests'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-export const RootDomainMainRoomJijimonTile: MapTileType = {
-  id: 'rootDomainMainRoomJijimon',
+export const RootDomainCoreChamberJijimonTile: MapTileType = {
+  id: 'rootDomainCoreChamberJijimon',
   x: 14,
   y: 7,
 

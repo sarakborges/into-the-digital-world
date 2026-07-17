@@ -23,12 +23,11 @@ export const grid: GridType = {
   5: { ...fullFloorRow },
   6: { ...fullFloorRow },
 
-  7: { 12: { ...floorTile } },
+  7: { ...fullFloorRow },
 
   8: { ...fullFloorRow },
   9: { ...fullFloorRow },
   10: { ...fullFloorRow },
   11: { ...fullFloorRow },
-
-  12: { ...fullFloorRow }
+  12: { 7: { ...floorTile } }
 }

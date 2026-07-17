@@ -1,6 +1,6 @@
 import { grid } from './Corridor.grid'
 import { RootDomainCorridorWarpToBedRoomTile } from './Tiles/WarpToBedRoom.tile'
-import { RootDomainCorridorWarpToMainRoomTile } from './Tiles/WarpToMainRoom.tile'
+import { RootDomainCorridorWarpToCoreChamberTile } from './Tiles/WarpToCoreChamber.tile'
 
 import type { MapType } from '@/Types/Zone.type'
 
@@ -17,7 +17,7 @@ export const RootDomainCorridor: MapType = {
   grid: filledGrid,
 
   tiles: [
-    RootDomainCorridorWarpToMainRoomTile,
+    RootDomainCorridorWarpToCoreChamberTile,
     RootDomainCorridorWarpToBedRoomTile
   ]
 }

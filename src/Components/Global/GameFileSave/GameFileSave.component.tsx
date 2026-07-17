@@ -17,9 +17,8 @@ export const GameFileSave = ({ profile }: { profile: ProfileType }) => {
   }
 
   const zone = AllZones[profile.currentZone.id]
-  const map = zone.maps[profile.currentZone.map]
 
-  if (!zone || !map) {
+  if (!zone) {
     return
   }
 
@@ -37,8 +36,7 @@ export const GameFileSave = ({ profile }: { profile: ProfileType }) => {
 
         <Text as="p">
           {getTexts('GAME_FILE_ZONE', {
-            '[ZONE]': zone.name,
-            '[MAP]': map.name
+            '[ZONE]': zone.name
           })}
         </Text>
 

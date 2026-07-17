@@ -10,7 +10,7 @@ export const StarterDigimonQuest: QuestType = {
     talkToGennai: {
       type: 'interact',
       where: 'rootDomain',
-      map: 'mainRoom',
+      map: 'coreChamber',
 
       target: {
         id: NpcGennai.id,

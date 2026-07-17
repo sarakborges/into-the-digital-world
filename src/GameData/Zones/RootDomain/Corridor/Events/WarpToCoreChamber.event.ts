@@ -1,10 +1,10 @@
 import { warpTo } from '@/Helpers/Systems/Zones'
 
-export const WarpToMainRoom = () => {
+export const WarpToCoreChamber = () => {
   warpTo({
     zoneId: 'rootDomain',
-    mapId: 'mainRoom',
-    x: 10,
-    y: 17
+    mapId: 'coreChamber',
+    x: 16,
+    y: 16
   })
 }

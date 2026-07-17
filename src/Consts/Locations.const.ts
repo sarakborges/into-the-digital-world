@@ -1,7 +1,7 @@
 export const WARP_LOCATIONS = {
   rootDomain: {
     zoneId: 'rootDomain',
-    mapId: 'mainRoom',
+    mapId: 'coreChamber',
     x: 9,
     y: 15
   },

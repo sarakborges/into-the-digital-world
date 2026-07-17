@@ -8,8 +8,8 @@ import { isQuestDone } from '@/Helpers/Systems/Quests'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-export const RootDomainMainRoomNanomonTile: MapTileType = {
-  id: 'rootDomainMainRoomNanomon',
+export const RootDomainCoreChamberNanomonTile: MapTileType = {
+  id: 'rootDomainCoreChamberNanomon',
   x: 6,
   y: 7,
 

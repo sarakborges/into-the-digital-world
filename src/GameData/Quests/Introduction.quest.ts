@@ -10,7 +10,7 @@ export const IntroductionQuest: QuestType = {
     completeTutorial: {
       type: 'interact',
       where: 'rootDomain',
-      map: 'mainRoom',
+      map: 'coreChamber',
 
       target: {
         id: NpcGennai.id,

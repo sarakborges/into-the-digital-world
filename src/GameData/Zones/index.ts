@@ -1,7 +1,7 @@
 // Root Domain
 import { RootDomainBedRoom } from './RootDomain/BedRoom'
+import { RootDomainCoreChamber } from './RootDomain/CoreChamber'
 import { RootDomainCorridor } from './RootDomain/Corridor'
-import { RootDomainMainRoom } from './RootDomain/MainRoom'
 // Wild Zone
 import { WildZoneMainRoom } from './WildZone/MainRoom'
 
@@ -12,7 +12,7 @@ export const AllZones: Record<string, ZoneType> = {
     name: 'Root Domain',
 
     maps: {
-      mainRoom: RootDomainMainRoom,
+      coreChamber: RootDomainCoreChamber,
       corridor: RootDomainCorridor,
       restRoom: RootDomainBedRoom
     }
