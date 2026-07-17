@@ -26,7 +26,7 @@ export const StartScreen = () => {
 
   useEffect(() => {
     loadProfiles()
-  }, [])
+  }, [profile])
 
   if (!!profile || !settings) {
     return
