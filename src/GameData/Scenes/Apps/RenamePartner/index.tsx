@@ -1,5 +1,5 @@
-import { RenamePartner001 } from './001.scene'
-import { RenamePartner002 } from './002.scene'
+import { RenamePartner001 } from '@/GameData/Scenes/Apps/RenamePartner/001.scene'
+import { RenamePartner002 } from '@/GameData/Scenes/Apps/RenamePartner/002.scene'
 
 export const RenamePartnerScenes = {
   '001': { component: RenamePartner001 },

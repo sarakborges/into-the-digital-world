@@ -18,8 +18,8 @@ export const canMoveToCoordinate = ({
 
   const tile = currentMap.tiles.filter(
     (tile) =>
-      tile.x === profile.currentZone.x + x &&
-      tile.y === profile.currentZone.y + y
+      tile.x === profile.currentLocation.x + x &&
+      tile.y === profile.currentLocation.y + y
   )
 
   const npcExists = !!tile?.some(
@@ -32,7 +32,9 @@ export const canMoveToCoordinate = ({
   )
 
   const existsInGrid =
-    !!currentMap?.grid[profile.currentZone.y + y]?.[profile.currentZone.x + x]
+    !!currentMap?.grid[profile.currentLocation.y + y]?.[
+      profile.currentLocation.x + x
+    ]
 
   return (eventExists || existsInGrid) && !npcExists
 }

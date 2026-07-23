@@ -6,17 +6,16 @@ import { getTexts } from '@/Helpers/Language'
 
 import { Text } from '@/Components/DesignSystem/Text'
 import { DeleteGame } from '@/Components/Global/DeleteGame'
+import '@/Components/Global/GameFile/GameFile.style.scss'
 import { LoadGame } from '@/Components/Global/LoadGame'
 import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 
-import './GameFile.style.scss'
-
 export const GameFile = ({ profile }: { profile: ProfileType }) => {
-  if (!profile.currentZone) {
+  if (!profile.currentLocation) {
     return
   }
 
-  const zone = getZoneDefinition(profile.currentZone.id)
+  const zone = getZoneDefinition(profile.currentLocation.zone)
 
   if (!zone) {
     return

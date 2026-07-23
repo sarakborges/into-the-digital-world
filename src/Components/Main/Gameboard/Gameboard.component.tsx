@@ -5,12 +5,9 @@ import { useDungeonStore } from '@/Stores/Dungeon.store'
 import { useGameStore } from '@/Stores/Game.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
+import '@/Components/Main/Gameboard/Gameboard.style.scss'
 import { GameboardCharacter } from '@/Components/Main/GameboardCharacter'
 import { Gamepad } from '@/Components/Main/Gamepad'
-
-// import { Minimap } from '@/Components/Main/Minimap'
-
-import './Gameboard.style.scss'
 
 export const Gameboard = () => {
   const { profile } = useProfileStore((state) => state)
@@ -20,20 +17,19 @@ export const Gameboard = () => {
 
   const currentMap = getCurrentMap()
 
-  if (!profile?.currentZone || !currentMap || !!battle || !!dungeon) {
+  if (!profile?.currentLocation || !currentMap || !!battle || !!dungeon) {
     return
   }
 
-  const gameboardBodyVars = getGameboardStyles(
-    profile.currentZone.x || 0,
-    profile.currentZone.y || 0,
-    currentMap.gridSize || 0,
-    !!game?.isWarping
-  )
+  const gameboardBodyVars = getGameboardStyles({
+    currentX: profile.currentLocation.x || 0,
+    currentY: profile.currentLocation.y || 0,
+    gridSize: currentMap.gridSize || 0,
+    isWarping: !!game?.isWarping
+  })
 
   return (
     <div className="gameboard-container">
-      {/* <Minimap /> */}
       <Gamepad />
 
       <main className="gameboard">

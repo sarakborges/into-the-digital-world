@@ -1,1 +1,1 @@
-export { AppAcquaintances } from './AppAcquaintances.component'
+export { AppAcquaintances } from '@/Components/Digivice/Apps/AppAcquaintances/List/AppAcquaintances.component'

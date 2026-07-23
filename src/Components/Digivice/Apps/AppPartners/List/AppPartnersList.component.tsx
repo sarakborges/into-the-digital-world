@@ -18,9 +18,8 @@ import { Button } from '@/Components/DesignSystem/Button'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
 import { PartnerDetails } from '@/Components/Digivice/Apps/AppPartners/Details'
+import '@/Components/Digivice/Apps/AppPartners/List/AppPartnersList.style.scss'
 import { EncyclopediaHeader } from '@/Components/Digivice/Apps/EncyclopediaHeader'
-
-import './AppPartnersList.style.scss'
 
 export const AppPartnersList = () => {
   const { profile } = useProfileStore((state) => state)

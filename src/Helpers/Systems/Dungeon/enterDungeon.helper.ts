@@ -1,10 +1,15 @@
 import type { DungeonType } from '@/Types/Dungeon.type'
 
+import { DungeonChooseRoom } from '@/GameData/Scenes/Apps/Dungeon/ChooseRoom.scene'
+
 import { generateRandomNumber } from '@/Helpers/Math'
-import { saveDungeon } from '@/Helpers/Systems/Dungeon'
+import { saveDungeon } from '@/Helpers/Systems/Dungeon/saveDungeon.helper'
 import { getCurrentParty } from '@/Helpers/Systems/Profile'
 
+import { useSceneStore } from '@/Stores/Scene.store'
+
 export const enterDungeon = (dungeon: DungeonType) => {
+  const { setScene } = useSceneStore.getState()
   const { availableFirstRooms } = dungeon
 
   let firstRoomOptions: Array<string> = []
@@ -31,4 +36,6 @@ export const enterDungeon = (dungeon: DungeonType) => {
     party: getCurrentParty(),
     currentRoomsOptions: firstRoomOptions
   })
+
+  setScene({ component: DungeonChooseRoom })
 }

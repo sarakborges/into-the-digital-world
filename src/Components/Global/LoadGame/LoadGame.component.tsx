@@ -1,5 +1,10 @@
+import { saveService } from '@/Systems/Save/Save.service'
+
 import { getTexts } from '@/Helpers/Language'
-import { loadData, saveSession } from '@/Helpers/Systems/Data'
+import { saveBattle } from '@/Helpers/Systems/Battle/saveBattle.helper'
+import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
+import { saveDungeon } from '@/Helpers/Systems/Dungeon/saveDungeon.helper'
+import { openCurrentTileScene } from '@/Helpers/Systems/Zones/openCurrentTileScene.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 
@@ -8,18 +13,23 @@ import { Button } from '@/Components/DesignSystem/Button'
 export const LoadGame = ({ profileId }: { profileId: number }) => {
   const { setDigivice } = useDigiviceStore((state) => state)
 
-  const loadProfile = () => {
-    const loadedProfile = loadData(`profile${profileId}`)
+  const loadProfile = async (): Promise<void> => {
+    try {
+      const { save } = await saveService.load(String(profileId))
 
-    if (!loadedProfile) {
-      return
+      saveBattle(null)
+      saveDungeon(null)
+      saveSession(save.profile)
+      setDigivice({
+        isOpen: false
+      })
+      openCurrentTileScene()
+    } catch (error) {
+      console.warn(`Error loading save slot ${profileId}: ${error}`)
     }
-
-    saveSession(loadedProfile)
-    setDigivice({
-      isOpen: false
-    })
   }
 
-  return <Button onClick={loadProfile}>{getTexts('LOAD_GAME')}</Button>
+  return (
+    <Button onClick={() => void loadProfile()}>{getTexts('LOAD_GAME')}</Button>
+  )
 }

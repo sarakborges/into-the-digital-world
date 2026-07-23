@@ -1,8 +1,7 @@
 import { getTexts } from '@/Helpers/Language'
 
 import { Text } from '@/Components/DesignSystem/Text'
-
-import './PartnerBond.style.scss'
+import '@/Components/Global/PartnerBond/PartnerBond.style.scss'
 
 export const PartnerBond = () => {
   return (

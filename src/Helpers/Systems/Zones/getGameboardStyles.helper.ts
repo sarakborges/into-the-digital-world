@@ -1,9 +1,16 @@
-export const getGameboardStyles = (
-  currentX: number,
-  currentY: number,
-  gridSize: number,
+type GetGameboardStylesParams = {
+  currentX: number
+  currentY: number
+  gridSize: number
   isWarping: boolean
-): React.CSSProperties => {
+}
+
+export const getGameboardStyles = ({
+  currentX,
+  currentY,
+  gridSize,
+  isWarping
+}: GetGameboardStylesParams): React.CSSProperties => {
   return {
     '--current-x': currentX,
     '--current-y': currentY,

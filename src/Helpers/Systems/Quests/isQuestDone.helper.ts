@@ -1,6 +1,6 @@
 import { findQuest } from '@/GameData/Registries/Quest.registry'
 
-import { isObjectiveDone } from '@/Helpers/Systems/Quests'
+import { isObjectiveDone } from '@/Helpers/Systems/Quests/isObjectiveDone.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 

@@ -30,13 +30,22 @@ export type ZoneMapId<Zone extends ZoneId> = Extract<
   string
 >
 
+export type GameLocation = {
+  [Zone in ZoneId]: {
+    zone: Zone
+    map: ZoneMapId<Zone>
+    x: number
+    y: number
+  }
+}[ZoneId]
+
 type GetMapDefinitionParams = {
   zone: string
   map: string
 }
 
 export const findZoneDefinition = (zone: string) => {
-  return ZoneManifest[zone as ZoneId]
+  return Object.entries(ZoneManifest).find(([zoneId]) => zoneId === zone)?.[1]
 }
 
 export const getZoneDefinition = (zone: string) => {
@@ -51,9 +60,10 @@ export const getZoneDefinition = (zone: string) => {
 
 export const findMapDefinition = ({ zone, map }: GetMapDefinitionParams) => {
   const definition = findZoneDefinition(zone)
-  const maps = definition?.maps as Record<string, { name: string }> | undefined
 
-  return maps?.[map]
+  return definition
+    ? Object.entries(definition.maps).find(([mapId]) => mapId === map)?.[1]
+    : undefined
 }
 
 export const getMapDefinition = (params: GetMapDefinitionParams) => {

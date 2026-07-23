@@ -1,1 +1,1 @@
-export { TurnOrder } from './TurnOrder.component'
+export { TurnOrder } from '@/Components/Combat/TurnOrder/TurnOrder.component'

@@ -7,8 +7,7 @@ import { useSettingsStore } from '@/Stores/Settings.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
 import { Text } from '@/Components/DesignSystem/Text'
-
-import './UpdateTheme.style.scss'
+import '@/Components/Settings/Theme/UpdateTheme.style.scss'
 
 export const UpdateTheme = ({ theme }: { theme: string }) => {
   const { settings } = useSettingsStore((state) => state)

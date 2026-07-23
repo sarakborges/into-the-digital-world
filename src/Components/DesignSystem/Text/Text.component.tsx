@@ -1,6 +1,6 @@
 import { splitTextIntoParagraphs } from '@/Helpers/Components'
 
-import './Text.style.scss'
+import '@/Components/DesignSystem/Text/Text.style.scss'
 
 export const Text = ({
   as,

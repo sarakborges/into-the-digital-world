@@ -5,8 +5,7 @@ import { useDigiviceStore } from '@/Stores/Digivice.store'
 
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
-
-import './CharacterFullPicture.style.scss'
+import '@/Components/Digivice/Apps/CharacterFullPicture/CharacterFullPicture.style.scss'
 
 export const CharacterFullPicture = () => {
   const { digivice } = useDigiviceStore((state) => state)

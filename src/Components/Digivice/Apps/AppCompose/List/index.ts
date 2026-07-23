@@ -1,1 +1,1 @@
-export { CompositionsList } from './CompositionsList.component'
+export { CompositionsList } from '@/Components/Digivice/Apps/AppCompose/List/CompositionsList.component'

@@ -16,8 +16,7 @@ import { Button } from '@/Components/DesignSystem/Button'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
 import { GameFile } from '@/Components/Global/GameFile'
-
-import './StartScreen.style.scss'
+import '@/Components/Main/StartScreen/StartScreen.style.scss'
 
 export const StartScreen = () => {
   const { savedProfiles } = useSavedProfilesStore((state) => state)
@@ -25,7 +24,7 @@ export const StartScreen = () => {
   const { profile } = useProfileStore((state) => state)
 
   useEffect(() => {
-    loadProfiles()
+    void loadProfiles()
   }, [profile])
 
   if (!!profile || !settings) {

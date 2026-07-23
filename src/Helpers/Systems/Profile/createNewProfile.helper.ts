@@ -15,7 +15,7 @@ export const createNewProfile = () => {
   const profile = {
     id: 0,
     name: '',
-    lastSave: new Date(),
+    lastSave: new Date().toISOString(),
     currentTitle: 'chosenChild',
     currentScene: 'introduction',
 
@@ -34,13 +34,13 @@ export const createNewProfile = () => {
       ...getNpcsByCategory('appmon')
     },
 
-    currentZone: {
-      id: 'rootDomain',
+    currentLocation: {
+      zone: 'rootDomain',
       map: 'restRoom',
       x: 2,
       y: 3
     }
-  } as ProfileType
+  } satisfies ProfileType
 
   setProfile(profile)
   setDigivice({ isOpen: false })

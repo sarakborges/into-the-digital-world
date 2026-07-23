@@ -1,6 +1,8 @@
 import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
 
-import { AllAttacks } from '@/GameData/Attacks'
+import { AcidBubblesAttack } from '@/GameData/Attacks/AcidBubbles.attack'
+import { BubblesAttack } from '@/GameData/Attacks/Bubbles.attack'
+import { PoisonBubblesAttack } from '@/GameData/Attacks/PoisonBubbles.attack'
 
 import { DIGIMON_ATTRIBUTES } from '@/Consts/Attributes.const'
 import { DIGIMON_FAMILIES } from '@/Consts/Families.const'
@@ -14,9 +16,9 @@ export const DigimonKoromon: BaseDigimonType = {
   equipmentsSlots: 1,
 
   attacks: {
-    [AllAttacks.bubbles.id]: null,
-    [AllAttacks.acidBubbles.id]: null,
-    [AllAttacks.poisonBubbles.id]: null
+    [BubblesAttack.id]: null,
+    [AcidBubblesAttack.id]: null,
+    [PoisonBubblesAttack.id]: null
   },
 
   families: {

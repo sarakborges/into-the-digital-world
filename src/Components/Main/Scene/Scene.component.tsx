@@ -1,7 +1,7 @@
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import './Scene.style.scss'
+import '@/Components/Main/Scene/Scene.style.scss'
 
 export const Scene = () => {
   const { scene } = useSceneStore((state) => state)

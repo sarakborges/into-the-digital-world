@@ -1,1 +1,1 @@
-export { CurrentParty } from './CurrentParty.component'
+export { CurrentParty } from '@/Components/Global/CurrentParty/CurrentParty.component'

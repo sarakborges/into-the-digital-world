@@ -1,13 +1,11 @@
-import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
-import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
-
-import { AllDigimons } from '@/GameData/Digimons'
+import { findDigimon } from '@/GameData/Registries/Digimon.registry'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Text } from '@/Components/DesignSystem/Text'
 import { AddPartnerToFavorites } from '@/Components/Digivice/Apps/AddPartnerToFavorites'
+import '@/Components/Digivice/Apps/AppPartners/Details/PartnerDetails.style.scss'
 import { CharacterDescription } from '@/Components/Digivice/Apps/CharacterDescription'
 import { CharacterFullPicture } from '@/Components/Digivice/Apps/CharacterFullPicture'
 import { CharacterHeader } from '@/Components/Digivice/Apps/CharacterHeader'
@@ -18,8 +16,6 @@ import { DigimonFamilies } from '@/Components/Digivice/Apps/DigimonFamilies'
 import { DigimonStats } from '@/Components/Digivice/Apps/DigimonStats'
 import { RenamePartner } from '@/Components/Digivice/Apps/RenamePartner'
 
-import './PartnerDetails.style.scss'
-
 export const PartnerDetails = () => {
   const { profile } = useProfileStore((state) => state)
   const { digivice } = useDigiviceStore((state) => state)
@@ -28,10 +24,12 @@ export const PartnerDetails = () => {
     return
   }
 
-  const partner = profile.partnerDigimons[
-    digivice.currentDetails
-  ] as PartnerDigimonType
-  const baseDigimon = AllDigimons[partner.baseDigimon] as BaseDigimonType
+  const partner = profile.partnerDigimons[digivice.currentDetails]
+  const baseDigimon = partner ? findDigimon(partner.baseDigimon) : undefined
+
+  if (!partner || !baseDigimon) {
+    return
+  }
 
   return (
     <div className="partner-details">

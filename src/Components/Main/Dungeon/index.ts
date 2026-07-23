@@ -1,1 +1,1 @@
-export { Dungeon } from './Dungeon.component'
+export { Dungeon } from '@/Components/Main/Dungeon/Dungeon.component'

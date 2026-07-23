@@ -1,1 +1,1 @@
-export { GameboardCharacter } from './GameboardCharacter.component'
+export { GameboardCharacter } from '@/Components/Main/GameboardCharacter/GameboardCharacter.component'

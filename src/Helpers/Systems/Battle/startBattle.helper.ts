@@ -1,8 +1,9 @@
-import { AllDigimons } from '@/GameData/Digimons'
-import { AllDungeons } from '@/GameData/Dungeons'
+import { getDigimon } from '@/GameData/Registries/Digimon.registry'
+import { getDungeon } from '@/GameData/Registries/Dungeon.registry'
 
 import { generateRandomNumber, getSuccesses } from '@/Helpers/Math'
-import { saveBattle, spawnEnemies } from '@/Helpers/Systems/Battle'
+import { saveBattle } from '@/Helpers/Systems/Battle/saveBattle.helper'
+import { spawnEnemies } from '@/Helpers/Systems/Battle/spawnEnemies.helper'
 
 import { useDungeonStore } from '@/Stores/Dungeon.store'
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -15,7 +16,10 @@ export const startBattle = () => {
     return
   }
 
-  const currentDungeon = AllDungeons[dungeon.zoneId]?.[dungeon.dungeonId]
+  const currentDungeon = getDungeon({
+    zoneId: dungeon.zoneId,
+    dungeonId: dungeon.dungeonId
+  })
 
   const currentRoom =
     currentDungeon.possibleRooms[dungeon.rooms[dungeon.rooms.length - 1]]
@@ -31,7 +35,7 @@ export const startBattle = () => {
   }
 
   const enemies = spawnedEnemies.map((digimon, digimonIndex) => ({
-    ...AllDigimons[digimon.digimonId],
+    ...getDigimon(digimon.digimonId),
     ...digimon,
 
     party: 'enemies' as 'allies' | 'enemies',

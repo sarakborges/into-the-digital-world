@@ -5,8 +5,7 @@ import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { QuestsList } from '@/Components/Global/QuestsList'
-
-import './QuestsLogMinimal.style.scss'
+import '@/Components/Main/QuestsLogMinimal/QuestsLogMinimal.style.scss'
 
 export const QuestsLogMinimal = () => {
   const { profile } = useProfileStore((state) => state)

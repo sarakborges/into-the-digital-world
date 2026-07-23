@@ -1,4 +1,4 @@
-import { AllItems } from '@/GameData/Items'
+import { findItem } from '@/GameData/Registries/Item.registry'
 
 import { getTexts } from '@/Helpers/Language'
 import { getCurrentDigimon, getPartnerDigimon } from '@/Helpers/Systems/Digimon'
@@ -11,8 +11,7 @@ import { useSceneStore } from '@/Stores/Scene.store'
 import { Button } from '@/Components/DesignSystem/Button'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
-
-import './DigimonEquipments.style.scss'
+import '@/Components/Digivice/Apps/DigimonEquipments/DigimonEquipments.style.scss'
 
 export const DigimonEquipments = () => {
   const { digivice } = useDigiviceStore((state) => state)
@@ -40,59 +39,62 @@ export const DigimonEquipments = () => {
           <>
             {new Array(baseDigimon.equipmentsSlots)
               .fill(null)
-              .map((_, item) => (
-                <div key={`digimon-${partner.id}-equipments-${item}`}>
-                  {!!partner.equipments?.[item]?.equipmentId && (
-                    <>
-                      <Portrait
-                        alt={
-                          AllItems[partner.equipments?.[item].equipmentId].name
-                        }
-                        src={`/${
-                          AllItems[partner.equipments?.[item].equipmentId]
-                            .portrait
-                        }.webp`}
-                      />
+              .map((_, equipmentSlot) => {
+                const equipmentId =
+                  partner.equipments?.[equipmentSlot]?.equipmentId
+                const equipment = equipmentId
+                  ? findItem(equipmentId)
+                  : undefined
 
-                      <Text>
-                        {AllItems[partner.equipments?.[item].equipmentId].name}
-                      </Text>
-                    </>
-                  )}
+                return (
+                  <div
+                    key={`digimon-${partner.id}-equipments-${equipmentSlot}`}
+                  >
+                    {!!equipment && (
+                      <>
+                        <Portrait
+                          alt={equipment.name}
+                          src={`/${equipment.portrait}.webp`}
+                        />
 
-                  {!partner.equipments?.[item]?.equipmentId && (
-                    <Text>{getTexts('ENCYCLOPEDIA_EQUIPMENTS_NOITEMS')}</Text>
-                  )}
-
-                  <footer>
-                    {!!partner.equipments?.[item]?.equipmentId && (
-                      <Button
-                        onClick={() =>
-                          updateEquipment({
-                            digimonId: partner.id,
-                            equipmentSlot: item,
-                            equipmentId: undefined
-                          })
-                        }
-                        style="secondary"
-                        disabled={!!scene}
-                      >
-                        Remove
-                      </Button>
+                        <Text>{equipment.name}</Text>
+                      </>
                     )}
 
-                    {!partner.equipments?.[item]?.equipmentId && (
-                      <Button
-                        onClick={() => openEquipDialog(item)}
-                        style="secondary"
-                        disabled={!!scene}
-                      >
-                        Equip
-                      </Button>
+                    {!equipment && (
+                      <Text>{getTexts('ENCYCLOPEDIA_EQUIPMENTS_NOITEMS')}</Text>
                     )}
-                  </footer>
-                </div>
-              ))}
+
+                    <footer>
+                      {!!equipment && (
+                        <Button
+                          onClick={() =>
+                            updateEquipment({
+                              digimonId: partner.id,
+                              equipmentSlot,
+                              equipmentId: undefined
+                            })
+                          }
+                          style="secondary"
+                          disabled={!!scene}
+                        >
+                          Remove
+                        </Button>
+                      )}
+
+                      {!equipment && (
+                        <Button
+                          onClick={() => openEquipDialog(equipmentSlot)}
+                          style="secondary"
+                          disabled={!!scene}
+                        >
+                          Equip
+                        </Button>
+                      )}
+                    </footer>
+                  </div>
+                )
+              })}
           </>
         )}
       </main>

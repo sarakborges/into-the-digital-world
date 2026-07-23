@@ -1,1 +1,1 @@
-export { SettingsTheme } from './SettingsTheme.component'
+export { SettingsTheme } from '@/Components/Settings/Themes/SettingsTheme.component'

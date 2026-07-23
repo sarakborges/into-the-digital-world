@@ -1,7 +1,7 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllDigimons } from '@/GameData/Digimons'
 import { NpcBookmon } from '@/GameData/Npcs/Bookmon.npc'
+import { findDigimon } from '@/GameData/Registries/Digimon.registry'
 import { RenamePartner002 } from '@/GameData/Scenes/Apps/RenamePartner/002.scene'
 
 import { getTexts } from '@/Helpers/Language'
@@ -26,7 +26,11 @@ export const RenamePartner001 = () => {
   }
 
   const digimon = profile.partnerDigimons[digivice.currentDetails]
-  const baseDigimon = AllDigimons[digimon.baseDigimon]
+  const baseDigimon = digimon ? findDigimon(digimon.baseDigimon) : undefined
+
+  if (!digimon || !baseDigimon) {
+    return
+  }
 
   const dialogOptions: DialogType = {
     speaker: NpcBookmon,

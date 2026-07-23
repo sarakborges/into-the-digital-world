@@ -1,1 +1,1 @@
-export { PartyDigimonStats } from './PartyDigimonStats.component'
+export { PartyDigimonStats } from '@/Components/Global/PartyDigimonStats/PartyDigimonStats.component'

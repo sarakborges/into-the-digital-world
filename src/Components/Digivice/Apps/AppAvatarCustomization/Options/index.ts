@@ -1,1 +1,1 @@
-export { AvatarCustomizationOptions } from './AvatarCustomizationOptions.component'
+export { AvatarCustomizationOptions } from '@/Components/Digivice/Apps/AppAvatarCustomization/Options/AvatarCustomizationOptions.component'

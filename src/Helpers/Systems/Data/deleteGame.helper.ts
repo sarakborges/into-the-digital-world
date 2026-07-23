@@ -1,10 +1,10 @@
-import { deleteData, saveData } from '@/Helpers/Systems/Data'
+import { saveService } from '@/Systems/Save/Save.service'
+
+import { loadProfiles } from '@/Helpers/Systems/Profile/loadProfiles.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
-import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 
-export const deleteGame = () => {
-  const { savedProfiles, setSavedProfiles } = useSavedProfilesStore.getState()
+export const deleteGame = async (): Promise<void> => {
   const { digivice, setDigivice } = useDigiviceStore.getState()
 
   if (!digivice?.currentDetails) {
@@ -12,26 +12,13 @@ export const deleteGame = () => {
   }
 
   try {
-    deleteData(`profile${digivice.currentDetails}`)
-
-    const updatedProfiles =
-      savedProfiles?.filter(
-        (profile) => profile.id !== digivice.currentDetails
-      ) || null
-
-    setSavedProfiles(updatedProfiles)
-
-    saveData({
-      key: 'profiles',
-      value: updatedProfiles
-        ?.map((profile) => profile.id)
-        .filter((profile) => profile !== digivice.currentDetails)
-    })
+    await saveService.delete(String(digivice.currentDetails))
+    await loadProfiles()
 
     setDigivice({
       isOpen: false
     })
-  } catch (e) {
-    console.warn(e)
+  } catch (error) {
+    console.warn(`Error deleting save: ${error}`)
   }
 }

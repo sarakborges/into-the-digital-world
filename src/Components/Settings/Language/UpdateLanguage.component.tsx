@@ -8,8 +8,7 @@ import { useSettingsStore } from '@/Stores/Settings.store'
 import { Button } from '@/Components/DesignSystem/Button'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
-
-import './UpdateLanguage.style.scss'
+import '@/Components/Settings/Language/UpdateLanguage.style.scss'
 
 export const UpdateLanguage = ({ language }: { language: string }) => {
   const { settings } = useSettingsStore((state) => state)

@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllItems } from '@/GameData/Items'
+import { DigiviceItem } from '@/GameData/Items/Digivice.item'
 import { Introduction013 } from '@/GameData/Scenes/Story/Introduction/013.scene'
 
 import { getTexts } from '@/Helpers/Language'
@@ -19,7 +19,7 @@ export const Introduction012 = () => {
       <>
         <Portrait
           alt={getTexts('INTRODUCTION_011_ALT')}
-          src={`/${AllItems.digivice?.portrait}.webp`}
+          src={`/${DigiviceItem.portrait}.webp`}
         />
         <div className="text-bubble">
           <Text as="p">{getTexts('INTRODUCTION_012_TEXT')}</Text>

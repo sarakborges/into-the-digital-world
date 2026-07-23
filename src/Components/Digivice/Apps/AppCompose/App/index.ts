@@ -1,1 +1,1 @@
-export { AppCompose } from './AppCompose.component'
+export { AppCompose } from '@/Components/Digivice/Apps/AppCompose/App/AppCompose.component'

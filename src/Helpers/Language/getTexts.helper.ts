@@ -2,6 +2,7 @@ import * as EnTexts from '@/GameData/Texts/En'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
 
+// This intentionally remains positional: translation calls read as key + replacements.
 export const getTexts = (
   key: string,
   replace?: Record<string, string>

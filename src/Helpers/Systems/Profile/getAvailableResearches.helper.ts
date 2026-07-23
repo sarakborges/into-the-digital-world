@@ -1,4 +1,4 @@
-import { AllResearches } from '@/GameData/Researches'
+import { getResearchIds } from '@/GameData/Registries/Research.registry'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -9,7 +9,7 @@ export const getAvailableResearches = (): string[] => {
     return []
   }
 
-  return Object.keys(AllResearches)
+  return getResearchIds()
     .filter((research) => !profile.researches.includes(research))
     .sort((a, b) => (a > b ? 1 : -1))
 }

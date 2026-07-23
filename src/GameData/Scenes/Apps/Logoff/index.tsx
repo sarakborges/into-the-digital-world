@@ -1,4 +1,4 @@
-import { Logoff001 } from './001.scene'
+import { Logoff001 } from '@/GameData/Scenes/Apps/Logoff/001.scene'
 
 export const LogoffScenes = {
   '001': { component: Logoff001 }

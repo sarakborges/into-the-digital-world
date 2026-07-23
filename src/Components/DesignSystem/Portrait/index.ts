@@ -1,1 +1,1 @@
-export { Portrait } from './Portrait.component'
+export { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'

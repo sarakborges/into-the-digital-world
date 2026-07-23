@@ -1,1 +1,1 @@
-export { QuestsLogMinimal } from './QuestsLogMinimal.component'
+export { QuestsLogMinimal } from '@/Components/Main/QuestsLogMinimal/QuestsLogMinimal.component'

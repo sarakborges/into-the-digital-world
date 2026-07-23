@@ -1,1 +1,1 @@
-export { ItemCore } from './ItemCore.component'
+export { ItemCore } from '@/Components/Global/ItemCore/ItemCore.component'

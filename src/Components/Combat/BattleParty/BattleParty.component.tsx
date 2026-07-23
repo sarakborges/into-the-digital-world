@@ -13,10 +13,9 @@ import { CONDITIONS } from '@/Consts/Conditions.const'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 
+import '@/Components/Combat/BattleParty/BattleParty.style.scss'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
-
-import './BattleParty.style.scss'
 
 export const BattleParty = ({
   party
@@ -41,7 +40,7 @@ export const BattleParty = ({
           key={`battle-party-${party.title}-digimon-${digimon.index}`}
           className="party-member"
           data-currentturn={
-            !battleOver && isCurrentTurnDigimon(battle, digimon)
+            !battleOver && isCurrentTurnDigimon({ battle, digimon })
           }
           data-defeated={isDigimonDefeated(digimon)}
         >

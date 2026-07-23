@@ -1,4 +1,6 @@
-import { loadSession } from '@/Helpers/Systems/Data'
+import { migrateProfile } from '@/Systems/Save/Save.migrations'
+
+import { loadSession } from '@/Helpers/Systems/Data/loadSession.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useDungeonStore } from '@/Stores/Dungeon.store'
@@ -10,9 +12,10 @@ export const loadGameSession = () => {
   const { setBattle } = useBattleStore.getState()
 
   try {
-    const profile = loadSession(`profile`)
+    const rawProfile = loadSession(`profile`)
     const dungeon = loadSession(`dungeon`)
     const battle = loadSession(`battle`)
+    const profile = rawProfile ? migrateProfile(rawProfile) : null
 
     setProfile(profile)
     setDungeon(dungeon)

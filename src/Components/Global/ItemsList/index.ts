@@ -1,1 +1,1 @@
-export { ItemsList } from './ItemsList.component'
+export { ItemsList } from '@/Components/Global/ItemsList/ItemsList.component'

@@ -1,3 +1,3 @@
-export { updateSettings } from './updateSettings.helper'
-export { getThemeBackground } from './getThemeBackground.helper'
-export { getThemeGroups } from './getThemeGroups.helper'
+export { updateSettings } from '@/Helpers/Systems/Settings/updateSettings.helper'
+export { getThemeBackground } from '@/Helpers/Systems/Settings/getThemeBackground.helper'
+export { getThemeGroups } from '@/Helpers/Systems/Settings/getThemeGroups.helper'

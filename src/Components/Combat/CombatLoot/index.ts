@@ -1,1 +1,1 @@
-export { CombatLoot } from './CombatLoot.component'
+export { CombatLoot } from '@/Components/Combat/CombatLoot/CombatLoot.component'

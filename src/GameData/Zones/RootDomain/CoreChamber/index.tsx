@@ -1,11 +1,11 @@
-import { grid } from './CoreChamber.grid'
-import { GetStarterDigimonGennaiTile } from './Tiles/GetStarterDigimonGennai.tile'
-import { RootDomainCoreChamberJijimonTile } from './Tiles/Jijimon.tile'
-import { LocationGennaiTile } from './Tiles/LocationGennai.tile'
-import { RootDomainCoreChamberNanomonTile } from './Tiles/Nanomon.tile'
-import { RootDomainCoreChamberWarpToCorridorTile } from './Tiles/WarpToCorridor.tile'
-
 import type { MapType } from '@/Types/Zone.type'
+
+import { grid } from '@/GameData/Zones/RootDomain/CoreChamber/CoreChamber.grid'
+import { GetStarterDigimonGennaiTile } from '@/GameData/Zones/RootDomain/CoreChamber/Tiles/GetStarterDigimonGennai.tile'
+import { RootDomainCoreChamberJijimonTile } from '@/GameData/Zones/RootDomain/CoreChamber/Tiles/Jijimon.tile'
+import { LocationGennaiTile } from '@/GameData/Zones/RootDomain/CoreChamber/Tiles/LocationGennai.tile'
+import { RootDomainCoreChamberNanomonTile } from '@/GameData/Zones/RootDomain/CoreChamber/Tiles/Nanomon.tile'
+import { RootDomainCoreChamberWarpToCorridorTile } from '@/GameData/Zones/RootDomain/CoreChamber/Tiles/WarpToCorridor.tile'
 
 import { fillGrid } from '@/Helpers/Systems/Zones'
 

@@ -1,20 +1,12 @@
+import type { GameLocation } from '@/GameData/Registries/ZoneManifest.registry'
+
 import { saveSession } from '@/Helpers/Systems/Data'
 import { openCurrentTileScene } from '@/Helpers/Systems/Zones/openCurrentTileScene.helper'
 
 import { useGameStore } from '@/Stores/Game.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
-export const warpTo = ({
-  zoneId,
-  mapId,
-  x,
-  y
-}: {
-  zoneId: string
-  mapId: string
-  x: number
-  y: number
-}) => {
+export const warpTo = (location: GameLocation) => {
   const { profile } = useProfileStore.getState()
   const { setGame } = useGameStore.getState()
 
@@ -30,12 +22,7 @@ export const warpTo = ({
     const updatedProfile = {
       ...profile,
 
-      currentZone: {
-        id: zoneId,
-        map: mapId,
-        x: x,
-        y: y
-      }
+      currentLocation: location
     }
 
     saveSession(updatedProfile)

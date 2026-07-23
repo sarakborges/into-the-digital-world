@@ -13,8 +13,7 @@ import { useProfileStore } from '@/Stores/Profile.store'
 import { Button } from '@/Components/DesignSystem/Button'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
-
-import './AppLocation.style.scss'
+import '@/Components/Digivice/Apps/AppLocation/AppLocation.style.scss'
 
 export const AppLocation = () => {
   const { profile } = useProfileStore((state) => state)

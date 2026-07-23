@@ -1,1 +1,1 @@
-export { AppLocation } from './AppLocation.component'
+export { AppLocation } from '@/Components/Digivice/Apps/AppLocation/AppLocation.component'

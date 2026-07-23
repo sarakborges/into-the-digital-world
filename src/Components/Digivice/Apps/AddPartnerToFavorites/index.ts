@@ -1,1 +1,1 @@
-export { AddPartnerToFavorites } from './AddPartnerToFavorites.component'
+export { AddPartnerToFavorites } from '@/Components/Digivice/Apps/AddPartnerToFavorites/AddPartnerToFavorites.component'

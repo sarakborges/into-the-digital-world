@@ -1,1 +1,1 @@
-export { PartnerBond } from './PartnerBond.component'
+export { PartnerBond } from '@/Components/Global/PartnerBond/PartnerBond.component'

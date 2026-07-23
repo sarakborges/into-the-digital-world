@@ -31,7 +31,7 @@ export const AvatarCustomization001 = () => {
   )
 
   const triggerCustomization = () => {
-    if (!!doneQuests.includes(AvatarFixingQuest.id)) {
+    if (doneQuests.includes(AvatarFixingQuest.id)) {
       setScene({ component: AvatarCustomization003 })
 
       return
@@ -52,7 +52,7 @@ export const AvatarCustomization001 = () => {
         <div className="text-bubble">
           <Text as="p">
             {getTexts(
-              !!doneQuests.includes(AvatarFixingQuest.id)
+              doneQuests.includes(AvatarFixingQuest.id)
                 ? 'AVATARCUSTOMIZATION_001_TEXT'
                 : 'INTRODUCTION_020_TEXT'
             )}

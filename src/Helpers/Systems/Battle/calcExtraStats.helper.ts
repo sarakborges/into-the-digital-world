@@ -1,7 +1,7 @@
 import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
-import { AllItems } from '@/GameData/Items'
+import { findItem } from '@/GameData/Registries/Item.registry'
 
 export const calcExtraStats = ({
   digimon,
@@ -12,23 +12,14 @@ export const calcExtraStats = ({
 }): number => {
   const equipments = digimon.equipments
 
-  const equipmentsBoostingStat = Object.values(equipments ?? {})
-    .filter((item) => {
-      if (!item?.equipmentId) {
-        return false
-      }
-
-      return Object.keys(
-        AllItems[item.equipmentId].equipmentBonuses?.stats ?? {}
-      ).includes(stat)
-    })
-    .map((item) => AllItems[item!.equipmentId!].equipmentBonuses?.stats)
-
-  return equipmentsBoostingStat.reduce((acc, cur) => {
-    if (cur![stat].type === 'fixed') {
-      return acc + cur![stat].amount
+  return Object.values(equipments ?? {}).reduce((total, equipment) => {
+    if (!equipment?.equipmentId) {
+      return total
     }
 
-    return 0
+    const statBonus = findItem(equipment.equipmentId)?.equipmentBonuses
+      ?.stats?.[stat]
+
+    return statBonus?.type === 'fixed' ? total + statBonus.amount : total
   }, 0)
 }

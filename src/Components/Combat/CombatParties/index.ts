@@ -1,1 +1,1 @@
-export { CombatParties } from './CombatParties.component'
+export { CombatParties } from '@/Components/Combat/CombatParties/CombatParties.component'

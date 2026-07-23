@@ -1,18 +1,16 @@
-import { AllItems } from '@/GameData/Items'
+import { getItem } from '@/GameData/Registries/Item.registry'
 
 import { Portrait } from '@/Components/DesignSystem/Portrait'
-
-import './ItemCore.style.scss'
+import '@/Components/Global/ItemCore/ItemCore.style.scss'
 
 export const ItemCore = ({ item }: { item: string }) => {
+  const itemDetails = getItem(item)
+
   return (
     <div className="item-core">
       <Portrait alt="Core border" src={`/items/chip.png`} />
 
-      <Portrait
-        alt={AllItems[item].name}
-        src={`/${AllItems[item].portrait}.webp`}
-      />
+      <Portrait alt={itemDetails.name} src={`/${itemDetails.portrait}.webp`} />
     </div>
   )
 }

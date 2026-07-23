@@ -1,1 +1,1 @@
-export { Battlefield } from './Battlefield.component'
+export { Battlefield } from '@/Components/Combat/Battlefield/Battlefield.component'

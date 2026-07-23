@@ -3,9 +3,8 @@ import { getQuestGroups } from '@/Helpers/Systems/Quests'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
+import '@/Components/Digivice/Apps/AppQuestsLog/AppQuestsLog.style.scss'
 import { QuestsList } from '@/Components/Global/QuestsList'
-
-import './AppQuestsLog.style.scss'
 
 export const AppQuestsLog = () => {
   const { profile } = useProfileStore((state) => state)

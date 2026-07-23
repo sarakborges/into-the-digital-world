@@ -10,6 +10,6 @@ export const getAvailableWarpLocations = (): string[] => {
   }
 
   return Object.keys(WARP_LOCATIONS).filter(
-    (location) => location !== profile.currentZone.id
+    (location) => location !== profile.currentLocation.zone
   )
 }

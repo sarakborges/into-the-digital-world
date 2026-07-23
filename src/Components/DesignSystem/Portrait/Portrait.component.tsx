@@ -1,4 +1,4 @@
-import './Portrait.style.scss'
+import '@/Components/DesignSystem/Portrait/Portrait.style.scss'
 
 export const Portrait = ({ src, alt }: { src?: string; alt: string }) => {
   return (

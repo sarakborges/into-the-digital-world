@@ -11,8 +11,7 @@ import { useProfileStore } from '@/Stores/Profile.store'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
 import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
-
-import './GameboardCharacter.style.scss'
+import '@/Components/Main/GameboardCharacter/GameboardCharacter.style.scss'
 
 export const GameboardCharacter = ({
   tile,
@@ -41,8 +40,8 @@ export const GameboardCharacter = ({
       className="gameboard-character"
       style={
         {
-          '--character-x': tile?.x || profile.currentZone.x,
-          '--character-y': tile?.y || profile.currentZone.y,
+          '--character-x': tile?.x || profile.currentLocation.x,
+          '--character-y': tile?.y || profile.currentLocation.y,
           '--character-opacity': opacity
         } as React.CSSProperties
       }

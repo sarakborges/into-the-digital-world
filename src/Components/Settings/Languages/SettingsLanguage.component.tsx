@@ -4,8 +4,7 @@ import { LANGUAGES } from '@/Consts/Languages.const'
 
 import { Text } from '@/Components/DesignSystem/Text'
 import { UpdateLanguage } from '@/Components/Settings/Language'
-
-import './SettingsLanguage.style.scss'
+import '@/Components/Settings/Languages/SettingsLanguage.style.scss'
 
 export const SettingsLanguage = () => {
   return (

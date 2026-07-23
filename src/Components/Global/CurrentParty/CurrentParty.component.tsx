@@ -6,10 +6,9 @@ import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
+import '@/Components/Global/CurrentParty/CurrentParty.style.scss'
 import { PartnerBond } from '@/Components/Global/PartnerBond'
 import { PartyDigimonStats } from '@/Components/Global/PartyDigimonStats'
-
-import './CurrentParty.style.scss'
 
 export const CurrentParty = () => {
   const { profile } = useProfileStore((state) => state)
@@ -24,10 +23,10 @@ export const CurrentParty = () => {
       <div className="current-party">
         <div className="party-digimons">
           {profile.party.map((digimon) => {
-            const baseDigimon = getBaseDigimonFromParty(
-              digimon,
-              profile.partnerDigimons
-            )
+            const baseDigimon = getBaseDigimonFromParty({
+              digimonId: digimon,
+              partnerDigimons: profile.partnerDigimons
+            })
 
             if (!baseDigimon) {
               return null
@@ -54,11 +53,11 @@ export const CurrentParty = () => {
 
                 <footer>
                   <Text>
-                    {getDigimonDisplayName(
-                      digimon,
-                      profile.partnerDigimons,
+                    {getDigimonDisplayName({
+                      digimonId: digimon,
+                      partnerDigimons: profile.partnerDigimons,
                       baseDigimon
-                    )}
+                    })}
                   </Text>
                 </footer>
               </div>

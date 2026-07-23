@@ -1,1 +1,1 @@
-export { AppAvatarCustomization } from './AppAvatarCustomization.component'
+export { AppAvatarCustomization } from '@/Components/Digivice/Apps/AppAvatarCustomization/App/AppAvatarCustomization.component'

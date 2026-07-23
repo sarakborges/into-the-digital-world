@@ -1,6 +1,6 @@
 import { AiOutlineSelect } from 'react-icons/ai'
 
-import { AvailableResearchesAtJijimon } from '@/GameData/Researches'
+import { getResearch } from '@/GameData/Registries/Research.registry'
 import { Compose003 } from '@/GameData/Scenes/Apps/Compose/003.scene'
 
 import { getTexts } from '@/Helpers/Language'
@@ -13,8 +13,7 @@ import { useSceneStore } from '@/Stores/Scene.store'
 import { Button } from '@/Components/DesignSystem/Button'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
-
-import './CompositionsList.style.scss'
+import '@/Components/Digivice/Apps/AppCompose/List/CompositionsList.style.scss'
 
 export const CompositionsList = () => {
   const { profile } = useProfileStore((state) => state)
@@ -56,14 +55,10 @@ export const CompositionsList = () => {
                   <Button
                     onClick={() => {
                       const baseDigimon = composition.baseDigimon
+                      const research = getResearch(baseDigimon.id)
                       const totalItems = {}
-
-                      const requiredItems =
-                        AvailableResearchesAtJijimon[baseDigimon.id]
-                          .requiredItems
-                      const optionalItems =
-                        AvailableResearchesAtJijimon[baseDigimon.id]
-                          .optionalItems
+                      const requiredItems = research.requiredItems
+                      const optionalItems = research.optionalItems
 
                       for (const item in requiredItems) {
                         totalItems[item] =

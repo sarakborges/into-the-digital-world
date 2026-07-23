@@ -1,7 +1,7 @@
-import { Compose000 } from './000.scene'
-import { Compose001 } from './001.scene'
-import { Compose002 } from './002.scene'
-import { Compose003 } from './003.scene'
+import { Compose000 } from '@/GameData/Scenes/Apps/Compose/000.scene'
+import { Compose001 } from '@/GameData/Scenes/Apps/Compose/001.scene'
+import { Compose002 } from '@/GameData/Scenes/Apps/Compose/002.scene'
+import { Compose003 } from '@/GameData/Scenes/Apps/Compose/003.scene'
 
 export const ComposeScenes = {
   '000': { component: Compose000 },

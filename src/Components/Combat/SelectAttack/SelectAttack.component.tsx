@@ -1,16 +1,13 @@
 import { getTexts } from '@/Helpers/Language'
-import {
-  doAttack,
-  getBattleAttackOptions,
-  isEnemyTurn
-} from '@/Helpers/Systems/Battle'
+import { doAttack } from '@/Helpers/Systems/Battle/doAttack.helper'
+import { getBattleAttackOptions } from '@/Helpers/Systems/Battle/getBattleAttackOptions.helper'
+import { isEnemyTurn } from '@/Helpers/Systems/Battle/isEnemyTurn.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 
+import '@/Components/Combat/SelectAttack/SelectAttack.style.scss'
 import { Button } from '@/Components/DesignSystem/Button'
 import { Text } from '@/Components/DesignSystem/Text'
-
-import './SelectAttack.style.scss'
 
 export const SelectAttack = () => {
   const { battle } = useBattleStore((state) => state)

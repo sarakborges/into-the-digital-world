@@ -6,9 +6,8 @@ import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
 import { Text } from '@/Components/DesignSystem/Text'
+import '@/Components/Digivice/Apps/AppAvatarCustomization/Options/AvatarCustomizationOptions.style.scss'
 import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
-
-import './AvatarCustomizationOptions.style.scss'
 
 export const AvatarCustomizationOptions = () => {
   const { avatarCustomization, setAvatarCustomization } =

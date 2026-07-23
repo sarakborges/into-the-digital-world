@@ -1,1 +1,1 @@
-export { StartScreen } from './StartScreen.component'
+export { StartScreen } from '@/Components/Main/StartScreen/StartScreen.component'

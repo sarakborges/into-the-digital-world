@@ -1,14 +1,24 @@
-import type { ZoneMapRegistryType } from './ZoneMap.registry'
+import type { MapType } from '@/Types/Zone.type'
 
-export type ZoneRuntimeRegistryType = ZoneMapRegistryType
+import type {
+  ZoneId,
+  ZoneMapId
+} from '@/GameData/Registries/ZoneManifest.registry'
 
-export type RuntimeZoneId = Extract<keyof ZoneRuntimeRegistryType, string>
+type RuntimeMaps<Zone extends ZoneId> = Record<ZoneMapId<Zone>, MapType> &
+  Record<string, MapType | undefined>
 
-export type RuntimeZoneType = ZoneRuntimeRegistryType[RuntimeZoneId]
+type RuntimeZoneDefinition<Zone extends ZoneId> = {
+  name: string
+  maps: RuntimeMaps<Zone>
+}
 
-export type RuntimeMapType = {
-  [Zone in RuntimeZoneId]: ZoneRuntimeRegistryType[Zone]['maps'][Extract<
-    keyof ZoneRuntimeRegistryType[Zone]['maps'],
-    string
-  >]
-}[RuntimeZoneId]
+export type ZoneRuntimeRegistryType = {
+  [Zone in ZoneId]: RuntimeZoneDefinition<Zone>
+}
+
+export type RuntimeZoneType = {
+  [Zone in ZoneId]: RuntimeZoneDefinition<Zone>
+}[ZoneId]
+
+export type RuntimeMapType = MapType

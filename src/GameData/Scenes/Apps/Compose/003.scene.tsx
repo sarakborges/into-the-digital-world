@@ -1,8 +1,7 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { NpcJijimon } from '@/GameData/Npcs/Jijimon.npc'
-import { AllResearches } from '@/GameData/Researches'
-import { Compose002 } from '@/GameData/Scenes/Apps/Compose/002.scene'
+import { getResearch } from '@/GameData/Registries/Research.registry'
 
 import { getTexts } from '@/Helpers/Language'
 import { saveSession } from '@/Helpers/Systems/Data'
@@ -18,16 +17,15 @@ import { AppCompose } from '@/Components/Digivice/Apps/AppCompose/App'
 export const Compose003 = () => {
   const { profile } = useProfileStore((state) => state)
   const { composition, setComposition } = useCompositionStore((state) => state)
-  const { setScene } = useSceneStore((state) => state)
+  const { goBackScene } = useSceneStore((state) => state)
 
   if (!profile || !composition) {
     return
   }
 
-  const requiredItems = composition
-    ? AllResearches[composition.baseDigimon.id].requiredItems || {}
-    : {}
-  const optionalItems = composition ? composition.optionalItems || {} : {}
+  const research = getResearch(composition.baseDigimon.id)
+  const requiredItems = research.requiredItems || {}
+  const optionalItems = composition.optionalItems || {}
 
   const playerHasEnoughItems = Object.keys(composition.totalItems ?? {}).some(
     (item) =>
@@ -77,7 +75,7 @@ export const Compose003 = () => {
         text: getTexts('SCENES_BACK_BUTTON'),
         action: () => {
           setComposition(null)
-          setScene({ component: Compose002 })
+          goBackScene()
         }
       },
 

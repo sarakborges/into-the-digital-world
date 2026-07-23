@@ -1,1 +1,1 @@
-export { AppResearchesList } from './AppResearchesList.component'
+export { AppResearchesList } from '@/Components/Digivice/Apps/AppResearchesList/AppResearchesList.component'

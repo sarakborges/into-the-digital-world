@@ -19,11 +19,9 @@ export const getAppAvailability = (appId: string): boolean => {
 
   const isSave = appId === 'save'
   const isLogoff = appId === 'logoff'
-  const isMap = appId === 'map'
 
   return !(
     (!!scene && !scene.enablesMovement) ||
-    (!doneQuests.includes(StarterDigimonQuest.id) &&
-      !(!!isSave || !!isLogoff || !!isMap))
+    (!doneQuests.includes(StarterDigimonQuest.id) && !(isSave || isLogoff))
   )
 }

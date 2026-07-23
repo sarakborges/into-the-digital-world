@@ -1,1 +1,1 @@
-export { AppQuestsLog } from './AppQuestsLog.component'
+export { AppQuestsLog } from '@/Components/Digivice/Apps/AppQuestsLog/AppQuestsLog.component'

@@ -1,7 +1,6 @@
 import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
-import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 
-import { AllDigimons } from '@/GameData/Digimons'
+import { findDigimon } from '@/GameData/Registries/Digimon.registry'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -14,12 +13,11 @@ export const getCurrentDigimon = (): BaseDigimonType | undefined => {
     return undefined
   }
 
-  const partner = profile.partnerDigimons[digivice.currentDetails] as
-    PartnerDigimonType | undefined
+  const partner = profile.partnerDigimons[digivice.currentDetails]
 
   if (!partner) {
     return undefined
   }
 
-  return AllDigimons[partner.baseDigimon] as BaseDigimonType | undefined
+  return findDigimon(partner.baseDigimon)
 }

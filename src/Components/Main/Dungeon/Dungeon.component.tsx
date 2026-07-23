@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { AllDungeons } from '@/GameData/Dungeons'
+import { findDungeon } from '@/GameData/Registries/Dungeon.registry'
 import { BattleStart } from '@/GameData/Scenes/Apps/Battle/BattleStart.scene'
 import { BattleTurn } from '@/GameData/Scenes/Apps/Battle/BattleTurn.scene'
 import { DungeonChooseRoom } from '@/GameData/Scenes/Apps/Dungeon/ChooseRoom.scene'
@@ -13,8 +13,7 @@ import { useDungeonStore } from '@/Stores/Dungeon.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Text } from '@/Components/DesignSystem/Text'
-
-import './Dungeon.style.scss'
+import '@/Components/Main/Dungeon/Dungeon.style.scss'
 
 export const Dungeon = () => {
   const { dungeon } = useDungeonStore((state) => state)
@@ -22,7 +21,10 @@ export const Dungeon = () => {
   const { battle } = useBattleStore((state) => state)
 
   const currentDungeon = dungeon
-    ? AllDungeons[dungeon.zoneId]?.[dungeon.dungeonId]
+    ? findDungeon({
+        zoneId: dungeon.zoneId,
+        dungeonId: dungeon.dungeonId
+      })
     : undefined
   const currentRoomIndex = dungeon?.doneRooms.length ?? 0
   const room =

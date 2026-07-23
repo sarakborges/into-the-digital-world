@@ -1,18 +1,20 @@
 import type { ResearchType } from '@/Types/Research.type'
 
-import { AllItems } from '@/GameData/Items'
+import { DragonsRoarCoreItem } from '@/GameData/Items/DragonsRoarCore.item'
+import { KoromonCoreItem } from '@/GameData/Items/KoromonCore.item'
+import { VirusBustersCoreItem } from '@/GameData/Items/VirusBustersCore.item'
 
 export const KoromonResearch: ResearchType = {
   cost: {
-    [AllItems.koromonCore.id]: 10
+    [KoromonCoreItem.id]: 10
   },
 
   requiredItems: {
-    [AllItems.koromonCore.id]: 5
+    [KoromonCoreItem.id]: 5
   },
 
   optionalItems: {
-    [AllItems.dragonsRoarCore.id]: 5,
-    [AllItems.virusBustersCore.id]: 5
+    [DragonsRoarCoreItem.id]: 5,
+    [VirusBustersCoreItem.id]: 5
   }
 }

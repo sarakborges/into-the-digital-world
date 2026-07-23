@@ -1,8 +1,8 @@
-import { grid } from './Corridor.grid'
-import { RootDomainCorridorWarpToBedRoomTile } from './Tiles/WarpToBedRoom.tile'
-import { RootDomainCorridorWarpToCoreChamberTile } from './Tiles/WarpToCoreChamber.tile'
-
 import type { MapType } from '@/Types/Zone.type'
+
+import { grid } from '@/GameData/Zones/RootDomain/Corridor/Corridor.grid'
+import { RootDomainCorridorWarpToBedRoomTile } from '@/GameData/Zones/RootDomain/Corridor/Tiles/WarpToBedRoom.tile'
+import { RootDomainCorridorWarpToCoreChamberTile } from '@/GameData/Zones/RootDomain/Corridor/Tiles/WarpToCoreChamber.tile'
 
 import { fillGrid } from '@/Helpers/Systems/Zones'
 

@@ -15,10 +15,9 @@ import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
 import { Text } from '@/Components/DesignSystem/Text'
+import '@/Components/Digivice/Apps/AppAvatarCustomization/App/AppAvatarCustomization.style.scss'
 import { AvatarCustomizationOptions } from '@/Components/Digivice/Apps/AppAvatarCustomization/Options'
 import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
-
-import './AppAvatarCustomization.style.scss'
 
 export const AppAvatarCustomization = () => {
   const { profile } = useProfileStore((state) => state)

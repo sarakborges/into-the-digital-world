@@ -4,8 +4,7 @@ import { getCurrentDigimon } from '@/Helpers/Systems/Digimon'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 
 import { Text } from '@/Components/DesignSystem/Text'
-
-import './CharacterDescription.style.scss'
+import '@/Components/Digivice/Apps/CharacterDescription/CharacterDescription.style.scss'
 
 export const CharacterDescription = () => {
   const { digivice } = useDigiviceStore((state) => state)

@@ -1,1 +1,1 @@
-export { PlayerAvatar } from './PlayerAvatar.component'
+export { PlayerAvatar } from '@/Components/Global/PlayerAvatar/PlayerAvatar.component'

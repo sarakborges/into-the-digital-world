@@ -1,1 +1,1 @@
-export { CharacterFullPicture } from './CharacterFullPicture.component'
+export { CharacterFullPicture } from '@/Components/Digivice/Apps/CharacterFullPicture/CharacterFullPicture.component'

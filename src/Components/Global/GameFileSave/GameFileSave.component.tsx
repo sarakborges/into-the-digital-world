@@ -7,16 +7,15 @@ import { saveProfile } from '@/Helpers/Systems/Profile'
 
 import { Button } from '@/Components/DesignSystem/Button'
 import { Text } from '@/Components/DesignSystem/Text'
+import '@/Components/Global/GameFileSave/GameFileSave.style.scss'
 import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 
-import './GameFileSave.style.scss'
-
 export const GameFileSave = ({ profile }: { profile: ProfileType }) => {
-  if (!profile.currentZone) {
+  if (!profile.currentLocation) {
     return
   }
 
-  const zone = getZoneDefinition(profile.currentZone.id)
+  const zone = getZoneDefinition(profile.currentLocation.zone)
 
   if (!zone) {
     return
@@ -48,7 +47,7 @@ export const GameFileSave = ({ profile }: { profile: ProfileType }) => {
       </header>
 
       <div className="game-options">
-        <Button onClick={() => saveProfile(profile.id)}>
+        <Button onClick={() => void saveProfile(profile.id)}>
           {getTexts('SAVEGAME_001_REWRITE')}
         </Button>
       </div>

@@ -1,1 +1,1 @@
-export { CharacterHeader } from './CharacterHeader.component'
+export { CharacterHeader } from '@/Components/Digivice/Apps/CharacterHeader/CharacterHeader.component'

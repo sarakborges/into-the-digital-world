@@ -2,11 +2,12 @@ import { AiOutlineExclamationCircle } from 'react-icons/ai'
 
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllDungeons } from '@/GameData/Dungeons'
 import { NpcNavimon } from '@/GameData/Npcs/Navimon.npc'
+import { getDungeon } from '@/GameData/Registries/Dungeon.registry'
 
 import { getTexts } from '@/Helpers/Language'
-import { advanceDungeon, leaveDungeon } from '@/Helpers/Systems/Dungeon'
+import { advanceDungeon } from '@/Helpers/Systems/Dungeon/advanceDungeon.helper'
+import { leaveDungeon } from '@/Helpers/Systems/Dungeon/leaveDungeon.helper'
 
 import { useDungeonStore } from '@/Stores/Dungeon.store'
 
@@ -20,6 +21,11 @@ export const DungeonChooseRoom = () => {
   if (!dungeon) {
     return
   }
+
+  const currentDungeon = getDungeon({
+    zoneId: dungeon.zoneId,
+    dungeonId: dungeon.dungeonId
+  })
 
   const dialogOptions: DialogType = {
     speaker: NpcNavimon,
@@ -39,10 +45,7 @@ export const DungeonChooseRoom = () => {
         <div className="dialog-reactions dialog-reactions-options">
           <div className="dungeon-paths">
             {dungeon.currentRoomsOptions.map((roomId) => {
-              const room =
-                AllDungeons[dungeon.zoneId][dungeon.dungeonId].possibleRooms[
-                  roomId
-                ]
+              const room = currentDungeon.possibleRooms[roomId]
 
               return (
                 <div

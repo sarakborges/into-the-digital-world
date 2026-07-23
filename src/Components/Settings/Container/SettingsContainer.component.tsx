@@ -7,10 +7,9 @@ import { useSettingsStore } from '@/Stores/Settings.store'
 import { Button } from '@/Components/DesignSystem/Button'
 import { Modal } from '@/Components/DesignSystem/Modal'
 import { Text } from '@/Components/DesignSystem/Text'
+import '@/Components/Settings/Container/SettingsContainer.style.scss'
 import { SettingsLanguage } from '@/Components/Settings/Languages'
 import { SettingsTheme } from '@/Components/Settings/Themes'
-
-import './SettingsContainer.style.scss'
 
 export const SettingsContainer = () => {
   const { settings, setSettings } = useSettingsStore((state) => state)

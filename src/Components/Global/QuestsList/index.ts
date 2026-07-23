@@ -1,1 +1,1 @@
-export { QuestsList } from './QuestsList.component'
+export { QuestsList } from '@/Components/Global/QuestsList/QuestsList.component'

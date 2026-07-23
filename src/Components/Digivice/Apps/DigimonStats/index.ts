@@ -1,1 +1,1 @@
-export { DigimonStats } from './DigimonStats.component'
+export { DigimonStats } from '@/Components/Digivice/Apps/DigimonStats/DigimonStats.component'

@@ -1,4 +1,4 @@
-import { isQuestDone } from '@/Helpers/Systems/Quests'
+import { isQuestDone } from '@/Helpers/Systems/Quests/isQuestDone.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 

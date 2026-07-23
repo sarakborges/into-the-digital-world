@@ -1,1 +1,1 @@
-export { getThemeClassName } from './getThemeClassName.helper'
+export { getThemeClassName } from '@/Helpers/Systems/Game/getThemeClassName.helper'

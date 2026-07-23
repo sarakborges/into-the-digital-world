@@ -1,4 +1,4 @@
-import { AllItems } from '@/GameData/Items'
+import { getItem } from '@/GameData/Registries/Item.registry'
 
 import { getIsItemCategoryCore } from '@/Helpers/Systems/Profile'
 
@@ -7,8 +7,7 @@ import { useProfileStore } from '@/Stores/Profile.store'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
 import { ItemCore } from '@/Components/Global/ItemCore'
-
-import './ItemDisplay.style.scss'
+import '@/Components/Global/ItemDisplay/ItemDisplay.style.scss'
 
 export const ItemDisplay = ({
   item,
@@ -25,7 +24,7 @@ export const ItemDisplay = ({
     return
   }
 
-  const itemDetails = AllItems[item]
+  const itemDetails = getItem(item)
 
   return (
     <div className="item-display">

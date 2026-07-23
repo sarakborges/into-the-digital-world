@@ -1,1 +1,1 @@
-export { UpdateTheme } from './UpdateTheme.component'
+export { UpdateTheme } from '@/Components/Settings/Theme/UpdateTheme.component'

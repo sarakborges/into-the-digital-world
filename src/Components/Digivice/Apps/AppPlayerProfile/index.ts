@@ -1,1 +1,1 @@
-export { AppPlayerProfile } from './AppPlayerProfile.component'
+export { AppPlayerProfile } from '@/Components/Digivice/Apps/AppPlayerProfile/AppPlayerProfile.component'

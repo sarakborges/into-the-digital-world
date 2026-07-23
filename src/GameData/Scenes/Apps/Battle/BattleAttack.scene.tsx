@@ -2,16 +2,16 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { NpcOujamon } from '@/GameData/Npcs/Oujamon.npc'
 import { BattleEnd } from '@/GameData/Scenes/Apps/Battle/BattleEnd.scene'
-import { BattleTurn } from '@/GameData/Scenes/Apps/Battle/BattleTurn.scene'
 
 import { getTexts } from '@/Helpers/Language'
 import { generateRandomNumber } from '@/Helpers/Math'
-import { isDigimonDefeated, saveBattle } from '@/Helpers/Systems/Battle'
+import { isDigimonDefeated } from '@/Helpers/Systems/Battle/isDigimonDefeated.helper'
+import { saveBattle } from '@/Helpers/Systems/Battle/saveBattle.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { CombatLogEntry } from '@/Components/Combat/CombatLogEntry'
+import { CombatLogEntry } from '@/Components/Combat/CombatLogEntry/CombatLogEntry.component'
 import { Dialog } from '@/Components/DesignSystem/Dialog'
 
 const getBattleOutcome = (battle) => {
@@ -61,7 +61,7 @@ const getLoot = (battle) => {
 }
 
 export const BattleAttack = () => {
-  const { setScene } = useSceneStore((state) => state)
+  const { goBackScene, setScene } = useSceneStore((state) => state)
   const { battle } = useBattleStore((state) => state)
 
   if (!battle) {
@@ -88,7 +88,7 @@ export const BattleAttack = () => {
       return
     }
 
-    setScene({ component: BattleTurn })
+    goBackScene()
   }
 
   const dialogOptions: DialogType = {

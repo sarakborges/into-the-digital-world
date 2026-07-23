@@ -2,11 +2,14 @@ import { BiSolidSquareRounded } from 'react-icons/bi'
 import { HiOutlineDevicePhoneMobile } from 'react-icons/hi2'
 import { IoCaretBack } from 'react-icons/io5'
 
+import {
+  findDigiviceApp,
+  getMainDigiviceApps
+} from '@/GameData/Registries/DigiviceApp.registry'
+
 import { getTexts } from '@/Helpers/Language'
 import { doesProfileHaveDigivice } from '@/Helpers/Systems/Digivice'
 import { openCurrentTileScene } from '@/Helpers/Systems/Zones'
-
-import { AllApps, DigiviceApps } from '@/Consts/DigiviceApps.const'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -17,9 +20,8 @@ import { Modal } from '@/Components/DesignSystem/Modal'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
 import { AppPlayerProfile } from '@/Components/Digivice/Apps/AppPlayerProfile'
+import '@/Components/Digivice/Container/DigiviceContainer.style.scss'
 import { DigiviceCurrentApp } from '@/Components/Digivice/CurrentApp'
-
-import './DigiviceContainer.style.scss'
 
 export const DigiviceContainer = () => {
   const { profile } = useProfileStore((state) => state)
@@ -31,6 +33,10 @@ export const DigiviceContainer = () => {
   }
 
   const areButtonsDisabled = !!scene && !scene.enablesMovement
+  const currentApp = digivice.currentApp
+    ? findDigiviceApp(digivice.currentApp)
+    : undefined
+  const mainApps = getMainDigiviceApps()
 
   const toggleModal = () => {
     setDigivice({
@@ -68,7 +74,7 @@ export const DigiviceContainer = () => {
                   <Text>{getTexts('APPS_TITLE')}</Text>
 
                   <div className="digivice-apps">
-                    {Object.values(DigiviceApps).map((app) => (
+                    {mainApps.map((app) => (
                       <div key={`digivice-apps-${app.id}`}>
                         <DigiviceCurrentApp app={app} />
                       </div>
@@ -77,26 +83,24 @@ export const DigiviceContainer = () => {
                 </>
               )}
 
-              {!!digivice.currentApp && !!AllApps[digivice.currentApp] && (
+              {!!currentApp && (
                 <div className="current-app">
                   <header className="app-header">
                     <div className="app-identifier">
                       <Portrait
                         alt={getTexts(
-                          `APPS_${AllApps[digivice.currentApp].id.toLocaleUpperCase()}`
+                          `APPS_${currentApp.id.toLocaleUpperCase()}`
                         )}
-                        src={`/apps/${AllApps[digivice.currentApp].id}.png`}
+                        src={`/apps/${currentApp.id}.png`}
                       />
 
                       <Text>
-                        {getTexts(
-                          `APPS_${AllApps[digivice.currentApp].id.toLocaleUpperCase()}`
-                        )}
+                        {getTexts(`APPS_${currentApp.id.toLocaleUpperCase()}`)}
                       </Text>
                     </div>
                   </header>
 
-                  <main>{AllApps[digivice.currentApp].component}</main>
+                  <main>{currentApp.component}</main>
 
                   <footer>
                     <Button

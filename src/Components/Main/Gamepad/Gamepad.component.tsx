@@ -13,8 +13,7 @@ import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
-
-import './Gamepad.style.scss'
+import '@/Components/Main/Gamepad/Gamepad.style.scss'
 
 export const Gamepad = () => {
   const { profile } = useProfileStore((state) => state)

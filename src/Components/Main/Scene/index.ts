@@ -1,1 +1,1 @@
-export { Scene } from './Scene.component'
+export { Scene } from '@/Components/Main/Scene/Scene.component'

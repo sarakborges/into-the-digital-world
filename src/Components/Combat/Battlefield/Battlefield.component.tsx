@@ -4,10 +4,9 @@ import { skipTurn } from '@/Helpers/Systems/Battle'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 
+import '@/Components/Combat/Battlefield/Battlefield.style.scss'
 import { CombatParties } from '@/Components/Combat/CombatParties'
 import { TurnOrder } from '@/Components/Combat/TurnOrder'
-
-import './Battlefield.style.scss'
 
 export const Battlefield = () => {
   const { battle } = useBattleStore((state) => state)

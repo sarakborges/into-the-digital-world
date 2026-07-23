@@ -2,7 +2,7 @@ import { CgEye } from 'react-icons/cg'
 
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllDungeons } from '@/GameData/Dungeons'
+import { DungeonWildZoneKoromonNest } from '@/GameData/Dungeons/WildZone/KoromonNest'
 
 import { getTexts } from '@/Helpers/Language'
 import { enterDungeon } from '@/Helpers/Systems/Dungeon'
@@ -13,7 +13,7 @@ import { Text } from '@/Components/DesignSystem/Text'
 
 export const DungeonTriggerWildZoneKoromonNest = () => {
   const triggerDungeon = () => {
-    enterDungeon(AllDungeons.wildZone.koromonNest)
+    enterDungeon(DungeonWildZoneKoromonNest)
   }
 
   const dialogOptions: DialogType = {

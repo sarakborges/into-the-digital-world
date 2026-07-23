@@ -1,7 +1,7 @@
-import { BattleAttack } from './BattleAttack.scene'
-import { BattleEnd } from './BattleEnd.scene'
-import { BattleStart } from './BattleStart.scene'
-import { BattleTurn } from './BattleTurn.scene'
+import { BattleAttack } from '@/GameData/Scenes/Apps/Battle/BattleAttack.scene'
+import { BattleEnd } from '@/GameData/Scenes/Apps/Battle/BattleEnd.scene'
+import { BattleStart } from '@/GameData/Scenes/Apps/Battle/BattleStart.scene'
+import { BattleTurn } from '@/GameData/Scenes/Apps/Battle/BattleTurn.scene'
 
 export const BattleScenes = {
   start: { component: BattleStart },

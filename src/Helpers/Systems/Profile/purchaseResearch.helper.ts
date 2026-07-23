@@ -1,4 +1,4 @@
-import { AllResearches } from '@/GameData/Researches'
+import { getResearch } from '@/GameData/Registries/Research.registry'
 
 import { saveSession } from '@/Helpers/Systems/Data'
 
@@ -11,13 +11,14 @@ export const purchaseResearch = (researchId: string) => {
     return
   }
 
+  const research = getResearch(researchId)
   const updatedProfile = {
     ...profile,
     researches: [...(profile.researches ?? []), researchId]
   }
 
-  for (const item of Object.keys(AllResearches[researchId].cost)) {
-    updatedProfile.items[item] -= AllResearches[researchId].cost[item]
+  for (const item of Object.keys(research.cost)) {
+    updatedProfile.items[item] -= research.cost[item]
   }
 
   saveSession(updatedProfile)

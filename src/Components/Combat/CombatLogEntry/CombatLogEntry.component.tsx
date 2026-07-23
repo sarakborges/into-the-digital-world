@@ -1,11 +1,10 @@
 import type { BattleType } from '@/Types/Battle.type'
 
 import { getTexts } from '@/Helpers/Language'
-import { formatLogEntry } from '@/Helpers/Systems/Battle'
+import { formatLogEntry } from '@/Helpers/Systems/Battle/formatLogEntry.helper'
 
+import '@/Components/Combat/CombatLogEntry/CombatLogEntry.style.scss'
 import { Text } from '@/Components/DesignSystem/Text'
-
-import './CombatLogEntry.style.scss'
 
 type CombatLogEntryProps = {
   logEntry?: BattleType['combatLog'][number]

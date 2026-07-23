@@ -1,1 +1,1 @@
-export { DigimonAttribute } from './DigimonAttribute.component'
+export { DigimonAttribute } from '@/Components/Digivice/Apps/DigimonAttribute/DigimonAttribute.component'

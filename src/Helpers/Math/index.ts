@@ -1,4 +1,4 @@
-export { generateRandomNumber } from './generateRandomNumber.helper'
-export { getPercentage } from './getPercentage.helper'
-export { getSuccesses } from './getSuccesses.helper'
-export { rollDies } from './rollDies.helper'
+export { generateRandomNumber } from '@/Helpers/Math/generateRandomNumber.helper'
+export { getPercentage } from '@/Helpers/Math/getPercentage.helper'
+export { getSuccesses } from '@/Helpers/Math/getSuccesses.helper'
+export { rollDies } from '@/Helpers/Math/rollDies.helper'

@@ -2,7 +2,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { getTexts } from '@/Helpers/Language'
 import { deleteGame } from '@/Helpers/Systems/Data'
-import { closeScene } from '@/Helpers/Systems/Scenes'
+import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
 import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { Text } from '@/Components/DesignSystem/Text'
@@ -28,7 +28,7 @@ export const DeleteGame001 = () => {
         id: 'scene-deletegame-001-confirm',
         text: getTexts('SCENES_CONFIRM_BUTTON'),
         action: () => {
-          deleteGame()
+          void deleteGame()
           closeScene()
         }
       }

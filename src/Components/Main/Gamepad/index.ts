@@ -1,1 +1,1 @@
-export { Gamepad } from './Gamepad.component'
+export { Gamepad } from '@/Components/Main/Gamepad/Gamepad.component'

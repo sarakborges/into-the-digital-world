@@ -1,4 +1,4 @@
-import type { BaseDigimonType } from './BaseDigimon.type'
+import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
 
 export type CompositionType = {
   baseDigimon: BaseDigimonType

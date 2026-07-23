@@ -1,4 +1,4 @@
-import { AllDungeons } from '@/GameData/Dungeons'
+import { getDungeon } from '@/GameData/Registries/Dungeon.registry'
 
 import { generateRandomNumber } from '@/Helpers/Math'
 
@@ -13,7 +13,10 @@ export const spawnEnemies = () => {
     return
   }
 
-  const currentDungeon = AllDungeons[dungeon.zoneId]?.[dungeon.dungeonId]
+  const currentDungeon = getDungeon({
+    zoneId: dungeon.zoneId,
+    dungeonId: dungeon.dungeonId
+  })
 
   const currentRoom =
     currentDungeon.possibleRooms[dungeon.rooms[dungeon.rooms.length - 1]]

@@ -1,4 +1,4 @@
-import { AllResearches } from '@/GameData/Researches'
+import { getResearch } from '@/GameData/Registries/Research.registry'
 
 import { useCompositionStore } from '@/Stores/Composition.store'
 
@@ -10,10 +10,10 @@ const getCompositionFill = (): number => {
   }
 
   const baseDigimon = composition.baseDigimon
-  const optionalItems = AllResearches[baseDigimon.id].optionalItems
+  const optionalItems = getResearch(baseDigimon.id).optionalItems
 
   return Object.keys(optionalItems ?? {}).reduce((acc, item) => {
-    const weight = optionalItems![item]
+    const weight = optionalItems?.[item] ?? 0
     return acc + weight * (composition.optionalItems?.[item] || 0)
   }, 0)
 }
@@ -32,8 +32,9 @@ export const updateOptionalItem = ({
   }
 
   const baseDigimon = composition.baseDigimon
-  const requiredItems = AllResearches[baseDigimon.id].requiredItems
-  const optionalItems = AllResearches[baseDigimon.id].optionalItems
+  const research = getResearch(baseDigimon.id)
+  const requiredItems = research.requiredItems
+  const optionalItems = research.optionalItems
 
   const compositionFill = composition.completed || 0
 

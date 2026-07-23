@@ -1,1 +1,1 @@
-export { PartnerDetails } from './PartnerDetails.component'
+export { PartnerDetails } from '@/Components/Digivice/Apps/AppPartners/Details/PartnerDetails.component'

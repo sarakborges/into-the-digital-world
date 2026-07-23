@@ -3,8 +3,7 @@ import { getThemeGroups } from '@/Helpers/Systems/Settings'
 
 import { Text } from '@/Components/DesignSystem/Text'
 import { UpdateTheme } from '@/Components/Settings/Theme'
-
-import './SettingsTheme.style.scss'
+import '@/Components/Settings/Themes/SettingsTheme.style.scss'
 
 export const SettingsTheme = () => {
   const themeGroups = getThemeGroups()

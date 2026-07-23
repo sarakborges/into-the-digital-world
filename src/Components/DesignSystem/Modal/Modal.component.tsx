@@ -1,4 +1,4 @@
-import './Modal.style.scss'
+import '@/Components/DesignSystem/Modal/Modal.style.scss'
 
 export const Modal = ({ children }: { children: React.ReactNode }) => {
   return <main className="modal">{children}</main>

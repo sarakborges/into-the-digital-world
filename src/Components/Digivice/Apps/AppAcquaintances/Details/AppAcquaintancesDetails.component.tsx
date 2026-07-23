@@ -6,9 +6,8 @@ import { useDigiviceStore } from '@/Stores/Digivice.store'
 
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
+import '@/Components/Digivice/Apps/AppAcquaintances/Details/AppAcquaintancesDetails.style.scss'
 import { CharacterHeader } from '@/Components/Digivice/Apps/CharacterHeader'
-
-import './AppAcquaintancesDetails.style.scss'
 
 export const AppAcquaintancesDetails = () => {
   const { digivice } = useDigiviceStore((state) => state)

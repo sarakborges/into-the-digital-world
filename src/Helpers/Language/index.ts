@@ -1,1 +1,1 @@
-export { getTexts } from './getTexts.helper'
+export { getTexts } from '@/Helpers/Language/getTexts.helper'

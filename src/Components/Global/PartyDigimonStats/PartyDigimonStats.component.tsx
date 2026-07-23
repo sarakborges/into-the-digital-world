@@ -1,12 +1,11 @@
 import { getTexts } from '@/Helpers/Language'
-import { getExtraStatsFromPartner } from '@/Helpers/Systems/Battle'
+import { calcExtraStats } from '@/Helpers/Systems/Battle'
 import { getBaseDigimon } from '@/Helpers/Systems/Digimon'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Text } from '@/Components/DesignSystem/Text'
-
-import './PartyDigimonStats.style.scss'
+import '@/Components/Global/PartyDigimonStats/PartyDigimonStats.style.scss'
 
 export const PartyDigimonStats = ({ digimonId }: { digimonId: number }) => {
   const { profile } = useProfileStore((state) => state)
@@ -31,7 +30,7 @@ export const PartyDigimonStats = ({ digimonId }: { digimonId: number }) => {
               '[NAME]': stat.toLocaleUpperCase(),
               '[VALUE]':
                 baseDigimon.stats[stat] +
-                getExtraStatsFromPartner(partner, stat)
+                calcExtraStats({ digimon: partner, stat })
             })}
           </Text>
         </section>

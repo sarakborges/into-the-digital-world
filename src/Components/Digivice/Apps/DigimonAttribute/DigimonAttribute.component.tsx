@@ -7,8 +7,7 @@ import { useDigiviceStore } from '@/Stores/Digivice.store'
 
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
-
-import './DigimonAttribute.style.scss'
+import '@/Components/Digivice/Apps/DigimonAttribute/DigimonAttribute.style.scss'
 
 export const DigimonAttribute = () => {
   const { digivice } = useDigiviceStore((state) => state)

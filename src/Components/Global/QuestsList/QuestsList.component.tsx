@@ -13,8 +13,7 @@ import { useDigiviceStore } from '@/Stores/Digivice.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
 import { Text } from '@/Components/DesignSystem/Text'
-
-import './QuestsList.style.scss'
+import '@/Components/Global/QuestsList/QuestsList.style.scss'
 
 export const QuestsList = ({
   list,

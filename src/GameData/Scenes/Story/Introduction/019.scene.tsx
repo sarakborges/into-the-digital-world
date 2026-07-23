@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllItems } from '@/GameData/Items'
+import { DigiviceItem } from '@/GameData/Items/Digivice.item'
 import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 import { AvatarFixingQuest } from '@/GameData/Quests/AvatarFixing.quest'
 import { IntroductionQuest } from '@/GameData/Quests/Introduction.quest'
@@ -46,7 +46,7 @@ export const Introduction019 = () => {
             ...currentProfile!,
             currentScene: null,
             items: {
-              [AllItems.digivice?.id]: 1
+              [DigiviceItem.id]: 1
             }
           }
 

@@ -1,1 +1,1 @@
-export { AppInventory } from './AppInventory.component'
+export { AppInventory } from '@/Components/Digivice/Apps/AppInventory/AppInventory.component'

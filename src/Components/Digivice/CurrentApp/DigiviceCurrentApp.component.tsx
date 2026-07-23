@@ -1,4 +1,4 @@
-import { AllScenes } from '@/GameData/Scenes'
+import type { DigiviceAppDefinition } from '@/GameData/Registries/DigiviceApp.registry'
 
 import { getTexts } from '@/Helpers/Language'
 import { getAppAvailability } from '@/Helpers/Systems/Digivice'
@@ -12,11 +12,7 @@ import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
 
 type DigiviceCurrentAppProps = {
-  app: {
-    id: string
-    app?: string
-    scene?: string
-  }
+  app: DigiviceAppDefinition
 }
 
 export const DigiviceCurrentApp = ({ app }: DigiviceCurrentAppProps) => {
@@ -35,7 +31,7 @@ export const DigiviceCurrentApp = ({ app }: DigiviceCurrentAppProps) => {
       return
     }
 
-    setScene(AllScenes[app.scene]['001'])
+    setScene(app.scene)
   }
 
   return (

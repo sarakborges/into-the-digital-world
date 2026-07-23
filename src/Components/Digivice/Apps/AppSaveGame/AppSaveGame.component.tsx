@@ -6,20 +6,19 @@ import { loadProfiles, saveProfile } from '@/Helpers/Systems/Profile'
 import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
+import '@/Components/Digivice/Apps/AppSaveGame/AppSaveGame.style.scss'
 import { GameFileSave } from '@/Components/Global/GameFileSave'
-
-import './AppSaveGame.style.scss'
 
 export const AppSaveGame = () => {
   const { savedProfiles } = useSavedProfilesStore((state) => state)
 
   useEffect(() => {
-    loadProfiles()
+    void loadProfiles()
   }, [])
 
   return (
     <div className="save-game">
-      <Button onClick={() => saveProfile()}>
+      <Button onClick={() => void saveProfile()}>
         {getTexts('SAVEGAME_001_NEWGAME')}
       </Button>
 

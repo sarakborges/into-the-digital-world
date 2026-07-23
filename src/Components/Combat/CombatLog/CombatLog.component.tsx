@@ -2,10 +2,9 @@ import { getTexts } from '@/Helpers/Language'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 
+import '@/Components/Combat/CombatLog/CombatLog.style.scss'
 import { CombatLogEntry } from '@/Components/Combat/CombatLogEntry'
 import { Text } from '@/Components/DesignSystem/Text'
-
-import './CombatLog.style.scss'
 
 export const CombatLog = () => {
   const { battle } = useBattleStore((state) => state)

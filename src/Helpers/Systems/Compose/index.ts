@@ -1,2 +1,2 @@
-export { updateOptionalItem } from './updateOptionalItem.helper'
-export { getAvailableCompositions } from './getAvailableCompositions.helper'
+export { updateOptionalItem } from '@/Helpers/Systems/Compose/updateOptionalItem.helper'
+export { getAvailableCompositions } from '@/Helpers/Systems/Compose/getAvailableCompositions.helper'

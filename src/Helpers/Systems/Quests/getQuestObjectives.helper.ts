@@ -3,7 +3,7 @@ import {
   getQuestObjective
 } from '@/GameData/Registries/Quest.registry'
 
-import { isObjectiveDone } from '@/Helpers/Systems/Quests'
+import { isObjectiveDone } from '@/Helpers/Systems/Quests/isObjectiveDone.helper'
 
 export const getQuestObjectives = (questId: string) =>
   Object.keys(getQuest(questId).objectives ?? {})

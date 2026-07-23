@@ -1,1 +1,1 @@
-export { GameFileSave } from './GameFileSave.component'
+export { GameFileSave } from '@/Components/Global/GameFileSave/GameFileSave.component'

@@ -5,9 +5,8 @@ import { getInventoryCategories } from '@/Helpers/Systems/Digivice'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
+import '@/Components/Digivice/Apps/AppInventory/AppInventory.style.scss'
 import { ItemsList } from '@/Components/Global/ItemsList'
-
-import './AppInventory.style.scss'
 
 export const AppInventory = () => {
   const { profile } = useProfileStore((state) => state)

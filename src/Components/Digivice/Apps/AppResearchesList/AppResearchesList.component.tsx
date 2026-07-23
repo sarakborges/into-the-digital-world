@@ -1,6 +1,6 @@
 import { BiDetail } from 'react-icons/bi'
 
-import { AllResearches } from '@/GameData/Researches'
+import { getResearch } from '@/GameData/Registries/Research.registry'
 
 import { getTexts } from '@/Helpers/Language'
 import { getResearches } from '@/Helpers/Systems/Profile'
@@ -11,10 +11,9 @@ import { useProfileStore } from '@/Stores/Profile.store'
 import { Button } from '@/Components/DesignSystem/Button'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
+import '@/Components/Digivice/Apps/AppResearchesList/AppResearchesList.style.scss'
 import { EncyclopediaHeader } from '@/Components/Digivice/Apps/EncyclopediaHeader'
 import { ItemsList } from '@/Components/Global/ItemsList'
-
-import './AppResearchesList.style.scss'
 
 export const AppResearchesList = () => {
   const { profile } = useProfileStore((state) => state)
@@ -45,45 +44,52 @@ export const AppResearchesList = () => {
         <div className="researches">
           <Text>{getTexts('MY_RESEARCHES_TITLE')}</Text>
 
-          {allResearches.map((research) => (
-            <div className="research-content" key={`researches-${research.id}`}>
-              <div className="research">
-                <aside className="research-avatar">
-                  <Portrait
-                    alt={research.name}
-                    src={`/${research.portrait}.webp`}
-                  />
-                </aside>
+          {allResearches.map((research) => {
+            const researchDetails = getResearch(research.id)
 
-                <header className="research-name">
-                  <Text>{research.name}</Text>
-                </header>
+            return (
+              <div
+                className="research-content"
+                key={`researches-${research.id}`}
+              >
+                <div className="research">
+                  <aside className="research-avatar">
+                    <Portrait
+                      alt={research.name}
+                      src={`/${research.portrait}.webp`}
+                    />
+                  </aside>
 
-                <footer className="research-details">
-                  <Button
-                    style="secondary"
-                    onClick={() => toggleDetails(research.id)}
-                  >
-                    <BiDetail />
-                  </Button>
-                </footer>
+                  <header className="research-name">
+                    <Text>{research.name}</Text>
+                  </header>
+
+                  <footer className="research-details">
+                    <Button
+                      style="secondary"
+                      onClick={() => toggleDetails(research.id)}
+                    >
+                      <BiDetail />
+                    </Button>
+                  </footer>
+                </div>
+
+                {digivice?.currentDetails === research.id && (
+                  <>
+                    <ItemsList
+                      title={getTexts('MY_RESEARCHES_DETAILS_REQUIRED')}
+                      list={researchDetails.requiredItems}
+                    />
+
+                    <ItemsList
+                      title={getTexts('MY_RESEARCHES_DETAILS_OPTIONAL')}
+                      list={researchDetails.optionalItems}
+                    />
+                  </>
+                )}
               </div>
-
-              {digivice?.currentDetails === research.id && (
-                <>
-                  <ItemsList
-                    title={getTexts('MY_RESEARCHES_DETAILS_REQUIRED')}
-                    list={AllResearches[research.id].requiredItems}
-                  />
-
-                  <ItemsList
-                    title={getTexts('MY_RESEARCHES_DETAILS_OPTIONAL')}
-                    list={AllResearches[research.id].optionalItems}
-                  />
-                </>
-              )}
-            </div>
-          ))}
+            )
+          })}
         </div>
       )}
     </div>

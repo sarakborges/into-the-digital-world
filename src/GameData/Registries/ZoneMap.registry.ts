@@ -1,5 +1,5 @@
-import { registerZoneMapRegistry } from './ZoneRuntime.registry'
-
+import { registerZoneMapRegistry } from '@/GameData/Registries/ZoneRuntime.registry'
+import type { ZoneRuntimeRegistryType } from '@/GameData/Registries/ZoneRuntime.registry.types'
 import { RootDomainBedRoom } from '@/GameData/Zones/RootDomain/BedRoom'
 import { RootDomainCoreChamber } from '@/GameData/Zones/RootDomain/CoreChamber'
 import { RootDomainCorridor } from '@/GameData/Zones/RootDomain/Corridor'
@@ -23,7 +23,7 @@ export const ZoneMapRegistry = {
       mainRoom: WildZoneMainRoom
     }
   }
-}
+} satisfies ZoneRuntimeRegistryType
 
 export type ZoneMapRegistryType = typeof ZoneMapRegistry
 
