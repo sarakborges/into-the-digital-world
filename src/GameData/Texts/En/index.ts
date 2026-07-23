@@ -92,7 +92,6 @@ export const BATTLE_PARTY_ENEMIES = `Enemy party`
 export const BATTLE_LOG_TURN_TITLE = `Turn [TURN]:`
 export const BATTLE_LOG_TURN = `[PARTY][NAME] attacked [TARGETPARTY][TARGET] with [MOVENAME]. [TARGET] is now [CONDITION][SEVERITY].`
 export const BATTLE_LOG_MISS = `[PARTY][NAME] attacked [TARGETPARTY][TARGET] with [MOVENAME], but it had no effect.`
-export const BATTLE_LOG_TITLE = `Combat log:`
 export const BATTLE_TARGET_ENEMIES = `enemy `
 export const BATTLE_ATTACK_ENEMIES = `Enemy `
 export const BATTLE_LOG_DEFEATED = `[TARGET] has been defeated.`
@@ -234,7 +233,6 @@ export const AVATARCUSTOMIZATION_002_TEXT = `You look incredible, master! If you
 // ------------------------------------------------------------------------
 // COMPOSE (Scene)
 // ------------------------------------------------------------------------
-export const COMPOSE_000_TEXT = `You can call me Jijimon. I am responsible for composing new Digimons. Even with me and Nanomon not really look eye to eye, we kind of work together in this. He does research, and I mix data to compose new partners.`
 export const COMPOSE_001_TEXT = `Which Digimon should we compose, child?`
 export const COMPOSE_002_NO_RESEARCHES = `You haven't learned any researches yet. I suggest collecting some cores, and talking to Nanomon.`
 export const COMPOSE_002_TITLE = `Select a Digimon to compose:`
@@ -375,7 +373,6 @@ export const RENAMEPARTNER_002_TEXT = `Alright. [DIGIMON] it is!`
 // ------------------------------------------------------------------------
 // RESEARCH (Scene)
 // ------------------------------------------------------------------------
-export const RESEARCH_000_TEXT = `Oh, the almighty "Destined Ones" seeks my to know me! If Gennai didn't politely "ask", I would rather not be here. But since I am, let's get to work.\n\nMy name is Nanomon. I am a Digimon Core researcher. In another words, I research ways to compose Digimon partners for you.`
 export const RESEARCH_001_TEXT = `Alright. Let's get to it, so I can go back to MY business. ASAP.`
 export const RESEARCH_002_TITLE = `Avaliable researches:`
 
