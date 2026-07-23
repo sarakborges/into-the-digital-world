@@ -1,3 +1,6 @@
+import type { AttributeId } from '@/Types/Attribute.type'
+import type { FamilyId } from '@/Types/Family.type'
+
 export type DigimonStatsType = {
   vit: number
   pow: number
@@ -16,11 +19,9 @@ export type BaseDigimonType = {
   portrait: string
   equipmentsSlots?: number
 
-  attribute: 'va' | 'vi' | 'da' | 'na'
+  attribute: AttributeId
 
-  families: {
-    [familyId: string]: null
-  }
+  families: Partial<Record<FamilyId, null>>
 
   attacks: {
     [attackId: string]: null

@@ -17,8 +17,8 @@ export const purchaseResearch = (researchId: string) => {
     researches: [...(profile.researches ?? []), researchId]
   }
 
-  for (const item of Object.keys(research.cost)) {
-    updatedProfile.items[item] -= research.cost[item]
+  for (const [item, amount] of Object.entries(research.cost)) {
+    updatedProfile.items[item] = (updatedProfile.items[item] ?? 0) - amount
   }
 
   saveSession(updatedProfile)

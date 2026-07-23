@@ -30,6 +30,12 @@ export const Equipment001 = () => {
       return
     }
 
+    const partner = profile.partnerDigimons[digimonId]
+
+    if (!partner) {
+      return
+    }
+
     const updatedProfile = {
       ...profile,
 
@@ -37,10 +43,10 @@ export const Equipment001 = () => {
         ...profile.partnerDigimons,
 
         [digimonId]: {
-          ...profile.partnerDigimons[digimonId],
+          ...partner,
 
           equipments: {
-            ...(profile.partnerDigimons[digimonId].equipments ?? {}),
+            ...partner.equipments,
 
             [itemSlot]: {
               equipmentId: itemId

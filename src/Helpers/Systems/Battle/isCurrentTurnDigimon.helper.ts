@@ -10,12 +10,13 @@ export const isCurrentTurnDigimon = ({
   battle,
   digimon
 }: IsCurrentTurnDigimonParams): boolean => {
-  if (!battle) {
+  const currentTurn = battle?.turnOrder[0]
+
+  if (!currentTurn) {
     return false
   }
 
   return (
-    battle.turnOrder[0].party === digimon.party &&
-    battle.turnOrder[0].index === digimon.index
+    currentTurn.party === digimon.party && currentTurn.index === digimon.index
   )
 }

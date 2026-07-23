@@ -11,16 +11,23 @@ export const getCurrentParty = (): Array<PartyDigimonType> => {
     return []
   }
 
-  return profile.party.map<PartyDigimonType>((digimonId, digimonIndex) => {
+  return profile.party.flatMap<PartyDigimonType>((digimonId, digimonIndex) => {
     const partner = profile.partnerDigimons[digimonId]
+
+    if (!partner) {
+      return []
+    }
+
     const baseDigimon = getDigimon(partner.baseDigimon)
 
-    return {
-      ...baseDigimon,
-      name: partner.name || baseDigimon.name,
-      equipments: partner.equipments,
-      party: 'allies',
-      index: digimonIndex
-    }
+    return [
+      {
+        ...baseDigimon,
+        name: partner.name || baseDigimon.name,
+        equipments: partner.equipments,
+        party: 'allies',
+        index: digimonIndex
+      }
+    ]
   })
 }

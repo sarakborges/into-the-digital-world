@@ -14,7 +14,9 @@ export const GetStarterDigimon005 = () => {
   const { profile } = useProfileStore((state) => state)
   const { setScene } = useSceneStore((state) => state)
 
-  if (!profile) {
+  const dorimonMeeting = profile?.meaningfulChoices.dorimonMeeting
+
+  if (!profile || !dorimonMeeting) {
     return
   }
 
@@ -23,7 +25,7 @@ export const GetStarterDigimon005 = () => {
       <div className="text-bubble">
         <Text as="p">
           {getTexts(
-            `GETSTARTERDIGIMON_005_TEXT_${profile.meaningfulChoices.dorimonMeeting.toLocaleUpperCase()}`
+            `GETSTARTERDIGIMON_005_TEXT_${dorimonMeeting.toLocaleUpperCase()}`
           )}
         </Text>
       </div>

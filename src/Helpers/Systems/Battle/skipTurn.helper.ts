@@ -12,6 +12,10 @@ export const skipTurn = () => {
 
   const [currentDigimon, ...otherDigimons] = battle.turnOrder
 
+  if (!currentDigimon) {
+    return
+  }
+
   if (isDigimonDefeated(currentDigimon)) {
     saveBattle({
       ...battle,

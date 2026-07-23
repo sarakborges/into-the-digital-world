@@ -11,7 +11,7 @@ export const isResearchPurchasable = (research: string): boolean => {
 
   const researchDetails = getResearch(research)
 
-  return Object.keys(researchDetails.cost).every(
-    (item) => profile.items[item] >= researchDetails.cost[item]
+  return Object.entries(researchDetails.cost).every(
+    ([item, amount]) => (profile.items[item] ?? 0) >= amount
   )
 }

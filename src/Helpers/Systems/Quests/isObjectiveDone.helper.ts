@@ -8,32 +8,22 @@ export const isObjectiveDone = ({
 }: {
   questId: string
   objectiveId: string
-}) => {
+}): boolean => {
   const { profile } = useProfileStore.getState()
 
   if (!profile) {
-    return
+    return false
   }
 
-  if (
-    getQuestObjective({ questId: questId, objectiveId: objectiveId }).type ===
-    'interact'
-  ) {
-    return !!profile.quests[questId].objectives[objectiveId]
+  const objective = getQuestObjective({ questId, objectiveId })
+  const objectiveValue = profile.quests[questId]?.objectives[objectiveId]
+
+  if (objective.type === 'interact') {
+    return !!objectiveValue
   }
 
-  if (
-    ['defeatInZone', 'defeatSpecific'].includes(
-      getQuestObjective({ questId: questId, objectiveId: objectiveId }).type
-    )
-  ) {
-    return (
-      Number(profile.quests[questId].objectives[objectiveId] || 0) >=
-      Number(
-        getQuestObjective({ questId: questId, objectiveId: objectiveId })
-          .amount || 0
-      )
-    )
+  if (['defeatInZone', 'defeatSpecific'].includes(objective.type)) {
+    return Number(objectiveValue ?? 0) >= Number(objective.amount ?? 0)
   }
 
   return false

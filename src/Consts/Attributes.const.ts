@@ -1,6 +1,6 @@
 import type { AttributeType } from '@/Types/Attribute.type'
 
-export const DIGIMON_ATTRIBUTES: AttributeType = {
+export const DIGIMON_ATTRIBUTES = {
   va: {
     id: 'va',
     name: `Vaccine`
@@ -20,4 +20,4 @@ export const DIGIMON_ATTRIBUTES: AttributeType = {
     id: 'na',
     name: `No attribute`
   }
-}
+} satisfies AttributeType

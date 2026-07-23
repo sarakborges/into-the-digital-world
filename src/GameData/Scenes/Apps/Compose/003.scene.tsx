@@ -27,15 +27,15 @@ export const Compose003 = () => {
   const requiredItems = research.requiredItems || {}
   const optionalItems = composition.optionalItems || {}
 
-  const playerHasEnoughItems = Object.keys(composition.totalItems ?? {}).some(
-    (item) =>
-      (profile.items[item] || 0) >= (composition.totalItems?.[item] || 0)
-  )
+  const playerHasEnoughItems = Object.entries(
+    composition.totalItems ?? {}
+  ).every(([item, amount]) => (profile.items[item] ?? 0) >= amount)
 
   const composeDigimon = () => {
     const newDigimonId =
-      Number(
-        Object.keys(profile.partnerDigimons).sort((a, b) => (a > b ? -1 : 1))[0]
+      Object.values(profile.partnerDigimons).reduce(
+        (highestId, digimon) => Math.max(highestId, digimon.id),
+        0
       ) + 1
 
     const updatedProfile = {
@@ -52,12 +52,12 @@ export const Compose003 = () => {
       }
     }
 
-    for (const item of Object.keys(requiredItems)) {
-      updatedProfile.items[item] -= requiredItems[item] || 0
+    for (const [item, amount] of Object.entries(requiredItems)) {
+      updatedProfile.items[item] = (updatedProfile.items[item] ?? 0) - amount
     }
 
-    for (const item of Object.keys(optionalItems)) {
-      updatedProfile.items[item] -= optionalItems[item] || 0
+    for (const [item, amount] of Object.entries(optionalItems)) {
+      updatedProfile.items[item] = (updatedProfile.items[item] ?? 0) - amount
     }
 
     setComposition(null)

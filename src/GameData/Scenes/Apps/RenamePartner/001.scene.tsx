@@ -32,7 +32,8 @@ export const RenamePartner001 = () => {
     return
   }
 
-  const digimon = profile.partnerDigimons[digivice.currentDetails]
+  const digimonId = digivice.currentDetails
+  const digimon = profile.partnerDigimons[digimonId]
   const baseDigimon = digimon ? findDigimon(digimon.baseDigimon) : undefined
 
   if (!digimon || !baseDigimon) {
@@ -76,18 +77,14 @@ export const RenamePartner001 = () => {
         id: 'scene-renamepartner-001-confirm',
         text: getTexts('SCENES_CONFIRM_BUTTON'),
         action: () => {
-          if (!digivice?.currentDetails) {
-            return
-          }
-
           const updatedProfile = {
             ...profile,
 
             partnerDigimons: {
               ...profile.partnerDigimons,
 
-              [digivice.currentDetails]: {
-                ...profile.partnerDigimons[digivice.currentDetails],
+              [digimonId]: {
+                ...digimon,
                 name: name.trim()
               }
             }

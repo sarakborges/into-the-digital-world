@@ -47,6 +47,10 @@ export const DungeonChooseRoom = () => {
             {dungeon.currentRoomsOptions.map((roomId) => {
               const room = currentDungeon.possibleRooms[roomId]
 
+              if (!room) {
+                return null
+              }
+
               return (
                 <div
                   key={`scene-dungeon-chooseroom-room-${roomId}`}

@@ -21,14 +21,14 @@ export const getInventoryCategories = (): Record<
     core: {}
   }
 
-  Object.keys(profile.items ?? {}).forEach((itemId) => {
+  Object.entries(profile.items).forEach(([itemId, amount]) => {
     const item = findItem(itemId)
 
     if (!item) {
       return
     }
 
-    categories[item.category][itemId] = profile.items[itemId]
+    categories[item.category][itemId] = amount
   })
 
   return categories

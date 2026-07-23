@@ -1,33 +1,15 @@
 import { getDungeon } from '@/GameData/Registries/Dungeon.registry'
 import { DungeonChooseRoom } from '@/GameData/Scenes/Apps/Dungeon/ChooseRoom.scene'
 
-import { generateRandomNumber } from '@/Helpers/Math/generateRandomNumber.helper'
 import { saveBattle } from '@/Helpers/Systems/Battle/saveBattle.helper'
 import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
+import { getDungeonRoomOptions } from '@/Helpers/Systems/Dungeon/getDungeonRoomOptions.helper'
 import { saveDungeon } from '@/Helpers/Systems/Dungeon/saveDungeon.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useDungeonStore } from '@/Stores/Dungeon.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
-
-const getNextRoomOptions = (roomIds: Array<string>) => {
-  if (roomIds.length <= 2) {
-    return [...roomIds]
-  }
-
-  const nextRoomOptions: Array<string> = []
-
-  for (let i = 0; i < 2; i++) {
-    const randomIndex = generateRandomNumber({
-      min: 0,
-      max: roomIds.length - 1
-    })
-    nextRoomOptions.push(roomIds[randomIndex])
-  }
-
-  return nextRoomOptions
-}
 
 export const enterNextDungeonRoom = () => {
   const { setScene } = useSceneStore.getState()
@@ -44,15 +26,20 @@ export const enterNextDungeonRoom = () => {
     zoneId: dungeon.zoneId,
     dungeonId: dungeon.dungeonId
   })
-  const currentRoom = rooms[rooms.length - 1]
-  const room = currentDungeon.possibleRooms[currentRoom]
+  const currentRoomId = rooms.at(-1)
+
+  if (!currentRoomId) {
+    return
+  }
+
+  const room = currentDungeon.possibleRooms[currentRoomId]
   const shouldChooseLastRoom =
     currentDungeon.maxAmountOfRooms === rooms.length + 1
 
   const nextRoomOptions = shouldChooseLastRoom
-    ? getNextRoomOptions(currentDungeon.availableLastRooms)
+    ? getDungeonRoomOptions(currentDungeon.availableLastRooms)
     : room?.branchesTo
-      ? getNextRoomOptions(room.branchesTo)
+      ? getDungeonRoomOptions(room.branchesTo)
       : undefined
 
   if (!nextRoomOptions) {
@@ -62,7 +49,7 @@ export const enterNextDungeonRoom = () => {
   saveDungeon({
     ...dungeon,
     currentRoomsOptions: nextRoomOptions,
-    doneRooms: [...dungeon.doneRooms, dungeon.rooms[dungeon.doneRooms.length]],
+    doneRooms: [...dungeon.doneRooms, currentRoomId],
     party: battle.turnOrder.filter((digimon) => digimon.party === 'allies')
   })
 

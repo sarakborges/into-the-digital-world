@@ -1,6 +1,6 @@
 import type { FamilyType } from '@/Types/Family.type'
 
-export const DIGIMON_FAMILIES: FamilyType = {
+export const DIGIMON_FAMILIES = {
   vb: {
     id: 'vb',
     name: `Virus Busters`
@@ -45,4 +45,12 @@ export const DIGIMON_FAMILIES: FamilyType = {
     id: 'da',
     name: `Dark Area`
   }
+} satisfies FamilyType
+
+export type DigimonFamilyId = keyof typeof DIGIMON_FAMILIES
+
+export const isDigimonFamilyId = (
+  familyId: string
+): familyId is DigimonFamilyId => {
+  return familyId in DIGIMON_FAMILIES
 }

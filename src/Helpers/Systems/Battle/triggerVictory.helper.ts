@@ -11,8 +11,8 @@ export const triggerVictory = () => {
 
   const updatedItems = { ...profile.items }
 
-  for (const item of Object.keys(battle.loot)) {
-    updatedItems[item] = (profile.items[item] || 0) + battle.loot[item]
+  for (const [item, amount] of Object.entries(battle.loot)) {
+    updatedItems[item] = (profile.items[item] ?? 0) + amount
   }
 
   setProfile({ ...profile, items: updatedItems })

@@ -13,7 +13,9 @@ export const updateQuestObjective = ({
 }) => {
   const { profile } = useProfileStore.getState()
 
-  if (!profile) {
+  const quest = profile?.quests[questId]
+
+  if (!profile || !quest) {
     return
   }
 
@@ -25,7 +27,7 @@ export const updateQuestObjective = ({
 
       [questId]: {
         objectives: {
-          ...profile.quests[questId].objectives,
+          ...quest.objectives,
           [objectiveId]: objectiveValue
         }
       }

@@ -1,4 +1,4 @@
-import type { AvatarCustomizationLayer } from '@/Types/Avatar.type'
+import type { AvatarCustomizationLayer, AvatarType } from '@/Types/Avatar.type'
 
 export const AVATAR_OPTIONS = {
   expression: ['default'],
@@ -35,7 +35,10 @@ export const AVATAR_OPTIONS = {
     '1-pink',
     '1-magenta'
   ]
-}
+} as const satisfies Record<
+  keyof AvatarType,
+  readonly [string, ...Array<string>]
+>
 
 export const AVATAR_CUSTOMIZATION_LAYERS = [
   'skin',

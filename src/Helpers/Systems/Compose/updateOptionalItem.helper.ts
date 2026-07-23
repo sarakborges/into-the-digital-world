@@ -12,10 +12,11 @@ const getCompositionFill = (): number => {
   const baseDigimon = composition.baseDigimon
   const optionalItems = getResearch(baseDigimon.id).optionalItems
 
-  return Object.keys(optionalItems ?? {}).reduce((acc, item) => {
-    const weight = optionalItems?.[item] ?? 0
-    return acc + weight * (composition.optionalItems?.[item] || 0)
-  }, 0)
+  return Object.entries(optionalItems ?? {}).reduce(
+    (fill, [item, weight]) =>
+      fill + weight * (composition.optionalItems?.[item] ?? 0),
+    0
+  )
 }
 
 export const updateOptionalItem = ({
@@ -45,27 +46,36 @@ export const updateOptionalItem = ({
     return
   }
 
-  const updatedAmount = (composition.optionalItems?.[item] || 0) + amount
+  const itemWeight = optionalItems?.[item]
+  const currentAmount = composition.optionalItems?.[item] ?? 0
+
+  if (itemWeight === undefined || (amount === -1 && currentAmount <= 0)) {
+    return
+  }
+
+  const updatedAmount = currentAmount + amount
 
   const totalItems: Record<string, number> = {}
 
-  for (const requiredItem in requiredItems) {
-    totalItems[requiredItem] =
-      (totalItems[requiredItem] || 0) + requiredItems[requiredItem]
+  for (const [requiredItem, requiredAmount] of Object.entries(
+    requiredItems ?? {}
+  )) {
+    totalItems[requiredItem] = (totalItems[requiredItem] ?? 0) + requiredAmount
   }
 
-  for (const optionalItem in optionalItems) {
-    totalItems[optionalItem] =
-      (totalItems[optionalItem] || 0) + optionalItems[optionalItem]
+  for (const [optionalItem, optionalAmount] of Object.entries(
+    optionalItems ?? {}
+  )) {
+    totalItems[optionalItem] = (totalItems[optionalItem] ?? 0) + optionalAmount
   }
 
-  totalItems[item] += amount
+  totalItems[item] = (totalItems[item] ?? 0) + amount
 
   setComposition({
     ...composition,
     totalItems,
 
-    completed: getCompositionFill() + (optionalItems?.[item] || 0) * amount,
+    completed: getCompositionFill() + itemWeight * amount,
 
     optionalItems: {
       ...composition.optionalItems,

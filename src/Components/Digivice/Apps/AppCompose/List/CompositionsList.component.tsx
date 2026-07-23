@@ -57,24 +57,26 @@ export const CompositionsList = () => {
                       const baseDigimon = composition.baseDigimon
                       const research = getResearch(baseDigimon.id)
                       const totalItems: Record<string, number> = {}
-                      const requiredItems = research.requiredItems
-                      const optionalItems = research.optionalItems
+                      const requiredItems = research.requiredItems ?? {}
+                      const optionalItems = research.optionalItems ?? {}
 
-                      for (const item in requiredItems) {
-                        totalItems[item] =
-                          (totalItems[item] || 0) + requiredItems[item]
+                      for (const [item, amount] of Object.entries(
+                        requiredItems
+                      )) {
+                        totalItems[item] = (totalItems[item] ?? 0) + amount
                       }
 
-                      for (const item in optionalItems) {
-                        totalItems[item] =
-                          (totalItems[item] || 0) + optionalItems[item]
+                      for (const [item, amount] of Object.entries(
+                        optionalItems
+                      )) {
+                        totalItems[item] = (totalItems[item] ?? 0) + amount
                       }
 
                       setComposition({
                         baseDigimon: composition.baseDigimon,
                         totalItems:
-                          !!Object.keys(requiredItems ?? {}).length ||
-                          !!Object.keys(optionalItems ?? {}).length
+                          !!Object.keys(requiredItems).length ||
+                          !!Object.keys(optionalItems).length
                             ? totalItems
                             : {}
                       })

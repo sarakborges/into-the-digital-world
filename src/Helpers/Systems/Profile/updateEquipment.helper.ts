@@ -13,7 +13,9 @@ export const updateEquipment = ({
 }) => {
   const { profile } = useProfileStore.getState()
 
-  if (!profile) {
+  const partner = profile?.partnerDigimons[digimonId]
+
+  if (!profile || !partner) {
     return
   }
 
@@ -24,11 +26,11 @@ export const updateEquipment = ({
       ...profile.partnerDigimons,
 
       [digimonId]: {
-        ...profile.partnerDigimons[digimonId],
+        ...partner,
 
         equipments: {
-          ...profile.partnerDigimons[digimonId].equipments,
-          [equipmentSlot]: equipmentId
+          ...partner.equipments,
+          [equipmentSlot]: equipmentId ? { equipmentId } : undefined
         }
       }
     }
