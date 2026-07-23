@@ -1,7 +1,7 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
-import { AllScenes } from '@/GameData/Scenes'
+import { Introduction017 } from '@/GameData/Scenes/Story/Introduction/017.scene'
 
 import { getTexts } from '@/Helpers/Language'
 
@@ -27,7 +27,7 @@ export const Introduction016 = () => {
         id: 'scene-introduction-016-continue',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setScene(AllScenes.introduction['017'])
+          setScene({ component: Introduction017 })
         }
       }
     ]

@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
-import { AllScenes } from '@/GameData/Scenes'
 
 import { AllDungeons } from '@/GameData/Dungeons'
+import { BattleStart } from '@/GameData/Scenes/Apps/Battle/BattleStart.scene'
+import { BattleTurn } from '@/GameData/Scenes/Apps/Battle/BattleTurn.scene'
+import { DungeonChooseRoom } from '@/GameData/Scenes/Apps/Dungeon/ChooseRoom.scene'
 
 import { getTexts } from '@/Helpers/Language'
 import { startBattle } from '@/Helpers/Systems/Battle'
@@ -36,7 +38,7 @@ export const Dungeon = () => {
     }
 
     if (shouldChooseRoom) {
-      setScene(AllScenes.dungeon['chooseRoom'])
+      setScene({ component: DungeonChooseRoom })
 
       return
     }
@@ -48,12 +50,12 @@ export const Dungeon = () => {
     if (!battle) {
       startBattle()
 
-      setScene(AllScenes.battle['start'])
+      setScene({ component: BattleStart })
 
       return
     }
 
-    setScene(AllScenes.battle['turn'])
+    setScene({ component: BattleTurn })
   }, [battle, dungeon, scene, shouldChooseRoom, shouldStartBattle, setScene])
 
   if (!dungeon) {

@@ -1,7 +1,8 @@
 import type { DialogType } from '@/Types/Dialog.type'
-import { AllScenes } from '@/GameData/Scenes'
 
 import { AllNpcs } from '@/GameData/Npcs'
+import { BattleEnd } from '@/GameData/Scenes/Apps/Battle/BattleEnd.scene'
+import { BattleTurn } from '@/GameData/Scenes/Apps/Battle/BattleTurn.scene'
 
 import { getTexts } from '@/Helpers/Language'
 import { generateRandomNumber } from '@/Helpers/Math'
@@ -82,12 +83,12 @@ export const BattleAttack = () => {
     })
 
     if (isBattleOver) {
-      setScene(AllScenes.battle['end'])
+      setScene({ component: BattleEnd })
 
       return
     }
 
-    setScene(AllScenes.battle['turn'])
+    setScene({ component: BattleTurn })
   }
 
   const dialogOptions: DialogType = {

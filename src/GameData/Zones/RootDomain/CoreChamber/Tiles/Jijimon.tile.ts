@@ -2,7 +2,7 @@ import type { MapTileType } from '@/Types/MapTile.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllQuests } from '@/GameData/Quests'
-import { AllScenes } from '@/GameData/Scenes'
+import { Compose001 } from '@/GameData/Scenes/Apps/Compose/001.scene'
 
 import { isQuestDone } from '@/Helpers/Systems/Quests'
 
@@ -18,7 +18,10 @@ export const RootDomainCoreChamberJijimonTile: MapTileType = {
     isVisible: true
   },
 
-  scene: { ...AllScenes.compose['001'], enablesMovement: true },
+  scene: {
+    component: Compose001,
+    enablesMovement: true
+  },
 
   condition: () => {
     const { profile } = useProfileStore.getState()

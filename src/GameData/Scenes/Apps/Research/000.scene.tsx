@@ -1,7 +1,7 @@
 import type { DialogType } from '@/Types/Dialog.type'
-import { AllScenes } from '@/GameData/Scenes'
 
 import { AllNpcs } from '@/GameData/Npcs'
+import { Research001 } from '@/GameData/Scenes/Apps/Research/001.scene'
 
 import { getTexts } from '@/Helpers/Language'
 import { saveSession } from '@/Helpers/Systems/Data'
@@ -44,7 +44,7 @@ export const Research000 = () => {
 
           saveSession(updatedProfile)
 
-          setScene(AllScenes.research['001'])
+          setScene({ component: Research001 })
         }
       }
     ]

@@ -1,9 +1,10 @@
 import type { DialogType } from '@/Types/Dialog.type'
-import { AllScenes } from '@/GameData/Scenes'
 import type { ProfileType } from '@/Types/Profile.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllQuests } from '@/GameData/Quests'
+import { AvatarCustomization002 } from '@/GameData/Scenes/Apps/AvatarCustomization/002.scene'
+import { Introduction021 } from '@/GameData/Scenes/Story/Introduction/021.scene'
 
 import { getTexts } from '@/Helpers/Language'
 import { saveSession } from '@/Helpers/Systems/Data'
@@ -37,9 +38,9 @@ export const AvatarCustomization003 = () => {
     )
 
     if (!doneQuests.includes(AllQuests.avatarFixing.id)) {
-      setScene(AllScenes.introduction['021'])
+      setScene({ component: Introduction021 })
     } else {
-      setScene(AllScenes.avatarCustomization['002'])
+      setScene({ component: AvatarCustomization002 })
     }
 
     saveSession(updatedProfile)

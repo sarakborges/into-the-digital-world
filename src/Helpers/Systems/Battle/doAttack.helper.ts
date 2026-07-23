@@ -3,7 +3,7 @@ import type { BattleType } from '@/Types/Battle.type'
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
 import { AllAttacks } from '@/GameData/Attacks'
-import { AllScenes } from '@/GameData/Scenes'
+import { BattleAttack } from '@/GameData/Scenes/Apps/Battle/BattleAttack.scene'
 
 import { generateRandomNumber, getSuccesses } from '@/Helpers/Math'
 import {
@@ -157,7 +157,7 @@ export const doAttack = (move: string) => {
       ]
     })
 
-    setScene(AllScenes.battle['attack'])
+    setScene({ component: BattleAttack })
 
     return
   }
@@ -209,5 +209,5 @@ export const doAttack = (move: string) => {
     ]
   })
 
-  setScene(AllScenes.battle['attack'])
+  setScene({ component: BattleAttack })
 }

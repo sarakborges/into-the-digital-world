@@ -2,7 +2,7 @@ import type { MapTileType } from '@/Types/MapTile.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllQuests } from '@/GameData/Quests'
-import { AllScenes } from '@/GameData/Scenes'
+import { GetStarterDigimon000 } from '@/GameData/Scenes/Story/GetStarterDigimon/000.scene'
 
 import { isQuestDone } from '@/Helpers/Systems/Quests'
 
@@ -18,7 +18,10 @@ export const GetStarterDigimonGennaiTile: MapTileType = {
     isVisible: true
   },
 
-  scene: { ...AllScenes.getStarterDigimon['000'], enablesMovement: true },
+  scene: {
+    component: GetStarterDigimon000,
+    enablesMovement: true
+  },
 
   condition: () => {
     const profile = useProfileStore.getState().profile

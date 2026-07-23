@@ -1,7 +1,7 @@
 import type { DialogType } from '@/Types/Dialog.type'
-import { AllScenes } from '@/GameData/Scenes'
 
 import { AllNpcs } from '@/GameData/Npcs'
+import { Research002 } from '@/GameData/Scenes/Apps/Research/002.scene'
 
 import { getTexts } from '@/Helpers/Language'
 
@@ -27,7 +27,7 @@ export const Research001 = () => {
         id: 'scene-research-001-continue',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setScene(AllScenes.research['002'])
+          setScene({ component: Research002 })
         }
       }
     ]

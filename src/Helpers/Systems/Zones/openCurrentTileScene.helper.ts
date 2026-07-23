@@ -1,4 +1,5 @@
-import { AllScenes } from '@/GameData/Scenes'
+import { BattleTurn } from '@/GameData/Scenes/Apps/Battle/BattleTurn.scene'
+import { DungeonChooseRoom } from '@/GameData/Scenes/Apps/Dungeon/ChooseRoom.scene'
 
 import { getCurrentMap, getInteractableTiles } from '@/Helpers/Systems/Zones'
 
@@ -23,12 +24,12 @@ export const openCurrentTileScene = () => {
   }
 
   if (!!battle) {
-    setScene(AllScenes.battle.turn)
+    setScene({ component: BattleTurn })
     return
   }
 
   if (!!dungeon) {
-    setScene(AllScenes.dungeon.chooseRoom)
+    setScene({ component: DungeonChooseRoom })
     return
   }
 

@@ -2,7 +2,7 @@ import type { MapTileType } from '@/Types/MapTile.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllQuests } from '@/GameData/Quests'
-import { AllScenes } from '@/GameData/Scenes'
+import { Location000 } from '@/GameData/Scenes/Apps/Location/000.scene'
 
 import { isQuestDone } from '@/Helpers/Systems/Quests'
 
@@ -18,7 +18,10 @@ export const LocationGennaiTile: MapTileType = {
     isVisible: true
   },
 
-  scene: { ...AllScenes.location['000'], enablesMovement: true },
+  scene: {
+    component: Location000,
+    enablesMovement: true
+  },
 
   condition: () => {
     const profile = useProfileStore.getState().profile

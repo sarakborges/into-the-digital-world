@@ -3,7 +3,7 @@ import { AiOutlineExclamationCircle } from 'react-icons/ai'
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
-import { AllScenes } from '@/GameData/Scenes'
+import { GetStarterDigimon001 } from '@/GameData/Scenes/Story/GetStarterDigimon/001.scene'
 
 import { getTexts } from '@/Helpers/Language'
 
@@ -17,7 +17,7 @@ export const GetStarterDigimon000 = () => {
   const { setScene } = useSceneStore((state) => state)
 
   const triggerGetStarterDigimon = () => {
-    setScene(AllScenes.getStarterDigimon['001'])
+    setScene({ component: GetStarterDigimon001 })
   }
 
   const dialogOptions: DialogType = {

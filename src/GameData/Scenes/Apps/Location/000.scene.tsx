@@ -3,7 +3,7 @@ import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
-import { AllScenes } from '@/GameData/Scenes'
+import { Location001 } from '@/GameData/Scenes/Apps/Location/001.scene'
 
 import { getTexts } from '@/Helpers/Language'
 
@@ -17,7 +17,7 @@ export const Location000 = () => {
   const { setScene } = useSceneStore((state) => state)
 
   const triggerLocation = () => {
-    setScene(AllScenes.location['001'])
+    setScene({ component: Location001 })
   }
 
   const dialogOptions: DialogType = {

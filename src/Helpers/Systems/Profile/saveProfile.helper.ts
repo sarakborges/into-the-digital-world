@@ -1,4 +1,4 @@
-import { AllScenes } from '@/GameData/Scenes'
+import { SaveGame002 } from '@/GameData/Scenes/Apps/SaveGame/002.scene'
 
 import { loadData, saveData, saveSession } from '@/Helpers/Systems/Data'
 
@@ -49,7 +49,7 @@ export const saveProfile = (profileId?: number) => {
       value: updatedProfiles
     })
 
-    setScene(AllScenes.saveGame['002'])
+    setScene({ component: SaveGame002 })
   } catch (e) {
     console.warn(e)
   }

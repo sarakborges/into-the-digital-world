@@ -1,7 +1,7 @@
 import type { DialogType } from '@/Types/Dialog.type'
-import { AllScenes } from '@/GameData/Scenes'
 
 import { AllNpcs } from '@/GameData/Npcs'
+import { AvatarCustomization003 } from '@/GameData/Scenes/Apps/AvatarCustomization/003.scene'
 
 import { getTexts } from '@/Helpers/Language'
 
@@ -27,7 +27,7 @@ export const AvatarCustomization000 = () => {
         id: 'scene-avatarCustomization-000-continue',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setScene(AllScenes.avatarCustomization['003'])
+          setScene({ component: AvatarCustomization003 })
         }
       }
     ]

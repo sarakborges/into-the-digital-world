@@ -1,7 +1,7 @@
 import type { DialogType } from '@/Types/Dialog.type'
-import { AllScenes } from '@/GameData/Scenes'
 
 import { AllNpcs } from '@/GameData/Npcs'
+import { BattleTurn } from '@/GameData/Scenes/Apps/Battle/BattleTurn.scene'
 
 import { getTexts } from '@/Helpers/Language'
 
@@ -27,7 +27,7 @@ export const BattleStart = () => {
         id: 'scene-battle-battlestart-confirm',
         text: getTexts('SCENES_CONFIRM_BUTTON'),
         action: () => {
-          setScene(AllScenes.battle['turn'])
+          setScene({ component: BattleTurn })
         }
       }
     ]

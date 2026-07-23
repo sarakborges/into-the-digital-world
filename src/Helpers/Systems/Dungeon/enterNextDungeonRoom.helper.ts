@@ -1,5 +1,5 @@
 import { AllDungeons } from '@/GameData/Dungeons'
-import { AllScenes } from '@/GameData/Scenes'
+import { DungeonChooseRoom } from '@/GameData/Scenes/Apps/Dungeon/ChooseRoom.scene'
 
 import { generateRandomNumber } from '@/Helpers/Math'
 import { saveBattle } from '@/Helpers/Systems/Battle'
@@ -66,5 +66,5 @@ export const enterNextDungeonRoom = () => {
   saveBattle(null)
   saveSession(profile)
 
-  setScene(AllScenes.dungeon['chooseRoom'])
+  setScene({ component: DungeonChooseRoom })
 }

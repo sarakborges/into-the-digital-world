@@ -1,7 +1,7 @@
 import { AiOutlineSelect } from 'react-icons/ai'
-import { AllScenes } from '@/GameData/Scenes'
 
 import { AvailableResearchesAtJijimon } from '@/GameData/Researches'
+import { Compose003 } from '@/GameData/Scenes/Apps/Compose/003.scene'
 
 import { getTexts } from '@/Helpers/Language'
 import { getAvailableCompositions } from '@/Helpers/Systems/Compose'
@@ -84,7 +84,7 @@ export const CompositionsList = () => {
                             : {}
                       })
 
-                      setScene(AllScenes.compose['003'])
+                      setScene({ component: Compose003 })
                     }}
                   >
                     <AiOutlineSelect />

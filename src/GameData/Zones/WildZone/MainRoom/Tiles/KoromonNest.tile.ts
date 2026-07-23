@@ -1,6 +1,6 @@
 import type { MapTileType } from '@/Types/MapTile.type'
 
-import { AllScenes } from '@/GameData/Scenes'
+import { DungeonTriggerWildZoneKoromonNest } from '@/GameData/Scenes/Apps/Dungeon/TriggerWildZoneKoromonNest.scene'
 
 export const WildZoneKoromonNestTile: MapTileType = {
   id: 'wildZoneKoromonNest',
@@ -8,7 +8,7 @@ export const WildZoneKoromonNestTile: MapTileType = {
   y: 11,
 
   scene: {
-    ...AllScenes.dungeon.triggerWildZoneKoromonNest,
+    component: DungeonTriggerWildZoneKoromonNest,
     enablesMovement: true
   }
 }

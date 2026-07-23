@@ -2,7 +2,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllDigimons } from '@/GameData/Digimons'
 import { AllNpcs } from '@/GameData/Npcs'
-import { AllScenes } from '@/GameData/Scenes'
+import { RenamePartner002 } from '@/GameData/Scenes/Apps/RenamePartner/002.scene'
 
 import { getTexts } from '@/Helpers/Language'
 import { saveSession } from '@/Helpers/Systems/Data'
@@ -87,7 +87,7 @@ export const RenamePartner001 = () => {
 
           saveSession(updatedProfile)
 
-          setScene(AllScenes.renamePartner['002'])
+          setScene({ component: RenamePartner002 })
         }
       }
     ]

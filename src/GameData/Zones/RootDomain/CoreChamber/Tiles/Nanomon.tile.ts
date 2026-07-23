@@ -2,7 +2,7 @@ import type { MapTileType } from '@/Types/MapTile.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllQuests } from '@/GameData/Quests'
-import { AllScenes } from '@/GameData/Scenes'
+import { Research001 } from '@/GameData/Scenes/Apps/Research/001.scene'
 
 import { isQuestDone } from '@/Helpers/Systems/Quests'
 
@@ -13,7 +13,10 @@ export const RootDomainCoreChamberNanomonTile: MapTileType = {
   x: 6,
   y: 7,
 
-  scene: { ...AllScenes.research['001'], enablesMovement: true },
+  scene: {
+    component: Research001,
+    enablesMovement: true
+  },
 
   npc: {
     ...AllNpcs.digimon.nanomon,

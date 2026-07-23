@@ -1,7 +1,7 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
-import { AllScenes } from '@/GameData/Scenes'
+import { Introduction022 } from '@/GameData/Scenes/Story/Introduction/022.scene'
 
 import { getTexts } from '@/Helpers/Language'
 
@@ -31,7 +31,7 @@ export const Introduction021 = () => {
         action: () => {
           setDigivice({ ...digivice, isOpen: false, currentApp: undefined })
 
-          setScene(AllScenes.introduction['022'])
+          setScene({ component: Introduction022 })
         }
       }
     ].filter((option) => !!option)

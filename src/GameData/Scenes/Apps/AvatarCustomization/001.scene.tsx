@@ -1,11 +1,12 @@
 import { AiOutlineExclamationCircle } from 'react-icons/ai'
-import { AllScenes } from '@/GameData/Scenes'
 import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
 
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
 import { AllQuests } from '@/GameData/Quests'
+import { AvatarCustomization000 } from '@/GameData/Scenes/Apps/AvatarCustomization/000.scene'
+import { AvatarCustomization003 } from '@/GameData/Scenes/Apps/AvatarCustomization/003.scene'
 
 import { getTexts } from '@/Helpers/Language'
 import { isQuestDone } from '@/Helpers/Systems/Quests'
@@ -31,13 +32,13 @@ export const AvatarCustomization001 = () => {
 
   const triggerCustomization = () => {
     if (!!doneQuests.includes(AllQuests.avatarFixing.id)) {
-      setScene(AllScenes.avatarCustomization['003'])
+      setScene({ component: AvatarCustomization003 })
 
       return
     }
 
     if (!doneQuests.includes(AllQuests.avatarFixing.id)) {
-      setScene(AllScenes.avatarCustomization['000'])
+      setScene({ component: AvatarCustomization000 })
 
       return
     }
