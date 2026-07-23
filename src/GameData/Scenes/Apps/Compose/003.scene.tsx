@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import { NpcJijimon } from '@/GameData/Npcs/Jijimon.npc'
 import { AllResearches } from '@/GameData/Researches'
 import { Compose002 } from '@/GameData/Scenes/Apps/Compose/002.scene'
 
@@ -67,7 +67,7 @@ export const Compose003 = () => {
   }
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.digimon.jijimon,
+    speaker: NpcJijimon,
 
     content: <AppCompose />,
 

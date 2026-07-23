@@ -1,7 +1,7 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllItems } from '@/GameData/Items'
-import { AllNpcs } from '@/GameData/Npcs'
+import { NpcConsulmon } from '@/GameData/Npcs/Consulmon.npc'
 
 import { getTexts } from '@/Helpers/Language'
 import { saveSession } from '@/Helpers/Systems/Data'
@@ -61,7 +61,7 @@ export const Equipment001 = () => {
   )
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.appmon.consulmon,
+    speaker: NpcConsulmon,
 
     content: (
       <div className="dialog-with-reactions">

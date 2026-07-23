@@ -1,6 +1,7 @@
 import type { AcquaintanceGroupType } from '@/Types/DigiviceHelpers.type'
 
 import { AllNpcs } from '@/GameData/Npcs'
+import { NpcDorimon } from '@/GameData/Npcs/Dorimon.npc'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -16,7 +17,7 @@ export const getAcquaintanceGroups = (): AcquaintanceGroupType[] => {
       const npcs = Object.keys(AllNpcs[category])
         .filter(
           (npcId) =>
-            AllNpcs.digimon.dorimon.id !== npcId &&
+            NpcDorimon.id !== npcId &&
             Object.keys(profile.npcAcquaintances ?? {}).includes(npcId)
         )
         .sort((a, b) => (a > b ? 1 : -1))

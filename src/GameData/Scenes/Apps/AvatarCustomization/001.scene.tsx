@@ -3,8 +3,8 @@ import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
 
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
-import { AllQuests } from '@/GameData/Quests'
+import { NpcDressmon } from '@/GameData/Npcs/Dressmon.npc'
+import { AvatarFixingQuest } from '@/GameData/Quests/AvatarFixing.quest'
 import { AvatarCustomization000 } from '@/GameData/Scenes/Apps/AvatarCustomization/000.scene'
 import { AvatarCustomization003 } from '@/GameData/Scenes/Apps/AvatarCustomization/003.scene'
 
@@ -31,13 +31,13 @@ export const AvatarCustomization001 = () => {
   )
 
   const triggerCustomization = () => {
-    if (!!doneQuests.includes(AllQuests.avatarFixing.id)) {
+    if (!!doneQuests.includes(AvatarFixingQuest.id)) {
       setScene({ component: AvatarCustomization003 })
 
       return
     }
 
-    if (!doneQuests.includes(AllQuests.avatarFixing.id)) {
+    if (!doneQuests.includes(AvatarFixingQuest.id)) {
       setScene({ component: AvatarCustomization000 })
 
       return
@@ -45,14 +45,14 @@ export const AvatarCustomization001 = () => {
   }
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.appmon.dressmon,
+    speaker: NpcDressmon,
 
     content: (
       <div className="dialog-with-reactions">
         <div className="text-bubble">
           <Text as="p">
             {getTexts(
-              !!doneQuests.includes(AllQuests.avatarFixing.id)
+              !!doneQuests.includes(AvatarFixingQuest.id)
                 ? 'AVATARCUSTOMIZATION_001_TEXT'
                 : 'INTRODUCTION_020_TEXT'
             )}
@@ -61,14 +61,14 @@ export const AvatarCustomization001 = () => {
 
         <div className="dialog-reactions dialog-reactions-options">
           <Button onClick={triggerCustomization}>
-            {!!doneQuests.includes(AllQuests.avatarFixing.id) && (
+            {!!doneQuests.includes(AvatarFixingQuest.id) && (
               <>
                 <HiOutlineChatBubbleLeftEllipsis />
                 <Text>{getTexts('AVATARCUSTOMIZATION_TRIGGER')}</Text>
               </>
             )}
 
-            {!doneQuests.includes(AllQuests.avatarFixing.id) && (
+            {!doneQuests.includes(AvatarFixingQuest.id) && (
               <>
                 <AiOutlineExclamationCircle />
                 <Text>{getTexts('INTRODUCTION_020_TRIGGER')}</Text>

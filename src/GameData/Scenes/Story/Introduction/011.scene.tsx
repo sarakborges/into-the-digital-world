@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 import { Introduction012 } from '@/GameData/Scenes/Story/Introduction/012.scene'
 
 import { getTexts } from '@/Helpers/Language'
@@ -14,7 +14,7 @@ export const Introduction011 = () => {
   const { setScene } = useSceneStore((state) => state)
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.general.gennai,
+    speaker: NpcGennai,
 
     content: (
       <div className="text-bubble">

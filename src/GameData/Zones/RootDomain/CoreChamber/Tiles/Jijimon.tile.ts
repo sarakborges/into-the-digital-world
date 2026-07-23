@@ -1,7 +1,7 @@
 import type { MapTileType } from '@/Types/MapTile.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
-import { AllQuests } from '@/GameData/Quests'
+import { NpcJijimon } from '@/GameData/Npcs/Jijimon.npc'
+import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
 import { Compose001 } from '@/GameData/Scenes/Apps/Compose/001.scene'
 
 import { isQuestDone } from '@/Helpers/Systems/Quests'
@@ -14,7 +14,7 @@ export const RootDomainCoreChamberJijimonTile: MapTileType = {
   y: 7,
 
   npc: {
-    ...AllNpcs.digimon.jijimon,
+    ...NpcJijimon,
     isVisible: true
   },
 
@@ -34,6 +34,6 @@ export const RootDomainCoreChamberJijimonTile: MapTileType = {
       isQuestDone(quest)
     )
 
-    return !!doneQuests.includes(AllQuests.starterDigimon.id)
+    return !!doneQuests.includes(StarterDigimonQuest.id)
   }
 }

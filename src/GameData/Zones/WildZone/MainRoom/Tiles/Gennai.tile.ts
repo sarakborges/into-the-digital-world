@@ -1,6 +1,6 @@
 import type { MapTileType } from '@/Types/MapTile.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 import { Location001 } from '@/GameData/Scenes/Apps/Location/001.scene'
 
 export const WildZoneGennaiTile: MapTileType = {
@@ -14,7 +14,7 @@ export const WildZoneGennaiTile: MapTileType = {
   },
 
   npc: {
-    ...AllNpcs.general.gennai,
+    ...NpcGennai,
     isVisible: true
   }
 }

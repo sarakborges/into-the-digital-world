@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import { NpcDressmon } from '@/GameData/Npcs/Dressmon.npc'
 import { AvatarCustomization003 } from '@/GameData/Scenes/Apps/AvatarCustomization/003.scene'
 
 import { getTexts } from '@/Helpers/Language'
@@ -14,7 +14,7 @@ export const AvatarCustomization000 = () => {
   const { setScene } = useSceneStore((state) => state)
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.appmon.dressmon,
+    speaker: NpcDressmon,
 
     content: (
       <div className="text-bubble">

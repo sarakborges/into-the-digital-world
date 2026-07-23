@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 import { AvatarFixingQuest } from '@/GameData/Quests/AvatarFixing.quest'
 import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
 
@@ -16,7 +16,7 @@ import { Text } from '@/Components/DesignSystem/Text'
 
 export const Introduction024 = () => {
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.general.gennai,
+    speaker: NpcGennai,
 
     content: (
       <div className="text-bubble">

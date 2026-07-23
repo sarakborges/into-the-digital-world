@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import { NpcDressmon } from '@/GameData/Npcs/Dressmon.npc'
 import { Introduction022 } from '@/GameData/Scenes/Story/Introduction/022.scene'
 
 import { getTexts } from '@/Helpers/Language'
@@ -16,7 +16,7 @@ export const Introduction021 = () => {
   const { digivice, setDigivice } = useDigiviceStore((state) => state)
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.appmon.dressmon,
+    speaker: NpcDressmon,
 
     content: (
       <div className="text-bubble">

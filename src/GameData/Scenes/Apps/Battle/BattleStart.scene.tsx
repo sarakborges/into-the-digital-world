@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import { NpcOujamon } from '@/GameData/Npcs/Oujamon.npc'
 import { BattleTurn } from '@/GameData/Scenes/Apps/Battle/BattleTurn.scene'
 
 import { getTexts } from '@/Helpers/Language'
@@ -14,7 +14,7 @@ export const BattleStart = () => {
   const { setScene } = useSceneStore((state) => state)
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.appmon.oujamon,
+    speaker: NpcOujamon,
 
     content: (
       <div className="text-bubble">

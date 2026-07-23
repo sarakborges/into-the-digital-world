@@ -1,7 +1,7 @@
 import type { MapTileType } from '@/Types/MapTile.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
-import { AllQuests } from '@/GameData/Quests'
+import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
+import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
 import { Location000 } from '@/GameData/Scenes/Apps/Location/000.scene'
 
 import { isQuestDone } from '@/Helpers/Systems/Quests'
@@ -14,7 +14,7 @@ export const LocationGennaiTile: MapTileType = {
   y: 13,
 
   npc: {
-    ...AllNpcs.general.gennai,
+    ...NpcGennai,
     isVisible: true
   },
 
@@ -34,6 +34,6 @@ export const LocationGennaiTile: MapTileType = {
       isQuestDone(quest)
     )
 
-    return !!doneQuests.includes(AllQuests.starterDigimon.id)
+    return !!doneQuests.includes(StarterDigimonQuest.id)
   }
 }

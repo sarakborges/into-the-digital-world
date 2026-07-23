@@ -1,7 +1,7 @@
 import type { MapTileType } from '@/Types/MapTile.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
-import { AllQuests } from '@/GameData/Quests'
+import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
+import { AvatarFixingQuest } from '@/GameData/Quests/AvatarFixing.quest'
 
 import { isQuestDone } from '@/Helpers/Systems/Quests'
 
@@ -23,11 +23,11 @@ export const RootDomainBedRoomGennaiRoomTile: MapTileType = {
       isQuestDone(quest)
     )
 
-    return !doneQuests.includes(AllQuests.avatarFixing.id)
+    return !doneQuests.includes(AvatarFixingQuest.id)
   },
 
   npc: {
-    ...AllNpcs.general.gennai,
+    ...NpcGennai,
     isVisible: true
   }
 }

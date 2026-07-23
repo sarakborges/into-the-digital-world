@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import { NpcNanomon } from '@/GameData/Npcs/Nanomon.npc'
 
 import { getTexts } from '@/Helpers/Language'
 import { closeScene } from '@/Helpers/Systems/Scenes'
@@ -10,7 +10,7 @@ import { ResearchList } from '@/Components/Digivice/Apps/ResearchesList'
 
 export const Research002 = () => {
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.digimon.nanomon,
+    speaker: NpcNanomon,
 
     content: <ResearchList />,
 

@@ -1,7 +1,7 @@
 import type { MapTileType } from '@/Types/MapTile.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
-import { AllQuests } from '@/GameData/Quests'
+import { NpcNanomon } from '@/GameData/Npcs/Nanomon.npc'
+import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
 import { Research001 } from '@/GameData/Scenes/Apps/Research/001.scene'
 
 import { isQuestDone } from '@/Helpers/Systems/Quests'
@@ -19,7 +19,7 @@ export const RootDomainCoreChamberNanomonTile: MapTileType = {
   },
 
   npc: {
-    ...AllNpcs.digimon.nanomon,
+    ...NpcNanomon,
     isVisible: true
   },
 
@@ -34,6 +34,6 @@ export const RootDomainCoreChamberNanomonTile: MapTileType = {
       isQuestDone(quest)
     )
 
-    return !!doneQuests.includes(AllQuests.starterDigimon.id)
+    return !!doneQuests.includes(StarterDigimonQuest.id)
   }
 }

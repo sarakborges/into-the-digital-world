@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import { NpcNanomon } from '@/GameData/Npcs/Nanomon.npc'
 import { Research002 } from '@/GameData/Scenes/Apps/Research/002.scene'
 
 import { getTexts } from '@/Helpers/Language'
@@ -14,7 +14,7 @@ export const Research001 = () => {
   const { setScene } = useSceneStore((state) => state)
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.digimon.nanomon,
+    speaker: NpcNanomon,
 
     content: (
       <div className="text-bubble">

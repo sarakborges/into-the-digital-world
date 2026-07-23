@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import { NpcOujamon } from '@/GameData/Npcs/Oujamon.npc'
 
 import { getTexts } from '@/Helpers/Language'
 import { generateRandomNumber } from '@/Helpers/Math'
@@ -22,7 +22,7 @@ export const BattleTurn = () => {
   const [currentTurn] = battle.turnOrder
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.appmon.oujamon,
+    speaker: NpcOujamon,
 
     content: (
       <div className="dialog-with-reactions">

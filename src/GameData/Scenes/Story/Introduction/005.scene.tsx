@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 import { Introduction006 } from '@/GameData/Scenes/Story/Introduction/006.scene'
 
 import { getTexts } from '@/Helpers/Language'
@@ -31,7 +31,7 @@ export const Introduction005 = () => {
   }
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.general.gennai,
+    speaker: NpcGennai,
 
     content: (
       <div className="dialog-with-reactions">

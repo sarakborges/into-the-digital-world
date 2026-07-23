@@ -1,8 +1,8 @@
 import type { DialogType } from '@/Types/Dialog.type'
 import type { ProfileType } from '@/Types/Profile.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
-import { AllQuests } from '@/GameData/Quests'
+import { NpcDressmon } from '@/GameData/Npcs/Dressmon.npc'
+import { AvatarFixingQuest } from '@/GameData/Quests/AvatarFixing.quest'
 import { AvatarCustomization002 } from '@/GameData/Scenes/Apps/AvatarCustomization/002.scene'
 import { Introduction021 } from '@/GameData/Scenes/Story/Introduction/021.scene'
 
@@ -37,7 +37,7 @@ export const AvatarCustomization003 = () => {
       isQuestDone(quest)
     )
 
-    if (!doneQuests.includes(AllQuests.avatarFixing.id)) {
+    if (!doneQuests.includes(AvatarFixingQuest.id)) {
       setScene({ component: Introduction021 })
     } else {
       setScene({ component: AvatarCustomization002 })
@@ -47,7 +47,7 @@ export const AvatarCustomization003 = () => {
   }
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.appmon.dressmon,
+    speaker: NpcDressmon,
 
     content: <AppAvatarCustomization />,
 

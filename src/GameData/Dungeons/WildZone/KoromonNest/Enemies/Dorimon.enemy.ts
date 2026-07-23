@@ -1,8 +1,8 @@
-import { AllDigimons } from '@/GameData/Digimons'
+import { DigimonDorimon } from '@/GameData/Digimons/Dorimon.digimon'
 import { AllItems } from '@/GameData/Items'
 
 export const WildZoneDorimon = {
-  digimonId: AllDigimons.dorimon.id,
+  digimonId: DigimonDorimon.id,
   spawnChance: 10,
 
   equipments: {},

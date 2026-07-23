@@ -3,18 +3,19 @@ import { KoromonResearch } from './Koromon.research'
 
 import type { ResearchType } from '@/Types/Research.type'
 
-import { AllDigimons } from '@/GameData/Digimons'
+import { DigimonDorimon } from '@/GameData/Digimons/Dorimon.digimon'
+import { DigimonKoromon } from '@/GameData/Digimons/Koromon.digimon'
 
 export const AllResearches: {
   [digimonId: string]: ResearchType
 } = {
-  [AllDigimons.koromon.id]: KoromonResearch,
-  [AllDigimons.dorimon.id]: DorimonResearch
+  [DigimonKoromon.id]: KoromonResearch,
+  [DigimonDorimon.id]: DorimonResearch
 }
 
 export const AvailableResearchesAtJijimon = {
-  [AllDigimons.koromon.id]: KoromonResearch,
-  [AllDigimons.dorimon.id]: DorimonResearch
+  [DigimonKoromon.id]: KoromonResearch,
+  [DigimonDorimon.id]: DorimonResearch
 }
 
 export const AvailableResearchesAtCulumon = {}

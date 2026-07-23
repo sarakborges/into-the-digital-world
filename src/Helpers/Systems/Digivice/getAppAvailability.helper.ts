@@ -1,4 +1,4 @@
-import { AllQuests } from '@/GameData/Quests'
+import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
 
 import { isQuestDone } from '@/Helpers/Systems/Quests'
 
@@ -23,7 +23,7 @@ export const getAppAvailability = (appId: string): boolean => {
 
   return !(
     (!!scene && !scene.enablesMovement) ||
-    (!doneQuests.includes(AllQuests.starterDigimon.id) &&
+    (!doneQuests.includes(StarterDigimonQuest.id) &&
       !(!!isSave || !!isLogoff || !!isMap))
   )
 }

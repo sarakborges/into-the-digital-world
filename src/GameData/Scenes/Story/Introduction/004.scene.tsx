@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 import { Introduction005 } from '@/GameData/Scenes/Story/Introduction/005.scene'
 
 import { getTexts } from '@/Helpers/Language'
@@ -20,7 +20,7 @@ export const Introduction004 = () => {
   }
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.general.gennai,
+    speaker: NpcGennai,
 
     content: (
       <div className="text-bubble">
@@ -37,7 +37,7 @@ export const Introduction004 = () => {
             ...profile,
             npcAcquaintances: {
               ...(profile.npcAcquaintances ?? {}),
-              [AllNpcs.general.gennai.id]: {}
+              [NpcGennai.id]: {}
             }
           })
 

@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import { NpcLogamon } from '@/GameData/Npcs/Logamon.npc'
 
 import { getTexts } from '@/Helpers/Language'
 import { closeScene, logoff } from '@/Helpers/Systems/Scenes'
@@ -10,7 +10,7 @@ import { Text } from '@/Components/DesignSystem/Text'
 
 export const Logoff001 = () => {
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.appmon.logamon,
+    speaker: NpcLogamon,
 
     content: (
       <div className="text-bubble">

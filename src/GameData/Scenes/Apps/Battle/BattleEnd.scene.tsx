@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import { NpcOujamon } from '@/GameData/Npcs/Oujamon.npc'
 
 import { getTexts } from '@/Helpers/Language'
 import { isDigimonDefeated } from '@/Helpers/Systems/Battle'
@@ -32,7 +32,7 @@ export const BattleEnd = () => {
     : 'defeat'
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.appmon.oujamon,
+    speaker: NpcOujamon,
 
     content: (
       <div className="dialog-with-reactions">

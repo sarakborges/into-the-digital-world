@@ -1,7 +1,7 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllDigimons } from '@/GameData/Digimons'
-import { AllNpcs } from '@/GameData/Npcs'
+import { NpcBookmon } from '@/GameData/Npcs/Bookmon.npc'
 
 import { getTexts } from '@/Helpers/Language'
 import { closeScene } from '@/Helpers/Systems/Scenes'
@@ -24,7 +24,7 @@ export const RenamePartner002 = () => {
   const baseDigimon = AllDigimons[digimon.baseDigimon!]
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.appmon.bookmon,
+    speaker: NpcBookmon,
 
     content: (
       <div className="text-bubble">

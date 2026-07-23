@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import { NpcDorimon } from '@/GameData/Npcs/Dorimon.npc'
 import { GetStarterDigimon018 } from '@/GameData/Scenes/Story/GetStarterDigimon/018.scene'
 
 import { getTexts } from '@/Helpers/Language'
@@ -20,7 +20,7 @@ export const GetStarterDigimon017 = () => {
   }
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.digimon.dorimon,
+    speaker: NpcDorimon,
 
     content: (
       <div className="text-bubble">

@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import { NpcOujamon } from '@/GameData/Npcs/Oujamon.npc'
 import { BattleEnd } from '@/GameData/Scenes/Apps/Battle/BattleEnd.scene'
 import { BattleTurn } from '@/GameData/Scenes/Apps/Battle/BattleTurn.scene'
 
@@ -92,7 +92,7 @@ export const BattleAttack = () => {
   }
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.appmon.oujamon,
+    speaker: NpcOujamon,
 
     content: (
       <div className="text-bubble">

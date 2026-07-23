@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import { NpcSavemon } from '@/GameData/Npcs/Savemon.npc'
 
 import { getTexts } from '@/Helpers/Language'
 import { closeScene } from '@/Helpers/Systems/Scenes'
@@ -11,7 +11,7 @@ import { AppSaveGame } from '@/Components/Digivice/Apps/AppSaveGame'
 
 export const SaveGame001 = () => {
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.appmon.savemon,
+    speaker: NpcSavemon,
 
     content: (
       <div className="dialog-with-reactions">

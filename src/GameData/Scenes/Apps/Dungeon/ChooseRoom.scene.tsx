@@ -3,7 +3,7 @@ import { AiOutlineExclamationCircle } from 'react-icons/ai'
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllDungeons } from '@/GameData/Dungeons'
-import { AllNpcs } from '@/GameData/Npcs'
+import { NpcNavimon } from '@/GameData/Npcs/Navimon.npc'
 
 import { getTexts } from '@/Helpers/Language'
 import { advanceDungeon, leaveDungeon } from '@/Helpers/Systems/Dungeon'
@@ -22,7 +22,7 @@ export const DungeonChooseRoom = () => {
   }
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.appmon.navimon,
+    speaker: NpcNavimon,
 
     content: (
       <div className="dialog-with-reactions">

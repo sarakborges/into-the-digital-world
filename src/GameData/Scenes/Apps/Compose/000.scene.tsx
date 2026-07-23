@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import { NpcJijimon } from '@/GameData/Npcs/Jijimon.npc'
 import { Compose001 } from '@/GameData/Scenes/Apps/Compose/001.scene'
 
 import { getTexts } from '@/Helpers/Language'
@@ -21,7 +21,7 @@ export const Compose000 = () => {
   }
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.digimon.jijimon,
+    speaker: NpcJijimon,
 
     content: (
       <div className="text-bubble">

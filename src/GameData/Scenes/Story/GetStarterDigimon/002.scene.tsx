@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 import { GetStarterDigimon003 } from '@/GameData/Scenes/Story/GetStarterDigimon/003.scene'
 
 import { getTexts } from '@/Helpers/Language'
@@ -21,7 +21,7 @@ export const GetStarterDigimon002 = () => {
   }
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.general.gennai,
+    speaker: NpcGennai,
 
     content: (
       <>

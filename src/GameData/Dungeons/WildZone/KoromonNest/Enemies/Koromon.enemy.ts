@@ -1,10 +1,10 @@
 import type { SpawnableDigimonType } from '@/Types/SpawnableDigimon.type'
 
-import { AllDigimons } from '@/GameData/Digimons'
+import { DigimonKoromon } from '@/GameData/Digimons/Koromon.digimon'
 import { AllItems } from '@/GameData/Items'
 
 export const WildZoneKoromon: SpawnableDigimonType = {
-  digimonId: AllDigimons.koromon.id,
+  digimonId: DigimonKoromon.id,
   spawnChance: 10,
 
   equipments: {},

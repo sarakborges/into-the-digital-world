@@ -1,7 +1,8 @@
 import type { MapTileType } from '@/Types/MapTile.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
-import { AllQuests } from '@/GameData/Quests'
+import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
+import { AvatarFixingQuest } from '@/GameData/Quests/AvatarFixing.quest'
+import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
 import { GetStarterDigimon000 } from '@/GameData/Scenes/Story/GetStarterDigimon/000.scene'
 
 import { isQuestDone } from '@/Helpers/Systems/Quests'
@@ -14,7 +15,7 @@ export const GetStarterDigimonGennaiTile: MapTileType = {
   y: 13,
 
   npc: {
-    ...AllNpcs.general.gennai,
+    ...NpcGennai,
     isVisible: true
   },
 
@@ -35,8 +36,8 @@ export const GetStarterDigimonGennaiTile: MapTileType = {
     )
 
     return (
-      !!doneQuests.includes(AllQuests.avatarFixing.id) &&
-      !doneQuests.includes(AllQuests.starterDigimon.id)
+      !!doneQuests.includes(AvatarFixingQuest.id) &&
+      !doneQuests.includes(StarterDigimonQuest.id)
     )
   }
 }
