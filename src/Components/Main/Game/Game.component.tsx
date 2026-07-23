@@ -25,7 +25,7 @@ export const Game = () => {
     loadGameSession()
     restoreCurrentScene()
     setSettings({ ...loadData('settings'), isOpen: false })
-  }, [setSettings])
+  }, [])
 
   if (!settings) {
     return
