@@ -4,7 +4,7 @@ import { NpcJijimon } from '@/GameData/Npcs/Jijimon.npc'
 import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
 import { Compose001 } from '@/GameData/Scenes/Apps/Compose/001.scene'
 
-import { isQuestDone } from '@/Helpers/Systems/Quests'
+import { isQuestDone } from '@/Helpers/Systems/Quests/isQuestDone.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 

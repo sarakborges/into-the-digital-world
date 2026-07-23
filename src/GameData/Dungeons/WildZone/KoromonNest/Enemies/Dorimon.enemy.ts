@@ -1,5 +1,6 @@
 import { DigimonDorimon } from '@/GameData/Digimons/Dorimon.digimon'
-import { AllItems } from '@/GameData/Items'
+import { DorimonCoreItem } from '@/GameData/Items/DorimonCore.item'
+import { NatureSpiritsCoreItem } from '@/GameData/Items/NatureSpiritsCore.item'
 
 export const WildZoneDorimon = {
   digimonId: DigimonDorimon.id,
@@ -9,37 +10,37 @@ export const WildZoneDorimon = {
 
   lootTable: [
     {
-      itemId: AllItems.dorimonCore.id,
+      itemId: DorimonCoreItem.id,
       dropChance: 100,
       amount: 1
     },
 
     {
-      itemId: AllItems.dorimonCore.id,
+      itemId: DorimonCoreItem.id,
       dropChance: 25,
       amount: 1
     },
 
     {
-      itemId: AllItems.dorimonCore.id,
+      itemId: DorimonCoreItem.id,
       dropChance: 10,
       amount: 1
     },
 
     {
-      itemId: AllItems.natureSpiritsCore.id,
+      itemId: NatureSpiritsCoreItem.id,
       dropChance: 100,
       amount: 1
     },
 
     {
-      itemId: AllItems.natureSpiritsCore.id,
+      itemId: NatureSpiritsCoreItem.id,
       dropChance: 25,
       amount: 1
     },
 
     {
-      itemId: AllItems.natureSpiritsCore.id,
+      itemId: NatureSpiritsCoreItem.id,
       dropChance: 10,
       amount: 1
     }

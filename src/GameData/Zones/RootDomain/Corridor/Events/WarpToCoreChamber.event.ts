@@ -1,9 +1,9 @@
-import { warpTo } from '@/Helpers/Systems/Zones'
+import { warpTo } from '@/Helpers/Systems/Zones/warpTo.helper'
 
 export const WarpToCoreChamber = () => {
   warpTo({
-    zoneId: 'rootDomain',
-    mapId: 'coreChamber',
+    zone: 'rootDomain',
+    map: 'coreChamber',
     x: 16,
     y: 16
   })

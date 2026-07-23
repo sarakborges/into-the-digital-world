@@ -1,6 +1,6 @@
 import type { ItemType } from '@/Types/Item.type'
 
-import { AllDigimons } from '@/GameData/Digimons'
+import { findDigimon } from '@/GameData/Registries/Digimon.registry'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -20,8 +20,11 @@ export const EquipmentDrAllItem: ItemType = {
     }
 
     const partnerDigimon = profile.partnerDigimons[digivice.currentDetails]
-    const baseDigimon = AllDigimons[partnerDigimon.baseDigimon]
-    return Object.keys(baseDigimon.families).includes('dr')
+    const baseDigimon = partnerDigimon
+      ? findDigimon(partnerDigimon.baseDigimon)
+      : undefined
+
+    return !!baseDigimon && Object.keys(baseDigimon.families).includes('dr')
   },
 
   equipmentBonuses: {

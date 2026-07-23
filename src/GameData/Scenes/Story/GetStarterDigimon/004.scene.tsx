@@ -4,14 +4,14 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { GetStarterDigimon005 } from '@/GameData/Scenes/Story/GetStarterDigimon/005.scene'
 
-import { getTexts } from '@/Helpers/Language'
-import { reactToMeaningfulChoice } from '@/Helpers/Systems/Scenes'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { reactToMeaningfulChoice } from '@/Helpers/Systems/Scenes/reactToMeaningfulChoice.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
 export const GetStarterDigimon004 = () => {
   const { profile } = useProfileStore((state) => state)

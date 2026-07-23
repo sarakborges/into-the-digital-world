@@ -1,7 +1,7 @@
-import { AllItems } from '@/GameData/Items'
+import { findItem } from '@/GameData/Registries/Item.registry'
 
 export const getIsItemCategoryCore = (item: string): boolean => {
-  const itemDetails = AllItems[item]
+  const itemDetails = findItem(item)
 
   if (!itemDetails) {
     return false

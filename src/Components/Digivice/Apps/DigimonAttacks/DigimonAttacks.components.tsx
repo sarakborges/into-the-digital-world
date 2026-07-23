@@ -1,13 +1,13 @@
-import { AllAttacks } from '@/GameData/Attacks'
+import { getAttack } from '@/GameData/Registries/Attack.registry'
 
-import { getTexts } from '@/Helpers/Language'
-import { getCurrentDigimon, getPartnerDigimon } from '@/Helpers/Systems/Digimon'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getCurrentDigimon } from '@/Helpers/Systems/Digimon/getCurrentDigimon.helper'
+import { getPartnerDigimon } from '@/Helpers/Systems/Digimon/getPartnerDigimon.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 
-import { Text } from '@/Components/DesignSystem/Text'
-
-import './DigimonAttacks.style.scss'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import '@/Components/Digivice/Apps/DigimonAttacks/DigimonAttacks.style.scss'
 
 export const DigimonAttacks = () => {
   const { digivice } = useDigiviceStore((state) => state)
@@ -30,21 +30,25 @@ export const DigimonAttacks = () => {
       </header>
 
       <main>
-        {Object.keys(baseDigimon.attacks).map((attack) => (
-          <div
-            className="attack"
-            key={`digimon-${partner.id}-attacks-${attack}`}
-          >
-            <Text>
-              {getTexts('ENCYCLOPEDIA_ATTACKS_DETAILS', {
-                '[NAME]': AllAttacks[attack].name,
-                '[COOLDOWN]': String(AllAttacks[attack].cooldown || 0)
-              })}
-            </Text>
+        {Object.keys(baseDigimon.attacks).map((attackId) => {
+          const attack = getAttack(attackId)
 
-            <Text as="p">{AllAttacks[attack].description}</Text>
-          </div>
-        ))}
+          return (
+            <div
+              className="attack"
+              key={`digimon-${partner.id}-attacks-${attackId}`}
+            >
+              <Text>
+                {getTexts('ENCYCLOPEDIA_ATTACKS_DETAILS', {
+                  '[NAME]': attack.name,
+                  '[COOLDOWN]': String(attack.cooldown || 0)
+                })}
+              </Text>
+
+              <Text as="p">{attack.description}</Text>
+            </div>
+          )
+        })}
       </main>
     </section>
   )

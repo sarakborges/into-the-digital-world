@@ -1,6 +1,6 @@
 import type { BattleType } from '@/Types/Battle.type'
 
-import { isDigimonDefeated } from '@/Helpers/Systems/Battle'
+import { isDigimonDefeated } from '@/Helpers/Systems/Battle/isDigimonDefeated.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 

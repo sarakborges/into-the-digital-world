@@ -1,4 +1,4 @@
-import { AllItems } from '@/GameData/Items'
+import { findItem } from '@/GameData/Registries/Item.registry'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -19,9 +19,14 @@ export const getInventoryCategories = (): Record<
     core: {}
   }
 
-  Object.keys(profile.items ?? {}).forEach((item) => {
-    const category = AllItems[item].category
-    categories[category][item] = profile.items[item]
+  Object.keys(profile.items ?? {}).forEach((itemId) => {
+    const item = findItem(itemId)
+
+    if (!item) {
+      return
+    }
+
+    categories[item.category][itemId] = profile.items[itemId]
   })
 
   return categories

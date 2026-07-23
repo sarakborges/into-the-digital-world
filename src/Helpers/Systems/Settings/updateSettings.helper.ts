@@ -1,4 +1,4 @@
-import { saveData } from '@/Helpers/Systems/Data'
+import { saveData } from '@/Helpers/Systems/Data/saveData.helper'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
 

@@ -1,10 +1,10 @@
-import { AllDungeons } from '@/GameData/Dungeons'
+import { getDungeon } from '@/GameData/Registries/Dungeon.registry'
 import { DungeonChooseRoom } from '@/GameData/Scenes/Apps/Dungeon/ChooseRoom.scene'
 
-import { generateRandomNumber } from '@/Helpers/Math'
-import { saveBattle } from '@/Helpers/Systems/Battle'
-import { saveSession } from '@/Helpers/Systems/Data'
-import { saveDungeon } from '@/Helpers/Systems/Dungeon'
+import { generateRandomNumber } from '@/Helpers/Math/generateRandomNumber.helper'
+import { saveBattle } from '@/Helpers/Systems/Battle/saveBattle.helper'
+import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
+import { saveDungeon } from '@/Helpers/Systems/Dungeon/saveDungeon.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useDungeonStore } from '@/Stores/Dungeon.store'
@@ -40,7 +40,10 @@ export const enterNextDungeonRoom = () => {
   }
 
   const { rooms } = dungeon
-  const currentDungeon = AllDungeons[dungeon.zoneId][dungeon.dungeonId]
+  const currentDungeon = getDungeon({
+    zoneId: dungeon.zoneId,
+    dungeonId: dungeon.dungeonId
+  })
   const currentRoom = rooms[rooms.length - 1]
   const room = currentDungeon.possibleRooms[currentRoom]
   const shouldChooseLastRoom =

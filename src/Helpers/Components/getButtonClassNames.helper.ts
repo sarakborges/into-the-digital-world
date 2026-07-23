@@ -1,7 +1,12 @@
-export const getButtonClassNames = (
-  style?: 'primary' | 'secondary' | 'cancel',
+type GetButtonClassNamesParams = {
+  style?: 'primary' | 'secondary' | 'cancel'
   className?: string
-): string => {
+}
+
+export const getButtonClassNames = ({
+  style,
+  className
+}: GetButtonClassNamesParams): string => {
   const classNames = ['button']
 
   if (style === 'primary' || !style) {

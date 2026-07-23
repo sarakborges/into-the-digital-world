@@ -2,15 +2,15 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { NpcOujamon } from '@/GameData/Npcs/Oujamon.npc'
 
-import { getTexts } from '@/Helpers/Language'
-import { generateRandomNumber } from '@/Helpers/Math'
-import { doAttack } from '@/Helpers/Systems/Battle'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { generateRandomNumber } from '@/Helpers/Math/generateRandomNumber.helper'
+import { doAttack } from '@/Helpers/Systems/Battle/doAttack.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 
-import { SelectAttack } from '@/Components/Combat/SelectAttack'
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { Text } from '@/Components/DesignSystem/Text'
+import { SelectAttack } from '@/Components/Combat/SelectAttack/SelectAttack.component'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
 export const BattleTurn = () => {
   const { battle } = useBattleStore((state) => state)

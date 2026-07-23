@@ -1,4 +1,4 @@
-import { AllDigimons } from '@/GameData/Digimons'
+import { getDigimon } from '@/GameData/Registries/Digimon.registry'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -9,16 +9,16 @@ export const getCurrentParty = () => {
     return []
   }
 
-  return profile.party.map((digimon, digimonIndex) => ({
-    ...AllDigimons[profile.partnerDigimons[digimon].baseDigimon],
+  return profile.party.map((digimonId, digimonIndex) => {
+    const partner = profile.partnerDigimons[digimonId]
+    const baseDigimon = getDigimon(partner.baseDigimon)
 
-    name:
-      profile.partnerDigimons[digimon].name ||
-      AllDigimons[profile.partnerDigimons[digimon].baseDigimon].name,
-
-    equipments: profile.partnerDigimons[digimon].equipments,
-
-    party: 'allies' as 'allies' | 'enemies',
-    index: digimonIndex
-  }))
+    return {
+      ...baseDigimon,
+      name: partner.name || baseDigimon.name,
+      equipments: partner.equipments,
+      party: 'allies' as 'allies' | 'enemies',
+      index: digimonIndex
+    }
+  })
 }

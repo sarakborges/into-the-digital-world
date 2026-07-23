@@ -4,21 +4,18 @@ import { useEffect } from 'react'
 
 import type { AvatarType } from '@/Types/Avatar.type'
 
-import { getTexts } from '@/Helpers/Language'
-import {
-  generateRandomAvatar,
-  getAvatarOptionsText
-} from '@/Helpers/Systems/Profile'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { generateRandomAvatar } from '@/Helpers/Systems/Profile/generateRandomAvatar.helper'
+import { getAvatarOptionsText } from '@/Helpers/Systems/Profile/getAvatarOptionsText.helper'
 
 import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Text } from '@/Components/DesignSystem/Text'
-import { AvatarCustomizationOptions } from '@/Components/Digivice/Apps/AppAvatarCustomization/Options'
-import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
-
-import './AppAvatarCustomization.style.scss'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import '@/Components/Digivice/Apps/AppAvatarCustomization/App/AppAvatarCustomization.style.scss'
+import { AvatarCustomizationOptions } from '@/Components/Digivice/Apps/AppAvatarCustomization/Options/AvatarCustomizationOptions.component'
+import { PlayerAvatar } from '@/Components/Global/PlayerAvatar/PlayerAvatar.component'
 
 export const AppAvatarCustomization = () => {
   const { profile } = useProfileStore((state) => state)

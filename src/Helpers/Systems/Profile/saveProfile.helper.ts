@@ -1,12 +1,17 @@
+import { saveService } from '@/Systems/Save/Save.service'
+
+import type { ProfileType } from '@/Types/Profile.type'
+
 import { SaveGame002 } from '@/GameData/Scenes/Apps/SaveGame/002.scene'
 
-import { loadData, saveData, saveSession } from '@/Helpers/Systems/Data'
+import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
+import { loadProfiles } from '@/Helpers/Systems/Profile/loadProfiles.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-export const saveProfile = (profileId?: number) => {
+export const saveProfile = async (profileId?: number): Promise<void> => {
   try {
     const { profile } = useProfileStore.getState()
     const { savedProfiles } = useSavedProfilesStore.getState()
@@ -16,41 +21,28 @@ export const saveProfile = (profileId?: number) => {
       return
     }
 
-    const sortedProfiles = [...(savedProfiles || [])].sort(
-      (a, b) => b.id - a.id
+    const highestProfileId = Math.max(
+      0,
+      ...(savedProfiles ?? []).map((savedProfile) => savedProfile.id)
     )
+    const targetProfileId = profileId ?? highestProfileId + 1
+    const lastSave = new Date().toISOString()
 
-    const newId = (sortedProfiles?.[0]?.id ?? 0) + 1
-
-    const updatedProfile = {
+    const updatedProfile: ProfileType = {
       ...profile,
-      id: profileId || newId,
-      lastSave: new Date()
+      id: targetProfileId,
+      lastSave
     }
-    const savedProfilesLoaded = loadData('profiles')
 
-    saveData({
-      key: `profile${profileId || newId}`,
-      value: updatedProfile
+    await saveService.save({
+      slotId: String(targetProfileId),
+      profile: updatedProfile
     })
 
     saveSession(updatedProfile)
-
-    const updatedProfiles = Array.from(
-      new Set(
-        [...(savedProfilesLoaded ?? []), !profileId ? newId : undefined].filter(
-          (profile) => !!profile
-        )
-      )
-    )
-
-    saveData({
-      key: 'profiles',
-      value: updatedProfiles
-    })
-
+    await loadProfiles()
     setScene({ component: SaveGame002 })
-  } catch (e) {
-    console.warn(e)
+  } catch (error) {
+    console.warn(`Error saving profile: ${error}`)
   }
 }

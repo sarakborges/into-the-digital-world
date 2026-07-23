@@ -1,14 +1,13 @@
 import { FaCheck } from 'react-icons/fa'
 
-import { getTexts } from '@/Helpers/Language'
-import { updateSettings } from '@/Helpers/Systems/Settings'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { updateSettings } from '@/Helpers/Systems/Settings/updateSettings.helper'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Text } from '@/Components/DesignSystem/Text'
-
-import './UpdateTheme.style.scss'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import '@/Components/Settings/Theme/UpdateTheme.style.scss'
 
 export const UpdateTheme = ({ theme }: { theme: string }) => {
   const { settings } = useSettingsStore((state) => state)

@@ -1,17 +1,22 @@
 import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
 import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 
-import { AllDigimons } from '@/GameData/Digimons'
+import { findDigimon } from '@/GameData/Registries/Digimon.registry'
 
-export const getBaseDigimonFromParty = (
-  digimonId: number,
+type GetBaseDigimonFromPartyParams = {
+  digimonId: number
   partnerDigimons: Record<number, PartnerDigimonType>
-): BaseDigimonType | undefined => {
+}
+
+export const getBaseDigimonFromParty = ({
+  digimonId,
+  partnerDigimons
+}: GetBaseDigimonFromPartyParams): BaseDigimonType | undefined => {
   const partner = partnerDigimons[digimonId]
 
   if (!partner) {
     return undefined
   }
 
-  return AllDigimons[partner.baseDigimon] as BaseDigimonType | undefined
+  return findDigimon(partner.baseDigimon)
 }

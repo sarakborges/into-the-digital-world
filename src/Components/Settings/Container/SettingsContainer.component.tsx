@@ -1,16 +1,15 @@
 import { FaCog } from 'react-icons/fa'
 
-import { getTexts } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Modal } from '@/Components/DesignSystem/Modal'
-import { Text } from '@/Components/DesignSystem/Text'
-import { SettingsLanguage } from '@/Components/Settings/Languages'
-import { SettingsTheme } from '@/Components/Settings/Themes'
-
-import './SettingsContainer.style.scss'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Modal } from '@/Components/DesignSystem/Modal/Modal.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import '@/Components/Settings/Container/SettingsContainer.style.scss'
+import { SettingsLanguage } from '@/Components/Settings/Languages/SettingsLanguage.component'
+import { SettingsTheme } from '@/Components/Settings/Themes/SettingsTheme.component'
 
 export const SettingsContainer = () => {
   const { settings, setSettings } = useSettingsStore((state) => state)

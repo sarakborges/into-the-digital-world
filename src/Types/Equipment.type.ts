@@ -1,5 +1,5 @@
 export type EquipmentType = {
-  [equipmentId: number]:
+  [equipmentId: string]:
     | {
         equipmentId?: string
       }

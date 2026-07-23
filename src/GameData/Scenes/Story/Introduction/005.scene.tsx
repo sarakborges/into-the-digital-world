@@ -5,14 +5,14 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 import { Introduction006 } from '@/GameData/Scenes/Story/Introduction/006.scene'
 
-import { getTexts } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { Input } from '@/Components/DesignSystem/Input'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { Input } from '@/Components/DesignSystem/Input/Input.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
 export const Introduction005 = () => {
   const { setScene } = useSceneStore((state) => state)

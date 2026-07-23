@@ -3,14 +3,14 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 import { GetStarterDigimon003 } from '@/GameData/Scenes/Story/GetStarterDigimon/003.scene'
 
-import { getTexts } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
 export const GetStarterDigimon002 = () => {
   const { setScene } = useSceneStore((state) => state)

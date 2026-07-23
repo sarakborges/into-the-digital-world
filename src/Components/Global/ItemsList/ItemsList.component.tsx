@@ -1,7 +1,6 @@
-import { Text } from '@/Components/DesignSystem/Text'
-import { ItemDisplay } from '@/Components/Global/ItemDisplay'
-
-import './ItemsList.style.scss'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import { ItemDisplay } from '@/Components/Global/ItemDisplay/ItemDisplay.component'
+import '@/Components/Global/ItemsList/ItemsList.style.scss'
 
 export const ItemsList = ({
   list,

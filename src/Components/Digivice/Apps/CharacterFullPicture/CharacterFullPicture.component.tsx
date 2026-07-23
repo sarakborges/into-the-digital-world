@@ -1,12 +1,11 @@
-import { getTexts } from '@/Helpers/Language'
-import { getCurrentDigimon } from '@/Helpers/Systems/Digimon'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getCurrentDigimon } from '@/Helpers/Systems/Digimon/getCurrentDigimon.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-import { Text } from '@/Components/DesignSystem/Text'
-
-import './CharacterFullPicture.style.scss'
+import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import '@/Components/Digivice/Apps/CharacterFullPicture/CharacterFullPicture.style.scss'
 
 export const CharacterFullPicture = () => {
   const { digivice } = useDigiviceStore((state) => state)

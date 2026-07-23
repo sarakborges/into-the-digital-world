@@ -2,11 +2,11 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 
-import { getTexts } from '@/Helpers/Language'
-import { closeScene } from '@/Helpers/Systems/Scenes'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { AppLocation } from '@/Components/Digivice/Apps/AppLocation'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { AppLocation } from '@/Components/Digivice/Apps/AppLocation/AppLocation.component'
 
 export const Location001 = () => {
   const dialogOptions: DialogType = {

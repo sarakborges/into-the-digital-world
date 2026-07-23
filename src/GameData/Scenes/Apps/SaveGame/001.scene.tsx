@@ -2,12 +2,12 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { NpcSavemon } from '@/GameData/Npcs/Savemon.npc'
 
-import { getTexts } from '@/Helpers/Language'
-import { closeScene } from '@/Helpers/Systems/Scenes'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { Text } from '@/Components/DesignSystem/Text'
-import { AppSaveGame } from '@/Components/Digivice/Apps/AppSaveGame'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import { AppSaveGame } from '@/Components/Digivice/Apps/AppSaveGame/AppSaveGame.component'
 
 export const SaveGame001 = () => {
   const dialogOptions: DialogType = {

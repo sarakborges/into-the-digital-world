@@ -1,8 +1,8 @@
 import type { ButtonHTMLAttributes } from 'react'
 
-import { getButtonClassNames } from '@/Helpers/Components'
+import { getButtonClassNames } from '@/Helpers/Components/getButtonClassNames.helper'
 
-import './Button.style.scss'
+import '@/Components/DesignSystem/Button/Button.style.scss'
 
 type ButtonType = {
   style?: 'primary' | 'secondary' | 'cancel'
@@ -15,7 +15,7 @@ export const Button: React.FC<ButtonType> = ({
   ...rest
 }) => {
   return (
-    <button className={getButtonClassNames(style, className)} {...rest}>
+    <button className={getButtonClassNames({ style, className })} {...rest}>
       {children}
     </button>
   )

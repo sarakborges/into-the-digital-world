@@ -1,10 +1,15 @@
 import type { BattleType } from '@/Types/Battle.type'
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
-export const isCurrentTurnDigimon = (
-  battle: BattleType | null,
+type IsCurrentTurnDigimonParams = {
+  battle: BattleType | null
   digimon: PartyDigimonType
-): boolean => {
+}
+
+export const isCurrentTurnDigimon = ({
+  battle,
+  digimon
+}: IsCurrentTurnDigimonParams): boolean => {
   if (!battle) {
     return false
   }

@@ -1,19 +1,20 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllItems } from '@/GameData/Items'
+import { DigiviceItem } from '@/GameData/Items/Digivice.item'
 import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 import { AvatarFixingQuest } from '@/GameData/Quests/AvatarFixing.quest'
 import { IntroductionQuest } from '@/GameData/Quests/Introduction.quest'
 
-import { getTexts } from '@/Helpers/Language'
-import { saveSession } from '@/Helpers/Systems/Data'
-import { addNewQuest, updateQuestObjective } from '@/Helpers/Systems/Quests'
-import { closeScene } from '@/Helpers/Systems/Scenes'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
+import { addNewQuest } from '@/Helpers/Systems/Quests/addNewQuest.helper'
+import { updateQuestObjective } from '@/Helpers/Systems/Quests/updateQuestObjective.helper'
+import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
 export const Introduction019 = () => {
   const dialogOptions: DialogType = {
@@ -46,7 +47,7 @@ export const Introduction019 = () => {
             ...currentProfile!,
             currentScene: null,
             items: {
-              [AllItems.digivice?.id]: 1
+              [DigiviceItem.id]: 1
             }
           }
 

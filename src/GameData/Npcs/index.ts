@@ -1,18 +1,18 @@
-import { NpcAddmon } from './Addmon.npc'
-import { NpcBookmon } from './Bookmon.npc'
-import { NpcConsulmon } from './Consulmon.npc'
-import { NpcDorimon } from './Dorimon.npc'
-import { NpcDressmon } from './Dressmon.npc'
-import { NpcGennai } from './Gennai.npc'
-import { NpcJijimon } from './Jijimon.npc'
-import { NpcLogamon } from './Logamon.npc'
-import { NpcMirrormon } from './Mirrormon.npc'
-import { NpcNanomon } from './Nanomon.npc'
-import { NpcNavimon } from './Navimon.npc'
-import { NpcOujamon } from './Oujamon.npc'
-import { NpcSavemon } from './Savemon.npc'
-
 import type { NpcType } from '@/Types/Npc.type'
+
+import { NpcAddmon } from '@/GameData/Npcs/Addmon.npc'
+import { NpcBookmon } from '@/GameData/Npcs/Bookmon.npc'
+import { NpcConsulmon } from '@/GameData/Npcs/Consulmon.npc'
+import { NpcDorimon } from '@/GameData/Npcs/Dorimon.npc'
+import { NpcDressmon } from '@/GameData/Npcs/Dressmon.npc'
+import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
+import { NpcJijimon } from '@/GameData/Npcs/Jijimon.npc'
+import { NpcLogamon } from '@/GameData/Npcs/Logamon.npc'
+import { NpcMirrormon } from '@/GameData/Npcs/Mirrormon.npc'
+import { NpcNanomon } from '@/GameData/Npcs/Nanomon.npc'
+import { NpcNavimon } from '@/GameData/Npcs/Navimon.npc'
+import { NpcOujamon } from '@/GameData/Npcs/Oujamon.npc'
+import { NpcSavemon } from '@/GameData/Npcs/Savemon.npc'
 
 export const NpcRegistry: {
   [category: string]: {

@@ -2,19 +2,16 @@ import { BiCaretDown } from 'react-icons/bi'
 
 import { Fragment } from 'react/jsx-runtime'
 
-import {
-  canMoveToCoordinate,
-  getGamepadCoordinates,
-  setLocation
-} from '@/Helpers/Systems/Zones'
+import { canMoveToCoordinate } from '@/Helpers/Systems/Zones/canMoveToCoordinate.helper'
+import { getGamepadCoordinates } from '@/Helpers/Systems/Zones/getGamepadCoordinates.helper'
+import { setLocation } from '@/Helpers/Systems/Zones/setLocation.helper'
 
 import { useGameStore } from '@/Stores/Game.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
-
-import './Gamepad.style.scss'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import '@/Components/Main/Gamepad/Gamepad.style.scss'
 
 export const Gamepad = () => {
   const { profile } = useProfileStore((state) => state)

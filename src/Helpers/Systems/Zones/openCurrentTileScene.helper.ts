@@ -1,18 +1,12 @@
-import { BattleTurn } from '@/GameData/Scenes/Apps/Battle/BattleTurn.scene'
-import { DungeonChooseRoom } from '@/GameData/Scenes/Apps/Dungeon/ChooseRoom.scene'
+import { getCurrentMap } from '@/Helpers/Systems/Zones/getCurrentMap.helper'
+import { getInteractableTiles } from '@/Helpers/Systems/Zones/getInteractableTiles.helper'
 
-import { getCurrentMap, getInteractableTiles } from '@/Helpers/Systems/Zones'
-
-import { useBattleStore } from '@/Stores/Battle.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
-import { useDungeonStore } from '@/Stores/Dungeon.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 export const openCurrentTileScene = () => {
   const { profile } = useProfileStore.getState()
-  const { dungeon } = useDungeonStore.getState()
-  const { battle } = useBattleStore.getState()
   const { digivice } = useDigiviceStore.getState()
   const { setScene } = useSceneStore.getState()
 
@@ -23,17 +17,7 @@ export const openCurrentTileScene = () => {
     return
   }
 
-  if (!!battle) {
-    setScene({ component: BattleTurn })
-    return
-  }
-
-  if (!!dungeon) {
-    setScene({ component: DungeonChooseRoom })
-    return
-  }
-
-  const { x, y } = profile.currentZone
+  const { x, y } = profile.currentLocation
 
   const currentTile = currentMap.tiles.find(
     (tile) =>

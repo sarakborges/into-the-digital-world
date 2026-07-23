@@ -1,6 +1,6 @@
-import { AllAttacks } from '@/GameData/Attacks'
+import { getAttack } from '@/GameData/Registries/Attack.registry'
 
-import { getTexts } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 export const getBattleAttackOptions = (currentTurn: {
   attacks: Record<string, unknown>
@@ -8,10 +8,14 @@ export const getBattleAttackOptions = (currentTurn: {
   party: 'allies' | 'enemies'
   index: number
 }) =>
-  Object.keys(currentTurn.attacks).map((attack) => ({
-    id: attack,
-    label: getTexts('SELECT_ATTACK_OPTION', {
-      '[NAME]': AllAttacks[attack].name,
-      '[COOLDOWN]': String(AllAttacks[attack].cooldown || 0)
-    })
-  }))
+  Object.keys(currentTurn.attacks).map((attackId) => {
+    const attack = getAttack(attackId)
+
+    return {
+      id: attackId,
+      label: getTexts('SELECT_ATTACK_OPTION', {
+        '[NAME]': attack.name,
+        '[COOLDOWN]': String(attack.cooldown || 0)
+      })
+    }
+  })

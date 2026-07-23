@@ -2,21 +2,20 @@ import type { ProfileType } from '@/Types/Profile.type'
 
 import { getZoneDefinition } from '@/GameData/Registries/ZoneManifest.registry'
 
-import { getTexts } from '@/Helpers/Language'
-import { saveProfile } from '@/Helpers/Systems/Profile'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { saveProfile } from '@/Helpers/Systems/Profile/saveProfile.helper'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Text } from '@/Components/DesignSystem/Text'
-import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
-
-import './GameFileSave.style.scss'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import '@/Components/Global/GameFileSave/GameFileSave.style.scss'
+import { PlayerAvatar } from '@/Components/Global/PlayerAvatar/PlayerAvatar.component'
 
 export const GameFileSave = ({ profile }: { profile: ProfileType }) => {
-  if (!profile.currentZone) {
+  if (!profile.currentLocation) {
     return
   }
 
-  const zone = getZoneDefinition(profile.currentZone.id)
+  const zone = getZoneDefinition(profile.currentLocation.zone)
 
   if (!zone) {
     return
@@ -48,7 +47,7 @@ export const GameFileSave = ({ profile }: { profile: ProfileType }) => {
       </header>
 
       <div className="game-options">
-        <Button onClick={() => saveProfile(profile.id)}>
+        <Button onClick={() => void saveProfile(profile.id)}>
           {getTexts('SAVEGAME_001_REWRITE')}
         </Button>
       </div>

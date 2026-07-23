@@ -3,18 +3,15 @@ import { TbListDetails } from 'react-icons/tb'
 
 import { getQuest } from '@/GameData/Registries/Quest.registry'
 
-import { setCurrentDetails } from '@/Helpers/Systems/Digivice'
-import {
-  getQuestObjectiveText,
-  getQuestObjectives
-} from '@/Helpers/Systems/Quests'
+import { setCurrentDetails } from '@/Helpers/Systems/Digivice/setCurrentDetails.helper'
+import { getQuestObjectiveText } from '@/Helpers/Systems/Quests/getQuestObjectiveText.helper'
+import { getQuestObjectives } from '@/Helpers/Systems/Quests/getQuestObjectives.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Text } from '@/Components/DesignSystem/Text'
-
-import './QuestsList.style.scss'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import '@/Components/Global/QuestsList/QuestsList.style.scss'
 
 export const QuestsList = ({
   list,

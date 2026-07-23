@@ -1,10 +1,9 @@
-import { getTexts } from '@/Helpers/Language'
-import { getThemeGroups } from '@/Helpers/Systems/Settings'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getThemeGroups } from '@/Helpers/Systems/Settings/getThemeGroups.helper'
 
-import { Text } from '@/Components/DesignSystem/Text'
-import { UpdateTheme } from '@/Components/Settings/Theme'
-
-import './SettingsTheme.style.scss'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import { UpdateTheme } from '@/Components/Settings/Theme/UpdateTheme.component'
+import '@/Components/Settings/Themes/SettingsTheme.style.scss'
 
 export const SettingsTheme = () => {
   const themeGroups = getThemeGroups()

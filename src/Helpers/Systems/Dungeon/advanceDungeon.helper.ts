@@ -1,6 +1,5 @@
-import { saveDungeon } from './saveDungeon.helper'
-
-import { closeScene } from '@/Helpers/Systems/Scenes'
+import { saveDungeon } from '@/Helpers/Systems/Dungeon/saveDungeon.helper'
+import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
 import { useDungeonStore } from '@/Stores/Dungeon.store'
 

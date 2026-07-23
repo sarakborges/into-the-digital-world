@@ -1,10 +1,9 @@
-import { getBattleTurnOrder } from '@/Helpers/Systems/Battle'
+import { getBattleTurnOrder } from '@/Helpers/Systems/Battle/getBattleTurnOrder.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-
-import './TurnOrder.style.scss'
+import '@/Components/Combat/TurnOrder/TurnOrder.style.scss'
+import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
 
 export const TurnOrder = () => {
   const { battle } = useBattleStore((state) => state)

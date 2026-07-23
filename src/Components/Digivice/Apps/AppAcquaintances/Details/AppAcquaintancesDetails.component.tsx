@@ -1,14 +1,13 @@
 import { getNpcsByCategory } from '@/GameData/Registries/Npc.registry'
 
-import { getTexts } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-import { Text } from '@/Components/DesignSystem/Text'
-import { CharacterHeader } from '@/Components/Digivice/Apps/CharacterHeader'
-
-import './AppAcquaintancesDetails.style.scss'
+import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import '@/Components/Digivice/Apps/AppAcquaintances/Details/AppAcquaintancesDetails.style.scss'
+import { CharacterHeader } from '@/Components/Digivice/Apps/CharacterHeader/CharacterHeader.component'
 
 export const AppAcquaintancesDetails = () => {
   const { digivice } = useDigiviceStore((state) => state)

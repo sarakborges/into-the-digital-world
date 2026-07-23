@@ -3,12 +3,12 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { NpcNanomon } from '@/GameData/Npcs/Nanomon.npc'
 import { Research002 } from '@/GameData/Scenes/Apps/Research/002.scene'
 
-import { getTexts } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
 export const Research001 = () => {
   const { setScene } = useSceneStore((state) => state)

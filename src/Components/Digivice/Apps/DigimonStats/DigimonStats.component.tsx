@@ -1,14 +1,14 @@
-import { getTexts } from '@/Helpers/Language'
-import { getExtraStatsFromPartner } from '@/Helpers/Systems/Battle'
-import { getCurrentDigimon, getPartnerDigimon } from '@/Helpers/Systems/Digimon'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { calcExtraStats } from '@/Helpers/Systems/Battle/calcExtraStats.helper'
+import { getCurrentDigimon } from '@/Helpers/Systems/Digimon/getCurrentDigimon.helper'
+import { getPartnerDigimon } from '@/Helpers/Systems/Digimon/getPartnerDigimon.helper'
 
 import { DIGIMON_STATS } from '@/Consts/Stats.const'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 
-import { Text } from '@/Components/DesignSystem/Text'
-
-import './DigimonStats.style.scss'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import '@/Components/Digivice/Apps/DigimonStats/DigimonStats.style.scss'
 
 export const DigimonStats = () => {
   const { digivice } = useDigiviceStore((state) => state)
@@ -38,7 +38,7 @@ export const DigimonStats = () => {
             <Text>
               <>{baseDigimon.stats[stat]}</>
               <> + </>
-              <>{getExtraStatsFromPartner(partner, stat)}</>
+              <>{calcExtraStats({ digimon: partner, stat })}</>
             </Text>
           </div>
         ))}

@@ -1,8 +1,7 @@
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { CharacterHeader } from '@/Components/Digivice/Apps/CharacterHeader'
-
-import './AppPlayerProfile.style.scss'
+import '@/Components/Digivice/Apps/AppPlayerProfile/AppPlayerProfile.style.scss'
+import { CharacterHeader } from '@/Components/Digivice/Apps/CharacterHeader/CharacterHeader.component'
 
 export const AppPlayerProfile = () => {
   const { profile } = useProfileStore((state) => state)

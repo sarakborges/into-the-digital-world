@@ -2,13 +2,13 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { GetStarterDigimon017 } from '@/GameData/Scenes/Story/GetStarterDigimon/017.scene'
 
-import { getTexts } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
 export const GetStarterDigimon016 = () => {
   const { setScene } = useSceneStore((state) => state)

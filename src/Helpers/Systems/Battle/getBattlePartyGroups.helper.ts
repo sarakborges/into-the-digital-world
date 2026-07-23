@@ -1,6 +1,6 @@
 import type { BattlePartyGroupType } from '@/Types/BattleHelpers.type'
 
-import { getTexts } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 

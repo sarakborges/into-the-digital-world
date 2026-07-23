@@ -1,9 +1,8 @@
 import type {
   RuntimeMapType,
-  RuntimeZoneId,
   RuntimeZoneType,
   ZoneRuntimeRegistryType
-} from './ZoneRuntime.registry.types'
+} from '@/GameData/Registries/ZoneRuntime.registry.types'
 
 let runtimeRegistry: ZoneRuntimeRegistryType | undefined
 
@@ -20,11 +19,18 @@ const getRuntimeRegistry = () => {
 }
 
 export const findZone = (zone: string): RuntimeZoneType | undefined => {
-  return runtimeRegistry?.[zone as RuntimeZoneId]
+  if (!runtimeRegistry) {
+    return undefined
+  }
+
+  return Object.entries(runtimeRegistry).find(
+    ([zoneId]) => zoneId === zone
+  )?.[1]
 }
 
 export const getZone = (zone: string): RuntimeZoneType => {
-  const definition = getRuntimeRegistry()[zone as RuntimeZoneId]
+  getRuntimeRegistry()
+  const definition = findZone(zone)
 
   if (!definition) {
     throw new Error(`Unknown zone: ${zone}`)
@@ -43,9 +49,8 @@ export const findZoneMap = ({
   map
 }: GetZoneMapParams): RuntimeMapType | undefined => {
   const definition = findZone(zone)
-  const maps = definition?.maps as Record<string, RuntimeMapType> | undefined
 
-  return maps?.[map]
+  return definition?.maps[map]
 }
 
 export const getZoneMap = (params: GetZoneMapParams): RuntimeMapType => {

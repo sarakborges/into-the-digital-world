@@ -2,21 +2,18 @@ import { TbListDetails } from 'react-icons/tb'
 
 import { Fragment } from 'react/jsx-runtime'
 
-import {
-  getAcquaintanceGroups,
-  setCurrentDetails
-} from '@/Helpers/Systems/Digivice'
+import { getAcquaintanceGroups } from '@/Helpers/Systems/Digivice/getAcquaintanceGroups.helper'
+import { setCurrentDetails } from '@/Helpers/Systems/Digivice/setCurrentDetails.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-import { Text } from '@/Components/DesignSystem/Text'
-import { AppAcquaintancesDetails } from '@/Components/Digivice/Apps/AppAcquaintances/Details'
-
-import './AppAcquaintances.style.scss'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import { AppAcquaintancesDetails } from '@/Components/Digivice/Apps/AppAcquaintances/Details/AppAcquaintancesDetails.component'
+import '@/Components/Digivice/Apps/AppAcquaintances/List/AppAcquaintances.style.scss'
 
 export const AppAcquaintances = () => {
   const { profile } = useProfileStore((state) => state)

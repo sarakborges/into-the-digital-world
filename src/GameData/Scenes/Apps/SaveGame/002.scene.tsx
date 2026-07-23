@@ -2,13 +2,13 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { NpcSavemon } from '@/GameData/Npcs/Savemon.npc'
 
-import { getTexts } from '@/Helpers/Language'
-import { closeScene } from '@/Helpers/Systems/Scenes'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
 export const SaveGame002 = () => {
   const { digivice, setDigivice } = useDigiviceStore((state) => state)

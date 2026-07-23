@@ -1,4 +1,4 @@
-import { AllResearches } from '@/GameData/Researches'
+import { getResearch } from '@/GameData/Registries/Research.registry'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -9,7 +9,9 @@ export const isResearchPurchasable = (research: string): boolean => {
     return false
   }
 
-  return Object.keys(AllResearches[research].cost).every(
-    (item) => profile.items[item] >= AllResearches[research].cost[item]
+  const researchDetails = getResearch(research)
+
+  return Object.keys(researchDetails.cost).every(
+    (item) => profile.items[item] >= researchDetails.cost[item]
   )
 }

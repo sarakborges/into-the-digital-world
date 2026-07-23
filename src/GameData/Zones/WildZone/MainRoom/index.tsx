@@ -1,10 +1,10 @@
-import { grid } from './MainRoom.grid'
-import { WildZoneGennaiTile } from './Tiles/Gennai.tile'
-import { WildZoneKoromonNestTile } from './Tiles/KoromonNest.tile'
-
 import type { MapType } from '@/Types/Zone.type'
 
-import { fillGrid } from '@/Helpers/Systems/Zones'
+import { grid } from '@/GameData/Zones/WildZone/MainRoom/MainRoom.grid'
+import { WildZoneGennaiTile } from '@/GameData/Zones/WildZone/MainRoom/Tiles/Gennai.tile'
+import { WildZoneKoromonNestTile } from '@/GameData/Zones/WildZone/MainRoom/Tiles/KoromonNest.tile'
+
+import { fillGrid } from '@/Helpers/Systems/Zones/fillGrid.helper'
 
 const gridSize = 19
 const filledGrid = fillGrid({ grid, gridSize })

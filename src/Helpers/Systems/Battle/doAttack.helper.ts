@@ -2,15 +2,14 @@ import type { AttackType } from '@/Types/Attack.type'
 import type { BattleType } from '@/Types/Battle.type'
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
-import { AllAttacks } from '@/GameData/Attacks'
+import { findAttack } from '@/GameData/Registries/Attack.registry'
 import { BattleAttack } from '@/GameData/Scenes/Apps/Battle/BattleAttack.scene'
 
-import { generateRandomNumber, getSuccesses } from '@/Helpers/Math'
-import {
-  calcExtraStats,
-  isDigimonDefeated,
-  saveBattle
-} from '@/Helpers/Systems/Battle'
+import { generateRandomNumber } from '@/Helpers/Math/generateRandomNumber.helper'
+import { getSuccesses } from '@/Helpers/Math/getSuccesses.helper'
+import { calcExtraStats } from '@/Helpers/Systems/Battle/calcExtraStats.helper'
+import { isDigimonDefeated } from '@/Helpers/Systems/Battle/isDigimonDefeated.helper'
+import { saveBattle } from '@/Helpers/Systems/Battle/saveBattle.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -118,7 +117,7 @@ export const doAttack = (move: string) => {
     return
   }
 
-  const usedMove: AttackType = AllAttacks[move]
+  const usedMove = findAttack(move)
 
   if (!usedMove) {
     return

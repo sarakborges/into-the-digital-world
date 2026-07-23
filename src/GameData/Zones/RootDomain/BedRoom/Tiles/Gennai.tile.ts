@@ -3,7 +3,7 @@ import type { MapTileType } from '@/Types/MapTile.type'
 import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 import { AvatarFixingQuest } from '@/GameData/Quests/AvatarFixing.quest'
 
-import { isQuestDone } from '@/Helpers/Systems/Quests'
+import { isQuestDone } from '@/Helpers/Systems/Quests/isQuestDone.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 

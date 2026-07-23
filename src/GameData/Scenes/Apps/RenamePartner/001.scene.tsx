@@ -1,20 +1,20 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { AllDigimons } from '@/GameData/Digimons'
 import { NpcBookmon } from '@/GameData/Npcs/Bookmon.npc'
+import { findDigimon } from '@/GameData/Registries/Digimon.registry'
 import { RenamePartner002 } from '@/GameData/Scenes/Apps/RenamePartner/002.scene'
 
-import { getTexts } from '@/Helpers/Language'
-import { saveSession } from '@/Helpers/Systems/Data'
-import { closeScene } from '@/Helpers/Systems/Scenes'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
+import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { Input } from '@/Components/DesignSystem/Input'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { Input } from '@/Components/DesignSystem/Input/Input.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
 export const RenamePartner001 = () => {
   const { profile } = useProfileStore((state) => state)
@@ -26,7 +26,11 @@ export const RenamePartner001 = () => {
   }
 
   const digimon = profile.partnerDigimons[digivice.currentDetails]
-  const baseDigimon = AllDigimons[digimon.baseDigimon]
+  const baseDigimon = digimon ? findDigimon(digimon.baseDigimon) : undefined
+
+  if (!digimon || !baseDigimon) {
+    return
+  }
 
   const dialogOptions: DialogType = {
     speaker: NpcBookmon,

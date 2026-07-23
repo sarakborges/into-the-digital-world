@@ -1,5 +1,5 @@
-import { deleteSession } from '@/Helpers/Systems/Data'
-import { closeScene } from '@/Helpers/Systems/Scenes'
+import { deleteSession } from '@/Helpers/Systems/Data/deleteSession.helper'
+import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'

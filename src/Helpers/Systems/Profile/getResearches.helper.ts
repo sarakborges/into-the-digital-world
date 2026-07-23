@@ -1,4 +1,4 @@
-import { AllDigimons } from '@/GameData/Digimons'
+import { getDigimon } from '@/GameData/Registries/Digimon.registry'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -13,9 +13,13 @@ export const getResearches = (): Array<{
     return []
   }
 
-  return Object.values(profile.researches ?? {}).map((research) => ({
-    id: research,
-    name: AllDigimons[Number(research)].name,
-    portrait: AllDigimons[Number(research)].portrait
-  }))
+  return Object.values(profile.researches ?? {}).map((researchId) => {
+    const digimon = getDigimon(researchId)
+
+    return {
+      id: researchId,
+      name: digimon.name,
+      portrait: digimon.portrait
+    }
+  })
 }

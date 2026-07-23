@@ -1,4 +1,4 @@
-import { generateRandomNumber } from './generateRandomNumber.helper'
+import { generateRandomNumber } from '@/Helpers/Math/generateRandomNumber.helper'
 
 export const rollDies = (amountOfDies: number): number[] =>
   Array.from({ length: amountOfDies }, () =>

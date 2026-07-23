@@ -1,10 +1,12 @@
 import type { AvatarType } from '@/Types/Avatar.type'
 import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 
+import type { GameLocation } from '@/GameData/Registries/ZoneManifest.registry'
+
 export type ProfileType = {
   id: number
   name: string
-  lastSave: Date
+  lastSave: string
   avatar?: AvatarType
   currency?: number
   currentTitle: string
@@ -27,12 +29,7 @@ export type ProfileType = {
     [itemId: string]: number
   }
 
-  currentZone: {
-    id: string
-    map: string
-    x: number
-    y: number
-  }
+  currentLocation: GameLocation
 
   partnerDigimons: {
     [key: string]: PartnerDigimonType

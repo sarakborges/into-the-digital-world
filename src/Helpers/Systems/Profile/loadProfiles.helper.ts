@@ -1,19 +1,34 @@
-import { loadData } from '@/Helpers/Systems/Data'
+import { importLegacyLocalStorageSaves } from '@/Systems/Save/LegacySave.importer'
+import { saveService } from '@/Systems/Save/Save.service'
+
+import type { ProfileType } from '@/Types/Profile.type'
+
+import { getSortedProfiles } from '@/Helpers/Systems/Profile/getSortedProfiles.helper'
 
 import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 
-export const loadProfiles = () => {
+export const loadProfiles = async (): Promise<void> => {
   const { setSavedProfiles } = useSavedProfilesStore.getState()
+  const profiles: ProfileType[] = []
 
-  const savedProfiles = loadData(`profiles`)
+  try {
+    await importLegacyLocalStorageSaves()
 
-  if (!savedProfiles) {
-    return
+    const slots = await saveService.list()
+
+    for (const slot of slots) {
+      try {
+        const { save } = await saveService.load(slot.slotId)
+
+        profiles.push(save.profile)
+      } catch (error) {
+        console.warn(`Error loading save slot ${slot.slotId}: ${error}`)
+      }
+    }
+
+    setSavedProfiles(getSortedProfiles(profiles))
+  } catch (error) {
+    console.warn(`Error loading save profiles: ${error}`)
+    setSavedProfiles([])
   }
-
-  setSavedProfiles(
-    savedProfiles
-      ?.map((profile) => loadData(`profile${profile}`))
-      .sort((a, b) => (a.lastSave > b.lastSave ? -1 : 1))
-  )
 }

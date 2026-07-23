@@ -1,21 +1,20 @@
 import { BiMinus, BiPlus } from 'react-icons/bi'
 
-import { AllItems } from '@/GameData/Items'
-import { AllResearches } from '@/GameData/Researches'
+import { getItem } from '@/GameData/Registries/Item.registry'
+import { getResearch } from '@/GameData/Registries/Research.registry'
 
-import { getTexts } from '@/Helpers/Language'
-import { updateOptionalItem } from '@/Helpers/Systems/Compose'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { updateOptionalItem } from '@/Helpers/Systems/Compose/updateOptionalItem.helper'
 
 import { useCompositionStore } from '@/Stores/Composition.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-import { Text } from '@/Components/DesignSystem/Text'
-import { ItemCore } from '@/Components/Global/ItemCore'
-import { ItemsList } from '@/Components/Global/ItemsList'
-
-import './AppCompose.style.scss'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import '@/Components/Digivice/Apps/AppCompose/App/AppCompose.style.scss'
+import { ItemCore } from '@/Components/Global/ItemCore/ItemCore.component'
+import { ItemsList } from '@/Components/Global/ItemsList/ItemsList.component'
 
 export const AppCompose = () => {
   const { profile } = useProfileStore((state) => state)
@@ -26,9 +25,9 @@ export const AppCompose = () => {
   }
 
   const baseDigimon = composition.baseDigimon
-
-  const requiredItems = AllResearches[baseDigimon.id].requiredItems
-  const optionalItems = AllResearches[baseDigimon.id].optionalItems
+  const research = getResearch(baseDigimon.id)
+  const requiredItems = research.requiredItems
+  const optionalItems = research.optionalItems
 
   return (
     <div className="compose" key={`composition-${baseDigimon.name}`}>
@@ -78,7 +77,7 @@ export const AppCompose = () => {
                     <ItemCore item={item} />
 
                     <div className="item-description">
-                      <Text>{AllItems[item].name}</Text>
+                      <Text>{getItem(item).name}</Text>
 
                       <Text>
                         {getTexts('COMPOSE_002_OPTIONAL_ITEMS_AMOUNT', {

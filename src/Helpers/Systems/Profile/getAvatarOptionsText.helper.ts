@@ -1,4 +1,4 @@
-import { getTexts } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 export const getAvatarOptionsText = (): { [layer: string]: string } => {
   return {

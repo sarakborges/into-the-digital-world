@@ -4,7 +4,7 @@ import {
   getZoneDefinition
 } from '@/GameData/Registries/ZoneManifest.registry'
 
-import { getTexts } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 export const getQuestObjectiveText = (objective: {
   type: string

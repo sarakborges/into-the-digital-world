@@ -6,26 +6,30 @@ export const getInteractableTiles = () => {
   const profile = useProfileStore.getState().profile
   const currentMap = getCurrentMap()
 
-  if (!profile?.currentZone || !currentMap) {
+  if (!profile?.currentLocation || !currentMap) {
     return []
   }
 
   return [
     ...currentMap.tiles.filter(
       (tile) =>
-        tile.x === profile.currentZone.x - 1 && tile.y === profile.currentZone.y
+        tile.x === profile.currentLocation.x - 1 &&
+        tile.y === profile.currentLocation.y
     ),
     ...currentMap.tiles.filter(
       (tile) =>
-        tile.x === profile.currentZone.x + 1 && tile.y === profile.currentZone.y
+        tile.x === profile.currentLocation.x + 1 &&
+        tile.y === profile.currentLocation.y
     ),
     ...currentMap.tiles.filter(
       (tile) =>
-        tile.y === profile.currentZone.y - 1 && tile.x === profile.currentZone.x
+        tile.y === profile.currentLocation.y - 1 &&
+        tile.x === profile.currentLocation.x
     ),
     ...currentMap.tiles.filter(
       (tile) =>
-        tile.y === profile.currentZone.y + 1 && tile.x === profile.currentZone.x
+        tile.y === profile.currentLocation.y + 1 &&
+        tile.x === profile.currentLocation.x
     )
   ].filter((tile) => tile.condition === undefined || !!tile.condition())
 }

@@ -1,5 +1,5 @@
-import { movePlayer } from './movePlayer.helper'
-import { openCurrentTileScene } from './openCurrentTileScene.helper'
+import { movePlayer } from '@/Helpers/Systems/Zones/movePlayer.helper'
+import { openCurrentTileScene } from '@/Helpers/Systems/Zones/openCurrentTileScene.helper'
 
 export const setLocation = ({ x, y }: { x?: number; y?: number }) => {
   const coordinates = movePlayer({ x, y })

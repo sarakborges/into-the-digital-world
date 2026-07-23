@@ -1,10 +1,9 @@
-import { hasBattleLoot } from '@/Helpers/Systems/Battle'
+import { hasBattleLoot } from '@/Helpers/Systems/Battle/hasBattleLoot.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 
-import { ItemsList } from '@/Components/Global/ItemsList'
-
-import './CombatLoot.style.scss'
+import '@/Components/Combat/CombatLoot/CombatLoot.style.scss'
+import { ItemsList } from '@/Components/Global/ItemsList/ItemsList.component'
 
 export const CombatLoot = () => {
   const { battle } = useBattleStore((state) => state)

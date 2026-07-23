@@ -1,10 +1,9 @@
-import { getBattlePartyGroups } from '@/Helpers/Systems/Battle'
+import { getBattlePartyGroups } from '@/Helpers/Systems/Battle/getBattlePartyGroups.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 
-import { BattleParty } from '@/Components/Combat/BattleParty'
-
-import './CombatParties.style.scss'
+import { BattleParty } from '@/Components/Combat/BattleParty/BattleParty.component'
+import '@/Components/Combat/CombatParties/CombatParties.style.scss'
 
 export const CombatParties = () => {
   const { battle } = useBattleStore((state) => state)

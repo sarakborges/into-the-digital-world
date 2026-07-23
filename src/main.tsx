@@ -2,7 +2,7 @@ import { createRoot } from 'react-dom/client'
 
 import '@/GameData/Registries/ZoneMap.registry'
 
-import { Game } from '@/Components/Main/Game'
+import { Game } from '@/Components/Main/Game/Game.component'
 
 import '@/Assets/main.css'
 

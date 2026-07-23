@@ -1,13 +1,13 @@
 import type { ResearchType } from '@/Types/Research.type'
 
-import { AllItems } from '@/GameData/Items'
+import { DorimonCoreItem } from '@/GameData/Items/DorimonCore.item'
 
 export const DorimonResearch: ResearchType = {
   cost: {
-    [AllItems.dorimonCore.id]: 25
+    [DorimonCoreItem.id]: 25
   },
 
   requiredItems: {
-    [AllItems.dorimonCore.id]: 25
+    [DorimonCoreItem.id]: 25
   }
 }
