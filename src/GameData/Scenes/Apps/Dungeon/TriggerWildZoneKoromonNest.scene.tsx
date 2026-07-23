@@ -3,7 +3,6 @@ import { CgEye } from 'react-icons/cg'
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { AllDungeons } from '@/GameData/Dungeons'
-import { AllNpcs } from '@/GameData/Npcs'
 
 import { getTexts } from '@/Helpers/Language'
 import { enterDungeon } from '@/Helpers/Systems/Dungeon'
@@ -18,8 +17,6 @@ export const DungeonTriggerWildZoneKoromonNest = () => {
   }
 
   const dialogOptions: DialogType = {
-    speaker: AllNpcs.appmon.navimon,
-
     content: (
       <div className="dialog-with-reactions">
         <div className="text-bubble">

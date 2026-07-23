@@ -1,3 +1,4 @@
+import { AllDigimons } from '@/GameData/Digimons'
 import { AllDungeons } from '@/GameData/Dungeons'
 
 import { generateRandomNumber, getSuccesses } from '@/Helpers/Math'
@@ -30,12 +31,12 @@ export const startBattle = () => {
   }
 
   const enemies = spawnedEnemies.map((digimon, digimonIndex) => ({
+    ...AllDigimons[digimon.digimonId],
     ...digimon,
 
     party: 'enemies' as 'allies' | 'enemies',
     index: digimonIndex,
-    equipments: currentRoom.spawns?.digimons![digimon.id].equipments,
-    lootTable: [...(currentRoom.spawns?.digimons![digimon.id].lootTable ?? [])]
+    equipments: digimon.equipments
   }))
 
   saveBattle({

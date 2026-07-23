@@ -6,14 +6,9 @@ export type DungeonRoomType = {
   branchesTo?: Array<string>
   type: 'battle' | 'event'
 
-  spawns?: {
-    min: number
-    max: number
-
-    digimons: {
-      [digimonId: string]: SpawnableDigimonType
-    }
-  }
+  encounters?: Array<{
+    digimons: Array<SpawnableDigimonType>
+  }>
 
   choices?: {
     [eventId: string]: {

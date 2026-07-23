@@ -3,10 +3,10 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { AllNpcs } from '@/GameData/Npcs'
 
 import { getTexts } from '@/Helpers/Language'
-import { isDigimonDefeated, saveBattle } from '@/Helpers/Systems/Battle'
-import { enterNextDungeonRoom, saveDungeon } from '@/Helpers/Systems/Dungeon'
-import { closeScene } from '@/Helpers/Systems/Scenes'
-import { warpTo } from '@/Helpers/Systems/Zones'
+import { isDigimonDefeated } from '@/Helpers/Systems/Battle'
+import { triggerDefeat } from '@/Helpers/Systems/Battle/triggerDefeat.helper'
+import { triggerVictory } from '@/Helpers/Systems/Battle/triggerVictory.helper'
+import { enterNextDungeonRoom } from '@/Helpers/Systems/Dungeon'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useDungeonStore } from '@/Stores/Dungeon.store'
@@ -17,7 +17,7 @@ import { Dialog } from '@/Components/DesignSystem/Dialog'
 import { Text } from '@/Components/DesignSystem/Text'
 
 export const BattleEnd = () => {
-  const { profile, setProfile } = useProfileStore((state) => state)
+  const { profile } = useProfileStore((state) => state)
   const { battle } = useBattleStore((state) => state)
   const { dungeon } = useDungeonStore((state) => state)
 
@@ -55,28 +55,12 @@ export const BattleEnd = () => {
             return
           }
 
-          if (battleResult === 'victory' && battle.loot) {
-            const updatedItems = { ...profile.items }
-
-            for (const item of Object.keys(battle.loot)) {
-              updatedItems[item] =
-                (profile.items[item] || 0) + battle.loot[item]
-            }
-
-            setProfile({ ...profile, items: updatedItems })
+          if (battleResult === 'victory') {
+            triggerVictory()
           }
 
           if (battleResult === 'defeat') {
-            warpTo({
-              x: 3,
-              y: 5,
-              zoneId: 'rootDomain',
-              mapId: 'restRoom'
-            })
-
-            saveDungeon(null)
-            saveBattle(null)
-            closeScene()
+            triggerDefeat()
           }
 
           enterNextDungeonRoom()
