@@ -2,7 +2,7 @@ import type { QuestType } from '@/Types/Quest.type'
 
 import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 
-export const IntroductionQuest: QuestType = {
+export const IntroductionQuest = {
   id: 'introduction',
   name: 'Introduction',
 
@@ -18,4 +18,4 @@ export const IntroductionQuest: QuestType = {
       }
     }
   }
-}
+} satisfies QuestType
