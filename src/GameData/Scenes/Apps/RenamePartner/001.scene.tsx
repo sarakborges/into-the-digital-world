@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { NpcBookmon } from '@/GameData/Npcs/Bookmon.npc'
@@ -20,6 +22,11 @@ export const RenamePartner001 = () => {
   const { profile } = useProfileStore((state) => state)
   const { digivice } = useDigiviceStore((state) => state)
   const { setScene } = useSceneStore((state) => state)
+  const [name, setName] = useState(
+    digivice?.currentDetails
+      ? (profile?.partnerDigimons[digivice.currentDetails]?.name ?? '')
+      : ''
+  )
 
   if (!profile || !digivice?.currentDetails) {
     return
@@ -49,8 +56,9 @@ export const RenamePartner001 = () => {
           label={getTexts('RENAMEPARTNER_001_INPUT')}
           placeholder={digimon?.name || baseDigimon.name}
           name="partner-name"
-          defaultValue={digimon?.name}
+          value={name}
           autoFocus
+          onChange={(event) => setName(event.target.value)}
         />
       </div>
     ),
@@ -72,10 +80,6 @@ export const RenamePartner001 = () => {
             return
           }
 
-          const name = (
-            document.querySelector('[name=partner-name]') as HTMLInputElement
-          ).value.trim()
-
           const updatedProfile = {
             ...profile,
 
@@ -84,7 +88,7 @@ export const RenamePartner001 = () => {
 
               [digivice.currentDetails]: {
                 ...profile.partnerDigimons[digivice.currentDetails],
-                name
+                name: name.trim()
               }
             }
           }

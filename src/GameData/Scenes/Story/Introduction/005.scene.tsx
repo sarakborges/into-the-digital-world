@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useState } from 'react'
 
 import type { DialogType } from '@/Types/Dialog.type'
 
@@ -17,14 +17,7 @@ import { Text } from '@/Components/DesignSystem/Text/Text.component'
 export const Introduction005 = () => {
   const { setScene } = useSceneStore((state) => state)
   const { profile, setProfile } = useProfileStore((state) => state)
-
-  useEffect(() => {
-    const sceneContinue = document.querySelector(
-      '#scene-introduction-005-continue'
-    ) as HTMLButtonElement
-
-    sceneContinue.disabled = true
-  }, [])
+  const [name, setName] = useState('')
 
   if (!profile) {
     return
@@ -44,13 +37,8 @@ export const Introduction005 = () => {
           placeholder={getTexts('INTRODUCTION_005_INPUT_PLACEHOLDER')}
           name="player-name"
           autoFocus
-          onChange={(e) =>
-            ((
-              document.querySelector(
-                '#scene-introduction-005-continue'
-              ) as HTMLButtonElement
-            ).disabled = !e.target.value)
-          }
+          value={name}
+          onChange={(event) => setName(event.target.value)}
         />
       </div>
     ),
@@ -59,14 +47,11 @@ export const Introduction005 = () => {
       {
         id: 'scene-introduction-005-continue',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
+        disabled: !name,
         action: () => {
-          const name = (
-            document.querySelector('[name=player-name]') as HTMLInputElement
-          ).value.trim()
-
           const updatedProfile = {
             ...profile,
-            name: name
+            name: name.trim()
           }
 
           setProfile(updatedProfile)
