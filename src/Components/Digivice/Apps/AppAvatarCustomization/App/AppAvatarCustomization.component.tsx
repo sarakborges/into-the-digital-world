@@ -24,13 +24,13 @@ export const AppAvatarCustomization = () => {
 
   const options = getAvatarOptionsText()
 
-  const avatar: AvatarType = profile?.avatar ?? generateRandomAvatar()
-
   useEffect(() => {
-    if (profile && avatarCustomization) {
-      setAvatarCustomization({ avatar })
+    if (profile) {
+      setAvatarCustomization({
+        avatar: profile.avatar ?? generateRandomAvatar()
+      })
     }
-  }, [])
+  }, [profile, setAvatarCustomization])
 
   if (!profile || !avatarCustomization) {
     return
