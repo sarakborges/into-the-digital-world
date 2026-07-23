@@ -2,24 +2,22 @@ import { BiSolidStar } from 'react-icons/bi'
 import { BsArrowDown, BsArrowUp } from 'react-icons/bs'
 import { TbListDetails } from 'react-icons/tb'
 
-import { getTexts } from '@/Helpers/Language'
-import { setCurrentDetails } from '@/Helpers/Systems/Digivice'
-import {
-  addToParty,
-  getPartnerGroups,
-  removeFromParty
-} from '@/Helpers/Systems/Profile'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { setCurrentDetails } from '@/Helpers/Systems/Digivice/setCurrentDetails.helper'
+import { addToParty } from '@/Helpers/Systems/Profile/addToParty.helper'
+import { getPartnerGroups } from '@/Helpers/Systems/Profile/getPartnerGroups.helper'
+import { removeFromParty } from '@/Helpers/Systems/Profile/removeFromParty.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-import { Text } from '@/Components/DesignSystem/Text'
-import { PartnerDetails } from '@/Components/Digivice/Apps/AppPartners/Details'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import { PartnerDetails } from '@/Components/Digivice/Apps/AppPartners/Details/PartnerDetails.component'
 import '@/Components/Digivice/Apps/AppPartners/List/AppPartnersList.style.scss'
-import { EncyclopediaHeader } from '@/Components/Digivice/Apps/EncyclopediaHeader'
+import { EncyclopediaHeader } from '@/Components/Digivice/Apps/EncyclopediaHeader/EncyclopediaHeader.component'
 
 export const AppPartnersList = () => {
   const { profile } = useProfileStore((state) => state)

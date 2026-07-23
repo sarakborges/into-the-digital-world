@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes } from 'react'
 
-import { getButtonClassNames } from '@/Helpers/Components'
+import { getButtonClassNames } from '@/Helpers/Components/getButtonClassNames.helper'
 
 import '@/Components/DesignSystem/Button/Button.style.scss'
 

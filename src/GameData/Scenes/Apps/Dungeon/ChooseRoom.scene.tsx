@@ -5,15 +5,15 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { NpcNavimon } from '@/GameData/Npcs/Navimon.npc'
 import { getDungeon } from '@/GameData/Registries/Dungeon.registry'
 
-import { getTexts } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { advanceDungeon } from '@/Helpers/Systems/Dungeon/advanceDungeon.helper'
 import { leaveDungeon } from '@/Helpers/Systems/Dungeon/leaveDungeon.helper'
 
 import { useDungeonStore } from '@/Stores/Dungeon.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
 export const DungeonChooseRoom = () => {
   const { dungeon } = useDungeonStore((state) => state)

@@ -3,18 +3,18 @@ import { BiMinus, BiPlus } from 'react-icons/bi'
 import { getItem } from '@/GameData/Registries/Item.registry'
 import { getResearch } from '@/GameData/Registries/Research.registry'
 
-import { getTexts } from '@/Helpers/Language'
-import { updateOptionalItem } from '@/Helpers/Systems/Compose'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { updateOptionalItem } from '@/Helpers/Systems/Compose/updateOptionalItem.helper'
 
 import { useCompositionStore } from '@/Stores/Composition.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 import '@/Components/Digivice/Apps/AppCompose/App/AppCompose.style.scss'
-import { ItemCore } from '@/Components/Global/ItemCore'
-import { ItemsList } from '@/Components/Global/ItemsList'
+import { ItemCore } from '@/Components/Global/ItemCore/ItemCore.component'
+import { ItemsList } from '@/Components/Global/ItemsList/ItemsList.component'
 
 export const AppCompose = () => {
   const { profile } = useProfileStore((state) => state)

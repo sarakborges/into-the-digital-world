@@ -1,12 +1,12 @@
 import { Fragment } from 'react/jsx-runtime'
 
-import { getTexts } from '@/Helpers/Language'
-import { getInventoryCategories } from '@/Helpers/Systems/Digivice'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getInventoryCategories } from '@/Helpers/Systems/Digivice/getInventoryCategories.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import '@/Components/Digivice/Apps/AppInventory/AppInventory.style.scss'
-import { ItemsList } from '@/Components/Global/ItemsList'
+import { ItemsList } from '@/Components/Global/ItemsList/ItemsList.component'
 
 export const AppInventory = () => {
   const { profile } = useProfileStore((state) => state)

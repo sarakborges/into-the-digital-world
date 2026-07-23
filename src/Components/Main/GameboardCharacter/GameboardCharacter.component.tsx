@@ -1,16 +1,14 @@
 import type { MapTileType } from '@/Types/MapTile.type'
 
-import { getTexts } from '@/Helpers/Language'
-import {
-  getCharacterVisibility,
-  isNpcAcquainted
-} from '@/Helpers/Systems/Profile'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getCharacterVisibility } from '@/Helpers/Systems/Profile/getCharacterVisibility.helper'
+import { isNpcAcquainted } from '@/Helpers/Systems/Profile/isNpcAcquainted.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-import { Text } from '@/Components/DesignSystem/Text'
-import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
+import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import { PlayerAvatar } from '@/Components/Global/PlayerAvatar/PlayerAvatar.component'
 import '@/Components/Main/GameboardCharacter/GameboardCharacter.style.scss'
 
 export const GameboardCharacter = ({

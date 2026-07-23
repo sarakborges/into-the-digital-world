@@ -1,6 +1,6 @@
 import { getAttack } from '@/GameData/Registries/Attack.registry'
 
-import { getTexts } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 export const getBattleAttackOptions = (currentTurn: {
   attacks: Record<string, unknown>

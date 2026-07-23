@@ -8,15 +8,15 @@ import { AvatarFixingQuest } from '@/GameData/Quests/AvatarFixing.quest'
 import { AvatarCustomization000 } from '@/GameData/Scenes/Apps/AvatarCustomization/000.scene'
 import { AvatarCustomization003 } from '@/GameData/Scenes/Apps/AvatarCustomization/003.scene'
 
-import { getTexts } from '@/Helpers/Language'
-import { isQuestDone } from '@/Helpers/Systems/Quests'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { isQuestDone } from '@/Helpers/Systems/Quests/isQuestDone.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
 export const AvatarCustomization001 = () => {
   const { profile } = useProfileStore((state) => state)

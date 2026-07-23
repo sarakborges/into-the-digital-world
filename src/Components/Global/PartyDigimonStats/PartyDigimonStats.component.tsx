@@ -1,10 +1,10 @@
-import { getTexts } from '@/Helpers/Language'
-import { calcExtraStats } from '@/Helpers/Systems/Battle'
-import { getBaseDigimon } from '@/Helpers/Systems/Digimon'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { calcExtraStats } from '@/Helpers/Systems/Battle/calcExtraStats.helper'
+import { getBaseDigimon } from '@/Helpers/Systems/Digimon/getBaseDigimon.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Text } from '@/Components/DesignSystem/Text'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 import '@/Components/Global/PartyDigimonStats/PartyDigimonStats.style.scss'
 
 export const PartyDigimonStats = ({ digimonId }: { digimonId: number }) => {

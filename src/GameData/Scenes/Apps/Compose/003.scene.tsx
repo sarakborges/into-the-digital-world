@@ -3,16 +3,16 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { NpcJijimon } from '@/GameData/Npcs/Jijimon.npc'
 import { getResearch } from '@/GameData/Registries/Research.registry'
 
-import { getTexts } from '@/Helpers/Language'
-import { saveSession } from '@/Helpers/Systems/Data'
-import { closeScene } from '@/Helpers/Systems/Scenes'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
+import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
 import { useCompositionStore } from '@/Stores/Composition.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { AppCompose } from '@/Components/Digivice/Apps/AppCompose/App'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { AppCompose } from '@/Components/Digivice/Apps/AppCompose/App/AppCompose.component'
 
 export const Compose003 = () => {
   const { profile } = useProfileStore((state) => state)

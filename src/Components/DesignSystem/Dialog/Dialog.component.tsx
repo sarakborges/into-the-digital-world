@@ -1,13 +1,13 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getTexts } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { isNpcAcquainted } from '@/Helpers/Systems/Profile/isNpcAcquainted.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
 import '@/Components/DesignSystem/Dialog/Dialog.style.scss'
-import { CharacterHeader } from '@/Components/Digivice/Apps/CharacterHeader'
+import { CharacterHeader } from '@/Components/Digivice/Apps/CharacterHeader/CharacterHeader.component'
 
 export const Dialog = ({ speaker, content, options }: DialogType) => {
   const { profile } = useProfileStore((state) => state)

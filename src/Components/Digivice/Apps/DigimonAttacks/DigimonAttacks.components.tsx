@@ -1,11 +1,12 @@
 import { getAttack } from '@/GameData/Registries/Attack.registry'
 
-import { getTexts } from '@/Helpers/Language'
-import { getCurrentDigimon, getPartnerDigimon } from '@/Helpers/Systems/Digimon'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getCurrentDigimon } from '@/Helpers/Systems/Digimon/getCurrentDigimon.helper'
+import { getPartnerDigimon } from '@/Helpers/Systems/Digimon/getPartnerDigimon.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 
-import { Text } from '@/Components/DesignSystem/Text'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 import '@/Components/Digivice/Apps/DigimonAttacks/DigimonAttacks.style.scss'
 
 export const DigimonAttacks = () => {

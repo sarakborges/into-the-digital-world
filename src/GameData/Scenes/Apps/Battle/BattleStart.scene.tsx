@@ -3,12 +3,12 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { NpcOujamon } from '@/GameData/Npcs/Oujamon.npc'
 import { BattleTurn } from '@/GameData/Scenes/Apps/Battle/BattleTurn.scene'
 
-import { getTexts } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
 export const BattleStart = () => {
   const { setScene } = useSceneStore((state) => state)

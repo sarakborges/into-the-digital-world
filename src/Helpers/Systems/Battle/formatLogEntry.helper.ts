@@ -1,6 +1,6 @@
 import type { BattleType } from '@/Types/Battle.type'
 
-import { getTexts } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 const getPartyText = (isEnemyAttacker: boolean): string =>
   isEnemyAttacker ? getTexts('BATTLE_ATTACK_ENEMIES') : ''

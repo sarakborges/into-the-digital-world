@@ -1,12 +1,12 @@
-import { getTexts } from '@/Helpers/Language'
-import { getCurrentDigimon } from '@/Helpers/Systems/Digimon'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getCurrentDigimon } from '@/Helpers/Systems/Digimon/getCurrentDigimon.helper'
 
 import { DIGIMON_ATTRIBUTES } from '@/Consts/Attributes.const'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 import '@/Components/Digivice/Apps/DigimonAttribute/DigimonAttribute.style.scss'
 
 export const DigimonAttribute = () => {

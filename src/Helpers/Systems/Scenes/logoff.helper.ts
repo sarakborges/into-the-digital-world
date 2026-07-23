@@ -1,4 +1,4 @@
-import { deleteSession } from '@/Helpers/Systems/Data'
+import { deleteSession } from '@/Helpers/Systems/Data/deleteSession.helper'
 import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'

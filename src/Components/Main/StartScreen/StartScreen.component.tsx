@@ -1,21 +1,19 @@
 import { useEffect } from 'react'
 
-import { getTexts } from '@/Helpers/Language'
-import {
-  createNewProfile,
-  getSortedProfiles,
-  loadProfiles
-} from '@/Helpers/Systems/Profile'
-import { getThemeBackground } from '@/Helpers/Systems/Settings'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { createNewProfile } from '@/Helpers/Systems/Profile/createNewProfile.helper'
+import { getSortedProfiles } from '@/Helpers/Systems/Profile/getSortedProfiles.helper'
+import { loadProfiles } from '@/Helpers/Systems/Profile/loadProfiles.helper'
+import { getThemeBackground } from '@/Helpers/Systems/Settings/getThemeBackground.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 import { useSettingsStore } from '@/Stores/Settings.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-import { Text } from '@/Components/DesignSystem/Text'
-import { GameFile } from '@/Components/Global/GameFile'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import { GameFile } from '@/Components/Global/GameFile/GameFile.component'
 import '@/Components/Main/StartScreen/StartScreen.style.scss'
 
 export const StartScreen = () => {

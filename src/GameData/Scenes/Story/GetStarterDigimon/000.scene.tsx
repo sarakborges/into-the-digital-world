@@ -5,13 +5,13 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 import { GetStarterDigimon001 } from '@/GameData/Scenes/Story/GetStarterDigimon/001.scene'
 
-import { getTexts } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
 export const GetStarterDigimon000 = () => {
   const { setScene } = useSceneStore((state) => state)

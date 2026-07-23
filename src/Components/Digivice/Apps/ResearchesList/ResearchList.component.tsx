@@ -3,20 +3,18 @@ import { GiTwoCoins } from 'react-icons/gi'
 import { getDigimon } from '@/GameData/Registries/Digimon.registry'
 import { getResearch } from '@/GameData/Registries/Research.registry'
 
-import { getTexts } from '@/Helpers/Language'
-import {
-  getAvailableResearches,
-  isResearchPurchasable,
-  purchaseResearch
-} from '@/Helpers/Systems/Profile'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getAvailableResearches } from '@/Helpers/Systems/Profile/getAvailableResearches.helper'
+import { isResearchPurchasable } from '@/Helpers/Systems/Profile/isResearchPurchasable.helper'
+import { purchaseResearch } from '@/Helpers/Systems/Profile/purchaseResearch.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 import '@/Components/Digivice/Apps/ResearchesList/ResearchList.style.scss'
-import { ItemsList } from '@/Components/Global/ItemsList'
+import { ItemsList } from '@/Components/Global/ItemsList/ItemsList.component'
 
 export const ResearchList = () => {
   const { profile } = useProfileStore((state) => state)

@@ -4,12 +4,12 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { DungeonWildZoneKoromonNest } from '@/GameData/Dungeons/WildZone/KoromonNest'
 
-import { getTexts } from '@/Helpers/Language'
-import { enterDungeon } from '@/Helpers/Systems/Dungeon'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { enterDungeon } from '@/Helpers/Systems/Dungeon/enterDungeon.helper'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
 export const DungeonTriggerWildZoneKoromonNest = () => {
   const triggerDungeon = () => {

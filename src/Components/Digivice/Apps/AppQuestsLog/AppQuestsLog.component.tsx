@@ -1,10 +1,10 @@
-import { getTexts } from '@/Helpers/Language'
-import { getQuestGroups } from '@/Helpers/Systems/Quests'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getQuestGroups } from '@/Helpers/Systems/Quests/getQuestGroups.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import '@/Components/Digivice/Apps/AppQuestsLog/AppQuestsLog.style.scss'
-import { QuestsList } from '@/Components/Global/QuestsList'
+import { QuestsList } from '@/Components/Global/QuestsList/QuestsList.component'
 
 export const AppQuestsLog = () => {
   const { profile } = useProfileStore((state) => state)

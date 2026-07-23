@@ -1,6 +1,6 @@
 import { getResearch } from '@/GameData/Registries/Research.registry'
 
-import { saveSession } from '@/Helpers/Systems/Data'
+import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 

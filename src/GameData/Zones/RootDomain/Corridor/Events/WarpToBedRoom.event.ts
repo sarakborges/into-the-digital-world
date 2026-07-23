@@ -1,4 +1,4 @@
-import { warpTo } from '@/Helpers/Systems/Zones'
+import { warpTo } from '@/Helpers/Systems/Zones/warpTo.helper'
 
 export const WarpToBedRoom = () => {
   warpTo({

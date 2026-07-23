@@ -1,16 +1,17 @@
 import { findItem } from '@/GameData/Registries/Item.registry'
 
-import { getTexts } from '@/Helpers/Language'
-import { getCurrentDigimon, getPartnerDigimon } from '@/Helpers/Systems/Digimon'
-import { updateEquipment } from '@/Helpers/Systems/Profile'
-import { openEquipDialog } from '@/Helpers/Systems/Scenes'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getCurrentDigimon } from '@/Helpers/Systems/Digimon/getCurrentDigimon.helper'
+import { getPartnerDigimon } from '@/Helpers/Systems/Digimon/getPartnerDigimon.helper'
+import { updateEquipment } from '@/Helpers/Systems/Profile/updateEquipment.helper'
+import { openEquipDialog } from '@/Helpers/Systems/Scenes/openEquipDialog.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 import '@/Components/Digivice/Apps/DigimonEquipments/DigimonEquipments.style.scss'
 
 export const DigimonEquipments = () => {

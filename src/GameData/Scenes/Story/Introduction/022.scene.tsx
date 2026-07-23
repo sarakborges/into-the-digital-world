@@ -2,13 +2,13 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { Introduction023 } from '@/GameData/Scenes/Story/Introduction/023.scene'
 
-import { getTexts } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { Text } from '@/Components/DesignSystem/Text'
-import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import { PlayerAvatar } from '@/Components/Global/PlayerAvatar/PlayerAvatar.component'
 
 export const Introduction022 = () => {
   const { setScene } = useSceneStore((state) => state)

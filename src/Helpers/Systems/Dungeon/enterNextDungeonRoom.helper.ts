@@ -1,9 +1,9 @@
 import { getDungeon } from '@/GameData/Registries/Dungeon.registry'
 import { DungeonChooseRoom } from '@/GameData/Scenes/Apps/Dungeon/ChooseRoom.scene'
 
-import { generateRandomNumber } from '@/Helpers/Math'
+import { generateRandomNumber } from '@/Helpers/Math/generateRandomNumber.helper'
 import { saveBattle } from '@/Helpers/Systems/Battle/saveBattle.helper'
-import { saveSession } from '@/Helpers/Systems/Data'
+import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
 import { saveDungeon } from '@/Helpers/Systems/Dungeon/saveDungeon.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'

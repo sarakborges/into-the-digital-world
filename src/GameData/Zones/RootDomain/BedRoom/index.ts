@@ -5,7 +5,7 @@ import { RootDomainBedRoomDressmonRoomTile } from '@/GameData/Zones/RootDomain/B
 import { RootDomainBedRoomGennaiRoomTile } from '@/GameData/Zones/RootDomain/BedRoom/Tiles/Gennai.tile'
 import { RootDomainBedRoomWarpToCorridorRoomTile } from '@/GameData/Zones/RootDomain/BedRoom/Tiles/WarpToCorridor.tile'
 
-import { fillGrid } from '@/Helpers/Systems/Zones'
+import { fillGrid } from '@/Helpers/Systems/Zones/fillGrid.helper'
 
 const gridSize = 13
 const filledGrid = fillGrid({ grid, gridSize })

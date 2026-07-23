@@ -6,10 +6,10 @@ import type { ProfileType } from '@/Types/Profile.type'
 
 import { getCharacterTitle } from '@/Helpers/Systems/Profile/getCharacterTitle.helper'
 
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 import '@/Components/Digivice/Apps/CharacterHeader/CharacterHeader.style.scss'
-import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
+import { PlayerAvatar } from '@/Components/Global/PlayerAvatar/PlayerAvatar.component'
 
 export const CharacterHeader = ({
   character,

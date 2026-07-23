@@ -3,16 +3,16 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { NpcConsulmon } from '@/GameData/Npcs/Consulmon.npc'
 import { findItem, getItem } from '@/GameData/Registries/Item.registry'
 
-import { getTexts } from '@/Helpers/Language'
-import { saveSession } from '@/Helpers/Systems/Data'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
 import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
 export const Equipment001 = () => {
   const { profile } = useProfileStore((state) => state)

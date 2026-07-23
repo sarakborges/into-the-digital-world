@@ -2,11 +2,12 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { NpcLogamon } from '@/GameData/Npcs/Logamon.npc'
 
-import { getTexts } from '@/Helpers/Language'
-import { closeScene, logoff } from '@/Helpers/Systems/Scenes'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
+import { logoff } from '@/Helpers/Systems/Scenes/logoff.helper'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
 export const Logoff001 = () => {
   const dialogOptions: DialogType = {

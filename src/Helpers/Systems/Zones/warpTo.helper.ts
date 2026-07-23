@@ -1,6 +1,6 @@
 import type { GameLocation } from '@/GameData/Registries/ZoneManifest.registry'
 
-import { saveSession } from '@/Helpers/Systems/Data'
+import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
 import { openCurrentTileScene } from '@/Helpers/Systems/Zones/openCurrentTileScene.helper'
 
 import { useGameStore } from '@/Stores/Game.store'

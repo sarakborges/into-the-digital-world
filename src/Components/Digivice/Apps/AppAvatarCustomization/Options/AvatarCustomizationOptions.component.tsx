@@ -1,13 +1,13 @@
-import { getAvatarOptionsText } from '@/Helpers/Systems/Profile'
+import { getAvatarOptionsText } from '@/Helpers/Systems/Profile/getAvatarOptionsText.helper'
 
 import { AVATAR_OPTIONS } from '@/Consts/Avatars.const'
 
 import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 import '@/Components/Digivice/Apps/AppAvatarCustomization/Options/AvatarCustomizationOptions.style.scss'
-import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
+import { PlayerAvatar } from '@/Components/Global/PlayerAvatar/PlayerAvatar.component'
 
 export const AvatarCustomizationOptions = () => {
   const { avatarCustomization, setAvatarCustomization } =

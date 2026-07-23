@@ -1,7 +1,8 @@
 import { getDigimon } from '@/GameData/Registries/Digimon.registry'
 import { getDungeon } from '@/GameData/Registries/Dungeon.registry'
 
-import { generateRandomNumber, getSuccesses } from '@/Helpers/Math'
+import { generateRandomNumber } from '@/Helpers/Math/generateRandomNumber.helper'
+import { getSuccesses } from '@/Helpers/Math/getSuccesses.helper'
 import { saveBattle } from '@/Helpers/Systems/Battle/saveBattle.helper'
 import { spawnEnemies } from '@/Helpers/Systems/Battle/spawnEnemies.helper'
 

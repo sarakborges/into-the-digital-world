@@ -2,7 +2,7 @@ import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
 import type { NpcType } from '@/Types/Npc.type'
 import type { ProfileType } from '@/Types/Profile.type'
 
-import { getTexts } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 export const getCharacterTitle = (
   character: ProfileType | NpcType | BaseDigimonType

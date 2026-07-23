@@ -1,6 +1,6 @@
 import { getItem } from '@/GameData/Registries/Item.registry'
 
-import { Portrait } from '@/Components/DesignSystem/Portrait'
+import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
 import '@/Components/Global/ItemCore/ItemCore.style.scss'
 
 export const ItemCore = ({ item }: { item: string }) => {

@@ -7,21 +7,21 @@ import {
   getMainDigiviceApps
 } from '@/GameData/Registries/DigiviceApp.registry'
 
-import { getTexts } from '@/Helpers/Language'
-import { doesProfileHaveDigivice } from '@/Helpers/Systems/Digivice'
-import { openCurrentTileScene } from '@/Helpers/Systems/Zones'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { doesProfileHaveDigivice } from '@/Helpers/Systems/Digivice/doesProfileHaveDigivice.helper'
+import { openCurrentTileScene } from '@/Helpers/Systems/Zones/openCurrentTileScene.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Modal } from '@/Components/DesignSystem/Modal'
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-import { Text } from '@/Components/DesignSystem/Text'
-import { AppPlayerProfile } from '@/Components/Digivice/Apps/AppPlayerProfile'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Modal } from '@/Components/DesignSystem/Modal/Modal.component'
+import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import { AppPlayerProfile } from '@/Components/Digivice/Apps/AppPlayerProfile/AppPlayerProfile.component'
 import '@/Components/Digivice/Container/DigiviceContainer.style.scss'
-import { DigiviceCurrentApp } from '@/Components/Digivice/CurrentApp'
+import { DigiviceCurrentApp } from '@/Components/Digivice/CurrentApp/DigiviceCurrentApp.component'
 
 export const DigiviceContainer = () => {
   const { profile } = useProfileStore((state) => state)

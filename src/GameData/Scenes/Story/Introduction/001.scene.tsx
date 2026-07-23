@@ -3,13 +3,13 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { IntroductionQuest } from '@/GameData/Quests/Introduction.quest'
 import { Introduction002 } from '@/GameData/Scenes/Story/Introduction/002.scene'
 
-import { getTexts } from '@/Helpers/Language'
-import { addNewQuest } from '@/Helpers/Systems/Quests'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { addNewQuest } from '@/Helpers/Systems/Quests/addNewQuest.helper'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
 export const Introduction001 = () => {
   const { setScene } = useSceneStore((state) => state)

@@ -4,15 +4,15 @@ import type { ProfileType } from '@/Types/Profile.type'
 import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
 
-import { getTexts } from '@/Helpers/Language'
-import { saveSession } from '@/Helpers/Systems/Data'
-import { updateQuestObjective } from '@/Helpers/Systems/Quests'
-import { closeScene } from '@/Helpers/Systems/Scenes'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
+import { updateQuestObjective } from '@/Helpers/Systems/Quests/updateQuestObjective.helper'
+import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
 export const GetStarterDigimon019 = () => {
   const { profile } = useProfileStore((state) => state)

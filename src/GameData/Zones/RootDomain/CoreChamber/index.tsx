@@ -7,7 +7,7 @@ import { LocationGennaiTile } from '@/GameData/Zones/RootDomain/CoreChamber/Tile
 import { RootDomainCoreChamberNanomonTile } from '@/GameData/Zones/RootDomain/CoreChamber/Tiles/Nanomon.tile'
 import { RootDomainCoreChamberWarpToCorridorTile } from '@/GameData/Zones/RootDomain/CoreChamber/Tiles/WarpToCorridor.tile'
 
-import { fillGrid } from '@/Helpers/Systems/Zones'
+import { fillGrid } from '@/Helpers/Systems/Zones/fillGrid.helper'
 
 const gridSize = 19
 const filledGrid = fillGrid({ grid, gridSize })

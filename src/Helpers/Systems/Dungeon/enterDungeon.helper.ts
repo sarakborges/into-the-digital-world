@@ -2,9 +2,9 @@ import type { DungeonType } from '@/Types/Dungeon.type'
 
 import { DungeonChooseRoom } from '@/GameData/Scenes/Apps/Dungeon/ChooseRoom.scene'
 
-import { generateRandomNumber } from '@/Helpers/Math'
+import { generateRandomNumber } from '@/Helpers/Math/generateRandomNumber.helper'
 import { saveDungeon } from '@/Helpers/Systems/Dungeon/saveDungeon.helper'
-import { getCurrentParty } from '@/Helpers/Systems/Profile'
+import { getCurrentParty } from '@/Helpers/Systems/Profile/getCurrentParty.helper'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 

@@ -1,14 +1,14 @@
-import { getBaseDigimonFromParty } from '@/Helpers/Systems/Profile'
-import { getDigimonDisplayName } from '@/Helpers/Systems/Profile'
+import { getBaseDigimonFromParty } from '@/Helpers/Systems/Profile/getBaseDigimonFromParty.helper'
+import { getDigimonDisplayName } from '@/Helpers/Systems/Profile/getDigimonDisplayName.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 import '@/Components/Global/CurrentParty/CurrentParty.style.scss'
-import { PartnerBond } from '@/Components/Global/PartnerBond'
-import { PartyDigimonStats } from '@/Components/Global/PartyDigimonStats'
+import { PartnerBond } from '@/Components/Global/PartnerBond/PartnerBond.component'
+import { PartyDigimonStats } from '@/Components/Global/PartyDigimonStats/PartyDigimonStats.component'
 
 export const CurrentParty = () => {
   const { profile } = useProfileStore((state) => state)

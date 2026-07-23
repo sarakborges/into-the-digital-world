@@ -2,11 +2,11 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { NpcDressmon } from '@/GameData/Npcs/Dressmon.npc'
 
-import { getTexts } from '@/Helpers/Language'
-import { closeScene } from '@/Helpers/Systems/Scenes'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
 export const AvatarCustomization002 = () => {
   const dialogOptions: DialogType = {

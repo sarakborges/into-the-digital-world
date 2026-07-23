@@ -1,4 +1,5 @@
-import { getCurrentMap, getGameboardStyles } from '@/Helpers/Systems/Zones'
+import { getCurrentMap } from '@/Helpers/Systems/Zones/getCurrentMap.helper'
+import { getGameboardStyles } from '@/Helpers/Systems/Zones/getGameboardStyles.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useDungeonStore } from '@/Stores/Dungeon.store'
@@ -6,8 +7,8 @@ import { useGameStore } from '@/Stores/Game.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import '@/Components/Main/Gameboard/Gameboard.style.scss'
-import { GameboardCharacter } from '@/Components/Main/GameboardCharacter'
-import { Gamepad } from '@/Components/Main/Gamepad'
+import { GameboardCharacter } from '@/Components/Main/GameboardCharacter/GameboardCharacter.component'
+import { Gamepad } from '@/Components/Main/Gamepad/Gamepad.component'
 
 export const Gameboard = () => {
   const { profile } = useProfileStore((state) => state)

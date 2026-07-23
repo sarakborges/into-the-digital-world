@@ -1,4 +1,4 @@
-import { splitTextIntoParagraphs } from '@/Helpers/Components'
+import { splitTextIntoParagraphs } from '@/Helpers/Components/splitTextIntoParagraphs.helper'
 
 import '@/Components/DesignSystem/Text/Text.style.scss'
 

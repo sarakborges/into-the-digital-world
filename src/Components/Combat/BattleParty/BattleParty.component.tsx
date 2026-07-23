@@ -2,20 +2,18 @@ import type { CSSProperties } from 'react'
 
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
-import {
-  getConditionColor,
-  isBattleOver,
-  isCurrentTurnDigimon,
-  isDigimonDefeated
-} from '@/Helpers/Systems/Battle'
+import { isBattleOver } from '@/Helpers/Systems/Battle/getActiveDigimons.helper'
+import { getConditionColor } from '@/Helpers/Systems/Battle/getConditionColor.helper'
+import { isCurrentTurnDigimon } from '@/Helpers/Systems/Battle/isCurrentTurnDigimon.helper'
+import { isDigimonDefeated } from '@/Helpers/Systems/Battle/isDigimonDefeated.helper'
 
 import { CONDITIONS } from '@/Consts/Conditions.const'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 
 import '@/Components/Combat/BattleParty/BattleParty.style.scss'
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
 export const BattleParty = ({
   party

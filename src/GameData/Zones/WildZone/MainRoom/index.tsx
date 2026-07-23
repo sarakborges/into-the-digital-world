@@ -4,7 +4,7 @@ import { grid } from '@/GameData/Zones/WildZone/MainRoom/MainRoom.grid'
 import { WildZoneGennaiTile } from '@/GameData/Zones/WildZone/MainRoom/Tiles/Gennai.tile'
 import { WildZoneKoromonNestTile } from '@/GameData/Zones/WildZone/MainRoom/Tiles/KoromonNest.tile'
 
-import { fillGrid } from '@/Helpers/Systems/Zones'
+import { fillGrid } from '@/Helpers/Systems/Zones/fillGrid.helper'
 
 const gridSize = 19
 const filledGrid = fillGrid({ grid, gridSize })

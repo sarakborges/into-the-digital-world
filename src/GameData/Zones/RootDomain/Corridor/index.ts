@@ -4,7 +4,7 @@ import { grid } from '@/GameData/Zones/RootDomain/Corridor/Corridor.grid'
 import { RootDomainCorridorWarpToBedRoomTile } from '@/GameData/Zones/RootDomain/Corridor/Tiles/WarpToBedRoom.tile'
 import { RootDomainCorridorWarpToCoreChamberTile } from '@/GameData/Zones/RootDomain/Corridor/Tiles/WarpToCoreChamber.tile'
 
-import { fillGrid } from '@/Helpers/Systems/Zones'
+import { fillGrid } from '@/Helpers/Systems/Zones/fillGrid.helper'
 
 const gridSize = 11
 const filledGrid = fillGrid({ grid, gridSize })

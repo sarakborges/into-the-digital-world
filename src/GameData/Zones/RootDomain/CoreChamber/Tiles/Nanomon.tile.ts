@@ -4,7 +4,7 @@ import { NpcNanomon } from '@/GameData/Npcs/Nanomon.npc'
 import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
 import { Research001 } from '@/GameData/Scenes/Apps/Research/001.scene'
 
-import { isQuestDone } from '@/Helpers/Systems/Quests'
+import { isQuestDone } from '@/Helpers/Systems/Quests/isQuestDone.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 

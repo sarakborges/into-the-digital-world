@@ -2,7 +2,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { NpcOujamon } from '@/GameData/Npcs/Oujamon.npc'
 
-import { getTexts } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { isDigimonDefeated } from '@/Helpers/Systems/Battle/isDigimonDefeated.helper'
 import { triggerDefeat } from '@/Helpers/Systems/Battle/triggerDefeat.helper'
 import { triggerVictory } from '@/Helpers/Systems/Battle/triggerVictory.helper'
@@ -13,8 +13,8 @@ import { useDungeonStore } from '@/Stores/Dungeon.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { CombatLoot } from '@/Components/Combat/CombatLoot/CombatLoot.component'
-import { Dialog } from '@/Components/DesignSystem/Dialog'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
 export const BattleEnd = () => {
   const { profile } = useProfileStore((state) => state)

@@ -3,16 +3,16 @@ import { AiOutlineSelect } from 'react-icons/ai'
 import { getResearch } from '@/GameData/Registries/Research.registry'
 import { Compose003 } from '@/GameData/Scenes/Apps/Compose/003.scene'
 
-import { getTexts } from '@/Helpers/Language'
-import { getAvailableCompositions } from '@/Helpers/Systems/Compose'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getAvailableCompositions } from '@/Helpers/Systems/Compose/getAvailableCompositions.helper'
 
 import { useCompositionStore } from '@/Stores/Composition.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 import '@/Components/Digivice/Apps/AppCompose/List/CompositionsList.style.scss'
 
 export const CompositionsList = () => {

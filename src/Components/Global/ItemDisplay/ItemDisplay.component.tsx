@@ -1,12 +1,12 @@
 import { getItem } from '@/GameData/Registries/Item.registry'
 
-import { getIsItemCategoryCore } from '@/Helpers/Systems/Profile'
+import { getIsItemCategoryCore } from '@/Helpers/Systems/Profile/getIsItemCategoryCore.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-import { Text } from '@/Components/DesignSystem/Text'
-import { ItemCore } from '@/Components/Global/ItemCore'
+import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import { ItemCore } from '@/Components/Global/ItemCore/ItemCore.component'
 import '@/Components/Global/ItemDisplay/ItemDisplay.style.scss'
 
 export const ItemDisplay = ({

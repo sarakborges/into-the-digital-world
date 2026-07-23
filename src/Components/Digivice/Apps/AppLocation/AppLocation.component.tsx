@@ -1,18 +1,18 @@
 import { getZoneDefinition } from '@/GameData/Registries/ZoneManifest.registry'
 
-import { getTexts } from '@/Helpers/Language'
-import { getAvailableWarpLocations } from '@/Helpers/Systems/Digivice'
-import { closeScene } from '@/Helpers/Systems/Scenes'
-import { warpTo } from '@/Helpers/Systems/Zones'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { getAvailableWarpLocations } from '@/Helpers/Systems/Digivice/getAvailableWarpLocations.helper'
+import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
+import { warpTo } from '@/Helpers/Systems/Zones/warpTo.helper'
 
 import { WARP_LOCATIONS } from '@/Consts/Locations.const'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 import '@/Components/Digivice/Apps/AppLocation/AppLocation.style.scss'
 
 export const AppLocation = () => {

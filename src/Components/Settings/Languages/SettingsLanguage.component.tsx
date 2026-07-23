@@ -1,9 +1,9 @@
-import { getTexts } from '@/Helpers/Language'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
 
 import { LANGUAGES } from '@/Consts/Languages.const'
 
-import { Text } from '@/Components/DesignSystem/Text'
-import { UpdateLanguage } from '@/Components/Settings/Language'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import { UpdateLanguage } from '@/Components/Settings/Language/UpdateLanguage.component'
 import '@/Components/Settings/Languages/SettingsLanguage.style.scss'
 
 export const SettingsLanguage = () => {

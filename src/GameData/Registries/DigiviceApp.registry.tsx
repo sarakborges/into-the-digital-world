@@ -5,12 +5,12 @@ import type { SceneType } from '@/Types/Scene.type'
 import { Logoff001 } from '@/GameData/Scenes/Apps/Logoff/001.scene'
 import { SaveGame001 } from '@/GameData/Scenes/Apps/SaveGame/001.scene'
 
-import { AppAcquaintances } from '@/Components/Digivice/Apps/AppAcquaintances/List'
-import { AppInventory } from '@/Components/Digivice/Apps/AppInventory'
-import { AppLocation } from '@/Components/Digivice/Apps/AppLocation'
-import { AppPartnersList } from '@/Components/Digivice/Apps/AppPartners/List'
-import { AppQuestsLog } from '@/Components/Digivice/Apps/AppQuestsLog'
-import { AppResearchesList } from '@/Components/Digivice/Apps/AppResearchesList'
+import { AppAcquaintances } from '@/Components/Digivice/Apps/AppAcquaintances/List/AppAcquaintances.component'
+import { AppInventory } from '@/Components/Digivice/Apps/AppInventory/AppInventory.component'
+import { AppLocation } from '@/Components/Digivice/Apps/AppLocation/AppLocation.component'
+import { AppPartnersList } from '@/Components/Digivice/Apps/AppPartners/List/AppPartnersList.component'
+import { AppQuestsLog } from '@/Components/Digivice/Apps/AppQuestsLog/AppQuestsLog.component'
+import { AppResearchesList } from '@/Components/Digivice/Apps/AppResearchesList/AppResearchesList.component'
 
 export type DigiviceAppDefinition = {
   id: string

@@ -1,6 +1,6 @@
 import { getDungeon } from '@/GameData/Registries/Dungeon.registry'
 
-import { generateRandomNumber } from '@/Helpers/Math'
+import { generateRandomNumber } from '@/Helpers/Math/generateRandomNumber.helper'
 
 import { useDungeonStore } from '@/Stores/Dungeon.store'
 import { useProfileStore } from '@/Stores/Profile.store'

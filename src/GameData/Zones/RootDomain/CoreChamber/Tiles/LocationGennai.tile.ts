@@ -4,7 +4,7 @@ import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
 import { Location000 } from '@/GameData/Scenes/Apps/Location/000.scene'
 
-import { isQuestDone } from '@/Helpers/Systems/Quests'
+import { isQuestDone } from '@/Helpers/Systems/Quests/isQuestDone.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 

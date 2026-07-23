@@ -2,13 +2,13 @@ import type { ProfileType } from '@/Types/Profile.type'
 
 import { getZoneDefinition } from '@/GameData/Registries/ZoneManifest.registry'
 
-import { getTexts } from '@/Helpers/Language'
-import { saveProfile } from '@/Helpers/Systems/Profile'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { saveProfile } from '@/Helpers/Systems/Profile/saveProfile.helper'
 
-import { Button } from '@/Components/DesignSystem/Button'
-import { Text } from '@/Components/DesignSystem/Text'
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 import '@/Components/Global/GameFileSave/GameFileSave.style.scss'
-import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
+import { PlayerAvatar } from '@/Components/Global/PlayerAvatar/PlayerAvatar.component'
 
 export const GameFileSave = ({ profile }: { profile: ProfileType }) => {
   if (!profile.currentLocation) {

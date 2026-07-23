@@ -3,8 +3,8 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { NpcOujamon } from '@/GameData/Npcs/Oujamon.npc'
 import { BattleEnd } from '@/GameData/Scenes/Apps/Battle/BattleEnd.scene'
 
-import { getTexts } from '@/Helpers/Language'
-import { generateRandomNumber } from '@/Helpers/Math'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { generateRandomNumber } from '@/Helpers/Math/generateRandomNumber.helper'
 import { isDigimonDefeated } from '@/Helpers/Systems/Battle/isDigimonDefeated.helper'
 import { saveBattle } from '@/Helpers/Systems/Battle/saveBattle.helper'
 
@@ -12,7 +12,7 @@ import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import { CombatLogEntry } from '@/Components/Combat/CombatLogEntry/CombatLogEntry.component'
-import { Dialog } from '@/Components/DesignSystem/Dialog'
+import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
 
 const getBattleOutcome = (battle) => {
   const nonDefeatedDigimons = battle.turnOrder.filter(

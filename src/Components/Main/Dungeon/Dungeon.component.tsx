@@ -5,14 +5,14 @@ import { BattleStart } from '@/GameData/Scenes/Apps/Battle/BattleStart.scene'
 import { BattleTurn } from '@/GameData/Scenes/Apps/Battle/BattleTurn.scene'
 import { DungeonChooseRoom } from '@/GameData/Scenes/Apps/Dungeon/ChooseRoom.scene'
 
-import { getTexts } from '@/Helpers/Language'
-import { startBattle } from '@/Helpers/Systems/Battle'
+import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { startBattle } from '@/Helpers/Systems/Battle/startBattle.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useDungeonStore } from '@/Stores/Dungeon.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Text } from '@/Components/DesignSystem/Text'
+import { Text } from '@/Components/DesignSystem/Text/Text.component'
 import '@/Components/Main/Dungeon/Dungeon.style.scss'
 
 export const Dungeon = () => {
