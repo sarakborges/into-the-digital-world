@@ -1,6 +1,6 @@
 import type { ProfileType } from '@/Types/Profile.type'
 
-import { AllZones } from '@/GameData/Zones'
+import { getZoneDefinition } from '@/GameData/Registries/ZoneManifest.registry'
 
 import { getTexts } from '@/Helpers/Language'
 import { saveProfile } from '@/Helpers/Systems/Profile'
@@ -16,7 +16,7 @@ export const GameFileSave = ({ profile }: { profile: ProfileType }) => {
     return
   }
 
-  const zone = AllZones[profile.currentZone.id]
+  const zone = getZoneDefinition(profile.currentZone.id)
 
   if (!zone) {
     return

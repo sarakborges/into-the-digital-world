@@ -1,4 +1,4 @@
-import { AllQuests } from '@/GameData/Quests'
+import { findQuest } from '@/GameData/Registries/Quest.registry'
 
 import { isObjectiveDone } from '@/Helpers/Systems/Quests'
 
@@ -11,7 +11,7 @@ export const isQuestDone = (questId: string): boolean => {
     return false
   }
 
-  return Object.keys(AllQuests[questId]?.objectives ?? {}).every(
+  return Object.keys(findQuest(questId)?.objectives ?? {}).every(
     (objective) => {
       return isObjectiveDone({
         objectiveId: objective,

@@ -1,5 +1,8 @@
-import { AllNpcs } from '@/GameData/Npcs'
-import { AllZones } from '@/GameData/Zones'
+import { findNpc } from '@/GameData/Registries/Npc.registry'
+import {
+  getMapDefinition,
+  getZoneDefinition
+} from '@/GameData/Registries/ZoneManifest.registry'
 
 import { getTexts } from '@/Helpers/Language'
 
@@ -13,8 +16,13 @@ export const getQuestObjectiveText = (objective: {
     '[TYPE]': getTexts(
       `QUEST_OBJECTIVE_TYPE_${objective.type.toLocaleUpperCase()}`
     ),
-    '[TARGET]': AllNpcs?.[objective.target.type]?.[objective.target.id].name,
-    '[WHERE]': AllZones[objective.where].name,
-    '[MAP]': AllZones[objective.where].maps[objective.map].name
+    '[TARGET]':
+      findNpc({
+        category: objective.target.type,
+        npcId: objective.target.id
+      })?.name ?? '',
+    '[WHERE]': getZoneDefinition(objective.where).name,
+    '[MAP]': getMapDefinition({ zone: objective.where, map: objective.map })
+      .name
   })
 }

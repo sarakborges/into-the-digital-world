@@ -1,4 +1,4 @@
-import { AllNpcs } from '@/GameData/Npcs'
+import { getNpcsByCategory } from '@/GameData/Registries/Npc.registry'
 
 import { getTexts } from '@/Helpers/Language'
 
@@ -17,9 +17,15 @@ export const AppAcquaintancesDetails = () => {
     return
   }
 
-  const npc = { ...AllNpcs.appmon, ...AllNpcs.digimon, ...AllNpcs.general }[
-    digivice?.currentDetails
-  ]!
+  const npc = {
+    ...getNpcsByCategory('appmon'),
+    ...getNpcsByCategory('digimon'),
+    ...getNpcsByCategory('general')
+  }[digivice?.currentDetails]
+
+  if (!npc) {
+    return
+  }
 
   return (
     <div className="npc-profile">

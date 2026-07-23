@@ -1,4 +1,4 @@
-import { AllZones } from '@/GameData/Zones'
+import { getZoneDefinition } from '@/GameData/Registries/ZoneManifest.registry'
 
 import { getTexts } from '@/Helpers/Language'
 import { getAvailableWarpLocations } from '@/Helpers/Systems/Digivice'
@@ -47,10 +47,10 @@ export const AppLocation = () => {
           <Button onClick={() => warp(location)} key={`warp-to-${location}`}>
             <Portrait
               src={`/zones/Locations/${location}.webp`}
-              alt={AllZones[location].name}
+              alt={getZoneDefinition(location).name}
             />
 
-            <Text>{AllZones[location].name}</Text>
+            <Text>{getZoneDefinition(location).name}</Text>
           </Button>
         ))}
       </div>

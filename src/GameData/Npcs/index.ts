@@ -14,7 +14,7 @@ import { NpcSavemon } from './Savemon.npc'
 
 import type { NpcType } from '@/Types/Npc.type'
 
-export const AllNpcs: {
+export const NpcRegistry: {
   [category: string]: {
     [npcId: string]: NpcType
   }

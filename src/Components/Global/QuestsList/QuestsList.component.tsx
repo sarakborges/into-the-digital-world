@@ -1,7 +1,7 @@
 import { FaCheck } from 'react-icons/fa'
 import { TbListDetails } from 'react-icons/tb'
 
-import { AllQuests } from '@/GameData/Quests'
+import { getQuest } from '@/GameData/Registries/Quest.registry'
 
 import { setCurrentDetails } from '@/Helpers/Systems/Digivice'
 import {
@@ -44,7 +44,7 @@ export const QuestsList = ({
           {list.map((quest) => (
             <div className="quest" key={`quests-${quest}`}>
               <header>
-                <Text>{AllQuests[quest].name}</Text>
+                <Text>{getQuest(quest).name}</Text>
 
                 <Button
                   onClick={() =>

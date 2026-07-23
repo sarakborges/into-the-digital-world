@@ -1,6 +1,6 @@
 import type { MapType } from '@/Types/Zone.type'
 
-import { AllZones } from '@/GameData/Zones'
+import { getZoneMap } from '@/GameData/Registries/ZoneRuntime.registry'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -11,7 +11,8 @@ export const getCurrentMap = (): MapType | undefined => {
     return undefined
   }
 
-  return AllZones[profile.currentZone.id].maps[
-    profile.currentZone.map
-  ] as MapType
+  return getZoneMap({
+    zone: profile.currentZone.id,
+    map: profile.currentZone.map
+  }) as MapType
 }

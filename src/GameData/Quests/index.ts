@@ -4,7 +4,7 @@ import { StarterDigimonQuest } from './StarterDigimon.quest'
 
 import type { QuestType } from '@/Types/Quest.type'
 
-export const AllQuests: {
+export const QuestRegistry: {
   [questId: string]: QuestType
 } = {
   introduction: IntroductionQuest,

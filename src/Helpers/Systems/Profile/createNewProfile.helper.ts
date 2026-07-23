@@ -1,6 +1,6 @@
 import type { ProfileType } from '@/Types/Profile.type'
 
-import { AllNpcs } from '@/GameData/Npcs'
+import { getNpcsByCategory } from '@/GameData/Registries/Npc.registry'
 import { Introduction001 } from '@/GameData/Scenes/Story/Introduction/001.scene'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -31,7 +31,7 @@ export const createNewProfile = () => {
     partnerDigimons: {},
 
     npcAcquaintances: {
-      ...AllNpcs.appmon
+      ...getNpcsByCategory('appmon')
     },
 
     currentZone: {

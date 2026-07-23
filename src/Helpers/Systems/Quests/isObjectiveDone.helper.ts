@@ -1,4 +1,4 @@
-import { AllQuests } from '@/GameData/Quests'
+import { getQuestObjective } from '@/GameData/Registries/Quest.registry'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -15,18 +15,24 @@ export const isObjectiveDone = ({
     return
   }
 
-  if (AllQuests[questId].objectives[objectiveId].type === 'interact') {
+  if (
+    getQuestObjective({ questId: questId, objectiveId: objectiveId }).type ===
+    'interact'
+  ) {
     return !!profile.quests[questId].objectives[objectiveId]
   }
 
   if (
     ['defeatInZone', 'defeatSpecific'].includes(
-      AllQuests[questId].objectives[objectiveId].type
+      getQuestObjective({ questId: questId, objectiveId: objectiveId }).type
     )
   ) {
     return (
       Number(profile.quests[questId].objectives[objectiveId] || 0) >=
-      Number(AllQuests[questId].objectives[objectiveId].amount || 0)
+      Number(
+        getQuestObjective({ questId: questId, objectiveId: objectiveId })
+          .amount || 0
+      )
     )
   }
 

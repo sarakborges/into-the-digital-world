@@ -1,12 +1,15 @@
-import { AllQuests } from '@/GameData/Quests'
+import {
+  getQuest,
+  getQuestObjective
+} from '@/GameData/Registries/Quest.registry'
 
 import { isObjectiveDone } from '@/Helpers/Systems/Quests'
 
 export const getQuestObjectives = (questId: string) =>
-  Object.keys(AllQuests[questId].objectives ?? {})
+  Object.keys(getQuest(questId).objectives ?? {})
     ?.map((objectiveId) => ({
       id: objectiveId,
-      ...AllQuests[questId].objectives[objectiveId],
+      ...getQuestObjective({ questId: questId, objectiveId: objectiveId }),
       isDone: isObjectiveDone({
         objectiveId,
         questId

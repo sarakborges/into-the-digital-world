@@ -1,6 +1,6 @@
 import type { ZoneType } from '@/Types/Zone.type'
 
-import { AllZones } from '@/GameData/Zones'
+import { getZone } from '@/GameData/Registries/ZoneRuntime.registry'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -11,5 +11,5 @@ export const getCurrentZone = (): ZoneType | undefined => {
     return undefined
   }
 
-  return AllZones[profile.currentZone.id] as ZoneType
+  return getZone(profile.currentZone.id) as ZoneType
 }

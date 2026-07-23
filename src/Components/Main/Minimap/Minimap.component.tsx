@@ -1,6 +1,6 @@
 import { AiOutlineSelect } from 'react-icons/ai'
 
-import { AllZones } from '@/GameData/Zones'
+import { getZoneDefinition } from '@/GameData/Registries/ZoneManifest.registry'
 
 import { getTexts } from '@/Helpers/Language'
 import { openMap } from '@/Helpers/Systems/Digivice'
@@ -36,7 +36,7 @@ export const Minimap = () => {
         <div className="zone-name">
           <Text>
             {getTexts('CURRENT_ZONE', {
-              '[ZONE]': AllZones[profile.currentZone.id].name
+              '[ZONE]': getZoneDefinition(profile.currentZone.id).name
             })}
           </Text>
         </div>
