@@ -38,7 +38,7 @@ export const AppPartnersList = () => {
     <div className="partners-list">
       <EncyclopediaHeader />
 
-      {Object.keys(partners).map((category) => (
+      {Object.entries(partners).map(([category, partnerList]) => (
         <div
           className="partners-list-category"
           key={`partners-list-partners-${category}`}
@@ -48,8 +48,8 @@ export const AppPartnersList = () => {
           </Text>
 
           <div className="partners-list-list">
-            {partners[category].length ? (
-              partners[category].map((partner) => {
+            {partnerList.length ? (
+              partnerList.map((partner) => {
                 const baseDigimon = partner.baseDigimon
 
                 return (

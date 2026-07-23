@@ -1,9 +1,11 @@
+import type { ItemType } from '@/Types/Item.type'
+
 import { findItem } from '@/GameData/Registries/Item.registry'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
 export const getInventoryCategories = (): Record<
-  string,
+  ItemType['category'],
   Record<string, number>
 > => {
   const profile = useProfileStore.getState().profile
@@ -12,7 +14,7 @@ export const getInventoryCategories = (): Record<
     return { general: {}, equipment: {}, keyItem: {}, core: {} }
   }
 
-  const categories = {
+  const categories: Record<ItemType['category'], Record<string, number>> = {
     general: {},
     equipment: {},
     keyItem: {},

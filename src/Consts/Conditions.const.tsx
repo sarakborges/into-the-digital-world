@@ -27,3 +27,9 @@ export const CONDITIONS = {
     color: '#A78BFA'
   }
 }
+
+export type ConditionId = Extract<keyof typeof CONDITIONS, string>
+
+export const isConditionId = (condition: string): condition is ConditionId => {
+  return condition in CONDITIONS
+}

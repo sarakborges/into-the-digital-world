@@ -1,6 +1,8 @@
+import type { DigiviceType } from '@/Types/Digivice.type'
+
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 
-export const setCurrentDetails = (value: string | undefined) => {
+export const setCurrentDetails = (value: DigiviceType['currentDetails']) => {
   const { digivice, setDigivice } = useDigiviceStore.getState()
 
   if (!digivice) {

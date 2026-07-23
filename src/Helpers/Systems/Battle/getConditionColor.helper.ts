@@ -1,5 +1,5 @@
-import { CONDITIONS } from '@/Consts/Conditions.const'
+import { CONDITIONS, isConditionId } from '@/Consts/Conditions.const'
 
 export const getConditionColor = (condition: string): string => {
-  return CONDITIONS[condition]?.color || ''
+  return isConditionId(condition) ? CONDITIONS[condition].color : ''
 }

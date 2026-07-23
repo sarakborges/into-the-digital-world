@@ -56,7 +56,7 @@ export const CompositionsList = () => {
                     onClick={() => {
                       const baseDigimon = composition.baseDigimon
                       const research = getResearch(baseDigimon.id)
-                      const totalItems = {}
+                      const totalItems: Record<string, number> = {}
                       const requiredItems = research.requiredItems
                       const optionalItems = research.optionalItems
 

@@ -7,7 +7,7 @@ import { getConditionColor } from '@/Helpers/Systems/Battle/getConditionColor.he
 import { isCurrentTurnDigimon } from '@/Helpers/Systems/Battle/isCurrentTurnDigimon.helper'
 import { isDigimonDefeated } from '@/Helpers/Systems/Battle/isDigimonDefeated.helper'
 
-import { CONDITIONS } from '@/Consts/Conditions.const'
+import { CONDITIONS, isConditionId } from '@/Consts/Conditions.const'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 
@@ -49,20 +49,21 @@ export const BattleParty = ({
             <div className="conditions">
               {!isDigimonDefeated(digimon) &&
                 Object.entries(digimon.conditions ?? {}).map(
-                  ([condition, stack]) => (
-                    <div
-                      style={
-                        {
-                          '--icon-color': getConditionColor(condition)
-                        } as CSSProperties
-                      }
-                      key={`party-${digimon.party}-digimon-${digimon.index}-condition-${condition}`}
-                    >
-                      <div>{CONDITIONS[condition].icon}</div>
+                  ([condition, stack]) =>
+                    isConditionId(condition) ? (
+                      <div
+                        style={
+                          {
+                            '--icon-color': getConditionColor(condition)
+                          } as CSSProperties
+                        }
+                        key={`party-${digimon.party}-digimon-${digimon.index}-condition-${condition}`}
+                      >
+                        <div>{CONDITIONS[condition].icon}</div>
 
-                      <Text as="p">{stack}</Text>
-                    </div>
-                  )
+                        <Text as="p">{stack}</Text>
+                      </div>
+                    ) : null
                 )}
             </div>
           </div>

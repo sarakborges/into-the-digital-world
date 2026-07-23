@@ -15,3 +15,11 @@ export const WARP_LOCATIONS = {
     y: 9
   }
 } satisfies Record<string, GameLocation>
+
+export type WarpLocationId = Extract<keyof typeof WARP_LOCATIONS, string>
+
+export const isWarpLocationId = (
+  location: string
+): location is WarpLocationId => {
+  return location in WARP_LOCATIONS
+}

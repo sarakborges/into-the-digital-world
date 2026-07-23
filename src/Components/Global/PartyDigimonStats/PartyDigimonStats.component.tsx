@@ -2,6 +2,8 @@ import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { calcExtraStats } from '@/Helpers/Systems/Battle/calcExtraStats.helper'
 import { getBaseDigimon } from '@/Helpers/Systems/Digimon/getBaseDigimon.helper'
 
+import { DIGIMON_STATS } from '@/Consts/Stats.const'
+
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Text } from '@/Components/DesignSystem/Text/Text.component'
@@ -23,7 +25,7 @@ export const PartyDigimonStats = ({ digimonId }: { digimonId: number }) => {
 
   return (
     <main className="party-digimon-stats">
-      {Object.keys(baseDigimon.stats).map((stat) => (
+      {DIGIMON_STATS.map((stat) => (
         <section key={`profile-party-${digimonId}-stats-${stat}`}>
           <Text>
             {getTexts('ENCYCLOPEDIA_STATS_VALUE', {

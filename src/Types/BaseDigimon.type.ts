@@ -1,3 +1,13 @@
+export type DigimonStatsType = {
+  vit: number
+  pow: number
+  res: number
+  tec: number
+  agi: number
+}
+
+export type DigimonStatId = keyof DigimonStatsType
+
 export type BaseDigimonType = {
   id: string
   name: string
@@ -16,11 +26,5 @@ export type BaseDigimonType = {
     [attackId: string]: null
   }
 
-  stats: {
-    vit: number
-    pow: number
-    res: number
-    tec: number
-    agi: number
-  }
+  stats: DigimonStatsType
 }

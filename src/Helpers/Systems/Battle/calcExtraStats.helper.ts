@@ -1,3 +1,4 @@
+import type { DigimonStatId } from '@/Types/BaseDigimon.type'
 import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
@@ -8,7 +9,7 @@ export const calcExtraStats = ({
   stat
 }: {
   digimon: PartyDigimonType | PartnerDigimonType
-  stat: string
+  stat: DigimonStatId
 }): number => {
   const equipments = digimon.equipments
 
