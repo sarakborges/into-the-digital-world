@@ -1,3 +1,4 @@
+import type { CssPropertiesWithVariables } from '@/Types/CssProperties.type'
 import type { MapTileType } from '@/Types/MapTile.type'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
@@ -33,17 +34,14 @@ export const GameboardCharacter = ({
     return
   }
 
+  const characterStyles: CssPropertiesWithVariables = {
+    '--character-x': tile?.x ?? profile.currentLocation.x,
+    '--character-y': tile?.y ?? profile.currentLocation.y,
+    '--character-opacity': opacity
+  }
+
   return (
-    <div
-      className="gameboard-character"
-      style={
-        {
-          '--character-x': tile?.x || profile.currentLocation.x,
-          '--character-y': tile?.y || profile.currentLocation.y,
-          '--character-opacity': opacity
-        } as React.CSSProperties
-      }
-    >
+    <div className="gameboard-character" style={characterStyles}>
       {!!isPlayer && !!profile && (
         <>
           <PlayerAvatar />

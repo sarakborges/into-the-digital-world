@@ -1,5 +1,4 @@
-import type { CSSProperties } from 'react'
-
+import type { CssPropertiesWithVariables } from '@/Types/CssProperties.type'
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
 import { isBattleOver } from '@/Helpers/Systems/Battle/getActiveDigimons.helper'
@@ -49,21 +48,26 @@ export const BattleParty = ({
             <div className="conditions">
               {!isDigimonDefeated(digimon) &&
                 Object.entries(digimon.conditions ?? {}).map(
-                  ([condition, stack]) =>
-                    isConditionId(condition) ? (
+                  ([condition, stack]) => {
+                    if (!isConditionId(condition)) {
+                      return null
+                    }
+
+                    const conditionStyles: CssPropertiesWithVariables = {
+                      '--icon-color': getConditionColor(condition)
+                    }
+
+                    return (
                       <div
-                        style={
-                          {
-                            '--icon-color': getConditionColor(condition)
-                          } as CSSProperties
-                        }
+                        style={conditionStyles}
                         key={`party-${digimon.party}-digimon-${digimon.index}-condition-${condition}`}
                       >
                         <div>{CONDITIONS[condition].icon}</div>
 
                         <Text as="p">{stack}</Text>
                       </div>
-                    ) : null
+                    )
+                  }
                 )}
             </div>
           </div>

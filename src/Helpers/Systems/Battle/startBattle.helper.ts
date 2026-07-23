@@ -1,3 +1,5 @@
+import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
+
 import { getDigimon } from '@/GameData/Registries/Digimon.registry'
 import { getDungeon } from '@/GameData/Registries/Dungeon.registry'
 
@@ -35,14 +37,16 @@ export const startBattle = () => {
     return
   }
 
-  const enemies = spawnedEnemies.map((digimon, digimonIndex) => ({
-    ...getDigimon(digimon.digimonId),
-    ...digimon,
+  const enemies = spawnedEnemies.map<PartyDigimonType>(
+    (digimon, digimonIndex) => ({
+      ...getDigimon(digimon.digimonId),
+      ...digimon,
 
-    party: 'enemies' as 'allies' | 'enemies',
-    index: digimonIndex,
-    equipments: digimon.equipments
-  }))
+      party: 'enemies',
+      index: digimonIndex,
+      equipments: digimon.equipments
+    })
+  )
 
   saveBattle({
     combatLog: [],

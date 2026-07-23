@@ -1,16 +1,16 @@
 import { create } from 'zustand'
 
-import type { AvatarType } from '@/Types/Avatar.type'
+import type { AvatarCustomizationLayer, AvatarType } from '@/Types/Avatar.type'
 
 type AvatarCustomizationStore = {
   avatarCustomization: {
     avatar: AvatarType
-    layer?: keyof AvatarType
+    layer?: AvatarCustomizationLayer
   } | null
   setAvatarCustomization: (
     avatarCustomization: {
       avatar: AvatarType
-      layer?: keyof AvatarType
+      layer?: AvatarCustomizationLayer
     } | null
   ) => void
 }

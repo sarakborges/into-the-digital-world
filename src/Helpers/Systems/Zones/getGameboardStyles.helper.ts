@@ -1,3 +1,5 @@
+import type { CssPropertiesWithVariables } from '@/Types/CssProperties.type'
+
 type GetGameboardStylesParams = {
   currentX: number
   currentY: number
@@ -10,11 +12,11 @@ export const getGameboardStyles = ({
   currentY,
   gridSize,
   isWarping
-}: GetGameboardStylesParams): React.CSSProperties => {
+}: GetGameboardStylesParams): CssPropertiesWithVariables => {
   return {
     '--current-x': currentX,
     '--current-y': currentY,
     '--grid-size': gridSize,
     '--is-warping': !isWarping ? 1 : 0
-  } as React.CSSProperties
+  }
 }

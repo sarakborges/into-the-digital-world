@@ -11,6 +11,5 @@ export const getPartnerDigimon = (): PartnerDigimonType | undefined => {
     return undefined
   }
 
-  return profile.partnerDigimons[digivice.currentDetails] as
-    PartnerDigimonType | undefined
+  return profile.partnerDigimons[digivice.currentDetails]
 }

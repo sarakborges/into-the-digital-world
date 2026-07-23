@@ -6,3 +6,5 @@ export type AvatarType = {
   hairColor: string
   clothes: string
 }
+
+export type AvatarCustomizationLayer = Exclude<keyof AvatarType, 'expression'>
