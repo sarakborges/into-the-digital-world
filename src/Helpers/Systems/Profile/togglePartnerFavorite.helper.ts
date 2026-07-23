@@ -9,8 +9,11 @@ export const togglePartnerFavorite = () => {
     return
   }
 
-  const currentDigimon = {
-    ...profile.partnerDigimons[digivice?.currentDetails]
+  const partnerId = digivice.currentDetails
+  const currentDigimon = profile.partnerDigimons[partnerId]
+
+  if (!currentDigimon) {
+    return
   }
 
   setProfile({
@@ -19,7 +22,7 @@ export const togglePartnerFavorite = () => {
     partnerDigimons: {
       ...profile.partnerDigimons,
 
-      [digivice.currentDetails as string]: {
+      [partnerId]: {
         ...currentDigimon,
         isFavorite: !currentDigimon.isFavorite
       }

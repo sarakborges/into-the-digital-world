@@ -1,7 +1,5 @@
 import { BiSolidStar, BiStar } from 'react-icons/bi'
 
-import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
-
 import { togglePartnerFavorite } from '@/Helpers/Systems/Profile/togglePartnerFavorite.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -19,9 +17,11 @@ export const AddPartnerToFavorites = () => {
     return
   }
 
-  const partner = profile.partnerDigimons[
-    digivice.currentDetails!
-  ] as PartnerDigimonType
+  const partner = profile.partnerDigimons[digivice.currentDetails]
+
+  if (!partner) {
+    return
+  }
 
   return (
     <Button

@@ -30,6 +30,12 @@ export const Introduction024 = () => {
         id: 'scene-introduction-028-confirm',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
+          const currentProfile = useProfileStore.getState().profile
+
+          if (!currentProfile) {
+            return
+          }
+
           updateQuestObjective({
             questId: AvatarFixingQuest.id,
             objectiveId: 'fixAvatar',
@@ -38,10 +44,8 @@ export const Introduction024 = () => {
 
           addNewQuest({ questId: StarterDigimonQuest.id })
 
-          const currentProfile = useProfileStore.getState().profile
-
           const updatedProfile = {
-            ...currentProfile!,
+            ...currentProfile,
             currentScene: null
           }
 

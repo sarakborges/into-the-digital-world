@@ -48,21 +48,22 @@ export const BattleParty = ({
 
             <div className="conditions">
               {!isDigimonDefeated(digimon) &&
-                !!digimon.conditions &&
-                Object.keys(digimon.conditions).map((condition) => (
-                  <div
-                    style={
-                      {
-                        '--icon-color': getConditionColor(condition)
-                      } as CSSProperties
-                    }
-                    key={`party-${digimon.party}-digimon-${digimon.index}-condition-${condition}`}
-                  >
-                    <div>{CONDITIONS[condition].icon}</div>
+                Object.entries(digimon.conditions ?? {}).map(
+                  ([condition, stack]) => (
+                    <div
+                      style={
+                        {
+                          '--icon-color': getConditionColor(condition)
+                        } as CSSProperties
+                      }
+                      key={`party-${digimon.party}-digimon-${digimon.index}-condition-${condition}`}
+                    >
+                      <div>{CONDITIONS[condition].icon}</div>
 
-                    <Text as="p">{digimon.conditions![condition]}</Text>
-                  </div>
-                ))}
+                      <Text as="p">{stack}</Text>
+                    </div>
+                  )
+                )}
             </div>
           </div>
         </div>

@@ -39,16 +39,20 @@ export const GetStarterDigimon019 = () => {
         id: 'scene-getstarterdigimon-019-continue',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
+          const currentProfile = useProfileStore.getState().profile
+
+          if (!currentProfile) {
+            return
+          }
+
           updateQuestObjective({
             questId: StarterDigimonQuest.id,
             objectiveId: 'talkToGennai',
             objectiveValue: true
           })
 
-          const currentProfile = useProfileStore.getState().profile
-
           const updatedProfile: ProfileType = {
-            ...currentProfile!,
+            ...currentProfile,
             party: [1],
             partnerDigimons: {
               1: {

@@ -31,6 +31,12 @@ export const Introduction019 = () => {
         id: 'scene-introduction-019-continue',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
+          const currentProfile = useProfileStore.getState().profile
+
+          if (!currentProfile) {
+            return
+          }
+
           closeScene()
 
           addNewQuest({ questId: AvatarFixingQuest.id })
@@ -41,10 +47,8 @@ export const Introduction019 = () => {
             objectiveValue: true
           })
 
-          const currentProfile = useProfileStore.getState().profile
-
           const updatedProfile = {
-            ...currentProfile!,
+            ...currentProfile,
             currentScene: null,
             items: {
               [DigiviceItem.id]: 1

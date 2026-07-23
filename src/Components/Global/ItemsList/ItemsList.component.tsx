@@ -1,17 +1,21 @@
+import type { ReactNode } from 'react'
+
 import { Text } from '@/Components/DesignSystem/Text/Text.component'
 import { ItemDisplay } from '@/Components/Global/ItemDisplay/ItemDisplay.component'
 import '@/Components/Global/ItemsList/ItemsList.style.scss'
+
+type ItemsListProps = {
+  list?: Record<string, number>
+  title?: ReactNode
+  displayPlayerResouce?: boolean
+}
 
 export const ItemsList = ({
   list,
   title,
   displayPlayerResouce
-}: {
-  list
-  title?
-  displayPlayerResouce?
-}) => {
-  if (!Object.keys(list).length) {
+}: ItemsListProps) => {
+  if (!list || !Object.keys(list).length) {
     return
   }
 
@@ -20,11 +24,11 @@ export const ItemsList = ({
       {title && <Text>{title}</Text>}
 
       <div className="items">
-        {Object.keys(list!).map((item) => (
+        {Object.entries(list).map(([item, amount]) => (
           <ItemDisplay
             key={`items-list-${item}-item-${item}`}
             item={item}
-            amount={list![item]}
+            amount={amount}
             displayPlayerResouce={displayPlayerResouce}
           />
         ))}
