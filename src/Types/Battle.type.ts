@@ -1,7 +1,5 @@
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
-import type { ItemId } from '@/GameData/Registries/Item.registry'
-
 export type BattleType = {
   turnOrder: Array<
     PartyDigimonType & {
@@ -9,7 +7,7 @@ export type BattleType = {
       index: number
 
       lootTable?: Array<{
-        itemId: ItemId
+        itemId: string
         dropChance: number
         amount: number
       }>
@@ -28,5 +26,7 @@ export type BattleType = {
     hasHitLanded: boolean
   }>
 
-  loot?: Partial<Record<ItemId, number>>
+  loot?: {
+    [itemId: string]: number
+  }
 }
