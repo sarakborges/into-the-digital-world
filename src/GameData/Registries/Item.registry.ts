@@ -18,11 +18,18 @@ const ItemRegistry = {
   [NatureSpiritsCoreItem.id]: NatureSpiritsCoreItem
 } satisfies Record<string, ItemType>
 
-export const findItem = (itemId: string): ItemType | undefined => {
-  return Object.values(ItemRegistry).find((item) => item.id === itemId)
+export type ItemId = Extract<keyof typeof ItemRegistry, string>
+export type Item = (typeof ItemRegistry)[ItemId]
+
+export const isItemId = (itemId: string): itemId is ItemId => {
+  return itemId in ItemRegistry
 }
 
-export const getItem = (itemId: string): ItemType => {
+export const findItem = (itemId: string): Item | undefined => {
+  return isItemId(itemId) ? ItemRegistry[itemId] : undefined
+}
+
+export const getItem = (itemId: string): Item => {
   const item = findItem(itemId)
 
   if (!item) {
@@ -32,6 +39,6 @@ export const getItem = (itemId: string): ItemType => {
   return item
 }
 
-export const getItemIds = (): string[] => {
-  return Object.values(ItemRegistry).map((item) => item.id)
+export const getItemIds = (): ItemId[] => {
+  return Object.keys(ItemRegistry).filter(isItemId)
 }
