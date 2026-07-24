@@ -1,7 +1,5 @@
 import { getItem } from '@/GameData/Registries/Item.registry'
 
-import { getIsItemCategoryCore } from '@/Helpers/Systems/Profile/getIsItemCategoryCore.helper'
-
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
@@ -25,12 +23,13 @@ export const ItemDisplay = ({
   }
 
   const itemDetails = getItem(item)
+  const isCore = itemDetails.category === 'core'
 
   return (
     <div className="item-display">
-      {getIsItemCategoryCore(item) && <ItemCore item={item} />}
+      {isCore && <ItemCore item={item} />}
 
-      {!getIsItemCategoryCore(item) && (
+      {!isCore && (
         <Portrait
           alt={itemDetails.name}
           src={`/${itemDetails.portrait}.webp`}

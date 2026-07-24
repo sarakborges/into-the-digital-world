@@ -3,7 +3,7 @@ import { BsArrowDown, BsArrowUp } from 'react-icons/bs'
 import { TbListDetails } from 'react-icons/tb'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { setCurrentDetails } from '@/Helpers/Systems/Digivice/setCurrentDetails.helper'
+import { updateDigivice } from '@/Helpers/Systems/Digivice/updateDigivice.helper'
 import { addToParty } from '@/Helpers/Systems/Profile/addToParty.helper'
 import { getPartnerGroups } from '@/Helpers/Systems/Profile/getPartnerGroups.helper'
 import { removeFromParty } from '@/Helpers/Systems/Profile/removeFromParty.helper'
@@ -28,7 +28,7 @@ export const AppPartnersList = () => {
     return
   }
 
-  if (digivice?.currentDetails) {
+  if (digivice.currentDetails) {
     return <PartnerDetails />
   }
 
@@ -82,7 +82,9 @@ export const AppPartnersList = () => {
                       <Button
                         disabled={!!scene}
                         style="secondary"
-                        onClick={() => setCurrentDetails(partner.id)}
+                        onClick={() =>
+                          updateDigivice({ currentDetails: partner.id })
+                        }
                       >
                         <TbListDetails />
                       </Button>

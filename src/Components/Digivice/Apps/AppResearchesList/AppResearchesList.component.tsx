@@ -3,7 +3,7 @@ import { BiDetail } from 'react-icons/bi'
 import { getResearch } from '@/GameData/Registries/Research.registry'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { setCurrentDetails } from '@/Helpers/Systems/Digivice/setCurrentDetails.helper'
+import { updateDigivice } from '@/Helpers/Systems/Digivice/updateDigivice.helper'
 import { getResearches } from '@/Helpers/Systems/Profile/getResearches.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -27,9 +27,10 @@ export const AppResearchesList = () => {
   const allResearches = getResearches()
 
   const toggleDetails = (researchId: string) => {
-    setCurrentDetails(
-      digivice.currentDetails === researchId ? undefined : researchId
-    )
+    updateDigivice({
+      currentDetails:
+        digivice.currentDetails === researchId ? undefined : researchId
+    })
   }
 
   return (
@@ -74,7 +75,7 @@ export const AppResearchesList = () => {
                   </footer>
                 </div>
 
-                {digivice?.currentDetails === research.id && (
+                {digivice.currentDetails === research.id && (
                   <>
                     <ItemsList
                       title={getTexts('MY_RESEARCHES_DETAILS_REQUIRED')}

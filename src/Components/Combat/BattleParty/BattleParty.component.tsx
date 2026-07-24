@@ -2,7 +2,6 @@ import type { CssPropertiesWithVariables } from '@/Types/CssProperties.type'
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
 import { isBattleOver } from '@/Helpers/Systems/Battle/getActiveDigimons.helper'
-import { getConditionColor } from '@/Helpers/Systems/Battle/getConditionColor.helper'
 import { isCurrentTurnDigimon } from '@/Helpers/Systems/Battle/isCurrentTurnDigimon.helper'
 import { isDigimonDefeated } from '@/Helpers/Systems/Battle/isDigimonDefeated.helper'
 
@@ -54,7 +53,7 @@ export const BattleParty = ({
                     }
 
                     const conditionStyles: CssPropertiesWithVariables = {
-                      '--icon-color': getConditionColor(condition)
+                      '--icon-color': CONDITIONS[condition].color
                     }
 
                     return (
