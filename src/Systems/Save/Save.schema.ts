@@ -2,6 +2,7 @@ import { z } from 'zod'
 
 import type { ProfileType } from '@/Types/Profile.type'
 
+import { MeaningfulChoiceRegistry } from '@/GameData/Registries/MeaningfulChoice.registry'
 import type { GameLocation } from '@/GameData/Registries/ZoneManifest.registry'
 import { findZoneDefinition } from '@/GameData/Registries/ZoneManifest.registry'
 
@@ -67,12 +68,6 @@ const PartnerDigimonSchema = z
   })
   .strict()
 
-const MeaningfulChoicesSchema = z
-  .object({
-    dorimonMeeting: z.enum(['accept', 'neutral', 'refuse']).optional()
-  })
-  .strict()
-
 export const ProfileSaveSchema = z
   .object({
     id: z.number().int().nonnegative(),
@@ -99,7 +94,13 @@ export const ProfileSaveSchema = z
     currentLocation: GameLocationSchema,
     partnerDigimons: z.record(z.string(), PartnerDigimonSchema),
     npcAcquaintances: z.record(z.string(), z.unknown()),
-    meaningfulChoices: MeaningfulChoicesSchema
+    meaningfulChoices: z
+      .object({
+        dorimonMeeting: z
+          .enum(MeaningfulChoiceRegistry.dorimonMeeting)
+          .optional()
+      })
+      .strict()
   })
   .strict() satisfies z.ZodType<ProfileType>
 
