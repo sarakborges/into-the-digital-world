@@ -2,17 +2,10 @@ import type { ProfileType } from '@/Types/Profile.type'
 
 import { GAME_VERSION } from '@/Consts/Game.const'
 import { getNpcsByCategory } from '@/GameData/Registries/Npc.registry'
-import { Introduction001 } from '@/GameData/Scenes/Story/Introduction/001.scene'
 
-import { useDigiviceStore } from '@/Stores/Digivice.store'
-import { useProfileStore } from '@/Stores/Profile.store'
-import { useSceneStore } from '@/Stores/Scene.store'
+import { startGameSession } from '@/Helpers/Systems/Profile/startGameSession.helper'
 
 export const createNewProfile = () => {
-  const { setProfile } = useProfileStore.getState()
-  const { setDigivice } = useDigiviceStore.getState()
-  const { setScene } = useSceneStore.getState()
-
   const profile = {
     gameVersion: GAME_VERSION,
     id: 0,
@@ -44,8 +37,5 @@ export const createNewProfile = () => {
     }
   } satisfies ProfileType
 
-  setProfile(profile)
-  setDigivice({ isOpen: false })
-
-  setScene({ component: Introduction001 })
+  startGameSession({ profile })
 }
