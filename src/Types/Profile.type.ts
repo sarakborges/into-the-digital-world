@@ -3,6 +3,19 @@ import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 
 import type { GameLocation } from '@/GameData/Registries/ZoneManifest.registry'
 
+export type DorimonMeetingChoice = 'accept' | 'neutral' | 'refuse'
+
+export type MeaningfulChoicesType = {
+  dorimonMeeting?: DorimonMeetingChoice | undefined
+}
+
+export type MeaningfulChoiceReaction = {
+  [TChoice in keyof MeaningfulChoicesType]-?: {
+    name: TChoice
+    value: NonNullable<MeaningfulChoicesType[TChoice]>
+  }
+}[keyof MeaningfulChoicesType]
+
 export type ProfileType = {
   id: number
   name: string
@@ -39,7 +52,5 @@ export type ProfileType = {
     [key: string]: unknown
   }
 
-  meaningfulChoices: {
-    [key: string]: string
-  }
+  meaningfulChoices: MeaningfulChoicesType
 }
