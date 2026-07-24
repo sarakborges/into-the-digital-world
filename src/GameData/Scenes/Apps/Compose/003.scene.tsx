@@ -4,9 +4,9 @@ import { NpcJijimon } from '@/GameData/Npcs/Jijimon.npc'
 import { getResearch } from '@/GameData/Registries/Research.registry'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
 import { applyItemAmounts } from '@/Helpers/Systems/Profile/applyItemAmounts.helper'
 import { hasItems } from '@/Helpers/Systems/Profile/hasItems.helper'
+import { setProfileSession } from '@/Helpers/Systems/Profile/setProfileSession.helper'
 import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
 import { useCompositionStore } from '@/Stores/Composition.store'
@@ -46,7 +46,7 @@ export const Compose003 = () => {
       operation: 'subtract'
     })
 
-    saveSession({
+    setProfileSession({
       ...profile,
       items: applyItemAmounts({
         inventory: itemsAfterRequired,

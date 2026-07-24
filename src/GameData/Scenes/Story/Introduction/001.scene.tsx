@@ -16,11 +16,7 @@ export const Introduction001 = () => {
       optionId="scene-introduction-001-continue"
       text={getTexts('INTRODUCTION_001_TEXT')}
       onAction={() => {
-        addNewQuest({
-          questId: IntroductionQuest.id,
-          ignoreSession: true
-        })
-
+        addNewQuest({ questId: IntroductionQuest.id })
         setScene({ component: Introduction002 })
       }}
     />

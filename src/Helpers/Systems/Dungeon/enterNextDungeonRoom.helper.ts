@@ -2,7 +2,6 @@ import { getDungeon } from '@/GameData/Registries/Dungeon.registry'
 import { DungeonChooseRoom } from '@/GameData/Scenes/Apps/Dungeon/ChooseRoom.scene'
 
 import { saveBattle } from '@/Helpers/Systems/Battle/saveBattle.helper'
-import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
 import { getDungeonRoomOptions } from '@/Helpers/Systems/Dungeon/getDungeonRoomOptions.helper'
 import { saveDungeon } from '@/Helpers/Systems/Dungeon/saveDungeon.helper'
 
@@ -11,7 +10,7 @@ import { useDungeonStore } from '@/Stores/Dungeon.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-export const enterNextDungeonRoom = () => {
+export const enterNextDungeonRoom = (): void => {
   const { setScene } = useSceneStore.getState()
   const { profile } = useProfileStore.getState()
   const { battle } = useBattleStore.getState()
@@ -54,7 +53,5 @@ export const enterNextDungeonRoom = () => {
   })
 
   saveBattle(null)
-  saveSession(profile)
-
   setScene({ component: DungeonChooseRoom })
 }

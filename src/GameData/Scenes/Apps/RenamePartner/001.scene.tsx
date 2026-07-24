@@ -7,7 +7,7 @@ import { findDigimon } from '@/GameData/Registries/Digimon.registry'
 import { RenamePartner002 } from '@/GameData/Scenes/Apps/RenamePartner/002.scene'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
+import { setProfileSession } from '@/Helpers/Systems/Profile/setProfileSession.helper'
 import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -77,7 +77,7 @@ export const RenamePartner001 = () => {
         id: 'scene-renamepartner-001-confirm',
         text: getTexts('SCENES_CONFIRM_BUTTON'),
         action: () => {
-          const updatedProfile = {
+          setProfileSession({
             ...profile,
 
             partnerDigimons: {
@@ -88,9 +88,7 @@ export const RenamePartner001 = () => {
                 name: name.trim()
               }
             }
-          }
-
-          saveSession(updatedProfile)
+          })
 
           setScene({ component: RenamePartner002 })
         }

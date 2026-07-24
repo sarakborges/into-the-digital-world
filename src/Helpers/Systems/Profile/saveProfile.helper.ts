@@ -7,8 +7,8 @@ import {
   writeStoredProfile
 } from '@/Systems/Save/Save.storage'
 
-import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
 import { loadProfiles } from '@/Helpers/Systems/Profile/loadProfiles.helper'
+import { setProfileSession } from '@/Helpers/Systems/Profile/setProfileSession.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -31,7 +31,7 @@ export const saveProfile = (profileId?: number): void => {
     }
 
     writeStoredProfile(updatedProfile)
-    saveSession(updatedProfile)
+    setProfileSession(updatedProfile)
     loadProfiles()
     setScene({ component: SaveGame002 })
   } catch (error) {

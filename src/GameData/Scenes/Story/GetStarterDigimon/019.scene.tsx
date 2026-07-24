@@ -1,11 +1,10 @@
 import type { DialogType } from '@/Types/Dialog.type'
-import type { ProfileType } from '@/Types/Profile.type'
 
 import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
+import { setProfileSession } from '@/Helpers/Systems/Profile/setProfileSession.helper'
 import { updateQuestObjective } from '@/Helpers/Systems/Quests/updateQuestObjective.helper'
 import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
@@ -39,19 +38,13 @@ export const GetStarterDigimon019 = () => {
         id: 'scene-getstarterdigimon-019-continue',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          const currentProfile = useProfileStore.getState().profile
-
-          if (!currentProfile) {
-            return
-          }
-
           updateQuestObjective({
             questId: StarterDigimonQuest.id,
             objectiveId: 'talkToGennai',
             objectiveValue: true
           })
 
-          const updatedProfile: ProfileType = {
+          setProfileSession((currentProfile) => ({
             ...currentProfile,
             party: [1],
             partnerDigimons: {
@@ -62,10 +55,9 @@ export const GetStarterDigimon019 = () => {
                 equipments: {}
               }
             }
-          }
+          }))
 
           closeScene()
-          saveSession(updatedProfile)
         }
       }
     ]

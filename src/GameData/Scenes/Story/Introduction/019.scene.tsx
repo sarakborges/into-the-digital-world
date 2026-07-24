@@ -6,12 +6,10 @@ import { AvatarFixingQuest } from '@/GameData/Quests/AvatarFixing.quest'
 import { IntroductionQuest } from '@/GameData/Quests/Introduction.quest'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
+import { setProfileSession } from '@/Helpers/Systems/Profile/setProfileSession.helper'
 import { addNewQuest } from '@/Helpers/Systems/Quests/addNewQuest.helper'
 import { updateQuestObjective } from '@/Helpers/Systems/Quests/updateQuestObjective.helper'
 import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
-
-import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
 import { Text } from '@/Components/DesignSystem/Text/Text.component'
@@ -31,14 +29,7 @@ export const Introduction019 = () => {
         id: 'scene-introduction-019-continue',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          const currentProfile = useProfileStore.getState().profile
-
-          if (!currentProfile) {
-            return
-          }
-
           closeScene()
-
           addNewQuest({ questId: AvatarFixingQuest.id })
 
           updateQuestObjective({
@@ -47,15 +38,13 @@ export const Introduction019 = () => {
             objectiveValue: true
           })
 
-          const updatedProfile = {
-            ...currentProfile,
+          setProfileSession((profile) => ({
+            ...profile,
             currentScene: null,
             items: {
               [DigiviceItem.id]: 1
             }
-          }
-
-          saveSession(updatedProfile)
+          }))
         }
       }
     ]

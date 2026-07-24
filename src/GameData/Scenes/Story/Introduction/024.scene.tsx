@@ -5,12 +5,10 @@ import { AvatarFixingQuest } from '@/GameData/Quests/AvatarFixing.quest'
 import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
+import { setProfileSession } from '@/Helpers/Systems/Profile/setProfileSession.helper'
 import { addNewQuest } from '@/Helpers/Systems/Quests/addNewQuest.helper'
 import { updateQuestObjective } from '@/Helpers/Systems/Quests/updateQuestObjective.helper'
 import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
-
-import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
 import { Text } from '@/Components/DesignSystem/Text/Text.component'
@@ -30,12 +28,6 @@ export const Introduction024 = () => {
         id: 'scene-introduction-028-confirm',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          const currentProfile = useProfileStore.getState().profile
-
-          if (!currentProfile) {
-            return
-          }
-
           updateQuestObjective({
             questId: AvatarFixingQuest.id,
             objectiveId: 'fixAvatar',
@@ -43,15 +35,12 @@ export const Introduction024 = () => {
           })
 
           addNewQuest({ questId: StarterDigimonQuest.id })
-
-          const updatedProfile = {
-            ...currentProfile,
+          setProfileSession((profile) => ({
+            ...profile,
             currentScene: null
-          }
+          }))
 
           closeScene()
-
-          saveSession(updatedProfile)
         }
       }
     ].filter((option) => !!option)

@@ -5,7 +5,7 @@ import { readStoredProfile } from '@/Systems/Save/Save.storage'
 import { Introduction001 } from '@/GameData/Scenes/Story/Introduction/001.scene'
 
 import { clearGameSession } from '@/Helpers/Systems/Data/clearGameSession.helper'
-import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
+import { setProfileSession } from '@/Helpers/Systems/Profile/setProfileSession.helper'
 import { openCurrentTileScene } from '@/Helpers/Systems/Zones/openCurrentTileScene.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -28,7 +28,7 @@ export const startGameSession = (
   }
 
   clearGameSession()
-  saveSession(profile)
+  setProfileSession(profile)
 
   const { setDigivice } = useDigiviceStore.getState()
   setDigivice({ isOpen: false })

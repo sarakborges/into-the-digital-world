@@ -1,8 +1,10 @@
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
-export const togglePartnerFavorite = () => {
-  const { profile, setProfile } = useProfileStore.getState()
+import { setProfileSession } from '@/Helpers/Systems/Profile/setProfileSession.helper'
+
+export const togglePartnerFavorite = (): void => {
+  const profile = useProfileStore.getState().profile
   const { digivice } = useDigiviceStore.getState()
 
   if (!profile || !digivice?.currentDetails) {
@@ -16,7 +18,7 @@ export const togglePartnerFavorite = () => {
     return
   }
 
-  setProfile({
+  setProfileSession({
     ...profile,
 
     partnerDigimons: {

@@ -6,6 +6,7 @@ import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 import { Introduction006 } from '@/GameData/Scenes/Story/Introduction/006.scene'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { setProfileSession } from '@/Helpers/Systems/Profile/setProfileSession.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -16,7 +17,7 @@ import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
 export const Introduction005 = () => {
   const { setScene } = useSceneStore((state) => state)
-  const { profile, setProfile } = useProfileStore((state) => state)
+  const { profile } = useProfileStore((state) => state)
   const [name, setName] = useState('')
 
   if (!profile) {
@@ -49,12 +50,10 @@ export const Introduction005 = () => {
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         disabled: !name,
         action: () => {
-          const updatedProfile = {
+          setProfileSession({
             ...profile,
             name: name.trim()
-          }
-
-          setProfile(updatedProfile)
+          })
 
           setScene({ component: Introduction006 })
         }

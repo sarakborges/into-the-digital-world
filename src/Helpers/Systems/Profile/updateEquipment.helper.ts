@@ -1,6 +1,6 @@
 import { findItem } from '@/GameData/Registries/Item.registry'
 
-import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
+import { setProfileSession } from '@/Helpers/Systems/Profile/setProfileSession.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -13,7 +13,7 @@ export const updateEquipment = ({
   equipmentSlot: number
   equipmentId: string | undefined
 }): boolean => {
-  const { profile } = useProfileStore.getState()
+  const profile = useProfileStore.getState().profile
   const partner = profile?.partnerDigimons[digimonId]
 
   if (!profile || !partner) {
@@ -28,7 +28,7 @@ export const updateEquipment = ({
     }
   }
 
-  const updatedProfile = {
+  setProfileSession({
     ...profile,
 
     partnerDigimons: {
@@ -44,9 +44,7 @@ export const updateEquipment = ({
         }
       }
     }
-  }
-
-  saveSession(updatedProfile)
+  })
 
   return true
 }
