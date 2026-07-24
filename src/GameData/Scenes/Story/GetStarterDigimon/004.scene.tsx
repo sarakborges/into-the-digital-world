@@ -1,8 +1,8 @@
 import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
 
 import type { DialogType } from '@/Types/Dialog.type'
-import type { DorimonMeetingChoice } from '@/Types/Profile.type'
 
+import type { MeaningfulChoiceValue } from '@/GameData/Registries/MeaningfulChoice.registry'
 import { GetStarterDigimon005 } from '@/GameData/Scenes/Story/GetStarterDigimon/005.scene'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
@@ -14,6 +14,8 @@ import { Button } from '@/Components/DesignSystem/Button/Button.component'
 import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
 import { Text } from '@/Components/DesignSystem/Text/Text.component'
 
+type DorimonMeetingChoice = MeaningfulChoiceValue<'dorimonMeeting'>
+
 export const GetStarterDigimon004 = () => {
   const { profile } = useProfileStore((state) => state)
 
@@ -21,10 +23,7 @@ export const GetStarterDigimon004 = () => {
     return
   }
 
-  const dialogReactions: Array<{
-    label: string
-    value: DorimonMeetingChoice
-  }> = [
+  const dialogReactions = [
     {
       label: getTexts('GETSTARTERDIGIMON_004_OPTION_ACCEPT'),
       value: 'accept'
@@ -39,7 +38,10 @@ export const GetStarterDigimon004 = () => {
       label: getTexts('GETSTARTERDIGIMON_004_OPTION_REFUSE'),
       value: 'refuse'
     }
-  ]
+  ] satisfies ReadonlyArray<{
+    label: string
+    value: DorimonMeetingChoice
+  }>
 
   const dialogOptions: DialogType = {
     content: (
