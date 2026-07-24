@@ -1,11 +1,13 @@
 import type { AvatarType } from '@/Types/Avatar.type'
 import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 
+import type { GAME_VERSION } from '@/Consts/Game.const'
 import type { DungeonId } from '@/GameData/Registries/Dungeon.registry'
 import type { MeaningfulChoices } from '@/GameData/Registries/MeaningfulChoice.registry'
 import type { GameLocation } from '@/GameData/Registries/ZoneManifest.registry'
 
 export type ProfileType = {
+  gameVersion: typeof GAME_VERSION
   id: number
   name: string
   lastSave: string

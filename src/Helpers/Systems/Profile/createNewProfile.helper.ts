@@ -1,5 +1,6 @@
 import type { ProfileType } from '@/Types/Profile.type'
 
+import { GAME_VERSION } from '@/Consts/Game.const'
 import { getNpcsByCategory } from '@/GameData/Registries/Npc.registry'
 import { Introduction001 } from '@/GameData/Scenes/Story/Introduction/001.scene'
 
@@ -13,6 +14,7 @@ export const createNewProfile = () => {
   const { setScene } = useSceneStore.getState()
 
   const profile = {
+    gameVersion: GAME_VERSION,
     id: 0,
     name: '',
     lastSave: new Date().toISOString(),

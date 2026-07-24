@@ -1,4 +1,4 @@
-import { migrateProfile } from '@/Systems/Save/Save.migrations'
+import { ProfileSaveSchema } from '@/Systems/Save/Save.schema'
 
 import { loadSession } from '@/Helpers/Systems/Data/loadSession.helper'
 
@@ -12,14 +12,18 @@ export const loadGameSession = () => {
   const { setBattle } = useBattleStore.getState()
 
   try {
-    const rawProfile = loadSession(`profile`)
-    const dungeon = loadSession(`dungeon`)
-    const battle = loadSession(`battle`)
-    const profile = rawProfile ? migrateProfile(rawProfile) : null
+    const profile = ProfileSaveSchema.safeParse(loadSession(`profile`))
 
-    setProfile(profile)
-    setDungeon(dungeon)
-    setBattle(battle)
+    if (!profile.success) {
+      setProfile(null)
+      setDungeon(null)
+      setBattle(null)
+      return
+    }
+
+    setProfile(profile.data)
+    setDungeon(loadSession(`dungeon`))
+    setBattle(loadSession(`battle`))
   } catch (error) {
     console.warn(`Error loading game session: ${error}`)
   }

@@ -2,6 +2,7 @@ import { z } from 'zod'
 
 import type { ProfileType } from '@/Types/Profile.type'
 
+import { GAME_VERSION } from '@/Consts/Game.const'
 import type { DungeonId } from '@/GameData/Registries/Dungeon.registry'
 import { isDungeonId } from '@/GameData/Registries/Dungeon.registry'
 import { MeaningfulChoiceRegistry } from '@/GameData/Registries/MeaningfulChoice.registry'
@@ -77,6 +78,7 @@ const PartnerDigimonSchema = z
 
 export const ProfileSaveSchema = z
   .object({
+    gameVersion: z.literal(GAME_VERSION),
     id: z.number().int().nonnegative(),
     name: z.string(),
     lastSave: z.iso.datetime(),
@@ -110,17 +112,3 @@ export const ProfileSaveSchema = z
       .strict()
   })
   .strict() satisfies z.ZodType<ProfileType>
-
-export const SavePayloadSchema = z
-  .object({
-    schemaVersion: z.number().int().nonnegative(),
-    slotId: z.string().min(1),
-    createdAt: z.iso.datetime(),
-    updatedAt: z.iso.datetime(),
-    profile: ProfileSaveSchema
-  })
-  .strict()
-
-export const StoredSaveSchema = SavePayloadSchema.extend({
-  checksum: z.string().regex(/^[a-f0-9]{64}$/)
-})
