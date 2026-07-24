@@ -1,10 +1,10 @@
-import type { ResearchType } from '@/Types/Research.type'
+import type { ResearchDefinitionType } from '@/Types/Research.type'
 
 import { DragonsRoarCoreItem } from '@/GameData/Items/DragonsRoarCore.item'
 import { KoromonCoreItem } from '@/GameData/Items/KoromonCore.item'
 import { VirusBustersCoreItem } from '@/GameData/Items/VirusBustersCore.item'
 
-export const KoromonResearch: ResearchType = {
+export const KoromonResearch = {
   cost: {
     [KoromonCoreItem.id]: 10
   },
@@ -17,4 +17,4 @@ export const KoromonResearch: ResearchType = {
     [DragonsRoarCoreItem.id]: 5,
     [VirusBustersCoreItem.id]: 5
   }
-}
+} satisfies ResearchDefinitionType
