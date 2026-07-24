@@ -1,8 +1,8 @@
 import type { ItemType } from '@/Types/Item.type'
 
-export const DigiviceItem: ItemType = {
+export const DigiviceItem = {
   id: 'digivice',
   name: 'Digivice',
   portrait: 'items/digivice',
   category: 'keyItem'
-}
+} satisfies ItemType
