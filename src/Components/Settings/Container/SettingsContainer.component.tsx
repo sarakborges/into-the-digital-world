@@ -14,13 +14,9 @@ import { SettingsTheme } from '@/Components/Settings/Themes/SettingsTheme.compon
 export const SettingsContainer = () => {
   const { settings, setSettings } = useSettingsStore((state) => state)
 
-  if (!settings) {
-    return
-  }
-
   return (
     <div className="settings">
-      {!!settings.isOpen && (
+      {settings.isOpen && (
         <Modal>
           <header className="settings-header">
             <Text>{getTexts('SETTINGS_TITLE')}</Text>

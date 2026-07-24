@@ -14,10 +14,6 @@ import '@/Components/Settings/Theme/UpdateTheme.style.scss'
 export const UpdateTheme = ({ theme }: { theme: ThemeId }) => {
   const { settings } = useSettingsStore((state) => state)
 
-  if (!settings) {
-    return
-  }
-
   return (
     <div className="update-theme">
       <Button onClick={() => updateSettings({ theme })}>

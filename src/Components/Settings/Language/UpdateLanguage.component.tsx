@@ -15,10 +15,6 @@ import '@/Components/Settings/Language/UpdateLanguage.style.scss'
 export const UpdateLanguage = ({ language }: { language: LanguageId }) => {
   const { settings } = useSettingsStore((state) => state)
 
-  if (!settings) {
-    return
-  }
-
   return (
     <div className="update-language">
       <Button onClick={() => updateSettings({ language })}>
