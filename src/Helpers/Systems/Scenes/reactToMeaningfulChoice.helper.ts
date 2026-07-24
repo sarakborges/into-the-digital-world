@@ -1,3 +1,4 @@
+import type { MeaningfulChoiceReaction } from '@/Types/Profile.type'
 import type { SceneType } from '@/Types/Scene.type'
 
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -7,10 +8,7 @@ export const reactToMeaningfulChoice = ({
   reaction,
   nextScene
 }: {
-  reaction: {
-    name: string
-    value: string
-  }
+  reaction: MeaningfulChoiceReaction
   nextScene: SceneType | null
 }) => {
   const { profile, setProfile } = useProfileStore.getState()
