@@ -4,10 +4,32 @@ import { NpcRegistry } from '@/GameData/Npcs'
 
 export type NpcCategory = Extract<keyof typeof NpcRegistry, string>
 
-type GetNpcParams = {
+export type NpcId<TCategory extends NpcCategory = NpcCategory> =
+  TCategory extends NpcCategory
+    ? Extract<keyof (typeof NpcRegistry)[TCategory], string>
+    : never
+
+type DynamicNpcParams = {
   category: string
   npcId: string
 }
+
+type GetNpcParams<
+  TCategory extends string,
+  TNpcId extends string
+> = string extends TCategory | TNpcId
+  ? {
+      category: TCategory
+      npcId: TNpcId
+    }
+  : TCategory extends NpcCategory
+    ? TNpcId extends NpcId<TCategory>
+      ? {
+          category: TCategory
+          npcId: TNpcId
+        }
+      : never
+    : never
 
 const isNpcCategory = (category: string): category is NpcCategory => {
   return category in NpcRegistry
@@ -40,13 +62,18 @@ export const getNpcsByCategory = (
 export const findNpc = ({
   category,
   npcId
-}: GetNpcParams): NpcType | undefined => {
+}: DynamicNpcParams): NpcType | undefined => {
   const npcs = findNpcsByCategory(category)
 
   return npcs?.[npcId]
 }
 
-export const getNpc = (params: GetNpcParams): NpcType => {
+export const getNpc = <
+  TCategory extends string,
+  TNpcId extends string
+>(
+  params: GetNpcParams<TCategory, TNpcId>
+): NpcType => {
   const npc = findNpc(params)
 
   if (!npc) {
