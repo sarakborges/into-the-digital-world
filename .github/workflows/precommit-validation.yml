@@ -1,0 +1,61 @@
+name: Precommit validation
+
+on:
+  pull_request:
+    branches:
+      - codex/map-and-parameter-cleanup
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Audit storage boundaries
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          expected_importers = {
+              "@/Helpers/Systems/Data/loadData.helper": {
+                  "src/Helpers/Systems/Settings/loadSettings.helper.ts"
+              },
+              "@/Helpers/Systems/Data/saveData.helper": {
+                  "src/Helpers/Systems/Settings/updateSettings.helper.ts"
+              },
+              "@/Helpers/Systems/Data/loadSession.helper": {
+                  "src/Helpers/Systems/Data/loadGameSession.helper.ts"
+              },
+          }
+
+          violations = []
+
+          for module, expected in expected_importers.items():
+              importers = set()
+
+              for path in Path("src").rglob("*"):
+                  if path.suffix not in {".ts", ".tsx"}:
+                      continue
+
+                  if module in path.read_text(encoding="utf-8"):
+                      importers.add(path.as_posix())
+
+              if importers != expected:
+                  violations.append(
+                      f"{module}: expected {sorted(expected)}, found {sorted(importers)}"
+                  )
+
+          if violations:
+              raise SystemExit("\n".join(violations))
+          PY
+      - name: Lint
+        run: npm run lint
+      - name: TypeScript
+        run: npx tsc --noEmit
+      - name: Build
+        run: npm run build
