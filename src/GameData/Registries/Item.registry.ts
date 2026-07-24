@@ -19,17 +19,16 @@ const ItemRegistry = {
 } satisfies Record<string, ItemType>
 
 export type ItemId = Extract<keyof typeof ItemRegistry, string>
-export type Item = (typeof ItemRegistry)[ItemId]
 
 export const isItemId = (itemId: string): itemId is ItemId => {
   return itemId in ItemRegistry
 }
 
-export const findItem = (itemId: string): Item | undefined => {
+export const findItem = (itemId: string): ItemType | undefined => {
   return isItemId(itemId) ? ItemRegistry[itemId] : undefined
 }
 
-export const getItem = (itemId: string): Item => {
+export const getItem = (itemId: string): ItemType => {
   const item = findItem(itemId)
 
   if (!item) {
