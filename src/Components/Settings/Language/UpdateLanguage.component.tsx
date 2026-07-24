@@ -1,5 +1,7 @@
 import { FaCheck } from 'react-icons/fa'
 
+import type { LanguageId } from '@/Consts/Languages.const'
+
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { updateSettings } from '@/Helpers/Systems/Settings/updateSettings.helper'
 
@@ -10,7 +12,7 @@ import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
 import { Text } from '@/Components/DesignSystem/Text/Text.component'
 import '@/Components/Settings/Language/UpdateLanguage.style.scss'
 
-export const UpdateLanguage = ({ language }: { language: string }) => {
+export const UpdateLanguage = ({ language }: { language: LanguageId }) => {
   const { settings } = useSettingsStore((state) => state)
 
   if (!settings) {

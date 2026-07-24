@@ -1,5 +1,8 @@
+import type { LanguageId } from '@/Consts/Languages.const'
+import type { ThemeId } from '@/Consts/Themes.const'
+
 export type SettingsType = {
   isOpen: boolean
-  theme: string
-  language: string
+  theme: ThemeId
+  language: LanguageId
 }
