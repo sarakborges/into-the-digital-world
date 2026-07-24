@@ -3,10 +3,12 @@ import {
   BattleSessionSchema,
   DungeonSessionSchema
 } from '@/Systems/Save/Session.schema'
+import { readSessionStorageJson } from '@/Systems/Storage/BrowserStorage'
 
 import { clearGameSession } from '@/Helpers/Systems/Data/clearGameSession.helper'
-import { loadSession } from '@/Helpers/Systems/Data/loadSession.helper'
 import { setGameSessionValue } from '@/Helpers/Systems/Data/setGameSessionValue.helper'
+
+import { getStorageKey } from '@/Consts/Storage.const'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useDungeonStore } from '@/Stores/Dungeon.store'
@@ -18,7 +20,9 @@ export const loadGameSession = (): void => {
   const { setBattle } = useBattleStore.getState()
 
   try {
-    const profile = ProfileSaveSchema.safeParse(loadSession('profile'))
+    const profile = ProfileSaveSchema.safeParse(
+      readSessionStorageJson(getStorageKey('profile'))
+    )
 
     if (!profile.success) {
       clearGameSession()
@@ -26,10 +30,10 @@ export const loadGameSession = (): void => {
     }
 
     const dungeon = DungeonSessionSchema.nullable().safeParse(
-      loadSession('dungeon')
+      readSessionStorageJson(getStorageKey('dungeon'))
     )
     const battle = BattleSessionSchema.nullable().safeParse(
-      loadSession('battle')
+      readSessionStorageJson(getStorageKey('battle'))
     )
 
     setProfile(profile.data)

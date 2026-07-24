@@ -2,25 +2,19 @@ import type { ProfileType } from '@/Types/Profile.type'
 
 import { ProfileSaveSchema } from '@/Systems/Save/Save.schema'
 import { isProfileFromCurrentGameVersion } from '@/Systems/Save/Save.version'
+import {
+  readLocalStorageJson,
+  removeLocalStorageValue,
+  writeLocalStorageJson
+} from '@/Systems/Storage/BrowserStorage'
 
-const SAVED_PROFILE_IDS_KEY = 'itdw_saved_profile_ids'
-const getSavedProfileKey = (profileId: number): string =>
-  `itdw_saved_profile_${profileId}`
-
-const parseStoredJson = (value: string | null): unknown | undefined => {
-  if (!value) {
-    return undefined
-  }
-
-  try {
-    return JSON.parse(value)
-  } catch {
-    return undefined
-  }
-}
+import {
+  getSavedProfileStorageKey,
+  SAVED_PROFILE_IDS_STORAGE_KEY
+} from '@/Consts/Storage.const'
 
 export const getStoredProfileIds = (): number[] => {
-  const value = parseStoredJson(localStorage.getItem(SAVED_PROFILE_IDS_KEY))
+  const value = readLocalStorageJson(SAVED_PROFILE_IDS_STORAGE_KEY)
 
   if (!Array.isArray(value)) {
     return []
@@ -38,19 +32,16 @@ export const getStoredProfileIds = (): number[] => {
   )
 }
 
-export const getNextStoredProfileId = (): number => {
-  return Math.max(0, ...getStoredProfileIds()) + 1
-}
+export const getNextStoredProfileId = (): number =>
+  Math.max(0, ...getStoredProfileIds()) + 1
 
 export const readStoredProfile = (
   profileId: number
 ): ProfileType | undefined => {
-  const value = parseStoredJson(
-    localStorage.getItem(getSavedProfileKey(profileId))
-  )
+  const value = readLocalStorageJson(getSavedProfileStorageKey(profileId))
 
   if (!isProfileFromCurrentGameVersion(value)) {
-    return undefined
+    return
   }
 
   const profile = ProfileSaveSchema.safeParse(value)
@@ -61,25 +52,59 @@ export const readStoredProfile = (
 export const writeStoredProfile = (profile: ProfileType): void => {
   const validProfile = ProfileSaveSchema.parse(profile)
   const profileIds = getStoredProfileIds()
+  const profileStorageKey = getSavedProfileStorageKey(validProfile.id)
+  const isNewProfile = !profileIds.includes(validProfile.id)
 
-  localStorage.setItem(
-    getSavedProfileKey(validProfile.id),
-    JSON.stringify(validProfile)
-  )
+  writeLocalStorageJson({ key: profileStorageKey, value: validProfile })
 
-  if (!profileIds.includes(validProfile.id)) {
-    localStorage.setItem(
-      SAVED_PROFILE_IDS_KEY,
-      JSON.stringify([...profileIds, validProfile.id])
-    )
+  if (!isNewProfile) {
+    return
+  }
+
+  try {
+    writeLocalStorageJson({
+      key: SAVED_PROFILE_IDS_STORAGE_KEY,
+      value: [...profileIds, validProfile.id]
+    })
+  } catch (error) {
+    try {
+      removeLocalStorageValue(profileStorageKey)
+    } catch (rollbackError) {
+      console.warn(`Error rolling back profile save: ${rollbackError}`)
+    }
+
+    throw error
   }
 }
 
 export const deleteStoredProfile = (profileId: number): void => {
-  const profileIds = getStoredProfileIds().filter(
+  const profileIds = getStoredProfileIds()
+  const hasStoredProfileId = profileIds.includes(profileId)
+  const updatedProfileIds = profileIds.filter(
     (storedProfileId) => storedProfileId !== profileId
   )
 
-  localStorage.removeItem(getSavedProfileKey(profileId))
-  localStorage.setItem(SAVED_PROFILE_IDS_KEY, JSON.stringify(profileIds))
+  if (hasStoredProfileId) {
+    writeLocalStorageJson({
+      key: SAVED_PROFILE_IDS_STORAGE_KEY,
+      value: updatedProfileIds
+    })
+  }
+
+  try {
+    removeLocalStorageValue(getSavedProfileStorageKey(profileId))
+  } catch (error) {
+    if (hasStoredProfileId) {
+      try {
+        writeLocalStorageJson({
+          key: SAVED_PROFILE_IDS_STORAGE_KEY,
+          value: profileIds
+        })
+      } catch (rollbackError) {
+        console.warn(`Error rolling back profile deletion: ${rollbackError}`)
+      }
+    }
+
+    throw error
+  }
 }

@@ -5,6 +5,8 @@ import type { ProfileType } from '@/Types/Profile.type'
 import type { GameSessionKey } from '@/Consts/Storage.const'
 import { getStorageKey } from '@/Consts/Storage.const'
 
+import { writeSessionStorageJson } from '@/Systems/Storage/BrowserStorage'
+
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useDungeonStore } from '@/Stores/Dungeon.store'
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -26,7 +28,7 @@ export const setGameSessionValue = (sessionValue: GameSessionValue): void => {
   const storageKey = getStorageKey(sessionValue.key)
 
   try {
-    sessionStorage.setItem(storageKey, JSON.stringify(sessionValue.value))
+    writeSessionStorageJson({ key: storageKey, value: sessionValue.value })
 
     switch (sessionValue.key) {
       case 'profile':
@@ -41,8 +43,7 @@ export const setGameSessionValue = (sessionValue: GameSessionValue): void => {
         useBattleStore.getState().setBattle(sessionValue.value)
         return
     }
-  } catch {
-    console.warn(`Error saving game session value: ${storageKey}`)
-    console.warn(sessionValue.value)
+  } catch (error) {
+    console.warn(`Error saving game session value ${storageKey}: ${error}`)
   }
 }

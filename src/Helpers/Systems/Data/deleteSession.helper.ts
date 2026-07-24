@@ -1,7 +1,14 @@
-export const deleteSession = (key: string) => {
+import type { GameSessionKey } from '@/Consts/Storage.const'
+import { getStorageKey } from '@/Consts/Storage.const'
+
+import { removeSessionStorageValue } from '@/Systems/Storage/BrowserStorage'
+
+export const deleteSession = (key: GameSessionKey): void => {
+  const storageKey = getStorageKey(key)
+
   try {
-    sessionStorage.removeItem(`itdw_${key}`)
-  } catch {
-    console.warn(`Error deleting session: itdw_${key}`)
+    removeSessionStorageValue(storageKey)
+  } catch (error) {
+    console.warn(`Error deleting session ${storageKey}: ${error}`)
   }
 }

@@ -3,7 +3,9 @@ import type {
   SettingsType
 } from '@/Types/Settings.type'
 
-import { saveData } from '@/Helpers/Systems/Data/saveData.helper'
+import { writeLocalStorageJson } from '@/Systems/Storage/BrowserStorage'
+
+import { getStorageKey } from '@/Consts/Storage.const'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
 
@@ -26,5 +28,13 @@ export const updateSettings = ({
   }
 
   setSettings(updatedSettings)
-  saveData({ key: 'settings', value: persistedSettings })
+
+  try {
+    writeLocalStorageJson({
+      key: getStorageKey('settings'),
+      value: persistedSettings
+    })
+  } catch (error) {
+    console.warn(`Error saving settings: ${error}`)
+  }
 }
