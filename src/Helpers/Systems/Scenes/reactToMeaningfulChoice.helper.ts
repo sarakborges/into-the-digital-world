@@ -1,5 +1,6 @@
-import type { MeaningfulChoiceReaction } from '@/Types/Profile.type'
 import type { SceneType } from '@/Types/Scene.type'
+
+import type { MeaningfulChoiceReaction } from '@/GameData/Registries/MeaningfulChoice.registry'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
