@@ -16,15 +16,9 @@ export const UpdateTheme = ({ theme }: { theme: string }) => {
     return
   }
 
-  const updateTheme = () => {
-    updateSettings({
-      theme
-    })
-  }
-
   return (
     <div className="update-theme">
-      <Button onClick={updateTheme}>
+      <Button onClick={() => updateSettings({ theme })}>
         <div className={`theme-colors theme-${theme}`}>
           <div className="icon" />
         </div>

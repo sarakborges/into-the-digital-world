@@ -18,10 +18,6 @@ export const SettingsContainer = () => {
     return
   }
 
-  const toggleModal = () => {
-    setSettings({ ...settings, isOpen: !settings.isOpen })
-  }
-
   return (
     <div className="settings">
       {!!settings.isOpen && (
@@ -38,7 +34,9 @@ export const SettingsContainer = () => {
       )}
 
       <Button
-        onClick={toggleModal}
+        onClick={() =>
+          setSettings({ ...settings, isOpen: !settings.isOpen })
+        }
         variant={settings.isOpen ? 'cancel' : undefined}
       >
         {<FaCog />}

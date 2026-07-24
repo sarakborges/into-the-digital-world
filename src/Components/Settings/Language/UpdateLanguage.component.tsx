@@ -17,16 +17,10 @@ export const UpdateLanguage = ({ language }: { language: string }) => {
     return
   }
 
-  const updateLanguage = () => {
-    updateSettings({
-      language
-    })
-  }
-
   return (
     <div className="update-language">
-      <Button onClick={updateLanguage}>
-        <div className={`language-flag`}>
+      <Button onClick={() => updateSettings({ language })}>
+        <div className="language-flag">
           <Portrait alt={language} src={`/languages/${language}.webp`} />
         </div>
 
@@ -34,7 +28,7 @@ export const UpdateLanguage = ({ language }: { language: string }) => {
           {getTexts(`LANGUAGE_${language.replace('-', '').toUpperCase()}`)}
         </Text>
 
-        {language === settings?.language && <FaCheck />}
+        {language === settings.language && <FaCheck />}
       </Button>
     </div>
   )
