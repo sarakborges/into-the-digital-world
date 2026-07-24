@@ -33,11 +33,7 @@ export const AvatarCustomization003 = () => {
       avatar: avatarCustomization.avatar
     }
 
-    const doneQuests = Object.keys(updatedProfile.quests).filter((quest) =>
-      isQuestDone(quest)
-    )
-
-    if (!doneQuests.includes(AvatarFixingQuest.id)) {
+    if (!isQuestDone(AvatarFixingQuest.id)) {
       setScene({ component: Introduction021 })
     } else {
       setScene({ component: AvatarCustomization002 })
