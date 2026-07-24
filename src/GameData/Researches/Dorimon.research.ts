@@ -1,8 +1,8 @@
-import type { ResearchType } from '@/Types/Research.type'
+import type { ResearchDefinitionType } from '@/Types/Research.type'
 
 import { DorimonCoreItem } from '@/GameData/Items/DorimonCore.item'
 
-export const DorimonResearch: ResearchType = {
+export const DorimonResearch = {
   cost: {
     [DorimonCoreItem.id]: 25
   },
@@ -10,4 +10,4 @@ export const DorimonResearch: ResearchType = {
   requiredItems: {
     [DorimonCoreItem.id]: 25
   }
-}
+} satisfies ResearchDefinitionType
