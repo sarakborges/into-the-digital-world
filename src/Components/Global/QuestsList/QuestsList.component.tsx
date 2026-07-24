@@ -3,7 +3,7 @@ import { TbListDetails } from 'react-icons/tb'
 
 import { getQuest } from '@/GameData/Registries/Quest.registry'
 
-import { setCurrentDetails } from '@/Helpers/Systems/Digivice/setCurrentDetails.helper'
+import { updateDigivice } from '@/Helpers/Systems/Digivice/updateDigivice.helper'
 import { getQuestObjectiveText } from '@/Helpers/Systems/Quests/getQuestObjectiveText.helper'
 import { getQuestObjectives } from '@/Helpers/Systems/Quests/getQuestObjectives.helper'
 
@@ -45,16 +45,17 @@ export const QuestsList = ({
 
                 <Button
                   onClick={() =>
-                    setCurrentDetails(
-                      digivice?.currentDetails !== quest ? quest : undefined
-                    )
+                    updateDigivice({
+                      currentDetails:
+                        digivice.currentDetails !== quest ? quest : undefined
+                    })
                   }
                 >
                   <TbListDetails />
                 </Button>
               </header>
 
-              {digivice?.currentDetails === quest && (
+              {digivice.currentDetails === quest && (
                 <>
                   {getQuestObjectives(quest).map((objective) => (
                     <main

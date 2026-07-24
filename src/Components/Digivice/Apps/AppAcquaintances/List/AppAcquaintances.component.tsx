@@ -1,9 +1,7 @@
 import { TbListDetails } from 'react-icons/tb'
 
-import { Fragment } from 'react/jsx-runtime'
-
 import { getAcquaintanceGroups } from '@/Helpers/Systems/Digivice/getAcquaintanceGroups.helper'
-import { setCurrentDetails } from '@/Helpers/Systems/Digivice/setCurrentDetails.helper'
+import { updateDigivice } from '@/Helpers/Systems/Digivice/updateDigivice.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -33,40 +31,42 @@ export const AppAcquaintances = () => {
   return (
     <div className="acquaintances">
       {acquaintanceGroups.map(({ category, npcs }) => (
-        <Fragment key={`acquaintances-${category}`}>
-          <div className="acquaintances-category">
-            <Text>{category}</Text>
+        <div
+          className="acquaintances-category"
+          key={`acquaintances-${category}`}
+        >
+          <Text>{category}</Text>
 
-            <div className="acquaintances-list">
-              {npcs.map((npc) => (
-                <div
-                  className="npc-item"
-                  key={`acquaintances-${category}-${npc.id}`}
-                >
-                  <aside>
-                    <Portrait alt={npc.name} src={`/${npc.portrait}.webp`} />
-                  </aside>
+          <div className="acquaintances-list">
+            {npcs.map((npc) => (
+              <div
+                className="npc-item"
+                key={`acquaintances-${category}-${npc.id}`}
+              >
+                <aside>
+                  <Portrait alt={npc.name} src={`/${npc.portrait}.webp`} />
+                </aside>
 
-                  <header>
-                    <Text>{npc.name}</Text>
-                  </header>
+                <header>
+                  <Text>{npc.name}</Text>
+                </header>
 
-                  <footer>
-                    <Button
-                      onClick={() => setCurrentDetails(npc.id)}
-                      variant="secondary"
-                      disabled={!!scene}
-                    >
-                      <TbListDetails />
-                    </Button>
-                  </footer>
-                </div>
-              ))}
-            </div>
+                <footer>
+                  <Button
+                    onClick={() =>
+                      updateDigivice({ currentDetails: npc.id })
+                    }
+                    variant="secondary"
+                    disabled={!!scene}
+                  >
+                    <TbListDetails />
+                  </Button>
+                </footer>
+              </div>
+            ))}
           </div>
-        </Fragment>
+        </div>
       ))}
-      <></>
     </div>
   )
 }
