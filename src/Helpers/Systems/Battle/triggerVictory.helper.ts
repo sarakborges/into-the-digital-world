@@ -1,3 +1,5 @@
+import { applyItemAmounts } from '@/Helpers/Systems/Profile/applyItemAmounts.helper'
+
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -9,11 +11,11 @@ export const triggerVictory = () => {
     return
   }
 
-  const updatedItems = { ...profile.items }
-
-  for (const [item, amount] of Object.entries(battle.loot)) {
-    updatedItems[item] = (profile.items[item] ?? 0) + amount
-  }
-
-  setProfile({ ...profile, items: updatedItems })
+  setProfile({
+    ...profile,
+    items: applyItemAmounts({
+      inventory: profile.items,
+      items: battle.loot
+    })
+  })
 }

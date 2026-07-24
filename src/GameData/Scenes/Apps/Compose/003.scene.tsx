@@ -5,6 +5,8 @@ import { getResearch } from '@/GameData/Registries/Research.registry'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
+import { applyItemAmounts } from '@/Helpers/Systems/Profile/applyItemAmounts.helper'
+import { hasItems } from '@/Helpers/Systems/Profile/hasItems.helper'
 import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
 import { useCompositionStore } from '@/Stores/Composition.store'
@@ -24,12 +26,12 @@ export const Compose003 = () => {
   }
 
   const research = getResearch(composition.baseDigimon.id)
-  const requiredItems = research.requiredItems || {}
-  const optionalItems = composition.optionalItems || {}
-
-  const playerHasEnoughItems = Object.entries(
-    composition.totalItems ?? {}
-  ).every(([item, amount]) => (profile.items[item] ?? 0) >= amount)
+  const requiredItems = research.requiredItems ?? {}
+  const optionalItems = composition.optionalItems ?? {}
+  const playerHasEnoughItems = hasItems({
+    inventory: profile.items,
+    requiredItems: composition.totalItems
+  })
 
   const composeDigimon = () => {
     const newDigimonId =
@@ -38,8 +40,19 @@ export const Compose003 = () => {
         0
       ) + 1
 
-    const updatedProfile = {
+    const itemsAfterRequired = applyItemAmounts({
+      inventory: profile.items,
+      items: requiredItems,
+      operation: 'subtract'
+    })
+
+    saveSession({
       ...profile,
+      items: applyItemAmounts({
+        inventory: itemsAfterRequired,
+        items: optionalItems,
+        operation: 'subtract'
+      }),
       partnerDigimons: {
         ...profile.partnerDigimons,
 
@@ -50,18 +63,9 @@ export const Compose003 = () => {
           equipments: {}
         }
       }
-    }
-
-    for (const [item, amount] of Object.entries(requiredItems)) {
-      updatedProfile.items[item] = (updatedProfile.items[item] ?? 0) - amount
-    }
-
-    for (const [item, amount] of Object.entries(optionalItems)) {
-      updatedProfile.items[item] = (updatedProfile.items[item] ?? 0) - amount
-    }
+    })
 
     setComposition(null)
-    saveSession(updatedProfile)
   }
 
   const dialogOptions: DialogType = {

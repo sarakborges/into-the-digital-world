@@ -9,7 +9,7 @@ import {
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { doesProfileHaveDigivice } from '@/Helpers/Systems/Digivice/doesProfileHaveDigivice.helper'
-import { setCurrentDetails } from '@/Helpers/Systems/Digivice/setCurrentDetails.helper'
+import { updateDigivice } from '@/Helpers/Systems/Digivice/updateDigivice.helper'
 import { openCurrentTileScene } from '@/Helpers/Systems/Zones/openCurrentTileScene.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -49,8 +49,7 @@ export const DigiviceContainer = () => {
 
   const pressBackButton = () => {
     if (digivice.currentDetails !== undefined) {
-      setCurrentDetails(undefined)
-
+      updateDigivice({ currentDetails: undefined })
       return
     }
 
@@ -109,13 +108,12 @@ export const DigiviceContainer = () => {
                     </Button>
 
                     <Button
-                      onClick={() => {
-                        const updatedDigivice = { ...digivice }
-
-                        delete updatedDigivice.currentApp
-                        delete updatedDigivice.currentDetails
-                        setDigivice(updatedDigivice)
-                      }}
+                      onClick={() =>
+                        updateDigivice({
+                          currentApp: undefined,
+                          currentDetails: undefined
+                        })
+                      }
                       disabled={!!areButtonsDisabled}
                     >
                       <BiSolidSquareRounded />

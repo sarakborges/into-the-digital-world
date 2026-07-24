@@ -4,9 +4,8 @@ import { readStoredProfile } from '@/Systems/Save/Save.storage'
 
 import { Introduction001 } from '@/GameData/Scenes/Story/Introduction/001.scene'
 
-import { saveBattle } from '@/Helpers/Systems/Battle/saveBattle.helper'
+import { clearGameSession } from '@/Helpers/Systems/Data/clearGameSession.helper'
 import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
-import { saveDungeon } from '@/Helpers/Systems/Dungeon/saveDungeon.helper'
 import { openCurrentTileScene } from '@/Helpers/Systems/Zones/openCurrentTileScene.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -28,8 +27,7 @@ export const startGameSession = (
     return
   }
 
-  saveBattle(null)
-  saveDungeon(null)
+  clearGameSession()
   saveSession(profile)
 
   const { setDigivice } = useDigiviceStore.getState()

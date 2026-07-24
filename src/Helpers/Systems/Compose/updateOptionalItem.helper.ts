@@ -1,5 +1,7 @@
 import { getResearch } from '@/GameData/Registries/Research.registry'
 
+import { applyItemAmounts } from '@/Helpers/Systems/Profile/applyItemAmounts.helper'
+
 import { useCompositionStore } from '@/Stores/Composition.store'
 
 const getCompositionFill = (): number => {
@@ -9,8 +11,7 @@ const getCompositionFill = (): number => {
     return 0
   }
 
-  const baseDigimon = composition.baseDigimon
-  const optionalItems = getResearch(baseDigimon.id).optionalItems
+  const optionalItems = getResearch(composition.baseDigimon.id).optionalItems
 
   return Object.entries(optionalItems ?? {}).reduce(
     (fill, [item, weight]) =>
@@ -32,11 +33,8 @@ export const updateOptionalItem = ({
     return
   }
 
-  const baseDigimon = composition.baseDigimon
-  const research = getResearch(baseDigimon.id)
-  const requiredItems = research.requiredItems
+  const research = getResearch(composition.baseDigimon.id)
   const optionalItems = research.optionalItems
-
   const compositionFill = composition.completed || 0
 
   if (
@@ -53,33 +51,23 @@ export const updateOptionalItem = ({
     return
   }
 
-  const updatedAmount = currentAmount + amount
-
-  const totalItems: Record<string, number> = {}
-
-  for (const [requiredItem, requiredAmount] of Object.entries(
-    requiredItems ?? {}
-  )) {
-    totalItems[requiredItem] = (totalItems[requiredItem] ?? 0) + requiredAmount
-  }
-
-  for (const [optionalItem, optionalAmount] of Object.entries(
-    optionalItems ?? {}
-  )) {
-    totalItems[optionalItem] = (totalItems[optionalItem] ?? 0) + optionalAmount
-  }
-
-  totalItems[item] = (totalItems[item] ?? 0) + amount
+  const totalItems = applyItemAmounts({
+    inventory: research.requiredItems ?? {},
+    items: optionalItems
+  })
 
   setComposition({
     ...composition,
-    totalItems,
+    totalItems: applyItemAmounts({
+      inventory: totalItems,
+      items: { [item]: amount }
+    }),
 
     completed: getCompositionFill() + itemWeight * amount,
 
-    optionalItems: {
-      ...composition.optionalItems,
-      [item]: updatedAmount
-    }
+    optionalItems: applyItemAmounts({
+      inventory: composition.optionalItems ?? {},
+      items: { [item]: amount }
+    })
   })
 }

@@ -4,14 +4,14 @@ import { getZoneDefinition } from '@/GameData/Registries/ZoneManifest.registry'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { saveProfile } from '@/Helpers/Systems/Profile/saveProfile.helper'
+import { startGameSession } from '@/Helpers/Systems/Profile/startGameSession.helper'
+import { openDeleteGameDialog } from '@/Helpers/Systems/Scenes/openDeleteGameDialog.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Button } from '@/Components/DesignSystem/Button/Button.component'
 import { Text } from '@/Components/DesignSystem/Text/Text.component'
-import { DeleteGame } from '@/Components/Global/DeleteGame/DeleteGame.component'
 import '@/Components/Global/GameFile/GameFile.style.scss'
-import { LoadGame } from '@/Components/Global/LoadGame/LoadGame.component'
 import { PlayerAvatar } from '@/Components/Global/PlayerAvatar/PlayerAvatar.component'
 
 export const GameFile = ({ profile }: { profile: ProfileType }) => {
@@ -58,8 +58,18 @@ export const GameFile = ({ profile }: { profile: ProfileType }) => {
           </Button>
         ) : (
           <>
-            <LoadGame profileId={profile.id} />
-            <DeleteGame profileId={profile.id} />
+            <Button
+              onClick={() => startGameSession({ profileId: profile.id })}
+            >
+              {getTexts('LOAD_GAME')}
+            </Button>
+
+            <Button
+              onClick={() => openDeleteGameDialog(profile.id)}
+              style="cancel"
+            >
+              {getTexts('DELETE_GAME_FILE')}
+            </Button>
           </>
         )}
       </div>

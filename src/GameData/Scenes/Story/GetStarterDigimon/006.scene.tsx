@@ -1,5 +1,3 @@
-import type { DialogType } from '@/Types/Dialog.type'
-
 import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 import { GetStarterDigimon007 } from '@/GameData/Scenes/Story/GetStarterDigimon/007.scene'
 
@@ -8,8 +6,7 @@ import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
-import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import { SingleOptionDialog } from '@/Components/DesignSystem/SingleOptionDialog/SingleOptionDialog.component'
 
 export const GetStarterDigimon006 = () => {
   const { profile } = useProfileStore((state) => state)
@@ -21,29 +18,14 @@ export const GetStarterDigimon006 = () => {
     return
   }
 
-  const dialogOptions: DialogType = {
-    speaker: NpcGennai,
-
-    content: (
-      <div className="text-bubble">
-        <Text as="p">
-          {getTexts(
-            `GETSTARTERDIGIMON_006_TEXT_${dorimonMeeting.toLocaleUpperCase()}`
-          )}
-        </Text>
-      </div>
-    ),
-
-    options: [
-      {
-        id: 'scene-getstarterdigimon-006-continue',
-        text: getTexts('SCENES_CONTINUE_BUTTON'),
-        action: () => {
-          setScene({ component: GetStarterDigimon007 })
-        }
-      }
-    ]
-  }
-
-  return <Dialog {...dialogOptions} />
+  return (
+    <SingleOptionDialog
+      speaker={NpcGennai}
+      optionId="scene-getstarterdigimon-006-continue"
+      text={getTexts(
+        `GETSTARTERDIGIMON_006_TEXT_${dorimonMeeting.toLocaleUpperCase()}`
+      )}
+      onAction={() => setScene({ component: GetStarterDigimon007 })}
+    />
+  )
 }

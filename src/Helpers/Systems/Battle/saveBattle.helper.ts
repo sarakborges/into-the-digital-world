@@ -1,16 +1,7 @@
 import type { BattleType } from '@/Types/Battle.type'
 
-import { useBattleStore } from '@/Stores/Battle.store'
+import { setGameSessionValue } from '@/Helpers/Systems/Data/setGameSessionValue.helper'
 
-export const saveBattle = (battle: BattleType | null) => {
-  try {
-    const { setBattle } = useBattleStore.getState()
-
-    sessionStorage.setItem(`itdw_battle`, JSON.stringify(battle))
-
-    setBattle(battle)
-  } catch (error) {
-    console.warn(`Error saving battle: ${error}`)
-    console.warn(battle)
-  }
+export const saveBattle = (battle: BattleType | null): void => {
+  setGameSessionValue({ key: 'battle', value: battle })
 }

@@ -1,5 +1,6 @@
 import { ProfileSaveSchema } from '@/Systems/Save/Save.schema'
 
+import { clearGameSession } from '@/Helpers/Systems/Data/clearGameSession.helper'
 import { loadSession } from '@/Helpers/Systems/Data/loadSession.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
@@ -15,9 +16,7 @@ export const loadGameSession = () => {
     const profile = ProfileSaveSchema.safeParse(loadSession(`profile`))
 
     if (!profile.success) {
-      setProfile(null)
-      setDungeon(null)
-      setBattle(null)
+      clearGameSession()
       return
     }
 
