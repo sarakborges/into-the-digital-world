@@ -1,5 +1,3 @@
-import type { DialogType } from '@/Types/Dialog.type'
-
 import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 import { AvatarFixingQuest } from '@/GameData/Quests/AvatarFixing.quest'
 import { StarterDigimonQuest } from '@/GameData/Quests/StarterDigimon.quest'
@@ -10,41 +8,29 @@ import { addNewQuest } from '@/Helpers/Systems/Quests/addNewQuest.helper'
 import { updateQuestObjective } from '@/Helpers/Systems/Quests/updateQuestObjective.helper'
 import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
-import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import { SingleOptionDialog } from '@/Components/DesignSystem/SingleOptionDialog/SingleOptionDialog.component'
 
 export const Introduction024 = () => {
-  const dialogOptions: DialogType = {
-    speaker: NpcGennai,
+  return (
+    <SingleOptionDialog
+      speaker={NpcGennai}
+      optionId="scene-introduction-028-confirm"
+      text={getTexts('INTRODUCTION_024_TEXT')}
+      onAction={() => {
+        updateQuestObjective({
+          questId: AvatarFixingQuest.id,
+          objectiveId: 'fixAvatar',
+          objectiveValue: true
+        })
 
-    content: (
-      <div className="text-bubble">
-        <Text as="p">{getTexts('INTRODUCTION_024_TEXT')}</Text>
-      </div>
-    ),
+        addNewQuest({ questId: StarterDigimonQuest.id })
+        setProfileSession((profile) => ({
+          ...profile,
+          currentScene: null
+        }))
 
-    options: [
-      {
-        id: 'scene-introduction-028-confirm',
-        text: getTexts('SCENES_CONTINUE_BUTTON'),
-        action: () => {
-          updateQuestObjective({
-            questId: AvatarFixingQuest.id,
-            objectiveId: 'fixAvatar',
-            objectiveValue: true
-          })
-
-          addNewQuest({ questId: StarterDigimonQuest.id })
-          setProfileSession((profile) => ({
-            ...profile,
-            currentScene: null
-          }))
-
-          closeScene()
-        }
-      }
-    ].filter((option) => !!option)
-  }
-
-  return <Dialog {...dialogOptions} />
+        closeScene()
+      }}
+    />
+  )
 }
