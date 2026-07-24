@@ -1,13 +1,22 @@
-export const loadSession = (key: string) => {
-  const data = sessionStorage.getItem(`itdw_${key}`)
+import type { GameSessionKey } from '@/Consts/Storage.const'
+import { getStorageKey } from '@/Consts/Storage.const'
 
-  if (!data) {
+export const loadSession = (
+  key: GameSessionKey
+): unknown | undefined => {
+  const storageKey = getStorageKey(key)
+  const data = sessionStorage.getItem(storageKey)
+
+  if (data === null) {
     return
   }
 
   try {
-    return JSON.parse(data)
+    const parsedData: unknown = JSON.parse(data)
+
+    return parsedData
   } catch {
-    console.warn(`Error loading session: itdw_${key}`)
+    console.warn(`Error loading session: ${storageKey}`)
+    return
   }
 }

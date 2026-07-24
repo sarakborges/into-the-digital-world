@@ -2,30 +2,31 @@ import type { BattleType } from '@/Types/Battle.type'
 import type { DungeonStoreType } from '@/Types/Dungeon.type'
 import type { ProfileType } from '@/Types/Profile.type'
 
+import type { GameSessionKey } from '@/Consts/Storage.const'
+import { getStorageKey } from '@/Consts/Storage.const'
+
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useDungeonStore } from '@/Stores/Dungeon.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
-type GameSessionValue =
-  | {
-      key: 'profile'
-      value: ProfileType
-    }
-  | {
-      key: 'dungeon'
-      value: DungeonStoreType | null
-    }
-  | {
-      key: 'battle'
-      value: BattleType | null
-    }
+type GameSessionValueMap = {
+  profile: ProfileType
+  dungeon: DungeonStoreType | null
+  battle: BattleType | null
+}
+
+type GameSessionValue = {
+  [Key in GameSessionKey]: {
+    key: Key
+    value: GameSessionValueMap[Key]
+  }
+}[GameSessionKey]
 
 export const setGameSessionValue = (sessionValue: GameSessionValue): void => {
+  const storageKey = getStorageKey(sessionValue.key)
+
   try {
-    sessionStorage.setItem(
-      `itdw_${sessionValue.key}`,
-      JSON.stringify(sessionValue.value)
-    )
+    sessionStorage.setItem(storageKey, JSON.stringify(sessionValue.value))
 
     switch (sessionValue.key) {
       case 'profile':
@@ -41,7 +42,7 @@ export const setGameSessionValue = (sessionValue: GameSessionValue): void => {
         return
     }
   } catch {
-    console.warn(`Error saving game session value: itdw_${sessionValue.key}`)
+    console.warn(`Error saving game session value: ${storageKey}`)
     console.warn(sessionValue.value)
   }
 }

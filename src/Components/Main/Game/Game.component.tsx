@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 
-import { loadData } from '@/Helpers/Systems/Data/loadData.helper'
 import { loadGameSession } from '@/Helpers/Systems/Data/loadGameSession.helper'
 import { getThemeClassName } from '@/Helpers/Systems/Game/getThemeClassName.helper'
 import { restoreCurrentScene } from '@/Helpers/Systems/Scenes/restoreCurrentScene.helper'
+import { loadSettings } from '@/Helpers/Systems/Settings/loadSettings.helper'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
 
@@ -24,12 +24,8 @@ export const Game = () => {
   useEffect(() => {
     loadGameSession()
     restoreCurrentScene()
-    setSettings({ ...loadData('settings'), isOpen: false })
+    setSettings(loadSettings())
   }, [])
-
-  if (!settings) {
-    return
-  }
 
   return (
     <div className={`game-body theme-${getThemeClassName(settings.theme)}`}>

@@ -1,12 +1,13 @@
-import type { SettingsType } from '@/Types/Settings.type'
+import type {
+  PersistedSettingsType,
+  SettingsType
+} from '@/Types/Settings.type'
 
 import { saveData } from '@/Helpers/Systems/Data/saveData.helper'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
 
-type UpdateSettingsParams = Partial<
-  Pick<SettingsType, 'language' | 'theme'>
->
+type UpdateSettingsParams = Partial<PersistedSettingsType>
 
 export const updateSettings = ({
   language,
@@ -14,16 +15,16 @@ export const updateSettings = ({
 }: UpdateSettingsParams): void => {
   const { settings, setSettings } = useSettingsStore.getState()
 
-  if (!settings) {
-    return
-  }
-
   const updatedSettings: SettingsType = {
     ...settings,
     language: language ?? settings.language,
     theme: theme ?? settings.theme
   }
+  const persistedSettings: PersistedSettingsType = {
+    language: updatedSettings.language,
+    theme: updatedSettings.theme
+  }
 
   setSettings(updatedSettings)
-  saveData({ key: 'settings', value: updatedSettings })
+  saveData({ key: 'settings', value: persistedSettings })
 }
