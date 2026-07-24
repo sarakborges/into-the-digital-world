@@ -67,7 +67,7 @@ export const AppResearchesList = () => {
 
                   <footer className="research-details">
                     <Button
-                      style="secondary"
+                      variant="secondary"
                       onClick={() => toggleDetails(research.id)}
                     >
                       <BiDetail />

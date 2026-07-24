@@ -24,7 +24,7 @@ export const AppAcquaintances = () => {
     return
   }
 
-  if (digivice?.currentDetails) {
+  if (digivice.currentDetails) {
     return <AppAcquaintancesDetails />
   }
 
@@ -54,7 +54,7 @@ export const AppAcquaintances = () => {
                   <footer>
                     <Button
                       onClick={() => setCurrentDetails(npc.id)}
-                      style="secondary"
+                      variant="secondary"
                       disabled={!!scene}
                     >
                       <TbListDetails />

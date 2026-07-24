@@ -50,7 +50,7 @@ export const PartnerDetails = () => {
         <div className="partner-actions">
           <Button
             disabled={!!scene}
-            style="secondary"
+            variant="secondary"
             onClick={() => setScene({ component: RenamePartner001 })}
           >
             <BiPencil />
@@ -59,7 +59,7 @@ export const PartnerDetails = () => {
           <Button
             disabled={!!scene}
             onClick={() => togglePartnerFavorite(partner.id)}
-            style={partner.isFavorite ? 'cancel' : 'secondary'}
+            variant={partner.isFavorite ? 'cancel' : 'secondary'}
           >
             {!partner.isFavorite && <BiSolidStar />}
             {!!partner.isFavorite && <BiStar />}

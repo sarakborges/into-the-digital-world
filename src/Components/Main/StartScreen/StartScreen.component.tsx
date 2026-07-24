@@ -45,7 +45,7 @@ export const StartScreen = () => {
             <Text as="h2">{getTexts('SAVED_GAMES')}</Text>
           )}
 
-          <Button style="secondary" onClick={createNewProfile}>
+          <Button variant="secondary" onClick={createNewProfile}>
             {getTexts('START_NEW_GAME')}
           </Button>
 

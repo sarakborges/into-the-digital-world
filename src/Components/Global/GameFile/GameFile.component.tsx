@@ -66,7 +66,7 @@ export const GameFile = ({ profile }: { profile: ProfileType }) => {
 
             <Button
               onClick={() => openDeleteGameDialog(profile.id)}
-              style="cancel"
+              variant="cancel"
             >
               {getTexts('DELETE_GAME_FILE')}
             </Button>

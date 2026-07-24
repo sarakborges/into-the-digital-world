@@ -128,7 +128,7 @@ export const DigiviceContainer = () => {
 
       <Button
         onClick={toggleModal}
-        style={digivice.isOpen ? 'cancel' : undefined}
+        variant={digivice.isOpen ? 'cancel' : undefined}
         disabled={areButtonsDisabled}
       >
         {<HiOutlineDevicePhoneMobile />}

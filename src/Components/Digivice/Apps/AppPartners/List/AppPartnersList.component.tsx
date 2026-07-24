@@ -81,7 +81,7 @@ export const AppPartnersList = () => {
                     <footer>
                       <Button
                         disabled={!!scene}
-                        style="secondary"
+                        variant="secondary"
                         onClick={() =>
                           updateDigivice({ currentDetails: partner.id })
                         }
@@ -92,7 +92,7 @@ export const AppPartnersList = () => {
                       {category === 'inParty' && (
                         <Button
                           disabled={!!scene || profile.party.length < 2}
-                          style="secondary"
+                          variant="secondary"
                           onClick={() => removeFromParty(partner.id)}
                         >
                           <BsArrowDown />
@@ -102,7 +102,7 @@ export const AppPartnersList = () => {
                       {category === 'others' && (
                         <Button
                           disabled={!!scene || profile.party.length > 3}
-                          style="secondary"
+                          variant="secondary"
                           onClick={() => addToParty(partner.id)}
                         >
                           <BsArrowUp />

@@ -39,7 +39,7 @@ export const SettingsContainer = () => {
 
       <Button
         onClick={toggleModal}
-        style={settings.isOpen ? 'cancel' : undefined}
+        variant={settings.isOpen ? 'cancel' : undefined}
       >
         {<FaCog />}
       </Button>

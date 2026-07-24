@@ -1,22 +1,23 @@
 import type { ButtonHTMLAttributes } from 'react'
 
-import type { ButtonVariant } from '@/Helpers/Components/getButtonClassNames.helper'
-import { getButtonClassNames } from '@/Helpers/Components/getButtonClassNames.helper'
-
 import '@/Components/DesignSystem/Button/Button.style.scss'
 
-type ButtonType = {
-  style?: ButtonVariant | undefined
-} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'style'>
+export type ButtonVariant = 'primary' | 'secondary' | 'cancel'
 
-export const Button: React.FC<ButtonType> = ({
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: ButtonVariant | undefined
+}
+
+export const Button: React.FC<ButtonProps> = ({
   children,
   className,
-  style,
-  ...rest
+  variant = 'primary',
+  ...buttonProps
 }) => {
+  const classNames = ['button', variant, className].filter(Boolean).join(' ')
+
   return (
-    <button className={getButtonClassNames({ style, className })} {...rest}>
+    <button className={classNames} {...buttonProps}>
       {children}
     </button>
   )
