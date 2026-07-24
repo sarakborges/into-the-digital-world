@@ -1,6 +1,7 @@
 import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
 
 import type { DialogType } from '@/Types/Dialog.type'
+import type { DorimonMeetingChoice } from '@/Types/Profile.type'
 
 import { GetStarterDigimon005 } from '@/GameData/Scenes/Story/GetStarterDigimon/005.scene'
 
@@ -20,7 +21,10 @@ export const GetStarterDigimon004 = () => {
     return
   }
 
-  const dialogReactions = [
+  const dialogReactions: Array<{
+    label: string
+    value: DorimonMeetingChoice
+  }> = [
     {
       label: getTexts('GETSTARTERDIGIMON_004_OPTION_ACCEPT'),
       value: 'accept'
