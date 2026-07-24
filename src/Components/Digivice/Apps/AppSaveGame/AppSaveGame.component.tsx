@@ -24,7 +24,7 @@ export const AppSaveGame = () => {
       </Button>
 
       <div className="games-list">
-        {savedProfiles?.map((profile) => (
+        {savedProfiles.map((profile) => (
           <GameFile profile={profile} key={`savedProfiles-${profile.id}`} />
         ))}
       </div>

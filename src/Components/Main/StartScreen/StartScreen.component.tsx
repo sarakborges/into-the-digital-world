@@ -41,7 +41,7 @@ export const StartScreen = () => {
 
       <main>
         <div className="saved-games">
-          {!!savedProfiles?.length && (
+          {!!savedProfiles.length && (
             <Text as="h2">{getTexts('SAVED_GAMES')}</Text>
           )}
 
@@ -50,7 +50,7 @@ export const StartScreen = () => {
           </Button>
 
           <div className="games-list">
-            {(savedProfiles || []).map((profile) => (
+            {savedProfiles.map((profile) => (
               <GameFile profile={profile} key={`savedProfiles-${profile.id}`} />
             ))}
           </div>
