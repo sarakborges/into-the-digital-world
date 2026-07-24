@@ -89,15 +89,20 @@ const CombatLogEntrySchema = z
   })
   .strict()
 
-export const BattleSessionSchema = z
+const BattleSessionValueSchema = z
   .object({
     turnOrder: z.array(PartyDigimonSessionSchema),
     combatLog: z.array(CombatLogEntrySchema),
     loot: z.record(z.string(), z.number()).optional()
   })
-  .strict() satisfies z.ZodType<BattleType>
+  .strict()
 
-export const DungeonSessionSchema = z
+export const BattleSessionSchema = z.custom<BattleType>(
+  (value) => BattleSessionValueSchema.safeParse(value).success,
+  'Invalid battle session.'
+)
+
+const DungeonSessionValueSchema = z
   .object({
     dungeonId: z.string(),
     zoneId: z.string(),
@@ -139,4 +144,9 @@ export const DungeonSessionSchema = z
         }
       })
     })
-  }) satisfies z.ZodType<DungeonStoreType>
+  })
+
+export const DungeonSessionSchema = z.custom<DungeonStoreType>(
+  (value) => DungeonSessionValueSchema.safeParse(value).success,
+  'Invalid dungeon session.'
+)
