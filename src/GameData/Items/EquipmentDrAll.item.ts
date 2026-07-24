@@ -5,7 +5,7 @@ import { findDigimon } from '@/GameData/Registries/Digimon.registry'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
-export const EquipmentDrAllItem: ItemType = {
+export const EquipmentDrAllItem = {
   id: 'equipmentDrAll',
   name: `Dragon's Roar +1 ALL`,
   portrait: 'families/dr',
@@ -55,4 +55,4 @@ export const EquipmentDrAllItem: ItemType = {
       }
     }
   }
-}
+} satisfies ItemType
