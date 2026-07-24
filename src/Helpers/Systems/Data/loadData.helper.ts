@@ -15,5 +15,6 @@ export const loadData = (key: LocalStorageKey): unknown | undefined => {
     return parsedData
   } catch {
     console.warn(`Error loading data: ${storageKey}`)
+    return
   }
 }

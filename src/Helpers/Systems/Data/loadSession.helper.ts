@@ -17,5 +17,6 @@ export const loadSession = (
     return parsedData
   } catch {
     console.warn(`Error loading session: ${storageKey}`)
+    return
   }
 }
