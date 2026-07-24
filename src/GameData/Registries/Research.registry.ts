@@ -11,7 +11,6 @@ const ResearchRegistry = {
 } satisfies Record<string, ResearchType>
 
 export type ResearchId = Extract<keyof typeof ResearchRegistry, string>
-type Research = (typeof ResearchRegistry)[ResearchId]
 
 const ResearchAvailability = {
   jijimon: [DigimonKoromon.id, DigimonDorimon.id],
@@ -22,11 +21,13 @@ const isResearchId = (digimonId: string): digimonId is ResearchId => {
   return digimonId in ResearchRegistry
 }
 
-export const findResearch = (digimonId: string): Research | undefined => {
+export const findResearch = (
+  digimonId: string
+): ResearchType | undefined => {
   return isResearchId(digimonId) ? ResearchRegistry[digimonId] : undefined
 }
 
-export const getResearch = (digimonId: string): Research => {
+export const getResearch = (digimonId: string): ResearchType => {
   const research = findResearch(digimonId)
 
   if (!research) {
