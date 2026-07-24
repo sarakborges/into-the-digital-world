@@ -1,20 +1,8 @@
 import type { AvatarType } from '@/Types/Avatar.type'
 import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 
+import type { MeaningfulChoices } from '@/GameData/Registries/MeaningfulChoice.registry'
 import type { GameLocation } from '@/GameData/Registries/ZoneManifest.registry'
-
-export type DorimonMeetingChoice = 'accept' | 'neutral' | 'refuse'
-
-export type MeaningfulChoicesType = {
-  dorimonMeeting?: DorimonMeetingChoice | undefined
-}
-
-export type MeaningfulChoiceReaction = {
-  [TChoice in keyof MeaningfulChoicesType]-?: {
-    name: TChoice
-    value: NonNullable<MeaningfulChoicesType[TChoice]>
-  }
-}[keyof MeaningfulChoicesType]
 
 export type ProfileType = {
   id: number
@@ -52,5 +40,5 @@ export type ProfileType = {
     [key: string]: unknown
   }
 
-  meaningfulChoices: MeaningfulChoicesType
+  meaningfulChoices: MeaningfulChoices
 }
