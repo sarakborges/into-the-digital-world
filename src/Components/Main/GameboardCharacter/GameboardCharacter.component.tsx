@@ -2,7 +2,6 @@ import type { CssPropertiesWithVariables } from '@/Types/CssProperties.type'
 import type { MapTileType } from '@/Types/MapTile.type'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { getCharacterVisibility } from '@/Helpers/Systems/Profile/getCharacterVisibility.helper'
 import { isNpcAcquainted } from '@/Helpers/Systems/Profile/isNpcAcquainted.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -32,14 +31,12 @@ export const GameboardCharacter = ({
     return
   }
 
-  const { shouldRender, opacity } = getCharacterVisibility({
-    tile,
-    isPlayer
-  })
-
-  if (!shouldRender) {
+  if (!isPlayer && (!tile?.npc?.id || !tile.npc.isVisible)) {
     return
   }
+
+  const opacity =
+    tile?.condition === undefined || tile.condition() ? 1 : 0
 
   const characterStyles: CssPropertiesWithVariables = {
     '--character-x': tile?.x ?? profile.currentLocation.x,
@@ -49,7 +46,7 @@ export const GameboardCharacter = ({
 
   return (
     <div className="gameboard-character" style={characterStyles}>
-      {!!isPlayer && !!profile && (
+      {!!isPlayer && (
         <>
           <PlayerAvatar />
 
@@ -62,13 +59,13 @@ export const GameboardCharacter = ({
           <div>
             <Portrait
               src={`/${tile.npc.portrait}.webp`}
-              alt={tile.npc?.name || ''}
+              alt={tile.npc.name || ''}
             />
           </div>
 
           <Text>
-            {isNpcAcquainted(tile.npc?.id || '')
-              ? tile.npc?.name
+            {isNpcAcquainted(tile.npc.id)
+              ? tile.npc.name
               : getTexts('UNKNOWN_NPC')}
           </Text>
         </>
