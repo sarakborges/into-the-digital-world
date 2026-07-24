@@ -67,6 +67,12 @@ const PartnerDigimonSchema = z
   })
   .strict()
 
+const MeaningfulChoicesSchema = z
+  .object({
+    dorimonMeeting: z.enum(['accept', 'neutral', 'refuse']).optional()
+  })
+  .strict()
+
 export const ProfileSaveSchema = z
   .object({
     id: z.number().int().nonnegative(),
@@ -93,7 +99,7 @@ export const ProfileSaveSchema = z
     currentLocation: GameLocationSchema,
     partnerDigimons: z.record(z.string(), PartnerDigimonSchema),
     npcAcquaintances: z.record(z.string(), z.unknown()),
-    meaningfulChoices: z.record(z.string(), z.string())
+    meaningfulChoices: MeaningfulChoicesSchema
   })
   .strict() satisfies z.ZodType<ProfileType>
 
