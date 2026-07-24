@@ -4,7 +4,7 @@ import { NpcConsulmon } from '@/GameData/Npcs/Consulmon.npc'
 import { findItem, getItem } from '@/GameData/Registries/Item.registry'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
+import { updateEquipment } from '@/Helpers/Systems/Profile/updateEquipment.helper'
 import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -24,40 +24,21 @@ export const Equipment001 = () => {
 
   const equipItem = (itemId: string) => {
     const digimonId = digivice.currentDetails
-    const itemSlot = digivice.equipmentSlot
+    const equipmentSlot = digivice.equipmentSlot
 
-    if (digimonId === undefined || itemSlot === undefined) {
+    if (digimonId === undefined || equipmentSlot === undefined) {
       return
     }
 
-    const partner = profile.partnerDigimons[digimonId]
+    const didUpdateEquipment = updateEquipment({
+      digimonId: Number(digimonId),
+      equipmentSlot,
+      equipmentId: itemId
+    })
 
-    if (!partner) {
-      return
+    if (didUpdateEquipment) {
+      closeScene()
     }
-
-    const updatedProfile = {
-      ...profile,
-
-      partnerDigimons: {
-        ...profile.partnerDigimons,
-
-        [digimonId]: {
-          ...partner,
-
-          equipments: {
-            ...partner.equipments,
-
-            [itemSlot]: {
-              equipmentId: itemId
-            }
-          }
-        }
-      }
-    }
-
-    saveSession(updatedProfile)
-    closeScene()
   }
 
   const availableItems = Object.keys(profile.items).filter((itemId) => {

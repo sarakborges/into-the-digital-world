@@ -1,4 +1,4 @@
-import type { SpawnableDigimonType } from '@/Types/SpawnableDigimon.type'
+import type { SpawnableDigimonDefinitionType } from '@/Types/SpawnableDigimon.type'
 
 import { DigimonKoromon } from '@/GameData/Digimons/Koromon.digimon'
 import { DragonsRoarCoreItem } from '@/GameData/Items/DragonsRoarCore.item'
@@ -6,7 +6,7 @@ import { EquipmentDrAllItem } from '@/GameData/Items/EquipmentDrAll.item'
 import { KoromonCoreItem } from '@/GameData/Items/KoromonCore.item'
 import { VirusBustersCoreItem } from '@/GameData/Items/VirusBustersCore.item'
 
-export const WildZoneKoromon: SpawnableDigimonType = {
+export const WildZoneKoromon = {
   digimonId: DigimonKoromon.id,
   spawnChance: 10,
 
@@ -73,4 +73,4 @@ export const WildZoneKoromon: SpawnableDigimonType = {
       amount: 1
     }
   ]
-}
+} satisfies SpawnableDigimonDefinitionType
