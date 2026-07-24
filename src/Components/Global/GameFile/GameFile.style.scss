@@ -1,19 +1,27 @@
-.game-file-save {
+.game-file {
   display: flex;
   place-items: center;
   gap: 6px;
 
   padding: 4px;
 
-  background-color: var(--color-secondary);
+  background-color: var(--color-primary);
   border-radius: 12px;
+
+  &.game-file--saving {
+    background-color: var(--color-secondary);
+
+    .player-avatar {
+      background-color: var(--color-secondary-strong);
+    }
+  }
 
   .player-avatar {
     width: 48px;
     padding: 2px;
     overflow: hidden;
 
-    background-color: var(--color-secondary-strong);
+    background-color: var(--color-primary-strong);
     border-radius: 12px;
   }
 
@@ -41,5 +49,9 @@
     .button {
       padding: 4px 6px;
     }
+  }
+
+  &:not(.game-file--saving) .game-options .button:not(.cancel) {
+    background-color: var(--color-secondary-strong);
   }
 }

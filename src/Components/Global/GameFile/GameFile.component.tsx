@@ -3,7 +3,11 @@ import type { ProfileType } from '@/Types/Profile.type'
 import { getZoneDefinition } from '@/GameData/Registries/ZoneManifest.registry'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { saveProfile } from '@/Helpers/Systems/Profile/saveProfile.helper'
 
+import { useProfileStore } from '@/Stores/Profile.store'
+
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
 import { Text } from '@/Components/DesignSystem/Text/Text.component'
 import { DeleteGame } from '@/Components/Global/DeleteGame/DeleteGame.component'
 import '@/Components/Global/GameFile/GameFile.style.scss'
@@ -11,10 +15,8 @@ import { LoadGame } from '@/Components/Global/LoadGame/LoadGame.component'
 import { PlayerAvatar } from '@/Components/Global/PlayerAvatar/PlayerAvatar.component'
 
 export const GameFile = ({ profile }: { profile: ProfileType }) => {
-  if (!profile.currentLocation) {
-    return
-  }
-
+  const currentProfile = useProfileStore((state) => state.profile)
+  const isSaving = !!currentProfile
   const zone = getZoneDefinition(profile.currentLocation.zone)
 
   if (!zone) {
@@ -22,7 +24,7 @@ export const GameFile = ({ profile }: { profile: ProfileType }) => {
   }
 
   return (
-    <div className="game-file">
+    <div className={`game-file${isSaving ? ' game-file--saving' : ''}`}>
       <PlayerAvatar replaceAvatar={profile.avatar} />
 
       <header>
@@ -47,8 +49,16 @@ export const GameFile = ({ profile }: { profile: ProfileType }) => {
       </header>
 
       <div className="game-options">
-        <LoadGame profileId={profile.id} />
-        <DeleteGame profileId={profile.id} />
+        {isSaving ? (
+          <Button onClick={() => void saveProfile(profile.id)}>
+            {getTexts('SAVEGAME_001_REWRITE')}
+          </Button>
+        ) : (
+          <>
+            <LoadGame profileId={profile.id} />
+            <DeleteGame profileId={profile.id} />
+          </>
+        )}
       </div>
     </div>
   )

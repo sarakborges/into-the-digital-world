@@ -8,13 +8,13 @@ import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 
 import { Button } from '@/Components/DesignSystem/Button/Button.component'
 import '@/Components/Digivice/Apps/AppSaveGame/AppSaveGame.style.scss'
-import { GameFileSave } from '@/Components/Global/GameFileSave/GameFileSave.component'
+import { GameFile } from '@/Components/Global/GameFile/GameFile.component'
 
 export const AppSaveGame = () => {
   const { savedProfiles } = useSavedProfilesStore((state) => state)
 
   useEffect(() => {
-    void loadProfiles()
+    loadProfiles()
   }, [])
 
   return (
@@ -25,7 +25,7 @@ export const AppSaveGame = () => {
 
       <div className="games-list">
         {savedProfiles?.map((profile) => (
-          <GameFileSave profile={profile} key={`savedProfiles-${profile.id}`} />
+          <GameFile profile={profile} key={`savedProfiles-${profile.id}`} />
         ))}
       </div>
     </div>
