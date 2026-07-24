@@ -53,7 +53,7 @@ export const GameFile = ({ profile }: { profile: ProfileType }) => {
 
       <div className="game-options">
         {isSaving ? (
-          <Button onClick={() => void saveProfile(profile.id)}>
+          <Button onClick={() => saveProfile(profile.id)}>
             {getTexts('SAVEGAME_001_REWRITE')}
           </Button>
         ) : (

@@ -19,7 +19,7 @@ export const AppSaveGame = () => {
 
   return (
     <div className="save-game">
-      <Button onClick={() => void saveProfile()}>
+      <Button onClick={() => saveProfile()}>
         {getTexts('SAVEGAME_001_NEWGAME')}
       </Button>
 

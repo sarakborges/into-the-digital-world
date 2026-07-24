@@ -22,7 +22,7 @@ export const StartScreen = () => {
   const { profile } = useProfileStore((state) => state)
 
   useEffect(() => {
-    void loadProfiles()
+    loadProfiles()
   }, [profile])
 
   if (!!profile || !settings) {

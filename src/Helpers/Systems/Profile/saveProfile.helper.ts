@@ -13,7 +13,7 @@ import { loadProfiles } from '@/Helpers/Systems/Profile/loadProfiles.helper'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
-export const saveProfile = async (profileId?: number): Promise<void> => {
+export const saveProfile = (profileId?: number): void => {
   try {
     const { profile } = useProfileStore.getState()
     const { setScene } = useSceneStore.getState()
