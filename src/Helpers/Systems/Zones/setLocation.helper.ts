@@ -10,4 +10,6 @@ export const setLocation = ({ x, y }: MovePlayerParams) => {
   }
 
   openCurrentTileScene()
+
+  return true
 }

@@ -35,11 +35,11 @@ const getInteger = ({
 }
 
 const normalizeLocation = (profile: MutableRecord): void => {
-  const currentLocation = isRecord(profile.currentLocation)
-    ? profile.currentLocation
+  const currentLocation = isRecord(profile['currentLocation'])
+    ? profile['currentLocation']
     : undefined
-  const currentZone = isRecord(profile.currentZone)
-    ? profile.currentZone
+  const currentZone = isRecord(profile['currentZone'])
+    ? profile['currentZone']
     : undefined
   const source = currentLocation ?? currentZone
 
@@ -47,17 +47,20 @@ const normalizeLocation = (profile: MutableRecord): void => {
     return
   }
 
-  profile.currentLocation = {
+  profile['currentLocation'] = {
     zone: getString({
-      value: source.zone ?? source.zoneId ?? source.id,
+      value: source['zone'] ?? source['zoneId'] ?? source['id'],
       fallback: ''
     }),
-    map: getString({ value: source.map ?? source.mapId, fallback: '' }),
-    x: getInteger({ value: source.x }),
-    y: getInteger({ value: source.y })
+    map: getString({
+      value: source['map'] ?? source['mapId'],
+      fallback: ''
+    }),
+    x: getInteger({ value: source['x'] }),
+    y: getInteger({ value: source['y'] })
   }
 
-  delete profile.currentZone
+  delete profile['currentZone']
 }
 
 const normalizeSave = ({
@@ -73,7 +76,7 @@ const normalizeSave = ({
     throw new Error('Save data must be an object.')
   }
 
-  const rawProfile = isRecord(source.profile) ? source.profile : source
+  const rawProfile = isRecord(source['profile']) ? source['profile'] : source
   const profile = cloneUnknown(rawProfile)
 
   if (!isRecord(profile)) {
@@ -83,28 +86,31 @@ const normalizeSave = ({
   normalizeLocation(profile)
 
   const now = new Date().toISOString()
-  const updatedAt = getString({ value: source.updatedAt, fallback: now })
+  const updatedAt = getString({ value: source['updatedAt'], fallback: now })
 
-  profile.lastSave = getString({
-    value: profile.lastSave,
+  profile['lastSave'] = getString({
+    value: profile['lastSave'],
     fallback: updatedAt
   })
 
   return {
-    schemaVersion: getInteger({ value: source.schemaVersion }),
-    slotId: getString({ value: source.slotId, fallback: fallbackSlotId }),
-    createdAt: getString({ value: source.createdAt, fallback: now }),
+    schemaVersion: getInteger({ value: source['schemaVersion'] }),
+    slotId: getString({ value: source['slotId'], fallback: fallbackSlotId }),
+    createdAt: getString({
+      value: source['createdAt'],
+      fallback: now
+    }),
     updatedAt,
     profile
   }
 }
 
 const migrateFromVersionZero = (save: MutableRecord): MutableRecord => {
-  if (!isRecord(save.profile)) {
+  if (!isRecord(save['profile'])) {
     throw new Error('Save profile must be an object.')
   }
 
-  normalizeLocation(save.profile)
+  normalizeLocation(save['profile'])
 
   return {
     ...save,
@@ -122,8 +128,8 @@ export const needsSaveRewrite = (rawSave: unknown): boolean => {
   }
 
   return (
-    rawSave.schemaVersion !== CURRENT_SAVE_SCHEMA_VERSION ||
-    typeof rawSave.checksum !== 'string'
+    rawSave['schemaVersion'] !== CURRENT_SAVE_SCHEMA_VERSION ||
+    typeof rawSave['checksum'] !== 'string'
   )
 }
 
@@ -135,7 +141,7 @@ export const migrateSave = ({
   fallbackSlotId: SaveSlotId
 }): SavePayload => {
   let save = normalizeSave({ rawSave, fallbackSlotId })
-  let schemaVersion = getInteger({ value: save.schemaVersion })
+  let schemaVersion = getInteger({ value: save['schemaVersion'] })
 
   while (schemaVersion < CURRENT_SAVE_SCHEMA_VERSION) {
     const migration = migrations[schemaVersion]
@@ -145,7 +151,7 @@ export const migrateSave = ({
     }
 
     save = migration(save)
-    schemaVersion = getInteger({ value: save.schemaVersion })
+    schemaVersion = getInteger({ value: save['schemaVersion'] })
   }
 
   if (schemaVersion !== CURRENT_SAVE_SCHEMA_VERSION) {

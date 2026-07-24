@@ -14,7 +14,7 @@ export const GetStarterDigimon005 = () => {
   const { profile } = useProfileStore((state) => state)
   const { setScene } = useSceneStore((state) => state)
 
-  const dorimonMeeting = profile?.meaningfulChoices.dorimonMeeting
+  const dorimonMeeting = profile?.meaningfulChoices['dorimonMeeting']
 
   if (!profile || !dorimonMeeting) {
     return

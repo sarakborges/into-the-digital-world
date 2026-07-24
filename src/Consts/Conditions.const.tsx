@@ -1,6 +1,8 @@
 import { BiDizzy } from 'react-icons/bi'
 import { FaFlask, FaQuestion, FaSkull, FaWind } from 'react-icons/fa'
 
+import type { ConditionId, ConditionsType } from '@/Types/Condition.type'
+
 export const CONDITIONS = {
   shaken: {
     icon: <FaWind />,
@@ -26,9 +28,7 @@ export const CONDITIONS = {
     icon: <FaQuestion />,
     color: '#A78BFA'
   }
-}
-
-export type ConditionId = Extract<keyof typeof CONDITIONS, string>
+} satisfies ConditionsType
 
 export const isConditionId = (condition: string): condition is ConditionId => {
   return condition in CONDITIONS
