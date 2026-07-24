@@ -3,10 +3,18 @@ import type { DungeonType } from '@/Types/Dungeon.type'
 import { DungeonWildZoneKoromonNest } from '@/GameData/Dungeons/WildZone/KoromonNest'
 
 const DungeonRegistry = {
-  wildZone: {
-    koromonNest: DungeonWildZoneKoromonNest
-  }
-} satisfies Record<string, Record<string, DungeonType>>
+  koromonNest: DungeonWildZoneKoromonNest
+} satisfies Record<string, DungeonType>
+
+export type DungeonId = Extract<keyof typeof DungeonRegistry, string>
+
+export const isDungeonId = (dungeonId: string): dungeonId is DungeonId => {
+  return dungeonId in DungeonRegistry
+}
+
+export const getDungeonIds = (): DungeonId[] => {
+  return Object.keys(DungeonRegistry).filter(isDungeonId)
+}
 
 type GetDungeonParams = {
   zoneId: string
@@ -17,14 +25,14 @@ export const findDungeon = ({
   zoneId,
   dungeonId
 }: GetDungeonParams): DungeonType | undefined => {
-  const dungeons = Object.entries(DungeonRegistry).find(
-    ([registeredZoneId]) => registeredZoneId === zoneId
-  )?.[1]
+  if (!isDungeonId(dungeonId)) {
+    return undefined
+  }
 
-  return dungeons
-    ? Object.entries(dungeons).find(
-        ([registeredDungeonId]) => registeredDungeonId === dungeonId
-      )?.[1]
+  const dungeon = DungeonRegistry[dungeonId]
+
+  return dungeon.id === dungeonId && dungeon.zone === zoneId
+    ? dungeon
     : undefined
 }
 
