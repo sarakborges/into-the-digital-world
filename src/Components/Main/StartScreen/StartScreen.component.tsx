@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { createNewProfile } from '@/Helpers/Systems/Profile/createNewProfile.helper'
-import { getSortedProfiles } from '@/Helpers/Systems/Profile/getSortedProfiles.helper'
 import { loadProfiles } from '@/Helpers/Systems/Profile/loadProfiles.helper'
 import { getThemeBackground } from '@/Helpers/Systems/Settings/getThemeBackground.helper'
 
@@ -51,7 +50,7 @@ export const StartScreen = () => {
           </Button>
 
           <div className="games-list">
-            {getSortedProfiles(savedProfiles || []).map((profile) => (
+            {(savedProfiles || []).map((profile) => (
               <GameFile profile={profile} key={`savedProfiles-${profile.id}`} />
             ))}
           </div>
