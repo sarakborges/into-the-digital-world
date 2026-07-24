@@ -8,7 +8,7 @@
   background-color: var(--color-primary);
   border-radius: 12px;
 
-  &.game-file--saving {
+  &[data-mode='saving'] {
     background-color: var(--color-secondary);
 
     .player-avatar {
@@ -51,7 +51,7 @@
     }
   }
 
-  &:not(.game-file--saving) .game-options .button:not(.cancel) {
+  &[data-mode='loading'] .game-options .button:not(.cancel) {
     background-color: var(--color-secondary-strong);
   }
 }

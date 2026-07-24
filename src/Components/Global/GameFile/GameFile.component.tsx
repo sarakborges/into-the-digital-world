@@ -24,7 +24,10 @@ export const GameFile = ({ profile }: { profile: ProfileType }) => {
   }
 
   return (
-    <div className={`game-file${isSaving ? ' game-file--saving' : ''}`}>
+    <div
+      className="game-file"
+      data-mode={isSaving ? 'saving' : 'loading'}
+    >
       <PlayerAvatar replaceAvatar={profile.avatar} />
 
       <header>
