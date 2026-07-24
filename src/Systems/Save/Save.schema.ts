@@ -2,6 +2,8 @@ import { z } from 'zod'
 
 import type { ProfileType } from '@/Types/Profile.type'
 
+import type { DungeonId } from '@/GameData/Registries/Dungeon.registry'
+import { isDungeonId } from '@/GameData/Registries/Dungeon.registry'
 import { MeaningfulChoiceRegistry } from '@/GameData/Registries/MeaningfulChoice.registry'
 import type { GameLocation } from '@/GameData/Registries/ZoneManifest.registry'
 import { findZoneDefinition } from '@/GameData/Registries/ZoneManifest.registry'
@@ -37,6 +39,11 @@ const GameLocationValueSchema = z
 export const GameLocationSchema = z.custom<GameLocation>(
   (value) => GameLocationValueSchema.safeParse(value).success,
   'Invalid game location.'
+)
+
+const DungeonIdSchema = z.custom<DungeonId>(
+  (value) => typeof value === 'string' && isDungeonId(value),
+  'Invalid dungeon ID.'
 )
 
 const AvatarSchema = z
@@ -79,7 +86,7 @@ export const ProfileSaveSchema = z
     currentScene: z.string().nullable(),
     party: z.array(z.number().int()),
     titles: z.array(z.string()),
-    dungeonsFound: z.array(z.string()),
+    dungeonsFound: z.array(DungeonIdSchema),
     researchesFound: z.array(z.string()),
     researches: z.array(z.string()),
     quests: z.record(
