@@ -56,6 +56,20 @@ jobs:
       - name: Lint
         run: npm run lint
       - name: TypeScript
-        run: npx tsc --noEmit
+        id: typescript
+        shell: bash
+        run: |
+          set +e
+          npx tsc --noEmit > tsc-errors.txt 2>&1
+          status=$?
+          cat tsc-errors.txt
+          exit $status
+      - name: Upload TypeScript diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tsc-errors
+          path: tsc-errors.txt
       - name: Build
+        if: always()
         run: npm run build
