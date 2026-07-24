@@ -37,7 +37,7 @@ export const Dialog = ({ speaker, content, options }: DialogType) => {
                 id={option.id}
                 onClick={option.action}
                 disabled={!!option.disabled}
-                style="secondary"
+                variant="secondary"
               >
                 {option.text}
               </Button>

@@ -1,3 +1,5 @@
+import type { SpawnableDigimonDefinitionType } from '@/Types/SpawnableDigimon.type'
+
 import { DigimonDorimon } from '@/GameData/Digimons/Dorimon.digimon'
 import { DorimonCoreItem } from '@/GameData/Items/DorimonCore.item'
 import { NatureSpiritsCoreItem } from '@/GameData/Items/NatureSpiritsCore.item'
@@ -45,4 +47,4 @@ export const WildZoneDorimon = {
       amount: 1
     }
   ]
-}
+} satisfies SpawnableDigimonDefinitionType

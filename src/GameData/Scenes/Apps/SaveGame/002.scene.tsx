@@ -1,42 +1,29 @@
-import type { DialogType } from '@/Types/Dialog.type'
-
 import { NpcSavemon } from '@/GameData/Npcs/Savemon.npc'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { updateDigivice } from '@/Helpers/Systems/Digivice/updateDigivice.helper'
 import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 
-import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
-import { Text } from '@/Components/DesignSystem/Text/Text.component'
+import { SingleOptionDialog } from '@/Components/DesignSystem/SingleOptionDialog/SingleOptionDialog.component'
 
 export const SaveGame002 = () => {
-  const { digivice, setDigivice } = useDigiviceStore((state) => state)
+  const { digivice } = useDigiviceStore((state) => state)
 
   if (!digivice) {
     return
   }
 
-  const dialogOptions: DialogType = {
-    speaker: NpcSavemon,
-
-    content: (
-      <div className="text-bubble">
-        <Text as="p">{getTexts('SAVEGAME_002_TEXT')}</Text>
-      </div>
-    ),
-
-    options: [
-      {
-        id: 'scene-savegame-002-continue',
-        text: getTexts('SCENES_CONTINUE_BUTTON'),
-        action: () => {
-          setDigivice({ ...digivice, currentApp: undefined })
-          closeScene()
-        }
-      }
-    ]
-  }
-
-  return <Dialog {...dialogOptions} />
+  return (
+    <SingleOptionDialog
+      speaker={NpcSavemon}
+      optionId="scene-savegame-002-continue"
+      text={getTexts('SAVEGAME_002_TEXT')}
+      onAction={() => {
+        updateDigivice({ currentApp: undefined })
+        closeScene()
+      }}
+    />
+  )
 }

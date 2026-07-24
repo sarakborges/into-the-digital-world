@@ -18,17 +18,20 @@ export const spawnEnemies = () => {
     dungeonId: dungeon.dungeonId
   })
 
-  const currentRoom =
-    currentDungeon.possibleRooms[dungeon.rooms[dungeon.rooms.length - 1]]
+  const currentRoomId = dungeon.rooms.at(-1)
+  const encounters = currentRoomId
+    ? currentDungeon.possibleRooms[currentRoomId]?.encounters
+    : undefined
 
-  if (!currentRoom?.encounters) {
+  if (!encounters?.length) {
     return
   }
 
   const randomEncounter = generateRandomNumber({
     min: 0,
-    max: currentRoom.encounters.length - 1
+    max: encounters.length - 1
   })
+  const encounter = encounters[randomEncounter]
 
-  return currentRoom.encounters[randomEncounter].digimons
+  return encounter?.digimons
 }

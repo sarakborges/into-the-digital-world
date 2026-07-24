@@ -22,10 +22,18 @@ export const getPartnerGroups = (): PartnerGroupType => {
   }
 
   return {
-    inParty: profile.party.map((digimon) => ({
-      ...profile.partnerDigimons[digimon],
-      baseDigimon: getDigimon(profile.partnerDigimons[digimon].baseDigimon)
-    })),
+    inParty: profile.party.flatMap((digimonId) => {
+      const partner = profile.partnerDigimons[digimonId]
+
+      return partner
+        ? [
+            {
+              ...partner,
+              baseDigimon: getDigimon(partner.baseDigimon)
+            }
+          ]
+        : []
+    }),
 
     others: Object.values(profile.partnerDigimons)
       .filter((partner) => !profile.party.includes(partner.id))

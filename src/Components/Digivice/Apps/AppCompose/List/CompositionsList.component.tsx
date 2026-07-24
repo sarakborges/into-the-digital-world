@@ -5,6 +5,7 @@ import { Compose003 } from '@/GameData/Scenes/Apps/Compose/003.scene'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { getAvailableCompositions } from '@/Helpers/Systems/Compose/getAvailableCompositions.helper'
+import { applyItemAmounts } from '@/Helpers/Systems/Profile/applyItemAmounts.helper'
 
 import { useCompositionStore } from '@/Stores/Composition.store'
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -54,29 +55,16 @@ export const CompositionsList = () => {
 
                   <Button
                     onClick={() => {
-                      const baseDigimon = composition.baseDigimon
-                      const research = getResearch(baseDigimon.id)
-                      const totalItems = {}
-                      const requiredItems = research.requiredItems
-                      const optionalItems = research.optionalItems
-
-                      for (const item in requiredItems) {
-                        totalItems[item] =
-                          (totalItems[item] || 0) + requiredItems[item]
-                      }
-
-                      for (const item in optionalItems) {
-                        totalItems[item] =
-                          (totalItems[item] || 0) + optionalItems[item]
-                      }
+                      const research = getResearch(composition.baseDigimon.id)
+                      const requiredItems = research.requiredItems ?? {}
+                      const optionalItems = research.optionalItems ?? {}
 
                       setComposition({
                         baseDigimon: composition.baseDigimon,
-                        totalItems:
-                          !!Object.keys(requiredItems ?? {}).length ||
-                          !!Object.keys(optionalItems ?? {}).length
-                            ? totalItems
-                            : {}
+                        totalItems: applyItemAmounts({
+                          inventory: requiredItems,
+                          items: optionalItems
+                        })
                       })
 
                       setScene({ component: Compose003 })

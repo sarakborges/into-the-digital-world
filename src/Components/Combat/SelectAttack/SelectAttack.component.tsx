@@ -1,7 +1,6 @@
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { doAttack } from '@/Helpers/Systems/Battle/doAttack.helper'
 import { getBattleAttackOptions } from '@/Helpers/Systems/Battle/getBattleAttackOptions.helper'
-import { isEnemyTurn } from '@/Helpers/Systems/Battle/isEnemyTurn.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 
@@ -12,11 +11,15 @@ import { Text } from '@/Components/DesignSystem/Text/Text.component'
 export const SelectAttack = () => {
   const { battle } = useBattleStore((state) => state)
 
-  if (!battle || isEnemyTurn(battle)) {
+  if (!battle) {
     return
   }
 
   const [currentTurn] = battle.turnOrder
+
+  if (!currentTurn || currentTurn.party === 'enemies') {
+    return
+  }
 
   const attackOptions = getBattleAttackOptions(currentTurn)
 

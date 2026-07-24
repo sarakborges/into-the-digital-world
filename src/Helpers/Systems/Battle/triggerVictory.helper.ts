@@ -1,19 +1,20 @@
-import { useBattleStore } from '@/Stores/Battle.store'
-import { useProfileStore } from '@/Stores/Profile.store'
+import { applyItemAmounts } from '@/Helpers/Systems/Profile/applyItemAmounts.helper'
+import { setProfileSession } from '@/Helpers/Systems/Profile/setProfileSession.helper'
 
-export const triggerVictory = () => {
-  const { profile, setProfile } = useProfileStore.getState()
+import { useBattleStore } from '@/Stores/Battle.store'
+
+export const triggerVictory = (): void => {
   const { battle } = useBattleStore.getState()
 
-  if (!profile || !battle?.loot) {
+  if (!battle?.loot) {
     return
   }
 
-  const updatedItems = { ...profile.items }
-
-  for (const item of Object.keys(battle.loot)) {
-    updatedItems[item] = (profile.items[item] || 0) + battle.loot[item]
-  }
-
-  setProfile({ ...profile, items: updatedItems })
+  setProfileSession((profile) => ({
+    ...profile,
+    items: applyItemAmounts({
+      inventory: profile.items,
+      items: battle.loot
+    })
+  }))
 }

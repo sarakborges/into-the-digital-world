@@ -19,11 +19,11 @@ export const AppInventory = () => {
 
   return (
     <div className="inventory">
-      {Object.keys(categories).map((category) => (
+      {Object.entries(categories).map(([category, items]) => (
         <Fragment key={`inventory-category-${category}`}>
-          {Object.keys(categories[category]).length > 0 && (
+          {Object.keys(items).length > 0 && (
             <ItemsList
-              list={categories[category]}
+              list={items}
               title={getTexts(
                 `INVENTORY_CATEGORY_${category.toLocaleUpperCase()}`
               )}

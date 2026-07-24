@@ -11,18 +11,22 @@ export const getBattlePartyGroups = (): BattlePartyGroupType[] => {
     return []
   }
 
-  const partyLabels: Record<'allies' | 'enemies', string> = {
-    allies: getTexts('BATTLE_PARTY_ALLIES'),
-    enemies: getTexts('BATTLE_PARTY_ENEMIES')
-  }
+  const partyGroups: Array<Omit<BattlePartyGroupType, 'list'>> = [
+    {
+      party: 'allies',
+      title: getTexts('BATTLE_PARTY_ALLIES')
+    },
+    {
+      party: 'enemies',
+      title: getTexts('BATTLE_PARTY_ENEMIES')
+    }
+  ]
 
-  return (Object.keys(partyLabels) as Array<keyof typeof partyLabels>).map(
-    (party) => ({
-      party,
-      title: partyLabels[party],
-      list: battle.turnOrder
-        .filter((digimon) => digimon.party === party)
-        .sort((a, b) => (a.index > b.index ? 1 : -1))
-    })
-  )
+  return partyGroups.map(({ party, title }) => ({
+    party,
+    title,
+    list: battle.turnOrder
+      .filter((digimon) => digimon.party === party)
+      .sort((a, b) => (a.index > b.index ? 1 : -1))
+  }))
 }

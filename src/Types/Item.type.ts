@@ -1,3 +1,5 @@
+import type { DigimonStatId } from '@/Types/BaseDigimon.type'
+
 export type ItemType = {
   id: string
   name: string
@@ -7,11 +9,14 @@ export type ItemType = {
   equipConditions?: () => boolean
 
   equipmentBonuses?: {
-    stats?: {
-      [statId: string]: {
-        type: 'percentage' | 'fixed'
-        amount: number
-      }
-    }
+    stats?: Partial<
+      Record<
+        DigimonStatId,
+        {
+          type: 'percentage' | 'fixed'
+          amount: number
+        }
+      >
+    >
   }
 }

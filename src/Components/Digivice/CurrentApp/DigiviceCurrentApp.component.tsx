@@ -2,6 +2,7 @@ import type { DigiviceAppDefinition } from '@/GameData/Registries/DigiviceApp.re
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { getAppAvailability } from '@/Helpers/Systems/Digivice/getAppAvailability.helper'
+import { updateDigivice } from '@/Helpers/Systems/Digivice/updateDigivice.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -18,14 +19,16 @@ type DigiviceCurrentAppProps = {
 export const DigiviceCurrentApp = ({ app }: DigiviceCurrentAppProps) => {
   const { profile } = useProfileStore((state) => state)
   const { setScene } = useSceneStore((state) => state)
-  const { digivice, setDigivice } = useDigiviceStore((state) => state)
+  const { digivice } = useDigiviceStore((state) => state)
 
   if (!profile || !digivice) {
     return
   }
 
   const openApp = () => {
-    setDigivice({ ...digivice, currentApp: app.app })
+    if (app.app) {
+      updateDigivice({ currentApp: app.app })
+    }
 
     if (!app.scene) {
       return

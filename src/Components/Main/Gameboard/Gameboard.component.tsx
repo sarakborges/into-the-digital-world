@@ -1,5 +1,6 @@
+import type { CssPropertiesWithVariables } from '@/Types/CssProperties.type'
+
 import { getCurrentMap } from '@/Helpers/Systems/Zones/getCurrentMap.helper'
-import { getGameboardStyles } from '@/Helpers/Systems/Zones/getGameboardStyles.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useDungeonStore } from '@/Stores/Dungeon.store'
@@ -22,12 +23,12 @@ export const Gameboard = () => {
     return
   }
 
-  const gameboardBodyVars = getGameboardStyles({
-    currentX: profile.currentLocation.x || 0,
-    currentY: profile.currentLocation.y || 0,
-    gridSize: currentMap.gridSize || 0,
-    isWarping: !!game?.isWarping
-  })
+  const gameboardBodyVars: CssPropertiesWithVariables = {
+    '--current-x': profile.currentLocation.x,
+    '--current-y': profile.currentLocation.y,
+    '--grid-size': currentMap.gridSize,
+    '--is-warping': game?.isWarping ? 0 : 1
+  }
 
   return (
     <div className="gameboard-container">
@@ -42,20 +43,14 @@ export const Gameboard = () => {
             }}
           />
 
-          {!battle && (
-            <>
-              <GameboardCharacter isPlayer />
+          <GameboardCharacter isPlayer />
 
-              {currentMap.tiles.map((tile) => {
-                return (
-                  <GameboardCharacter
-                    tile={tile}
-                    key={`zone-${currentMap.id}-x${tile.x}-y${tile.y}-${tile.id}`}
-                  />
-                )
-              })}
-            </>
-          )}
+          {currentMap.tiles.map((tile) => (
+            <GameboardCharacter
+              tile={tile}
+              key={`zone-${currentMap.id}-x${tile.x}-y${tile.y}-${tile.id}`}
+            />
+          ))}
         </div>
       </main>
     </div>

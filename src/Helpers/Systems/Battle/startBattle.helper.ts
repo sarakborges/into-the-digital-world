@@ -1,5 +1,6 @@
+import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
+
 import { getDigimon } from '@/GameData/Registries/Digimon.registry'
-import { getDungeon } from '@/GameData/Registries/Dungeon.registry'
 
 import { generateRandomNumber } from '@/Helpers/Math/generateRandomNumber.helper'
 import { getSuccesses } from '@/Helpers/Math/getSuccesses.helper'
@@ -17,15 +18,7 @@ export const startBattle = () => {
     return
   }
 
-  const currentDungeon = getDungeon({
-    zoneId: dungeon.zoneId,
-    dungeonId: dungeon.dungeonId
-  })
-
-  const currentRoom =
-    currentDungeon.possibleRooms[dungeon.rooms[dungeon.rooms.length - 1]]
-
-  if (!currentRoom || !profile.party.length) {
+  if (!profile.party.length) {
     return
   }
 
@@ -35,14 +28,16 @@ export const startBattle = () => {
     return
   }
 
-  const enemies = spawnedEnemies.map((digimon, digimonIndex) => ({
-    ...getDigimon(digimon.digimonId),
-    ...digimon,
+  const enemies = spawnedEnemies.map<PartyDigimonType>(
+    (digimon, digimonIndex) => ({
+      ...getDigimon(digimon.digimonId),
+      ...digimon,
 
-    party: 'enemies' as 'allies' | 'enemies',
-    index: digimonIndex,
-    equipments: digimon.equipments
-  }))
+      party: 'enemies',
+      index: digimonIndex,
+      equipments: digimon.equipments
+    })
+  )
 
   saveBattle({
     combatLog: [],

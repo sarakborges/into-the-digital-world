@@ -4,7 +4,9 @@ import { NpcJijimon } from '@/GameData/Npcs/Jijimon.npc'
 import { getResearch } from '@/GameData/Registries/Research.registry'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
+import { applyItemAmounts } from '@/Helpers/Systems/Profile/applyItemAmounts.helper'
+import { hasItems } from '@/Helpers/Systems/Profile/hasItems.helper'
+import { setProfileSession } from '@/Helpers/Systems/Profile/setProfileSession.helper'
 import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
 import { useCompositionStore } from '@/Stores/Composition.store'
@@ -24,22 +26,33 @@ export const Compose003 = () => {
   }
 
   const research = getResearch(composition.baseDigimon.id)
-  const requiredItems = research.requiredItems || {}
-  const optionalItems = composition.optionalItems || {}
-
-  const playerHasEnoughItems = Object.keys(composition.totalItems ?? {}).some(
-    (item) =>
-      (profile.items[item] || 0) >= (composition.totalItems?.[item] || 0)
-  )
+  const requiredItems = research.requiredItems ?? {}
+  const optionalItems = composition.optionalItems ?? {}
+  const playerHasEnoughItems = hasItems({
+    inventory: profile.items,
+    requiredItems: composition.totalItems
+  })
 
   const composeDigimon = () => {
     const newDigimonId =
-      Number(
-        Object.keys(profile.partnerDigimons).sort((a, b) => (a > b ? -1 : 1))[0]
+      Object.values(profile.partnerDigimons).reduce(
+        (highestId, digimon) => Math.max(highestId, digimon.id),
+        0
       ) + 1
 
-    const updatedProfile = {
+    const itemsAfterRequired = applyItemAmounts({
+      inventory: profile.items,
+      items: requiredItems,
+      operation: 'subtract'
+    })
+
+    setProfileSession({
       ...profile,
+      items: applyItemAmounts({
+        inventory: itemsAfterRequired,
+        items: optionalItems,
+        operation: 'subtract'
+      }),
       partnerDigimons: {
         ...profile.partnerDigimons,
 
@@ -50,18 +63,9 @@ export const Compose003 = () => {
           equipments: {}
         }
       }
-    }
-
-    for (const item of Object.keys(requiredItems)) {
-      updatedProfile.items[item] -= requiredItems[item] || 0
-    }
-
-    for (const item of Object.keys(optionalItems)) {
-      updatedProfile.items[item] -= optionalItems[item] || 0
-    }
+    })
 
     setComposition(null)
-    saveSession(updatedProfile)
   }
 
   const dialogOptions: DialogType = {

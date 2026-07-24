@@ -1,16 +1,6 @@
-import { THEMES } from '@/Consts/Themes.const'
+import type { ThemeId } from '@/Consts/Themes.const'
+import { isThemeId } from '@/Consts/Themes.const'
 
-export const getThemeClassName = (theme: string | undefined): string => {
-  const allThemes = {
-    ...THEMES.default,
-    ...THEMES.crests,
-    ...THEMES.families,
-    ...THEMES.other
-  }
-
-  if (theme && Object.keys(allThemes).includes(theme)) {
-    return theme
-  }
-
-  return 'default'
-}
+export const getThemeClassName = (
+  theme: string | undefined
+): ThemeId => (theme && isThemeId(theme) ? theme : 'default')

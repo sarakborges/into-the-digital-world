@@ -1,3 +1,4 @@
+import type { LootTableEntryType, LootType } from '@/Types/Loot.type'
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
 export type BattleType = {
@@ -5,12 +6,7 @@ export type BattleType = {
     PartyDigimonType & {
       party: 'allies' | 'enemies'
       index: number
-
-      lootTable?: Array<{
-        itemId: string
-        dropChance: number
-        amount: number
-      }>
+      lootTable?: Array<LootTableEntryType>
     }
   >
 
@@ -26,7 +22,5 @@ export type BattleType = {
     hasHitLanded: boolean
   }>
 
-  loot?: {
-    [itemId: string]: number
-  }
+  loot?: LootType
 }

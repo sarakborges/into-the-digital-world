@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react'
+
 import { splitTextIntoParagraphs } from '@/Helpers/Components/splitTextIntoParagraphs.helper'
 
 import '@/Components/DesignSystem/Text/Text.style.scss'
@@ -7,7 +9,7 @@ export const Text = ({
   children
 }: {
   as?: 'p' | 'h1' | 'h2' | 'span'
-  children
+  children: ReactNode
 }) => {
   const Component = as || 'span'
 

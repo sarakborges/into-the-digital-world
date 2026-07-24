@@ -1,5 +1,7 @@
 import { getResearch } from '@/GameData/Registries/Research.registry'
 
+import { hasItems } from '@/Helpers/Systems/Profile/hasItems.helper'
+
 import { useProfileStore } from '@/Stores/Profile.store'
 
 export const isResearchPurchasable = (research: string): boolean => {
@@ -9,9 +11,8 @@ export const isResearchPurchasable = (research: string): boolean => {
     return false
   }
 
-  const researchDetails = getResearch(research)
-
-  return Object.keys(researchDetails.cost).every(
-    (item) => profile.items[item] >= researchDetails.cost[item]
-  )
+  return hasItems({
+    inventory: profile.items,
+    requiredItems: getResearch(research).cost
+  })
 }

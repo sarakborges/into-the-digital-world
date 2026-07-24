@@ -14,6 +14,10 @@ export const TurnOrder = () => {
 
   const [currentDigimon, ...otherDigimons] = getBattleTurnOrder()
 
+  if (!currentDigimon) {
+    return null
+  }
+
   return (
     <div className="turn-order">
       <div className="timeline">

@@ -1,8 +1,8 @@
 import type { QuestType } from '@/Types/Quest.type'
 
-import { NpcDressmon } from '@/GameData//Npcs/Dressmon.npc'
+import { NpcDressmon } from '@/GameData/Npcs/Dressmon.npc'
 
-export const AvatarFixingQuest: QuestType = {
+export const AvatarFixingQuest = {
   id: 'avatarFixing',
   name: 'Avatar Fixing',
 
@@ -18,4 +18,4 @@ export const AvatarFixingQuest: QuestType = {
       }
     }
   }
-}
+} satisfies QuestType

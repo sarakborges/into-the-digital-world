@@ -1,33 +1,30 @@
 import type { SceneType } from '@/Types/Scene.type'
 
-import { useProfileStore } from '@/Stores/Profile.store'
+import type { MeaningfulChoiceReaction } from '@/GameData/Registries/MeaningfulChoice.registry'
+
+import { setProfileSession } from '@/Helpers/Systems/Profile/setProfileSession.helper'
+
 import { useSceneStore } from '@/Stores/Scene.store'
 
 export const reactToMeaningfulChoice = ({
   reaction,
   nextScene
 }: {
-  reaction: {
-    name: string
-    value: string
-  }
+  reaction: MeaningfulChoiceReaction
   nextScene: SceneType | null
-}) => {
-  const { profile, setProfile } = useProfileStore.getState()
-  const { setScene } = useSceneStore.getState()
-
-  if (!profile) {
-    return
-  }
-
-  setProfile({
+}): void => {
+  const didUpdateProfile = setProfileSession((profile) => ({
     ...profile,
 
     meaningfulChoices: {
       ...profile.meaningfulChoices,
       [reaction.name]: reaction.value
     }
-  })
+  }))
 
-  setScene(nextScene)
+  if (!didUpdateProfile) {
+    return
+  }
+
+  useSceneStore.getState().setScene(nextScene)
 }

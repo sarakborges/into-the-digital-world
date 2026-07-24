@@ -1,27 +1,21 @@
-import { useDigiviceStore } from '@/Stores/Digivice.store'
-import { useProfileStore } from '@/Stores/Profile.store'
+import { setProfileSession } from '@/Helpers/Systems/Profile/setProfileSession.helper'
 
-export const togglePartnerFavorite = () => {
-  const { profile, setProfile } = useProfileStore.getState()
-  const { digivice } = useDigiviceStore.getState()
+export const togglePartnerFavorite = (partnerId: number): void => {
+  setProfileSession((profile) => {
+    const partner = profile.partnerDigimons[partnerId]
 
-  if (!profile || !digivice?.currentDetails) {
-    return
-  }
+    if (!partner) {
+      return profile
+    }
 
-  const currentDigimon = {
-    ...profile.partnerDigimons[digivice?.currentDetails]
-  }
-
-  setProfile({
-    ...profile,
-
-    partnerDigimons: {
-      ...profile.partnerDigimons,
-
-      [digivice.currentDetails as string]: {
-        ...currentDigimon,
-        isFavorite: !currentDigimon.isFavorite
+    return {
+      ...profile,
+      partnerDigimons: {
+        ...profile.partnerDigimons,
+        [partnerId]: {
+          ...partner,
+          isFavorite: !partner.isFavorite
+        }
       }
     }
   })

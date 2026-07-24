@@ -2,7 +2,7 @@ import type { QuestType } from '@/Types/Quest.type'
 
 import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 
-export const StarterDigimonQuest: QuestType = {
+export const StarterDigimonQuest = {
   id: 'starterDigimon',
   name: 'Exploring Root Domain',
 
@@ -18,4 +18,4 @@ export const StarterDigimonQuest: QuestType = {
       }
     }
   }
-}
+} satisfies QuestType

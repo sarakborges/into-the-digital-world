@@ -5,6 +5,7 @@ import { getAvailableWarpLocations } from '@/Helpers/Systems/Digivice/getAvailab
 import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 import { warpTo } from '@/Helpers/Systems/Zones/warpTo.helper'
 
+import type { WarpLocationId } from '@/Consts/Locations.const'
 import { WARP_LOCATIONS } from '@/Consts/Locations.const'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -23,14 +24,10 @@ export const AppLocation = () => {
     return
   }
 
-  const warp = (location) => {
+  const warp = (location: WarpLocationId) => {
     warpTo(WARP_LOCATIONS[location])
 
-    setDigivice({
-      isOpen: false,
-      currentApp: undefined,
-      currentDetails: undefined
-    })
+    setDigivice({ isOpen: false })
 
     closeScene()
   }

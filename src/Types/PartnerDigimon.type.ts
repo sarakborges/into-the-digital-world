@@ -2,10 +2,10 @@ import type { EquipmentType } from '@/Types/Equipment.type'
 
 export type PartnerDigimonType = {
   id: number
-  name?: string
+  name?: string | undefined
   baseDigimon: string
-  isFavorite?: boolean
-  isStarter?: boolean
+  isFavorite?: boolean | undefined
+  isStarter?: boolean | undefined
 
   equipments: EquipmentType
 }

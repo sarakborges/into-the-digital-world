@@ -6,17 +6,17 @@ import { useProfileStore } from '@/Stores/Profile.store'
 
 export const isQuestDone = (questId: string): boolean => {
   const profile = useProfileStore.getState().profile
+  const quest = findQuest(questId)
+  const questProgress = profile?.quests[questId]
 
-  if (!profile) {
+  if (!profile || !quest || !questProgress) {
     return false
   }
 
-  return Object.keys(findQuest(questId)?.objectives ?? {}).every(
-    (objective) => {
-      return isObjectiveDone({
-        objectiveId: objective,
-        questId
-      })
-    }
+  return Object.keys(quest.objectives).every((objectiveId) =>
+    isObjectiveDone({
+      questId,
+      objectiveId
+    })
   )
 }

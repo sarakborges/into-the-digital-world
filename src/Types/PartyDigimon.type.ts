@@ -1,4 +1,5 @@
 import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
+import type { ConditionId } from '@/Types/Condition.type'
 import type { EquipmentType } from '@/Types/Equipment.type'
 
 export type PartyDigimonType = BaseDigimonType & {
@@ -6,7 +7,5 @@ export type PartyDigimonType = BaseDigimonType & {
   index: number
   equipments: EquipmentType
 
-  conditions?: {
-    [conditionId: string]: number
-  }
+  conditions?: Partial<Record<ConditionId, number>>
 }

@@ -1,25 +1,18 @@
 import { getResearch } from '@/GameData/Registries/Research.registry'
 
-import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
+import { applyItemAmounts } from '@/Helpers/Systems/Profile/applyItemAmounts.helper'
+import { setProfileSession } from '@/Helpers/Systems/Profile/setProfileSession.helper'
 
-import { useProfileStore } from '@/Stores/Profile.store'
-
-export const purchaseResearch = (researchId: string) => {
-  const { profile } = useProfileStore.getState()
-
-  if (!profile) {
-    return
-  }
-
+export const purchaseResearch = (researchId: string): void => {
   const research = getResearch(researchId)
-  const updatedProfile = {
+
+  setProfileSession((profile) => ({
     ...profile,
-    researches: [...(profile.researches ?? []), researchId]
-  }
-
-  for (const item of Object.keys(research.cost)) {
-    updatedProfile.items[item] -= research.cost[item]
-  }
-
-  saveSession(updatedProfile)
+    researches: [...profile.researches, researchId],
+    items: applyItemAmounts({
+      inventory: profile.items,
+      items: research.cost,
+      operation: 'subtract'
+    })
+  }))
 }

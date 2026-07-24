@@ -21,6 +21,32 @@ export const BattleTurn = () => {
 
   const [currentTurn] = battle.turnOrder
 
+  if (!currentTurn) {
+    return
+  }
+
+  const attackIds = Object.keys(currentTurn.attacks)
+  const options =
+    currentTurn.party === 'enemies' && attackIds.length
+      ? [
+          {
+            id: 'scene-battle-battleturn-continue',
+            text: getTexts('SCENES_CONTINUE_BUTTON'),
+            action: () => {
+              const rng = generateRandomNumber({
+                min: 0,
+                max: attackIds.length - 1
+              })
+              const attackId = attackIds[rng]
+
+              if (attackId) {
+                doAttack(attackId)
+              }
+            }
+          }
+        ]
+      : undefined
+
   const dialogOptions: DialogType = {
     speaker: NpcOujamon,
 
@@ -39,23 +65,7 @@ export const BattleTurn = () => {
       </div>
     ),
 
-    options:
-      currentTurn.party === 'enemies'
-        ? [
-            {
-              id: 'scene-battle-battleturn-continue',
-              text: getTexts('SCENES_CONTINUE_BUTTON'),
-              action: () => {
-                const rng = generateRandomNumber({
-                  min: 0,
-                  max: Object.keys(currentTurn.attacks).length - 1
-                })
-
-                doAttack(Object.keys(currentTurn.attacks)[rng])
-              }
-            }
-          ]
-        : undefined
+    ...(options ? { options } : {})
   }
 
   return <Dialog {...dialogOptions} />

@@ -2,6 +2,10 @@ import { z } from 'zod'
 
 import type { ProfileType } from '@/Types/Profile.type'
 
+import { GAME_VERSION } from '@/Consts/Game.const'
+import type { DungeonId } from '@/GameData/Registries/Dungeon.registry'
+import { isDungeonId } from '@/GameData/Registries/Dungeon.registry'
+import { MeaningfulChoiceRegistry } from '@/GameData/Registries/MeaningfulChoice.registry'
 import type { GameLocation } from '@/GameData/Registries/ZoneManifest.registry'
 import { findZoneDefinition } from '@/GameData/Registries/ZoneManifest.registry'
 
@@ -38,6 +42,11 @@ export const GameLocationSchema = z.custom<GameLocation>(
   'Invalid game location.'
 )
 
+const DungeonIdSchema = z.custom<DungeonId>(
+  (value) => typeof value === 'string' && isDungeonId(value),
+  'Invalid dungeon ID.'
+)
+
 const AvatarSchema = z
   .object({
     expression: z.string(),
@@ -69,6 +78,7 @@ const PartnerDigimonSchema = z
 
 export const ProfileSaveSchema = z
   .object({
+    gameVersion: z.literal(GAME_VERSION),
     id: z.number().int().nonnegative(),
     name: z.string(),
     lastSave: z.iso.datetime(),
@@ -78,7 +88,7 @@ export const ProfileSaveSchema = z
     currentScene: z.string().nullable(),
     party: z.array(z.number().int()),
     titles: z.array(z.string()),
-    dungeonsFound: z.array(z.string()),
+    dungeonsFound: z.array(DungeonIdSchema),
     researchesFound: z.array(z.string()),
     researches: z.array(z.string()),
     quests: z.record(
@@ -93,20 +103,12 @@ export const ProfileSaveSchema = z
     currentLocation: GameLocationSchema,
     partnerDigimons: z.record(z.string(), PartnerDigimonSchema),
     npcAcquaintances: z.record(z.string(), z.unknown()),
-    meaningfulChoices: z.record(z.string(), z.string())
+    meaningfulChoices: z
+      .object({
+        dorimonMeeting: z
+          .enum(MeaningfulChoiceRegistry.dorimonMeeting)
+          .optional()
+      })
+      .strict()
   })
   .strict() satisfies z.ZodType<ProfileType>
-
-export const SavePayloadSchema = z
-  .object({
-    schemaVersion: z.number().int().nonnegative(),
-    slotId: z.string().min(1),
-    createdAt: z.iso.datetime(),
-    updatedAt: z.iso.datetime(),
-    profile: ProfileSaveSchema
-  })
-  .strict()
-
-export const StoredSaveSchema = SavePayloadSchema.extend({
-  checksum: z.string().regex(/^[a-f0-9]{64}$/)
-})

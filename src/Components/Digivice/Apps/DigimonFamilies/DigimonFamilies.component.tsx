@@ -2,7 +2,7 @@ import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { getCurrentDigimon } from '@/Helpers/Systems/Digimon/getCurrentDigimon.helper'
 import { getPartnerDigimon } from '@/Helpers/Systems/Digimon/getPartnerDigimon.helper'
 
-import { DIGIMON_FAMILIES } from '@/Consts/Families.const'
+import { DIGIMON_FAMILIES, isDigimonFamilyId } from '@/Consts/Families.const'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 
@@ -31,16 +31,22 @@ export const DigimonFamilies = () => {
       </header>
 
       <main className="families">
-        {Object.keys(baseDigimon.families).map((family) => (
-          <div key={`digimon-${partner.id}-families-${family}`}>
-            <Portrait
-              alt={DIGIMON_FAMILIES[family].name}
-              src={`/families/${family}.webp`}
-            />
+        {Object.keys(baseDigimon.families).map((family) => {
+          if (!isDigimonFamilyId(family)) {
+            return null
+          }
 
-            <Text>{DIGIMON_FAMILIES[family].name}</Text>
-          </div>
-        ))}
+          return (
+            <div key={`digimon-${partner.id}-families-${family}`}>
+              <Portrait
+                alt={DIGIMON_FAMILIES[family].name}
+                src={`/families/${family}.webp`}
+              />
+
+              <Text>{DIGIMON_FAMILIES[family].name}</Text>
+            </div>
+          )
+        })}
       </main>
     </section>
   )

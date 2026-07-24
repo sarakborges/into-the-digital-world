@@ -76,7 +76,7 @@ export const DigimonEquipments = () => {
                               equipmentId: undefined
                             })
                           }
-                          style="secondary"
+                          variant="secondary"
                           disabled={!!scene}
                         >
                           Remove
@@ -86,7 +86,7 @@ export const DigimonEquipments = () => {
                       {!equipment && (
                         <Button
                           onClick={() => openEquipDialog(equipmentSlot)}
-                          style="secondary"
+                          variant="secondary"
                           disabled={!!scene}
                         >
                           Equip

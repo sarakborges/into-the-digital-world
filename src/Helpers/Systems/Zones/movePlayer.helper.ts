@@ -1,20 +1,25 @@
-import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
+import { setProfileSession } from '@/Helpers/Systems/Profile/setProfileSession.helper'
 import { getCurrentMap } from '@/Helpers/Systems/Zones/getCurrentMap.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-export const movePlayer = ({ x, y }: { x?: number; y?: number }) => {
-  const { profile } = useProfileStore.getState()
+export type MovePlayerParams = {
+  x: number
+  y: number
+}
+
+export const movePlayer = ({ x, y }: MovePlayerParams) => {
+  const profile = useProfileStore.getState().profile
   const currentMap = getCurrentMap()
 
   if (!profile || !currentMap) {
     return false
   }
 
-  const updatedX = profile.currentLocation.x + (x || 0)
-  const updatedY = profile.currentLocation.y + (y || 0)
+  const updatedX = profile.currentLocation.x + x
+  const updatedY = profile.currentLocation.y + y
 
-  const updatedProfile = {
+  setProfileSession({
     ...profile,
 
     currentLocation: {
@@ -22,9 +27,7 @@ export const movePlayer = ({ x, y }: { x?: number; y?: number }) => {
       x: updatedX,
       y: updatedY
     }
-  }
-
-  saveSession(updatedProfile)
+  })
 
   return { x: updatedX, y: updatedY }
 }

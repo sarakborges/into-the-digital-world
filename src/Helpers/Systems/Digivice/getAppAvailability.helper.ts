@@ -13,15 +13,12 @@ export const getAppAvailability = (appId: string): boolean => {
     return false
   }
 
-  const doneQuests = Object.keys(profile.quests).filter((quest) =>
-    isQuestDone(quest)
-  )
-
+  const starterQuestIsDone = isQuestDone(StarterDigimonQuest.id)
   const isSave = appId === 'save'
   const isLogoff = appId === 'logoff'
 
   return !(
     (!!scene && !scene.enablesMovement) ||
-    (!doneQuests.includes(StarterDigimonQuest.id) && !(isSave || isLogoff))
+    (!starterQuestIsDone && !(isSave || isLogoff))
   )
 }

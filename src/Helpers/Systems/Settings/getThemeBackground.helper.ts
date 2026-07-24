@@ -1,16 +1,10 @@
-import { THEMES } from '@/Consts/Themes.const'
+import type { ThemeId } from '@/Consts/Themes.const'
+import { hasThemeBackground } from '@/Consts/Themes.const'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
 
-export const getThemeBackground = (): string => {
-  const theme = useSettingsStore.getState().settings?.theme
+export const getThemeBackground = (): ThemeId => {
+  const theme = useSettingsStore.getState().settings.theme
 
-  const availableThemes = {
-    ...THEMES.default,
-    ...THEMES.crests
-  }
-
-  return theme && Object.keys(availableThemes).includes(theme)
-    ? theme
-    : 'default'
+  return hasThemeBackground(theme) ? theme : 'default'
 }

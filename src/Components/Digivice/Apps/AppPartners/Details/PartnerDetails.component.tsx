@@ -1,10 +1,16 @@
+import { BiPencil, BiSolidStar, BiStar } from 'react-icons/bi'
+
 import { findDigimon } from '@/GameData/Registries/Digimon.registry'
+import { RenamePartner001 } from '@/GameData/Scenes/Apps/RenamePartner/001.scene'
+
+import { togglePartnerFavorite } from '@/Helpers/Systems/Profile/togglePartnerFavorite.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
+import { Button } from '@/Components/DesignSystem/Button/Button.component'
 import { Text } from '@/Components/DesignSystem/Text/Text.component'
-import { AddPartnerToFavorites } from '@/Components/Digivice/Apps/AddPartnerToFavorites/AddPartnerToFavorites.component'
 import '@/Components/Digivice/Apps/AppPartners/Details/PartnerDetails.style.scss'
 import { CharacterDescription } from '@/Components/Digivice/Apps/CharacterDescription/CharacterDescription.component'
 import { CharacterFullPicture } from '@/Components/Digivice/Apps/CharacterFullPicture/CharacterFullPicture.component'
@@ -14,11 +20,11 @@ import { DigimonAttribute } from '@/Components/Digivice/Apps/DigimonAttribute/Di
 import { DigimonEquipments } from '@/Components/Digivice/Apps/DigimonEquipments/DigimonEquipments.component'
 import { DigimonFamilies } from '@/Components/Digivice/Apps/DigimonFamilies/DigimonFamilies.component'
 import { DigimonStats } from '@/Components/Digivice/Apps/DigimonStats/DigimonStats.component'
-import { RenamePartner } from '@/Components/Digivice/Apps/RenamePartner/RenamePartner.component'
 
 export const PartnerDetails = () => {
   const { profile } = useProfileStore((state) => state)
   const { digivice } = useDigiviceStore((state) => state)
+  const { scene, setScene } = useSceneStore((state) => state)
 
   if (!digivice?.currentDetails || !profile) {
     return
@@ -42,8 +48,22 @@ export const PartnerDetails = () => {
         </CharacterHeader>
 
         <div className="partner-actions">
-          <RenamePartner />
-          <AddPartnerToFavorites />
+          <Button
+            disabled={!!scene}
+            variant="secondary"
+            onClick={() => setScene({ component: RenamePartner001 })}
+          >
+            <BiPencil />
+          </Button>
+
+          <Button
+            disabled={!!scene}
+            onClick={() => togglePartnerFavorite(partner.id)}
+            variant={partner.isFavorite ? 'cancel' : 'secondary'}
+          >
+            {!partner.isFavorite && <BiSolidStar />}
+            {!!partner.isFavorite && <BiStar />}
+          </Button>
         </div>
       </header>
 

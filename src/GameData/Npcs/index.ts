@@ -14,11 +14,7 @@ import { NpcNavimon } from '@/GameData/Npcs/Navimon.npc'
 import { NpcOujamon } from '@/GameData/Npcs/Oujamon.npc'
 import { NpcSavemon } from '@/GameData/Npcs/Savemon.npc'
 
-export const NpcRegistry: {
-  [category: string]: {
-    [npcId: string]: NpcType
-  }
-} = {
+export const NpcRegistry = {
   general: {
     gennai: NpcGennai
   },
@@ -40,4 +36,4 @@ export const NpcRegistry: {
     consulmon: NpcConsulmon,
     navimon: NpcNavimon
   }
-}
+} satisfies Record<string, Record<string, NpcType>>

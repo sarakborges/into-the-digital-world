@@ -14,17 +14,9 @@ import { SettingsTheme } from '@/Components/Settings/Themes/SettingsTheme.compon
 export const SettingsContainer = () => {
   const { settings, setSettings } = useSettingsStore((state) => state)
 
-  if (!settings) {
-    return
-  }
-
-  const toggleModal = () => {
-    setSettings({ ...settings, isOpen: !settings.isOpen })
-  }
-
   return (
     <div className="settings">
-      {!!settings.isOpen && (
+      {settings.isOpen && (
         <Modal>
           <header className="settings-header">
             <Text>{getTexts('SETTINGS_TITLE')}</Text>
@@ -38,8 +30,10 @@ export const SettingsContainer = () => {
       )}
 
       <Button
-        onClick={toggleModal}
-        style={settings.isOpen ? 'cancel' : undefined}
+        onClick={() =>
+          setSettings({ ...settings, isOpen: !settings.isOpen })
+        }
+        variant={settings.isOpen ? 'cancel' : undefined}
       >
         {<FaCog />}
       </Button>

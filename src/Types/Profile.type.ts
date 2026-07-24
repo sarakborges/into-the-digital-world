@@ -1,19 +1,23 @@
 import type { AvatarType } from '@/Types/Avatar.type'
 import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 
+import type { GAME_VERSION } from '@/Consts/Game.const'
+import type { DungeonId } from '@/GameData/Registries/Dungeon.registry'
+import type { MeaningfulChoices } from '@/GameData/Registries/MeaningfulChoice.registry'
 import type { GameLocation } from '@/GameData/Registries/ZoneManifest.registry'
 
 export type ProfileType = {
+  gameVersion: typeof GAME_VERSION
   id: number
   name: string
   lastSave: string
-  avatar?: AvatarType
-  currency?: number
+  avatar?: AvatarType | undefined
+  currency?: number | undefined
   currentTitle: string
   currentScene: string | null
   party: Array<number>
   titles: Array<string>
-  dungeonsFound: Array<string>
+  dungeonsFound: Array<DungeonId>
   researchesFound: Array<string>
   researches: Array<string>
 
@@ -39,7 +43,5 @@ export type ProfileType = {
     [key: string]: unknown
   }
 
-  meaningfulChoices: {
-    [key: string]: string
-  }
+  meaningfulChoices: MeaningfulChoices
 }

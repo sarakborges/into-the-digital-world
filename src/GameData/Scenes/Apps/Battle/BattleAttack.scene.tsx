@@ -1,3 +1,4 @@
+import type { BattleType } from '@/Types/Battle.type'
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { NpcOujamon } from '@/GameData/Npcs/Oujamon.npc'
@@ -14,7 +15,7 @@ import { useSceneStore } from '@/Stores/Scene.store'
 import { CombatLogEntry } from '@/Components/Combat/CombatLogEntry/CombatLogEntry.component'
 import { Dialog } from '@/Components/DesignSystem/Dialog/Dialog.component'
 
-const getBattleOutcome = (battle) => {
+const getBattleOutcome = (battle: BattleType) => {
   const nonDefeatedDigimons = battle.turnOrder.filter(
     (digimon) => !isDigimonDefeated(digimon)
   )
@@ -34,8 +35,8 @@ const getBattleOutcome = (battle) => {
   }
 }
 
-const getLoot = (battle) => {
-  const loot = {}
+const getLoot = (battle: BattleType): Record<string, number> => {
+  const loot: Record<string, number> = {}
 
   if (!battle.turnOrder.some((digimon) => digimon.party === 'allies')) {
     return loot
@@ -68,10 +69,19 @@ export const BattleAttack = () => {
     return
   }
 
-  const logEntry = battle.combatLog[0]!
+  const logEntry = battle.combatLog[0]
+
+  if (!logEntry) {
+    return
+  }
 
   const handleContinue = () => {
-    const [currentDigimon, ...otherDigimons] = battle.turnOrder!
+    const [currentDigimon, ...otherDigimons] = battle.turnOrder
+
+    if (!currentDigimon) {
+      return
+    }
+
     const { isBattleOver } = getBattleOutcome(battle)
     const loot = getLoot(battle)
     const updatedTurnOrder = [...otherDigimons, currentDigimon]

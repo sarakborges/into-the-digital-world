@@ -13,16 +13,18 @@ export const AvatarCustomizationOptions = () => {
   const { avatarCustomization, setAvatarCustomization } =
     useAvatarCustomizationStore((state) => state)
 
-  if (!avatarCustomization?.layer) {
+  const layer = avatarCustomization?.layer
+
+  if (!avatarCustomization || !layer) {
     return
   }
 
   const options = getAvatarOptionsText()
 
-  const updateCustomization = (option) => {
+  const updateCustomization = (option: string) => {
     const avatar = {
       ...avatarCustomization.avatar,
-      [avatarCustomization.layer!]: option
+      [layer]: option
     }
 
     setAvatarCustomization({
@@ -34,26 +36,21 @@ export const AvatarCustomizationOptions = () => {
   return (
     <div className="avatar-customization-options">
       <header>
-        <Text>{options[avatarCustomization.layer]}:</Text>
+        <Text>{options[layer]}:</Text>
       </header>
 
       <main className="customization-options">
         <div>
-          {AVATAR_OPTIONS[avatarCustomization.layer].map((option) => (
-            <div
-              key={`customization-layer-${avatarCustomization.layer}-${option}`}
-            >
+          {AVATAR_OPTIONS[layer].map((option) => (
+            <div key={`customization-layer-${layer}-${option}`}>
               <Button
-                disabled={
-                  avatarCustomization.avatar[avatarCustomization.layer!] ===
-                  option
-                }
+                disabled={avatarCustomization.avatar[layer] === option}
                 onClick={() => updateCustomization(option)}
               >
                 <PlayerAvatar
                   replaceAvatar={{
                     ...avatarCustomization.avatar,
-                    [avatarCustomization.layer!]: option
+                    [layer]: option
                   }}
                 />
               </Button>

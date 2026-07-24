@@ -1,16 +1,7 @@
 import type { DungeonStoreType } from '@/Types/Dungeon.type'
 
-import { useDungeonStore } from '@/Stores/Dungeon.store'
+import { setGameSessionValue } from '@/Helpers/Systems/Data/setGameSessionValue.helper'
 
-export const saveDungeon = (dungeon: DungeonStoreType | null) => {
-  try {
-    const { setDungeon } = useDungeonStore.getState()
-
-    sessionStorage.setItem(`itdw_dungeon`, JSON.stringify(dungeon))
-
-    setDungeon(dungeon)
-  } catch (error) {
-    console.warn(`Error saving dungeon: ${error}`)
-    console.warn(dungeon)
-  }
+export const saveDungeon = (dungeon: DungeonStoreType | null): void => {
+  setGameSessionValue({ key: 'dungeon', value: dungeon })
 }

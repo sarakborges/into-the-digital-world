@@ -7,7 +7,7 @@ import { AvatarCustomization002 } from '@/GameData/Scenes/Apps/AvatarCustomizati
 import { Introduction021 } from '@/GameData/Scenes/Story/Introduction/021.scene'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { saveSession } from '@/Helpers/Systems/Data/saveSession.helper'
+import { setProfileSession } from '@/Helpers/Systems/Profile/setProfileSession.helper'
 import { isQuestDone } from '@/Helpers/Systems/Quests/isQuestDone.helper'
 
 import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
@@ -33,17 +33,13 @@ export const AvatarCustomization003 = () => {
       avatar: avatarCustomization.avatar
     }
 
-    const doneQuests = Object.keys(updatedProfile.quests).filter((quest) =>
-      isQuestDone(quest)
-    )
-
-    if (!doneQuests.includes(AvatarFixingQuest.id)) {
+    if (!isQuestDone(AvatarFixingQuest.id)) {
       setScene({ component: Introduction021 })
     } else {
       setScene({ component: AvatarCustomization002 })
     }
 
-    saveSession(updatedProfile)
+    setProfileSession(updatedProfile)
   }
 
   const dialogOptions: DialogType = {
@@ -62,7 +58,7 @@ export const AvatarCustomization003 = () => {
             return
           }
 
-          setAvatarCustomization({ ...avatarCustomization, layer: undefined })
+          setAvatarCustomization({ avatar: avatarCustomization.avatar })
         },
         disabled: !avatarCustomization?.layer
       },

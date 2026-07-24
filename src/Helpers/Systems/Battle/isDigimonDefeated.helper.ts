@@ -1,3 +1,4 @@
+import type { ConditionId } from '@/Types/Condition.type'
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
 export const isDigimonDefeated = (target: PartyDigimonType) => {
@@ -5,16 +6,10 @@ export const isDigimonDefeated = (target: PartyDigimonType) => {
     return false
   }
 
-  const damageConditions = new Set(['shaken', 'poisoned'])
+  const damageConditions = ['shaken', 'poisoned'] satisfies ConditionId[]
 
-  const targetInjuries = Object.entries(target.conditions).reduce(
-    (acc, [condition, stack]) => {
-      if (!damageConditions.has(condition)) {
-        return acc
-      }
-
-      return acc + (stack || 0)
-    },
+  const targetInjuries = damageConditions.reduce(
+    (total, condition) => total + (target.conditions?.[condition] ?? 0),
     0
   )
 

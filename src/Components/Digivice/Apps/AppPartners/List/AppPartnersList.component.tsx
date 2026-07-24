@@ -3,7 +3,7 @@ import { BsArrowDown, BsArrowUp } from 'react-icons/bs'
 import { TbListDetails } from 'react-icons/tb'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { setCurrentDetails } from '@/Helpers/Systems/Digivice/setCurrentDetails.helper'
+import { updateDigivice } from '@/Helpers/Systems/Digivice/updateDigivice.helper'
 import { addToParty } from '@/Helpers/Systems/Profile/addToParty.helper'
 import { getPartnerGroups } from '@/Helpers/Systems/Profile/getPartnerGroups.helper'
 import { removeFromParty } from '@/Helpers/Systems/Profile/removeFromParty.helper'
@@ -28,7 +28,7 @@ export const AppPartnersList = () => {
     return
   }
 
-  if (digivice?.currentDetails) {
+  if (digivice.currentDetails) {
     return <PartnerDetails />
   }
 
@@ -38,7 +38,7 @@ export const AppPartnersList = () => {
     <div className="partners-list">
       <EncyclopediaHeader />
 
-      {Object.keys(partners).map((category) => (
+      {Object.entries(partners).map(([category, partnerList]) => (
         <div
           className="partners-list-category"
           key={`partners-list-partners-${category}`}
@@ -48,8 +48,8 @@ export const AppPartnersList = () => {
           </Text>
 
           <div className="partners-list-list">
-            {partners[category].length ? (
-              partners[category].map((partner) => {
+            {partnerList.length ? (
+              partnerList.map((partner) => {
                 const baseDigimon = partner.baseDigimon
 
                 return (
@@ -81,8 +81,10 @@ export const AppPartnersList = () => {
                     <footer>
                       <Button
                         disabled={!!scene}
-                        style="secondary"
-                        onClick={() => setCurrentDetails(partner.id)}
+                        variant="secondary"
+                        onClick={() =>
+                          updateDigivice({ currentDetails: partner.id })
+                        }
                       >
                         <TbListDetails />
                       </Button>
@@ -90,7 +92,7 @@ export const AppPartnersList = () => {
                       {category === 'inParty' && (
                         <Button
                           disabled={!!scene || profile.party.length < 2}
-                          style="secondary"
+                          variant="secondary"
                           onClick={() => removeFromParty(partner.id)}
                         >
                           <BsArrowDown />
@@ -100,7 +102,7 @@ export const AppPartnersList = () => {
                       {category === 'others' && (
                         <Button
                           disabled={!!scene || profile.party.length > 3}
-                          style="secondary"
+                          variant="secondary"
                           onClick={() => addToParty(partner.id)}
                         >
                           <BsArrowUp />

@@ -3,6 +3,7 @@ import { BiDetail } from 'react-icons/bi'
 import { getResearch } from '@/GameData/Registries/Research.registry'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { updateDigivice } from '@/Helpers/Systems/Digivice/updateDigivice.helper'
 import { getResearches } from '@/Helpers/Systems/Profile/getResearches.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -17,7 +18,7 @@ import { ItemsList } from '@/Components/Global/ItemsList/ItemsList.component'
 
 export const AppResearchesList = () => {
   const { profile } = useProfileStore((state) => state)
-  const { digivice, setDigivice } = useDigiviceStore((state) => state)
+  const { digivice } = useDigiviceStore((state) => state)
 
   if (!digivice || !profile) {
     return
@@ -26,9 +27,9 @@ export const AppResearchesList = () => {
   const allResearches = getResearches()
 
   const toggleDetails = (researchId: string) => {
-    setDigivice({
-      ...digivice,
-      currentDetails: digivice.currentDetails ? undefined : researchId
+    updateDigivice({
+      currentDetails:
+        digivice.currentDetails === researchId ? undefined : researchId
     })
   }
 
@@ -66,7 +67,7 @@ export const AppResearchesList = () => {
 
                   <footer className="research-details">
                     <Button
-                      style="secondary"
+                      variant="secondary"
                       onClick={() => toggleDetails(research.id)}
                     >
                       <BiDetail />
@@ -74,7 +75,7 @@ export const AppResearchesList = () => {
                   </footer>
                 </div>
 
-                {digivice?.currentDetails === research.id && (
+                {digivice.currentDetails === research.id && (
                   <>
                     <ItemsList
                       title={getTexts('MY_RESEARCHES_DETAILS_REQUIRED')}

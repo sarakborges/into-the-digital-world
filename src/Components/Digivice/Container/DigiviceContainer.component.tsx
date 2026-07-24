@@ -9,6 +9,7 @@ import {
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { doesProfileHaveDigivice } from '@/Helpers/Systems/Digivice/doesProfileHaveDigivice.helper'
+import { updateDigivice } from '@/Helpers/Systems/Digivice/updateDigivice.helper'
 import { openCurrentTileScene } from '@/Helpers/Systems/Zones/openCurrentTileScene.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -47,12 +48,8 @@ export const DigiviceContainer = () => {
   }
 
   const pressBackButton = () => {
-    if (digivice?.currentDetails) {
-      setDigivice({
-        ...digivice,
-        currentDetails: undefined
-      })
-
+    if (digivice.currentDetails !== undefined) {
+      updateDigivice({ currentDetails: undefined })
       return
     }
 
@@ -112,10 +109,9 @@ export const DigiviceContainer = () => {
 
                     <Button
                       onClick={() =>
-                        setDigivice({
-                          ...digivice,
-                          currentDetails: undefined,
-                          currentApp: undefined
+                        updateDigivice({
+                          currentApp: undefined,
+                          currentDetails: undefined
                         })
                       }
                       disabled={!!areButtonsDisabled}
@@ -132,7 +128,7 @@ export const DigiviceContainer = () => {
 
       <Button
         onClick={toggleModal}
-        style={digivice.isOpen ? 'cancel' : undefined}
+        variant={digivice.isOpen ? 'cancel' : undefined}
         disabled={areButtonsDisabled}
       >
         {<HiOutlineDevicePhoneMobile />}

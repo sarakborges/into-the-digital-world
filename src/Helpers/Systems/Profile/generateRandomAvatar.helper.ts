@@ -1,32 +1,22 @@
+import type { AvatarType } from '@/Types/Avatar.type'
+
 import { AVATAR_OPTIONS } from '@/Consts/Avatars.const'
 
-export const generateRandomAvatar = () => {
+const getRandomOption = <Option>(
+  options: readonly [Option, ...Array<Option>]
+): Option => {
+  const index = Math.floor(Math.random() * options.length)
+
+  return options[index] ?? options[0]
+}
+
+export const generateRandomAvatar = (): AvatarType => {
   return {
-    clothes:
-      AVATAR_OPTIONS.clothes[
-        Math.floor(Math.random() * AVATAR_OPTIONS.clothes.length)
-      ],
-
-    eyes: AVATAR_OPTIONS.eyes[
-      Math.floor(Math.random() * AVATAR_OPTIONS.eyes.length)
-    ],
-
-    expression:
-      AVATAR_OPTIONS.expression[
-        Math.floor(Math.random() * AVATAR_OPTIONS.expression.length)
-      ],
-
-    hairColor:
-      AVATAR_OPTIONS.hairColor[
-        Math.floor(Math.random() * AVATAR_OPTIONS.hairColor.length)
-      ],
-
-    hair: AVATAR_OPTIONS.hair[
-      Math.floor(Math.random() * AVATAR_OPTIONS.hair.length)
-    ],
-
-    skin: AVATAR_OPTIONS.skin[
-      Math.floor(Math.random() * AVATAR_OPTIONS.skin.length)
-    ]
+    clothes: getRandomOption(AVATAR_OPTIONS.clothes),
+    eyes: getRandomOption(AVATAR_OPTIONS.eyes),
+    expression: getRandomOption(AVATAR_OPTIONS.expression),
+    hairColor: getRandomOption(AVATAR_OPTIONS.hairColor),
+    hair: getRandomOption(AVATAR_OPTIONS.hair),
+    skin: getRandomOption(AVATAR_OPTIONS.skin)
   }
 }
