@@ -3,6 +3,7 @@ import { BiDetail } from 'react-icons/bi'
 import { getResearch } from '@/GameData/Registries/Research.registry'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
+import { setCurrentDetails } from '@/Helpers/Systems/Digivice/setCurrentDetails.helper'
 import { getResearches } from '@/Helpers/Systems/Profile/getResearches.helper'
 
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -17,7 +18,7 @@ import { ItemsList } from '@/Components/Global/ItemsList/ItemsList.component'
 
 export const AppResearchesList = () => {
   const { profile } = useProfileStore((state) => state)
-  const { digivice, setDigivice } = useDigiviceStore((state) => state)
+  const { digivice } = useDigiviceStore((state) => state)
 
   if (!digivice || !profile) {
     return
@@ -26,10 +27,9 @@ export const AppResearchesList = () => {
   const allResearches = getResearches()
 
   const toggleDetails = (researchId: string) => {
-    setDigivice({
-      ...digivice,
-      currentDetails: digivice.currentDetails ? undefined : researchId
-    })
+    setCurrentDetails(
+      digivice.currentDetails === researchId ? undefined : researchId
+    )
   }
 
   return (

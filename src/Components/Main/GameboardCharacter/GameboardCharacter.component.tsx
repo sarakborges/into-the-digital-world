@@ -12,13 +12,20 @@ import { Text } from '@/Components/DesignSystem/Text/Text.component'
 import { PlayerAvatar } from '@/Components/Global/PlayerAvatar/PlayerAvatar.component'
 import '@/Components/Main/GameboardCharacter/GameboardCharacter.style.scss'
 
+type GameboardCharacterProps =
+  | {
+      tile: MapTileType
+      isPlayer?: false
+    }
+  | {
+      tile?: never
+      isPlayer: true
+    }
+
 export const GameboardCharacter = ({
   tile,
   isPlayer
-}: {
-  tile?: MapTileType
-  isPlayer?: boolean
-}) => {
+}: GameboardCharacterProps) => {
   const { profile } = useProfileStore((state) => state)
 
   if (!profile) {

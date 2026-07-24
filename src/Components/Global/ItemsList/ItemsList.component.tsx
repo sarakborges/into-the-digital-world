@@ -5,7 +5,7 @@ import { ItemDisplay } from '@/Components/Global/ItemDisplay/ItemDisplay.compone
 import '@/Components/Global/ItemsList/ItemsList.style.scss'
 
 type ItemsListProps = {
-  list?: Record<string, number>
+  list: Record<string, number> | undefined
   title?: ReactNode
   displayPlayerResouce?: boolean
 }

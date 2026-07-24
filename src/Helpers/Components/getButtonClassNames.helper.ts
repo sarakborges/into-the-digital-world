@@ -1,6 +1,8 @@
+export type ButtonVariant = 'primary' | 'secondary' | 'cancel'
+
 type GetButtonClassNamesParams = {
-  style?: 'primary' | 'secondary' | 'cancel'
-  className?: string
+  style: ButtonVariant | undefined
+  className: string | undefined
 }
 
 export const getButtonClassNames = ({

@@ -7,8 +7,8 @@ export type ProfileType = {
   id: number
   name: string
   lastSave: string
-  avatar?: AvatarType
-  currency?: number
+  avatar?: AvatarType | undefined
+  currency?: number | undefined
   currentTitle: string
   currentScene: string | null
   party: Array<number>

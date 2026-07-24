@@ -29,7 +29,10 @@ export const Introduction021 = () => {
         id: 'scene-introduction-025-confirm',
         text: getTexts('SCENES_CONFIRM_BUTTON'),
         action: () => {
-          setDigivice({ ...digivice, isOpen: false, currentApp: undefined })
+          const updatedDigivice = { ...digivice, isOpen: false }
+
+          delete updatedDigivice.currentApp
+          setDigivice(updatedDigivice)
 
           setScene({ component: Introduction022 })
         }

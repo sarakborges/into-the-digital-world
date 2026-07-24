@@ -27,11 +27,7 @@ export const AppLocation = () => {
   const warp = (location: WarpLocationId) => {
     warpTo(WARP_LOCATIONS[location])
 
-    setDigivice({
-      isOpen: false,
-      currentApp: undefined,
-      currentDetails: undefined
-    })
+    setDigivice({ isOpen: false })
 
     closeScene()
   }

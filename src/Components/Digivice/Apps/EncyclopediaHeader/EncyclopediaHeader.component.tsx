@@ -15,7 +15,10 @@ export const EncyclopediaHeader = () => {
   }
 
   const updateApp = (app: string) => {
-    setDigivice({ ...digivice, currentApp: app, currentDetails: undefined })
+    const updatedDigivice = { ...digivice, currentApp: app }
+
+    delete updatedDigivice.currentDetails
+    setDigivice(updatedDigivice)
   }
 
   return (

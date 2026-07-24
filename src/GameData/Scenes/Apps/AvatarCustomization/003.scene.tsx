@@ -62,7 +62,7 @@ export const AvatarCustomization003 = () => {
             return
           }
 
-          setAvatarCustomization({ ...avatarCustomization, layer: undefined })
+          setAvatarCustomization({ avatar: avatarCustomization.avatar })
         },
         disabled: !avatarCustomization?.layer
       },

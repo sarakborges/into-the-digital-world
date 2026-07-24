@@ -9,8 +9,13 @@ export const setCurrentDetails = (value: DigiviceType['currentDetails']) => {
     return
   }
 
-  setDigivice({
-    ...digivice,
-    currentDetails: value
-  })
+  const updatedDigivice = { ...digivice }
+
+  if (value === undefined) {
+    delete updatedDigivice.currentDetails
+  } else {
+    updatedDigivice.currentDetails = value
+  }
+
+  setDigivice(updatedDigivice)
 }

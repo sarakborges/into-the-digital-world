@@ -16,7 +16,7 @@ export const ItemDisplay = ({
 }: {
   item: string
   amount: number
-  displayPlayerResouce?: boolean
+  displayPlayerResouce: boolean | undefined
 }) => {
   const { profile } = useProfileStore((state) => state)
 

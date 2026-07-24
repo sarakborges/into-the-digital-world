@@ -8,7 +8,7 @@ import '@/Components/Global/PlayerAvatar/PlayerAvatar.style.scss'
 export const PlayerAvatar = ({
   replaceAvatar
 }: {
-  replaceAvatar?: AvatarType
+  replaceAvatar?: AvatarType | undefined
 }) => {
   const { profile } = useProfileStore((state) => state)
 

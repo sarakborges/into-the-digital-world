@@ -6,8 +6,8 @@ export const getCharacterVisibility = ({
   tile,
   isPlayer
 }: {
-  tile?: MapTileType
-  isPlayer?: boolean
+  tile: MapTileType | undefined
+  isPlayer: boolean | undefined
 }) => {
   const profile = useProfileStore.getState().profile
 

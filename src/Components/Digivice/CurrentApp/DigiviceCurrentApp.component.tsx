@@ -25,7 +25,9 @@ export const DigiviceCurrentApp = ({ app }: DigiviceCurrentAppProps) => {
   }
 
   const openApp = () => {
-    setDigivice({ ...digivice, currentApp: app.app })
+    if (app.app) {
+      setDigivice({ ...digivice, currentApp: app.app })
+    }
 
     if (!app.scene) {
       return
