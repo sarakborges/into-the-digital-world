@@ -2,10 +2,10 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { NpcOujamon } from '@/GameData/Npcs/Oujamon.npc'
 import { DungeonChooseRoom } from '@/GameData/Scenes/Apps/Dungeon/ChooseRoom.scene'
+import { DungeonRoom } from '@/GameData/Scenes/Apps/Dungeon/Room.scene'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { settleBattle } from '@/Helpers/Systems/Battle/settleBattle.helper'
-import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -50,7 +50,7 @@ export const BattleEnd = () => {
           }
 
           if (settlement === 'roomComplete') {
-            closeScene()
+            setScene({ component: DungeonRoom })
           }
         }
       }
