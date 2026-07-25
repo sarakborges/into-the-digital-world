@@ -1,0 +1,29 @@
+name: Precommit validation
+
+on:
+  pull_request:
+    branches:
+      - codex/map-and-parameter-cleanup
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Audit final room ownership
+        run: |
+          ! grep -R "dungeonComplete" src/Helpers/Systems/Battle src/GameData/Scenes/Apps/Battle
+          ! grep -R "dungeon: null" src/Helpers/Systems/Battle/settleBattle.helper.ts | grep victory
+          grep -q "roomComplete" src/Helpers/Systems/Battle/settleBattle.helper.ts
+          grep -q "dungeon: dungeonSettlement.dungeon" src/Helpers/Systems/Battle/settleBattle.helper.ts
+      - name: Lint
+        run: npm run lint
+      - name: TypeScript
+        run: npx tsc --noEmit
+      - name: Build
+        run: npm run build
