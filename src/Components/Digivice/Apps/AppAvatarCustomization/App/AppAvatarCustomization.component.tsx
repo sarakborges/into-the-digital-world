@@ -3,6 +3,7 @@ import { FaPaintBrush } from 'react-icons/fa'
 import { useEffect } from 'react'
 
 import type { AvatarType } from '@/Types/Avatar.type'
+import { AVATAR_CUSTOMIZATION_LAYERS } from '@/Types/AvatarAppearance.type'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { generateRandomAvatar } from '@/Helpers/Systems/Profile/generateRandomAvatar.helper'
@@ -46,7 +47,7 @@ export const AppAvatarCustomization = () => {
         <main className="avatar-options">
           <Text>{getTexts('AVATARCUSTOMIZATION_OPTIONS_TITLE')}</Text>
 
-          {(Object.keys(options) as Array<keyof AvatarType>).map((option) => (
+          {AVATAR_CUSTOMIZATION_LAYERS.map((option) => (
             <div key={`avatar-options-${option}`}>
               <Button
                 onClick={() =>
