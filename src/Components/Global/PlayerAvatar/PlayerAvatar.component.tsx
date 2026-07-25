@@ -1,5 +1,12 @@
 import type { AvatarType } from '@/Types/Avatar.type'
 
+import {
+  getEyeAsset,
+  getFullClothesColorAsset,
+  getHairColorAsset,
+  getSkinAsset
+} from '@/Consts/Avatars.const'
+
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Portrait } from '@/Components/DesignSystem/Portrait/Portrait.component'
@@ -13,45 +20,61 @@ export const PlayerAvatar = ({
   const { profile } = useProfileStore((state) => state)
 
   const avatar = replaceAvatar ?? profile?.avatar
+  const characterName = profile?.name || 'Character'
+
+  if (!avatar) {
+    return (
+      <div className="player-avatar">
+        <div className="avatar-content">
+          <Portrait src="/avatars/glitch.webp" alt={`${characterName} avatar`} />
+        </div>
+      </div>
+    )
+  }
+
+  const fullClothes =
+    avatar.clothes.mode === 'fullClothes'
+      ? avatar.clothes.fullClothes
+      : null
 
   return (
     <div className="player-avatar">
       <div className="avatar-content">
-        {!avatar && (
+        <div className="avatar-layers">
+          {!!fullClothes && (
+            <Portrait
+              src={`/avatars/clothes/${fullClothes.model}-${getFullClothesColorAsset(
+                fullClothes.model,
+                fullClothes.color
+              )}.webp`}
+              alt={`${characterName} avatar clothes`}
+            />
+          )}
+
           <Portrait
-            src="/avatars/glitch.webp"
-            alt={`${profile?.name || 'Character'} avatar`}
+            src={`/avatars/skins/${getSkinAsset(avatar.skinColor)}.webp`}
+            alt={`${characterName} avatar skin`}
           />
-        )}
 
-        {!!avatar && (
-          <div className="avatar-layers">
-            <Portrait
-              src={`/avatars/clothes/${avatar?.clothes}.webp`}
-              alt={`${profile?.name || 'Character'} avatar clothes`}
-            />
+          <Portrait
+            src={`/avatars/expressions/${avatar.expression}.webp`}
+            alt={`${characterName} avatar expression`}
+          />
 
-            <Portrait
-              src={`/avatars/skins/${avatar?.skin}.webp`}
-              alt={`${profile?.name || 'Character'} avatar skin`}
-            />
+          <Portrait
+            src={`/avatars/eyes/${avatar.expression}-${getEyeAsset(
+              avatar.eyeColor
+            )}.webp`}
+            alt={`${characterName} avatar eyes`}
+          />
 
-            <Portrait
-              src={`/avatars/expressions/${avatar?.expression}.webp`}
-              alt={`${profile?.name || 'Character'} avatar expression`}
-            />
-
-            <Portrait
-              src={`/avatars/eyes/${avatar?.expression}-${avatar?.eyes}.webp`}
-              alt={`${profile?.name || 'Character'} avatar eyes`}
-            />
-
-            <Portrait
-              src={`/avatars/hairs/${avatar?.hair}-${avatar?.hairColor}.webp`}
-              alt={`${profile?.name || 'Character'} avatar hair`}
-            />
-          </div>
-        )}
+          <Portrait
+            src={`/avatars/hairs/${avatar.hair.model}-${getHairColorAsset(
+              avatar.hair.color
+            )}.webp`}
+            alt={`${characterName} avatar hair`}
+          />
+        </div>
       </div>
     </div>
   )
