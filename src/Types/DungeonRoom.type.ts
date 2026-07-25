@@ -1,5 +1,13 @@
 import type { SpawnableDigimonType } from '@/Types/SpawnableDigimon.type'
 
+type DungeonRoomChoice = {
+  name: string
+  description: string
+  event: () => void
+}
+
+type DungeonRoomChoices = Record<string, DungeonRoomChoice>
+
 export type DungeonRoomType = {
   name: string
   description: string
@@ -10,11 +18,6 @@ export type DungeonRoomType = {
     digimons: Array<SpawnableDigimonType>
   }>
 
-  choices?: {
-    [eventId: string]: {
-      name: string
-      description: string
-      event: () => void
-    }
-  }
+  choices?: DungeonRoomChoices
+  completionChoices?: DungeonRoomChoices
 }

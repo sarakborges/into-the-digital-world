@@ -46,7 +46,7 @@ export const Dungeon = () => {
     !battle &&
     ((room.type === 'event' && !isCurrentRoomDone) ||
       (isCurrentRoomDone &&
-        !!room.choices &&
+        !!room.completionChoices &&
         dungeon.currentRoomsOptions.length === 0))
   const shouldStartBattle =
     room?.type === 'battle' && !scene && !isCurrentRoomDone

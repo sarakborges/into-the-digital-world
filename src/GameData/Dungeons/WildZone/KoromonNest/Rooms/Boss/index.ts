@@ -11,7 +11,7 @@ export const DungeonWildZoneKoromonNestRoomBoss: DungeonRoomType = {
 
   encounters: [KoromonBoss1xEncounter],
 
-  choices: {
+  completionChoices: {
     leave: {
       name: 'SCENES_LEAVE_BUTTON',
       description: 'DUNGEON_GIVEUP_DESCRIPTION',

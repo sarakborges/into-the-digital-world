@@ -36,7 +36,9 @@ export const DungeonRoom = () => {
 
   const isRoomDone = dungeon.doneRooms.length === dungeon.rooms.length
   const roomText = getTexts(room.description) || getTexts(room.name)
-  const choices = Object.entries(room.choices ?? {})
+  const choices = Object.entries(
+    (isRoomDone ? room.completionChoices : room.choices) ?? {}
+  )
 
   const completeRoom = (event?: () => void) => {
     event?.()
