@@ -38,14 +38,30 @@ export const GameLocationSchema = z.custom<GameLocation>(
   'Invalid game location.'
 )
 
+const HexColorSchema = z.string().regex(/^#[0-9a-f]{3,8}$/i)
+
+const CustomizablePartSelectionSchema = z
+  .object({
+    model: z.string().min(1),
+    color: HexColorSchema
+  })
+  .strict()
+
 const AvatarSchema = z
   .object({
     expression: z.string(),
-    skin: z.string(),
-    eyes: z.string(),
-    hair: z.string(),
-    hairColor: z.string(),
-    clothes: z.string()
+    skinColor: HexColorSchema,
+    eyeColor: HexColorSchema,
+    hair: CustomizablePartSelectionSchema,
+    clothes: z
+      .object({
+        mode: z.enum(['fullClothes', 'topBottom']),
+        fullClothes: CustomizablePartSelectionSchema.nullable(),
+        top: CustomizablePartSelectionSchema.nullable(),
+        bottom: CustomizablePartSelectionSchema.nullable()
+      })
+      .strict(),
+    accessories: z.record(z.string(), CustomizablePartSelectionSchema)
   })
   .strict()
 
