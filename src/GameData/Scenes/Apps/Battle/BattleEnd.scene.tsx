@@ -57,13 +57,11 @@ export const BattleEnd = () => {
 
           if (battleResult === 'victory') {
             triggerVictory()
+            enterNextDungeonRoom()
+            return
           }
 
-          if (battleResult === 'defeat') {
-            triggerDefeat()
-          }
-
-          enterNextDungeonRoom()
+          triggerDefeat()
         }
       }
     ]

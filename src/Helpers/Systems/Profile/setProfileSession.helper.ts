@@ -1,6 +1,6 @@
 import type { ProfileType } from '@/Types/Profile.type'
 
-import { setGameSessionValue } from '@/Helpers/Systems/Data/setGameSessionValue.helper'
+import { updateGameSession } from '@/Systems/Session/GameSession'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -12,7 +12,7 @@ export const setProfileSession = (
   update: ProfileSessionUpdate
 ): boolean => {
   if (typeof update !== 'function') {
-    setGameSessionValue({ key: 'profile', value: update })
+    updateGameSession({ profile: update })
     return true
   }
 
@@ -22,10 +22,7 @@ export const setProfileSession = (
     return false
   }
 
-  setGameSessionValue({
-    key: 'profile',
-    value: update(profile)
-  })
+  updateGameSession({ profile: update(profile) })
 
   return true
 }

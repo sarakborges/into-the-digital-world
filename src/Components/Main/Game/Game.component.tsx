@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
 
-import { loadGameSession } from '@/Helpers/Systems/Data/loadGameSession.helper'
+import { restoreGameSession } from '@/Helpers/Systems/Data/restoreGameSession.helper'
 import { getThemeClassName } from '@/Helpers/Systems/Game/getThemeClassName.helper'
-import { restoreCurrentScene } from '@/Helpers/Systems/Scenes/restoreCurrentScene.helper'
 import { loadSettings } from '@/Helpers/Systems/Settings/loadSettings.helper'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
@@ -22,8 +21,7 @@ export const Game = () => {
   const { settings, setSettings } = useSettingsStore((state) => state)
 
   useEffect(() => {
-    loadGameSession()
-    restoreCurrentScene()
+    restoreGameSession()
     setSettings(loadSettings())
   }, [])
 

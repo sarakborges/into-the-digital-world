@@ -2,33 +2,40 @@ import { create } from 'zustand'
 
 import type { AvatarCustomizationLayer, AvatarType } from '@/Types/Avatar.type'
 
+type AvatarCustomizationState = {
+  avatar: AvatarType
+  layer?: AvatarCustomizationLayer
+}
+
+const createInitialAvatarCustomization = (): AvatarCustomizationState => ({
+  avatar: {
+    expression: '',
+    skin: '',
+    eyes: '',
+    hair: '',
+    hairColor: '',
+    clothes: ''
+  }
+})
+
 type AvatarCustomizationStore = {
-  avatarCustomization: {
-    avatar: AvatarType
-    layer?: AvatarCustomizationLayer
-  } | null
+  avatarCustomization: AvatarCustomizationState | null
   setAvatarCustomization: (
-    avatarCustomization: {
-      avatar: AvatarType
-      layer?: AvatarCustomizationLayer
-    } | null
+    avatarCustomization: AvatarCustomizationState | null
   ) => void
+  resetAvatarCustomization: () => void
 }
 
 export const useAvatarCustomizationStore = create<AvatarCustomizationStore>(
   (set) => ({
-    avatarCustomization: {
-      avatar: {
-        expression: '',
-        skin: '',
-        eyes: '',
-        hair: '',
-        hairColor: '',
-        clothes: ''
-      }
-    },
+    avatarCustomization: createInitialAvatarCustomization(),
+
     setAvatarCustomization: (avatarCustomization) => {
       set({ avatarCustomization })
+    },
+
+    resetAvatarCustomization: () => {
+      set({ avatarCustomization: createInitialAvatarCustomization() })
     }
   })
 )

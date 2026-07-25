@@ -1,35 +1,37 @@
 import type { GameLocation } from '@/GameData/Registries/ZoneManifest.registry'
 
+import { startWarpTransition } from '@/Systems/Session/WarpTransition'
+
 import { setProfileSession } from '@/Helpers/Systems/Profile/setProfileSession.helper'
 import { openCurrentTileScene } from '@/Helpers/Systems/Zones/openCurrentTileScene.helper'
 
-import { useGameStore } from '@/Stores/Game.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 export const warpTo = (location: GameLocation): void => {
   const profile = useProfileStore.getState().profile
-  const { setGame } = useGameStore.getState()
 
   if (!profile) {
     return
   }
 
-  setGame({
-    isWarping: true
+  const profileId = profile.id
+
+  startWarpTransition({
+    onWarp: () => {
+      const currentProfile = useProfileStore.getState().profile
+
+      if (!currentProfile || currentProfile.id !== profileId) {
+        return
+      }
+
+      const didUpdateProfile = setProfileSession((sessionProfile) => ({
+        ...sessionProfile,
+        currentLocation: location
+      }))
+
+      if (didUpdateProfile) {
+        openCurrentTileScene()
+      }
+    }
   })
-
-  setTimeout(() => {
-    setProfileSession((currentProfile) => ({
-      ...currentProfile,
-      currentLocation: location
-    }))
-
-    openCurrentTileScene()
-  }, 300)
-
-  setTimeout(() => {
-    setGame({
-      isWarping: false
-    })
-  }, 600)
 }

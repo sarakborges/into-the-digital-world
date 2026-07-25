@@ -7,6 +7,7 @@ type SceneStore = {
   previousScene: SceneType | null
   setScene: (scene: SceneType | null) => void
   goBackScene: () => void
+  resetScene: () => void
 }
 
 export const useSceneStore = create<SceneStore>((set) => ({
@@ -25,5 +26,9 @@ export const useSceneStore = create<SceneStore>((set) => ({
       scene: state.previousScene,
       previousScene: null
     }))
+  },
+
+  resetScene: () => {
+    set({ scene: null, previousScene: null })
   }
 }))

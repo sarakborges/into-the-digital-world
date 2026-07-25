@@ -8,7 +8,6 @@ import { clearGameSession } from '@/Helpers/Systems/Data/clearGameSession.helper
 import { setProfileSession } from '@/Helpers/Systems/Profile/setProfileSession.helper'
 import { openCurrentTileScene } from '@/Helpers/Systems/Zones/openCurrentTileScene.helper'
 
-import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 type StartGameSessionOptions =
@@ -30,12 +29,8 @@ export const startGameSession = (
   clearGameSession()
   setProfileSession(profile)
 
-  const { setDigivice } = useDigiviceStore.getState()
-  setDigivice({ isOpen: false })
-
   if (isNewGame) {
-    const { setScene } = useSceneStore.getState()
-    setScene({ component: Introduction001 })
+    useSceneStore.getState().setScene({ component: Introduction001 })
     return
   }
 

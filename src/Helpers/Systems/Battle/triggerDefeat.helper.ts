@@ -1,15 +1,14 @@
-import { saveBattle } from '@/Helpers/Systems/Battle/saveBattle.helper'
-import { saveDungeon } from '@/Helpers/Systems/Dungeon/saveDungeon.helper'
+import { updateGameSession } from '@/Systems/Session/GameSession'
+
 import { warpTo } from '@/Helpers/Systems/Zones/warpTo.helper'
 
-export const triggerDefeat = () => {
+export const triggerDefeat = (): void => {
+  updateGameSession({ dungeon: null, battle: null })
+
   warpTo({
     x: 3,
     y: 5,
     zone: 'rootDomain',
     map: 'restRoom'
   })
-
-  saveDungeon(null)
-  saveBattle(null)
 }

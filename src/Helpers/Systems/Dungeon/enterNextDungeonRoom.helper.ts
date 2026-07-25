@@ -1,9 +1,9 @@
 import { getDungeon } from '@/GameData/Registries/Dungeon.registry'
 import { DungeonChooseRoom } from '@/GameData/Scenes/Apps/Dungeon/ChooseRoom.scene'
 
-import { saveBattle } from '@/Helpers/Systems/Battle/saveBattle.helper'
+import { updateGameSession } from '@/Systems/Session/GameSession'
+
 import { getDungeonRoomOptions } from '@/Helpers/Systems/Dungeon/getDungeonRoomOptions.helper'
-import { saveDungeon } from '@/Helpers/Systems/Dungeon/saveDungeon.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useDungeonStore } from '@/Stores/Dungeon.store'
@@ -45,13 +45,15 @@ export const enterNextDungeonRoom = (): void => {
     return
   }
 
-  saveDungeon({
-    ...dungeon,
-    currentRoomsOptions: nextRoomOptions,
-    doneRooms: [...dungeon.doneRooms, currentRoomId],
-    party: battle.turnOrder.filter((digimon) => digimon.party === 'allies')
+  updateGameSession({
+    dungeon: {
+      ...dungeon,
+      currentRoomsOptions: nextRoomOptions,
+      doneRooms: [...dungeon.doneRooms, currentRoomId],
+      party: battle.turnOrder.filter((digimon) => digimon.party === 'allies')
+    },
+    battle: null
   })
 
-  saveBattle(null)
   setScene({ component: DungeonChooseRoom })
 }

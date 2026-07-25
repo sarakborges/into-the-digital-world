@@ -1,10 +1,8 @@
-import { saveBattle } from '@/Helpers/Systems/Battle/saveBattle.helper'
-import { saveDungeon } from '@/Helpers/Systems/Dungeon/saveDungeon.helper'
+import { updateGameSession } from '@/Systems/Session/GameSession'
+
 import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
-export const leaveDungeon = () => {
-  saveDungeon(null)
-  saveBattle(null)
-
+export const leaveDungeon = (): void => {
+  updateGameSession({ dungeon: null, battle: null })
   closeScene()
 }
