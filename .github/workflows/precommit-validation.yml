@@ -1,0 +1,28 @@
+name: Precommit validation
+
+on:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Audit room choice phases
+        run: |
+          grep -q "completionChoices?:" src/Types/DungeonRoom.type.ts
+          grep -q "isRoomDone ? room.completionChoices : room.choices" src/GameData/Scenes/Apps/Dungeon/Room.scene.tsx
+          grep -q "room.completionChoices" src/Components/Main/Dungeon/Dungeon.component.tsx
+          grep -q "completionChoices:" src/GameData/Dungeons/WildZone/KoromonNest/Rooms/Boss/index.ts
+          ! grep -q "^  choices:" src/GameData/Dungeons/WildZone/KoromonNest/Rooms/Boss/index.ts
+      - name: Lint
+        run: npm run lint
+      - name: TypeScript
+        run: npx tsc --noEmit
+      - name: Build
+        run: npm run build
