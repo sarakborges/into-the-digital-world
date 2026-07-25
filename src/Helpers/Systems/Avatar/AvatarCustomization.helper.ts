@@ -1,6 +1,7 @@
 import type {
   AvatarAppearanceType,
   ClothesMode,
+  ColorSlotDefinition,
   CustomizablePartDefinition,
   CustomizablePartSelection,
   HexColor,
@@ -16,7 +17,7 @@ const getVisualDefinitions = (
 
 export const getColorSlotDefinitions = (
   definition: CustomizablePartDefinition
-) =>
+): Record<string, ColorSlotDefinition> =>
   Object.assign(
     {},
     ...getVisualDefinitions(definition).map((visual) => visual.colorSlots)
