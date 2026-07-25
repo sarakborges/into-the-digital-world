@@ -1,14 +1,7 @@
 export type HexColor = `#${string}`
 
-export type ColorSlotDefinition = {
-  label: string
-  defaultColor: HexColor
-  availableColors: readonly HexColor[]
-  mask: string
-}
-
 export type SpriteVisualDefinition = {
-  colorSlots: Record<string, ColorSlotDefinition>
+  mask: string
   shading?: string
   highlights?: string
   details?: string
@@ -21,11 +14,13 @@ export type PartVisualDefinition = {
 
 export type CustomizablePartSelection = {
   model: string
-  colors: Record<string, HexColor>
+  color: HexColor
 }
 
 export type CustomizablePartDefinition = {
   id: string
+  defaultColor: HexColor
+  availableColors: readonly HexColor[]
   visual: PartVisualDefinition
 }
 
