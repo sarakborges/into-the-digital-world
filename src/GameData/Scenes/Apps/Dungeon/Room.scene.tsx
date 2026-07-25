@@ -5,7 +5,6 @@ import { findDungeon } from '@/GameData/Registries/Dungeon.registry'
 import { DungeonChooseRoom } from '@/GameData/Scenes/Apps/Dungeon/ChooseRoom.scene'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
-import { leaveDungeon } from '@/Helpers/Systems/Dungeon/leaveDungeon.helper'
 import { settleDungeonRoom } from '@/Helpers/Systems/Dungeon/settleDungeonRoom.helper'
 
 import { useDungeonStore } from '@/Stores/Dungeon.store'
@@ -42,6 +41,10 @@ export const DungeonRoom = () => {
   const completeRoom = (event?: () => void) => {
     event?.()
 
+    if (!useDungeonStore.getState().dungeon) {
+      return
+    }
+
     const settlement = settleDungeonRoom()
 
     if (settlement === 'nextRoom') {
@@ -49,20 +52,14 @@ export const DungeonRoom = () => {
     }
   }
 
-  const options: DialogType['options'] = isRoomDone
-    ? [
-        {
-          id: `scene-dungeon-room-${currentRoomId}-leave`,
-          text: getTexts('SCENES_LEAVE_BUTTON'),
-          action: leaveDungeon
-        }
-      ]
-    : choices.length
-      ? choices.map(([choiceId, choice]) => ({
-          id: `scene-dungeon-room-${currentRoomId}-${choiceId}`,
-          text: getTexts(choice.name),
-          action: () => completeRoom(choice.event)
-        }))
+  const options: DialogType['options'] = choices.length
+    ? choices.map(([choiceId, choice]) => ({
+        id: `scene-dungeon-room-${currentRoomId}-${choiceId}`,
+        text: getTexts(choice.name),
+        action: isRoomDone ? choice.event : () => completeRoom(choice.event)
+      }))
+    : isRoomDone
+      ? undefined
       : [
           {
             id: `scene-dungeon-room-${currentRoomId}-continue`,
@@ -78,7 +75,7 @@ export const DungeonRoom = () => {
         <Text as="p">{roomText}</Text>
       </div>
     ),
-    options
+    ...(options ? { options } : {})
   }
 
   return <Dialog {...dialogOptions} />
