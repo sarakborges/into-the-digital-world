@@ -1,4 +1,3 @@
-import type { ActiveBattleType } from '@/Types/Battle.type'
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { NpcOujamon } from '@/GameData/Npcs/Oujamon.npc'
@@ -43,7 +42,7 @@ export const BattleAttack = () => {
     }
 
     const battleResult = getBattleResult(currentBattle.turnOrder)
-    const activeBattle: ActiveBattleType = {
+    const activeBattle = {
       combatLog: currentBattle.combatLog,
       turnOrder: [...otherDigimons, currentDigimon]
     }
