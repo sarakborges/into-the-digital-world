@@ -1,6 +1,7 @@
 import type { GameSessionKey } from '@/Consts/Storage.const'
 import { getStorageKey } from '@/Consts/Storage.const'
 
+import { BattleEnd } from '@/GameData/Scenes/Apps/Battle/BattleEnd.scene'
 import { BattleTurn } from '@/GameData/Scenes/Apps/Battle/BattleTurn.scene'
 import { DungeonChooseRoom } from '@/GameData/Scenes/Apps/Dungeon/ChooseRoom.scene'
 
@@ -10,13 +11,13 @@ import {
   DungeonSessionSchema
 } from '@/Systems/Save/Session.schema'
 import {
-  readSessionStorageJson,
-  removeSessionStorageValue
-} from '@/Systems/Storage/BrowserStorage'
-import {
   resetGameSession,
   updateGameSession
 } from '@/Systems/Session/GameSession'
+import {
+  readSessionStorageJson,
+  removeSessionStorageValue
+} from '@/Systems/Storage/BrowserStorage'
 
 import { openCurrentTileScene } from '@/Helpers/Systems/Zones/openCurrentTileScene.helper'
 
@@ -61,7 +62,13 @@ export const restoreGameSession = (): void => {
     }
 
     const dungeon = dungeonResult.success ? dungeonResult.data : null
-    const battle = battleResult.success ? battleResult.data : null
+    let battle = battleResult.success ? battleResult.data : null
+
+    if (battle && !dungeon) {
+      console.warn('Discarding orphaned battle session without a valid dungeon.')
+      discardSessionValue('battle')
+      battle = null
+    }
 
     updateGameSession({
       profile: profile.data,
@@ -71,6 +78,11 @@ export const restoreGameSession = (): void => {
     })
 
     const { setScene } = useSceneStore.getState()
+
+    if (battle?.result) {
+      setScene({ component: BattleEnd })
+      return
+    }
 
     if (battle) {
       setScene({ component: BattleTurn })

@@ -1,11 +1,15 @@
-import type { BattleResult, BattleType } from '@/Types/Battle.type'
+import type { BattleResolution, BattleType } from '@/Types/Battle.type'
 
 import { getActiveDigimons } from '@/Helpers/Systems/Battle/getActiveDigimons.helper'
 
 export const getBattleResult = (
   turnOrder: BattleType['turnOrder']
-): BattleResult => {
+): BattleResolution => {
   const activeDigimons = getActiveDigimons(turnOrder)
+
+  if (!activeDigimons.length) {
+    return 'invalid'
+  }
 
   if (activeDigimons.every((digimon) => digimon.party === 'allies')) {
     return 'victory'

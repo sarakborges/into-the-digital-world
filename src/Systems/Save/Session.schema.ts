@@ -91,13 +91,37 @@ const CombatLogEntrySchema = z
 
 const BattleSessionValueSchema = z
   .object({
-    turnOrder: z.array(PartyDigimonSessionSchema),
+    turnOrder: z.array(PartyDigimonSessionSchema).min(1),
     combatLog: z.array(CombatLogEntrySchema),
     result: z.enum(['victory', 'defeat']).optional(),
     loot: z.record(z.string(), z.number()).optional()
   })
   .strict()
   .superRefine((battle, context) => {
+    if (!battle.turnOrder.some((digimon) => digimon.party === 'allies')) {
+      context.addIssue({
+        code: 'custom',
+        path: ['turnOrder'],
+        message: 'Battle sessions require at least one ally.'
+      })
+    }
+
+    if (!battle.turnOrder.some((digimon) => digimon.party === 'enemies')) {
+      context.addIssue({
+        code: 'custom',
+        path: ['turnOrder'],
+        message: 'Battle sessions require at least one enemy.'
+      })
+    }
+
+    if (battle.result === undefined && battle.loot !== undefined) {
+      context.addIssue({
+        code: 'custom',
+        path: ['loot'],
+        message: 'Active battle sessions cannot contain loot.'
+      })
+    }
+
     if (battle.result === 'victory' && battle.loot === undefined) {
       context.addIssue({
         code: 'custom',

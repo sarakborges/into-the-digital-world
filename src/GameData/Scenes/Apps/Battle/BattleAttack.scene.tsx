@@ -3,10 +3,13 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { NpcOujamon } from '@/GameData/Npcs/Oujamon.npc'
 import { BattleEnd } from '@/GameData/Scenes/Apps/Battle/BattleEnd.scene'
 
+import { updateGameSession } from '@/Systems/Session/GameSession'
+
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { generateBattleLoot } from '@/Helpers/Systems/Battle/generateBattleLoot.helper'
 import { getBattleResult } from '@/Helpers/Systems/Battle/getBattleResult.helper'
 import { saveBattle } from '@/Helpers/Systems/Battle/saveBattle.helper'
+import { closeScene } from '@/Helpers/Systems/Scenes/closeScene.helper'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useSceneStore } from '@/Stores/Scene.store'
@@ -42,6 +45,14 @@ export const BattleAttack = () => {
     }
 
     const battleResult = getBattleResult(currentBattle.turnOrder)
+
+    if (battleResult === 'invalid') {
+      console.warn('Discarding battle without active Digimon.')
+      updateGameSession({ dungeon: null, battle: null })
+      closeScene()
+      return
+    }
+
     const activeBattle = {
       combatLog: currentBattle.combatLog,
       turnOrder: [...otherDigimons, currentDigimon]

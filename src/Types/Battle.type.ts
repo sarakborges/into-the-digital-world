@@ -24,10 +24,11 @@ type BattleBaseType = {
 }
 
 export type BattleResult = 'ongoing' | 'victory' | 'defeat'
+export type BattleResolution = BattleResult | 'invalid'
 
 export type ActiveBattleType = BattleBaseType & {
-  result?: undefined
-  loot?: LootType
+  result?: never
+  loot?: never
 }
 
 export type VictoryBattleType = BattleBaseType & {
@@ -37,7 +38,7 @@ export type VictoryBattleType = BattleBaseType & {
 
 export type DefeatBattleType = BattleBaseType & {
   result: 'defeat'
-  loot?: undefined
+  loot?: never
 }
 
 export type ResolvedBattleType = VictoryBattleType | DefeatBattleType
