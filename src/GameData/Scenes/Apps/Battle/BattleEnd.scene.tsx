@@ -49,7 +49,7 @@ export const BattleEnd = () => {
             return
           }
 
-          if (settlement === 'dungeonComplete') {
+          if (settlement === 'roomComplete') {
             closeScene()
           }
         }
