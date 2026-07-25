@@ -37,7 +37,6 @@ export const getDungeonRoomSettlement = ({
     !dungeonDefinition ||
     !currentRoomId ||
     currentRoomIndex < 0 ||
-    dungeon.rooms.length > dungeonDefinition.maxAmountOfRooms ||
     dungeon.doneRooms.length !== currentRoomIndex
   ) {
     return
@@ -49,32 +48,20 @@ export const getDungeonRoomSettlement = ({
     return
   }
 
-  const isLastRoom =
-    dungeon.rooms.length === dungeonDefinition.maxAmountOfRooms
-  let currentRoomsOptions: string[] = []
-  let result: DungeonRoomSettlement['result'] = 'roomComplete'
+  const availableRooms =
+    dungeon.rooms.length + 1 === dungeonDefinition.maxAmountOfRooms
+      ? dungeonDefinition.availableLastRooms
+      : currentRoom.branchesTo
+  const currentRoomsOptions = availableRooms?.length
+    ? getDungeonRoomOptions(availableRooms)
+    : []
 
-  if (!isLastRoom) {
-    const availableRooms =
-      dungeon.rooms.length + 1 === dungeonDefinition.maxAmountOfRooms
-        ? dungeonDefinition.availableLastRooms
-        : currentRoom.branchesTo
-
-    if (!availableRooms?.length) {
-      return
-    }
-
-    currentRoomsOptions = getDungeonRoomOptions(availableRooms)
-
-    if (!currentRoomsOptions.length) {
-      return
-    }
-
-    result = 'nextRoom'
+  if (availableRooms?.length && !currentRoomsOptions.length) {
+    return
   }
 
   return {
-    result,
+    result: currentRoomsOptions.length ? 'nextRoom' : 'roomComplete',
     dungeon: {
       ...dungeon,
       currentRoomsOptions,

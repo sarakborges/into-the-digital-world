@@ -37,10 +37,6 @@ export const Dungeon = () => {
     undefined
   const isCurrentRoomDone =
     !!dungeon && dungeon.doneRooms.length > currentRoomIndex
-  const isLastRoom =
-    !!dungeon &&
-    !!currentDungeon &&
-    dungeon.rooms.length === currentDungeon.maxAmountOfRooms
   const shouldChooseRoom =
     !!dungeon && !scene && dungeon.currentRoomsOptions.length > 0
   const shouldOpenRoomDialog =
@@ -49,8 +45,8 @@ export const Dungeon = () => {
     !scene &&
     !battle &&
     ((room.type === 'event' && !isCurrentRoomDone) ||
-      (isLastRoom &&
-        isCurrentRoomDone &&
+      (isCurrentRoomDone &&
+        !!room.choices &&
         dungeon.currentRoomsOptions.length === 0))
   const shouldStartBattle =
     room?.type === 'battle' && !scene && !isCurrentRoomDone
