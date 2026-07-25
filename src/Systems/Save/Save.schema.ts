@@ -1,5 +1,6 @@
 import { z } from 'zod'
 
+import type { HexColor } from '@/Types/Avatar.type'
 import type { ProfileType } from '@/Types/Profile.type'
 
 import type { GameLocation } from '@/GameData/Registries/ZoneManifest.registry'
@@ -38,7 +39,11 @@ export const GameLocationSchema = z.custom<GameLocation>(
   'Invalid game location.'
 )
 
-const HexColorSchema = z.string().regex(/^#[0-9a-f]{3,8}$/i)
+const HexColorSchema = z.custom<HexColor>(
+  (value) =>
+    typeof value === 'string' && /^#[0-9a-f]{3,8}$/i.test(value),
+  'Invalid hexadecimal color.'
+)
 
 const CustomizablePartSelectionSchema = z
   .object({
