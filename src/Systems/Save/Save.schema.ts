@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import type { HexColor } from '@/Types/Avatar.type'
+import type { AvatarType, HexColor } from '@/Types/Avatar.type'
 import type { ProfileType } from '@/Types/Profile.type'
 
 import type { GameLocation } from '@/GameData/Registries/ZoneManifest.registry'
@@ -52,6 +52,18 @@ const CustomizablePartSelectionSchema = z
   })
   .strict()
 
+const AccessoriesSchema = z
+  .object({
+    head: CustomizablePartSelectionSchema.optional(),
+    face: CustomizablePartSelectionSchema.optional(),
+    ears: CustomizablePartSelectionSchema.optional(),
+    neck: CustomizablePartSelectionSchema.optional(),
+    back: CustomizablePartSelectionSchema.optional(),
+    hands: CustomizablePartSelectionSchema.optional(),
+    waist: CustomizablePartSelectionSchema.optional()
+  })
+  .strict()
+
 const AvatarSchema = z
   .object({
     expression: z.string(),
@@ -66,9 +78,9 @@ const AvatarSchema = z
         bottom: CustomizablePartSelectionSchema.nullable()
       })
       .strict(),
-    accessories: z.record(z.string(), CustomizablePartSelectionSchema)
+    accessories: AccessoriesSchema
   })
-  .strict()
+  .strict() satisfies z.ZodType<AvatarType>
 
 const PartnerDigimonSchema = z
   .object({
