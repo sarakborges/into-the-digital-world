@@ -90,7 +90,10 @@ export const restoreGameSession = (): void => {
     }
 
     if (dungeon) {
-      setScene({ component: DungeonChooseRoom })
+      if (dungeon.currentRoomsOptions.length) {
+        setScene({ component: DungeonChooseRoom })
+      }
+
       return
     }
 
