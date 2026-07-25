@@ -16,9 +16,14 @@ import { useProfileStore } from '@/Stores/Profile.store'
 
 export type BattleSettlementResult =
   | 'nextRoom'
-  | 'dungeonComplete'
+  | 'roomComplete'
   | 'defeat'
   | 'invalid'
+
+type VictoryDungeonSettlement = {
+  dungeon: DungeonStoreType
+  result: Extract<BattleSettlementResult, 'nextRoom' | 'roomComplete'>
+}
 
 const getDungeonAfterVictory = ({
   battle,
@@ -26,7 +31,7 @@ const getDungeonAfterVictory = ({
 }: {
   battle: ResolvedBattleType
   dungeon: DungeonStoreType
-}): DungeonStoreType | null | undefined => {
+}): VictoryDungeonSettlement | undefined => {
   const dungeonDefinition = findDungeon({
     zoneId: dungeon.zoneId,
     dungeonId: dungeon.dungeonId
@@ -46,30 +51,38 @@ const getDungeonAfterVictory = ({
     return undefined
   }
 
-  if (dungeon.rooms.length === dungeonDefinition.maxAmountOfRooms) {
-    return null
-  }
+  const isLastRoom =
+    dungeon.rooms.length === dungeonDefinition.maxAmountOfRooms
+  let currentRoomsOptions: string[] = []
+  let result: VictoryDungeonSettlement['result'] = 'roomComplete'
 
-  const availableRooms =
-    dungeon.rooms.length + 1 === dungeonDefinition.maxAmountOfRooms
-      ? dungeonDefinition.availableLastRooms
-      : currentRoom?.branchesTo
+  if (!isLastRoom) {
+    const availableRooms =
+      dungeon.rooms.length + 1 === dungeonDefinition.maxAmountOfRooms
+        ? dungeonDefinition.availableLastRooms
+        : currentRoom.branchesTo
 
-  if (!availableRooms?.length) {
-    return undefined
-  }
+    if (!availableRooms?.length) {
+      return undefined
+    }
 
-  const currentRoomsOptions = getDungeonRoomOptions(availableRooms)
+    currentRoomsOptions = getDungeonRoomOptions(availableRooms)
 
-  if (!currentRoomsOptions.length) {
-    return undefined
+    if (!currentRoomsOptions.length) {
+      return undefined
+    }
+
+    result = 'nextRoom'
   }
 
   return {
-    ...dungeon,
-    currentRoomsOptions,
-    doneRooms: [...dungeon.doneRooms, currentRoomId],
-    party: battle.turnOrder.filter((digimon) => digimon.party === 'allies')
+    result,
+    dungeon: {
+      ...dungeon,
+      currentRoomsOptions,
+      doneRooms: [...dungeon.doneRooms, currentRoomId],
+      party: battle.turnOrder.filter((digimon) => digimon.party === 'allies')
+    }
   }
 }
 
@@ -97,9 +110,9 @@ export const settleBattle = (
     return 'defeat'
   }
 
-  const updatedDungeon = getDungeonAfterVictory({ battle, dungeon })
+  const dungeonSettlement = getDungeonAfterVictory({ battle, dungeon })
 
-  if (updatedDungeon === undefined) {
+  if (!dungeonSettlement) {
     console.warn(
       `Unable to settle battle for dungeon ${dungeon.zoneId}.${dungeon.dungeonId}.`
     )
@@ -116,9 +129,9 @@ export const settleBattle = (
 
   updateGameSession({
     profile: updatedProfile,
-    dungeon: updatedDungeon,
+    dungeon: dungeonSettlement.dungeon,
     battle: null
   })
 
-  return updatedDungeon ? 'nextRoom' : 'dungeonComplete'
+  return dungeonSettlement.result
 }
