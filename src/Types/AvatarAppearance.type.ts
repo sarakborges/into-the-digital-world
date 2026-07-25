@@ -65,3 +65,15 @@ export type AvatarAppearanceType = {
   clothes: ClothesSelection
   accessories: Partial<Record<AccessorySlot, CustomizablePartSelection>>
 }
+
+export const AVATAR_CUSTOMIZATION_LAYERS = [
+  'skinColor',
+  'eyeColor',
+  'hairModel',
+  'hairColor',
+  'fullClothesModel',
+  'fullClothesColor'
+] as const
+
+export type AvatarCustomizationLayer =
+  (typeof AVATAR_CUSTOMIZATION_LAYERS)[number]
