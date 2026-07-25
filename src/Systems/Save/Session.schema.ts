@@ -157,7 +157,7 @@ const DungeonSessionValueSchema = z
           context.addIssue({
             code: 'custom',
             path: [groupName, roomIndex],
-            message: `Unknown dungeon room: ${dungeonSession.zoneId}.${dungeonSession.dungeonId}.${roomId}`
+            message: `Unknown dungeon room: ${roomId}`
           })
         }
       })
