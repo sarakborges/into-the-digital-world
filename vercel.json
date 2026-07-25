@@ -5,6 +5,6 @@
       "destination": "/index.html"
     }
   ],
-
-  "outputDirectory": "build"
+  "outputDirectory": "build",
+  "ignoreCommand": "exit 0"
 }
