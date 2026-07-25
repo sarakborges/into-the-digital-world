@@ -4,6 +4,7 @@ import { findDungeon } from '@/GameData/Registries/Dungeon.registry'
 import { BattleStart } from '@/GameData/Scenes/Apps/Battle/BattleStart.scene'
 import { BattleTurn } from '@/GameData/Scenes/Apps/Battle/BattleTurn.scene'
 import { DungeonChooseRoom } from '@/GameData/Scenes/Apps/Dungeon/ChooseRoom.scene'
+import { DungeonRoom } from '@/GameData/Scenes/Apps/Dungeon/Room.scene'
 
 import { getTexts } from '@/Helpers/Language/getTexts.helper'
 import { startBattle } from '@/Helpers/Systems/Battle/startBattle.helper'
@@ -36,8 +37,21 @@ export const Dungeon = () => {
     undefined
   const isCurrentRoomDone =
     !!dungeon && dungeon.doneRooms.length > currentRoomIndex
+  const isLastRoom =
+    !!dungeon &&
+    !!currentDungeon &&
+    dungeon.rooms.length === currentDungeon.maxAmountOfRooms
   const shouldChooseRoom =
     !!dungeon && !scene && dungeon.currentRoomsOptions.length > 0
+  const shouldOpenRoomDialog =
+    !!dungeon &&
+    !!room &&
+    !scene &&
+    !battle &&
+    ((room.type === 'event' && !isCurrentRoomDone) ||
+      (isLastRoom &&
+        isCurrentRoomDone &&
+        dungeon.currentRoomsOptions.length === 0))
   const shouldStartBattle =
     room?.type === 'battle' && !scene && !isCurrentRoomDone
 
@@ -48,6 +62,12 @@ export const Dungeon = () => {
 
     if (shouldChooseRoom) {
       setScene({ component: DungeonChooseRoom })
+
+      return
+    }
+
+    if (shouldOpenRoomDialog) {
+      setScene({ component: DungeonRoom })
 
       return
     }
@@ -65,7 +85,15 @@ export const Dungeon = () => {
     }
 
     setScene({ component: BattleTurn })
-  }, [battle, dungeon, scene, shouldChooseRoom, shouldStartBattle, setScene])
+  }, [
+    battle,
+    dungeon,
+    scene,
+    setScene,
+    shouldChooseRoom,
+    shouldOpenRoomDialog,
+    shouldStartBattle
+  ])
 
   if (!dungeon) {
     return
