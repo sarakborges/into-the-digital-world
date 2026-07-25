@@ -8,7 +8,7 @@ import { ItemsList } from '@/Components/Global/ItemsList/ItemsList.component'
 export const CombatLoot = () => {
   const { battle } = useBattleStore((state) => state)
 
-  if (!battle || !hasBattleLoot(battle)) {
+  if (!hasBattleLoot(battle)) {
     return
   }
 

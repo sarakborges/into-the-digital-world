@@ -1,7 +1,7 @@
 import type { LootTableEntryType, LootType } from '@/Types/Loot.type'
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
-export type BattleType = {
+type BattleBaseType = {
   turnOrder: Array<
     PartyDigimonType & {
       party: 'allies' | 'enemies'
@@ -21,6 +21,24 @@ export type BattleType = {
     isTargetDefeated?: boolean
     hasHitLanded: boolean
   }>
+}
 
+export type BattleResult = 'ongoing' | 'victory' | 'defeat'
+
+export type ActiveBattleType = BattleBaseType & {
+  result?: undefined
   loot?: LootType
 }
+
+export type VictoryBattleType = BattleBaseType & {
+  result: 'victory'
+  loot: LootType
+}
+
+export type DefeatBattleType = BattleBaseType & {
+  result: 'defeat'
+  loot?: undefined
+}
+
+export type ResolvedBattleType = VictoryBattleType | DefeatBattleType
+export type BattleType = ActiveBattleType | ResolvedBattleType

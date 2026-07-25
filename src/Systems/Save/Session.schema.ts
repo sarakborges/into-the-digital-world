@@ -93,9 +93,27 @@ const BattleSessionValueSchema = z
   .object({
     turnOrder: z.array(PartyDigimonSessionSchema),
     combatLog: z.array(CombatLogEntrySchema),
+    result: z.enum(['victory', 'defeat']).optional(),
     loot: z.record(z.string(), z.number()).optional()
   })
   .strict()
+  .superRefine((battle, context) => {
+    if (battle.result === 'victory' && battle.loot === undefined) {
+      context.addIssue({
+        code: 'custom',
+        path: ['loot'],
+        message: 'Victory battle sessions require resolved loot.'
+      })
+    }
+
+    if (battle.result === 'defeat' && battle.loot !== undefined) {
+      context.addIssue({
+        code: 'custom',
+        path: ['loot'],
+        message: 'Defeat battle sessions cannot contain loot.'
+      })
+    }
+  })
 
 export const BattleSessionSchema = z.custom<BattleType>(
   (value) => BattleSessionValueSchema.safeParse(value).success,
@@ -139,7 +157,7 @@ const DungeonSessionValueSchema = z
           context.addIssue({
             code: 'custom',
             path: [groupName, roomIndex],
-            message: `Unknown dungeon room: ${roomId}`
+            message: `Unknown dungeon room: ${dungeonSession.zoneId}.${dungeonSession.dungeonId}.${roomId}`
           })
         }
       })

@@ -1,0 +1,30 @@
+name: Precommit validation
+
+on:
+  pull_request:
+    branches:
+      - codex/map-and-parameter-cleanup
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Audit battle resolution
+        run: |
+          ! grep -R "const getBattleOutcome\|const getLoot" src/GameData/Scenes/Apps/Battle/BattleAttack.scene.tsx
+          ! grep -R "isBattleOver.*getActiveDigimons" src
+          ! grep -R "isDigimonDefeated" src/GameData/Scenes/Apps/Battle/BattleEnd.scene.tsx
+          grep -q "generateBattleLoot" src/GameData/Scenes/Apps/Battle/BattleAttack.scene.tsx
+          grep -q "result: z.enum" src/Systems/Save/Session.schema.ts
+      - name: Lint
+        run: npm run lint
+      - name: TypeScript
+        run: npx tsc --noEmit
+      - name: Build
+        run: npm run build

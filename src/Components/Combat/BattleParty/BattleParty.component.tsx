@@ -1,7 +1,7 @@
 import type { CssPropertiesWithVariables } from '@/Types/CssProperties.type'
 import type { PartyDigimonType } from '@/Types/PartyDigimon.type'
 
-import { isBattleOver } from '@/Helpers/Systems/Battle/getActiveDigimons.helper'
+import { isBattleOver } from '@/Helpers/Systems/Battle/getBattleResult.helper'
 import { isCurrentTurnDigimon } from '@/Helpers/Systems/Battle/isCurrentTurnDigimon.helper'
 import { isDigimonDefeated } from '@/Helpers/Systems/Battle/isDigimonDefeated.helper'
 
