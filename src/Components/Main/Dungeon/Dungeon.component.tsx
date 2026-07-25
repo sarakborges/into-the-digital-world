@@ -26,13 +26,20 @@ export const Dungeon = () => {
         dungeonId: dungeon.dungeonId
       })
     : undefined
-  const currentRoomIndex = dungeon?.doneRooms.length ?? 0
+  const lastRoomIndex = Math.max((dungeon?.rooms.length ?? 1) - 1, 0)
+  const currentRoomIndex = Math.min(
+    dungeon?.doneRooms.length ?? 0,
+    lastRoomIndex
+  )
   const room =
     currentDungeon?.possibleRooms[dungeon?.rooms[currentRoomIndex] ?? ''] ??
     undefined
+  const isCurrentRoomDone =
+    !!dungeon && dungeon.doneRooms.length > currentRoomIndex
   const shouldChooseRoom =
     !!dungeon && !scene && dungeon.currentRoomsOptions.length > 0
-  const shouldStartBattle = room?.type === 'battle' && !scene
+  const shouldStartBattle =
+    room?.type === 'battle' && !scene && !isCurrentRoomDone
 
   useEffect(() => {
     if (!dungeon) {
@@ -74,7 +81,7 @@ export const Dungeon = () => {
         <div>
           <Text>
             {getTexts('DUNGEON_ROOM_NUMBER', {
-              '[NUMBER]': String(dungeon.doneRooms.length + 1)
+              '[NUMBER]': String(currentRoomIndex + 1)
             })}
           </Text>
           <Text>{getTexts(room.name)}</Text>
