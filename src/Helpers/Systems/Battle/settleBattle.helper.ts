@@ -1,12 +1,10 @@
 import type { ResolvedBattleType } from '@/Types/Battle.type'
-import type { DungeonStoreType } from '@/Types/Dungeon.type'
 import type { ProfileType } from '@/Types/Profile.type'
-
-import { findDungeon } from '@/GameData/Registries/Dungeon.registry'
 
 import { updateGameSession } from '@/Systems/Session/GameSession'
 
-import { getDungeonRoomOptions } from '@/Helpers/Systems/Dungeon/getDungeonRoomOptions.helper'
+import type { DungeonRoomSettlementResult } from '@/Helpers/Systems/Dungeon/settleDungeonRoom.helper'
+import { getDungeonRoomSettlement } from '@/Helpers/Systems/Dungeon/settleDungeonRoom.helper'
 import { applyItemAmounts } from '@/Helpers/Systems/Profile/applyItemAmounts.helper'
 import { warpTo } from '@/Helpers/Systems/Zones/warpTo.helper'
 
@@ -14,77 +12,7 @@ import { useBattleStore } from '@/Stores/Battle.store'
 import { useDungeonStore } from '@/Stores/Dungeon.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
-export type BattleSettlementResult =
-  | 'nextRoom'
-  | 'roomComplete'
-  | 'defeat'
-  | 'invalid'
-
-type VictoryDungeonSettlement = {
-  dungeon: DungeonStoreType
-  result: Extract<BattleSettlementResult, 'nextRoom' | 'roomComplete'>
-}
-
-const getDungeonAfterVictory = ({
-  battle,
-  dungeon
-}: {
-  battle: ResolvedBattleType
-  dungeon: DungeonStoreType
-}): VictoryDungeonSettlement | undefined => {
-  const dungeonDefinition = findDungeon({
-    zoneId: dungeon.zoneId,
-    dungeonId: dungeon.dungeonId
-  })
-  const currentRoomId = dungeon.rooms.at(-1)
-
-  if (!dungeonDefinition || !currentRoomId) {
-    return undefined
-  }
-
-  const currentRoom = dungeonDefinition.possibleRooms[currentRoomId]
-
-  if (
-    !currentRoom ||
-    dungeon.rooms.length > dungeonDefinition.maxAmountOfRooms
-  ) {
-    return undefined
-  }
-
-  const isLastRoom =
-    dungeon.rooms.length === dungeonDefinition.maxAmountOfRooms
-  let currentRoomsOptions: string[] = []
-  let result: VictoryDungeonSettlement['result'] = 'roomComplete'
-
-  if (!isLastRoom) {
-    const availableRooms =
-      dungeon.rooms.length + 1 === dungeonDefinition.maxAmountOfRooms
-        ? dungeonDefinition.availableLastRooms
-        : currentRoom.branchesTo
-
-    if (!availableRooms?.length) {
-      return undefined
-    }
-
-    currentRoomsOptions = getDungeonRoomOptions(availableRooms)
-
-    if (!currentRoomsOptions.length) {
-      return undefined
-    }
-
-    result = 'nextRoom'
-  }
-
-  return {
-    result,
-    dungeon: {
-      ...dungeon,
-      currentRoomsOptions,
-      doneRooms: [...dungeon.doneRooms, currentRoomId],
-      party: battle.turnOrder.filter((digimon) => digimon.party === 'allies')
-    }
-  }
-}
+export type BattleSettlementResult = DungeonRoomSettlementResult | 'defeat'
 
 export const settleBattle = (
   battle: ResolvedBattleType
@@ -110,7 +38,10 @@ export const settleBattle = (
     return 'defeat'
   }
 
-  const dungeonSettlement = getDungeonAfterVictory({ battle, dungeon })
+  const dungeonSettlement = getDungeonRoomSettlement({
+    dungeon,
+    party: battle.turnOrder.filter((digimon) => digimon.party === 'allies')
+  })
 
   if (!dungeonSettlement) {
     console.warn(
