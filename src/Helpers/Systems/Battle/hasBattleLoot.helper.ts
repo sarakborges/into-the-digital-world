@@ -1,15 +1,9 @@
-import type { BattleType } from '@/Types/Battle.type'
-
-type BattleWithLoot = BattleType & {
-  loot: NonNullable<BattleType['loot']>
-}
+import type {
+  BattleType,
+  VictoryBattleType
+} from '@/Types/Battle.type'
 
 export const hasBattleLoot = (
   battle: BattleType | null
-): battle is BattleWithLoot => {
-  if (!battle) {
-    return false
-  }
-
-  return !!Object.keys(battle.loot ?? {}).length
-}
+): battle is VictoryBattleType =>
+  battle?.result === 'victory' && Object.keys(battle.loot).length > 0
