@@ -10,9 +10,8 @@
   .character-header {
     > .portrait,
     .avatar-content {
-      padding: 4px;
+      padding: 4px 4px 0;
       border-radius: 12px 12px 0 0;
-      box-shadow: -4px 0 8px -4px var(--color-neutral-strong);
     }
 
     .avatar-content {
@@ -21,9 +20,10 @@
 
     .character-info {
       .character-name {
+        padding-left: 2px;
+
         background-color: var(--color-secondary-strong);
         border-radius: 0 8px 0 0;
-        box-shadow: 0 0 8px var(--color-neutral-strong);
       }
     }
   }
@@ -44,10 +44,6 @@
     margin-top: 40px;
 
     background-color: var(--color-secondary-strong);
-    box-shadow:
-      0 4px 8px -4px var(--color-neutral-strong),
-      -4px 2px 8px -4px var(--color-neutral-strong),
-      4px 2px 8px -4px var(--color-neutral-strong);
     border-radius: 12px;
 
     padding: 4px;

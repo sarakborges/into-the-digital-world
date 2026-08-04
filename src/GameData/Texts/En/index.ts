@@ -197,7 +197,7 @@ export const THEME_CATEGORIES_OTHER = `Other`
 export const THEME_WARNING = `Warning`
 export const THEME_HAZARD = `Hazard`
 
-export const LANGUAGES_TITLE = `Language`
+export const LANGUAGES_TITLE = `Preferred language`
 export const LANGUAGE_EN = `English`
 
 // ========================================================================

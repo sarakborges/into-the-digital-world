@@ -45,19 +45,24 @@ export const StartScreen = () => {
 
       <main>
         <div className="saved-games">
-          {!!savedProfiles?.length && (
-            <Text as="h2">{getTexts('SAVED_GAMES')}</Text>
-          )}
-
           <Button style="secondary" onClick={createNewProfile}>
             {getTexts('START_NEW_GAME')}
           </Button>
 
-          <div className="games-list">
-            {getSortedProfiles(savedProfiles || []).map((profile) => (
-              <GameFile profile={profile} key={`savedProfiles-${profile.id}`} />
-            ))}
-          </div>
+          {!!savedProfiles?.length && (
+            <main className="saved-games-list">
+              <Text as="h2">{getTexts('SAVED_GAMES')}</Text>
+
+              <div className="games-list">
+                {getSortedProfiles(savedProfiles || []).map((profile) => (
+                  <GameFile
+                    profile={profile}
+                    key={`savedProfiles-${profile.id}`}
+                  />
+                ))}
+              </div>
+            </main>
+          )}
         </div>
       </main>
     </main>

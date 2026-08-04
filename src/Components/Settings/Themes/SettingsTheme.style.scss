@@ -3,10 +3,12 @@
   flex-flow: column;
   gap: 8px;
 
+  max-height: 100%;
   padding: 8px;
+  flex: 1;
+  overflow: auto;
 
-  background-color: var(--color-primary-strong);
-  border-radius: 8px;
+  background-color: var(--color-primary-weak);
 
   .themes-list {
     display: flex;
@@ -25,7 +27,7 @@
 
       > main {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 4px;
       }
     }

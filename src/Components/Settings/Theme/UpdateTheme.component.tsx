@@ -30,9 +30,7 @@ export const UpdateTheme = ({ theme }: { theme: string }) => {
           <div className="icon" />
         </div>
 
-        <Text>
-          {getTexts(`THEME_${theme.toLocaleUpperCase()}`).split(' ').join('\n')}
-        </Text>
+        <Text>{getTexts(`THEME_${theme.toLocaleUpperCase()}`)}</Text>
 
         {theme === settings.theme && <FaCheck />}
       </Button>

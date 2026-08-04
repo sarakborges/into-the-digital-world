@@ -5,15 +5,13 @@
 
   padding: 8px;
 
-  background-color: var(--color-primary-strong);
-  border-radius: 8px;
+  background-color: var(--color-primary-weak);
 
   .languages-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-flow: column;
     gap: 4px;
 
-    max-height: 280px;
-    overflow: auto;
+    min-width: 160px;
   }
 }
