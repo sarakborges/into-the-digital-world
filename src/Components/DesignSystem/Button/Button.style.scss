@@ -49,16 +49,6 @@
   }
 
   &:disabled {
-    &.primary {
-      background-color: var(--color-primary-weak);
-    }
-
-    &.secondary {
-      background-color: var(--color-secondary-weak);
-    }
-
-    &.cancel {
-      background-color: var(--color-cancel-weak);
-    }
+    background-color: var(--color-neutral);
   }
 }
