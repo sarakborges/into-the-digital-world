@@ -122,7 +122,6 @@ export const DIGIMON_STATS_AGI_NAME = `Agility`
 // ========================================================================
 // DIGIVICE APPS
 // ========================================================================
-export const APPS_TITLE = `Installed apps`
 export const APPS_SAVE = `Save Data`
 export const APPS_LOGOFF = `Log Off`
 export const APPS_ACHIEVEMENTS = `Achievements`

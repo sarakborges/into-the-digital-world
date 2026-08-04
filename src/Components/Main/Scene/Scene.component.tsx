@@ -14,11 +14,7 @@ export const Scene = () => {
   const RenderedScene = scene.component
 
   return (
-    <div
-      className="scene"
-      data-isdigiviceopen={!!digivice.isOpen}
-      data-enablesmovement={!!scene.enablesMovement}
-    >
+    <div className="scene" data-enablesmovement={!!scene.enablesMovement}>
       <RenderedScene />
     </div>
   )

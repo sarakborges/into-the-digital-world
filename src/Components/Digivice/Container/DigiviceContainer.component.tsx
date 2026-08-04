@@ -63,17 +63,19 @@ export const DigiviceContainer = () => {
             <div className="digivice-body">
               {!digivice.currentApp && (
                 <>
-                  <AppPlayerProfile />
+                  <header>
+                    <AppPlayerProfile />
+                  </header>
 
-                  <Text>{getTexts('APPS_TITLE')}</Text>
-
-                  <div className="digivice-apps">
-                    {Object.values(DigiviceApps).map((app) => (
-                      <div key={`digivice-apps-${app.id}`}>
-                        <DigiviceCurrentApp app={app} />
-                      </div>
-                    ))}
-                  </div>
+                  <main>
+                    <div className="digivice-apps">
+                      {Object.values(DigiviceApps).map((app) => (
+                        <div key={`digivice-apps-${app.id}`}>
+                          <DigiviceCurrentApp app={app} />
+                        </div>
+                      ))}
+                    </div>
+                  </main>
                 </>
               )}
 

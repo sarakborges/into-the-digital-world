@@ -13,7 +13,7 @@ export const AppPlayerProfile = () => {
 
   return (
     <div className="player-profile">
-      <CharacterHeader character={{ ...profile, isPlayer: true }} lg />
+      <CharacterHeader character={{ ...profile, isPlayer: true }} />
     </div>
   )
 }

@@ -36,50 +36,54 @@
   background-color: var(--color-primary-weak);
   box-shadow: 0 0 8px var(--color-neutral-strong);
 
-  .game-container {
+  > header {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    .digivice {
+      position: absolute;
+      top: 8px;
+      right: 38px;
+      z-index: 103;
+    }
+
+    .settings {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      z-index: 105;
+    }
+
+    > div > .button {
+      position: relative;
+      z-index: 103;
+
+      padding: 4px;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  > main {
     display: flex;
     flex-flow: column;
     place-items: center;
 
     width: 100%;
-
-    > header {
-      .digivice {
-        position: absolute;
-        top: 8px;
-        right: 38px;
-        z-index: 103;
-      }
-
-      .settings {
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        z-index: 105;
-      }
-
-      > div > .button {
-        position: relative;
-        z-index: 103;
-
-        padding: 4px;
-
-        svg {
-          width: 16px;
-          height: 16px;
-        }
-      }
-    }
   }
-}
 
-.screen-footer {
-  display: flex;
-  place-items: flex-end;
-  place-content: flex-end;
-  gap: 16px;
+  > aside {
+    display: flex;
+    flex-flow: column;
+    place-content: space-between;
+    gap: 12px;
 
-  width: 100%;
-  padding: 8px;
-  overflow: hidden;
+    padding: 40px 12px 12px;
+  }
 }

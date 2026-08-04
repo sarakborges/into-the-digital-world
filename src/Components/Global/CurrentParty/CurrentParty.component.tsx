@@ -20,51 +20,49 @@ export const CurrentParty = () => {
   }
 
   return (
-    <div className="screen-footer">
-      <div className="current-party">
-        <div className="party-digimons">
-          {profile.party.map((digimon) => {
-            const baseDigimon = getBaseDigimonFromParty(
-              digimon,
-              profile.partnerDigimons
-            )
+    <div className="current-party">
+      <div className="party-digimons">
+        {profile.party.map((digimon) => {
+          const baseDigimon = getBaseDigimonFromParty(
+            digimon,
+            profile.partnerDigimons
+          )
 
-            if (!baseDigimon) {
-              return null
-            }
+          if (!baseDigimon) {
+            return null
+          }
 
-            return (
-              <div key={`profile-party-${digimon}`}>
+          return (
+            <div key={`profile-party-${digimon}`}>
+              <main>
+                <aside>
+                  <Portrait
+                    alt={baseDigimon.name}
+                    src={`/${baseDigimon.portrait}.webp`}
+                  />
+                </aside>
+
                 <main>
-                  <aside>
-                    <Portrait
-                      alt={baseDigimon.name}
-                      src={`/${baseDigimon.portrait}.webp`}
-                    />
-                  </aside>
+                  <PartyDigimonStats digimonId={digimon} />
 
-                  <main>
-                    <PartyDigimonStats digimonId={digimon} />
-
-                    <footer>
-                      <PartnerBond />
-                    </footer>
-                  </main>
+                  <footer>
+                    <PartnerBond />
+                  </footer>
                 </main>
+              </main>
 
-                <footer>
-                  <Text>
-                    {getDigimonDisplayName(
-                      digimon,
-                      profile.partnerDigimons,
-                      baseDigimon
-                    )}
-                  </Text>
-                </footer>
-              </div>
-            )
-          })}
-        </div>
+              <footer>
+                <Text>
+                  {getDigimonDisplayName(
+                    digimon,
+                    profile.partnerDigimons,
+                    baseDigimon
+                  )}
+                </Text>
+              </footer>
+            </div>
+          )
+        })}
       </div>
     </div>
   )

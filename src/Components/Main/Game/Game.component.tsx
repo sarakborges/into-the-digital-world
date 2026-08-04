@@ -34,20 +34,24 @@ export const Game = () => {
   return (
     <div className={`game-body theme-${getThemeClassName(settings.theme)}`}>
       <div className="main-game">
-        <div className="game-container">
-          <header>
-            <DigiviceContainer />
-            <SettingsContainer />
-          </header>
+        <header>
+          <DigiviceContainer />
+          <SettingsContainer />
+        </header>
+
+        <main>
+          <StartScreen />
 
           <Gameboard />
           <Dungeon />
           <Battlefield />
-          <QuestsLogMinimal />
-        </div>
+        </main>
 
-        <CurrentParty />
-        <StartScreen />
+        <aside>
+          <QuestsLogMinimal />
+          <CurrentParty />
+        </aside>
+
         <Scene />
       </div>
     </div>
