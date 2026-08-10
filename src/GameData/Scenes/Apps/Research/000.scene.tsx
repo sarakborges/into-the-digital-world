@@ -44,7 +44,7 @@ export const Research000 = () => {
 
           saveSession(updatedProfile)
 
-          setScene({ component: Research001 })
+          setScene(Research001)
         }
       }
     ]

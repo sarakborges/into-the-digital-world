@@ -5,17 +5,17 @@ import { getButtonClassNames } from '@/Helpers/Components'
 import './Button.style.scss'
 
 type ButtonType = {
-  style?: 'primary' | 'secondary' | 'cancel'
+  variant?: 'primary' | 'secondary' | 'cancel'
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 export const Button: React.FC<ButtonType> = ({
   children,
   className,
-  style,
+  variant,
   ...rest
 }) => {
   return (
-    <button className={getButtonClassNames(style, className)} {...rest}>
+    <button className={getButtonClassNames(variant, className)} {...rest}>
       {children}
     </button>
   )

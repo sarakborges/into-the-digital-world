@@ -1,10 +1,8 @@
 import { create } from 'zustand'
 
-import type { SceneType } from '@/Types/Scene.type'
-
 type SceneStore = {
-  scene: SceneType | null
-  setScene: (scene: SceneType | null) => void
+  scene: React.FC | null
+  setScene: (scene: React.FC | null) => void
 }
 
 export const useSceneStore = create<SceneStore>((set) => ({

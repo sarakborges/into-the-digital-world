@@ -83,12 +83,12 @@ export const BattleAttack = () => {
     })
 
     if (isBattleOver) {
-      setScene({ component: BattleEnd })
+      setScene(BattleEnd)
 
       return
     }
 
-    setScene({ component: BattleTurn })
+    setScene(BattleTurn)
   }
 
   const dialogOptions: DialogType = {

@@ -37,7 +37,7 @@ export const Introduction006 = () => {
         id: 'scene-introduction-006-continue',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setScene({ component: Introduction007 })
+          setScene(Introduction007)
         }
       }
     ]

@@ -1,5 +1,4 @@
 import { saveSession } from '@/Helpers/Systems/Data'
-import { openCurrentTileScene } from '@/Helpers/Systems/Zones/openCurrentTileScene.helper'
 
 import { useGameStore } from '@/Stores/Game.store'
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -39,7 +38,6 @@ export const warpTo = ({
     }
 
     saveSession(updatedProfile)
-    openCurrentTileScene()
   }, 300)
 
   setTimeout(() => {

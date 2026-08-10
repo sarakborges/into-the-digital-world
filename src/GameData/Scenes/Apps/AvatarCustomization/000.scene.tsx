@@ -27,7 +27,7 @@ export const AvatarCustomization000 = () => {
         id: 'scene-avatarCustomization-000-continue',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setScene({ component: AvatarCustomization003 })
+          setScene(AvatarCustomization003)
         }
       }
     ]

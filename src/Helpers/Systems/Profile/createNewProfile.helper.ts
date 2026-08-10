@@ -45,5 +45,5 @@ export const createNewProfile = () => {
   setProfile(profile)
   setDigivice({ isOpen: false })
 
-  setScene({ component: Introduction001 })
+  setScene(Introduction001)
 }

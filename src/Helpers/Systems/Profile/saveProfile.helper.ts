@@ -49,7 +49,7 @@ export const saveProfile = (profileId?: number) => {
       value: updatedProfiles
     })
 
-    setScene({ component: SaveGame002 })
+    setScene(SaveGame002)
   } catch (e) {
     console.warn(e)
   }

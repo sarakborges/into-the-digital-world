@@ -41,7 +41,7 @@ export const GetStarterDigimon002 = () => {
         id: 'scene-getstarterdigimon-002-continue',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setScene({ component: GetStarterDigimon003 })
+          setScene(GetStarterDigimon003)
 
           setProfile({
             ...profile,

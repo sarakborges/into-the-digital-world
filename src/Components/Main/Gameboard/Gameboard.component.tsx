@@ -6,9 +6,6 @@ import { useGameStore } from '@/Stores/Game.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { GameboardCharacter } from '@/Components/Main/GameboardCharacter'
-import { Gamepad } from '@/Components/Main/Gamepad'
-
-// import { Minimap } from '@/Components/Main/Minimap'
 
 import './Gameboard.style.scss'
 
@@ -33,9 +30,6 @@ export const Gameboard = () => {
 
   return (
     <div className="gameboard-container">
-      {/* <Minimap /> */}
-      <Gamepad />
-
       <main className="gameboard">
         <div className="gameboard-body" style={gameboardBodyVars}>
           <div

@@ -13,7 +13,7 @@ export const saveDungeon = (dungeon: DungeonStoreType | null) => {
     sessionStorage.setItem(`itdw_dungeon`, JSON.stringify(dungeon))
 
     setDungeon(dungeon)
-    setScene({ component: DungeonChooseRoom })
+    setScene(DungeonChooseRoom)
   } catch (error) {
     console.warn(`Error saving dungeon: ${error}`)
     console.warn(dungeon)

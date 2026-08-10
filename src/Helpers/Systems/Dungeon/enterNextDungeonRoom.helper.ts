@@ -66,5 +66,5 @@ export const enterNextDungeonRoom = () => {
   saveBattle(null)
   saveSession(profile)
 
-  setScene({ component: DungeonChooseRoom })
+  setScene(DungeonChooseRoom)
 }

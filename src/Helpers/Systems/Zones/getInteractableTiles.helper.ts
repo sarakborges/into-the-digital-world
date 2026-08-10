@@ -10,22 +10,26 @@ export const getInteractableTiles = () => {
     return []
   }
 
-  return [
-    ...currentMap.tiles.filter(
-      (tile) =>
-        tile.x === profile.currentZone.x - 1 && tile.y === profile.currentZone.y
-    ),
-    ...currentMap.tiles.filter(
-      (tile) =>
-        tile.x === profile.currentZone.x + 1 && tile.y === profile.currentZone.y
-    ),
-    ...currentMap.tiles.filter(
-      (tile) =>
-        tile.y === profile.currentZone.y - 1 && tile.x === profile.currentZone.x
-    ),
-    ...currentMap.tiles.filter(
-      (tile) =>
-        tile.y === profile.currentZone.y + 1 && tile.x === profile.currentZone.x
+  const coordinates = [
+    { x: -1, y: -1 },
+    { x: 0, y: -1 },
+    { x: 1, y: -1 },
+
+    { x: -1, y: 0 },
+    { x: 1, y: 0 },
+
+    { x: -1, y: 1 },
+    { x: 0, y: 1 },
+    { x: 1, y: 1 }
+  ]
+
+  return currentMap.tiles.filter((tile) => {
+    const isAdjacent = coordinates.some(
+      (coordinate) =>
+        tile.x === profile.currentZone.x + coordinate.x &&
+        tile.y === profile.currentZone.y + coordinate.y
     )
-  ].filter((tile) => tile.condition === undefined || !!tile.condition())
+
+    return isAdjacent && (tile.condition === undefined || !!tile.condition())
+  })
 }

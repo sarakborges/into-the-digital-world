@@ -84,7 +84,7 @@ export const CompositionsList = () => {
                             : {}
                       })
 
-                      setScene({ component: Compose003 })
+                      setScene(Compose003)
                     }}
                   >
                     <AiOutlineSelect />

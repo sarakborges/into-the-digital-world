@@ -1,5 +1,3 @@
-import type { SceneType } from '@/Types/Scene.type'
-
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
@@ -11,7 +9,7 @@ export const reactToMeaningfulChoice = ({
     name: string
     value: string
   }
-  nextScene: SceneType | null
+  nextScene: React.FC | null
 }) => {
   const { profile, setProfile } = useProfileStore.getState()
   const { setScene } = useSceneStore.getState()

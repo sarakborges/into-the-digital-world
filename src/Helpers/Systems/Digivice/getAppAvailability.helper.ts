@@ -22,7 +22,7 @@ export const getAppAvailability = (appId: string): boolean => {
   const isMap = appId === 'map'
 
   return !(
-    (!!scene && !scene.enablesMovement) ||
+    !!scene ||
     (!doneQuests.includes(StarterDigimonQuest.id) &&
       !(!!isSave || !!isLogoff || !!isMap))
   )

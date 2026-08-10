@@ -22,6 +22,12 @@ export const DELETE_GAME_FILE = `Delete`
 export const START_SCREEN_TITLE = `Welcome Into the\nDigital World!`
 
 // ========================================================================
+// SCREEN ORIENTATION WARNING
+// ========================================================================
+export const SCREEN_ORIENTATION_WARNING_TITLE = `Warning!`
+export const SCREEN_ORIENTATION_WARNING = `In order to better address your Into the Digital World experience, we must insist on you turning your device sideways. Otherwise, it would be impossible for us to deliver the design philosophy we envision.\n\nWe are terribly sorry for any inconvience.\n\nEnjoy your time Into the Digital World!`
+
+// ========================================================================
 // PROFILE / PLAYER
 // ========================================================================
 export const PROFILE_CURRENCY = `D$ [CURRENCY]`
@@ -52,6 +58,7 @@ export const MAP_NAME_FORMAT = `[ZONE] - [MAP]`
 // ========================================================================
 export const CURRENT_ZONE = `[ZONE]`
 export const LOCATION_SELECT = `Select destination:`
+export const LOCATION_NPC_INTERACTION = `Talk to [NAME]`
 
 // ========================================================================
 // QUESTS
@@ -213,6 +220,7 @@ export const DUNGEON_CHOOSEROOM_TEXT = `Master, the path ahead splits into multi
 export const DUNGEON_SINGLEROOM_TEXT = `Master, the path goes straight ahead. Should we keeping moving, or leave this place?`
 export const DUNGEON_GIVEUP_DESCRIPTION = `The path behind you is clear. Must be safe to leave through it.`
 export const DUNGEON_ROOM_NUMBER = `Room [NUMBER]: `
+export const DUNGEON_IGNORE = `Ignore`
 
 export const DUNGEON_WILDZONE_KOROMON_NEST_DEFAULT = `As you walk by, you notice a bunch of agitated Koromon. Something is off with them.`
 export const DUNGEON_WILDZONE_KOROMON_NEST_TRIGGER = `Investigate`
@@ -325,7 +333,7 @@ export const INTRODUCTION_007_TEXT = `Spirited one, aren't we? Don't worry. I wi
 
 export const INTRODUCTION_008_TEXT = `What do you mean fix my avatar?`
 
-export const INTRODUCTION_009_TEXT = `You realize some particles are getting in front of you. They look like a virtual glitch.\n\nEventually, you notice they are getting off you. You take a look at yourself, and you realize you don't have a body. You are now a bunch of glitched data, in the shape of a person.`
+export const INTRODUCTION_009_TEXT = `You realize some particles are getting in front of your eyes. They look like a virtual glitch.\n\nEventually, you notice they are getting off you. You take a look at yourself, and you realize you don't have a body. You are now a bunch of glitched data, in the shape of a person.`
 export const INTRODUCTION_009_ALT = `You look totally glitched.`
 
 export const INTRODUCTION_010_TEXT = `What the hell?! What did you do to me?!`

@@ -18,10 +18,7 @@ export const LocationGennaiTile: MapTileType = {
     isVisible: true
   },
 
-  scene: {
-    component: Location000,
-    enablesMovement: true
-  },
+  scene: Location000,
 
   condition: () => {
     const profile = useProfileStore.getState().profile

@@ -1,5 +1,4 @@
 import { movePlayer } from './movePlayer.helper'
-import { openCurrentTileScene } from './openCurrentTileScene.helper'
 
 export const setLocation = ({ x, y }: { x?: number; y?: number }) => {
   const coordinates = movePlayer({ x, y })
@@ -7,6 +6,4 @@ export const setLocation = ({ x, y }: { x?: number; y?: number }) => {
   if (!coordinates) {
     return false
   }
-
-  openCurrentTileScene()
 }

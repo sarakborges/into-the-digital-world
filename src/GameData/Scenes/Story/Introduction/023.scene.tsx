@@ -32,7 +32,7 @@ export const Introduction023 = () => {
         id: 'scene-introduction-027-confirm',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setScene({ component: Introduction024 })
+          setScene(Introduction024)
         }
       }
     ].filter((option) => !!option)

@@ -41,14 +41,16 @@ export const CharacterHeader = ({
       <div className="character-info">
         {children}
 
-        <div className="character-name">
-          {[character.name, title]
-            .filter((str) => !!str)
-            .map((str) => (
-              <Text key={`character-header-${character.name}-${str}`}>
-                {str}
-              </Text>
-            ))}
+        <div className="character-name-container">
+          <div className="character-name">
+            {[character.name, title]
+              .filter((str) => !!str)
+              .map((str) => (
+                <Text key={`character-header-${character.name}-${str}`}>
+                  {str}
+                </Text>
+              ))}
+          </div>
         </div>
       </div>
     </header>

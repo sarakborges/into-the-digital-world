@@ -31,7 +31,7 @@ export const Introduction001 = () => {
             ignoreSession: true
           })
 
-          setScene({ component: Introduction002 })
+          setScene(Introduction002)
         }
       }
     ]

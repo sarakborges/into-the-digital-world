@@ -16,5 +16,5 @@ export const openDeleteGameDialog = (profileId: number) => {
     currentDetails: profileId
   })
 
-  setScene({ component: DeleteGame001 })
+  setScene(DeleteGame001)
 }

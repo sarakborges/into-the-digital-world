@@ -1,14 +1,19 @@
 import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
-import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 
-export const getDigimonDisplayName = (
-  digimonId: number,
-  partnerDigimons: Record<number, PartnerDigimonType>,
+import { useProfileStore } from '@/Stores/Profile.store'
+
+export const getDigimonDisplayName = ({
+  digimonId,
+  baseDigimon
+}: {
+  digimonId: number
   baseDigimon: BaseDigimonType | undefined
-): string => {
-  if (!baseDigimon) {
+}): string => {
+  const { profile } = useProfileStore.getState()
+
+  if (!baseDigimon || !profile) {
     return ''
   }
 
-  return partnerDigimons[digimonId]?.name || baseDigimon.name
+  return profile.partnerDigimons[digimonId]?.name || baseDigimon.name
 }

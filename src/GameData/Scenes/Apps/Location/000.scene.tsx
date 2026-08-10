@@ -6,6 +6,7 @@ import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 import { Location001 } from '@/GameData/Scenes/Apps/Location/001.scene'
 
 import { getTexts } from '@/Helpers/Language'
+import { closeScene } from '@/Helpers/Systems/Scenes'
 
 import { useSceneStore } from '@/Stores/Scene.store'
 
@@ -17,7 +18,7 @@ export const Location000 = () => {
   const { setScene } = useSceneStore((state) => state)
 
   const triggerLocation = () => {
-    setScene({ component: Location001 })
+    setScene(Location001)
   }
 
   const dialogOptions: DialogType = {
@@ -38,7 +39,17 @@ export const Location000 = () => {
           </div>
         </div>
       </div>
-    )
+    ),
+
+    options: [
+      {
+        id: 'scene-logoff-000-cancel',
+        text: getTexts('SCENES_CANCEL_BUTTON'),
+        action: () => {
+          closeScene()
+        }
+      }
+    ]
   }
 
   return <Dialog {...dialogOptions} />

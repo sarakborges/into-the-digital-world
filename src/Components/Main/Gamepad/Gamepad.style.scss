@@ -1,66 +1,120 @@
 .gamepad {
   position: absolute;
-  bottom: 8px;
-  right: 8px;
-  z-index: 100;
+  top: calc((var(--tile-size) -4px) * -1);
+  left: calc((var(--tile-size) -4px) * -1);
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  place-items: center;
-  place-content: center;
-  gap: 4px;
 
-  .button {
-    height: 24px;
-    aspect-ratio: 1/1;
+  > div {
+    position: relative;
+
+    display: flex;
+    place-items: center;
+    place-content: center;
+    gap: 8px;
+
+    height: calc(var(--tile-size));
     padding: 4px;
+    aspect-ratio: 1/1;
 
-    box-shadow: 0 0 4px var(--color-neutral-strong);
-
-    svg {
-      width: 16px;
-      height: 16px;
+    .button {
+      height: calc(var(--tile-size) - 20px);
+      padding: 2px;
       aspect-ratio: 1/1;
+      overflow: hidden;
+
+      border: 2px solid var(--color-primary-strong);
+      border-radius: 100%;
+      transition:
+        background-color 0.3s,
+        opacity 0.3s,
+        visibility 0.3s;
+
+      svg {
+        width: 12px;
+        height: 12px;
+      }
+
+      &[data-isvisible='false'] {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      &[data-isvisible='true'] {
+        opacity: 1;
+        visibility: visible;
+      }
     }
 
-    &:nth-of-type(1) {
+    .npc-interaction-button {
+      z-index: 2;
+
+      position: absolute;
+      top: -8px;
+      left: -20px;
+
+      height: 24px;
+
       svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    .event-interaction-button {
+      z-index: 2;
+
+      position: absolute;
+      top: 10px;
+      left: 10px;
+
+      height: calc(var(--tile-size) - 20px);
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    &:nth-child(1) {
+      .move-character-button {
         transform: rotate(135deg);
       }
     }
 
-    &:nth-of-type(2) {
-      svg {
+    &:nth-child(2) {
+      .move-character-button {
         transform: rotate(180deg);
       }
     }
 
-    &:nth-of-type(3) {
-      svg {
+    &:nth-child(3) {
+      .move-character-button {
         transform: rotate(-135deg);
       }
     }
 
-    &:nth-of-type(4) {
-      svg {
+    &:nth-child(4) {
+      .move-character-button {
         transform: rotate(90deg);
       }
     }
 
-    &:nth-of-type(5) {
-      svg {
+    &:nth-child(6) {
+      .move-character-button {
         transform: rotate(-90deg);
       }
     }
 
-    &:nth-of-type(6) {
-      svg {
+    &:nth-child(7) {
+      .move-character-button {
         transform: rotate(45deg);
       }
     }
 
-    &:nth-of-type(8) {
-      svg {
+    &:nth-child(9) {
+      .move-character-button {
         transform: rotate(-45deg);
       }
     }

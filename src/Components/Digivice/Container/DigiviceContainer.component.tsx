@@ -4,7 +4,6 @@ import { IoCaretBack } from 'react-icons/io5'
 
 import { getTexts } from '@/Helpers/Language'
 import { doesProfileHaveDigivice } from '@/Helpers/Systems/Digivice'
-import { openCurrentTileScene } from '@/Helpers/Systems/Zones'
 
 import { AllApps, DigiviceApps } from '@/Consts/DigiviceApps.const'
 
@@ -18,6 +17,7 @@ import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
 import { AppPlayerProfile } from '@/Components/Digivice/Apps/AppPlayerProfile'
 import { DigiviceCurrentApp } from '@/Components/Digivice/CurrentApp'
+import { CurrentParty } from '@/Components/Global/CurrentParty'
 
 import './DigiviceContainer.style.scss'
 
@@ -30,14 +30,10 @@ export const DigiviceContainer = () => {
     return
   }
 
-  const areButtonsDisabled = !!scene && !scene.enablesMovement
-
   const toggleModal = () => {
     setDigivice({
       isOpen: !digivice.isOpen
     })
-
-    openCurrentTileScene()
   }
 
   const pressBackButton = () => {
@@ -65,6 +61,7 @@ export const DigiviceContainer = () => {
                 <>
                   <header>
                     <AppPlayerProfile />
+                    <CurrentParty />
                   </header>
 
                   <main>
@@ -101,10 +98,7 @@ export const DigiviceContainer = () => {
                   <main>{AllApps[digivice.currentApp].component}</main>
 
                   <footer>
-                    <Button
-                      onClick={pressBackButton}
-                      disabled={areButtonsDisabled}
-                    >
+                    <Button onClick={pressBackButton} disabled={!!scene}>
                       <IoCaretBack />
                     </Button>
 
@@ -116,7 +110,7 @@ export const DigiviceContainer = () => {
                           currentApp: undefined
                         })
                       }
-                      disabled={!!areButtonsDisabled}
+                      disabled={!!scene}
                     >
                       <BiSolidSquareRounded />
                     </Button>
@@ -130,8 +124,8 @@ export const DigiviceContainer = () => {
 
       <Button
         onClick={toggleModal}
-        style={digivice.isOpen ? 'cancel' : undefined}
-        disabled={areButtonsDisabled}
+        variant={digivice.isOpen ? 'cancel' : undefined}
+        disabled={!!scene}
       >
         {<HiOutlineDevicePhoneMobile />}
       </Button>

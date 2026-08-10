@@ -11,10 +11,10 @@ export const Scene = () => {
     return
   }
 
-  const RenderedScene = scene.component
+  const RenderedScene = scene
 
   return (
-    <div className="scene" data-enablesmovement={!!scene.enablesMovement}>
+    <div className="scene">
       <RenderedScene />
     </div>
   )

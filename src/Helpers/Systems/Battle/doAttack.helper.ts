@@ -157,7 +157,7 @@ export const doAttack = (move: string) => {
       ]
     })
 
-    setScene({ component: BattleAttack })
+    setScene(BattleAttack)
 
     return
   }
@@ -209,5 +209,5 @@ export const doAttack = (move: string) => {
     ]
   })
 
-  setScene({ component: BattleAttack })
+  setScene(BattleAttack)
 }

@@ -87,7 +87,7 @@ export const RenamePartner001 = () => {
 
           saveSession(updatedProfile)
 
-          setScene({ component: RenamePartner002 })
+          setScene(RenamePartner002)
         }
       }
     ]

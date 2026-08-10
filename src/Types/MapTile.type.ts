@@ -1,11 +1,10 @@
 import type { NpcType } from '@/Types/Npc.type'
-import type { SceneType } from '@/Types/Scene.type'
 
 export type MapTileType = {
   id: string
   x: number
   y: number
-  scene?: SceneType
+  scene?: React.FC
   condition?: () => boolean
 
   onEnter?: {

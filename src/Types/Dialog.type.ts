@@ -6,7 +6,13 @@ export type DialogType = {
   speaker?: (NpcType | BaseDigimonType | ProfileType) & {
     isPlayer?: boolean
   }
+
   content: React.ReactNode
+  image?: {
+    src: string
+    alt: string
+  }
+
   options?: Array<{
     id: string
     text: string

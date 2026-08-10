@@ -71,7 +71,7 @@ export const Introduction005 = () => {
 
           setProfile(updatedProfile)
 
-          setScene({ component: Introduction006 })
+          setScene(Introduction006)
         }
       }
     ]

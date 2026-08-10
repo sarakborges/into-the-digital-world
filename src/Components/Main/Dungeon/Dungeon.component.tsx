@@ -38,7 +38,7 @@ export const Dungeon = () => {
     }
 
     if (shouldChooseRoom) {
-      setScene({ component: DungeonChooseRoom })
+      setScene(DungeonChooseRoom)
 
       return
     }
@@ -50,12 +50,12 @@ export const Dungeon = () => {
     if (!battle) {
       startBattle()
 
-      setScene({ component: BattleStart })
+      setScene(BattleStart)
 
       return
     }
 
-    setScene({ component: BattleTurn })
+    setScene(BattleTurn)
   }, [battle, dungeon, scene, shouldChooseRoom, shouldStartBattle, setScene])
 
   if (!dungeon) {

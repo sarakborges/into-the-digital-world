@@ -19,10 +19,7 @@ export const GetStarterDigimonGennaiTile: MapTileType = {
     isVisible: true
   },
 
-  scene: {
-    component: GetStarterDigimon000,
-    enablesMovement: true
-  },
+  scene: GetStarterDigimon000,
 
   condition: () => {
     const profile = useProfileStore.getState().profile

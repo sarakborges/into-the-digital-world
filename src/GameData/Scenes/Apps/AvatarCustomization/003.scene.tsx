@@ -37,13 +37,14 @@ export const AvatarCustomization003 = () => {
       isQuestDone(quest)
     )
 
+    saveSession(updatedProfile)
+
     if (!doneQuests.includes(AvatarFixingQuest.id)) {
-      setScene({ component: Introduction021 })
-    } else {
-      setScene({ component: AvatarCustomization002 })
+      setScene(Introduction021)
+      return
     }
 
-    saveSession(updatedProfile)
+    setScene(AvatarCustomization002)
   }
 
   const dialogOptions: DialogType = {

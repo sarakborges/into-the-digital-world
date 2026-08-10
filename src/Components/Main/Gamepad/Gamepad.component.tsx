@@ -1,10 +1,11 @@
-import { BiCaretDown } from 'react-icons/bi'
-
-import { Fragment } from 'react/jsx-runtime'
+import { AiOutlineExclamation } from 'react-icons/ai'
+import { FaArrowDown } from 'react-icons/fa'
+import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
 
 import {
   canMoveToCoordinate,
   getGamepadCoordinates,
+  getInteractableTiles,
   setLocation
 } from '@/Helpers/Systems/Zones'
 
@@ -18,40 +19,74 @@ import './Gamepad.style.scss'
 
 export const Gamepad = () => {
   const { profile } = useProfileStore((state) => state)
-  const { scene } = useSceneStore((state) => state)
+  const { scene, setScene } = useSceneStore((state) => state)
   const { game } = useGameStore((state) => state)
 
-  if (!profile || (!!scene && !scene?.enablesMovement)) {
+  if (!profile || !!scene) {
     return
   }
 
-  const coordinates = getGamepadCoordinates().map((coordinate) => {
-    if (!coordinate) {
-      return null
-    }
+  const coordinates = getGamepadCoordinates().map((coordinate) => ({
+    ...coordinate,
+    canMove: !!coordinate && canMoveToCoordinate({ ...coordinate })
+  }))
 
-    return {
-      ...coordinate,
-      canMove: canMoveToCoordinate({ ...coordinate })
-    }
-  })
+  const possibleInteractions = getInteractableTiles()
 
   return (
     <aside className="gamepad">
-      {coordinates.map((coordinate, coordinateIndex) => (
-        <Fragment key={`gamepad-${coordinateIndex}`}>
-          {coordinate ? (
+      {coordinates.map((coordinate, coordinateIndex) => {
+        const interaction = possibleInteractions.find(
+          (possibleInteraction) =>
+            possibleInteraction.x ===
+              profile.currentZone.x + (coordinate.x || 0) &&
+            possibleInteraction.y ===
+              profile.currentZone.y + (coordinate.y || 0)
+        )
+
+        return (
+          <div key={`gamepad-${coordinateIndex}`}>
             <Button
-              disabled={!coordinate.canMove || !!game?.isWarping}
+              className="npc-interaction-button"
+              variant="secondary"
+              onClick={() => setScene(interaction?.scene || null)}
+              data-isvisible={
+                !!interaction?.scene &&
+                (!interaction.condition || !!interaction.condition()) &&
+                !!interaction?.npc?.isVisible
+              }
+            >
+              <HiOutlineChatBubbleLeftEllipsis />
+            </Button>
+
+            <Button
+              className="event-interaction-button"
+              variant="secondary"
+              onClick={() => setScene(interaction?.scene || null)}
+              data-isvisible={
+                !!interaction?.scene &&
+                (!interaction.condition || !!interaction.condition()) &&
+                !interaction?.npc?.isVisible
+              }
+            >
+              <AiOutlineExclamation />
+            </Button>
+
+            <Button
+              className="move-character-button"
+              disabled={
+                !!game?.isWarping ||
+                !!interaction?.scene ||
+                !coordinate.canMove ||
+                (!!interaction?.condition && !interaction.condition())
+              }
               onClick={() => setLocation({ ...coordinate })}
             >
-              <BiCaretDown />
+              <FaArrowDown />
             </Button>
-          ) : (
-            <div />
-          )}
-        </Fragment>
-      ))}
+          </div>
+        )
+      })}
     </aside>
   )
 }

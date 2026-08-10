@@ -4,9 +4,7 @@ import { getDigimonDisplayName } from '@/Helpers/Systems/Profile'
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { Portrait } from '@/Components/DesignSystem/Portrait'
-import { Text } from '@/Components/DesignSystem/Text'
-import { PartnerBond } from '@/Components/Global/PartnerBond'
+import { CharacterHeader } from '@/Components/Digivice/Apps/CharacterHeader'
 import { PartyDigimonStats } from '@/Components/Global/PartyDigimonStats'
 
 import './CurrentParty.style.scss'
@@ -23,10 +21,7 @@ export const CurrentParty = () => {
     <div className="current-party">
       <div className="party-digimons">
         {profile.party.map((digimon) => {
-          const baseDigimon = getBaseDigimonFromParty(
-            digimon,
-            profile.partnerDigimons
-          )
+          const baseDigimon = getBaseDigimonFromParty(digimon)
 
           if (!baseDigimon) {
             return null
@@ -34,32 +29,17 @@ export const CurrentParty = () => {
 
           return (
             <div key={`profile-party-${digimon}`}>
-              <main>
-                <aside>
-                  <Portrait
-                    alt={baseDigimon.name}
-                    src={`/${baseDigimon.portrait}.webp`}
-                  />
-                </aside>
-
-                <main>
-                  <PartyDigimonStats digimonId={digimon} />
-
-                  <footer>
-                    <PartnerBond />
-                  </footer>
-                </main>
-              </main>
-
-              <footer>
-                <Text>
-                  {getDigimonDisplayName(
-                    digimon,
-                    profile.partnerDigimons,
+              <CharacterHeader
+                character={{
+                  ...baseDigimon,
+                  name: getDigimonDisplayName({
+                    digimonId: digimon,
                     baseDigimon
-                  )}
-                </Text>
-              </footer>
+                  })
+                }}
+              >
+                <PartyDigimonStats digimonId={digimon} />
+              </CharacterHeader>
             </div>
           )
         })}

@@ -6,11 +6,12 @@ import { isNpcAcquainted } from '@/Helpers/Systems/Profile'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
+import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { CharacterHeader } from '@/Components/Digivice/Apps/CharacterHeader'
 
 import './Dialog.style.scss'
 
-export const Dialog = ({ speaker, content, options }: DialogType) => {
+export const Dialog = ({ speaker, content, image, options }: DialogType) => {
   const { profile } = useProfileStore((state) => state)
 
   return (
@@ -28,6 +29,12 @@ export const Dialog = ({ speaker, content, options }: DialogType) => {
         />
       )}
 
+      {!!image && (
+        <aside className="dialog-image">
+          <Portrait {...image} />
+        </aside>
+      )}
+
       <main>{content}</main>
 
       {options?.length && (
@@ -38,7 +45,7 @@ export const Dialog = ({ speaker, content, options }: DialogType) => {
                 id={option.id}
                 onClick={option.action}
                 disabled={!!option.disabled}
-                style="secondary"
+                variant="secondary"
               >
                 {option.text}
               </Button>

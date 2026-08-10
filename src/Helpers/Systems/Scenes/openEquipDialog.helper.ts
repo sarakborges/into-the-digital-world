@@ -11,7 +11,7 @@ export const openEquipDialog = (equipmentSlot: number) => {
     return
   }
 
-  setScene({ component: Equipment001 })
+  setScene(Equipment001)
 
   setDigivice({
     ...digivice,

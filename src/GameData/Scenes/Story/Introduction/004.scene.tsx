@@ -41,7 +41,7 @@ export const Introduction004 = () => {
             }
           })
 
-          setScene({ component: Introduction005 })
+          setScene(Introduction005)
         }
       }
     ]

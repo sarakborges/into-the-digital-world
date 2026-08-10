@@ -77,7 +77,7 @@ export const Compose003 = () => {
         text: getTexts('SCENES_BACK_BUTTON'),
         action: () => {
           setComposition(null)
-          setScene({ component: Compose002 })
+          setScene(Compose002)
         }
       },
 

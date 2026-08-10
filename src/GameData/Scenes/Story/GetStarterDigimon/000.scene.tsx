@@ -17,7 +17,7 @@ export const GetStarterDigimon000 = () => {
   const { setScene } = useSceneStore((state) => state)
 
   const triggerGetStarterDigimon = () => {
-    setScene({ component: GetStarterDigimon001 })
+    setScene(GetStarterDigimon001)
   }
 
   const dialogOptions: DialogType = {

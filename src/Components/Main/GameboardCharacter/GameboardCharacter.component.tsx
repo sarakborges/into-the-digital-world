@@ -7,10 +7,12 @@ import {
 } from '@/Helpers/Systems/Profile'
 
 import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
 import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
+import { Gamepad } from '@/Components/Main/Gamepad'
 
 import './GameboardCharacter.style.scss'
 
@@ -22,6 +24,7 @@ export const GameboardCharacter = ({
   isPlayer?: boolean
 }) => {
   const { profile } = useProfileStore((state) => state)
+  const { scene } = useSceneStore((state) => state)
 
   if (!profile) {
     return
@@ -51,7 +54,7 @@ export const GameboardCharacter = ({
         <>
           <PlayerAvatar />
 
-          {profile.name && <Text>{profile.name}</Text>}
+          {!scene && <Gamepad />}
         </>
       )}
 

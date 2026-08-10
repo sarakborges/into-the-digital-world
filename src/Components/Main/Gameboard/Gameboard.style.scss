@@ -10,7 +10,6 @@
   width: 100%;
   overflow: hidden;
 
-  background-color: var(--color-neutral-strong);
   transition:
     opacity 0.3s,
     max-height 0.3s;
@@ -23,8 +22,7 @@
     width: 100%;
     aspect-ratio: 1;
 
-    background-color: var(--color-neutral-strong);
-    box-shadow: 0 0 8px var(--color-neutral-strong);
+    background-color: #00030e;
 
     .gameboard-bg {
       position: absolute;

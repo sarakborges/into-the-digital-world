@@ -27,7 +27,7 @@ export const BattleStart = () => {
         id: 'scene-battle-battlestart-confirm',
         text: getTexts('SCENES_CONFIRM_BUTTON'),
         action: () => {
-          setScene({ component: BattleTurn })
+          setScene(BattleTurn)
         }
       }
     ]

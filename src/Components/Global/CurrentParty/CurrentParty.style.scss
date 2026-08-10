@@ -1,61 +1,22 @@
 .current-party {
-  max-height: calc(100cqw - 16px - 40px);
+  max-height: calc(100cqh - 16px - 40px);
+  padding: 8px;
   overflow: auto;
 
   .party-digimons {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    display: flex;
+    flex-flow: column;
+    gap: 4px;
 
-    > div {
-      position: relative;
-
-      display: flex;
-      flex-flow: column;
-
-      > main {
-        display: flex;
-        place-items: flex-end;
-
-        .portrait {
-          width: 64px;
-          aspect-ratio: auto;
-
-          img {
-            width: 64px;
-
-            border: 3px solid var(--color-primary-strong);
-            border-right-color: transparent;
-            border-radius: 12px 0 0 0;
-          }
-        }
-
-        > main {
-          display: flex;
-          flex-flow: column;
-          gap: 8px;
-
-          flex: 1;
-          padding: 4px;
-          margin-left: -3px;
-
-          border: 3px solid var(--color-primary-strong);
-          background-color: var(--color-primary);
-          border-radius: 12px 12px 12px 0;
-        }
+    .character-header {
+      .character-info {
+        flex-direction: column-reverse;
       }
 
-      > footer {
-        display: flex;
-
-        .text {
-          padding: 1px 6px 4px;
-
-          background-color: var(--color-primary-strong);
-          border-radius: 0 0 8px 8px;
-
-          font-weight: 500;
-        }
+      .portrait {
+        padding: 4px;
+        background-color: var(--color-primary-strong);
+        border-radius: 12px 0 12px 12px;
       }
     }
   }

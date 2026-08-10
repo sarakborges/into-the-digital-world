@@ -9,7 +9,7 @@ export const DeleteGame = ({ profileId }: { profileId: number }) => {
   }
 
   return (
-    <Button onClick={() => openDeleteGameDialog(profileId)} style="cancel">
+    <Button onClick={() => openDeleteGameDialog(profileId)} variant="cancel">
       {getTexts('DELETE_GAME_FILE')}
     </Button>
   )

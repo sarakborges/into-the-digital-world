@@ -27,7 +27,7 @@ export const Compose001 = () => {
         id: 'scene-compose-001-continue',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setScene({ component: Compose002 })
+          setScene(Compose002)
         }
       }
     ]

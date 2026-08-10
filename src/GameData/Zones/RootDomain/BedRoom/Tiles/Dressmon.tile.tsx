@@ -8,7 +8,7 @@ export const RootDomainBedRoomDressmonRoomTile: MapTileType = {
   x: 12,
   y: 3,
 
-  scene: { component: AvatarCustomization001, enablesMovement: true },
+  scene: AvatarCustomization001,
 
   npc: {
     ...NpcDressmon,

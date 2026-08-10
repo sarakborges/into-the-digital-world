@@ -32,13 +32,13 @@ export const AvatarCustomization001 = () => {
 
   const triggerCustomization = () => {
     if (!!doneQuests.includes(AvatarFixingQuest.id)) {
-      setScene({ component: AvatarCustomization003 })
+      setScene(AvatarCustomization003)
 
       return
     }
 
     if (!doneQuests.includes(AvatarFixingQuest.id)) {
-      setScene({ component: AvatarCustomization000 })
+      setScene(AvatarCustomization000)
 
       return
     }

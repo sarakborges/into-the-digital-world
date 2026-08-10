@@ -13,10 +13,7 @@ export const RootDomainCoreChamberNanomonTile: MapTileType = {
   x: 6,
   y: 7,
 
-  scene: {
-    component: Research001,
-    enablesMovement: true
-  },
+  scene: Research001,
 
   npc: {
     ...NpcNanomon,

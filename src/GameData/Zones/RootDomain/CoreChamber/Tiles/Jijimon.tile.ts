@@ -18,10 +18,7 @@ export const RootDomainCoreChamberJijimonTile: MapTileType = {
     isVisible: true
   },
 
-  scene: {
-    component: Compose001,
-    enablesMovement: true
-  },
+  scene: Compose001,
 
   condition: () => {
     const { profile } = useProfileStore.getState()

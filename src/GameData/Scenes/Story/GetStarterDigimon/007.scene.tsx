@@ -27,7 +27,7 @@ export const GetStarterDigimon007 = () => {
         id: 'scene-getstarterdigimon-007-continue',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setScene({ component: GetStarterDigimon008 })
+          setScene(GetStarterDigimon008)
         }
       }
     ]

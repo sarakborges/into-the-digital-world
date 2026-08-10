@@ -44,7 +44,7 @@ export const Compose000 = () => {
 
           saveSession(updatedProfile)
 
-          setScene({ component: Compose001 })
+          setScene(Compose001)
         }
       }
     ]

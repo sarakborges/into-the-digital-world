@@ -27,7 +27,7 @@ export const Research001 = () => {
         id: 'scene-research-001-continue',
         text: getTexts('SCENES_CONTINUE_BUTTON'),
         action: () => {
-          setScene({ component: Research002 })
+          setScene(Research002)
         }
       }
     ]

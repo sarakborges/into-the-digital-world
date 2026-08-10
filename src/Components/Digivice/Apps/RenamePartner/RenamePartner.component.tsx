@@ -12,9 +12,9 @@ export const RenamePartner = () => {
   return (
     <Button
       disabled={!!scene}
-      style="secondary"
+      variant="secondary"
       onClick={() => {
-        setScene({ component: RenamePartner001 })
+        setScene(RenamePartner001)
       }}
     >
       <BiPencil />

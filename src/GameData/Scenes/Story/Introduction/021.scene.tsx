@@ -31,7 +31,7 @@ export const Introduction021 = () => {
         action: () => {
           setDigivice({ ...digivice, isOpen: false, currentApp: undefined })
 
-          setScene({ component: Introduction022 })
+          setScene(Introduction022)
         }
       }
     ].filter((option) => !!option)

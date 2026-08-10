@@ -34,11 +34,31 @@
     border-radius: 0 12px 12px 12px;
   }
 
+  .dialog-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    height: 100vh;
+    aspect-ratio: 1;
+    padding: 24px;
+    overflow: hidden;
+
+    .portrait {
+      overflow: hidden;
+
+      border-radius: 32px;
+      border: 2px solid var(--color-secondary-strong);
+      background-color: var(--color-neutral-weak);
+    }
+  }
+
   > main {
     position: relative;
     z-index: 2;
 
     display: flex;
+    flex-flow: column;
     gap: 4px;
 
     margin-top: 40px;

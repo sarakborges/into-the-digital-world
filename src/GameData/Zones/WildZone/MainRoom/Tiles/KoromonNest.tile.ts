@@ -7,8 +7,5 @@ export const WildZoneKoromonNestTile: MapTileType = {
   x: 12,
   y: 11,
 
-  scene: {
-    component: DungeonTriggerWildZoneKoromonNest,
-    enablesMovement: true
-  }
+  scene: DungeonTriggerWildZoneKoromonNest
 }
