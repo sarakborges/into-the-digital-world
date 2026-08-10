@@ -55,7 +55,7 @@ export const GetStarterDigimon004 = () => {
                       value: reaction.value
                     },
 
-                    nextScene: { component: GetStarterDigimon005 }
+                    nextScene: GetStarterDigimon005
                   })
                 }
               >
