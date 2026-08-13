@@ -1,7 +1,6 @@
 import { AppAcquaintances } from '@/Components/Digivice/Apps/AppAcquaintances/List'
 import { AppInventory } from '@/Components/Digivice/Apps/AppInventory'
 import { AppLocation } from '@/Components/Digivice/Apps/AppLocation'
-import { AppMap } from '@/Components/Digivice/Apps/AppMap'
 import { AppPartnersList } from '@/Components/Digivice/Apps/AppPartners/List'
 import { AppQuestsLog } from '@/Components/Digivice/Apps/AppQuestsLog'
 import { AppResearchesList } from '@/Components/Digivice/Apps/AppResearchesList'
@@ -50,12 +49,6 @@ export const APP_LOCATION = {
   component: <AppLocation />
 }
 
-export const APP_MAP = {
-  id: 'map',
-  app: 'map',
-  component: <AppMap />
-}
-
 export const APP_JOURNAL = {
   id: 'journal',
   app: 'journal',
@@ -66,7 +59,6 @@ export const AllApps = {
   inventory: APP_INVENTORY,
   location: APP_LOCATION,
   journal: APP_JOURNAL,
-  map: APP_MAP,
   acquaintances: APP_ACQUAINTANCES,
   researchesList: APP_RESEARCHESLIST,
   partnersList: APP_PARTNERSLIST,
