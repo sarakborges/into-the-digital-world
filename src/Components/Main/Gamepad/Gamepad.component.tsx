@@ -1,6 +1,6 @@
-import { AiOutlineExclamation } from 'react-icons/ai'
-import { FaArrowDown } from 'react-icons/fa'
+import { FaExclamation } from 'react-icons/fa6'
 import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
+import { MdMyLocation } from 'react-icons/md'
 
 import {
   canMoveToCoordinate,
@@ -61,7 +61,6 @@ export const Gamepad = () => {
 
             <Button
               className="event-interaction-button"
-              variant="secondary"
               onClick={() => setScene(interaction?.scene || null)}
               data-isvisible={
                 !!interaction?.scene &&
@@ -69,7 +68,7 @@ export const Gamepad = () => {
                 !interaction?.npc?.isVisible
               }
             >
-              <AiOutlineExclamation />
+              <FaExclamation />
             </Button>
 
             <Button
@@ -82,7 +81,7 @@ export const Gamepad = () => {
               }
               onClick={() => setLocation({ ...coordinate })}
             >
-              <FaArrowDown />
+              <MdMyLocation />
             </Button>
           </div>
         )

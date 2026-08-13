@@ -41,18 +41,20 @@ export const Game = () => {
           <SettingsContainer />
         </header>
 
-        <main>
-          <StartScreen />
-
-          <Gameboard />
-          <Dungeon />
-          <Battlefield />
-        </main>
+        <StartScreen />
 
         {!!profile && (
-          <aside>
-            <QuestsLogMinimal />
-          </aside>
+          <>
+            <main className="game-container">
+              <Gameboard />
+              <Dungeon />
+              <Battlefield />
+            </main>
+
+            <aside>
+              <QuestsLogMinimal />
+            </aside>
+          </>
         )}
 
         <Scene />

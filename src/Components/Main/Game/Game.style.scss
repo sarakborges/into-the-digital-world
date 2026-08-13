@@ -18,8 +18,7 @@
 }
 
 .main-game {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  display: flex;
 
   width: 100%;
   min-height: 100dvh;
@@ -65,12 +64,12 @@
     }
   }
 
-  > main {
+  > .game-container {
     display: flex;
     flex-flow: column;
     place-items: center;
 
-    width: 100%;
+    width: 100dvh;
     background-color: #00030e;
   }
 
@@ -79,6 +78,9 @@
     flex-flow: column;
     gap: 32px;
 
+    max-height: 100dvh;
     padding: 40px 12px 12px;
+    flex: 1;
+    overflow: auto;
   }
 }

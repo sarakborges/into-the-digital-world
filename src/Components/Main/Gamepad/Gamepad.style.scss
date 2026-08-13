@@ -24,16 +24,18 @@
       aspect-ratio: 1/1;
       overflow: hidden;
 
-      border: 2px solid var(--color-primary-strong);
-      border-radius: 100%;
       transition:
-        background-color 0.3s,
         opacity 0.3s,
-        visibility 0.3s;
+        visibility 0.3s,
+        background-color 0.3s;
 
       svg {
-        width: 12px;
-        height: 12px;
+        width: 24px;
+        height: 24px;
+
+        filter: drop-shadow(0 0 2px var(--color-neutral-strong))
+          drop-shadow(0 0 2px var(--color-neutral-strong))
+          drop-shadow(0 0 2px var(--color-neutral-strong));
       }
 
       &[data-isvisible='false'] {
@@ -51,14 +53,16 @@
       z-index: 2;
 
       position: absolute;
-      top: -8px;
-      left: -20px;
+      top: -10px;
+      left: -24px;
 
       height: 24px;
 
       svg {
         width: 16px;
         height: 16px;
+
+        filter: none;
       }
     }
 
@@ -69,54 +73,53 @@
       top: 10px;
       left: 10px;
 
-      height: calc(var(--tile-size) - 20px);
+      color: var(--color-secondary);
 
-      svg {
-        width: 16px;
-        height: 16px;
+      background-color: var(--color-primary-weak);
+      box-shadow: 0 0 4px var(--color-neutral-strong);
+    }
+
+    .move-character-button {
+      color: var(--color-primary-weak);
+
+      background-color: transparent;
+
+      &:hover {
+        background-color: transparent;
       }
+
+      &:disabled {
+        color: var(--color-neutral);
+      }
+    }
+
+    .event-interaction-button[data-isvisible='true'] + .move-character-button {
+      opacity: 0;
+      visibility: hidden;
     }
 
     &:nth-child(1) {
-      .move-character-button {
-        transform: rotate(135deg);
-      }
     }
 
     &:nth-child(2) {
-      .move-character-button {
-        transform: rotate(180deg);
-      }
     }
 
     &:nth-child(3) {
-      .move-character-button {
-        transform: rotate(-135deg);
-      }
     }
 
     &:nth-child(4) {
-      .move-character-button {
-        transform: rotate(90deg);
-      }
     }
 
     &:nth-child(6) {
-      .move-character-button {
-        transform: rotate(-90deg);
-      }
     }
 
     &:nth-child(7) {
-      .move-character-button {
-        transform: rotate(45deg);
-      }
+    }
+
+    &:nth-child(8) {
     }
 
     &:nth-child(9) {
-      .move-character-button {
-        transform: rotate(-45deg);
-      }
     }
   }
 }
