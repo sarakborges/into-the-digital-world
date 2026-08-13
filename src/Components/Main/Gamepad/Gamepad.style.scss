@@ -66,8 +66,13 @@
 
       height: calc(var(--tile-size) - 10px);
 
-      color: var(--color-neutral-weak);
+      color: color-mix(in srgb, var(--color-neutral-weak) 70%, transparent);
 
+      background-color: color-mix(
+        in srgb,
+        var(--color-secondary-strong) 70%,
+        transparent
+      );
       box-shadow: 0 0 4px var(--color-neutral-strong);
 
       svg {
@@ -85,7 +90,7 @@
 
       background-color: color-mix(
         in srgb,
-        var(--color-primary) 40%,
+        var(--color-primary-strong) 40%,
         transparent
       );
 
