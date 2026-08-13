@@ -29,15 +29,6 @@
         visibility 0.3s,
         background-color 0.3s;
 
-      svg {
-        width: 24px;
-        height: 24px;
-
-        filter: drop-shadow(0 0 2px var(--color-neutral-strong))
-          drop-shadow(0 0 2px var(--color-neutral-strong))
-          drop-shadow(0 0 2px var(--color-neutral-strong));
-      }
-
       &[data-isvisible='false'] {
         opacity: 0;
         visibility: hidden;
@@ -70,56 +61,48 @@
       z-index: 2;
 
       position: absolute;
-      top: 10px;
-      left: 10px;
+      top: 5px;
+      left: 5px;
 
-      color: var(--color-secondary);
+      height: calc(var(--tile-size) - 10px);
 
-      background-color: var(--color-primary-weak);
+      color: var(--color-neutral-weak);
+
       box-shadow: 0 0 4px var(--color-neutral-strong);
+
+      svg {
+        width: 24px;
+        height: 24px;
+
+        filter: drop-shadow(0 0 2px var(--color-neutral-strong));
+      }
     }
 
     .move-character-button {
-      color: var(--color-primary-weak);
+      height: calc(var(--tile-size) - 10px);
 
-      background-color: transparent;
+      color: color-mix(in srgb, var(--color-neutral-weak) 70%, transparent);
 
-      &:hover {
-        background-color: transparent;
+      background-color: color-mix(
+        in srgb,
+        var(--color-primary) 40%,
+        transparent
+      );
+
+      svg {
+        width: 16px;
+        height: 16px;
       }
 
       &:disabled {
-        color: var(--color-neutral);
+        opacity: 0;
+        visibility: hidden;
       }
     }
 
     .event-interaction-button[data-isvisible='true'] + .move-character-button {
       opacity: 0;
       visibility: hidden;
-    }
-
-    &:nth-child(1) {
-    }
-
-    &:nth-child(2) {
-    }
-
-    &:nth-child(3) {
-    }
-
-    &:nth-child(4) {
-    }
-
-    &:nth-child(6) {
-    }
-
-    &:nth-child(7) {
-    }
-
-    &:nth-child(8) {
-    }
-
-    &:nth-child(9) {
     }
   }
 }

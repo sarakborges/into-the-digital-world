@@ -61,6 +61,7 @@ export const Gamepad = () => {
 
             <Button
               className="event-interaction-button"
+              variant="secondary"
               onClick={() => setScene(interaction?.scene || null)}
               data-isvisible={
                 !!interaction?.scene &&
