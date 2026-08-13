@@ -20,14 +20,15 @@
 
     .button {
       height: calc(var(--tile-size) - 20px);
-      padding: 2px;
+      padding: 0;
       aspect-ratio: 1/1;
       overflow: hidden;
 
       transition:
         opacity 0.3s,
         visibility 0.3s,
-        background-color 0.3s;
+        background-color 0.3s,
+        color 0.3s;
 
       &[data-isvisible='false'] {
         opacity: 0;
@@ -68,40 +69,72 @@
 
       color: color-mix(in srgb, var(--color-neutral-weak) 70%, transparent);
 
-      background-color: color-mix(
-        in srgb,
-        var(--color-secondary-strong) 70%,
-        transparent
-      );
-      box-shadow: 0 0 4px var(--color-neutral-strong);
+      background-color: transparent;
 
       svg {
         width: 24px;
         height: 24px;
 
-        filter: drop-shadow(0 0 2px var(--color-neutral-strong));
+        filter: drop-shadow(0 0 2px var(--color-neutral-strong))
+          drop-shadow(0 0 2px var(--color-neutral-strong))
+          drop-shadow(0 0 2px var(--color-neutral-strong));
+
+        &:first-child {
+          position: absolute;
+          left: 0;
+          top: 0;
+
+          width: calc(var(--tile-size) - 10px);
+          height: calc(var(--tile-size) - 10px);
+
+          color: color-mix(
+            in srgb,
+            var(--color-secondary-strong) 70%,
+            transparent
+          );
+        }
+      }
+
+      &:not(:disabled):hover {
+        background-color: transparent;
+
+        color: color-mix(
+          in srgb,
+          var(--color-secondary-strong) 100%,
+          transparent
+        );
       }
     }
 
     .move-character-button {
       height: calc(var(--tile-size) - 10px);
 
-      color: color-mix(in srgb, var(--color-neutral-weak) 70%, transparent);
+      color: color-mix(in srgb, var(--color-primary-strong) 70%, transparent);
 
-      background-color: color-mix(
-        in srgb,
-        var(--color-primary-strong) 40%,
-        transparent
-      );
+      background-color: transparent;
 
       svg {
-        width: 16px;
-        height: 16px;
+        width: calc(var(--tile-size) - 10px);
+        height: calc(var(--tile-size) - 10px);
+
+        filter: drop-shadow(0 0 2px var(--color-neutral-strong))
+          drop-shadow(0 0 2px var(--color-neutral-strong))
+          drop-shadow(0 0 2px var(--color-neutral-strong));
       }
 
       &:disabled {
         opacity: 0;
         visibility: hidden;
+      }
+
+      &:not(:disabled):hover {
+        background-color: transparent;
+
+        color: color-mix(
+          in srgb,
+          var(--color-primary-strong) 100%,
+          transparent
+        );
       }
     }
 

@@ -1,6 +1,6 @@
 import { FaExclamation } from 'react-icons/fa6'
 import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2'
-import { MdMyLocation } from 'react-icons/md'
+import { PiCornersOutLight } from 'react-icons/pi'
 
 import {
   canMoveToCoordinate,
@@ -69,6 +69,7 @@ export const Gamepad = () => {
                 !interaction?.npc?.isVisible
               }
             >
+              <PiCornersOutLight />
               <FaExclamation />
             </Button>
 
@@ -82,7 +83,7 @@ export const Gamepad = () => {
               }
               onClick={() => setLocation({ ...coordinate })}
             >
-              <MdMyLocation />
+              <PiCornersOutLight />
             </Button>
           </div>
         )
