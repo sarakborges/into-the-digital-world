@@ -317,6 +317,7 @@ export const GETSTARTERDIGIMON_019_TEXT = `Young [NAME], we're counting on you!\
 export const ITDW_001 = `You wake up.\nAs you open your eyes, you notice something odd.\n\nThis is not where you last fell asleep.`
 export const ITDW_002 = `While you are still confused, you hear footsteps.\nSomeone - or something - is approaching.\n\nThe door slowly opens up.`
 export const ITDW_003 = `It is true, then! I could not believe when I was told.\n\nA human child!\nAt last, it seems this world is set to be balanced once more.`
+export const ITDW_004 = `How rude of me. You can call me Gennai. You can consider me your guide, on this journey.`
 
 // ------------------------------------------------------------------------
 // INTRODUCTION (Scene)

@@ -12,9 +12,7 @@
   height: 100%;
   padding: 8px 12px;
 
-  transition: opacity 0.3s;
-
-  &.refresh-dialog {
+  .refresh-dialog {
     opacity: 0;
   }
 
@@ -32,8 +30,10 @@
     height: 100%;
     padding: 16px 0;
 
+    transition: opacity 0.3s;
+
     .portrait {
-      max-height: 300px;
+      max-height: 200px;
 
       img {
         max-height: 100%;
@@ -50,6 +50,8 @@
     display: flex;
     flex-flow: column;
     gap: 8px;
+
+    transition: opacity 0.3s;
 
     > header {
       display: flex;
@@ -100,6 +102,8 @@
 
     display: flex;
     place-content: flex-end;
+
+    transition: opacity 0.3s;
 
     .button {
       padding: 4px 8px;

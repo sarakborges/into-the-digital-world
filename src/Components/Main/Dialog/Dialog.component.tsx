@@ -14,21 +14,28 @@ export const Dialog = () => {
   const { dialog } = useDialogStore((state) => state)
 
   const [dialogContent, setDialogContent] = useState<
-    Partial<DialogType> & { isRefreshing: boolean }
+    Partial<DialogType> & {
+      isTextRefreshing: boolean
+      isPictureRefreshing: boolean
+    }
   >({
-    isRefreshing: false
+    isTextRefreshing: false,
+    isPictureRefreshing: false
   })
 
   useEffect(() => {
     setDialogContent({
       ...dialogContent,
-      isRefreshing: true
+      isTextRefreshing: dialog?.text !== dialogContent.text,
+      isPictureRefreshing:
+        dialog?.speaker?.picture !== dialogContent.speaker?.picture
     })
 
     setTimeout(() => {
       setDialogContent({
         ...dialog,
-        isRefreshing: false
+        isTextRefreshing: false,
+        isPictureRefreshing: false
       })
     }, 600)
   }, [dialog])
@@ -38,10 +45,10 @@ export const Dialog = () => {
   }
 
   return (
-    <div
-      className={`dialog${!!dialogContent.isRefreshing ? ' refresh-dialog' : ''}`}
-    >
-      <div className="dialog-speaker">
+    <div className="dialog">
+      <div
+        className={`dialog-speaker${!!dialogContent.isPictureRefreshing ? ' refresh-dialog' : ''}`}
+      >
         {!!dialogContent?.speaker && (
           <>
             <Portrait
@@ -52,7 +59,9 @@ export const Dialog = () => {
         )}
       </div>
 
-      <div className="dialog-text">
+      <div
+        className={`dialog-text${!!dialogContent.isTextRefreshing ? ' refresh-dialog' : ''}`}
+      >
         {!!dialogContent?.speaker && (
           <header>
             <Text>{dialogContent?.speaker.name}</Text>
@@ -68,7 +77,9 @@ export const Dialog = () => {
         </div>
       </div>
 
-      <div className="dialog-buttons">
+      <div
+        className={`dialog-buttons${!!dialogContent.isTextRefreshing ? ' refresh-dialog' : ''}`}
+      >
         {dialogContent.actions?.map((dialogAction) => {
           const { id, text, ...otherProps } = dialogAction
 
