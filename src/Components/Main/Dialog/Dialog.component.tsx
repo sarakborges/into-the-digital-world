@@ -62,7 +62,7 @@ export const Dialog = () => {
       <div
         className={`dialog-text${!!dialogContent.isTextRefreshing ? ' refresh-dialog' : ''}`}
       >
-        {!!dialogContent?.speaker?.portrait && (
+        {!!dialogContent?.speaker && (
           <header>
             {!!dialogContent.speaker.portrait && (
               <Portrait
