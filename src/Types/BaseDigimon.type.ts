@@ -2,7 +2,7 @@ export type BaseDigimonType = {
   id: string
   name: string
   description: string
-  fullImage: string
+  picture: string
   picture: string
   equipmentsSlots?: number
 

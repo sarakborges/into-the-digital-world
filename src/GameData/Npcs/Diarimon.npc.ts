@@ -4,7 +4,7 @@ export const NpcDiarimon: NpcType = {
   id: 'diarimon',
   name: 'Diarimon',
   description: ``,
-  picture: 'npc_portraits/diarimon',
-  fullImage: 'npcs/diarimon',
+  portrait: 'npc_portraits/diarimon',
+  picture: 'npcs/diarimon',
   category: 'appmon'
 }

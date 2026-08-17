@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 
 import type { DialogType } from '@/Types/Dialog.type'
 
+import { getTexts } from '@/Helpers/Language'
+
 import { useDialogStore } from '@/Stores/Dialog.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
@@ -49,26 +51,33 @@ export const Dialog = () => {
       <div
         className={`dialog-speaker${!!dialogContent.isPictureRefreshing ? ' refresh-dialog' : ''}`}
       >
-        {!!dialogContent?.speaker && (
-          <>
-            <Portrait
-              src={`/${dialogContent.speaker.picture}.webp`}
-              alt={dialogContent.speaker.name || ''}
-            />
-          </>
+        {!!dialogContent?.speaker?.picture && (
+          <Portrait
+            src={`/${dialogContent.speaker.picture}.webp`}
+            alt={dialogContent.speaker.name || ''}
+          />
         )}
       </div>
 
       <div
         className={`dialog-text${!!dialogContent.isTextRefreshing ? ' refresh-dialog' : ''}`}
       >
-        {!!dialogContent?.speaker && (
+        {!!dialogContent?.speaker?.portrait && (
           <header>
-            <Text>{dialogContent?.speaker.name}</Text>
-
-            {!!dialogContent?.speaker.title && (
-              <Text>{dialogContent?.speaker.title}</Text>
+            {!!dialogContent.speaker.portrait && (
+              <Portrait
+                src={`/${dialogContent.speaker.portrait}.webp`}
+                alt={dialogContent.speaker.name || ''}
+              />
             )}
+
+            <main>
+              <Text>{dialogContent?.speaker.name}</Text>
+
+              {!!dialogContent?.speaker.title && (
+                <Text>{getTexts(dialogContent?.speaker.title)}</Text>
+              )}
+            </main>
           </header>
         )}
 

@@ -4,7 +4,7 @@ export const NpcDorimon: NpcType = {
   id: 'dorimon',
   name: 'Dorimon',
   description: ``,
-  picture: 'digimon_portraits/dorimon',
-  fullImage: 'digimons/dorimon',
+  portrait: 'digimon_portraits/dorimon',
+  picture: 'digimons/dorimon',
   category: 'digimon'
 }

@@ -8,6 +8,6 @@ export const NpcGennai: NpcType = {
 \nCapable of assuming different forms and identities, Gennai moves through systems, digital ruins, and streams of information like a living echo of the Digital World’s intelligence itself. His presence often precedes major imbalances, evolutionary shifts, or events capable of altering the structure of that plane.
 \nThough he rarely intervenes directly, he guides chosen individuals, preserves ancient knowledge, and monitors threats capable of corrupting the order of data. Some see him as a wise sage; others believe he is an ancient program left behind by a forgotten civilization. There are even theories suggesting that Gennai is not a single being, but a distributed consciousness fragmented across multiple bodies and avatars.`,
   picture: 'npcs/gennai',
-  fullImage: 'npcs/gennai',
+  portrait: 'npc_portraits/gennai',
   category: 'general'
 }

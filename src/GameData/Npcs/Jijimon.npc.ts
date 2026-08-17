@@ -5,6 +5,6 @@ export const NpcJijimon: NpcType = {
   name: 'Jijimon',
   description: ``,
   picture: 'digimon_portraits/jijimon',
-  fullImage: 'digimons/jijimon',
+  picture: 'digimons/jijimon',
   category: 'digimon'
 }

@@ -11,7 +11,7 @@ export const IntoTheDigitalWorld003 = {
   speaker: {
     id: NpcGennai.id,
     name: '???',
-    picture: NpcGennai.fullImage
+    picture: NpcGennai.picture
   },
 
   text: getTexts('ITDW_003'),

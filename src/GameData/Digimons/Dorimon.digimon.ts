@@ -9,7 +9,7 @@ export const DigimonDorimon: BaseDigimonType = {
   id: 'dorimon',
   name: 'Dorimon',
   picture: 'digimon_portraits/dorimon',
-  fullImage: 'digimons/dorimon',
+  picture: 'digimons/dorimon',
   attribute: DIGIMON_ATTRIBUTES.na.id,
   equipmentsSlots: 1,
 

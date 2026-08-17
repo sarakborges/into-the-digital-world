@@ -5,7 +5,7 @@ export const NpcDressmon: NpcType = {
   name: 'Dressmon',
   title: `TITLES_DRESSMON`,
   description: ``,
-  picture: 'npc_portraits/dressmon',
-  fullImage: 'npcs/dressmon',
+  portrait: 'npc_portraits/dressmon',
+  picture: 'npcs/dressmon',
   category: 'appmon'
 }

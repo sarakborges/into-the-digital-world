@@ -1,14 +1,17 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
+import { IntoTheDigitalWorld005 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/005.dialog'
 import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 
 import { getTexts } from '@/Helpers/Language'
+
+import { useDialogStore } from '@/Stores/Dialog.store'
 
 export const IntoTheDigitalWorld004 = {
   speaker: {
     id: NpcGennai.id,
     name: '???',
-    picture: NpcGennai.fullImage
+    picture: NpcGennai.picture
   },
 
   text: getTexts('ITDW_004'),
@@ -19,7 +22,11 @@ export const IntoTheDigitalWorld004 = {
 
       text: getTexts('SCENES_CONTINUE_BUTTON'),
 
-      onClick: () => {}
+      onClick: () => {
+        const { setDialog } = useDialogStore.getState()
+
+        setDialog(IntoTheDigitalWorld005)
+      }
     }
   ]
 } satisfies DialogType

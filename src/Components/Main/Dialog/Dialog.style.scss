@@ -53,22 +53,36 @@
 
     transition: opacity 0.3s;
 
-    > header {
+    header {
       display: flex;
-      flex-flow: column;
+      place-items: flex-end;
       gap: 8px;
 
       padding: 0 48px;
 
-      .text {
-        text-shadow:
-          1px 1px 4px var(--color-neutral-strong),
-          1px 1px 4px var(--color-neutral-strong),
-          1px 1px 4px var(--color-neutral-strong);
+      .portrait {
+        max-width: 64px;
 
-        &:first-child {
-          font-size: 20px;
-          letter-spacing: 1px;
+        background-color: var(--color-neutral-weak);
+        border-radius: 8px;
+        box-shadow: 0 0 4px 1px var(--color-neutral-strong);
+      }
+
+      main {
+        display: flex;
+        flex-flow: column;
+        gap: 2px;
+
+        .text {
+          text-shadow:
+            1px 1px 4px var(--color-neutral-strong),
+            1px 1px 4px var(--color-neutral-strong),
+            1px 1px 4px var(--color-neutral-strong);
+
+          &:first-child {
+            font-size: 20px;
+            letter-spacing: 1px;
+          }
         }
       }
     }
