@@ -4,7 +4,7 @@ export const NpcNanomon: NpcType = {
   id: 'nanomon',
   name: 'Nanomon',
   description: ``,
-  portrait: 'digimon_portraits/nanomon',
+  picture: 'digimon_portraits/nanomon',
   fullImage: 'digimons/nanomon',
   category: 'digimon'
 }

@@ -8,7 +8,7 @@ import { useProfileStore } from '@/Stores/Profile.store'
 export const EquipmentDrAllItem: ItemType = {
   id: 'equipmentDrAll',
   name: `Dragon's Roar +1 ALL`,
-  portrait: 'families/dr',
+  picture: 'families/dr',
   category: 'equipment',
 
   equipConditions: () => {

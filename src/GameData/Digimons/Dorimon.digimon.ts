@@ -8,7 +8,7 @@ import { DIGIMON_FAMILIES } from '@/Consts/Families.const'
 export const DigimonDorimon: BaseDigimonType = {
   id: 'dorimon',
   name: 'Dorimon',
-  portrait: 'digimon_portraits/dorimon',
+  picture: 'digimon_portraits/dorimon',
   fullImage: 'digimons/dorimon',
   attribute: DIGIMON_ATTRIBUTES.na.id,
   equipmentsSlots: 1,

@@ -4,7 +4,7 @@ export const NpcMirrormon: NpcType = {
   id: 'mirrormon',
   name: 'Mirrormon',
   description: ``,
-  portrait: 'npc_portraits/mirrormon',
+  picture: 'npc_portraits/mirrormon',
   fullImage: 'npcs/mirrormon',
   category: 'appmon'
 }

@@ -3,7 +3,7 @@ export type AcquaintanceGroupType = {
   npcs: Array<{
     id: string
     name: string
-    portrait: string
+    picture: string
     npcId: string
   }>
 }

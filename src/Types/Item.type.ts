@@ -1,7 +1,7 @@
 export type ItemType = {
   id: string
   name: string
-  portrait: string
+  picture: string
   category: 'keyItem' | 'equipment' | 'general' | 'core'
 
   equipConditions?: () => boolean

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 
-import type { CharacterType } from '@/Types/Character.type'
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { useDialogStore } from '@/Stores/Dialog.store'
