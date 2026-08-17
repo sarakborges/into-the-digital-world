@@ -1,5 +1,3 @@
-import { SaveGame002 } from '@/GameData/Scenes/Apps/SaveGame/002.scene'
-
 import { loadData, saveData, saveSession } from '@/Helpers/Systems/Data'
 
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -10,14 +8,14 @@ export const saveProfile = (profileId?: number) => {
   try {
     const { profile } = useProfileStore.getState()
     const { savedProfiles } = useSavedProfilesStore.getState()
-    const { setScene } = useSceneStore.getState()
+    const { setCurrentScene } = useSceneStore.getState()
 
     if (!profile) {
       return
     }
 
     const sortedProfiles = [...(savedProfiles || [])].sort(
-      (a, b) => b.id - a.id
+      (a, b) => (b?.id || 0) - (a?.id || 0)
     )
 
     const newId = (sortedProfiles?.[0]?.id ?? 0) + 1
@@ -49,7 +47,7 @@ export const saveProfile = (profileId?: number) => {
       value: updatedProfiles
     })
 
-    setScene(SaveGame002)
+    setCurrentScene(null)
   } catch (e) {
     console.warn(e)
   }

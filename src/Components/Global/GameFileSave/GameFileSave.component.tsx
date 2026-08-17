@@ -1,7 +1,5 @@
 import type { ProfileType } from '@/Types/Profile.type'
 
-import { AllZones } from '@/GameData/Zones'
-
 import { getTexts } from '@/Helpers/Language'
 import { saveProfile } from '@/Helpers/Systems/Profile'
 
@@ -12,16 +10,6 @@ import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 import './GameFileSave.style.scss'
 
 export const GameFileSave = ({ profile }: { profile: ProfileType }) => {
-  if (!profile.currentZone) {
-    return
-  }
-
-  const zone = AllZones[profile.currentZone.id]
-
-  if (!zone) {
-    return
-  }
-
   return (
     <div className="game-file-save">
       <PlayerAvatar replaceAvatar={profile.avatar} />
@@ -29,14 +17,8 @@ export const GameFileSave = ({ profile }: { profile: ProfileType }) => {
       <header>
         <Text as="p">
           {getTexts('GAME_FILE_TITLE', {
-            '[NAME]': profile.name,
+            '[NAME]': profile.name || '',
             '[ID]': String(profile.id)
-          })}
-        </Text>
-
-        <Text as="p">
-          {getTexts('GAME_FILE_ZONE', {
-            '[ZONE]': zone.name
           })}
         </Text>
 

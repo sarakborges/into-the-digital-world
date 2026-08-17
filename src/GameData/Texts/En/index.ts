@@ -12,8 +12,9 @@ export const SCENES_GIVEUP_BUTTON = `Leave dungeon`
 // START SCREEN
 // ========================================================================
 export const START_NEW_GAME = `Start new game`
-export const SAVED_GAMES = `Saved files`
-export const GAME_FILE_TITLE = `Id: [ID] - [NAME]`
+export const DISPLAY_SAVED_GAMES = `Load game`
+export const SAVED_GAMES = `Select file`
+export const GAME_FILE_TITLE = `#[ID] [NAME]`
 export const GAME_FILE_ZONE = `[ZONE]`
 export const GAME_FILE_TIME = `[TIME]`
 export const LOAD_GAME = `Load`
@@ -24,8 +25,7 @@ export const START_SCREEN_TITLE = `Welcome Into the\nDigital World!`
 // ========================================================================
 // SCREEN ORIENTATION WARNING
 // ========================================================================
-export const SCREEN_ORIENTATION_WARNING_TITLE = `Warning!`
-export const SCREEN_ORIENTATION_WARNING = `In order to better address your Into the Digital World experience, we must insist on you turning your device sideways. Otherwise, it would be impossible for us to deliver the design philosophy we envision.\n\nWe are terribly sorry for any inconvience.\n\nEnjoy your time Into the Digital World!`
+export const SCREEN_ORIENTATION_WARNING = `In order to better experience our game, we must insist on you turning your device into landscape mode. Otherwise, it would be impossible for us to deliver the design philosophy we envision.\n\nWe are terribly sorry for any inconvience.\n\nEnjoy your time Into the Digital World!`
 
 // ========================================================================
 // PROFILE / PLAYER
@@ -171,8 +171,7 @@ export const MY_RESEARCHES_DETAILS_OPTIONAL = `Other materials:`
 // SETTINGS / THEMES / LANGUAGE
 // ========================================================================
 export const SETTINGS_TITLE = `Settings`
-
-export const THEMES_TITLE = `themes`
+export const SETTINGS_LEAVE = `Leave settings`
 
 export const THEME_CATEGORIES_DEFAULT = `Default`
 export const THEME_DEFAULT = `Default`
@@ -204,6 +203,7 @@ export const THEME_WARNING = `Warning`
 export const THEME_HAZARD = `Hazard`
 
 export const LANGUAGES_TITLE = `Preferred language`
+export const THEMES_TITLE = `Preferred theme`
 export const LANGUAGE_EN = `English`
 
 // ========================================================================
@@ -310,6 +310,13 @@ export const GETSTARTERDIGIMON_017_TEXT = `I believe in you, [NAME]. I know we w
 export const GETSTARTERDIGIMON_018_TEXT = `Thanks... I guess.`
 
 export const GETSTARTERDIGIMON_019_TEXT = `Young [NAME], we're counting on you!\n\nWhen you're ready, talk to me again, and I shall teach you how to explore the Digital World.\n\nOh, I almost forgot. I have enabled new apps on your Digivice. Also, some friends of mine have arrived. Take your time to know them. I'm sure they're going to be helpful.`
+
+// ------------------------------------------------------------------------
+// INTO THE DIGITAL WORLD (Dialog)
+// ------------------------------------------------------------------------
+export const ITDW_001 = `You wake up.\nAs you open your eyes, you notice something odd.\n\nThis is not where you last fell asleep.`
+export const ITDW_002 = `While you are still confused, you hear footsteps.\nSomeone - or something - is approaching.\n\nThe door slowly opens up.`
+export const ITDW_003 = `It is true, then! I could not believe when I was told.\n\nA human child!\nAt last, it seems this world is set to be balanced once more.`
 
 // ------------------------------------------------------------------------
 // INTRODUCTION (Scene)

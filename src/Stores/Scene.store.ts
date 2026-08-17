@@ -1,14 +1,22 @@
 import { create } from 'zustand'
 
 type SceneStore = {
-  scene: React.FC | null
-  setScene: (scene: React.FC | null) => void
+  currentScene: React.FC | null
+  lastScene: React.FC | null
+
+  setCurrentScene: (scene: React.FC | null) => void
+  setLastScene: (scene: React.FC | null) => void
 }
 
 export const useSceneStore = create<SceneStore>((set) => ({
-  scene: null,
+  currentScene: null,
+  lastScene: null,
 
-  setScene: (scene) => {
-    set({ scene })
+  setCurrentScene: (scene) => {
+    set({ currentScene: scene })
+  },
+
+  setLastScene: (scene) => {
+    set({ lastScene: scene })
   }
 }))

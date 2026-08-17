@@ -1,11 +1,11 @@
 .theme-hope {
-  --color-primary: #dabd57;
-  --color-primary-strong: #c5a634;
-  --color-primary-weak: #d7c27a;
+  --color-primary: #d5cc94;
+  --color-primary-weak: #ddd5a8;
+  --color-primary-strong: #afa665;
 
-  --color-secondary: #63a1f2;
-  --color-secondary-strong: #3390c5;
-  --color-secondary-weak: #8eacc5;
+  --color-secondary: #77e3f6;
+  --color-secondary-weak: #58cde2;
+  --color-secondary-strong: #2d9fb5;
 
   --theme-image: url('/digivice_backgrounds/hope.webp');
 }

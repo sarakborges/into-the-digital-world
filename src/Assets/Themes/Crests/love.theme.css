@@ -1,11 +1,11 @@
 .theme-love {
-  --color-primary: #dd5239;
-  --color-primary-strong: #d82d17;
-  --color-primary-weak: #d36759;
+  --color-primary: #f94a20;
+  --color-primary-weak: #f86b47;
+  --color-primary-strong: #c92f0d;
 
-  --color-secondary: #b99f65;
-  --color-secondary-strong: #a08446;
-  --color-secondary-weak: #ccb78b;
+  --color-secondary: #f5d33d;
+  --color-secondary-weak: #f1c52b;
+  --color-secondary-strong: #c99e08;
 
   --theme-image: url('/digivice_backgrounds/love.webp');
 }

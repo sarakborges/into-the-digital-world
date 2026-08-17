@@ -1,5 +1,5 @@
 import { deleteSession } from '@/Helpers/Systems/Data'
-import { closeScene } from '@/Helpers/Systems/Scenes'
+import { changeScene } from '@/Helpers/Systems/Scenes'
 
 import { useBattleStore } from '@/Stores/Battle.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
@@ -13,7 +13,7 @@ export const logoff = () => {
   const { setDigivice } = useDigiviceStore.getState()
 
   setProfile(null)
-  closeScene()
+  changeScene(null)
   setBattle(null)
   setDungeon(null)
 

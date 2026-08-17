@@ -1,11 +1,9 @@
-import { DeleteGame001 } from '@/GameData/Scenes/Apps/DeleteGame/001.scene'
-
+import { useDialogStore } from '@/Stores/Dialog.store'
 import { useDigiviceStore } from '@/Stores/Digivice.store'
-import { useSceneStore } from '@/Stores/Scene.store'
 
 export const openDeleteGameDialog = (profileId: number) => {
   const { digivice, setDigivice } = useDigiviceStore.getState()
-  const { setScene } = useSceneStore.getState()
+  const { setDialog } = useDialogStore.getState()
 
   if (!digivice) {
     return
@@ -16,5 +14,5 @@ export const openDeleteGameDialog = (profileId: number) => {
     currentDetails: profileId
   })
 
-  setScene(DeleteGame001)
+  setDialog(null)
 }

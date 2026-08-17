@@ -1,11 +1,11 @@
 .theme-default {
-  --color-primary: #4a93d9;
-  --color-primary-strong: #2378cc;
-  --color-primary-weak: #8fbce8;
+  --color-primary: #a0c8e8;
+  --color-primary-weak: #b0d2ec;
+  --color-primary-strong: #6d9fc8;
 
-  --color-secondary: #d88a3d;
-  --color-secondary-strong: #c96d12;
-  --color-secondary-weak: #c99568;
+  --color-secondary: #4a4da6;
+  --color-secondary-weak: #6468b8;
+  --color-secondary-strong: #2c2e6f;
 
   --theme-image: url('/digivice_backgrounds/default.webp');
 }

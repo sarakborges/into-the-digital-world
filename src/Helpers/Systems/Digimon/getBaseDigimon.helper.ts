@@ -14,7 +14,7 @@ export const getBaseDigimon = (
     return undefined
   }
 
-  const partner = profile.partnerDigimons[digimonId] as
+  const partner = profile.partnerDigimons?.[digimonId] as
     PartnerDigimonType | undefined
 
   if (!partner) {

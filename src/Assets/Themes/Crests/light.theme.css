@@ -1,11 +1,11 @@
 .theme-light {
-  --color-primary: #c86ab1;
-  --color-primary-strong: #b94d9e;
-  --color-primary-weak: #d998c8;
+  --color-primary: #ef8eae;
+  --color-primary-weak: #f2a8be;
+  --color-primary-strong: #c9577b;
 
-  --color-secondary: #4bd6a1;
-  --color-secondary-strong: #43b580;
-  --color-secondary-weak: #7dd8ba;
+  --color-secondary: #f2dde5;
+  --color-secondary-weak: #d9b8c5;
+  --color-secondary-strong: #ad7b8e;
 
   --theme-image: url('/digivice_backgrounds/light.webp');
 }

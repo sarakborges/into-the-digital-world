@@ -1,3 +1,5 @@
 export type GameType = {
-  isWarping?: boolean
+  isTransitioning?: boolean
+  isShowingSavedGames?: boolean
+  hasGameStarted?: boolean
 }

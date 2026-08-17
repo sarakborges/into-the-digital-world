@@ -5,8 +5,8 @@ import { updateSettings } from '@/Helpers/Systems/Settings'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
+import { ShadowButton } from '@/Components/DesignSystem/ShadowButton'
 import { Text } from '@/Components/DesignSystem/Text'
 
 import './UpdateLanguage.style.scss'
@@ -26,7 +26,7 @@ export const UpdateLanguage = ({ language }: { language: string }) => {
 
   return (
     <div className="update-language">
-      <Button onClick={updateLanguage}>
+      <ShadowButton onClick={updateLanguage}>
         <div className={`language-flag`}>
           <Portrait alt={language} src={`/languages/${language}.webp`} />
         </div>
@@ -36,7 +36,7 @@ export const UpdateLanguage = ({ language }: { language: string }) => {
         </Text>
 
         {language === settings?.language && <FaCheck />}
-      </Button>
+      </ShadowButton>
     </div>
   )
 }

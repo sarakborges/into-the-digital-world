@@ -1,9 +1,11 @@
 .theme-nso {
-  --color-primary: #2a2535;
-  --color-primary-strong: #14101a;
-  --color-primary-weak: #3e3a41;
+  --color-primary: #45477f;
+  --color-primary-weak: #686ba5;
+  --color-primary-strong: #292a55;
 
-  --color-secondary: #4b22bb;
-  --color-secondary-strong: #351886;
-  --color-secondary-weak: #5f49c5;
+  --color-secondary: #7650a1;
+  --color-secondary-weak: #9577bc;
+  --color-secondary-strong: #4c326b;
+
+  --theme-image: url('/digivice_backgrounds/nso.webp');
 }

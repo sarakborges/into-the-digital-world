@@ -14,7 +14,7 @@ export const getCurrentDigimon = (): BaseDigimonType | undefined => {
     return undefined
   }
 
-  const partner = profile.partnerDigimons[digivice.currentDetails] as
+  const partner = profile.partnerDigimons?.[digivice.currentDetails] as
     PartnerDigimonType | undefined
 
   if (!partner) {

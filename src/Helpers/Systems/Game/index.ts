@@ -1,1 +1,1 @@
-export { getThemeClassName } from './getThemeClassName.helper'
+export { loadGame } from './loadGame.helper'

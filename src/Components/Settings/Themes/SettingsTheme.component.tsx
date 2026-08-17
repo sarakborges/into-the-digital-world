@@ -1,5 +1,6 @@
 import { getTexts } from '@/Helpers/Language'
-import { getThemeGroups } from '@/Helpers/Systems/Settings'
+
+import { THEMES } from '@/Consts/Themes.const'
 
 import { Text } from '@/Components/DesignSystem/Text'
 import { UpdateTheme } from '@/Components/Settings/Theme'
@@ -7,23 +8,23 @@ import { UpdateTheme } from '@/Components/Settings/Theme'
 import './SettingsTheme.style.scss'
 
 export const SettingsTheme = () => {
-  const themeGroups = getThemeGroups()
+  const themeGroups = Object.keys(THEMES)
 
   return (
     <div className="settings-theme">
+      <Text>{getTexts('THEMES_TITLE')}</Text>
+
       <div className="themes-list">
-        {themeGroups.map(({ category, themes }) => (
+        {themeGroups.map((category) => (
           <div key={`themes-list-${category}`}>
             <header>
               <Text>
                 {getTexts(`THEME_CATEGORIES_${category.toLocaleUpperCase()}`)}
               </Text>
-
-              <Text>{getTexts('THEMES_TITLE')}</Text>
             </header>
 
             <main>
-              {themes.map((theme) => (
+              {THEMES[category].map((theme) => (
                 <UpdateTheme
                   key={`themes-list-${category}-theme-${theme}`}
                   theme={theme}

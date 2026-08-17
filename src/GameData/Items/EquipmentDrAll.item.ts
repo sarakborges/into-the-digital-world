@@ -19,7 +19,12 @@ export const EquipmentDrAllItem: ItemType = {
       return false
     }
 
-    const partnerDigimon = profile.partnerDigimons[digivice.currentDetails]
+    const partnerDigimon = profile.partnerDigimons?.[digivice.currentDetails]
+
+    if (!partnerDigimon) {
+      return false
+    }
+
     const baseDigimon = AllDigimons[partnerDigimon.baseDigimon]
     return Object.keys(baseDigimon.families).includes('dr')
   },

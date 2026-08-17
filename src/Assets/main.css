@@ -4,7 +4,6 @@
 @import url('./reset.css');
 
 @import url('./Themes/Default/default.theme.css');
-@import url('./Themes/Default/alternative.theme.css');
 
 @import url('./Themes/Crests/courage.theme.css');
 @import url('./Themes/Crests/friendship.theme.css');
@@ -14,9 +13,6 @@
 @import url('./Themes/Crests/reliability.theme.css');
 @import url('./Themes/Crests/hope.theme.css');
 @import url('./Themes/Crests/light.theme.css');
-
-@import url('./Themes/Other/hazard.theme.css');
-@import url('./Themes/Other/warning.theme.css');
 
 @import url('./Themes/Families/me.theme.css');
 @import url('./Themes/Families/nso.theme.css');
@@ -39,10 +35,13 @@ body {
   place-items: center;
   place-content: center;
 
-  width: 100%;
+  width: 100dvw;
   min-height: 100dvh;
+  overflow: auto;
 
   font-size: 14px;
   font-family: var(--font-family);
   line-height: var(--line-height-single);
+
+  background-color: var(--color-neutral-strong);
 }

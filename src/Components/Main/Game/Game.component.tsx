@@ -1,30 +1,23 @@
-import { useEffect } from 'react'
+import { type CSSProperties, useEffect } from 'react'
 
-import { loadData, loadGameSession } from '@/Helpers/Systems/Data'
-import { getThemeClassName } from '@/Helpers/Systems/Game'
+import { loadGameSession } from '@/Helpers/Systems/Data'
+import { getThemeClassName } from '@/Helpers/Systems/Settings'
 
-import { useProfileStore } from '@/Stores/Profile.store'
+import { useGameStore } from '@/Stores/Game.store'
 import { useSettingsStore } from '@/Stores/Settings.store'
 
-import { Battlefield } from '@/Components/Combat/Battlefield'
-import { DigiviceContainer } from '@/Components/Digivice/Container'
-import { ScreenOrientationWarning } from '@/Components/Global/ScreenOrientationWarning'
-import { Dungeon } from '@/Components/Main/Dungeon'
-import { Gameboard } from '@/Components/Main/Gameboard'
-import { QuestsLogMinimal } from '@/Components/Main/QuestsLogMinimal'
+import { Dialog } from '@/Components/Main/Dialog'
 import { Scene } from '@/Components/Main/Scene'
-import { StartScreen } from '@/Components/Main/StartScreen'
-import { SettingsContainer } from '@/Components/Settings/Container'
+import { ScreenOrientationWarning } from '@/Components/Main/ScreenOrientationWarning'
 
 import './Game.style.scss'
 
 export const Game = () => {
-  const { profile } = useProfileStore((state) => state)
-  const { settings, setSettings } = useSettingsStore((state) => state)
+  const { game } = useGameStore((state) => state)
+  const { settings } = useSettingsStore((state) => state)
 
   useEffect(() => {
     loadGameSession()
-    setSettings({ ...loadData('settings'), isOpen: false })
   }, [])
 
   if (!settings) {
@@ -32,33 +25,18 @@ export const Game = () => {
   }
 
   return (
-    <div className={`game-body theme-${getThemeClassName(settings.theme)}`}>
+    <div
+      className={`game-body theme-${getThemeClassName(settings.theme)}`}
+      style={
+        { '--is-warping': !!game?.isTransitioning ? 0 : 1 } as CSSProperties
+      }
+    >
       <ScreenOrientationWarning />
 
-      <div className="main-game">
-        <header>
-          <DigiviceContainer />
-          <SettingsContainer />
-        </header>
-
-        <StartScreen />
-
-        {!!profile && (
-          <>
-            <main className="game-container">
-              <Gameboard />
-              <Dungeon />
-              <Battlefield />
-            </main>
-
-            <aside>
-              <QuestsLogMinimal />
-            </aside>
-          </>
-        )}
-
+      <main className="main-game">
         <Scene />
-      </div>
+        <Dialog />
+      </main>
     </div>
   )
 }

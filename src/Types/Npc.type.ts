@@ -1,10 +1,7 @@
-export type NpcType = {
-  id: string
-  title?: string
-  name: string
+import type { CharacterType } from '@/Types/Character.type'
+
+export type NpcType = CharacterType & {
   description?: string
   fullImage: string
-  portrait: string
   category?: 'appmon' | 'digimon' | 'general'
-  isVisible?: boolean
 }

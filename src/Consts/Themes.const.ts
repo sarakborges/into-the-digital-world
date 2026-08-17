@@ -1,34 +1,16 @@
 export const THEMES = {
-  default: {
-    default: true,
-    alternative: true
-  },
+  default: ['default'],
 
-  crests: {
-    courage: true,
-    friendship: true,
-    love: true,
-    knowledge: true,
-    sincerity: true,
-    reliability: true,
-    hope: true,
-    light: true
-  },
+  crests: [
+    'courage',
+    'friendship',
+    'love',
+    'knowledge',
+    'sincerity',
+    'reliability',
+    'hope',
+    'light'
+  ],
 
-  families: {
-    vb: true,
-    dr: true,
-    nsp: true,
-    wg: true,
-    jt: true,
-    ds: true,
-    me: true,
-    nso: true,
-    da: true
-  },
-
-  other: {
-    hazard: true,
-    warning: true
-  }
+  families: ['vb', 'dr', 'nsp', 'wg', 'jt', 'ds', 'me', 'nso', 'da']
 }

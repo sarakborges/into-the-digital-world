@@ -1,9 +1,11 @@
 .theme-jt {
-  --color-primary: #48a536;
-  --color-primary-strong: #2f8f1b;
-  --color-primary-weak: #62b950;
+  --color-primary: #8fa52e;
+  --color-primary-weak: #b1c653;
+  --color-primary-strong: #5d6e18;
 
-  --color-secondary: #7c7135;
-  --color-secondary-strong: #4d451a;
-  --color-secondary-weak: #a7994e;
+  --color-secondary: #d28b27;
+  --color-secondary-weak: #e1aa52;
+  --color-secondary-strong: #895718;
+
+  --theme-image: url('/digivice_backgrounds/jt.webp');
 }

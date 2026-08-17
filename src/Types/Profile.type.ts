@@ -1,21 +1,29 @@
 import type { AvatarType } from '@/Types/Avatar.type'
+import type { DialogType } from '@/Types/Dialog.type'
 import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 
 export type ProfileType = {
-  id: number
-  name: string
-  lastSave: Date
+  id?: number
+  name?: string
   avatar?: AvatarType
-  currency?: number
-  currentTitle: string
-  currentScene: string | null
-  party: Array<number>
-  titles: Array<string>
-  dungeonsFound: Array<string>
-  researchesFound: Array<string>
-  researches: Array<string>
+  lastSave: Date
 
-  quests: {
+  currentTitle: string
+  currentScene: React.FC | null
+  currentDialog: DialogType | null
+
+  titles: Array<string>
+  npcAcquaintances: Array<string>
+  party?: Array<number>
+  researchesFound?: Array<string>
+  researchesConcluded?: Array<string>
+
+  currentLocation: {
+    zone: string
+    map: string
+  }
+
+  quests?: {
     [questId: string]: {
       objectives: {
         [objectiveId: string]: number | boolean
@@ -23,26 +31,15 @@ export type ProfileType = {
     }
   }
 
-  items: {
+  items?: {
     [itemId: string]: number
   }
 
-  currentZone: {
-    id: string
-    map: string
-    x: number
-    y: number
-  }
-
-  partnerDigimons: {
+  partnerDigimons?: {
     [key: string]: PartnerDigimonType
   }
 
-  npcAcquaintances: {
-    [key: string]: unknown
-  }
-
-  meaningfulChoices: {
+  meaningfulChoices?: {
     [key: string]: string
   }
 }

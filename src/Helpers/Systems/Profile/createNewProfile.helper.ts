@@ -1,49 +1,18 @@
-import type { ProfileType } from '@/Types/Profile.type'
+import { ProfileModel } from '@/Models/Profile.model'
 
-import { AllNpcs } from '@/GameData/Npcs'
-import { Introduction001 } from '@/GameData/Scenes/Story/Introduction/001.scene'
+import { IntoTheDigitalWorld001 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/001.dialog'
 
-import { useDigiviceStore } from '@/Stores/Digivice.store'
+import { loadGame } from '@/Helpers/Systems/Game'
+
+import { useDialogStore } from '@/Stores/Dialog.store'
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useSceneStore } from '@/Stores/Scene.store'
 
 export const createNewProfile = () => {
   const { setProfile } = useProfileStore.getState()
-  const { setDigivice } = useDigiviceStore.getState()
-  const { setScene } = useSceneStore.getState()
+  const { setDialog } = useDialogStore.getState()
 
-  const profile = {
-    id: 0,
-    name: '',
-    lastSave: new Date(),
-    currentTitle: 'chosenChild',
-    currentScene: 'introduction',
+  setProfile({ ...ProfileModel })
+  loadGame()
 
-    titles: ['chosenChild'],
-    party: [],
-    researches: [],
-    researchesFound: [],
-    dungeonsFound: [],
-
-    quests: {},
-    items: {},
-    meaningfulChoices: {},
-    partnerDigimons: {},
-
-    npcAcquaintances: {
-      ...AllNpcs.appmon
-    },
-
-    currentZone: {
-      id: 'rootDomain',
-      map: 'restRoom',
-      x: 2,
-      y: 3
-    }
-  } as ProfileType
-
-  setProfile(profile)
-  setDigivice({ isOpen: false })
-
-  setScene(Introduction001)
+  setDialog(IntoTheDigitalWorld001)
 }

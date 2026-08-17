@@ -7,7 +7,7 @@ export const getDigimonDisplayName = (digimonId: number): string => {
     return ''
   }
 
-  const partner = profile.partnerDigimons[digimonId]
+  const partner = profile.partnerDigimons?.[digimonId]
 
   return partner?.name || ''
 }

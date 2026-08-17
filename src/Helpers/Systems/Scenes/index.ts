@@ -1,5 +1,4 @@
 export { reactToMeaningfulChoice } from './reactToMeaningfulChoice.helper'
-export { openEquipDialog } from './openEquipDialog.helper'
 export { openDeleteGameDialog } from './openDeleteGameDialog.helper'
 export { logoff } from './logoff.helper'
-export { closeScene } from './closeScene.helper'
+export { changeScene } from './changeScene.helper'

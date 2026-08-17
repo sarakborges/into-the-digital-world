@@ -1,68 +1,75 @@
 .update-theme {
-  .button {
+  .shadow-button {
     display: flex;
     place-items: center;
     gap: 4px;
 
     width: 100%;
-    padding: 4px 8px 4px 4px;
 
     background-color: var(--color-primary);
 
-    .theme-colors {
-      position: relative;
-      overflow: hidden;
+    .button-content {
+      gap: 8px;
 
-      border: 2px solid var(--color-neutral-weak);
-      border-radius: 4px;
+      width: 100%;
+      padding: 0 24px;
 
-      .icon {
-        width: 16px;
-        aspect-ratio: 1;
+      .theme-colors {
+        position: relative;
+
         overflow: hidden;
 
-        &:before,
-        &:after {
-          content: '';
+        border: 2px solid var(--color-neutral-weak);
+        border-radius: 4px;
 
-          position: absolute;
+        .icon {
+          width: 16px;
+          aspect-ratio: 1;
+          overflow: hidden;
 
-          width: 130%;
-          height: 130%;
+          background-color: var(--color-neutral-weak);
 
-          transform: rotate(45deg);
-        }
+          &:before,
+          &:after {
+            content: '';
 
-        &:before {
-          top: -60%;
-          left: -60%;
+            position: absolute;
 
-          background-color: var(--color-primary);
-        }
+            width: 130%;
+            height: 130%;
 
-        &:after {
-          bottom: -60%;
-          right: -60%;
+            transform: rotate(45deg);
+          }
 
-          background-color: var(--color-secondary);
+          &:before {
+            top: -60%;
+            left: -60%;
+
+            background-color: var(--color-primary);
+          }
+
+          &:after {
+            bottom: -60%;
+            right: -60%;
+
+            background-color: var(--color-secondary);
+          }
         }
       }
-    }
 
-    .text {
-      display: flex;
+      .text {
+        padding: 12px 0;
+        flex: 1;
 
-      flex: 1;
+        text-shadow: 0 0 2px var(--color-neutral-strong);
+        font-size: 12px;
+        text-align: left;
+      }
 
-      font-size: 12px;
-      text-transform: capitalize;
-      text-align: left;
-      white-space: pre-wrap;
-    }
-
-    svg {
-      width: 12px;
-      height: 12px;
+      svg {
+        width: 12px;
+        height: 12px;
+      }
     }
   }
 }

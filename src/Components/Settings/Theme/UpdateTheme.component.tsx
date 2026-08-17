@@ -5,7 +5,7 @@ import { updateSettings } from '@/Helpers/Systems/Settings'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
+import { ShadowButton } from '@/Components/DesignSystem/ShadowButton'
 import { Text } from '@/Components/DesignSystem/Text'
 
 import './UpdateTheme.style.scss'
@@ -25,7 +25,7 @@ export const UpdateTheme = ({ theme }: { theme: string }) => {
 
   return (
     <div className="update-theme">
-      <Button onClick={updateTheme}>
+      <ShadowButton onClick={updateTheme}>
         <div className={`theme-colors theme-${theme}`}>
           <div className="icon" />
         </div>
@@ -33,7 +33,7 @@ export const UpdateTheme = ({ theme }: { theme: string }) => {
         <Text>{getTexts(`THEME_${theme.toLocaleUpperCase()}`)}</Text>
 
         {theme === settings.theme && <FaCheck />}
-      </Button>
+      </ShadowButton>
     </div>
   )
 }

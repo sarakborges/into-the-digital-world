@@ -22,5 +22,12 @@ export const updateSettings = ({
   }
 
   setSettings(updatedSettings)
-  saveData({ key: 'settings', value: updatedSettings })
+
+  saveData({
+    key: 'settings',
+    value: {
+      language: language ?? settings.language,
+      theme: theme ?? settings.theme
+    }
+  })
 }

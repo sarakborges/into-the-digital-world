@@ -1,11 +1,11 @@
 .theme-friendship {
-  --color-primary: #1870f2;
-  --color-primary-strong: #0a52bf;
-  --color-primary-weak: #4d88d6;
+  --color-primary: #1767c7;
+  --color-primary-weak: #3b7ed0;
+  --color-primary-strong: #104b91;
 
-  --color-secondary: #315181;
-  --color-secondary-strong: #21385a;
-  --color-secondary-weak: #6d7e96;
+  --color-secondary: #bfd9f2;
+  --color-secondary-weak: #8fb9df;
+  --color-secondary-strong: #6b94bc;
 
   --theme-image: url('/digivice_backgrounds/friendship.webp');
 }

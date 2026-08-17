@@ -1,9 +1,11 @@
 .theme-dr {
-  --color-primary: #9b3414;
-  --color-primary-strong: #c4370d;
-  --color-primary-weak: #ce502a;
+  --color-primary: #e83b32;
+  --color-primary-weak: #f06a62;
+  --color-primary-strong: #9e211c;
 
-  --color-secondary: #5f4027;
-  --color-secondary-strong: #423120;
-  --color-secondary-weak: #725640;
+  --color-secondary: #3f5fa8;
+  --color-secondary-weak: #607bb9;
+  --color-secondary-strong: #293f73;
+
+  --theme-image: url('/digivice_backgrounds/dr.webp');
 }

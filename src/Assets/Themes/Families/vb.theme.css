@@ -1,9 +1,11 @@
 .theme-vb {
-  --color-primary: #939b66;
-  --color-primary-strong: #727753;
-  --color-primary-weak: #aeb392;
+  --color-primary: #a9b7bc;
+  --color-primary-weak: #c1cdd1;
+  --color-primary-strong: #68777d;
 
-  --color-secondary: #d8c06b;
-  --color-secondary-strong: #c5a634;
-  --color-secondary-weak: #d4c591;
+  --color-secondary: #d2a62c;
+  --color-secondary-weak: #deb84d;
+  --color-secondary-strong: #967316;
+
+  --theme-image: url('/digivice_backgrounds/vb.webp');
 }

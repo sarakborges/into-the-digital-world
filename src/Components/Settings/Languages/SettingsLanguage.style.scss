@@ -3,15 +3,9 @@
   flex-flow: column;
   gap: 4px;
 
-  padding: 8px;
-
-  background-color: var(--color-primary-weak);
-
   .languages-list {
     display: flex;
     flex-flow: column;
     gap: 4px;
-
-    min-width: 160px;
   }
 }

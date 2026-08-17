@@ -1,17 +1,14 @@
-import { useDigiviceStore } from '@/Stores/Digivice.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 import './Scene.style.scss'
 
 export const Scene = () => {
-  const { scene } = useSceneStore((state) => state)
-  const { digivice } = useDigiviceStore((state) => state)
+  const { currentScene } = useSceneStore((state) => state)
+  const RenderedScene = currentScene as React.FC
 
-  if (!scene || !digivice) {
+  if (!currentScene) {
     return
   }
-
-  const RenderedScene = scene
 
   return (
     <div className="scene">

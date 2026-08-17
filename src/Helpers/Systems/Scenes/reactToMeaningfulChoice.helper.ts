@@ -1,9 +1,7 @@
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useSceneStore } from '@/Stores/Scene.store'
 
 export const reactToMeaningfulChoice = ({
-  reaction,
-  nextScene
+  reaction
 }: {
   reaction: {
     name: string
@@ -12,7 +10,6 @@ export const reactToMeaningfulChoice = ({
   nextScene: React.FC | null
 }) => {
   const { profile, setProfile } = useProfileStore.getState()
-  const { setScene } = useSceneStore.getState()
 
   if (!profile) {
     return
@@ -26,6 +23,4 @@ export const reactToMeaningfulChoice = ({
       [reaction.name]: reaction.value
     }
   })
-
-  setScene(nextScene)
 }

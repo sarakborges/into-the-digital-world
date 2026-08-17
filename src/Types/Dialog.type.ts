@@ -1,22 +1,18 @@
-import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
-import type { NpcType } from '@/Types/Npc.type'
-import type { ProfileType } from '@/Types/Profile.type'
+import type { CharacterType } from '@/Types/Character.type'
 
 export type DialogType = {
-  speaker?: (NpcType | BaseDigimonType | ProfileType) & {
-    isPlayer?: boolean
-  }
+  speaker?: CharacterType
 
-  content: React.ReactNode
+  text: React.ReactNode
   image?: {
     src: string
     alt: string
   }
 
-  options?: Array<{
+  actions?: Array<{
     id: string
     text: string
     disabled?: boolean
-    action: () => void
+    onClick: () => void
   }>
 }

@@ -1,11 +1,11 @@
 .theme-sincerity {
-  --color-primary: #42cf72;
-  --color-primary-strong: #1fa24b;
-  --color-primary-weak: #79d79a;
+  --color-primary: #19ef44;
+  --color-primary-weak: #52f16d;
+  --color-primary-strong: #0baf2c;
 
-  --color-secondary: #c9515b;
-  --color-secondary-strong: #e23c44;
-  --color-secondary-weak: #d87880;
+  --color-secondary: #f49b25;
+  --color-secondary-weak: #f5b04a;
+  --color-secondary-strong: #c8730b;
 
   --theme-image: url('/digivice_backgrounds/sincerity.webp');
 }
