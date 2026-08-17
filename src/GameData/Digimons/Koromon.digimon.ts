@@ -8,7 +8,7 @@ import { DIGIMON_FAMILIES } from '@/Consts/Families.const'
 export const DigimonKoromon: BaseDigimonType = {
   id: 'koromon',
   name: 'Koromon',
-  picture: 'digimon_portraits/koromon',
+  portrait: 'digimon_portraits/koromon',
   picture: 'digimons/koromon',
   attribute: DIGIMON_ATTRIBUTES.na.id,
   equipmentsSlots: 1,
