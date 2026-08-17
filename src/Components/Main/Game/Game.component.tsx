@@ -2,6 +2,7 @@ import { type CSSProperties, useEffect } from 'react'
 
 import { loadGameSession } from '@/Helpers/Systems/Data'
 import { getThemeClassName } from '@/Helpers/Systems/Settings'
+import { loadAllPublicAssets } from '@/Helpers/Utils/loadAllPublicAssets'
 
 import { useGameStore } from '@/Stores/Game.store'
 import { useSettingsStore } from '@/Stores/Settings.store'
@@ -18,6 +19,7 @@ export const Game = () => {
 
   useEffect(() => {
     loadGameSession()
+    loadAllPublicAssets()
   }, [])
 
   if (!settings) {
