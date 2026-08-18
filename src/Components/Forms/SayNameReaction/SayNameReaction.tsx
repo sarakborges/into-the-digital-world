@@ -1,4 +1,4 @@
-import { getIntoTheDigitalWorld008 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/008.dialog'
+import { getIntoTheDigitalWorld011 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/011.dialog'
 
 import { getTexts } from '@/Helpers/Language'
 import { setMeaningfulChoice } from '@/Helpers/Systems/Profile/setMeaningfulChoice.helper'
@@ -9,29 +9,36 @@ import { Button } from '@/Components/DesignSystem/Button'
 
 import './SayNameReaction.style.scss'
 
+const reactionOptions = [
+  'calm',
+  'friendly',
+  'wary',
+  'nervous',
+  'blunt',
+  'curious',
+  'playful'
+] as const
+
+type NameReaction = (typeof reactionOptions)[number]
+
 export const SayNameReaction = () => {
   const { setDialog } = useDialogStore((state) => state)
 
-  const reactionOptions = {
-    calm: getTexts('ITDW_007_CALM'),
-    angry: getTexts('ITDW_007_ANGRY')
-  }
-
-  const handleReaction = (reaction: string) => {
+  const handleReaction = (reaction: NameReaction) => {
     setMeaningfulChoice({
       choice: 'INTO_THE_DIGITAL_WORLD_NAME_REACTION',
       value: reaction
     })
 
-    setDialog(getIntoTheDigitalWorld008())
+    setDialog(getIntoTheDigitalWorld011())
   }
 
   return (
     <div className="say-name-reaction">
-      {Object.keys(reactionOptions).map((option) => (
+      {reactionOptions.map((option) => (
         <div key={`say-name-reaction-${option}`}>
           <Button onClick={() => handleReaction(option)}>
-            {reactionOptions[option]}
+            {getTexts(`ITDW_010_${option.toUpperCase()}`)}
           </Button>
         </div>
       ))}

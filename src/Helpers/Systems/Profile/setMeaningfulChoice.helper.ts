@@ -7,7 +7,7 @@ export const setMeaningfulChoice = ({
   choice: string
   value: string
 }) => {
-  const { profile, setProfile } = useProfileStore((state) => state)
+  const { profile, setProfile } = useProfileStore.getState()
 
   if (!profile) {
     return

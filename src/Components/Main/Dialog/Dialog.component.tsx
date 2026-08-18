@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react'
 
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getTexts } from '@/Helpers/Language'
-
 import { useDialogStore } from '@/Stores/Dialog.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
@@ -75,7 +73,7 @@ export const Dialog = () => {
               <Text>{dialogContent?.speaker.name}</Text>
 
               {!!dialogContent?.speaker.title && (
-                <Text>{getTexts(dialogContent?.speaker.title)}</Text>
+                <Text>{dialogContent?.speaker.title}</Text>
               )}
             </main>
           </header>

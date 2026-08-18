@@ -5,13 +5,14 @@ import { getProfileName } from '@/Helpers/Systems/Profile'
 
 import { SayNameReaction } from '@/Components/Forms/SayNameReaction'
 
-export const getIntoTheDigitalWorld007 = (): DialogType => {
+export const getIntoTheDigitalWorld010 = (): DialogType => {
   const profileName = getProfileName()
 
   return {
-    text: getTexts('ITDW_007', {
+    text: getTexts('ITDW_010', {
       '[NAME]': profileName
     }),
+
     form: <SayNameReaction />
   }
 }

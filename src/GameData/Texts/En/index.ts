@@ -4,7 +4,7 @@
 export const SCENES_CONTINUE_BUTTON = `Continue`
 export const SCENES_CONFIRM_BUTTON = `Confirm`
 export const SCENES_LEAVE_BUTTON = `Leave`
-export const SCENES_BACK_BUTTON = `Go back`
+export const SCENES_BACK_BUTTON = `Back`
 export const SCENES_CANCEL_BUTTON = `Cancel`
 
 // ========================================================================
@@ -12,28 +12,28 @@ export const SCENES_CANCEL_BUTTON = `Cancel`
 // ========================================================================
 export const START_NEW_GAME = `Start new game`
 export const DISPLAY_SAVED_GAMES = `Load game`
-export const SAVED_GAMES = `Select file`
+export const SAVED_GAMES = `Select save file`
 export const GAME_FILE_TITLE = `#[ID] [NAME]`
 export const GAME_FILE_TIME = `[TIME]`
 export const LOAD_GAME = `Load`
 export const DELETE_GAME_FILE = `Delete`
 
-export const START_SCREEN_TITLE = `Welcome Into the\nDigital World!`
+export const START_SCREEN_TITLE = `Into the\nDigital World!`
 
 // ========================================================================
 // SCREEN ORIENTATION WARNING
 // ========================================================================
-export const SCREEN_ORIENTATION_WARNING = `In order to better experience our game, we must insist on you turning your device into landscape mode. Otherwise, it would be impossible for us to deliver the design philosophy we envision.\n\nWe are terribly sorry for any inconvience.\n\nEnjoy your time Into the Digital World!`
+export const SCREEN_ORIENTATION_WARNING = `For the best experience, please rotate your device to landscape mode.\n\nThe game was designed specifically for a landscape layout, and some elements may not display correctly otherwise.\n\nSorry for the inconvenience, and enjoy Into the Digital World!`
 
 // ========================================================================
 // AVATAR CUSTOMIZATION (UI)
 // ========================================================================
-export const AVATARCUSTOMIZATION_TRIGGER = `Hey, Dressmon. I would like to update my avatar.`
+export const AVATARCUSTOMIZATION_TRIGGER = `Hey, Dressmon. I'd like to update my avatar.`
 export const AVATARCUSTOMIZATION_OPTIONS_TITLE = `Tap to customize:`
 export const AVATARCUSTOMIZATION_SKIN = `Skin tone`
-export const AVATARCUSTOMIZATION_HAIR = `Hair style`
+export const AVATARCUSTOMIZATION_HAIR = `Hairstyle`
 export const AVATARCUSTOMIZATION_HAIR_COLOR = `Hair color`
-export const AVATARCUSTOMIZATION_EYES = `Eyes color`
+export const AVATARCUSTOMIZATION_EYES = `Eye color`
 export const AVATARCUSTOMIZATION_CLOTHES = `Clothes`
 
 // ========================================================================
@@ -49,7 +49,7 @@ export const DIGIMON_STATS_AGI_NAME = `Agility`
 // SETTINGS / THEMES / LANGUAGE
 // ========================================================================
 export const SETTINGS_TITLE = `Settings`
-export const SETTINGS_LEAVE = `Leave settings`
+export const SETTINGS_LEAVE = `Back`
 
 export const LANGUAGES_TITLE = `Preferred language`
 export const LANGUAGE_EN = `English`
@@ -58,78 +58,75 @@ export const LANGUAGE_EN = `English`
 // TITLES
 // ========================================================================
 export const TITLES_CHOSENCHILD = `The Destined One`
-export const TITLES_GENNAI = `Last of Homeostasis's agents`
-export const TITLES_DRESSMON = `Avatar assistant`
+export const TITLES_GENNAI = `Last Agent of Homeostasis`
+export const TITLES_DRESSMON = `Avatar Assistant`
 
 // ------------------------------------------------------------------------
 // INTO THE DIGITAL WORLD (Dialog)
 // ------------------------------------------------------------------------
-export const ITDW_001 = `You wake up.\nAs you open your eyes, you notice something odd.\n\nThis is not where you last fell asleep.`
-export const ITDW_002 = `While you are still confused, you hear footsteps.\nSomeone - or something - is approaching.\n\nThe door slowly opens up.`
-export const ITDW_003 = `It is true, then! I could not believe when I was told.\n\nA human child!\nAt last, it seems this world is set to be balanced once more.`
-export const ITDW_004 = `How rude of me. You can call me Gennai. I am the last survivor of Homeostasis's agents.\n\nYou can consider me your guide, on this journey.`
-export const ITDW_005 = `And what about you, young one? How should I call you?`
-export const ITDW_006 = `Inform your name to proceed.`
-export const ITDW_007 = `Alright, [NAME].\nHow do you wish to react?`
-export const ITDW_007_CALM = `Calmly say your name.`
-export const ITDW_007_ANGRY = `Wheeze, then say your name.`
-export const ITDW_008 = `[REACTION][NAME].`
-export const ITDW_008_CALM = `My name is `
-export const ITDW_008_ANGRY = `Why should I tell you?\nNo matter. Call me `
+export const ITDW_001 = `You wake up.\nAs you slowly open your eyes, something feels wrong.\n\nThis is not where you fell asleep.`
+export const ITDW_002 = `Before you can make sense of your surroundings, you hear footsteps.\nSomeone - or something - is approaching.\n\nThe door slowly opens.`
+export const ITDW_003 = `So it is true!\nI could scarcely believe it when I was told.`
+export const ITDW_004 = `That data signature... unmistakably human.\nAnd so young, at that.`
+export const ITDW_005 = `At last... perhaps balance can be restored to this world.`
+export const ITDW_006 = `But where are my manners?\nYou may call me Gennai. I am the last surviving agent of Homeostasis.`
+export const ITDW_007 = `You may consider me your guide on this journey.`
+export const ITDW_008 = `And what of you, young one?\nWhat should I call you?`
+export const ITDW_009 = `Enter your name to proceed.`
+export const ITDW_010 = `Name registered: [NAME].\nHow do you wish to respond?`
 
-// ------------------------------------------------------------------------
-// INTRODUCTION (Scene)
-// ------------------------------------------------------------------------
-export const INTRODUCTION_001_TEXT = `You wake up.\nAs you do, you realize this place is not your room.\n\nYou hear a strange noise, almost as if you are in a cyberpunk game.`
+export const ITDW_010_CALM = `Take it all in stride.`
+export const ITDW_010_FRIENDLY = `Try to start off on the right foot.`
+export const ITDW_010_WARY = `Keep your guard up.`
+export const ITDW_010_NERVOUS = `Let your confusion show.`
+export const ITDW_010_BLUNT = `Get straight to the point.`
+export const ITDW_010_CURIOUS = `Focus on what Gennai just said.`
+export const ITDW_010_PLAYFUL = `Lighten the mood.`
 
-export const INTRODUCTION_002_TEXT = `The door opens, and this old man shows up. He seems friendly, and begins a conversation with you.`
-export const INTRODUCTION_002_ALT = `Gennai`
+export const ITDW_011_CALM = `My name is [NAME].\nThis is all a little strange, but... I suppose I should start by figuring out where I am.`
+export const ITDW_011_FRIENDLY = `I'm [NAME]. Nice to meet you, Gennai.\nThough I have to admit, I've got quite a few questions right now.`
+export const ITDW_011_WARY = `You can call me [NAME].\nBut I still don't know what this place is, why I'm here, or why I should trust you.`
+export const ITDW_011_NERVOUS = `I-I'm [NAME].\nI don't understand any of this. Where am I? How did I get here?`
+export const ITDW_011_BLUNT = `I'm [NAME].\nNow, where am I and what's going on?`
+export const ITDW_011_CURIOUS = `I'm [NAME].\nBut what did you mean by "human child"? And what balance are you talking about?`
+export const ITDW_011_PLAYFUL = `[NAME].\nI'd say "nice to meet you", but I usually know where I am when I say that.`
 
-export const INTRODUCTION_003_TEXT = `Hello, young one. So the rumours are indeed true. The world is once more in need of balance. And we found you before others could. Good.`
+export const ITDW_012_CALM = `A sensible approach, [NAME].\nYou have every right to be confused. Allow me to explain.`
+export const ITDW_012_FRIENDLY = `The pleasure is mine, [NAME].\nAnd I believe I owe you quite an explanation.`
+export const ITDW_012_WARY = `Your caution is understandable.\nI would not expect you to trust me without knowing what is happening. Allow me to explain.`
+export const ITDW_012_NERVOUS = `I understand, [NAME]. This is a great deal to take in.\nLet me explain what is happening.`
+export const ITDW_012_BLUNT = `Straight to the point. Very well.\nI believe an explanation is long overdue.`
+export const ITDW_012_CURIOUS = `Ah. You were listening closely.\nThose are good questions, [NAME]. Let me explain.`
+export const ITDW_012_PLAYFUL = `Heh. You seem to be taking this rather well.\nStill, I imagine you would appreciate an explanation.`
 
-export const INTRODUCTION_004_TEXT = `Forgive me. I forgot to introduce myself. You can call me Gennai. I'm the last survivor from the agents of Homeostasis. I was looking for the Destined Ones for a long time. You have a very importante role to play in the future of our Digital World.`
+export const ITDW_013 = `What would you like Gennai to explain?`
 
-export const INTRODUCTION_005_TEXT = `I know that's a lot of information. Take your time to digest it. In the meanwhile, why don't you introduce yourself to me?`
-export const INTRODUCTION_005_INPUT = `Insert your name`
-export const INTRODUCTION_005_INPUT_PLACEHOLDER = `Destined One`
+export const ITDW_013_WHERE = `The Digital World`
+export const ITDW_013_ARRIVAL = `Your arrival here`
+export const ITDW_013_HUMAN = `Humans in the Digital World`
+export const ITDW_013_BALANCE = `The balance`
+export const ITDW_013_HOMEOSTASIS = `Homeostasis`
+export const ITDW_013_GUIDE = `Gennai's role as your guide`
 
-export const INTRODUCTION_006_TEXT = `Uhm. I'm [NAME].\nWhat do you mean by "Destined Ones"? And "Digital World"? Old age is getting to you, sir? Or do you just enjoy roleplaying?`
+export const ITDW_014_WHERE = `You are in the Digital World.\n\nIt is a world that exists alongside your own, though the two are more closely connected than most humans realize.`
+export const ITDW_014_ARRIVAL = `That, I am afraid, I cannot answer with certainty.\n\nHumans do not simply wander into this world, but I do not yet know what brought you here.`
+export const ITDW_014_HUMAN = `Humans are exceedingly rare in this world.\n\nAnd when one appears during a time of great instability, it is rarely without reason.`
+export const ITDW_014_BALANCE = `The Digital World has always depended on a delicate balance.\n\nWhen that balance is disturbed, the effects can spread far beyond a single place - or even a single world.`
+export const ITDW_014_HOMEOSTASIS = `Homeostasis is a consciousness that exists to preserve the balance of the Digital World.\n\nI served as one of its agents.\nNow, it seems I am the last.`
+export const ITDW_014_GUIDE = `There is much about this world you do not yet understand, and navigating it alone would be no simple task.\n\nWhatever brought you here, I believe my role is to help you understand why you were brought here.`
 
-export const INTRODUCTION_007_TEXT = `Spirited one, aren't we? Don't worry. I will explain everything in due time. But no, old age does not get to me. This is just the apperance of my avatar. Speaking of which, looks really like you need to fix yours.`
-
-export const INTRODUCTION_008_TEXT = `What do you mean fix my avatar?`
-
-export const INTRODUCTION_009_TEXT = `You realize some particles are getting in front of your eyes. They look like a virtual glitch.\n\nEventually, you notice they are getting off you. You take a look at yourself, and you realize you don't have a body. You are now a bunch of glitched data, in the shape of a person.`
-export const INTRODUCTION_009_ALT = `You look totally glitched.`
-
-export const INTRODUCTION_010_TEXT = `What the hell?! What did you do to me?!`
-
-export const INTRODUCTION_011_TEXT = `Calm down. This is not my fault. Good news, tho. I know how to fix it.\n\nHere. Take this. It is called Digivice. You might find it quite familiar to your celphone.`
-export const INTRODUCTION_011_ALT = `Digivice`
-
-export const INTRODUCTION_012_TEXT = `Gennai reaches his hand, and you see what resembles a celphone. You're kinda skeptical, but end up taking the device.`
-
-export const INTRODUCTION_013_TEXT = `I'm getting more confused by the second. How having a new phone will fix me?`
-
-export const INTRODUCTION_014_TEXT = `I gave you this device for a reason.\nAppmons inhabit it. And they are there to help you.`
-
-export const INTRODUCTION_015_TEXT = `I still don't get it. What is a Appmon?`
-
-export const INTRODUCTION_016_TEXT = `It's short for Application Monster. The same as Digimon is short for Digital Monster. You'll get it quickly, I can feel.`
-
-export const INTRODUCTION_017_TEXT = `Alright... I guess. Now, care to explain this "avatar" thing and how to fix me?`
-
-export const INTRODUCTION_018_TEXT = `Oh, sorry. I got carried by our conversation. Where was I?\n\nYou want to know what is a avatar?\n\nAvatar is how your appearance in the Digital World is called. Probably because you are not a digital creature, like us, your avatar is unset. And thats why you need to fix it.`
-
-export const INTRODUCTION_019_TEXT = `To do that, you can call Dressmon to help. Walk into the wardrobe, and put your Digivice in the scanner.`
-
-export const INTRODUCTION_020_TEXT = `Hello, master! I am Dressmon. My function is to assist you on creating the most exquisite avatar!`
-export const INTRODUCTION_020_TRIGGER = `Uh, hi. Gennai told me you could help me... fix my avatar?`
-
-export const INTRODUCTION_021_TEXT = `Here you go! Everything fixed!\n\nIf you ever need to update your avatar, feel comfortable to call me again! I'll be waiting by this wardrobe.`
-
-export const INTRODUCTION_022_TEXT = `You take a look at yourself, and everything seems right. Now your avatar is rendered correctly.`
-
-export const INTRODUCTION_023_TEXT = `Woah! Thanks! Feels great to look like myself again!`
-
-export const INTRODUCTION_024_TEXT = `I told you Dressmon would help.\n\nNow, follow me, won't you? I want to show you around. I think you will find our headquarters quite interesting. Feel free to explore too.`
+export const ITDW_015 = `Right...\nI think I'm starting to get the picture.`
+export const ITDW_016 = `Good.\nThen, before we continue, there is one other matter we should address.\n\nYour avatar has not rendered correctly.`
+export const ITDW_017 = `My... avatar?`
+export const ITDW_018 = `Your form in this world.\n\nYour data made the transition intact, but your avatar failed to render properly.`
+export const ITDW_019 = `That is why you can think, speak, and move, yet have no visible form.`
+export const ITDW_020 = `Fortunately, the problem should be simple enough to correct.\nHere. Take it.`
+export const ITDW_021 = `Gennai holds out a small device. You reach for it. To your surprise, you can take hold of it, its weight solid and unmistakable.`
+export const ITDW_022 = `Take this Digivice to the rendering terminal and use it to establish a connection with Dressmon.`
+export const ITDW_023 = `Once connected, they should be able to render your avatar properly.`
+export const ITDW_024 = `Wait. You lost me at "Digivice."\nWhat exactly is this thing? And who - or what - is Dressmon?`
+export const ITDW_025 = `Ah. Of course.\nI am getting ahead of myself.`
+export const ITDW_026 = `A Digivice allows a human to interact directly with the Digital World and its inhabitants.\n\nThere have been many kinds over the years, built for different purposes. The one you are holding has been prepared specifically for you.`
+export const ITDW_027 = `As for Dressmon, it is what we call an Appmon - an Application Monster.\n\nAppmon are digital lifeforms associated with applications and their functions. Each possesses abilities related to the function it represents.`
+export const ITDW_028 = `Dressmon is a Fashion Appmon. Its abilities revolve around appearance data - clothing, styling, and the way that data is visually represented.\n\nWith the rendering terminal acting as an interface, Dressmon should be able to use those abilities to reconstruct your avatar.`
+export const ITDW_029 = `In simpler terms: use the Digivice at the terminal, find Dressmon, and let it take care of the rest.`

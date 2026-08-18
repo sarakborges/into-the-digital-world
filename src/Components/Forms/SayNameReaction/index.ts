@@ -1,1 +1,1 @@
-export { SayNameReaction } from './SayNameReaction.form'
+export { SayNameReaction } from './SayNameReaction'

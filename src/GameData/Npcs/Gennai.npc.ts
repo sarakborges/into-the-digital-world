@@ -1,6 +1,6 @@
 import type { NpcType } from '@/Types/Npc.type'
 
-export const NpcGennai: NpcType = {
+export const NpcGennai = {
   id: 'gennai',
   name: 'Gennai',
   title: `TITLES_GENNAI`,
@@ -10,4 +10,4 @@ export const NpcGennai: NpcType = {
   picture: 'npcs/gennai',
   portrait: 'npc_portraits/gennai',
   category: 'general'
-}
+} satisfies NpcType

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { getIntoTheDigitalWorld007 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/007.dialog'
+import { getIntoTheDigitalWorld010 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/010.dialog'
 
 import { getTexts } from '@/Helpers/Language'
 
@@ -13,22 +13,28 @@ import { Input } from '@/Components/DesignSystem/Input'
 import './InsertPlayerName.style.scss'
 
 export const InsertPlayerName = () => {
+  const [playerName, setPlayerName] = useState('')
+
   const { profile, setProfile } = useProfileStore((state) => state)
   const { setDialog } = useDialogStore((state) => state)
 
   if (!profile) {
-    return
+    return null
   }
 
-  const [playerName, setPlayerName] = useState('')
+  const normalizedPlayerName = playerName.trim()
 
   const handleFormSubmit = () => {
+    if (!normalizedPlayerName) {
+      return
+    }
+
     setProfile({
       ...profile,
-      name: playerName
+      name: normalizedPlayerName
     })
 
-    setDialog(getIntoTheDigitalWorld007())
+    setDialog(getIntoTheDigitalWorld010())
   }
 
   return (
@@ -42,15 +48,15 @@ export const InsertPlayerName = () => {
       <main>
         <Input
           name="insert-player-name"
-          label={getTexts('ITDW_006')}
+          label={getTexts('ITDW_009')}
           value={playerName}
           autoFocus
-          onChange={(e) => setPlayerName(e.target.value.trim())}
+          onChange={(e) => setPlayerName(e.target.value)}
         />
       </main>
 
       <footer>
-        <Button disabled={!playerName}>
+        <Button disabled={!normalizedPlayerName}>
           {getTexts('SCENES_CONFIRM_BUTTON')}
         </Button>
       </footer>

@@ -1,1 +1,1 @@
-export { InsertPlayerName } from './InsertPlayerName.form'
+export { InsertPlayerName } from './InsertPlayerName'
