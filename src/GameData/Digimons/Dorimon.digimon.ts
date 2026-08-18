@@ -19,7 +19,7 @@ export const DigimonDorimon: BaseDigimonType = {
     [AllAttacks.metalDrop.id]: null
   },
 
-  families: {
+  fields: {
     [DIGIMON_FAMILIES.nsp.id]: null
   },
 

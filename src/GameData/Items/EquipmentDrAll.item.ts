@@ -8,7 +8,7 @@ import { useProfileStore } from '@/Stores/Profile.store'
 export const EquipmentDrAllItem: ItemType = {
   id: 'equipmentDrAll',
   name: `Dragon's Roar +1 ALL`,
-  picture: 'families/dr',
+  picture: 'fields/dr',
   category: 'equipment',
 
   equipConditions: () => {
@@ -26,7 +26,7 @@ export const EquipmentDrAllItem: ItemType = {
     }
 
     const baseDigimon = AllDigimons[partnerDigimon.baseDigimon]
-    return Object.keys(baseDigimon.families).includes('dr')
+    return Object.keys(baseDigimon.fields).includes('dr')
   },
 
   equipmentBonuses: {

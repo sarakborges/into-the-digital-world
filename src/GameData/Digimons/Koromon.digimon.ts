@@ -19,7 +19,7 @@ export const DigimonKoromon: BaseDigimonType = {
     [AllAttacks.poisonBubbles.id]: null
   },
 
-  families: {
+  fields: {
     [DIGIMON_FAMILIES.dr.id]: null,
     [DIGIMON_FAMILIES.vb.id]: null
   },

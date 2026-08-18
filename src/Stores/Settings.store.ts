@@ -9,8 +9,7 @@ type SettingsStore = {
 
 export const useSettingsStore = create<SettingsStore>((set) => ({
   settings: {
-    language: 'en',
-    theme: 'default'
+    language: 'en'
   },
 
   setSettings: (settings) => {

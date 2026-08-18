@@ -14,17 +14,17 @@
   place-content: center;
 
   width: 640px;
-  height: 240px;
+  height: 360px;
 
   overflow: visible;
 
-  background-color: var(--color-primary);
+  background-color: var(--color-neutral);
   opacity: var(--is-warping);
 
   transition: 0.3s;
 
   transform: translate(-50%, -50%)
-    scale(min(tan(atan2(100dvw, 640px)), tan(atan2(100dvh, 240px))));
+    scale(min(tan(atan2(100dvw, 640px)), tan(atan2(100dvh, 360px))));
 
   transform-origin: center;
 }

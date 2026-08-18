@@ -82,7 +82,8 @@ export const Dialog = () => {
         )}
 
         <div className="dialog-internal-text">
-          <Text as="p">{dialogContent.text}</Text>
+          {!!dialogContent.text && <Text as="p">{dialogContent.text}</Text>}
+          {!!dialogContent.form && <>{dialogContent.form}</>}
         </div>
       </div>
 

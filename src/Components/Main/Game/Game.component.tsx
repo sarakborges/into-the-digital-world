@@ -1,11 +1,8 @@
 import { type CSSProperties, useEffect } from 'react'
 
 import { loadGameSession } from '@/Helpers/Systems/Data'
-import { getThemeClassName } from '@/Helpers/Systems/Settings'
-import { loadAllPublicAssets } from '@/Helpers/Utils/loadAllPublicAssets'
 
 import { useGameStore } from '@/Stores/Game.store'
-import { useSettingsStore } from '@/Stores/Settings.store'
 
 import { Dialog } from '@/Components/Main/Dialog'
 import { Scene } from '@/Components/Main/Scene'
@@ -15,20 +12,14 @@ import './Game.style.scss'
 
 export const Game = () => {
   const { game } = useGameStore((state) => state)
-  const { settings } = useSettingsStore((state) => state)
 
   useEffect(() => {
     loadGameSession()
-    loadAllPublicAssets()
   }, [])
-
-  if (!settings) {
-    return
-  }
 
   return (
     <div
-      className={`game-body theme-${getThemeClassName(settings.theme)}`}
+      className="game-body"
       style={
         { '--is-warping': !!game?.isTransitioning ? 0 : 1 } as CSSProperties
       }

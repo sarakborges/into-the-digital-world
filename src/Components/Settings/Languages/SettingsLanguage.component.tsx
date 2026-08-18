@@ -3,7 +3,7 @@ import { getTexts } from '@/Helpers/Language'
 import { LANGUAGES } from '@/Consts/Languages.const'
 
 import { Text } from '@/Components/DesignSystem/Text'
-import { UpdateLanguage } from '@/Components/Settings/Language'
+import { UpdateLanguage } from '@/Components/Settings/UpdateLanguage'
 
 import './SettingsLanguage.style.scss'
 

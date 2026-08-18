@@ -8,7 +8,7 @@ export type BaseDigimonType = {
 
   attribute: 'va' | 'vi' | 'da' | 'na'
 
-  families: {
+  fields: {
     [familyId: string]: null
   }
 

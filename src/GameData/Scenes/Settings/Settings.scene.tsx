@@ -6,7 +6,6 @@ import { useSceneStore } from '@/Stores/Scene.store'
 import { ShadowButton } from '@/Components/DesignSystem/ShadowButton'
 import { Text } from '@/Components/DesignSystem/Text'
 import { SettingsLanguage } from '@/Components/Settings/Languages'
-import { SettingsTheme } from '@/Components/Settings/Themes'
 
 import './Settings.style.scss'
 
@@ -25,7 +24,6 @@ export const Settings = () => {
 
       <main>
         <SettingsLanguage />
-        <SettingsTheme />
       </main>
 
       <footer>

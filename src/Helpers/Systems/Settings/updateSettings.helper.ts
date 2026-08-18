@@ -2,13 +2,7 @@ import { saveData } from '@/Helpers/Systems/Data'
 
 import { useSettingsStore } from '@/Stores/Settings.store'
 
-export const updateSettings = ({
-  language,
-  theme
-}: {
-  language?: string
-  theme?: string
-}) => {
+export const updateSettings = ({ language }: { language?: string }) => {
   const { settings, setSettings } = useSettingsStore.getState()
 
   if (!settings) {
@@ -17,8 +11,7 @@ export const updateSettings = ({
 
   const updatedSettings = {
     ...settings,
-    language: language ?? settings.language,
-    theme: theme ?? settings.theme
+    language: language ?? settings.language
   }
 
   setSettings(updatedSettings)
@@ -26,8 +19,7 @@ export const updateSettings = ({
   saveData({
     key: 'settings',
     value: {
-      language: language ?? settings.language,
-      theme: theme ?? settings.theme
+      language: language ?? settings.language
     }
   })
 }

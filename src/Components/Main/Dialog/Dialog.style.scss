@@ -33,7 +33,7 @@
     transition: opacity 0.3s;
 
     .portrait {
-      max-height: 200px;
+      max-height: 260px;
 
       img {
         max-height: 100%;
@@ -104,6 +104,8 @@
       );
 
       .text {
+        max-width: 400px;
+
         font-size: 12px;
         text-shadow: 1px 1px 4px var(--color-neutral-strong);
       }

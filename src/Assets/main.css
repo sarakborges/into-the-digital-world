@@ -3,26 +3,7 @@
 @import url('./vars.css');
 @import url('./reset.css');
 
-@import url('./Themes/Default/default.theme.css');
-
-@import url('./Themes/Crests/courage.theme.css');
-@import url('./Themes/Crests/friendship.theme.css');
-@import url('./Themes/Crests/knowledge.theme.css');
-@import url('./Themes/Crests/sincerity.theme.css');
-@import url('./Themes/Crests/love.theme.css');
-@import url('./Themes/Crests/reliability.theme.css');
-@import url('./Themes/Crests/hope.theme.css');
-@import url('./Themes/Crests/light.theme.css');
-
-@import url('./Themes/Families/me.theme.css');
-@import url('./Themes/Families/nso.theme.css');
-@import url('./Themes/Families/nsp.theme.css');
-@import url('./Themes/Families/ds.theme.css');
-@import url('./Themes/Families/dr.theme.css');
-@import url('./Themes/Families/wg.theme.css');
-@import url('./Themes/Families/jt.theme.css');
-@import url('./Themes/Families/vb.theme.css');
-@import url('./Themes/Families/da.theme.css');
+@import url('./Themes/default.theme.css');
 
 body {
   display: flex;

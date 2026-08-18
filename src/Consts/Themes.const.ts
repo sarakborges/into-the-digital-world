@@ -12,5 +12,5 @@ export const THEMES = {
     'light'
   ],
 
-  families: ['vb', 'dr', 'nsp', 'wg', 'jt', 'ds', 'me', 'nso', 'da']
+  fields: ['vb', 'dr', 'nsp', 'wg', 'jt', 'ds', 'me', 'nso', 'da']
 }
