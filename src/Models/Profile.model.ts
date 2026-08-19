@@ -10,10 +10,5 @@ export const ProfileModel = {
   currentTitle: 'chosenChild',
   titles: ['chosenChild'],
 
-  npcAcquaintances: [...Object.keys(AllNpcs.appmon)],
-
-  currentLocation: {
-    zone: 'rootDomain',
-    map: 'restRoom'
-  }
+  npcAcquaintances: [...Object.keys(AllNpcs.appmon)]
 } satisfies ProfileType

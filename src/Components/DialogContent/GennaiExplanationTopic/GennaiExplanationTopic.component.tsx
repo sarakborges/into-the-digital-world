@@ -5,7 +5,7 @@ import { getTexts } from '@/Helpers/Language'
 import { useDialogStore } from '@/Stores/Dialog.store'
 import { useDialogOptionsStore } from '@/Stores/DialogOptions.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
+import { ShadowButton } from '@/Components/DesignSystem/ShadowButton'
 
 import './GennaiExplanationTopic.style.scss'
 
@@ -30,11 +30,12 @@ export const GennaiExplanationTopic = () => {
   return (
     <div className="gennai-explanation-topic">
       {dialogOptions.map((option) => (
-        <div key={`gennai-explanation-topic-${option}`}>
-          <Button onClick={() => handleTopic(option)}>
-            {getTexts(`ITDW_013_${option.toUpperCase()}`)}
-          </Button>
-        </div>
+        <ShadowButton
+          key={`gennai-explanation-topic-${option}`}
+          onClick={() => handleTopic(option)}
+        >
+          {getTexts(`ITDW_013_${option.toUpperCase()}`)}
+        </ShadowButton>
       ))}
     </div>
   )

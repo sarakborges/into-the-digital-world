@@ -1,7 +1,7 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { InsertPlayerName } from '@/Components/Forms/InsertPlayerName'
+import { InsertPlayerName } from '@/Components/DialogContent/InsertPlayerName'
 
 export const IntoTheDigitalWorld009 = {
-  form: <InsertPlayerName />
+  content: <InsertPlayerName />
 } satisfies DialogType

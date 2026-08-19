@@ -5,12 +5,12 @@ import type { AvatarType } from '@/Types/Avatar.type'
 type AvatarCustomizationStore = {
   avatarCustomization: {
     avatar: AvatarType
-    layer?: keyof AvatarType
+    layer?: string
   } | null
   setAvatarCustomization: (
     avatarCustomization: {
       avatar: AvatarType
-      layer?: keyof AvatarType
+      layer?: string
     } | null
   ) => void
 }

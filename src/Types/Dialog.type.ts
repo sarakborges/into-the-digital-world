@@ -12,7 +12,7 @@ export type DialogType = {
     alt: string
   }
 
-  form?: JSX.Element
+  content?: JSX.Element
 
   actions?: Array<{
     id: string

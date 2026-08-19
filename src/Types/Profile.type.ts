@@ -18,11 +18,6 @@ export type ProfileType = {
   researchesFound?: Array<string>
   researchesConcluded?: Array<string>
 
-  currentLocation: {
-    zone: string
-    map: string
-  }
-
   quests?: {
     [questId: string]: {
       objectives: {

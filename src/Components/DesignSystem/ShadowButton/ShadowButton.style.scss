@@ -99,3 +99,31 @@
     }
   }
 }
+
+.dialog-internal-text {
+  .shadow-button {
+    .button-bg {
+      div:first-child {
+        background-image: linear-gradient(
+          90deg,
+          color-mix(in srgb, var(--color-primary) 0%, transparent) 0%,
+          color-mix(in srgb, var(--color-primary) 70%, transparent) 15%,
+          color-mix(in srgb, var(--color-primary) 70%, transparent) 50%,
+          color-mix(in srgb, var(--color-primary) 70%, transparent) 85%,
+          color-mix(in srgb, var(--color-primary) 0%, transparent) 100%
+        );
+      }
+
+      div:last-child {
+        background-image: linear-gradient(
+          90deg,
+          color-mix(in srgb, var(--color-secondary) 0%, transparent) 0%,
+          color-mix(in srgb, var(--color-secondary) 70%, transparent) 15%,
+          color-mix(in srgb, var(--color-secondary) 70%, transparent) 50%,
+          color-mix(in srgb, var(--color-secondary) 70%, transparent) 85%,
+          color-mix(in srgb, var(--color-secondary) 0%, transparent) 100%
+        );
+      }
+    }
+  }
+}

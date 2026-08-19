@@ -7,6 +7,7 @@ import { useDialogStore } from '@/Stores/Dialog.store'
 import { Button } from '@/Components/DesignSystem/Button'
 import { Portrait } from '@/Components/DesignSystem/Portrait'
 import { Text } from '@/Components/DesignSystem/Text'
+import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 
 import './Dialog.style.scss'
 
@@ -26,7 +27,9 @@ export const Dialog = () => {
   useEffect(() => {
     setDialogContent({
       ...dialogContent,
-      isTextRefreshing: dialog?.text !== dialogContent.text,
+      isTextRefreshing:
+        dialog?.text !== dialogContent.text ||
+        dialog?.speaker?.portrait !== dialogContent.speaker?.portrait,
       isPictureRefreshing:
         dialog?.speaker?.picture !== dialogContent.speaker?.picture
     })
@@ -57,47 +60,54 @@ export const Dialog = () => {
         )}
       </div>
 
-      <div
-        className={`dialog-text${!!dialogContent.isTextRefreshing ? ' refresh-dialog' : ''}`}
-      >
-        {!!dialogContent?.speaker && (
-          <header>
-            {!!dialogContent.speaker.portrait && (
-              <Portrait
-                src={`/${dialogContent.speaker.portrait}.webp`}
-                alt={dialogContent.speaker.name || ''}
-              />
+      {(!!dialogContent.text || !!dialogContent.content) && (
+        <>
+          <div
+            className={`dialog-text${!!dialogContent.isTextRefreshing ? ' refresh-dialog' : ''}`}
+          >
+            {!!dialogContent?.speaker && (
+              <header>
+                {!!dialogContent.speaker.portrait && (
+                  <Portrait
+                    src={`/${dialogContent.speaker.portrait}.webp`}
+                    alt={dialogContent.speaker.name || ''}
+                  />
+                )}
+
+                {dialogContent.speaker.id === 'player' &&
+                  !!dialogContent.speaker.portrait && <PlayerAvatar />}
+
+                <main>
+                  <Text>{dialogContent?.speaker.name}</Text>
+
+                  {!!dialogContent?.speaker.title && (
+                    <Text>{dialogContent?.speaker.title}</Text>
+                  )}
+                </main>
+              </header>
             )}
 
-            <main>
-              <Text>{dialogContent?.speaker.name}</Text>
+            <div className="dialog-internal-text">
+              {!!dialogContent.text && <Text as="p">{dialogContent.text}</Text>}
+              {!!dialogContent.content && <>{dialogContent.content}</>}
+            </div>
+          </div>
 
-              {!!dialogContent?.speaker.title && (
-                <Text>{dialogContent?.speaker.title}</Text>
-              )}
-            </main>
-          </header>
-        )}
+          <div
+            className={`dialog-buttons${!!dialogContent.isTextRefreshing ? ' refresh-dialog' : ''}`}
+          >
+            {dialogContent.actions?.map((dialogAction) => {
+              const { id, text, ...otherProps } = dialogAction
 
-        <div className="dialog-internal-text">
-          {!!dialogContent.text && <Text as="p">{dialogContent.text}</Text>}
-          {!!dialogContent.form && <>{dialogContent.form}</>}
-        </div>
-      </div>
-
-      <div
-        className={`dialog-buttons${!!dialogContent.isTextRefreshing ? ' refresh-dialog' : ''}`}
-      >
-        {dialogContent.actions?.map((dialogAction) => {
-          const { id, text, ...otherProps } = dialogAction
-
-          return (
-            <Button key={`dialog-actions-${id}`} {...otherProps}>
-              {text}
-            </Button>
-          )
-        })}
-      </div>
+              return (
+                <Button key={`dialog-actions-${id}`} {...otherProps}>
+                  {text}
+                </Button>
+              )
+            })}
+          </div>
+        </>
+      )}
     </div>
   )
 }

@@ -1,6 +1,8 @@
 import { useGameStore } from '@/Stores/Game.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
+import { RootDomainDormsFashionTerminal } from '@/Components/Scenes/RootDomainDormsFashionTerminal'
+
 import './RootDomainDorms.style.scss'
 
 export const RootDomainDorms = () => {
@@ -11,5 +13,9 @@ export const RootDomainDorms = () => {
     return
   }
 
-  return <main className="root-domain-dorms" />
+  return (
+    <main className="root-domain-dorms">
+      <RootDomainDormsFashionTerminal />
+    </main>
+  )
 }

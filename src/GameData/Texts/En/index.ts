@@ -62,6 +62,16 @@ export const TITLES_GENNAI = `Last Agent of Homeostasis`
 export const TITLES_DRESSMON = `Avatar Assistant`
 
 // ------------------------------------------------------------------------
+// FASHION (Dialog)
+// ------------------------------------------------------------------------
+export const FASHION_INTRODUCTION = `Connection established! Dressmon, at your service.\nNow, let's see what we can do about this— oh, my... Gennai was not exaggerating.\n\nLucky for you, fixing impossible messes is something of a specialty of mine.`
+export const FASHION_TRIGGER = `Back for another touch-up?\n\nExcellent! I was beginning to worry you'd decided perfection didn't need maintenance.`
+export const FASHION_FIX_COMPLETE = `There we are! Now, that's an avatar! Much better!\nHonestly, I was starting to think even I couldn't save you. Silly me.`
+export const FASHION_UPDATE_COMPLETE = `And... done.\nAnother successful improvement by Dressmon. As expected, of course.`
+export const FASHION_PLACEHOLDER = `I took the liberty of putting together a basic placeholder. Consider it a canvas, not a commitment.\n\nGo on, then. Hair, clothes, colors — change whatever you like. If we're doing this, we're doing it properly.`
+export const FASHION_CUSTOMIZATION_OPTIONS_TITLE = `Alright, what needs my expert touch?`
+
+// ------------------------------------------------------------------------
 // INTO THE DIGITAL WORLD (Dialog)
 // ------------------------------------------------------------------------
 export const ITDW_001 = `You wake up.\nAs you slowly open your eyes, something feels wrong.\n\nThis is not where you fell asleep.`

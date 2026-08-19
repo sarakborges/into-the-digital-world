@@ -5,7 +5,7 @@ import { setMeaningfulChoice } from '@/Helpers/Systems/Profile/setMeaningfulChoi
 
 import { useDialogStore } from '@/Stores/Dialog.store'
 
-import { Button } from '@/Components/DesignSystem/Button'
+import { ShadowButton } from '@/Components/DesignSystem/ShadowButton'
 
 import './SayNameReaction.style.scss'
 
@@ -36,11 +36,12 @@ export const SayNameReaction = () => {
   return (
     <div className="say-name-reaction">
       {reactionOptions.map((option) => (
-        <div key={`say-name-reaction-${option}`}>
-          <Button onClick={() => handleReaction(option)}>
-            {getTexts(`ITDW_010_${option.toUpperCase()}`)}
-          </Button>
-        </div>
+        <ShadowButton
+          key={`say-name-reaction-${option}`}
+          onClick={() => handleReaction(option)}
+        >
+          {getTexts(`ITDW_010_${option.toUpperCase()}`)}
+        </ShadowButton>
       ))}
     </div>
   )

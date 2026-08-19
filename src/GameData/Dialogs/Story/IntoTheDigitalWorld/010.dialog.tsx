@@ -3,7 +3,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { getTexts } from '@/Helpers/Language'
 import { getProfileName } from '@/Helpers/Systems/Profile'
 
-import { SayNameReaction } from '@/Components/Forms/SayNameReaction'
+import { SayNameReaction } from '@/Components/DialogContent/SayNameReaction'
 
 export const getIntoTheDigitalWorld010 = (): DialogType => {
   const profileName = getProfileName()
@@ -13,6 +13,6 @@ export const getIntoTheDigitalWorld010 = (): DialogType => {
       '[NAME]': profileName
     }),
 
-    form: <SayNameReaction />
+    content: <SayNameReaction />
   }
 }

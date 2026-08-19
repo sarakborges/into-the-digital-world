@@ -53,7 +53,7 @@
 
     transition: opacity 0.3s;
 
-    header {
+    > header {
       display: flex;
       place-items: flex-end;
       gap: 8px;
@@ -118,6 +118,7 @@
 
     display: flex;
     place-content: flex-end;
+    gap: 8px;
 
     transition: opacity 0.3s;
 
