@@ -3,14 +3,15 @@ import { FashionIntroduction } from '@/GameData/Dialogs/Apps/Fashion/Introductio
 import { getTexts } from '@/Helpers/Language'
 
 import { useDialogStore } from '@/Stores/Dialog.store'
-import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
+
+// import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 
 import { ShadowButton } from '@/Components/DesignSystem/ShadowButton'
 
 import './SkipIntroductionToAvatar.style.scss'
 
 export const SkipIntroductionToAvatar = () => {
-  const { savedProfiles } = useSavedProfilesStore.getState()
+  // const { savedProfiles } = useSavedProfilesStore.getState()
   const { setDialog } = useDialogStore((state) => state)
 
   // if (!savedProfiles) {

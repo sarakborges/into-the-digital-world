@@ -30,8 +30,7 @@ export const Dialog = () => {
       isTextRefreshing:
         dialog?.text !== dialogContent.text ||
         dialog?.speaker?.portrait !== dialogContent.speaker?.portrait,
-      isPictureRefreshing:
-        dialog?.speaker?.picture !== dialogContent.speaker?.picture
+      isPictureRefreshing: dialog?.image !== dialogContent.image
     })
 
     setTimeout(() => {
@@ -52,10 +51,10 @@ export const Dialog = () => {
       <div
         className={`dialog-speaker${!!dialogContent.isPictureRefreshing ? ' refresh-dialog' : ''}`}
       >
-        {!!dialogContent?.speaker?.picture && (
+        {!!dialogContent?.image && (
           <Portrait
-            src={`/${dialogContent.speaker.picture}.webp`}
-            alt={dialogContent.speaker.name || ''}
+            src={`/${dialogContent.image.src}.webp`}
+            alt={dialogContent.image.alt || ''}
           />
         )}
       </div>

@@ -4,14 +4,15 @@ import { getTexts } from '@/Helpers/Language'
 import { changeScene } from '@/Helpers/Systems/Scenes'
 
 import { useDialogStore } from '@/Stores/Dialog.store'
-import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
+
+// import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 
 import { ShadowButton } from '@/Components/DesignSystem/ShadowButton'
 
 import './SkipIntroductionToName.style.scss'
 
 export const SkipIntroductionToName = () => {
-  const { savedProfiles } = useSavedProfilesStore.getState()
+  // const { savedProfiles } = useSavedProfilesStore.getState()
   const { setDialog } = useDialogStore((state) => state)
 
   const skipToName = () => {

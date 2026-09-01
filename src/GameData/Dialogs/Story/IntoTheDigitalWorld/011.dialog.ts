@@ -35,7 +35,6 @@ export const getIntoTheDigitalWorld011 = (): DialogType => {
 
         onClick: () => {
           const { setDialog } = useDialogStore.getState()
-
           setDialog(getIntoTheDigitalWorld012())
         }
       }

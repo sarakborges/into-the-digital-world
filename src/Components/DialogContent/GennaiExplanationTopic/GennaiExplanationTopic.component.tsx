@@ -1,4 +1,5 @@
 import { getIntoTheDigitalWorld014 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/014.dialog'
+import { getIntoTheDigitalWorld015 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/015.dialog'
 
 import { getTexts } from '@/Helpers/Language'
 
@@ -16,6 +17,12 @@ export const GennaiExplanationTopic = () => {
   const { setDialog } = useDialogStore((state) => state)
 
   const handleTopic = (topic: string) => {
+    if (topic === 'enough') {
+      setDialog(getIntoTheDigitalWorld015())
+      setTimeout(() => setDialogOptions([]), 600)
+      return
+    }
+
     setDialog(getIntoTheDigitalWorld014(topic))
 
     setTimeout(

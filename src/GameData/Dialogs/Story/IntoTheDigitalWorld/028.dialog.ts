@@ -1,20 +1,12 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { IntoTheDigitalWorld029 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/029.dialog'
-import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
+import { FashionIntroduction } from '@/GameData/Dialogs/Apps/Fashion/Introduction.dialog'
 
 import { getTexts } from '@/Helpers/Language'
 
 import { useDialogStore } from '@/Stores/Dialog.store'
 
 export const IntoTheDigitalWorld028 = {
-  speaker: {
-    id: NpcGennai.id,
-    name: NpcGennai.name,
-    title: getTexts(NpcGennai.title),
-    picture: NpcGennai.picture
-  },
-
   text: getTexts('ITDW_028'),
 
   actions: [
@@ -25,8 +17,7 @@ export const IntoTheDigitalWorld028 = {
 
       onClick: () => {
         const { setDialog } = useDialogStore.getState()
-
-        setDialog(IntoTheDigitalWorld029)
+        setDialog(FashionIntroduction)
       }
     }
   ]

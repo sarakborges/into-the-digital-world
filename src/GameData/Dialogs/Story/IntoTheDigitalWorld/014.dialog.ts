@@ -6,8 +6,8 @@ import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 
 import { getTexts } from '@/Helpers/Language'
 
-import { useDialogOptionsStore } from '@/Stores/DialogOptions.store'
 import { useDialogStore } from '@/Stores/Dialog.store'
+import { useDialogOptionsStore } from '@/Stores/DialogOptions.store'
 
 export const getIntoTheDigitalWorld014 = (topic: string): DialogType => {
   return {
@@ -15,7 +15,7 @@ export const getIntoTheDigitalWorld014 = (topic: string): DialogType => {
       id: NpcGennai.id,
       name: NpcGennai.name,
       title: getTexts(NpcGennai.title),
-      picture: NpcGennai.picture
+      portrait: NpcGennai.portrait
     },
 
     text: getTexts(`ITDW_014_${topic.toUpperCase()}`),

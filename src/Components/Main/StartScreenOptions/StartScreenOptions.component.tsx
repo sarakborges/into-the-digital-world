@@ -1,10 +1,6 @@
-import { Settings } from '@/GameData/Scenes/Settings'
-
 import { getTexts } from '@/Helpers/Language'
 import { createNewProfile } from '@/Helpers/Systems/Profile'
 import { changeScene } from '@/Helpers/Systems/Scenes'
-
-import { useGameStore } from '@/Stores/Game.store'
 
 import { ShadowButton } from '@/Components/DesignSystem/ShadowButton'
 import { Text } from '@/Components/DesignSystem/Text'

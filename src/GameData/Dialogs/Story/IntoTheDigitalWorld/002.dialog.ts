@@ -17,7 +17,6 @@ export const IntoTheDigitalWorld002 = {
 
       onClick: () => {
         const { setDialog } = useDialogStore.getState()
-
         setDialog(IntoTheDigitalWorld003)
       }
     }

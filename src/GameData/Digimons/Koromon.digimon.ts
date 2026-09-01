@@ -3,7 +3,7 @@ import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
 import { AllAttacks } from '@/GameData/Attacks'
 
 import { DIGIMON_ATTRIBUTES } from '@/Consts/Attributes.const'
-import { DIGIMON_FAMILIES } from '@/Consts/Families.const'
+import { DIGIMON_FIELDS } from '@/Consts/Fields.const'
 
 export const DigimonKoromon: BaseDigimonType = {
   id: 'koromon',
@@ -20,8 +20,8 @@ export const DigimonKoromon: BaseDigimonType = {
   },
 
   fields: {
-    [DIGIMON_FAMILIES.dr.id]: null,
-    [DIGIMON_FAMILIES.vb.id]: null
+    [DIGIMON_FIELDS.dr.id]: null,
+    [DIGIMON_FIELDS.vb.id]: null
   },
 
   description: `Koromon is a small Digimon with a pink, round body, large mouth, and floppy ears. They are very active and curious, though still physically weak. Instead of fighting directly, Koromon usually defends itself by blowing bubbles to scare or distract enemies. It is commonly portrayed as friendly, playful, and energetic.`,

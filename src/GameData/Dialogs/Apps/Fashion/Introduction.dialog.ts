@@ -11,8 +11,12 @@ export const FashionIntroduction = {
   speaker: {
     id: NpcDressmon.id,
     name: NpcDressmon.name,
-    title: getTexts(NpcDressmon.title),
-    picture: NpcDressmon.picture
+    title: getTexts(NpcDressmon.title)
+  },
+
+  image: {
+    src: NpcDressmon.picture,
+    alt: NpcDressmon.name
   },
 
   text: getTexts('FASHION_INTRODUCTION'),

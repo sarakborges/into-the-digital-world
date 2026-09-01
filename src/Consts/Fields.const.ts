@@ -1,6 +1,6 @@
-import type { FamilyType } from '@/Types/Family.type'
+import type { FieldType } from '@/Types/Field.type'
 
-export const DIGIMON_FAMILIES: FamilyType = {
+export const DIGIMON_FIELDS: FieldType = {
   vb: {
     id: 'vb',
     name: `Virus Busters`

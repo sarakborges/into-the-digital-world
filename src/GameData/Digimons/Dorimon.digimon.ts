@@ -3,7 +3,7 @@ import type { BaseDigimonType } from '@/Types/BaseDigimon.type'
 import { AllAttacks } from '@/GameData/Attacks'
 
 import { DIGIMON_ATTRIBUTES } from '@/Consts/Attributes.const'
-import { DIGIMON_FAMILIES } from '@/Consts/Families.const'
+import { DIGIMON_FIELDS } from '@/Consts/Fields.const'
 
 export const DigimonDorimon: BaseDigimonType = {
   id: 'dorimon',
@@ -20,7 +20,7 @@ export const DigimonDorimon: BaseDigimonType = {
   },
 
   fields: {
-    [DIGIMON_FAMILIES.nsp.id]: null
+    [DIGIMON_FIELDS.nsp.id]: null
   },
 
   description: `Dorimon is a small Digimon with a dark furry body, sharp eyes, and horn-like ears. Despite their size, they are highly aggressive and instinctive, often attacking anything that enters their territory without hesitation. Dorimon moves quickly and relies on feral combat behavior rather than careful tactics, charging enemies with surprising force for a Digimon at its stage. It can also spit small metal pellets as a ranged attack. Unlike many playful baby Digimon, Dorimon is usually portrayed as wild, territorial, and naturally battle-oriented.`,

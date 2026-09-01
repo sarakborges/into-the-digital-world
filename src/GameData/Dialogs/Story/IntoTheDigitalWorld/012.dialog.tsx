@@ -25,7 +25,7 @@ export const getIntoTheDigitalWorld012 = (): DialogType => {
       id: NpcGennai.id,
       name: NpcGennai.name,
       title: getTexts(NpcGennai.title),
-      picture: NpcGennai.picture
+      portrait: NpcGennai.portrait
     },
 
     text: getTexts(`ITDW_012_${choice.toUpperCase()}`, {
@@ -50,7 +50,8 @@ export const getIntoTheDigitalWorld012 = (): DialogType => {
             'human',
             'balance',
             'homeostasis',
-            'guide'
+            'guide',
+            'enough'
           ])
 
           setDialog(IntoTheDigitalWorld013)

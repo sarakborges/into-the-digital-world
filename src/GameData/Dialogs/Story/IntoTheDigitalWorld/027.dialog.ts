@@ -12,7 +12,7 @@ export const IntoTheDigitalWorld027 = {
     id: NpcGennai.id,
     name: NpcGennai.name,
     title: getTexts(NpcGennai.title),
-    picture: NpcGennai.picture
+    portrait: NpcGennai.portrait
   },
 
   text: getTexts('ITDW_027'),
@@ -25,7 +25,6 @@ export const IntoTheDigitalWorld027 = {
 
       onClick: () => {
         const { setDialog } = useDialogStore.getState()
-
         setDialog(IntoTheDigitalWorld028)
       }
     }
