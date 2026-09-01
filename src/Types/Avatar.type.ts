@@ -1,8 +1,5 @@
 export type AvatarType = {
-  expression: string
-  skin: string
-  eyes: string
-  hair: string
+  skinColor: string
+  hairStyle: string
   hairColor: string
-  clothes: string
 }

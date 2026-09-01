@@ -3,17 +3,17 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { IntoTheDigitalWorld018 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/018.dialog'
 
 import { getTexts } from '@/Helpers/Language'
-import { getProfileName } from '@/Helpers/Systems/Profile'
 
 import { useDialogStore } from '@/Stores/Dialog.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 
 export const getIntoTheDigitalWorld017 = (): DialogType => {
-  const profileName = getProfileName()
+  const { profile } = useProfileStore.getState()
 
   return {
     speaker: {
       id: 'player',
-      name: profileName
+      name: profile.name
     },
 
     text: getTexts('ITDW_017'),

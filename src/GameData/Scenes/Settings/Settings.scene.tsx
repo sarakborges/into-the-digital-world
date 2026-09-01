@@ -1,7 +1,7 @@
 import { getTexts } from '@/Helpers/Language'
 import { changeScene } from '@/Helpers/Systems/Scenes'
 
-import { useSceneStore } from '@/Stores/Scene.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 
 import { ShadowButton } from '@/Components/DesignSystem/ShadowButton'
 import { Text } from '@/Components/DesignSystem/Text'
@@ -10,10 +10,14 @@ import { SettingsLanguage } from '@/Components/Settings/Languages'
 import './Settings.style.scss'
 
 export const Settings = () => {
-  const { lastScene } = useSceneStore((state) => state)
+  const { profile } = useProfileStore((state) => state)
 
   const closeSettings = () => {
-    changeScene(lastScene)
+    if (!profile.lastScene) {
+      throw new Error('Last scene not found')
+    }
+
+    changeScene(profile.lastScene)
   }
 
   return (

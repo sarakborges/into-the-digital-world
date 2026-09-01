@@ -1,10 +1,9 @@
 import { useEffect } from 'react'
 
 import { getTexts } from '@/Helpers/Language'
-import {
-  generateRandomAvatar,
-  getAvatarOptionsText
-} from '@/Helpers/Systems/Profile'
+import { generateRandomAvatar } from '@/Helpers/Systems/Profile'
+
+import { AVATAR_LAYERS } from '@/Consts/AvatarLayers.const'
 
 import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -17,32 +16,24 @@ import './AvatarCustomization.style.scss'
 
 export const AvatarCustomization = () => {
   const { profile } = useProfileStore((state) => state)
-  const { avatarCustomization, setAvatarCustomization } =
-    useAvatarCustomizationStore((state) => state)
+  const { avatar, setAvatar, setLayer } = useAvatarCustomizationStore(
+    (state) => state
+  )
 
   useEffect(() => {
-    if (!avatarCustomization || !!profile?.avatar) {
+    if (!!avatar || !!profile.avatar) {
       return
     }
 
-    setAvatarCustomization({
-      ...avatarCustomization,
-      avatar: generateRandomAvatar()
-    })
+    setAvatar(generateRandomAvatar())
   }, [])
 
-  if (!profile) {
-    return null
-  }
-
-  const avatarOptions = getAvatarOptionsText()
-
   const selectAvatarLayer = (layer: string) => {
-    if (!avatarCustomization) {
+    if (!avatar) {
       return
     }
 
-    setAvatarCustomization({ ...avatarCustomization, layer })
+    setLayer(layer)
   }
 
   return (
@@ -54,21 +45,19 @@ export const AvatarCustomization = () => {
           </header>
 
           <main>
-            {Object.keys(avatarOptions).map((option) => (
+            {AVATAR_LAYERS.map((option) => (
               <ShadowButton
                 key={`customize-avatar-options-${option}`}
                 onClick={() => selectAvatarLayer(option)}
               >
-                {avatarOptions[option]}
+                {getTexts(`AVATARCUSTOMIZATION_${option.toLocaleUpperCase()}`)}
               </ShadowButton>
             ))}
           </main>
         </aside>
 
         <main>
-          <PlayerAvatar
-            replaceAvatar={avatarCustomization?.avatar ?? profile.avatar}
-          />
+          <PlayerAvatar />
         </main>
       </main>
     </div>

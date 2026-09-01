@@ -3,13 +3,15 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { getIntoTheDigitalWorld012 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/012.dialog'
 
 import { getTexts } from '@/Helpers/Language'
-import { getChoice, getProfileName } from '@/Helpers/Systems/Profile'
 
 import { useDialogStore } from '@/Stores/Dialog.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 
 export const getIntoTheDigitalWorld011 = (): DialogType => {
-  const profileName = getProfileName()
-  const choice = getChoice('INTO_THE_DIGITAL_WORLD_NAME_REACTION')
+  const { profile } = useProfileStore.getState()
+
+  const choice =
+    profile.meaningfulChoices?.['INTO_THE_DIGITAL_WORLD_NAME_REACTION']
 
   if (!choice) {
     throw new Error('Missing INTO_THE_DIGITAL_WORLD_NAME_REACTION choice')
@@ -18,11 +20,11 @@ export const getIntoTheDigitalWorld011 = (): DialogType => {
   return {
     speaker: {
       id: 'player',
-      name: profileName
+      name: profile.name
     },
 
     text: getTexts(`ITDW_011_${choice.toUpperCase()}`, {
-      '[NAME]': profileName
+      '[NAME]': profile.name
     }),
 
     actions: [

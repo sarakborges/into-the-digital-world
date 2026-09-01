@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 
 import { getTexts } from '@/Helpers/Language'
 import { getSortedProfiles, loadProfiles } from '@/Helpers/Systems/Profile'
+import { changeScene } from '@/Helpers/Systems/Scenes'
 
-import { useGameStore } from '@/Stores/Game.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 
@@ -16,18 +16,13 @@ import './StartScreenSavedGames.style.scss'
 export const StartScreenSavedGames = () => {
   const { savedProfiles } = useSavedProfilesStore((state) => state)
   const { profile } = useProfileStore((state) => state)
-  const { game, setGame } = useGameStore((state) => state)
 
   useEffect(() => {
     loadProfiles()
   }, [profile])
 
-  if (!game?.isShowingSavedGames) {
-    return
-  }
-
   const closeSavedGames = () => {
-    setGame({ ...game, isShowingSavedGames: false })
+    changeScene('startScreen')
   }
 
   return (

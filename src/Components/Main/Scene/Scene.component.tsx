@@ -1,14 +1,17 @@
-import { useSceneStore } from '@/Stores/Scene.store'
+import { AllScenes } from '@/GameData/Scenes'
+
+import { useProfileStore } from '@/Stores/Profile.store'
 
 import './Scene.style.scss'
 
 export const Scene = () => {
-  const { currentScene } = useSceneStore((state) => state)
-  const RenderedScene = currentScene as React.FC
+  const { profile } = useProfileStore((state) => state)
 
-  if (!currentScene) {
-    return
+  if (!profile.currentScene) {
+    return <></>
   }
+
+  const RenderedScene = AllScenes[profile.currentScene] as React.FC
 
   return (
     <div className="scene">

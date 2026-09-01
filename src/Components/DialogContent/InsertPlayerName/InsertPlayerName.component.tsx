@@ -15,12 +15,8 @@ import './InsertPlayerName.style.scss'
 export const InsertPlayerName = () => {
   const [playerName, setPlayerName] = useState('')
 
-  const { profile, setProfile } = useProfileStore((state) => state)
+  const { patchProfile } = useProfileStore((state) => state)
   const { setDialog } = useDialogStore((state) => state)
-
-  if (!profile) {
-    return null
-  }
 
   const normalizedPlayerName = playerName.trim()
 
@@ -29,8 +25,7 @@ export const InsertPlayerName = () => {
       return
     }
 
-    setProfile({
-      ...profile,
+    patchProfile({
       name: normalizedPlayerName
     })
 

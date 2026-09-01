@@ -1,58 +1,35 @@
-import type { AvatarType } from '@/Types/Avatar.type'
-
-import { useProfileStore } from '@/Stores/Profile.store'
-
-import { Portrait } from '@/Components/DesignSystem/Portrait'
+import type { CSSProperties } from 'react'
 
 import './PlayerAvatar.style.scss'
 
-export const PlayerAvatar = ({
-  replaceAvatar
-}: {
-  replaceAvatar?: AvatarType
-}) => {
-  const { profile } = useProfileStore((state) => state)
-
-  const avatar = replaceAvatar ?? profile?.avatar
-
+export const PlayerAvatar = () => {
   return (
     <div className="player-avatar">
       <div className="avatar-content">
-        {!avatar && (
-          <Portrait
-            src="/avatars/glitch.webp"
-            alt={`${profile?.name || 'Character'} avatar`}
+        <div className="avatar-layers">
+          <div
+            className="avatar-layer skin"
+            style={
+              {
+                '--skin-color': 'hsl(28 45% 72%)',
+                '--skin-brightness': '1.25',
+                '--skin-contrast': '1'
+              } as React.CSSProperties
+            }
           />
-        )}
 
-        {!!avatar && (
-          <div className="avatar-layers">
-            <Portrait
-              src={`/avatars/clothes/${avatar?.clothes}.webp`}
-              alt={`${profile?.name || 'Character'} avatar clothes`}
-            />
-
-            <Portrait
-              src={`/avatars/skins/${avatar?.skin}.webp`}
-              alt={`${profile?.name || 'Character'} avatar skin`}
-            />
-
-            <Portrait
-              src={`/avatars/expressions/${avatar?.expression}.webp`}
-              alt={`${profile?.name || 'Character'} avatar expression`}
-            />
-
-            <Portrait
-              src={`/avatars/eyes/${avatar?.expression}-${avatar?.eyes}.webp`}
-              alt={`${profile?.name || 'Character'} avatar eyes`}
-            />
-
-            <Portrait
-              src={`/avatars/hairs/${avatar?.hair}-${avatar?.hairColor}.webp`}
-              alt={`${profile?.name || 'Character'} avatar hair`}
-            />
-          </div>
-        )}
+          <div
+            className="avatar-layer hair"
+            style={
+              {
+                '--hair-image': 'url(/avatars/hairs/2.png)',
+                '--hair-brightness': '1',
+                '--hair-contrast': '1',
+                '--hair-color': 'hsl(199.7 69.1% 40.6%)'
+              } as CSSProperties
+            }
+          />
+        </div>
       </div>
     </div>
   )

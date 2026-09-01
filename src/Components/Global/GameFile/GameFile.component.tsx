@@ -3,21 +3,24 @@ import type { ProfileType } from '@/Types/Profile.type'
 import { getTexts } from '@/Helpers/Language'
 
 import { Text } from '@/Components/DesignSystem/Text'
-import { DeleteGame } from '@/Components/Global/DeleteGame'
 import { LoadGame } from '@/Components/Global/LoadGame'
 import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 
 import './GameFile.style.scss'
 
 export const GameFile = ({ profile }: { profile: ProfileType }) => {
+  if (!profile.id) {
+    throw new Error('Profile ID not found')
+  }
+
   return (
     <div className="game-file">
-      <PlayerAvatar replaceAvatar={profile.avatar} />
+      <PlayerAvatar />
 
       <header>
         <Text as="p">
           {getTexts('GAME_FILE_TITLE', {
-            '[NAME]': profile.name || '',
+            '[NAME]': profile.name,
             '[ID]': String(profile.id)
           })}
         </Text>
@@ -29,12 +32,9 @@ export const GameFile = ({ profile }: { profile: ProfileType }) => {
         </Text>
       </header>
 
-      {!!profile?.id && (
-        <div className="game-options">
-          <LoadGame profileId={profile.id} />
-          <DeleteGame profileId={profile.id} />
-        </div>
-      )}
+      <div className="game-options">
+        <LoadGame profileId={profile.id} />
+      </div>
     </div>
   )
 }

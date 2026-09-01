@@ -30,11 +30,9 @@ export const SCREEN_ORIENTATION_WARNING = `For the best experience, please rotat
 // ========================================================================
 export const AVATARCUSTOMIZATION_TRIGGER = `Hey, Dressmon. I'd like to update my avatar.`
 export const AVATARCUSTOMIZATION_OPTIONS_TITLE = `Tap to customize:`
-export const AVATARCUSTOMIZATION_SKIN = `Skin tone`
-export const AVATARCUSTOMIZATION_HAIR = `Hairstyle`
+export const AVATARCUSTOMIZATION_SKIN_COLOR = `Skin tone`
+export const AVATARCUSTOMIZATION_HAIR_STYLE = `Hairstyle`
 export const AVATARCUSTOMIZATION_HAIR_COLOR = `Hair color`
-export const AVATARCUSTOMIZATION_EYES = `Eye color`
-export const AVATARCUSTOMIZATION_CLOTHES = `Clothes`
 
 // ========================================================================
 // DIGIMON ATTRIBUTES / STATS
@@ -68,6 +66,7 @@ export const FASHION_INTRODUCTION = `Connection established! Dressmon, at your s
 export const FASHION_TRIGGER = `Back for another touch-up?\n\nExcellent! I was beginning to worry you'd decided perfection didn't need maintenance.`
 export const FASHION_FIX_COMPLETE = `There we are! Now, that's an avatar! Much better!\nHonestly, I was starting to think even I couldn't save you. Silly me.`
 export const FASHION_UPDATE_COMPLETE = `And... done.\nAnother successful improvement by Dressmon. As expected, of course.`
+export const FASHION_UPDATE_CANCEL = `Huh? You're giving up?\nYeah, I suppose you're correct. We already have peak work!`
 export const FASHION_PLACEHOLDER = `I took the liberty of putting together a basic placeholder. Consider it a canvas, not a commitment.\n\nGo on, then. Hair, clothes, colors — change whatever you like. If we're doing this, we're doing it properly.`
 export const FASHION_CUSTOMIZATION_OPTIONS_TITLE = `Alright, what needs my expert touch?`
 
@@ -75,6 +74,7 @@ export const FASHION_CUSTOMIZATION_OPTIONS_TITLE = `Alright, what needs my exper
 // INTO THE DIGITAL WORLD (Dialog)
 // ------------------------------------------------------------------------
 export const ITDW_001 = `You wake up.\nAs you slowly open your eyes, something feels wrong.\n\nThis is not where you fell asleep.`
+export const ITDW_001_SKIP = `I already know how this story goes. (Skip to naming)`
 export const ITDW_002 = `Before you can make sense of your surroundings, you hear footsteps.\nSomeone - or something - is approaching.\n\nThe door slowly opens.`
 export const ITDW_003 = `So it is true!\nI could scarcely believe it when I was told.`
 export const ITDW_004 = `That data signature... unmistakably human.\nAnd so young, at that.`
@@ -108,6 +108,7 @@ export const ITDW_012_NERVOUS = `I understand, [NAME]. This is a great deal to t
 export const ITDW_012_BLUNT = `Straight to the point. Very well.\nI believe an explanation is long overdue.`
 export const ITDW_012_CURIOUS = `Ah. You were listening closely.\nThose are good questions, [NAME]. Let me explain.`
 export const ITDW_012_PLAYFUL = `Heh. You seem to be taking this rather well.\nStill, I imagine you would appreciate an explanation.`
+export const ITDW_012_SKIP = `I already know how this story goes. (Skip to avatar customization)`
 
 export const ITDW_013 = `What would you like Gennai to explain?`
 
@@ -140,3 +141,4 @@ export const ITDW_026 = `A Digivice allows a human to interact directly with the
 export const ITDW_027 = `As for Dressmon, it is what we call an Appmon - an Application Monster.\n\nAppmon are digital lifeforms associated with applications and their functions. Each possesses abilities related to the function it represents.`
 export const ITDW_028 = `Dressmon is a Fashion Appmon. Its abilities revolve around appearance data - clothing, styling, and the way that data is visually represented.\n\nWith the rendering terminal acting as an interface, Dressmon should be able to use those abilities to reconstruct your avatar.`
 export const ITDW_029 = `In simpler terms: use the Digivice at the terminal, find Dressmon, and let it take care of the rest.`
+export const ITDW_030 = `You do as Gennai say. You walk to the terminal, and place your Digivice in front of it.`

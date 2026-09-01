@@ -4,27 +4,18 @@ import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 
 export type ProfileType = {
   id?: number
-  name?: string
-  avatar?: AvatarType
+  name: string
+  avatar: AvatarType | null
   lastSave: Date
 
   currentTitle: string
-  currentScene: React.FC | null
   currentDialog: DialogType | null
+  currentScene: string | null
+  lastScene?: string | null
 
   titles: Array<string>
   npcAcquaintances: Array<string>
   party?: Array<number>
-  researchesFound?: Array<string>
-  researchesConcluded?: Array<string>
-
-  quests?: {
-    [questId: string]: {
-      objectives: {
-        [objectiveId: string]: number | boolean
-      }
-    }
-  }
 
   items?: {
     [itemId: string]: number

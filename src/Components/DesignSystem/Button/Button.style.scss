@@ -50,5 +50,6 @@
 
   &:disabled {
     background-color: var(--color-neutral);
+    cursor: default;
   }
 }

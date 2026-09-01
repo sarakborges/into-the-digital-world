@@ -1,7 +1,7 @@
 import { getIntoTheDigitalWorld011 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/011.dialog'
 
 import { getTexts } from '@/Helpers/Language'
-import { setMeaningfulChoice } from '@/Helpers/Systems/Profile/setMeaningfulChoice.helper'
+import { setMeaningfulChoice } from '@/Helpers/Systems/Dialogs'
 
 import { useDialogStore } from '@/Stores/Dialog.store'
 

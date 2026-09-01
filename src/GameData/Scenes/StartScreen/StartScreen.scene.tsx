@@ -5,7 +5,6 @@ import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Text } from '@/Components/DesignSystem/Text'
 import { StartScreenOptions } from '@/Components/Main/StartScreenOptions'
-import { StartScreenSavedGames } from '@/Components/Main/StartScreenSavedGames'
 
 import './StartScreen.style.scss'
 
@@ -22,7 +21,6 @@ export const StartScreen = () => {
       <main>
         <Text as="p">{getTexts('START_SCREEN_TITLE')}</Text>
 
-        <StartScreenSavedGames />
         <StartScreenOptions />
       </main>
     </main>

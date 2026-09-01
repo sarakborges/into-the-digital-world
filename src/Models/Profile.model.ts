@@ -3,9 +3,13 @@ import type { ProfileType } from '@/Types/Profile.type'
 import { AllNpcs } from '@/GameData/Npcs'
 
 export const ProfileModel = {
+  name: '',
+  avatar: null,
+
   lastSave: new Date(),
-  currentScene: null,
   currentDialog: null,
+
+  currentScene: null,
 
   currentTitle: 'chosenChild',
   titles: ['chosenChild'],

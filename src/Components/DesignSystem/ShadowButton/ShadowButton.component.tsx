@@ -1,18 +1,20 @@
 import type { ButtonHTMLAttributes } from 'react'
 
+import { useGameStore } from '@/Stores/Game.store'
+
 import './ShadowButton.style.scss'
 
-type ShadowButtonType = {
-  variant?: 'primary' | 'secondary' | 'cancel'
-} & ButtonHTMLAttributes<HTMLButtonElement>
+export const ShadowButton: React.FC<
+  ButtonHTMLAttributes<HTMLButtonElement>
+> = ({ children, ...rest }) => {
+  const { game } = useGameStore((state) => state)
 
-export const ShadowButton: React.FC<ShadowButtonType> = ({
-  children,
-  variant,
-  ...rest
-}) => {
   return (
-    <button className="shadow-button" {...rest}>
+    <button
+      className="shadow-button"
+      {...rest}
+      disabled={rest.disabled || !!game?.isTransitioning}
+    >
       <div className="button-content">{children}</div>
 
       <div className="button-bg">

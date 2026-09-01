@@ -3,32 +3,21 @@ import { create } from 'zustand'
 import type { AvatarType } from '@/Types/Avatar.type'
 
 type AvatarCustomizationStore = {
-  avatarCustomization: {
-    avatar: AvatarType
-    layer?: string
-  } | null
-  setAvatarCustomization: (
-    avatarCustomization: {
-      avatar: AvatarType
-      layer?: string
-    } | null
-  ) => void
+  avatar: AvatarType | null
+  layer?: string
+  setAvatar: (avatarCustomization: AvatarType) => void
+  setLayer: (layer: string) => void
 }
 
 export const useAvatarCustomizationStore = create<AvatarCustomizationStore>(
   (set) => ({
-    avatarCustomization: {
-      avatar: {
-        expression: '',
-        skin: '',
-        eyes: '',
-        hair: '',
-        hairColor: '',
-        clothes: ''
-      }
+    avatar: null,
+    layer: undefined,
+    setAvatar: (avatar) => {
+      set({ avatar })
     },
-    setAvatarCustomization: (avatarCustomization) => {
-      set({ avatarCustomization })
+    setLayer: (layer) => {
+      set({ layer })
     }
   })
 )

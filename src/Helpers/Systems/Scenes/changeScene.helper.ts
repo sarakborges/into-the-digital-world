@@ -1,12 +1,9 @@
 import { useGameStore } from '@/Stores/Game.store'
 import { useProfileStore } from '@/Stores/Profile.store'
-import { useSceneStore } from '@/Stores/Scene.store'
 
-export const changeScene = (scene: React.FC | null) => {
+export const changeScene = (scene: string | null) => {
   const { game, setGame } = useGameStore.getState()
-  const { profile, setProfile } = useProfileStore.getState()
-  const { setCurrentScene, setLastScene, currentScene } =
-    useSceneStore.getState()
+  const { profile, patchProfile } = useProfileStore.getState()
 
   if (!game) {
     return
@@ -23,15 +20,8 @@ export const changeScene = (scene: React.FC | null) => {
       isTransitioning: false
     })
 
-    setLastScene(currentScene)
-    setCurrentScene(scene)
-
-    if (!profile) {
-      return
-    }
-
-    setProfile({
-      ...profile,
+    patchProfile({
+      lastScene: profile.currentScene,
       currentScene: scene
     })
   }, 600)

@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes } from 'react'
 
-import { getButtonClassNames } from '@/Helpers/Components'
+import { useGameStore } from '@/Stores/Game.store'
 
 import './Button.style.scss'
 
@@ -14,8 +14,32 @@ export const Button: React.FC<ButtonType> = ({
   variant,
   ...rest
 }) => {
+  const { game } = useGameStore((state) => state)
+
+  const classNames = ['button']
+
+  if (variant === 'primary' || !variant) {
+    classNames.push('primary')
+  }
+
+  if (variant === 'secondary') {
+    classNames.push('secondary')
+  }
+
+  if (variant === 'cancel') {
+    classNames.push('cancel')
+  }
+
+  if (className) {
+    classNames.push(className)
+  }
+
   return (
-    <button className={getButtonClassNames(variant, className)} {...rest}>
+    <button
+      className={classNames.join(' ')}
+      {...rest}
+      disabled={rest.disabled || !!game?.isTransitioning}
+    >
       {children}
     </button>
   )

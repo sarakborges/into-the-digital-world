@@ -12,12 +12,6 @@ import { Text } from '@/Components/DesignSystem/Text'
 import './StartScreenOptions.style.scss'
 
 export const StartScreenOptions = () => {
-  const { game, setGame } = useGameStore((state) => state)
-
-  const openSavedGames = () => {
-    setGame({ ...game, isShowingSavedGames: true })
-  }
-
   const buttons = [
     {
       text: getTexts('START_NEW_GAME'),
@@ -26,12 +20,12 @@ export const StartScreenOptions = () => {
 
     {
       text: getTexts('DISPLAY_SAVED_GAMES'),
-      onClick: openSavedGames
+      onClick: () => changeScene('savedGames')
     },
 
     {
       text: getTexts('SETTINGS_TITLE'),
-      onClick: () => changeScene(Settings)
+      onClick: () => changeScene('settings')
     }
   ]
 

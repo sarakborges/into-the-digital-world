@@ -1,7 +1,12 @@
 export type EquipmentType = {
-  [equipmentId: number]:
-    | {
-        equipmentId?: string
+  equipConditions?: () => boolean
+
+  equipmentBonuses?: {
+    stats?: {
+      [statId: string]: {
+        type: 'percentage' | 'fixed'
+        amount: number
       }
-    | undefined
+    }
+  }
 }

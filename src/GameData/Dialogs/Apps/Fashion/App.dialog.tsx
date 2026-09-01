@@ -1,11 +1,11 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { FashionFixComplete } from '@/GameData/Dialogs/Apps/Fashion/FixComplete.dialog'
+import { FashionUpdateCancel } from '@/GameData/Dialogs/Apps/Fashion/UpdateCancel.dialog'
 import { FashionUpdateComplete } from '@/GameData/Dialogs/Apps/Fashion/UpdateComplete.dialog'
 import { NpcDressmon } from '@/GameData/Npcs/Dressmon.npc'
 
 import { getTexts } from '@/Helpers/Language'
-import { getProfileAvatar } from '@/Helpers/Systems/Profile'
 
 import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
 import { useDialogStore } from '@/Stores/Dialog.store'
@@ -14,7 +14,7 @@ import { useProfileStore } from '@/Stores/Profile.store'
 import { AvatarCustomization } from '@/Components/DialogContent/AvatarCustomization'
 
 export const FashionApp = () => {
-  const profileAvatar = getProfileAvatar()
+  const { profile } = useProfileStore.getState()
 
   return {
     speaker: {
@@ -32,11 +32,11 @@ export const FashionApp = () => {
 
         text: getTexts('SCENES_CANCEL_BUTTON'),
 
-        disabled: !profileAvatar,
+        disabled: !profile.avatar,
 
         onClick: () => {
           const { setDialog } = useDialogStore.getState()
-          setDialog(null)
+          setDialog(FashionUpdateCancel)
         }
       },
 
@@ -47,20 +47,18 @@ export const FashionApp = () => {
 
         onClick: () => {
           const { setDialog } = useDialogStore.getState()
-          const { profile, setProfile } = useProfileStore.getState()
-          const { avatarCustomization } = useAvatarCustomizationStore.getState()
+          const { profile, patchProfile } = useProfileStore.getState()
+          const { avatar } = useAvatarCustomizationStore.getState()
 
-          if (!profile || !avatarCustomization?.avatar) {
-            return
+          if (!profile || !avatar) {
+            throw new Error('Missing profile or avatar')
           }
 
-          setDialog(!profileAvatar ? FashionFixComplete : FashionUpdateComplete)
-
-          setTimeout(
-            () =>
-              setProfile({ ...profile, avatar: avatarCustomization?.avatar }),
-            600
+          setDialog(
+            !profile.avatar ? FashionFixComplete : FashionUpdateComplete
           )
+
+          setTimeout(() => patchProfile({ avatar }), 600)
         }
       }
     ]

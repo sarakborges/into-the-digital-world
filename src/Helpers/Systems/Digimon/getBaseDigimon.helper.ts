@@ -10,10 +10,6 @@ export const getBaseDigimon = (
 ): BaseDigimonType | undefined => {
   const { profile } = useProfileStore.getState()
 
-  if (!profile) {
-    return undefined
-  }
-
   const partner = profile.partnerDigimons?.[digimonId] as
     PartnerDigimonType | undefined
 
