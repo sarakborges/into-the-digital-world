@@ -18,7 +18,7 @@ export const GAME_FILE_TIME = `[TIME]`
 export const LOAD_GAME = `Load`
 export const DELETE_GAME_FILE = `Delete`
 
-export const START_SCREEN_TITLE = `Into the\nDigital World!`
+export const START_SCREEN_TITLE = `Into the Digital World!`
 
 // ========================================================================
 // SCREEN ORIENTATION WARNING

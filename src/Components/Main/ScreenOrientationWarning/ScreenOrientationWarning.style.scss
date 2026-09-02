@@ -13,7 +13,7 @@
     display: flex;
     flex-flow: column;
     place-content: center;
-    gap: 12px;
+    gap: 220px;
 
     width: 360px;
     height: 640px;
@@ -21,15 +21,30 @@
     transform: translate(-50%, -50%)
       scale(min(tan(atan2(100dvw, 360px)), tan(atan2(100dvh, 640px))));
 
-    padding: 32px 68px 0;
+    padding: 140px 32px 0;
 
     box-shadow: 0 0 4px var(--color-neutral-strong);
     background-image: url('/scenes/device-orientation-warning.webp');
     background-size: cover;
     background-position: center;
 
-    .text {
-      font-size: 12px;
+    > .text {
+      font-size: 24px;
+      font-weight: 400;
+      text-align: center;
+      text-shadow:
+        2px 2px 4px var(--color-neutral-strong),
+        2px 2px 4px var(--color-neutral-strong);
+    }
+
+    > div {
+      display: flex;
+      flex-flow: column;
+      gap: 12px;
+
+      .text {
+        font-size: 14px;
+      }
     }
   }
 }

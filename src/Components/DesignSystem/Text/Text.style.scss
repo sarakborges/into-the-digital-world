@@ -1,6 +1,6 @@
 .text {
   color: var(--text-color);
-  line-height: var(--line-height-single);
+  line-height: 1;
   font-weight: 300;
 
   &:is(h1) {
@@ -19,7 +19,7 @@
 
   &:is(p) {
     font-size: 14px;
-    line-height: var(--line-height-md);
+    line-height: 1.5;
 
     white-space: pre-wrap;
   }
