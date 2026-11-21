@@ -48,16 +48,16 @@ export const Dialog = () => {
 
   return (
     <div className="dialog">
-      <div
-        className={`dialog-speaker${!!dialogContent.isPictureRefreshing ? ' refresh-dialog' : ''}`}
-      >
-        {!!dialogContent?.image && (
+      {!!dialogContent?.image && (
+        <div
+          className={`dialog-speaker${!!dialogContent.isPictureRefreshing ? ' refresh-dialog' : ''}`}
+        >
           <Portrait
             src={`/${dialogContent.image.src}.webp`}
             alt={dialogContent.image.alt || ''}
           />
-        )}
-      </div>
+        </div>
+      )}
 
       {(!!dialogContent.text || !!dialogContent.content) && (
         <>
