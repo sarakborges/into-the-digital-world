@@ -4,8 +4,7 @@ import { FashionApp } from '@/GameData/Dialogs/Apps/Fashion/App.dialog'
 import { NpcDressmon } from '@/GameData/Npcs/Dressmon.npc'
 
 import { getTexts } from '@/Helpers/Language'
-
-import { useDialogStore } from '@/Stores/Dialog.store'
+import { changeDialog } from '@/Helpers/Systems/Dialogs/changeDialog.helper'
 
 export const FashionPlaceholder = {
   speaker: {
@@ -24,8 +23,7 @@ export const FashionPlaceholder = {
       text: getTexts('SCENES_CONTINUE_BUTTON'),
 
       onClick: () => {
-        const { setDialog } = useDialogStore.getState()
-        setDialog(FashionApp())
+        changeDialog(FashionApp())
       }
     }
   ]

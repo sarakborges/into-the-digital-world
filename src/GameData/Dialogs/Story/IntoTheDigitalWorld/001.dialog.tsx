@@ -3,9 +3,8 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { IntoTheDigitalWorld002 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/002.dialog'
 
 import { getTexts } from '@/Helpers/Language'
+import { changeDialog } from '@/Helpers/Systems/Dialogs/changeDialog.helper'
 import { changeScene } from '@/Helpers/Systems/Scenes'
-
-import { useDialogStore } from '@/Stores/Dialog.store'
 
 import { SkipIntroductionToName } from '@/Components/DialogContent/SkipIntroductionToName'
 
@@ -21,10 +20,8 @@ export const IntoTheDigitalWorld001 = {
       text: getTexts('SCENES_CONTINUE_BUTTON'),
 
       onClick: () => {
-        const { setDialog } = useDialogStore.getState()
-
         changeScene('rootDomainDorms')
-        setDialog(IntoTheDigitalWorld002)
+        changeDialog(IntoTheDigitalWorld002)
       }
     }
   ]

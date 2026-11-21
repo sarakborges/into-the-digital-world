@@ -1,9 +1,7 @@
 import { getIntoTheDigitalWorld011 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/011.dialog'
 
 import { getTexts } from '@/Helpers/Language'
-import { setMeaningfulChoice } from '@/Helpers/Systems/Dialogs'
-
-import { useDialogStore } from '@/Stores/Dialog.store'
+import { changeDialog, setMeaningfulChoice } from '@/Helpers/Systems/Dialogs'
 
 import { ShadowButton } from '@/Components/DesignSystem/ShadowButton'
 
@@ -22,15 +20,13 @@ const reactionOptions = [
 type NameReaction = (typeof reactionOptions)[number]
 
 export const SayNameReaction = () => {
-  const { setDialog } = useDialogStore((state) => state)
-
   const handleReaction = (reaction: NameReaction) => {
     setMeaningfulChoice({
       choice: 'INTO_THE_DIGITAL_WORLD_NAME_REACTION',
       value: reaction
     })
 
-    setDialog(getIntoTheDigitalWorld011())
+    changeDialog(getIntoTheDigitalWorld011())
   }
 
   return (

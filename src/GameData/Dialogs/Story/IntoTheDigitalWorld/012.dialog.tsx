@@ -4,9 +4,9 @@ import { IntoTheDigitalWorld013 } from '@/GameData/Dialogs/Story/IntoTheDigitalW
 import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 
 import { getTexts } from '@/Helpers/Language'
+import { changeDialog } from '@/Helpers/Systems/Dialogs'
 import { getChoice } from '@/Helpers/Systems/Profile'
 
-import { useDialogStore } from '@/Stores/Dialog.store'
 import { useDialogOptionsStore } from '@/Stores/DialogOptions.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
@@ -41,7 +41,6 @@ export const getIntoTheDigitalWorld012 = (): DialogType => {
         text: getTexts('SCENES_CONTINUE_BUTTON'),
 
         onClick: () => {
-          const { setDialog } = useDialogStore.getState()
           const { setDialogOptions } = useDialogOptionsStore.getState()
 
           setDialogOptions([
@@ -54,7 +53,7 @@ export const getIntoTheDigitalWorld012 = (): DialogType => {
             'enough'
           ])
 
-          setDialog(IntoTheDigitalWorld013)
+          changeDialog(IntoTheDigitalWorld013)
         }
       }
     ]

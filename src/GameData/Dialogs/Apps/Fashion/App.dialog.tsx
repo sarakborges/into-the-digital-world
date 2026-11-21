@@ -6,9 +6,9 @@ import { FashionUpdateComplete } from '@/GameData/Dialogs/Apps/Fashion/UpdateCom
 import { NpcDressmon } from '@/GameData/Npcs/Dressmon.npc'
 
 import { getTexts } from '@/Helpers/Language'
+import { changeDialog } from '@/Helpers/Systems/Dialogs'
 
 import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
-import { useDialogStore } from '@/Stores/Dialog.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { AvatarCustomization } from '@/Components/DialogContent/AvatarCustomization'
@@ -35,8 +35,7 @@ export const FashionApp = () => {
         disabled: !profile.avatar,
 
         onClick: () => {
-          const { setDialog } = useDialogStore.getState()
-          setDialog(FashionUpdateCancel)
+          changeDialog(FashionUpdateCancel)
         }
       },
 
@@ -46,7 +45,6 @@ export const FashionApp = () => {
         text: getTexts('SCENES_CONFIRM_BUTTON'),
 
         onClick: () => {
-          const { setDialog } = useDialogStore.getState()
           const { profile, patchProfile } = useProfileStore.getState()
           const { avatar } = useAvatarCustomizationStore.getState()
 
@@ -54,7 +52,7 @@ export const FashionApp = () => {
             throw new Error('Missing profile or avatar')
           }
 
-          setDialog(
+          changeDialog(
             !profile.avatar ? FashionFixComplete : FashionUpdateComplete
           )
 

@@ -2,8 +2,8 @@ import { getIntoTheDigitalWorld014 } from '@/GameData/Dialogs/Story/IntoTheDigit
 import { getIntoTheDigitalWorld015 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/015.dialog'
 
 import { getTexts } from '@/Helpers/Language'
+import { changeDialog } from '@/Helpers/Systems/Dialogs'
 
-import { useDialogStore } from '@/Stores/Dialog.store'
 import { useDialogOptionsStore } from '@/Stores/DialogOptions.store'
 
 import { ShadowButton } from '@/Components/DesignSystem/ShadowButton'
@@ -14,16 +14,14 @@ export const GennaiExplanationTopic = () => {
   const { dialogOptions, setDialogOptions } = useDialogOptionsStore(
     (state) => state
   )
-  const { setDialog } = useDialogStore((state) => state)
-
   const handleTopic = (topic: string) => {
     if (topic === 'enough') {
-      setDialog(getIntoTheDigitalWorld015())
+      changeDialog(getIntoTheDigitalWorld015())
       setTimeout(() => setDialogOptions([]), 600)
       return
     }
 
-    setDialog(getIntoTheDigitalWorld014(topic))
+    changeDialog(getIntoTheDigitalWorld014(topic))
 
     setTimeout(
       () =>

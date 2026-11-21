@@ -3,8 +3,8 @@ import { useState } from 'react'
 import { getIntoTheDigitalWorld010 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/010.dialog'
 
 import { getTexts } from '@/Helpers/Language'
+import { changeDialog } from '@/Helpers/Systems/Dialogs'
 
-import { useDialogStore } from '@/Stores/Dialog.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
@@ -16,7 +16,6 @@ export const InsertPlayerName = () => {
   const [playerName, setPlayerName] = useState('')
 
   const { patchProfile } = useProfileStore((state) => state)
-  const { setDialog } = useDialogStore((state) => state)
 
   const normalizedPlayerName = playerName.trim()
 
@@ -29,7 +28,7 @@ export const InsertPlayerName = () => {
       name: normalizedPlayerName
     })
 
-    setDialog(getIntoTheDigitalWorld010())
+    changeDialog(getIntoTheDigitalWorld010())
   }
 
   return (

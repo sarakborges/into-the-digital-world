@@ -26,15 +26,16 @@ export const START_SCREEN_TITLE = `Into the Digital World!`
 export const SCREEN_ORIENTATION_WARNING = `For the best experience, please rotate your device to landscape mode.\n\nThe game was designed specifically for a landscape layout, and some elements may not display correctly otherwise.\n\nSorry for the inconvenience, and enjoy Into the Digital World!`
 
 // ========================================================================
-// AVATAR CUSTOMIZATION (UI)
-// ========================================================================
-export const AVATARCUSTOMIZATION_TRIGGER = `Hey, Dressmon. I'd like to update my avatar.`
-
-// ========================================================================
 // ROOT DOMAIN DORMS SCENE DIALOG
 // ========================================================================
 export const ROOT_DOMAIN_DORMS = `This is your room. What would you like to do?`
 export const ROOT_DOMAIN_DORMS_OPEN_FASHION = `Place your Digivice near the wardrobe terminal (Initiate Dressmon app)`
+export const ROOT_DOMAIN_DORMS_LEAVE = `Leave room`
+
+// ========================================================================
+// AVATAR CUSTOMIZATION (UI)
+// ========================================================================
+export const AVATARCUSTOMIZATION_TRIGGER = `Hey, Dressmon. I'd like to update my avatar.`
 
 export const AVATARCUSTOMIZATION_OPTIONS_TITLE = `Tap to customize:`
 export const AVATARCUSTOMIZATION_SKIN_COLOR = `Skin tone`

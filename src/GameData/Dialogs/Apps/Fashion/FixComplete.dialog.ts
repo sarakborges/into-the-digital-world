@@ -4,9 +4,8 @@ import { RootDomainDorms } from '@/GameData/Dialogs/Scenes/RootDomainDorms.dialo
 import { NpcDressmon } from '@/GameData/Npcs/Dressmon.npc'
 
 import { getTexts } from '@/Helpers/Language'
+import { changeDialog } from '@/Helpers/Systems/Dialogs/changeDialog.helper'
 import { setProfileAvatar } from '@/Helpers/Systems/Profile/setProfileAvatar.helper'
-
-import { useDialogStore } from '@/Stores/Dialog.store'
 
 export const FashionFixComplete = {
   speaker: {
@@ -25,8 +24,7 @@ export const FashionFixComplete = {
       text: getTexts('SCENES_CONTINUE_BUTTON'),
 
       onClick: () => {
-        const { setDialog } = useDialogStore.getState()
-        setDialog(RootDomainDorms)
+        changeDialog(RootDomainDorms)
 
         setProfileAvatar()
       }

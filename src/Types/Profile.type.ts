@@ -1,5 +1,4 @@
 import type { AvatarType } from '@/Types/Avatar.type'
-import type { DialogType } from '@/Types/Dialog.type'
 import type { PartnerDigimonType } from '@/Types/PartnerDigimon.type'
 
 export type ProfileType = {
@@ -9,7 +8,6 @@ export type ProfileType = {
   lastSave: Date
 
   currentTitle: string
-  currentDialog: DialogType | null
   currentScene: string | null
   lastScene?: string | null
 

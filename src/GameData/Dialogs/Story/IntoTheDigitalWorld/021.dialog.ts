@@ -4,11 +4,11 @@ import { IntoTheDigitalWorld022 } from '@/GameData/Dialogs/Story/IntoTheDigitalW
 import { DigiviceItem } from '@/GameData/Items/Digivice.item'
 
 import { getTexts } from '@/Helpers/Language'
+import { changeDialog } from '@/Helpers/Systems/Dialogs'
 
-import { useDialogStore } from '@/Stores/Dialog.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
-export const IntoTheDigitalWorld021 = (): DialogType => {
+export const getIntoTheDigitalWorld021 = (): DialogType => {
   const { profile } = useProfileStore.getState()
 
   const choice =
@@ -33,8 +33,7 @@ export const IntoTheDigitalWorld021 = (): DialogType => {
         text: getTexts('SCENES_CONTINUE_BUTTON'),
 
         onClick: () => {
-          const { setDialog } = useDialogStore.getState()
-          setDialog(IntoTheDigitalWorld022)
+          changeDialog(IntoTheDigitalWorld022)
         }
       }
     ]

@@ -3,8 +3,8 @@ import type { DialogType } from '@/Types/Dialog.type'
 import { IntoTheDigitalWorld016 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/016.dialog'
 
 import { getTexts } from '@/Helpers/Language'
+import { changeDialog } from '@/Helpers/Systems/Dialogs'
 
-import { useDialogStore } from '@/Stores/Dialog.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 export const getIntoTheDigitalWorld015 = (): DialogType => {
@@ -25,8 +25,7 @@ export const getIntoTheDigitalWorld015 = (): DialogType => {
         text: getTexts('SCENES_CONTINUE_BUTTON'),
 
         onClick: () => {
-          const { setDialog } = useDialogStore.getState()
-          setDialog(IntoTheDigitalWorld016)
+          changeDialog(IntoTheDigitalWorld016)
         }
       }
     ]

@@ -1,15 +1,14 @@
 import { ProfileModel } from '@/Models/Profile.model'
 
 import { loadData, loadSession } from '@/Helpers/Systems/Data'
+import { changeDialog } from '@/Helpers/Systems/Dialogs'
 
-import { useDialogStore } from '@/Stores/Dialog.store'
 import { useGameStore } from '@/Stores/Game.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 import { useSettingsStore } from '@/Stores/Settings.store'
 
 export const loadGameSession = () => {
   const { setGame } = useGameStore.getState()
-  const { setDialog } = useDialogStore.getState()
   const { setProfile } = useProfileStore.getState()
   const { setSettings } = useSettingsStore.getState()
 
@@ -20,7 +19,7 @@ export const loadGameSession = () => {
       !!profile ? profile : { ...ProfileModel, currentScene: 'startScreen' }
     )
 
-    setDialog(null)
+    changeDialog(profile?.currentDialog || null)
 
     setGame({
       hasGameStarted: !!profile

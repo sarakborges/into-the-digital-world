@@ -4,8 +4,7 @@ import { getIntoTheDigitalWorld017 } from '@/GameData/Dialogs/Story/IntoTheDigit
 import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 
 import { getTexts } from '@/Helpers/Language'
-
-import { useDialogStore } from '@/Stores/Dialog.store'
+import { changeDialog } from '@/Helpers/Systems/Dialogs'
 
 export const IntoTheDigitalWorld016 = {
   speaker: {
@@ -24,8 +23,7 @@ export const IntoTheDigitalWorld016 = {
       text: getTexts('SCENES_CONTINUE_BUTTON'),
 
       onClick: () => {
-        const { setDialog } = useDialogStore.getState()
-        setDialog(getIntoTheDigitalWorld017())
+        changeDialog(getIntoTheDigitalWorld017())
       }
     }
   ]
