@@ -1,5 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
+import { RootDomainDorms } from '@/GameData/Dialogs/Scenes/RootDomainDorms.dialog'
 import { NpcDressmon } from '@/GameData/Npcs/Dressmon.npc'
 
 import { getTexts } from '@/Helpers/Language'
@@ -25,7 +26,7 @@ export const FashionFixComplete = {
 
       onClick: () => {
         const { setDialog } = useDialogStore.getState()
-        setDialog(null)
+        setDialog(RootDomainDorms)
 
         setProfileAvatar()
       }
