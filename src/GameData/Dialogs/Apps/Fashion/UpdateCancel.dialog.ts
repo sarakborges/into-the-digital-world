@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { RootDomainDorms } from '@/GameData/Dialogs/Scenes/RootDomainDorms.dialog'
+import { RootDomainDormsDialog } from '@/GameData/Dialogs/Scenes/RootDomainDorms.dialog'
 import { NpcDressmon } from '@/GameData/Npcs/Dressmon.npc'
 
 import { getTexts } from '@/Helpers/Language'
@@ -23,7 +23,7 @@ export const FashionUpdateCancel = {
       text: getTexts('SCENES_CONTINUE_BUTTON'),
 
       onClick: () => {
-        changeDialog(RootDomainDorms)
+        changeDialog(RootDomainDormsDialog, true)
       }
     }
   ]

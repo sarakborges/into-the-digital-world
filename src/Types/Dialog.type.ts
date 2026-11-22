@@ -3,9 +3,9 @@ import type { JSX } from 'react'
 import type { CharacterType } from '@/Types/Character.type'
 
 export type DialogType = {
-  speaker?: CharacterType
-
+  parent?: string
   text?: React.ReactNode
+  speaker?: CharacterType
 
   image?: {
     src: string

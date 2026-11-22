@@ -1,5 +1,7 @@
 import { ProfileModel } from '@/Models/Profile.model'
 
+import { DialogParents } from '@/GameData/Dialogs'
+
 import { loadData, loadSession } from '@/Helpers/Systems/Data'
 import { changeDialog } from '@/Helpers/Systems/Dialogs'
 
@@ -19,11 +21,11 @@ export const loadGameSession = () => {
       !!profile ? profile : { ...ProfileModel, currentScene: 'startScreen' }
     )
 
-    changeDialog(profile?.currentDialog || null)
-
     setGame({
       hasGameStarted: !!profile
     })
+
+    changeDialog(DialogParents[profile.currentDialog] || null)
 
     setSettings(loadData('settings'))
   } catch (error) {

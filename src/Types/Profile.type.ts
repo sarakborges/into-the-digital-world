@@ -8,6 +8,7 @@ export type ProfileType = {
   lastSave: Date
 
   currentTitle: string
+  currentDialog: string | null
   currentScene: string | null
   lastScene?: string | null
 
