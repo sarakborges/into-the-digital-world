@@ -5,8 +5,6 @@ import { getTexts } from '@/Helpers/Language'
 import { RootDomainDormsOptions } from '@/Components/DialogContent/RootDomainDormsOptions'
 
 export const RootDomainDormsDialog = {
-  parent: 'rootDomainDorms',
-
   text: getTexts('ROOT_DOMAIN_DORMS'),
 
   content: <RootDomainDormsOptions />
