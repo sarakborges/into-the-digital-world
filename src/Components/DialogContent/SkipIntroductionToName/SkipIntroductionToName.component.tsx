@@ -2,7 +2,6 @@ import { IntoTheDigitalWorld009 } from '@/GameData/Dialogs/Story/IntoTheDigitalW
 
 import { getTexts } from '@/Helpers/Language'
 import { changeDialog } from '@/Helpers/Systems/Dialogs'
-import { changeScene } from '@/Helpers/Systems/Scenes'
 
 // import { useSavedProfilesStore } from '@/Stores/SavedProfiles.store'
 
@@ -12,7 +11,6 @@ export const SkipIntroductionToName = () => {
   // const { savedProfiles } = useSavedProfilesStore.getState()
 
   const skipToName = () => {
-    changeScene('rootDomainDorms')
     changeDialog(IntoTheDigitalWorld009)
   }
 

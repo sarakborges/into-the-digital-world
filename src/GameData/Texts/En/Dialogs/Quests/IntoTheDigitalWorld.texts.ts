@@ -88,3 +88,4 @@ export const ITDW_025 = `As for Dressmon, you're looking for an Appmon — an Ap
 export const ITDW_026 = `Dressmon specializes in fashion and appearance data: clothing, colors, styling, even the way your form is visually rendered.\n\nWith access to the rendering terminal, reconstructing your avatar should be well within their capabilities.`
 export const ITDW_027 = `Or, in simpler terms: use the Digivice at the terminal, find Dressmon, and let them handle the rest.`
 export const ITDW_028 = `You do as Gennai says.\n\nYou approach the terminal and hold the Digivice toward it.\n\nFor a moment, nothing happens.\nThen the screen flickers to life.`
+export const ITDW_029 = `See? Now you have a proper avatar.\nI will let you get used to it for now.\n\nOnce you feel ready, meet me through that door. It leads to our lounge. I look forward to showing you around Root Domain.`

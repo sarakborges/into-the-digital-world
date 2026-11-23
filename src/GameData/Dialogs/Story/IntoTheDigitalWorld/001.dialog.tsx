@@ -4,7 +4,6 @@ import { IntoTheDigitalWorld002 } from '@/GameData/Dialogs/Story/IntoTheDigitalW
 
 import { getTexts } from '@/Helpers/Language'
 import { changeDialog } from '@/Helpers/Systems/Dialogs/changeDialog.helper'
-import { changeScene } from '@/Helpers/Systems/Scenes'
 
 import { SkipIntroductionToName } from '@/Components/DialogContent/SkipIntroductionToName'
 
@@ -20,7 +19,6 @@ export const IntoTheDigitalWorld001 = {
       text: getTexts('SCENES_CONTINUE_BUTTON'),
 
       onClick: () => {
-        changeScene('rootDomainDorms')
         changeDialog(IntoTheDigitalWorld002)
       }
     }

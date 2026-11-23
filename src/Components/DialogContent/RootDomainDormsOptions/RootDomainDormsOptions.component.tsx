@@ -1,5 +1,4 @@
 import { FashionTrigger } from '@/GameData/Dialogs/Apps/Fashion/Trigger.dialog'
-import { RootDomainLoungeDialog } from '@/GameData/Dialogs/Scenes/RootDomainLounge.dialog'
 
 import { getTexts } from '@/Helpers/Language'
 import { changeDialog } from '@/Helpers/Systems/Dialogs'
@@ -13,7 +12,6 @@ export const RootDomainDormsOptions = () => {
   }
 
   const goToLounge = () => {
-    changeDialog(RootDomainLoungeDialog, true)
     changeScene('rootDomainLounge', true)
   }
 
