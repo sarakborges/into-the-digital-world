@@ -110,6 +110,26 @@
         text-shadow: 1px 1px 4px var(--color-neutral-strong);
       }
     }
+
+    .dialog-options {
+      display: flex;
+      flex-flow: column;
+
+      gap: 1px;
+
+      width: 400px;
+      margin-left: -20px;
+
+      .shadow-button {
+        .button-content {
+          place-content: flex-start;
+
+          padding: 2px 20px;
+
+          font-size: 12px;
+        }
+      }
+    }
   }
 
   .dialog-buttons {

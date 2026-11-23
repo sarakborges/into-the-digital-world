@@ -8,8 +8,6 @@ import { changeScene } from '@/Helpers/Systems/Scenes'
 
 import { ShadowButton } from '@/Components/DesignSystem/ShadowButton'
 
-import './SkipIntroductionToName.style.scss'
-
 export const SkipIntroductionToName = () => {
   // const { savedProfiles } = useSavedProfilesStore.getState()
 
@@ -23,7 +21,7 @@ export const SkipIntroductionToName = () => {
   // }
 
   return (
-    <div className="skip-introduction">
+    <div className="dialog-options">
       <ShadowButton onClick={skipToName}>
         {getTexts('ITDW_001_SKIP')}
       </ShadowButton>

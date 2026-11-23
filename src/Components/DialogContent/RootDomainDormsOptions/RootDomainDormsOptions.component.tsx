@@ -7,8 +7,6 @@ import { changeScene } from '@/Helpers/Systems/Scenes'
 
 import { ShadowButton } from '@/Components/DesignSystem/ShadowButton'
 
-import './RootDomainDormsOptions.style.scss'
-
 export const RootDomainDormsOptions = () => {
   const openFashion = () => {
     changeDialog(FashionTrigger)
@@ -20,7 +18,7 @@ export const RootDomainDormsOptions = () => {
   }
 
   return (
-    <div className="skip-introduction">
+    <div className="dialog-options">
       <ShadowButton onClick={openFashion}>
         {getTexts('ROOT_DOMAIN_DORMS_OPEN_FASHION')}
       </ShadowButton>

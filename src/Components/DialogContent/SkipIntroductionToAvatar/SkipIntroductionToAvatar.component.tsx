@@ -7,8 +7,6 @@ import { changeDialog } from '@/Helpers/Systems/Dialogs'
 
 import { ShadowButton } from '@/Components/DesignSystem/ShadowButton'
 
-import './SkipIntroductionToAvatar.style.scss'
-
 export const SkipIntroductionToAvatar = () => {
   // const { savedProfiles } = useSavedProfilesStore.getState()
 
@@ -17,7 +15,7 @@ export const SkipIntroductionToAvatar = () => {
   // }
 
   return (
-    <div className="skip-introduction">
+    <div className="dialog-options">
       <ShadowButton onClick={() => changeDialog(FashionIntroduction)}>
         {getTexts('ITDW_012_SKIP')}
       </ShadowButton>

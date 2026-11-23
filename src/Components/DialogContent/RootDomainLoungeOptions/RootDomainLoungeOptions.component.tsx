@@ -6,8 +6,6 @@ import { changeScene } from '@/Helpers/Systems/Scenes'
 
 import { ShadowButton } from '@/Components/DesignSystem/ShadowButton'
 
-import './RootDomainLoungeOptions.style.scss'
-
 export const RootDomainLoungeOptions = () => {
   const goToRoom = () => {
     changeDialog(RootDomainDormsDialog, true)
@@ -15,7 +13,7 @@ export const RootDomainLoungeOptions = () => {
   }
 
   return (
-    <div className="skip-introduction">
+    <div className="dialog-options">
       <ShadowButton onClick={goToRoom}>
         {getTexts('ROOT_DOMAIN_LOUNGE_GOTO_ROOM')}
       </ShadowButton>
