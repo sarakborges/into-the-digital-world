@@ -7,3 +7,4 @@ export * from './Dialogs/Apps/Fashion.texts'
 
 export * from './Dialogs/Scenes/StartScreen.texts'
 export * from './Dialogs/Scenes/RootDomainDorms.texts'
+export * from './Dialogs/Scenes/RootDomainLounge.texts'

@@ -9,6 +9,7 @@ import { useProfileStore } from '@/Stores/Profile.store'
 export const changeDialog = (dialog: DialogType | null, persist?: boolean) => {
   const { game } = useGameStore.getState()
   const { setDialog } = useDialogStore.getState()
+  const { patchProfile } = useProfileStore.getState()
 
   if (!game || !dialog) {
     return
@@ -16,15 +17,13 @@ export const changeDialog = (dialog: DialogType | null, persist?: boolean) => {
 
   setDialog(dialog)
 
-  if (!persist) {
-    return
-  }
-
-  const { patchProfile } = useProfileStore.getState()
-
   patchProfile({
     currentDialog: dialog.parent
   })
+
+  if (!persist) {
+    return
+  }
 
   saveProfile()
 }
