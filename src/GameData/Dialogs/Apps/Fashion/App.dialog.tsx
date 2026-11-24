@@ -56,7 +56,7 @@ export const FashionApp = () => {
             !profile.avatar ? FashionFixComplete : FashionUpdateComplete
           )
 
-          setTimeout(() => patchProfile({ avatar }), TRANSITION_DELAY_MS)
+          setTimeout(() => patchProfile({ avatar }), 600)
         }
       }
     ]
