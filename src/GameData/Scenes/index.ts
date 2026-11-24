@@ -5,9 +5,25 @@ import { Settings } from '@/GameData/Scenes/Settings'
 import { StartScreen } from '@/GameData/Scenes/StartScreen'
 
 export const AllScenes = {
-  startScreen: StartScreen,
-  loadSaves: LoadSaves,
-  settings: Settings,
-  rootDomainDorms: RootDomainDorms,
-  rootDomainLounge: RootDomainLounge
+  startScreen: {
+    component: StartScreen
+  },
+
+  loadSaves: {
+    component: LoadSaves
+  },
+
+  settings: {
+    component: Settings
+  },
+
+  rootDomainDorms: {
+    name: `Root Domain - Dorms`,
+    component: RootDomainDorms
+  },
+
+  rootDomainLounge: {
+    name: `Root Domain - Lounge`,
+    component: RootDomainLounge
+  }
 }

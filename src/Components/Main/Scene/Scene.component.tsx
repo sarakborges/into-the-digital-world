@@ -11,7 +11,7 @@ export const Scene = () => {
     return <></>
   }
 
-  const RenderedScene = AllScenes[scene] as React.FC
+  const RenderedScene = AllScenes[scene].component as React.FC
 
   return (
     <div className="scene">

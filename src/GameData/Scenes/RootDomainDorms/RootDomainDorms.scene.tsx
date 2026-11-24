@@ -20,7 +20,7 @@ export const RootDomainDorms = () => {
       return
     }
 
-    changeDialog(RootDomainDormsDialog, true)
+    changeDialog(RootDomainDormsDialog)
   }, [])
 
   if (!game?.hasGameStarted || !profile) {
