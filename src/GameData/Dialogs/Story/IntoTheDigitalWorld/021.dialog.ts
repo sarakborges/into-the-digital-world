@@ -6,6 +6,8 @@ import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 import { getTexts } from '@/Helpers/Language'
 import { changeDialog } from '@/Helpers/Systems/Dialogs'
 
+import { SkipIntroductionToAvatar } from '@/Components/DialogContent/SkipIntroductionToAvatar'
+
 export const IntoTheDigitalWorld021 = {
   speaker: {
     id: NpcGennai.id,
@@ -15,6 +17,8 @@ export const IntoTheDigitalWorld021 = {
   },
 
   text: getTexts('ITDW_021'),
+
+  content: <SkipIntroductionToAvatar />,
 
   actions: [
     {

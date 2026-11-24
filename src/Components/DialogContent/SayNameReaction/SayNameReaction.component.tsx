@@ -1,4 +1,4 @@
-import { getIntoTheDigitalWorld005 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/005.dialog'
+import { getIntoTheDigitalWorld006 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/006.dialog'
 
 import { getTexts } from '@/Helpers/Language'
 import { changeDialog, setMeaningfulChoice } from '@/Helpers/Systems/Dialogs'
@@ -26,7 +26,7 @@ export const SayNameReaction = () => {
       value: reaction
     })
 
-    changeDialog(getIntoTheDigitalWorld005())
+    changeDialog(getIntoTheDigitalWorld006())
   }
 
   return (

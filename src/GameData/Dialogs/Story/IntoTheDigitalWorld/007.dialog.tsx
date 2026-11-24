@@ -10,8 +10,6 @@ import { getChoice } from '@/Helpers/Systems/Profile'
 import { useDialogOptionsStore } from '@/Stores/DialogOptions.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
-import { SkipIntroductionToAvatar } from '@/Components/DialogContent/SkipIntroductionToAvatar'
-
 export const getIntoTheDigitalWorld007 = (): DialogType => {
   const { profile } = useProfileStore.getState()
   const choice = getChoice('INTO_THE_DIGITAL_WORLD_NAME_REACTION')
@@ -31,8 +29,6 @@ export const getIntoTheDigitalWorld007 = (): DialogType => {
     text: getTexts(`ITDW_007_${choice.toUpperCase()}`, {
       '[NAME]': profile.name
     }),
-
-    content: <SkipIntroductionToAvatar />,
 
     actions: [
       {
