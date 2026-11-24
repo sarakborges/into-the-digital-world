@@ -1,5 +1,3 @@
-import { TRANSITION_DELAY_MS } from '@/Consts/Transitions.const'
-
 import { useGameStore } from '@/Stores/Game.store'
 
 let transitionTimeout: ReturnType<typeof setTimeout> | null = null
@@ -49,5 +47,5 @@ export const transitionGame = (onTransitionComplete: () => void) => {
         updateTransition(false)
       }
     }
-  }, TRANSITION_DELAY_MS)
+  }, 600)
 }
