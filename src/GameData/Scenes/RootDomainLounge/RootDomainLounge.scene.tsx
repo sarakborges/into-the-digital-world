@@ -1,4 +1,4 @@
-import { useLayoutEffect } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 
 import { RootDomainLoungeDialog } from '@/GameData/Dialogs/Scenes/RootDomainLounge.dialog'
 import { getIntoTheDigitalWorld030 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/030.dialog'
@@ -16,11 +16,15 @@ export const RootDomainLounge = () => {
   const { profile } = useProfileStore((state) => state)
   const { game, isTransitioning } = useGameStore((state) => state)
   const { profileQuests } = useProfileQuestsStore((state) => state)
+  const hasInitializedDialog = useRef(false)
 
   useLayoutEffect(() => {
-    if (isTransitioning) {
+    if (isTransitioning || hasInitializedDialog.current) {
       return
     }
+
+    hasInitializedDialog.current = true
+
     const idtwQuest = profileQuests?.[IntoTheDigitalWorldQuest.id]
 
     if (!idtwQuest || idtwQuest.progress !== 'completed') {
@@ -29,7 +33,7 @@ export const RootDomainLounge = () => {
     }
 
     changeDialog(RootDomainLoungeDialog)
-  }, [isTransitioning])
+  }, [isTransitioning, profileQuests])
 
   if (!game?.hasGameStarted || !profile) {
     return
