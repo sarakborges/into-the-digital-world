@@ -1,7 +1,18 @@
 .settings-language {
   display: flex;
   flex-flow: column;
-  gap: 4px;
+  gap: 8px;
+
+  padding: 8px 12px;
+
+  background-image: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-neutral-strong) 0%, transparent) 0%,
+    color-mix(in srgb, var(--color-neutral-strong) 70%, transparent) 15%,
+    color-mix(in srgb, var(--color-neutral-strong) 70%, transparent) 50%,
+    color-mix(in srgb, var(--color-neutral-strong) 70%, transparent) 85%,
+    color-mix(in srgb, var(--color-neutral-strong) 0%, transparent) 100%
+  );
 
   > header {
     > .text {

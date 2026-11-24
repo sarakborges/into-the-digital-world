@@ -10,7 +10,7 @@
       gap: 8px;
 
       width: 100%;
-      padding: 0 12px;
+      padding-inline: 8px;
 
       .language-flag {
         .portrait {
@@ -26,7 +26,6 @@
       }
 
       .text {
-        padding: 12px 0;
         flex: 1;
 
         text-shadow: 0 0 2px var(--color-neutral-strong);

@@ -12,9 +12,9 @@
     flex-flow: column;
     place-items: center;
     place-content: center;
-    gap: 24px;
+    gap: 8px;
 
-    width: 240px;
+    width: 320px;
 
     > header {
       > .text {
@@ -38,6 +38,7 @@
       flex-flow: column;
 
       width: 100%;
+      padding-top: 16px;
     }
   }
 }

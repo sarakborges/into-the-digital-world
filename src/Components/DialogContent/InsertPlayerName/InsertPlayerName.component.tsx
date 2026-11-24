@@ -42,7 +42,7 @@ export const InsertPlayerName = () => {
       <main>
         <Input
           name="insert-player-name"
-          label={getTexts('ITDW_004')}
+          label={getTexts('ITDW_004_PLAYERNAME')}
           value={playerName}
           autoFocus
           onChange={(e) => setPlayerName(e.target.value)}
