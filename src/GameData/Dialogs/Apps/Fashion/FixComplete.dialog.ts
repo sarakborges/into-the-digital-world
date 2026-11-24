@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { IntoTheDigitalWorld029 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/029.dialog'
+import { getIntoTheDigitalWorld029 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/029.dialog'
 import { NpcDressmon } from '@/GameData/Npcs/Dressmon.npc'
 
 import { getTexts } from '@/Helpers/Language'
@@ -24,7 +24,7 @@ export const FashionFixComplete = {
       text: getTexts('SCENES_CONTINUE_BUTTON'),
 
       onClick: () => {
-        changeDialog(IntoTheDigitalWorld029)
+        changeDialog(getIntoTheDigitalWorld029())
         setProfileAvatar()
       }
     }

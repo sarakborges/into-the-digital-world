@@ -1,4 +1,4 @@
-export const ROOT_DOMAIN_DORMS = `This is your room. What would you like to do?`
-export const ROOT_DOMAIN_DORMS_OPEN_FASHION = `Place Digivice on the wardrobe's terminal (Initiate Dressmon app)`
-export const ROOT_DOMAIN_DORMS_OPEN_SAVE = `Place Digivice on the PC terminal (Save game)`
-export const ROOT_DOMAIN_DORMS_LEAVE = `Go to the lounge`
+export const ROOT_DOMAIN_DORMS = "This is your room. Take a moment to settle in.\nWhat would you like to do?"
+export const ROOT_DOMAIN_DORMS_OPEN_FASHION = "Use the wardrobe terminal to open Dressmon's app"
+export const ROOT_DOMAIN_DORMS_OPEN_SAVE = "Save your game at the PC terminal"
+export const ROOT_DOMAIN_DORMS_LEAVE = "Head to the lounge"
