@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 
 import type { DialogType } from '@/Types/Dialog.type'
 
@@ -28,7 +28,7 @@ export const Dialog = () => {
 
   const dialogContentRef = useRef(dialogContent)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!dialog) {
       setIsTransitioning(false)
       return
