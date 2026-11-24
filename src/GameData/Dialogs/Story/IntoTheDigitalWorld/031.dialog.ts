@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { RootDomainDormsDialog } from '@/GameData/Dialogs/Scenes/RootDomainDorms.dialog'
+import { getIntoTheDigitalWorld032 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/032.dialog'
 import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 
 import { getTexts } from '@/Helpers/Language'
@@ -23,7 +23,7 @@ export const IntoTheDigitalWorld031 = {
       text: getTexts('SCENES_CONTINUE_BUTTON'),
 
       onClick: () => {
-        changeDialog(RootDomainDormsDialog)
+        changeDialog(getIntoTheDigitalWorld032())
       }
     }
   ]

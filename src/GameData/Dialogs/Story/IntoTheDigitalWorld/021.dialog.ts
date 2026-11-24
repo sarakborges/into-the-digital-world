@@ -1,34 +1,22 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
 import { getIntoTheDigitalWorld022 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/022.dialog'
-import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 
 import { getTexts } from '@/Helpers/Language'
 import { changeDialog } from '@/Helpers/Systems/Dialogs'
-import { getChoice } from '@/Helpers/Systems/Profile/getChoice.helper'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
 export const getIntoTheDigitalWorld021 = (): DialogType => {
   const { profile } = useProfileStore.getState()
 
-  const choice = getChoice('INTO_THE_DIGITAL_WORLD_NAME_REACTION')
-
-  if (!choice) {
-    throw new Error('Missing INTO_THE_DIGITAL_WORLD_NAME_REACTION choice')
-  }
-
   return {
     speaker: {
-      id: NpcGennai.id,
-      name: NpcGennai.name,
-      title: getTexts(NpcGennai.title),
-      portrait: NpcGennai.portrait
+      id: 'player',
+      name: profile.name
     },
 
-    text: getTexts(`ITDW_021_${choice.toUpperCase()}`, {
-      '[NAME]': profile.name
-    }),
+    text: getTexts('ITDW_021'),
 
     actions: [
       {

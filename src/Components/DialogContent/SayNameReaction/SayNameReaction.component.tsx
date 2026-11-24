@@ -1,4 +1,4 @@
-import { getIntoTheDigitalWorld011 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/011.dialog'
+import { getIntoTheDigitalWorld008 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/008.dialog'
 
 import { getTexts } from '@/Helpers/Language'
 import { changeDialog, setMeaningfulChoice } from '@/Helpers/Systems/Dialogs'
@@ -26,7 +26,7 @@ export const SayNameReaction = () => {
       value: reaction
     })
 
-    changeDialog(getIntoTheDigitalWorld011())
+    changeDialog(getIntoTheDigitalWorld008())
   }
 
   return (
@@ -37,7 +37,7 @@ export const SayNameReaction = () => {
           onClick={() => handleReaction(option)}
           variation="small"
         >
-          {getTexts(`ITDW_010_${option.toUpperCase()}`)}
+          {getTexts(`ITDW_008_${option.toUpperCase()}`)}
         </ShadowButton>
       ))}
     </div>
