@@ -13,4 +13,6 @@
   --color-allies: #1b5dd8;
 
   --font-family: 'Winky Rough', sans-serif;
+
+  --transition-duration: 300ms;
 }

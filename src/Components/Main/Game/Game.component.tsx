@@ -21,7 +21,7 @@ export const Game = () => {
     <div
       className="game-body"
       style={
-        { '--is-warping': !!game?.isTransitioning ? 0 : 1 } as CSSProperties
+        { '--game-opacity': game?.isTransitioning ? 0 : 1 } as CSSProperties
       }
     >
       <ScreenOrientationWarning />

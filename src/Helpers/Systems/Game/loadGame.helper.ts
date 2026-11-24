@@ -1,16 +1,10 @@
-import { useGameStore } from '@/Stores/Game.store'
+import { loadProfile } from '@/Helpers/Systems/Profile'
 
-export const loadGame = () => {
-  const { setGame } = useGameStore.getState()
+import { transitionGame } from './transitionGame.helper'
 
-  setGame({
-    isTransitioning: true
+export const loadGame = (profileId: number) => {
+  transitionGame(() => {
+    sessionStorage.setItem('itdw_profile', String(profileId))
+    loadProfile()
   })
-
-  setTimeout(() => {
-    setGame({
-      isTransitioning: false,
-      hasGameStarted: true
-    })
-  }, 600)
 }

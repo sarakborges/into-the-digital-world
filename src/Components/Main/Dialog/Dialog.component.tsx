@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import type { DialogType } from '@/Types/Dialog.type'
+
+import { TRANSITION_DELAY_MS } from '@/Consts/Transitions.const'
 
 import { useDialogStore } from '@/Stores/Dialog.store'
 
@@ -24,22 +26,31 @@ export const Dialog = () => {
     isPictureRefreshing: false
   })
 
+  const dialogContentRef = useRef(dialogContent)
+
   useEffect(() => {
+    const currentDialogContent = dialogContentRef.current
+
     setDialogContent({
-      ...dialogContent,
+      ...currentDialogContent,
       isTextRefreshing:
-        dialog?.text !== dialogContent.text ||
-        dialog?.speaker?.portrait !== dialogContent.speaker?.portrait,
-      isPictureRefreshing: dialog?.image !== dialogContent.image
+        dialog?.text !== currentDialogContent.text ||
+        dialog?.speaker?.portrait !== currentDialogContent.speaker?.portrait,
+      isPictureRefreshing: dialog?.image !== currentDialogContent.image
     })
 
-    setTimeout(() => {
-      setDialogContent({
-        ...dialog,
+    const timeout = setTimeout(() => {
+      const nextDialogContent = {
+        ...(dialog ?? {}),
         isTextRefreshing: false,
         isPictureRefreshing: false
-      })
-    }, 600)
+      }
+
+      dialogContentRef.current = nextDialogContent
+      setDialogContent(nextDialogContent)
+    }, TRANSITION_DELAY_MS)
+
+    return () => clearTimeout(timeout)
   }, [dialog])
 
   if (!dialog) {

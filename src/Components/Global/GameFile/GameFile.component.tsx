@@ -3,7 +3,7 @@ import type { ProfileType } from '@/Types/Profile.type'
 import { AllScenes } from '@/GameData/Scenes'
 
 import { getTexts } from '@/Helpers/Language'
-import { loadProfile } from '@/Helpers/Systems/Profile'
+import { loadGame } from '@/Helpers/Systems/Game'
 import { deleteProfile } from '@/Helpers/Systems/Profile/deleteProfile.helper'
 
 import { Button } from '@/Components/DesignSystem/Button'
@@ -15,11 +15,6 @@ import './GameFile.style.scss'
 export const GameFile = ({ profile }: { profile: ProfileType }) => {
   if (!profile.id || !profile.currentScene) {
     return
-  }
-
-  const loadGame = () => {
-    sessionStorage.setItem(`itdw_profile`, String(profile.id))
-    loadProfile()
   }
 
   const deleteGame = () => {
@@ -58,7 +53,9 @@ export const GameFile = ({ profile }: { profile: ProfileType }) => {
       </header>
 
       <div className="game-options">
-        <Button onClick={loadGame}>{getTexts('LOAD_GAME_FILE')}</Button>
+        <Button onClick={() => loadGame(profile.id)}>
+          {getTexts('LOAD_GAME_FILE')}
+        </Button>
 
         <Button variant="cancel" onClick={deleteGame}>
           {getTexts('DELETE_GAME_FILE')}

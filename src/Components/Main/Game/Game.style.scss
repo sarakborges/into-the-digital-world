@@ -19,9 +19,11 @@
   overflow: visible;
 
   background-color: var(--color-neutral);
-  opacity: var(--is-warping);
+  opacity: var(--game-opacity);
 
-  transition: 0.3s;
+  transition:
+    opacity var(--transition-duration),
+    transform var(--transition-duration);
 
   transform: translate(-50%, -50%)
     scale(min(tan(atan2(100dvw, 640px)), tan(atan2(100dvh, 360px))));

@@ -29,9 +29,13 @@ export const loadProfile = () => {
   const { setProfileQuests } = useProfileQuestsStore.getState()
 
   try {
-    const profileId = loadSession(`profile`)
+    const profileId = loadSession('profile')
 
     if (!profileId) {
+      setGame({
+        ...(useGameStore.getState().game ?? {}),
+        hasGameStarted: false
+      })
       setProfile({ ...ProfileModel, currentScene: 'startScreen' })
       setScene('startScreen')
       return
@@ -49,6 +53,7 @@ export const loadProfile = () => {
     setProfileQuests(loadData(`profileQuests${profileId}`))
 
     setGame({
+      ...(useGameStore.getState().game ?? {}),
       hasGameStarted: true
     })
 

@@ -1,0 +1,1 @@
+export const TRANSITION_DELAY_MS = 600

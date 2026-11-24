@@ -12,7 +12,7 @@
   font-size: 12px;
   font-weight: 300;
 
-  transition: background-color 0.3s;
+  transition: background-color var(--transition-duration);
 
   &.primary {
     background-color: var(--color-primary-strong);

@@ -30,7 +30,7 @@
     height: 100%;
     padding: 16px 0;
 
-    transition: opacity 0.3s;
+    transition: opacity var(--transition-duration);
 
     .portrait {
       max-height: 260px;
@@ -48,7 +48,7 @@
     flex-flow: column;
     gap: 8px;
 
-    transition: opacity 0.3s;
+    transition: opacity var(--transition-duration);
 
     > header {
       display: flex;
@@ -137,7 +137,7 @@
     place-content: flex-end;
     gap: 8px;
 
-    transition: opacity 0.3s;
+    transition: opacity var(--transition-duration);
 
     .button {
       padding: 4px 8px;

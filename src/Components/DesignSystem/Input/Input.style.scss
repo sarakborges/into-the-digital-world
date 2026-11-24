@@ -19,8 +19,8 @@
     font-size: 12px;
 
     transition:
-      border-color 0.3s,
-      opacity 0.3s;
+      border-color var(--transition-duration),
+      opacity var(--transition-duration);
 
     &:not(:disabled) {
       &:focus {
