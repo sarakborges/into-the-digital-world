@@ -2,6 +2,7 @@ import { ProfileModel } from '@/Models/Profile.model'
 
 import { transitionGame } from '@/Helpers/Systems/Game'
 import { getNewId } from './getNewId.helper'
+import { loadProfiles } from './loadProfiles.helper'
 import { saveGame } from './saveGame.helper'
 
 import { useDialogStore } from '@/Stores/Dialog.store'
@@ -10,6 +11,8 @@ import { useProfileStore } from '@/Stores/Profile.store'
 import { useSceneStore } from '@/Stores/Scene.store'
 
 export const createNewProfile = () => {
+  loadProfiles()
+
   const profile = {
     ...ProfileModel,
     id: getNewId(),
