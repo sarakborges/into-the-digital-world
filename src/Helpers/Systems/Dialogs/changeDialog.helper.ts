@@ -9,7 +9,7 @@ export const changeDialog = (dialog: DialogType | null) => {
   const { isTransitioning, setDialog } = useDialogStore.getState()
   const { patchProfile } = useProfileStore.getState()
 
-  if (!game || !dialog || isTransitioning) {
+  if (!game || game.isTransitioning || !dialog || isTransitioning) {
     return
   }
 
