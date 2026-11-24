@@ -5,10 +5,10 @@ import { FashionUpdateCancel } from '@/GameData/Dialogs/Apps/Fashion/UpdateCance
 import { FashionUpdateComplete } from '@/GameData/Dialogs/Apps/Fashion/UpdateComplete.dialog'
 import { NpcDressmon } from '@/GameData/Npcs/Dressmon.npc'
 
-import { TRANSITION_DELAY_MS } from '@/Consts/Transitions.const'
-
 import { getTexts } from '@/Helpers/Language'
 import { changeDialog } from '@/Helpers/Systems/Dialogs'
+
+import { TRANSITION_DELAY_MS } from '@/Consts/Transitions.const'
 
 import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
 import { useProfileStore } from '@/Stores/Profile.store'
@@ -58,10 +58,7 @@ export const FashionApp = () => {
             !profile.avatar ? FashionFixComplete : FashionUpdateComplete
           )
 
-          setTimeout(
-            () => patchProfile({ avatar }),
-            TRANSITION_DELAY_MS
-          )
+          setTimeout(() => patchProfile({ avatar }), TRANSITION_DELAY_MS)
         }
       }
     ]
