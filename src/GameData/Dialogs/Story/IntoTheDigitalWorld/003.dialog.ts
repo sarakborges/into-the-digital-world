@@ -19,11 +19,6 @@ export const IntoTheDigitalWorld003 = {
 
   text: getTexts('ITDW_003'),
 
-  image: {
-    src: NpcGennai.picture,
-    alt: `Unknown old man`
-  },
-
   actions: [
     {
       id: 'ITDW_003_CONTINUE',
