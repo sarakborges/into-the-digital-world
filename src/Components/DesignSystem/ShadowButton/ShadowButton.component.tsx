@@ -8,24 +8,20 @@ import './ShadowButton.style.scss'
 export const ShadowButton: React.FC<
   ButtonHTMLAttributes<HTMLButtonElement> & { variation?: string }
 > = ({ children, variation, ...rest }) => {
-  const { game } = useGameStore((state) => state)
+  const { isTransitioning } = useGameStore((state) => state)
   const { isTransitioning: isDialogTransitioning } = useDialogStore(
     (state) => state
   )
 
   const isDisabled =
-    rest.disabled || !!game?.isTransitioning || isDialogTransitioning
+    rest.disabled || isTransitioning || isDialogTransitioning
 
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-    const { game } = useGameStore.getState()
+    const { isTransitioning } = useGameStore.getState()
     const { isTransitioning: isDialogTransitioning } =
       useDialogStore.getState()
 
-    if (
-      rest.disabled ||
-      game?.isTransitioning ||
-      isDialogTransitioning
-    ) {
+    if (rest.disabled || isTransitioning || isDialogTransitioning) {
       event.preventDefault()
       event.stopPropagation()
       return
