@@ -5,6 +5,7 @@ import type { DialogType } from '@/Types/Dialog.type'
 type DialogStore = {
   dialog: DialogType | null
   isTransitioning: boolean
+  transitionId: number
   setDialog: (dialog: DialogType | null) => void
   setIsTransitioning: (isTransitioning: boolean) => void
 }
@@ -12,11 +13,13 @@ type DialogStore = {
 export const useDialogStore = create<DialogStore>((set) => ({
   dialog: null,
   isTransitioning: false,
+  transitionId: 0,
   setDialog: (dialog) => {
-    set({
+    set((state) => ({
       dialog,
-      isTransitioning: true
-    })
+      isTransitioning: !!dialog,
+      transitionId: state.transitionId + 1
+    }))
   },
   setIsTransitioning: (isTransitioning) => {
     set({ isTransitioning })
