@@ -4,7 +4,7 @@ import { IntoTheDigitalWorld009 } from '@/GameData/Dialogs/Story/IntoTheDigitalW
 import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 
 import { getTexts } from '@/Helpers/Language'
-import { changeDialog } from '@/Helpers/Systems/Dialogs'
+import { changeDialog } from '@/Helpers/Systems/Dialogs/changeDialog.helper'
 
 export const IntoTheDigitalWorld008 = {
   speaker: {

@@ -1,18 +1,19 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { IntoTheDigitalWorld025 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/025.dialog'
-import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
+import { getIntoTheDigitalWorld025 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/025.dialog'
 
 import { getTexts } from '@/Helpers/Language'
 import { changeDialog } from '@/Helpers/Systems/Dialogs'
 
+import { useProfileStore } from '@/Stores/Profile.store'
+
 export const getIntoTheDigitalWorld024 = (): DialogType => {
+  const { profile } = useProfileStore.getState()
+
   return {
     speaker: {
-      id: NpcGennai.id,
-      name: NpcGennai.name,
-      title: getTexts(NpcGennai.title),
-      portrait: NpcGennai.portrait
+      id: 'player',
+      name: profile.name
     },
 
     text: getTexts('ITDW_024'),
@@ -24,7 +25,7 @@ export const getIntoTheDigitalWorld024 = (): DialogType => {
         text: getTexts('SCENES_CONTINUE_BUTTON'),
 
         onClick: () => {
-          changeDialog(IntoTheDigitalWorld025)
+          changeDialog(getIntoTheDigitalWorld025())
         }
       }
     ]

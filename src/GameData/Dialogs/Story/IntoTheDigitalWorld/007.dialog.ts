@@ -9,8 +9,7 @@ import { changeDialog } from '@/Helpers/Systems/Dialogs/changeDialog.helper'
 export const IntoTheDigitalWorld007 = {
   speaker: {
     id: NpcGennai.id,
-    name: NpcGennai.name,
-    title: getTexts(NpcGennai.title),
+    name: '???',
     portrait: NpcGennai.portrait
   },
 
