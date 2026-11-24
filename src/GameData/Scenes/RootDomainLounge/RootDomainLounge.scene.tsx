@@ -20,7 +20,7 @@ export const RootDomainLounge = () => {
   useEffect(() => {
     const idtwQuest = profileQuests?.[IntoTheDigitalWorldQuest.id]
 
-    if (!idtwQuest || idtwQuest.progress !== 'completed') {
+    if (idtwQuest?.status !== 'completed') {
       changeDialog(getIntoTheDigitalWorld025())
       return
     }
