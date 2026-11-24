@@ -5,7 +5,7 @@ export const AVATARCUSTOMIZATION_SKIN_COLOR = "Skin tone"
 export const AVATARCUSTOMIZATION_HAIR_STYLE = "Hairstyle"
 export const AVATARCUSTOMIZATION_HAIR_COLOR = "Hair color"
 
-export const FASHION_INTRODUCTION = "Oh! Connection established. Dressmon here. Gennai said your avatar wasn't rendering properly. That's not something I see every day, but it sounds like we can fix it. Let's take a look."
+export const FASHION_INTRODUCTION = "Hi! Dressmon here. Gennai said your avatar isn't rendering properly. That's an unusual problem, but I can help. Let's take a look."
 export const FASHION_TRIGGER = "Back already? I knew you'd want another style session. So, what are we changing today?"
 export const FASHION_FIX_COMPLETE = "There! Your avatar is all set. You should be able to see yourself normally now. Go ahead and take a look!"
 export const FASHION_UPDATE_COMPLETE = "And... done. A little adjustment makes all the difference. You're welcome!"
