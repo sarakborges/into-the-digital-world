@@ -6,10 +6,10 @@ import { useProfileStore } from '@/Stores/Profile.store'
 
 export const changeDialog = (dialog: DialogType | null) => {
   const { game } = useGameStore.getState()
-  const { setDialog } = useDialogStore.getState()
+  const { isTransitioning, setDialog } = useDialogStore.getState()
   const { patchProfile } = useProfileStore.getState()
 
-  if (!game || !dialog) {
+  if (!game || !dialog || isTransitioning) {
     return
   }
 
