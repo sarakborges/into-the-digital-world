@@ -6,6 +6,7 @@ export type DialogType = {
   parent?: string
   text?: React.ReactNode
   speaker?: CharacterType
+  isVisible?: boolean
 
   image?: {
     src: string

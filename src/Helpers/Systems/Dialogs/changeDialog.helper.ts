@@ -5,17 +5,22 @@ import { useGameStore } from '@/Stores/Game.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 export const changeDialog = (dialog: DialogType | null) => {
-  const { game } = useGameStore.getState()
-  const { setDialog } = useDialogStore.getState()
+  const { game, setGame } = useGameStore.getState()
   const { patchProfile } = useProfileStore.getState()
+  const { setDialog } = useDialogStore.getState()
 
-  if (!game || !dialog) {
+  if (!dialog) {
     return
   }
 
-  setDialog(dialog)
+  setGame({
+    ...game,
+    isTransitioning: false
+  })
 
   patchProfile({
     currentDialog: dialog.parent
   })
+
+  setDialog(dialog)
 }

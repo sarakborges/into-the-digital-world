@@ -7,6 +7,10 @@ export const changeScene = (scene: string | null) => {
   const { patchProfile } = useProfileStore.getState()
   const { setScene } = useSceneStore.getState()
 
+  if (!scene) {
+    return
+  }
+
   setGame({
     ...game,
     isTransitioning: true

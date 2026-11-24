@@ -12,8 +12,18 @@
   height: 100%;
   padding: 8px 12px;
 
-  .refresh-dialog {
+  transition:
+    opacity 0.3s,
+    visibility 0.3s;
+
+  &.dialog-hidden {
     opacity: 0;
+    visibility: hidden;
+  }
+
+  &:not(.dialog-hidden) {
+    opacity: 1;
+    visibility: visible;
   }
 
   .dialog-speaker {

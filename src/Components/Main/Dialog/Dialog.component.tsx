@@ -12,46 +12,33 @@ import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 import './Dialog.style.scss'
 
 export const Dialog = () => {
-  const { dialog } = useDialogStore((state) => state)
-
-  const [dialogContent, setDialogContent] = useState<
-    Partial<DialogType> & {
-      isTextRefreshing: boolean
-      isPictureRefreshing: boolean
-    }
-  >({
-    isTextRefreshing: false,
-    isPictureRefreshing: false
-  })
+  const { dialog, patchDialog } = useDialogStore((state) => state)
+  const [dialogContent, setDialogContent] = useState<DialogType | null>(null)
 
   useEffect(() => {
-    setDialogContent({
-      ...dialogContent,
-      isTextRefreshing:
-        dialog?.text !== dialogContent.text ||
-        dialog?.speaker?.portrait !== dialogContent.speaker?.portrait,
-      isPictureRefreshing: dialog?.image !== dialogContent.image
+    patchDialog({
+      isVisible: false
     })
 
+    if (!dialog) {
+      return
+    }
+
     setTimeout(() => {
-      setDialogContent({
-        ...dialog,
-        isTextRefreshing: false,
-        isPictureRefreshing: false
+      setDialogContent(dialog)
+
+      patchDialog({
+        isVisible: true
       })
     }, 600)
-  }, [dialog])
-
-  if (!dialog) {
-    return
-  }
+  }, [dialog?.text, dialog?.content, dialog?.speaker])
 
   return (
-    <div className="dialog">
+    <div
+      className={`dialog ${!dialog?.isVisible || !dialog ? 'dialog-hidden' : ''}`}
+    >
       {!!dialogContent?.image && (
-        <div
-          className={`dialog-speaker${!!dialogContent.isPictureRefreshing ? ' refresh-dialog' : ''}`}
-        >
+        <div className="dialog-speaker">
           <Portrait
             src={`/${dialogContent.image.src}.webp`}
             alt={dialogContent.image.alt || ''}
@@ -59,11 +46,9 @@ export const Dialog = () => {
         </div>
       )}
 
-      {(!!dialogContent.text || !!dialogContent.content) && (
+      {(!!dialogContent?.text || !!dialogContent?.content) && (
         <>
-          <div
-            className={`dialog-text${!!dialogContent.isTextRefreshing ? ' refresh-dialog' : ''}`}
-          >
+          <div className="dialog-text">
             {!!dialogContent?.speaker && (
               <header>
                 {!!dialogContent.speaker.portrait && (
@@ -92,9 +77,7 @@ export const Dialog = () => {
             </div>
           </div>
 
-          <div
-            className={`dialog-buttons${!!dialogContent.isTextRefreshing ? ' refresh-dialog' : ''}`}
-          >
+          <div className="dialog-buttons">
             {dialogContent.actions?.map((dialogAction) => {
               const { id, text, ...otherProps } = dialogAction
 
