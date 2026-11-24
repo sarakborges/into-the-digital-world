@@ -1,16 +1,18 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
-
 import { getTexts } from '@/Helpers/Language'
 
-export const IntoTheDigitalWorld030 = {
-  speaker: {
-    id: NpcGennai.id,
-    name: NpcGennai.name,
-    title: getTexts(NpcGennai.title),
-    portrait: NpcGennai.portrait
-  },
+import { useProfileStore } from '@/Stores/Profile.store'
 
-  text: getTexts('ITDW_030')
-} satisfies DialogType
+export const getIntoTheDigitalWorld030 = (): DialogType => {
+  const { profile } = useProfileStore.getState()
+
+  return {
+    speaker: {
+      id: 'player',
+      name: profile.name
+    },
+
+    text: getTexts('ITDW_030')
+  }
+}
