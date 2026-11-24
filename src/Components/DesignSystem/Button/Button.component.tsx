@@ -15,24 +15,20 @@ export const Button: React.FC<ButtonType> = ({
   variant,
   ...rest
 }) => {
-  const { game } = useGameStore((state) => state)
+  const { isTransitioning } = useGameStore((state) => state)
   const { isTransitioning: isDialogTransitioning } = useDialogStore(
     (state) => state
   )
 
   const isDisabled =
-    rest.disabled || !!game?.isTransitioning || isDialogTransitioning
+    rest.disabled || isTransitioning || isDialogTransitioning
 
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-    const { game } = useGameStore.getState()
+    const { isTransitioning } = useGameStore.getState()
     const { isTransitioning: isDialogTransitioning } =
       useDialogStore.getState()
 
-    if (
-      rest.disabled ||
-      game?.isTransitioning ||
-      isDialogTransitioning
-    ) {
+    if (rest.disabled || isTransitioning || isDialogTransitioning) {
       event.preventDefault()
       event.stopPropagation()
       return
