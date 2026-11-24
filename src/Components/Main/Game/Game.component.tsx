@@ -11,7 +11,7 @@ import { ScreenOrientationWarning } from '@/Components/Main/ScreenOrientationWar
 import './Game.style.scss'
 
 export const Game = () => {
-  const { game } = useGameStore((state) => state)
+  const { isTransitioning } = useGameStore((state) => state)
 
   useEffect(() => {
     loadProfile()
@@ -21,7 +21,7 @@ export const Game = () => {
     <div
       className="game-body"
       style={
-        { '--game-opacity': game?.isTransitioning ? 0 : 1 } as CSSProperties
+        { '--game-opacity': isTransitioning ? 0 : 1 } as CSSProperties
       }
     >
       <ScreenOrientationWarning />
