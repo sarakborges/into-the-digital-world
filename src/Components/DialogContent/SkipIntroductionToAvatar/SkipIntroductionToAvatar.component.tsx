@@ -11,7 +11,7 @@ export const SkipIntroductionToAvatar = () => (
       onClick={() => changeDialog(FashionIntroduction)}
       variation="small"
     >
-      {getTexts('ITDW_021_SKIP')}
+      {getTexts('ITDW_007_SKIP')}
     </ShadowButton>
   </div>
 )

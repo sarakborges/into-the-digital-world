@@ -1,2 +1,2 @@
-export const ROOT_DOMAIN_LOUNGE = "The lounge is quiet for now. Your room in the dorms is just down the hall if you want to head back."
-export const ROOT_DOMAIN_LOUNGE_GOTO_ROOM = "Return to your room"
+export const ROOT_DOMAIN_LOUNGE = "The lounge has gone quiet for now. Your room is still nearby if you'd rather have a little time to yourself."
+export const ROOT_DOMAIN_LOUNGE_GOTO_ROOM = "Head back to your room"
