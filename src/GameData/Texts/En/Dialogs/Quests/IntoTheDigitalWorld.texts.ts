@@ -30,9 +30,8 @@ export const ITDW_007_BLUNT = `The Digital World.\n\nYou were at the source of t
 export const ITDW_007_CURIOUS = `It was unlike any signal I'd tracked before.\nI followed it through the Digital World until it brought me here, to you.\nI still haven't found its source.`
 export const ITDW_007_PLAYFUL = `The Digital World.\nQuite a dramatic place for a first meeting, isn't it?\nI was chasing a curious signal, and it turned out to be leading me to you.`
 
-export const ITDW_008 = `I should probably explain why I was following that signal in the first place.`
-export const ITDW_009 =
-  `I serve Homeostasis, which watches over the balance between good and evil in this world.\n\nLately, that balance has been shifting, and I've been trying to understand what's behind it.\n\nWhat would you like to ask?`
+export const ITDW_008 = `I should probably explain why I was following that signal in the first place.\n\nI serve Homeostasis, which watches over the balance between good and evil in this world.\n\nLately, that balance has been shifting, and I've been trying to understand what's behind it.`
+export const ITDW_009 = `What would you like to ask?`
 
 export const ITDW_009_WHERE = `What is the Digital World?`
 export const ITDW_009_ARRIVAL = `Do you have any idea how I got here?`

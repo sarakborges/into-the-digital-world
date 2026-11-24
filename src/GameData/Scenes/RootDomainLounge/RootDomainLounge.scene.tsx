@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 import { RootDomainLoungeDialog } from '@/GameData/Dialogs/Scenes/RootDomainLounge.dialog'
-import { getIntoTheDigitalWorld025 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/025.dialog'
+import { getIntoTheDigitalWorld026 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/026.dialog'
 import { IntoTheDigitalWorldQuest } from '@/GameData/Quests/IntoTheDigitalWorld.quest'
 
 import { changeDialog } from '@/Helpers/Systems/Dialogs'
@@ -21,7 +21,7 @@ export const RootDomainLounge = () => {
     const idtwQuest = profileQuests?.[IntoTheDigitalWorldQuest.id]
 
     if (idtwQuest?.status !== 'completed') {
-      changeDialog(getIntoTheDigitalWorld025())
+      changeDialog(getIntoTheDigitalWorld026())
       return
     }
 

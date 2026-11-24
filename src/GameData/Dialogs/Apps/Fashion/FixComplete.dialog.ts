@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getIntoTheDigitalWorld023 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/023.dialog'
+import { getIntoTheDigitalWorld024 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/024.dialog'
 import { NpcDressmon } from '@/GameData/Npcs/Dressmon.npc'
 
 import { getTexts } from '@/Helpers/Language'
@@ -25,7 +25,7 @@ export const FashionFixComplete = {
 
       onClick: () => {
         setProfileAvatar()
-        changeDialog(getIntoTheDigitalWorld023())
+        changeDialog(getIntoTheDigitalWorld024())
       }
     }
   ]
