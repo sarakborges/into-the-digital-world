@@ -6,9 +6,10 @@ let transitionTimeout: ReturnType<typeof setTimeout> | null = null
 let activeTransition = 0
 
 export const transitionGame = (onTransitionComplete: () => void) => {
-  const { game, setGame } = useGameStore.getState()
+  const { game, isTransitioning, setGame, setIsTransitioning } =
+    useGameStore.getState()
 
-  if (game?.isTransitioning) {
+  if (isTransitioning || game?.isTransitioning) {
     return
   }
 
@@ -18,6 +19,7 @@ export const transitionGame = (onTransitionComplete: () => void) => {
     clearTimeout(transitionTimeout)
   }
 
+  setIsTransitioning(true)
   setGame({
     ...(game ?? {}),
     isTransitioning: true
@@ -34,12 +36,17 @@ export const transitionGame = (onTransitionComplete: () => void) => {
       onTransitionComplete()
     } finally {
       if (transitionId === activeTransition) {
-        const { game, setGame } = useGameStore.getState()
+        const {
+          game: currentGame,
+          setGame: updateGame,
+          setIsTransitioning: updateTransition
+        } = useGameStore.getState()
 
-        setGame({
-          ...(game ?? {}),
+        updateGame({
+          ...(currentGame ?? {}),
           isTransitioning: false
         })
+        updateTransition(false)
       }
     }
   }, TRANSITION_DELAY_MS)
