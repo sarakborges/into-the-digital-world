@@ -2,8 +2,6 @@ import { useEffect, useRef, useState } from 'react'
 
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { TRANSITION_DELAY_MS } from '@/Consts/Transitions.const'
-
 import { useDialogStore } from '@/Stores/Dialog.store'
 
 import { Button } from '@/Components/DesignSystem/Button'
@@ -56,7 +54,7 @@ export const Dialog = () => {
       dialogContentRef.current = nextDialogContent
       setDialogContent(nextDialogContent)
       setIsTransitioning(false)
-    }, TRANSITION_DELAY_MS)
+    }, 600)
 
     return () => clearTimeout(timeout)
   }, [dialog, transitionId, setIsTransitioning])
