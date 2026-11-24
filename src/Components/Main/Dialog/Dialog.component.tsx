@@ -40,7 +40,12 @@ export const Dialog = () => {
       ...currentDialogContent,
       isTextRefreshing:
         dialog.text !== currentDialogContent.text ||
-        dialog.speaker?.portrait !== currentDialogContent.speaker?.portrait,
+        dialog.content !== currentDialogContent.content ||
+        dialog.speaker?.id !== currentDialogContent.speaker?.id ||
+        dialog.speaker?.name !== currentDialogContent.speaker?.name ||
+        dialog.speaker?.title !== currentDialogContent.speaker?.title ||
+        dialog.speaker?.portrait !== currentDialogContent.speaker?.portrait ||
+        dialog.actions !== currentDialogContent.actions,
       isPictureRefreshing: dialog.image !== currentDialogContent.image
     })
 
@@ -63,20 +68,22 @@ export const Dialog = () => {
     return
   }
 
+  const displayedImage = dialogContent.image ?? dialog.image
+
   return (
     <div className="dialog">
-      {!!dialogContent?.image && (
+      {!!displayedImage && (
         <div
           className={`dialog-speaker${!!dialogContent.isPictureRefreshing ? ' refresh-dialog' : ''}`}
         >
           <Portrait
-            src={`/${dialogContent.image.src}.webp`}
-            alt={dialogContent.image.alt || ''}
+            src={`/${displayedImage.src}.webp`}
+            alt={displayedImage.alt || ''}
           />
         </div>
       )}
 
-      {(!!dialogContent.text || !!dialogContent.content) && (
+      {(!!dialog.text || !!dialog.content) && (
         <>
           <div
             className={`dialog-text${!!dialogContent.isTextRefreshing ? ' refresh-dialog' : ''}`}
