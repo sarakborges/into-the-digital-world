@@ -14,7 +14,9 @@ import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 import './Dialog.style.scss'
 
 export const Dialog = () => {
-  const { dialog, setIsTransitioning } = useDialogStore((state) => state)
+  const { dialog, transitionId, setIsTransitioning } = useDialogStore(
+    (state) => state
+  )
 
   const [dialogContent, setDialogContent] = useState<
     Partial<DialogType> & {
@@ -30,6 +32,7 @@ export const Dialog = () => {
 
   useEffect(() => {
     if (!dialog) {
+      setIsTransitioning(false)
       return
     }
 
@@ -56,7 +59,7 @@ export const Dialog = () => {
     }, TRANSITION_DELAY_MS)
 
     return () => clearTimeout(timeout)
-  }, [dialog, setIsTransitioning])
+  }, [dialog, transitionId, setIsTransitioning])
 
   if (!dialog) {
     return
