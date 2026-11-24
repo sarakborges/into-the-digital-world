@@ -1,5 +1,6 @@
 .start-screen {
   display: flex;
+  flex-flow: column;
   place-items: center;
   place-content: center;
 
@@ -9,18 +10,19 @@
   > main {
     display: flex;
     flex-flow: column;
-    gap: 64px;
+    place-items: center;
+    place-content: center;
+    gap: 24px;
 
     width: 240px;
-    padding-bottom: 76px;
 
-    > .text {
-      font-size: 24px;
-      font-weight: 400;
-      text-align: center;
-      text-shadow:
-        2px 2px 4px var(--color-neutral-strong),
-        2px 2px 4px var(--color-neutral-strong);
+    > header {
+      > .text {
+        font-size: 20px;
+        font-weight: 400;
+        text-align: center;
+        text-shadow: 1px 1px 2px var(--color-neutral-strong);
+      }
     }
   }
 }

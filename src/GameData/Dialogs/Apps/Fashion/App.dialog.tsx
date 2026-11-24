@@ -27,17 +27,17 @@ export const FashionApp = () => {
     content: <AvatarCustomization />,
 
     actions: [
-      {
-        id: 'FASHION_APP_COMPLETE_CANCEL',
-
-        text: getTexts('SCENES_CANCEL_BUTTON'),
-
-        disabled: !profile.avatar,
-
-        onClick: () => {
-          changeDialog(FashionUpdateCancel)
-        }
-      },
+      ...(profile.avatar
+        ? [
+            {
+              id: 'FASHION_APP_COMPLETE_CANCEL',
+              text: getTexts('SCENES_CANCEL_BUTTON'),
+              onClick: () => {
+                changeDialog(FashionUpdateCancel)
+              }
+            }
+          ]
+        : []),
 
       {
         id: 'FASHION_APP_COMPLETE_CONFIRM',

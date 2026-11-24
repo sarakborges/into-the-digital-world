@@ -1,12 +1,10 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { saveProfile } from '@/Helpers/Systems/Profile'
-
 import { useDialogStore } from '@/Stores/Dialog.store'
 import { useGameStore } from '@/Stores/Game.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
-export const changeDialog = (dialog: DialogType | null, persist?: boolean) => {
+export const changeDialog = (dialog: DialogType | null) => {
   const { game } = useGameStore.getState()
   const { setDialog } = useDialogStore.getState()
   const { patchProfile } = useProfileStore.getState()
@@ -20,10 +18,4 @@ export const changeDialog = (dialog: DialogType | null, persist?: boolean) => {
   patchProfile({
     currentDialog: dialog.parent
   })
-
-  if (!persist) {
-    return
-  }
-
-  saveProfile()
 }

@@ -3,6 +3,13 @@
   flex-flow: column;
   gap: 4px;
 
+  > header {
+    > .text {
+      font-weight: 400;
+      text-shadow: 1px 1px 2px var(--color-neutral-strong);
+    }
+  }
+
   .languages-list {
     display: flex;
     flex-flow: column;

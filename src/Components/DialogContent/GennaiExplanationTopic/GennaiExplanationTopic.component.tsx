@@ -38,6 +38,7 @@ export const GennaiExplanationTopic = () => {
         <ShadowButton
           key={`gennai-explanation-topic-${option}`}
           onClick={() => handleTopic(option)}
+          variation="small"
         >
           {getTexts(`ITDW_013_${option.toUpperCase()}`)}
         </ShadowButton>

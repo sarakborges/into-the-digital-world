@@ -6,7 +6,10 @@ export const SCENES_CONFIRM_BUTTON = `Confirm`
 export const SCENES_LEAVE_BUTTON = `Leave`
 export const SCENES_BACK_BUTTON = `Back`
 export const SCENES_CANCEL_BUTTON = `Cancel`
+
 export const SCREEN_ORIENTATION_WARNING = `For the best experience, please rotate your device to landscape mode.\n\nThe game was designed specifically for a landscape layout, and some elements may not display correctly otherwise.\n\nSorry for the inconvenience, and enjoy Into the Digital World!`
+
+export const GAME_TITLE = `Into the Digital World!`
 
 // ========================================================================
 // DIGIMON ATTRIBUTES / STATS

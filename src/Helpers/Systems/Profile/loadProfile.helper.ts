@@ -4,24 +4,32 @@ import { loadData, loadSession } from '@/Helpers/Systems/Data'
 
 import { useGameStore } from '@/Stores/Game.store'
 import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 import { useSettingsStore } from '@/Stores/Settings.store'
 
-export const loadGameSession = () => {
+export const loadProfile = () => {
   const { setGame } = useGameStore.getState()
   const { setProfile } = useProfileStore.getState()
   const { setSettings } = useSettingsStore.getState()
+  const { setScene } = useSceneStore.getState()
 
   try {
-    const profile = loadSession(`profile`)
+    const profileId = loadSession(`profile`)
 
-    setProfile(
-      !!profile ? profile : { ...ProfileModel, currentScene: 'startScreen' }
-    )
+    if (!profileId) {
+      setProfile({ ...ProfileModel, currentScene: 'startScreen' })
+      setScene('startScreen')
+      return
+    }
+
+    const loadedProfile = loadData(`profile${profileId}`)
 
     setGame({
-      hasGameStarted: !!profile
+      hasGameStarted: true
     })
 
+    setProfile(loadedProfile)
+    setScene(loadedProfile.currentScene)
     setSettings(loadData('settings'))
   } catch (error) {
     console.warn(`Error loading game session: ${error}`)

@@ -1,11 +1,7 @@
 .start-screen-options {
   display: flex;
   flex-flow: column;
-  gap: 1px;
+  gap: 2px;
 
-  .shadow-button {
-    .button-content {
-      padding: 12px 0;
-    }
-  }
+  width: 100%;
 }

@@ -19,7 +19,9 @@ export const StartScreen = () => {
   return (
     <main className="start-screen">
       <main>
-        <Text as="p">{getTexts('START_SCREEN_TITLE')}</Text>
+        <header>
+          <Text>{getTexts('GAME_TITLE')}</Text>
+        </header>
 
         <StartScreenOptions />
       </main>

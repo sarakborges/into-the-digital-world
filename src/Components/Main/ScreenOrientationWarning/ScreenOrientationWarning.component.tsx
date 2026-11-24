@@ -8,7 +8,7 @@ export const ScreenOrientationWarning = () => {
   return (
     <div className="warning-container">
       <div className="screen-orientation-warning">
-        <Text as="p">{getTexts('START_SCREEN_TITLE')}</Text>
+        <Text as="p">{getTexts('GAME_TITLE')}</Text>
 
         <div>
           <Text as="p">{getTexts('SCREEN_ORIENTATION_WARNING')}</Text>

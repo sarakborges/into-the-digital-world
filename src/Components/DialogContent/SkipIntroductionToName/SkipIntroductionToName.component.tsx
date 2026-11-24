@@ -20,7 +20,7 @@ export const SkipIntroductionToName = () => {
 
   return (
     <div className="dialog-options">
-      <ShadowButton onClick={skipToName}>
+      <ShadowButton onClick={skipToName} variation="small">
         {getTexts('ITDW_001_SKIP')}
       </ShadowButton>
     </div>

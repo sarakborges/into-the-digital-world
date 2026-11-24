@@ -26,7 +26,10 @@ export const UpdateLanguage = ({ language }: { language: string }) => {
 
   return (
     <div className="update-language">
-      <ShadowButton onClick={updateLanguage}>
+      <ShadowButton
+        onClick={updateLanguage}
+        data-isactive={language === settings?.language}
+      >
         <div className={`language-flag`}>
           <Portrait alt={language} src={`/languages/${language}.webp`} />
         </div>

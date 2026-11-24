@@ -1,16 +1,22 @@
 import type { ProfileType } from '@/Types/Profile.type'
 
 import { getTexts } from '@/Helpers/Language'
+import { loadProfile } from '@/Helpers/Systems/Profile'
 
+import { Button } from '@/Components/DesignSystem/Button'
 import { Text } from '@/Components/DesignSystem/Text'
-import { LoadGame } from '@/Components/Global/LoadGame'
 import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 
 import './GameFile.style.scss'
 
 export const GameFile = ({ profile }: { profile: ProfileType }) => {
   if (!profile.id) {
-    throw new Error('Profile ID not found')
+    return
+  }
+
+  const loadGame = () => {
+    sessionStorage.setItem(`itdw_profile`, String(profile.id))
+    loadProfile()
   }
 
   return (
@@ -33,7 +39,7 @@ export const GameFile = ({ profile }: { profile: ProfileType }) => {
       </header>
 
       <div className="game-options">
-        <LoadGame profileId={profile.id} />
+        <Button onClick={loadGame}>{getTexts('LOAD_GAME')}</Button>
       </div>
     </div>
   )

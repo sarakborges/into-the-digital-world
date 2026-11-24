@@ -10,7 +10,6 @@ export type ProfileType = {
   currentTitle: string
   currentDialog: string | null
   currentScene: string | null
-  lastScene?: string | null
 
   titles: Array<string>
   npcAcquaintances: Array<string>

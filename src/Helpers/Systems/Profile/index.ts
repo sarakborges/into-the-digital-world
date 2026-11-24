@@ -1,6 +1,8 @@
 export { createNewProfile } from './createNewProfile.helper'
 export { saveProfile } from './saveProfile.helper'
+export { saveGame } from './saveGame.helper'
 export { loadProfiles } from './loadProfiles.helper'
+export { loadProfile } from './loadProfile.helper'
 export { generateRandomAvatar } from './generateRandomAvatar.helper'
 export { getSortedProfiles } from './getSortedProfiles.helper'
 export { getChoice } from './getChoice.helper'

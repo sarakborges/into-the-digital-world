@@ -44,9 +44,6 @@
   }
 
   .dialog-text {
-    position: relative;
-    z-index: 2;
-
     display: flex;
     flex-flow: column;
     gap: 8px;
@@ -59,6 +56,11 @@
       gap: 8px;
 
       padding: 0 48px;
+
+      > main {
+        position: relative;
+        z-index: 5;
+      }
 
       .portrait {
         max-width: 64px;
@@ -74,14 +76,17 @@
         gap: 2px;
 
         .text {
+          letter-spacing: 1px;
           text-shadow:
-            1px 1px 4px var(--color-neutral-strong),
-            1px 1px 4px var(--color-neutral-strong),
-            1px 1px 4px var(--color-neutral-strong);
+            1px 1px 2px var(--color-neutral-strong),
+            1px 1px 2px var(--color-neutral-strong);
 
           &:first-child {
             font-size: 20px;
-            letter-spacing: 1px;
+          }
+
+          &:nth-child(2) {
+            font-size: 10px;
           }
         }
       }
@@ -104,6 +109,9 @@
       );
 
       .text {
+        position: relative;
+        z-index: 5;
+
         max-width: 320px;
 
         font-size: 12px;
@@ -118,17 +126,6 @@
       gap: 1px;
 
       width: 400px;
-      margin-left: -20px;
-
-      .shadow-button {
-        .button-content {
-          place-content: flex-start;
-
-          padding: 2px 20px;
-
-          font-size: 12px;
-        }
-      }
     }
   }
 

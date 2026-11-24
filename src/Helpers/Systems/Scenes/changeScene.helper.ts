@@ -1,15 +1,11 @@
-import { saveProfile } from '@/Helpers/Systems/Profile/saveProfile.helper'
-
 import { useGameStore } from '@/Stores/Game.store'
 import { useProfileStore } from '@/Stores/Profile.store'
+import { useSceneStore } from '@/Stores/Scene.store'
 
-export const changeScene = (scene: string | null, persist?: boolean) => {
+export const changeScene = (scene: string | null) => {
   const { game, setGame } = useGameStore.getState()
-  const { profile, patchProfile } = useProfileStore.getState()
-
-  if (!game) {
-    return
-  }
+  const { patchProfile } = useProfileStore.getState()
+  const { setScene } = useSceneStore.getState()
 
   setGame({
     ...game,
@@ -23,14 +19,9 @@ export const changeScene = (scene: string | null, persist?: boolean) => {
     })
 
     patchProfile({
-      lastScene: profile.currentScene,
       currentScene: scene
     })
 
-    if (!persist) {
-      return
-    }
-
-    saveProfile()
+    setScene(scene)
   }, 600)
 }

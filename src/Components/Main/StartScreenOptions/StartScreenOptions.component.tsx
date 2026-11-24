@@ -16,7 +16,7 @@ export const StartScreenOptions = () => {
 
     {
       text: getTexts('DISPLAY_SAVED_GAMES'),
-      onClick: () => changeScene('savedGames')
+      onClick: () => changeScene('loadSaves')
     },
 
     {
@@ -26,7 +26,7 @@ export const StartScreenOptions = () => {
   ]
 
   return (
-    <div className="start-screen-options">
+    <main className="start-screen-options">
       {buttons.map((button) => (
         <ShadowButton
           key={`start-screen-button-${button.text}`}
@@ -35,6 +35,6 @@ export const StartScreenOptions = () => {
           <Text>{button.text}</Text>
         </ShadowButton>
       ))}
-    </div>
+    </main>
   )
 }

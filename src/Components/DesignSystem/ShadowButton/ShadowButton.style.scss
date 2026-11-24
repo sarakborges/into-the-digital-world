@@ -27,6 +27,17 @@
     place-items: center;
 
     width: 100%;
+    padding: 8px 0;
+  }
+
+  &[data-variation='small'] {
+    .button-content {
+      place-content: flex-start;
+
+      padding: 2px 0;
+
+      font-size: 12px;
+    }
   }
 
   .button-bg {
@@ -39,7 +50,10 @@
 
     width: 100%;
 
-    div {
+    &::before,
+    &::after {
+      content: '';
+
       position: absolute;
       top: 0;
       left: 0;
@@ -48,52 +62,52 @@
       height: 100%;
 
       transition: opacity 0.3s;
+    }
 
-      &:first-child {
-        background-image: linear-gradient(
-          90deg,
-          rgba(0, 0, 0, 0) 0%,
-          rgba(0, 0, 0, 0.5) 15%,
-          rgba(0, 0, 0, 0.5) 50%,
-          rgba(0, 0, 0, 0.5) 85%,
-          rgba(0, 0, 0, 0) 100%
-        );
-      }
+    &::before {
+      background-image: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.5) 15%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0.5) 85%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
 
-      &:last-child {
-        background-image: linear-gradient(
-          90deg,
-          color-mix(in srgb, var(--color-primary) 0%, transparent) 0%,
-          color-mix(in srgb, var(--color-primary) 70%, transparent) 15%,
-          color-mix(in srgb, var(--color-primary) 70%, transparent) 50%,
-          color-mix(in srgb, var(--color-primary) 70%, transparent) 85%,
-          color-mix(in srgb, var(--color-primary) 0%, transparent) 100%
-        );
-      }
+    &::after {
+      background-image: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--color-primary) 0%, transparent) 0%,
+        color-mix(in srgb, var(--color-primary) 70%, transparent) 15%,
+        color-mix(in srgb, var(--color-primary) 70%, transparent) 50%,
+        color-mix(in srgb, var(--color-primary) 70%, transparent) 85%,
+        color-mix(in srgb, var(--color-primary) 0%, transparent) 100%
+      );
     }
   }
 
-  &:hover {
+  &:is(:hover, [data-isactive='true']) {
     background-color: transparent;
 
     .button-bg {
-      div:first-child {
+      &::before {
         opacity: 0;
       }
 
-      div:last-child {
+      &::last-child {
         opacity: 1;
       }
     }
   }
 
-  &:not(:hover) {
+  &:not(:is(:hover, [data-isactive='true'])) {
     .button-bg {
-      div:first-child {
+      &::before {
         opacity: 1;
       }
 
-      div:last-child {
+      &::after {
         opacity: 0;
       }
     }
@@ -103,7 +117,7 @@
 .dialog-internal-text {
   .shadow-button {
     .button-bg {
-      div:first-child {
+      &::before {
         background-image: linear-gradient(
           90deg,
           color-mix(in srgb, var(--color-primary) 0%, transparent) 0%,
@@ -114,7 +128,7 @@
         );
       }
 
-      div:last-child {
+      &::after {
         background-image: linear-gradient(
           90deg,
           color-mix(in srgb, var(--color-secondary) 0%, transparent) 0%,

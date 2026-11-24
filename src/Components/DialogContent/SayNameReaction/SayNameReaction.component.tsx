@@ -35,6 +35,7 @@ export const SayNameReaction = () => {
         <ShadowButton
           key={`say-name-reaction-${option}`}
           onClick={() => handleReaction(option)}
+          variation="small"
         >
           {getTexts(`ITDW_010_${option.toUpperCase()}`)}
         </ShadowButton>

@@ -10,16 +10,18 @@ import './SettingsLanguage.style.scss'
 export const SettingsLanguage = () => {
   return (
     <div className="settings-language">
-      <Text>{getTexts('LANGUAGES_TITLE')}</Text>
+      <header>
+        <Text>{getTexts('LANGUAGES_TITLE')}</Text>
+      </header>
 
-      <div className="languages-list">
+      <main className="languages-list">
         {LANGUAGES.map((language) => (
           <UpdateLanguage
             key={`languages-list-language-${language}`}
             language={language}
           />
         ))}
-      </div>
+      </main>
     </div>
   )
 }

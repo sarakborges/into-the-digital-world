@@ -10,19 +10,16 @@
       gap: 8px;
 
       width: 100%;
-      padding: 0 24px;
+      padding: 0 12px;
 
       .language-flag {
-        border: 2px solid var(--color-neutral-weak);
-        border-radius: 4px;
-
         .portrait {
-          max-width: 16px;
-          min-width: 16px;
-          aspect-ratio: 1;
-          overflow: hidden;
+          width: 16px;
+          aspect-ratio: auto;
 
           img {
+            aspect-ratio: auto;
+
             border: 0;
           }
         }

@@ -49,6 +49,7 @@ export const AvatarCustomization = () => {
               <ShadowButton
                 key={`customize-avatar-options-${option}`}
                 onClick={() => selectAvatarLayer(option)}
+                variation="small"
               >
                 {getTexts(`AVATARCUSTOMIZATION_${option.toLocaleUpperCase()}`)}
               </ShadowButton>

@@ -3,7 +3,7 @@ export const loadData = (key: string) => {
     const data = localStorage.getItem(`itdw_${key}`) || ''
 
     if (!data) {
-      return false
+      return []
     }
 
     return JSON.parse(data)

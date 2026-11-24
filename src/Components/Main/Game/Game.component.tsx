@@ -1,6 +1,6 @@
 import { type CSSProperties, useEffect } from 'react'
 
-import { loadGameSession } from '@/Helpers/Systems/Data'
+import { loadProfile } from '@/Helpers/Systems/Profile'
 
 import { useGameStore } from '@/Stores/Game.store'
 
@@ -14,7 +14,7 @@ export const Game = () => {
   const { game } = useGameStore((state) => state)
 
   useEffect(() => {
-    loadGameSession()
+    loadProfile()
   }, [])
 
   return (
