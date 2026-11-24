@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { IntoTheDigitalWorld017 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/020.dialog'
+import { IntoTheDigitalWorld017 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/017.dialog'
 import { DigiviceItem } from '@/GameData/Items/Digivice.item'
 
 import { getTexts } from '@/Helpers/Language'

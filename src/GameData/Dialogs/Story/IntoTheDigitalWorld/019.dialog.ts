@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getIntoTheDigitalWorld020 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/023.dialog'
+import { getIntoTheDigitalWorld020 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/020.dialog'
 import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 
 import { getTexts } from '@/Helpers/Language'

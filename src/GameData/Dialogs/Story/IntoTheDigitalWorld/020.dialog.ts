@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { IntoTheDigitalWorld021 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/024.dialog'
+import { IntoTheDigitalWorld021 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/021.dialog'
 
 import { getTexts } from '@/Helpers/Language'
 import { changeDialog } from '@/Helpers/Systems/Dialogs'
