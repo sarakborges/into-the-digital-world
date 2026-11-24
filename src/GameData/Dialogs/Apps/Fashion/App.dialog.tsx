@@ -8,8 +8,6 @@ import { NpcDressmon } from '@/GameData/Npcs/Dressmon.npc'
 import { getTexts } from '@/Helpers/Language'
 import { changeDialog } from '@/Helpers/Systems/Dialogs'
 
-import { TRANSITION_DELAY_MS } from '@/Consts/Transitions.const'
-
 import { useAvatarCustomizationStore } from '@/Stores/AvatarCustomization.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
