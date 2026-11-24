@@ -1,6 +1,8 @@
-import { useProfileStore } from '@/Stores/Profile.store'
+import { useProfileMeaningfulChoicesStore } from '@/Stores/ProfileMeaningfulChoices.store'
 
 export const getChoice = (choice: string) => {
-  const { profile } = useProfileStore.getState()
-  return profile.meaningfulChoices?.[choice]
+  const { profileMeaningfulChoices } =
+    useProfileMeaningfulChoicesStore.getState()
+
+  return profileMeaningfulChoices?.[choice]
 }

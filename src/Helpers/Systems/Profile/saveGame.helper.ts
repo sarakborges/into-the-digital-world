@@ -14,7 +14,7 @@ export const saveGame = () => {
     setProfile(updatedProfile)
 
     const updatedProfiles = Array.from(
-      new Set([...loadData('profiles'), profile.id])
+      new Set([...(loadData('profiles') ?? []), profile.id])
     )
 
     saveData({

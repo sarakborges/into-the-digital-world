@@ -1,4 +1,4 @@
-import { useProfileStore } from '@/Stores/Profile.store'
+import { useProfileMeaningfulChoicesStore } from '@/Stores/ProfileMeaningfulChoices.store'
 
 export const setMeaningfulChoice = ({
   choice,
@@ -7,12 +7,11 @@ export const setMeaningfulChoice = ({
   choice: string
   value: string
 }) => {
-  const { profile, patchProfile } = useProfileStore.getState()
+  const { profileMeaningfulChoices, setProfileMeaningfulChoices } =
+    useProfileMeaningfulChoicesStore.getState()
 
-  patchProfile({
-    meaningfulChoices: {
-      ...profile.meaningfulChoices,
-      [choice]: value
-    }
+  setProfileMeaningfulChoices({
+    ...profileMeaningfulChoices,
+    [choice]: value
   })
 }
