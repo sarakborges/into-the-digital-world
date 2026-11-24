@@ -12,6 +12,11 @@ export const IntoTheDigitalWorld003 = {
     name: `???`
   },
 
+  image: {
+    src: NpcGennai.picture,
+    alt: NpcGennai.name
+  },
+
   text: getTexts('ITDW_003'),
 
   image: {
