@@ -1,5 +1,6 @@
-import type { ButtonHTMLAttributes } from 'react'
+import type { ButtonHTMLAttributes, MouseEvent } from 'react'
 
+import { useDialogStore } from '@/Stores/Dialog.store'
 import { useGameStore } from '@/Stores/Game.store'
 
 import './Button.style.scss'
@@ -15,6 +16,30 @@ export const Button: React.FC<ButtonType> = ({
   ...rest
 }) => {
   const { game } = useGameStore((state) => state)
+  const { isTransitioning: isDialogTransitioning } = useDialogStore(
+    (state) => state
+  )
+
+  const isDisabled =
+    rest.disabled || !!game?.isTransitioning || isDialogTransitioning
+
+  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
+    const { game } = useGameStore.getState()
+    const { isTransitioning: isDialogTransitioning } =
+      useDialogStore.getState()
+
+    if (
+      rest.disabled ||
+      game?.isTransitioning ||
+      isDialogTransitioning
+    ) {
+      event.preventDefault()
+      event.stopPropagation()
+      return
+    }
+
+    rest.onClick?.(event)
+  }
 
   const classNames = ['button']
 
@@ -38,7 +63,8 @@ export const Button: React.FC<ButtonType> = ({
     <button
       className={classNames.join(' ')}
       {...rest}
-      disabled={rest.disabled || !!game?.isTransitioning}
+      onClick={handleClick}
+      disabled={isDisabled}
     >
       {children}
     </button>
