@@ -5,6 +5,7 @@ import { DigiviceItem } from '@/GameData/Items/Digivice.item'
 
 import { getTexts } from '@/Helpers/Language'
 import { changeDialog } from '@/Helpers/Systems/Dialogs'
+
 export const getIntoTheDigitalWorld016 = (): DialogType => {
   return {
     text: getTexts('ITDW_016'),
