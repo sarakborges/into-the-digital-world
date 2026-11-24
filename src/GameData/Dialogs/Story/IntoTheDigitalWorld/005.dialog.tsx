@@ -2,18 +2,10 @@ import type { DialogType } from '@/Types/Dialog.type'
 
 import { getTexts } from '@/Helpers/Language'
 
-import { useProfileStore } from '@/Stores/Profile.store'
-
 import { SayNameReaction } from '@/Components/DialogContent/SayNameReaction'
 
-export const getIntoTheDigitalWorld005 = (): DialogType => {
-  const { profile } = useProfileStore.getState()
+export const getIntoTheDigitalWorld005 = (): DialogType => ({
+  text: getTexts('ITDW_005'),
 
-  return {
-    text: getTexts('ITDW_005', {
-      '[NAME]': profile.name
-    }),
-
-    content: <SayNameReaction />
-  }
-}
+  content: <SayNameReaction />
+})
