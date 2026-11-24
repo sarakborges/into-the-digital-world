@@ -5,11 +5,12 @@ import { useGameStore } from '@/Stores/Game.store'
 import { useProfileStore } from '@/Stores/Profile.store'
 
 export const changeDialog = (dialog: DialogType | null) => {
-  const { game } = useGameStore.getState()
+  const { isTransitioning: isGameTransitioning } =
+    useGameStore.getState()
   const { isTransitioning, setDialog } = useDialogStore.getState()
   const { patchProfile } = useProfileStore.getState()
 
-  if (!game || game.isTransitioning || !dialog || isTransitioning) {
+  if (isGameTransitioning || !dialog || isTransitioning) {
     return
   }
 
