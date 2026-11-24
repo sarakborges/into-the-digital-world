@@ -1,6 +1,6 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { IntoTheDigitalWorld008 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/009.dialog'
+import { IntoTheDigitalWorld009 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/009.dialog'
 import { getIntoTheDigitalWorld011 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/011.dialog'
 import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 
@@ -34,7 +34,7 @@ export const getIntoTheDigitalWorld010 = (topic: string): DialogType => {
             return
           }
 
-          changeDialog(IntoTheDigitalWorld008)
+          changeDialog(IntoTheDigitalWorld009)
         }
       }
     ]
