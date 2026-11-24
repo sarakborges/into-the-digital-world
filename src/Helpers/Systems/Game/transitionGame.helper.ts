@@ -1,3 +1,4 @@
+import { useDialogStore } from '@/Stores/Dialog.store'
 import { useGameStore } from '@/Stores/Game.store'
 
 let transitionTimeout: ReturnType<typeof setTimeout> | null = null
@@ -31,6 +32,7 @@ export const transitionGame = (onTransitionComplete: () => void) => {
     transitionTimeout = null
 
     try {
+      useDialogStore.getState().setDialog(null)
       onTransitionComplete()
     } finally {
       if (transitionId === activeTransition) {
