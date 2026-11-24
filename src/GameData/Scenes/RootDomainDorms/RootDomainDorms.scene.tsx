@@ -1,4 +1,4 @@
-import { useLayoutEffect } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 
 import { RootDomainDormsDialog } from '@/GameData/Dialogs/Scenes/RootDomainDorms.dialog'
 import { IntoTheDigitalWorld001 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/001.dialog'
@@ -13,18 +13,22 @@ import './RootDomainDorms.style.scss'
 export const RootDomainDorms = () => {
   const { profile } = useProfileStore((state) => state)
   const { game, isTransitioning } = useGameStore((state) => state)
+  const hasInitializedDialog = useRef(false)
 
   useLayoutEffect(() => {
-    if (isTransitioning) {
+    if (isTransitioning || hasInitializedDialog.current) {
       return
     }
+
+    hasInitializedDialog.current = true
+
     if (!profile.name) {
       changeDialog(IntoTheDigitalWorld001)
       return
     }
 
     changeDialog(RootDomainDormsDialog)
-  }, [isTransitioning])
+  }, [isTransitioning, profile.name])
 
   if (!game?.hasGameStarted || !profile) {
     return
