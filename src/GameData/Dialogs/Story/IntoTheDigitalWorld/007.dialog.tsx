@@ -8,9 +8,9 @@ import { changeDialog } from '@/Helpers/Systems/Dialogs'
 import { getChoice } from '@/Helpers/Systems/Profile'
 
 import { useDialogOptionsStore } from '@/Stores/DialogOptions.store'
+import { useProfileStore } from '@/Stores/Profile.store'
 
 import { SkipIntroductionToAvatar } from '@/Components/DialogContent/SkipIntroductionToAvatar'
-import { useProfileStore } from '@/Stores/Profile.store'
 
 export const getIntoTheDigitalWorld007 = (): DialogType => {
   const { profile } = useProfileStore.getState()
