@@ -1,20 +1,31 @@
 import { useEffect } from 'react'
 
 import { RootDomainLoungeDialog } from '@/GameData/Dialogs/Scenes/RootDomainLounge.dialog'
+import { getIntoTheDigitalWorld030 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/030.dialog'
+import { IntoTheDigitalWorldQuest } from '@/GameData/Quests/IntoTheDigitalWorld.quest'
 
 import { changeDialog } from '@/Helpers/Systems/Dialogs'
 
 import { useGameStore } from '@/Stores/Game.store'
 import { useProfileStore } from '@/Stores/Profile.store'
+import { useProfileQuestsStore } from '@/Stores/ProfileQuests.store'
 
 import './RootDomainLounge.style.scss'
 
 export const RootDomainLounge = () => {
   const { profile } = useProfileStore((state) => state)
   const { game } = useGameStore((state) => state)
+  const { profileQuests } = useProfileQuestsStore((state) => state)
 
   useEffect(() => {
-    changeDialog(RootDomainLoungeDialog, true)
+    const idtwQuest = profileQuests?.[IntoTheDigitalWorldQuest.id]
+
+    if (!idtwQuest || idtwQuest.progress !== 'completed') {
+      changeDialog(getIntoTheDigitalWorld030())
+      return
+    }
+
+    changeDialog(RootDomainLoungeDialog)
   }, [])
 
   if (!game?.hasGameStarted || !profile) {

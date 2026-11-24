@@ -23,7 +23,7 @@ export const IntoTheDigitalWorld029 = {
       text: getTexts('SCENES_CONTINUE_BUTTON'),
 
       onClick: () => {
-        changeDialog(RootDomainDormsDialog, true)
+        changeDialog(RootDomainDormsDialog)
       }
     }
   ]
