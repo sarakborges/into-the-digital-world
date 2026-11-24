@@ -14,6 +14,11 @@ export const IntoTheDigitalWorld003 = {
     portrait: NpcGennai.portrait
   },
 
+  image: {
+    src: NpcGennai.picture,
+    alt: NpcGennai.name
+  },
+
   text: getTexts('ITDW_003'),
 
   actions: [
