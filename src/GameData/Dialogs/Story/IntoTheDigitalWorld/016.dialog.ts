@@ -1,22 +1,37 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getIntoTheDigitalWorld017 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/017.dialog'
+import { IntoTheDigitalWorld017 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/020.dialog'
+import { DigiviceItem } from '@/GameData/Items/Digivice.item'
 
 import { getTexts } from '@/Helpers/Language'
 import { changeDialog } from '@/Helpers/Systems/Dialogs'
+import { getChoice } from '@/Helpers/Systems/Profile/getChoice.helper'
 
-export const IntoTheDigitalWorld016 = {
-  text: getTexts('ITDW_016'),
+export const getIntoTheDigitalWorld016 = (): DialogType => {
+  const choice = getChoice('INTO_THE_DIGITAL_WORLD_NAME_REACTION')
 
-  actions: [
-    {
-      id: 'ITDW_016_CONTINUE',
+  if (!choice) {
+    throw new Error('Missing INTO_THE_DIGITAL_WORLD_NAME_REACTION choice')
+  }
 
-      text: getTexts('SCENES_CONTINUE_BUTTON'),
+  return {
+    text: getTexts(`ITDW_016_${choice.toUpperCase()}`),
 
-      onClick: () => {
-        changeDialog(getIntoTheDigitalWorld017())
+    image: {
+      src: DigiviceItem.picture,
+      alt: DigiviceItem.name
+    },
+
+    actions: [
+      {
+        id: 'ITDW_016_CONTINUE',
+
+        text: getTexts('SCENES_CONTINUE_BUTTON'),
+
+        onClick: () => {
+          changeDialog(IntoTheDigitalWorld017)
+        }
       }
-    }
-  ]
-} satisfies DialogType
+    ]
+  }
+}

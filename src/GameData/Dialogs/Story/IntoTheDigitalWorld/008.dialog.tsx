@@ -1,19 +1,19 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
+import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
+
 import { getTexts } from '@/Helpers/Language'
 
-import { useProfileStore } from '@/Stores/Profile.store'
+import { GennaiExplanationTopic } from '@/Components/DialogContent/GennaiExplanationTopic'
 
-import { SayNameReaction } from '@/Components/DialogContent/SayNameReaction'
+export const IntoTheDigitalWorld008 = {
+  speaker: {
+    id: NpcGennai.id,
+    name: NpcGennai.name,
+    title: getTexts(NpcGennai.title),
+    portrait: NpcGennai.portrait
+  },
 
-export const getIntoTheDigitalWorld008 = (): DialogType => {
-  const { profile } = useProfileStore.getState()
-
-  return {
-    text: getTexts('ITDW_008', {
-      '[NAME]': profile.name
-    }),
-
-    content: <SayNameReaction />
-  }
-}
+  text: getTexts('ITDW_008'),
+  content: <GennaiExplanationTopic />
+} satisfies DialogType

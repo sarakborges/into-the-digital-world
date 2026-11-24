@@ -1,30 +1,42 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { IntoTheDigitalWorld007 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/007.dialog'
-import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
+import { getIntoTheDigitalWorld007 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/010.dialog'
 
 import { getTexts } from '@/Helpers/Language'
-import { changeDialog } from '@/Helpers/Systems/Dialogs/changeDialog.helper'
+import { changeDialog } from '@/Helpers/Systems/Dialogs'
+import { getChoice } from '@/Helpers/Systems/Profile/getChoice.helper'
 
-export const IntoTheDigitalWorld006 = {
-  speaker: {
-    id: NpcGennai.id,
-    name: NpcGennai.name,
-    title: getTexts(NpcGennai.title),
-    portrait: NpcGennai.portrait
-  },
+import { useProfileStore } from '@/Stores/Profile.store'
 
-  text: getTexts('ITDW_006'),
+export const getIntoTheDigitalWorld006 = (): DialogType => {
+  const { profile } = useProfileStore.getState()
 
-  actions: [
-    {
-      id: 'ITDW_006_CONTINUE',
+  const choice = getChoice('INTO_THE_DIGITAL_WORLD_NAME_REACTION')
 
-      text: getTexts('SCENES_CONTINUE_BUTTON'),
+  if (!choice) {
+    throw new Error('Missing INTO_THE_DIGITAL_WORLD_NAME_REACTION choice')
+  }
 
-      onClick: () => {
-        changeDialog(IntoTheDigitalWorld007)
+  return {
+    speaker: {
+      id: 'player',
+      name: profile.name
+    },
+
+    text: getTexts(`ITDW_006_${choice.toUpperCase()}`, {
+      '[NAME]': profile.name
+    }),
+
+    actions: [
+      {
+        id: 'ITDW_006_CONTINUE',
+
+        text: getTexts('SCENES_CONTINUE_BUTTON'),
+
+        onClick: () => {
+          changeDialog(getIntoTheDigitalWorld007())
+        }
       }
-    }
-  ]
-} satisfies DialogType
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { getIntoTheDigitalWorld008 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/008.dialog'
+import { getIntoTheDigitalWorld005 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/005.dialog'
 
 import { getTexts } from '@/Helpers/Language'
 import { changeDialog } from '@/Helpers/Systems/Dialogs'
@@ -28,7 +28,7 @@ export const InsertPlayerName = () => {
       name: normalizedPlayerName
     })
 
-    changeDialog(getIntoTheDigitalWorld008())
+    changeDialog(getIntoTheDigitalWorld005())
   }
 
   return (
@@ -42,7 +42,7 @@ export const InsertPlayerName = () => {
       <main>
         <Input
           name="insert-player-name"
-          label={getTexts('ITDW_007')}
+          label={getTexts('ITDW_004')}
           value={playerName}
           autoFocus
           onChange={(e) => setPlayerName(e.target.value)}

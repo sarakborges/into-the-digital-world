@@ -9,12 +9,9 @@ import { changeDialog } from '@/Helpers/Systems/Dialogs/changeDialog.helper'
 export const IntoTheDigitalWorld003 = {
   speaker: {
     id: NpcGennai.id,
-    name: '???'
-  },
-
-  image: {
-    src: NpcGennai.picture,
-    alt: NpcGennai.name
+    name: NpcGennai.name,
+    title: getTexts(NpcGennai.title),
+    portrait: NpcGennai.portrait
   },
 
   text: getTexts('ITDW_003'),

@@ -1,4 +1,4 @@
-import { IntoTheDigitalWorld007 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/007.dialog'
+import { IntoTheDigitalWorld004 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/004.dialog'
 
 import { getTexts } from '@/Helpers/Language'
 import { changeDialog } from '@/Helpers/Systems/Dialogs'
@@ -11,7 +11,7 @@ export const SkipIntroductionToName = () => {
   // const { savedProfiles } = useSavedProfilesStore.getState()
 
   const skipToName = () => {
-    changeDialog(IntoTheDigitalWorld007)
+    changeDialog(IntoTheDigitalWorld004)
   }
 
   // if (!savedProfiles) {

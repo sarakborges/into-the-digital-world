@@ -1,13 +1,13 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { IntoTheDigitalWorld033 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/033.dialog'
+import { IntoTheDigitalWorld011 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/014.dialog'
 
 import { getTexts } from '@/Helpers/Language'
 import { changeDialog } from '@/Helpers/Systems/Dialogs'
 
 import { useProfileStore } from '@/Stores/Profile.store'
 
-export const getIntoTheDigitalWorld032 = (): DialogType => {
+export const getIntoTheDigitalWorld010 = (): DialogType => {
   const { profile } = useProfileStore.getState()
 
   return {
@@ -16,16 +16,16 @@ export const getIntoTheDigitalWorld032 = (): DialogType => {
       name: profile.name
     },
 
-    text: getTexts('ITDW_032'),
+    text: getTexts('ITDW_010'),
 
     actions: [
       {
-        id: 'ITDW_032_CONTINUE',
+        id: 'ITDW_010_CONTINUE',
 
         text: getTexts('SCENES_CONTINUE_BUTTON'),
 
         onClick: () => {
-          changeDialog(IntoTheDigitalWorld033)
+          changeDialog(IntoTheDigitalWorld011)
         }
       }
     ]
