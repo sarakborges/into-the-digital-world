@@ -14,7 +14,7 @@ import { PlayerAvatar } from '@/Components/Global/PlayerAvatar'
 import './Dialog.style.scss'
 
 export const Dialog = () => {
-  const { dialog } = useDialogStore((state) => state)
+  const { dialog, setIsTransitioning } = useDialogStore((state) => state)
 
   const [dialogContent, setDialogContent] = useState<
     Partial<DialogType> & {
@@ -29,29 +29,34 @@ export const Dialog = () => {
   const dialogContentRef = useRef(dialogContent)
 
   useEffect(() => {
+    if (!dialog) {
+      return
+    }
+
     const currentDialogContent = dialogContentRef.current
 
     setDialogContent({
       ...currentDialogContent,
       isTextRefreshing:
-        dialog?.text !== currentDialogContent.text ||
-        dialog?.speaker?.portrait !== currentDialogContent.speaker?.portrait,
-      isPictureRefreshing: dialog?.image !== currentDialogContent.image
+        dialog.text !== currentDialogContent.text ||
+        dialog.speaker?.portrait !== currentDialogContent.speaker?.portrait,
+      isPictureRefreshing: dialog.image !== currentDialogContent.image
     })
 
     const timeout = setTimeout(() => {
       const nextDialogContent = {
-        ...(dialog ?? {}),
+        ...dialog,
         isTextRefreshing: false,
         isPictureRefreshing: false
       }
 
       dialogContentRef.current = nextDialogContent
       setDialogContent(nextDialogContent)
+      setIsTransitioning(false)
     }, TRANSITION_DELAY_MS)
 
     return () => clearTimeout(timeout)
-  }, [dialog])
+  }, [dialog, setIsTransitioning])
 
   if (!dialog) {
     return
