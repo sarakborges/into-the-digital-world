@@ -1,2 +1,2 @@
-export const ROOT_DOMAIN_LOUNGE = "The lounge opens onto corridors that continue farther into the complex. You've seen the dormitory and this shared space so far, but Root Domain clearly extends beyond them. There are other areas here you haven't explored yet. For now, the lounge is quiet, giving you a moment to take in your surroundings."
-export const ROOT_DOMAIN_LOUNGE_GOTO_ROOM = "Return to the dormitory"
+export const ROOT_DOMAIN_LOUNGE = `The lounge opens onto corridors that continue farther into the complex.\n\nYou've seen the dormitory and this shared space so far, but Root Domain clearly extends beyond them.\n\nThere are other areas here you haven't explored yet.\n\nFor now, the lounge is quiet, giving you a moment to take in your surroundings.`
+export const ROOT_DOMAIN_LOUNGE_GOTO_ROOM = `Return to the dormitory`
