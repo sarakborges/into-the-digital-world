@@ -1,5 +1,6 @@
-import { getIntoTheDigitalWorld009 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/009.dialog'
+import { IntoTheDigitalWorld009 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/009.dialog'
 import { getIntoTheDigitalWorld010 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/010.dialog'
+import { getIntoTheDigitalWorld011 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/011.dialog'
 
 import { getTexts } from '@/Helpers/Language'
 import { changeDialog } from '@/Helpers/Systems/Dialogs'
@@ -16,12 +17,12 @@ export const GennaiExplanationTopic = () => {
   )
   const handleTopic = (topic: string) => {
     if (topic === 'enough') {
-      changeDialog(getIntoTheDigitalWorld010())
+      changeDialog(getIntoTheDigitalWorld011())
       setTimeout(() => setDialogOptions([]), 600)
       return
     }
 
-    changeDialog(getIntoTheDigitalWorld009(topic))
+    changeDialog(getIntoTheDigitalWorld010(topic))
 
     setTimeout(
       () =>
@@ -40,7 +41,7 @@ export const GennaiExplanationTopic = () => {
           onClick={() => handleTopic(option)}
           variation="small"
         >
-          {getTexts(`ITDW_008_${option.toUpperCase()}`)}
+          {getTexts(`ITDW_009_${option.toUpperCase()}`)}
         </ShadowButton>
       ))}
     </div>

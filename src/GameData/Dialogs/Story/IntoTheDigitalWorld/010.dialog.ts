@@ -1,22 +1,24 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { IntoTheDigitalWorld011 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/011.dialog'
+import { IntoTheDigitalWorld008 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/008.dialog'
+import { getIntoTheDigitalWorld011 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/010.dialog'
+import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 
 import { getTexts } from '@/Helpers/Language'
 import { changeDialog } from '@/Helpers/Systems/Dialogs'
 
-import { useProfileStore } from '@/Stores/Profile.store'
+import { useDialogOptionsStore } from '@/Stores/DialogOptions.store'
 
-export const getIntoTheDigitalWorld010 = (): DialogType => {
-  const { profile } = useProfileStore.getState()
-
+export const getIntoTheDigitalWorld010 = (topic: string): DialogType => {
   return {
     speaker: {
-      id: 'player',
-      name: profile.name
+      id: NpcGennai.id,
+      name: NpcGennai.name,
+      title: getTexts(NpcGennai.title),
+      portrait: NpcGennai.portrait
     },
 
-    text: getTexts('ITDW_010'),
+    text: getTexts(`ITDW_010_${topic.toUpperCase()}`),
 
     actions: [
       {
@@ -25,7 +27,14 @@ export const getIntoTheDigitalWorld010 = (): DialogType => {
         text: getTexts('SCENES_CONTINUE_BUTTON'),
 
         onClick: () => {
-          changeDialog(IntoTheDigitalWorld011)
+          const { dialogOptions } = useDialogOptionsStore.getState()
+
+          if (!dialogOptions.length) {
+            changeDialog(getIntoTheDigitalWorld011())
+            return
+          }
+
+          changeDialog(IntoTheDigitalWorld008)
         }
       }
     ]

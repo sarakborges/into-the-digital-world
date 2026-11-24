@@ -1,18 +1,19 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getIntoTheDigitalWorld020 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/020.dialog'
-import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
+import { getIntoTheDigitalWorld020 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/019.dialog'
 
 import { getTexts } from '@/Helpers/Language'
 import { changeDialog } from '@/Helpers/Systems/Dialogs'
 
+import { useProfileStore } from '@/Stores/Profile.store'
+
 export const getIntoTheDigitalWorld019 = (): DialogType => {
+  const { profile } = useProfileStore.getState()
+
   return {
     speaker: {
-      id: NpcGennai.id,
-      name: NpcGennai.name,
-      title: getTexts(NpcGennai.title),
-      portrait: NpcGennai.portrait
+      id: 'player',
+      name: profile.name
     },
 
     text: getTexts('ITDW_019'),

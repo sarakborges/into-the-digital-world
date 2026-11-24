@@ -1,22 +1,33 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { getIntoTheDigitalWorld014 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/014.dialog'
+import { IntoTheDigitalWorld014 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/013.dialog'
 
 import { getTexts } from '@/Helpers/Language'
 import { changeDialog } from '@/Helpers/Systems/Dialogs'
 
-export const IntoTheDigitalWorld013 = {
-  text: getTexts('ITDW_013'),
+import { useProfileStore } from '@/Stores/Profile.store'
 
-  actions: [
-    {
-      id: 'ITDW_013_CONTINUE',
+export const getIntoTheDigitalWorld013 = (): DialogType => {
+  const { profile } = useProfileStore.getState()
 
-      text: getTexts('SCENES_CONTINUE_BUTTON'),
+  return {
+    speaker: {
+      id: 'player',
+      name: profile.name
+    },
 
-      onClick: () => {
-        changeDialog(getIntoTheDigitalWorld014())
+    text: getTexts('ITDW_013'),
+
+    actions: [
+      {
+        id: 'ITDW_013_CONTINUE',
+
+        text: getTexts('SCENES_CONTINUE_BUTTON'),
+
+        onClick: () => {
+          changeDialog(IntoTheDigitalWorld014)
+        }
       }
-    }
-  ]
-} satisfies DialogType
+    ]
+  }
+}

@@ -1,57 +1,30 @@
 import type { DialogType } from '@/Types/Dialog.type'
 
-import { RootDomainLoungeDialog } from '@/GameData/Dialogs/Scenes/RootDomainLounge.dialog'
-import { IntoTheDigitalWorldQuest } from '@/GameData/Quests/IntoTheDigitalWorld.quest'
+import { getIntoTheDigitalWorld031 } from '@/GameData/Dialogs/Story/IntoTheDigitalWorld/030.dialog'
+import { NpcGennai } from '@/GameData/Npcs/Gennai.npc'
 
 import { getTexts } from '@/Helpers/Language'
 import { changeDialog } from '@/Helpers/Systems/Dialogs'
-import { saveData } from '@/Helpers/Systems/Data'
 
-import { useProfileQuestsStore } from '@/Stores/ProfileQuests.store'
-import { useProfileStore } from '@/Stores/Profile.store'
+export const IntoTheDigitalWorld030 = {
+  speaker: {
+    id: NpcGennai.id,
+    name: NpcGennai.name,
+    title: getTexts(NpcGennai.title),
+    portrait: NpcGennai.portrait
+  },
 
-export const getIntoTheDigitalWorld030 = (): DialogType => {
-  const { profile } = useProfileStore.getState()
+  text: getTexts('ITDW_030'),
 
-  return {
-    speaker: {
-      id: 'player',
-      name: profile.name
-    },
+  actions: [
+    {
+      id: 'ITDW_030_CONTINUE',
 
-    text: getTexts('ITDW_030'),
+      text: getTexts('SCENES_CONTINUE_BUTTON'),
 
-    actions: [
-      {
-        id: 'ITDW_030_CONTINUE',
-
-        text: getTexts('SCENES_CONTINUE_BUTTON'),
-
-        onClick: () => {
-          const { profileQuests, setProfileQuests } =
-            useProfileQuestsStore.getState()
-
-          const updatedProfileQuests = {
-            ...profileQuests,
-            [IntoTheDigitalWorldQuest.id]: {
-              ...IntoTheDigitalWorldQuest,
-              status: 'completed' as const,
-              progress: {}
-            }
-          }
-
-          setProfileQuests(updatedProfileQuests)
-
-          if (profile.id !== undefined) {
-            saveData({
-              key: `profileQuests${profile.id}`,
-              value: updatedProfileQuests
-            })
-          }
-
-          changeDialog(RootDomainLoungeDialog)
-        }
+      onClick: () => {
+        changeDialog(getIntoTheDigitalWorld031())
       }
-    ]
-  }
-}
+    }
+  ]
+} satisfies DialogType
